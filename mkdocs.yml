@@ -13,3 +13,4 @@ pages:
     - 'Kochava': 'plugins/kochava.md'
 - About: 'release-note.md'
 # theme: readthedocs
+google_analytics: ['UA-62579154-2', 'sdkbox-doc.github.io/en']
