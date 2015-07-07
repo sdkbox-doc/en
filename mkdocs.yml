@@ -1,0 +1,14 @@
+site_name: SDKBOX
+pages:
+- Home: 'index.md'
+- Installer: 'installer.md'
+- Plugins: 
+    - 'IAP': 'plugins/iap.md'
+    - 'AdColony': 'plugins/adcolony.md'
+    - 'Chartboost': 'plugins/chartboost.md'
+    - 'Vungle': 'plugins/vungle.md'
+    - 'Google Analytics': 'plugins/googleanalytics.md'
+    - 'Flurry Analytics': 'plugins/flurryanalytics.md'
+    - 'Tune': 'plugins/tune.md'
+    - 'Kochava': 'plugins/kochava.md'
+theme: readthedocs
