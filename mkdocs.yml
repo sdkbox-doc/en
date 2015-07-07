@@ -11,4 +11,4 @@ pages:
     - 'Flurry Analytics': 'plugins/flurryanalytics.md'
     - 'Tune': 'plugins/tune.md'
     - 'Kochava': 'plugins/kochava.md'
-theme: readthedocs
+# theme: readthedocs
