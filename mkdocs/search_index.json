@@ -1,0 +1,259 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "SDKBOX Installer\n\n\nGetting Started\n\n\nIn-App Purchases\n\n\nSDKBOX IAP\n\n\nAd Units\n\n\nAdColony\n\n\nChartboost\n\n\nVungle\n\n\nAnalytics\n\n\nGoogle Analytics\n\n\nFlurry Analytics\n\n\nAttribution\n\n\nTune\n\n\nKochava", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#sdkbox-installer", 
+            "text": "", 
+            "title": "SDKBOX Installer"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/#in-app-purchases", 
+            "text": "", 
+            "title": "In-App Purchases"
+        }, 
+        {
+            "location": "/#sdkbox-iap", 
+            "text": "", 
+            "title": "SDKBOX IAP"
+        }, 
+        {
+            "location": "/#ad-units", 
+            "text": "", 
+            "title": "Ad Units"
+        }, 
+        {
+            "location": "/#adcolony", 
+            "text": "", 
+            "title": "AdColony"
+        }, 
+        {
+            "location": "/#chartboost", 
+            "text": "", 
+            "title": "Chartboost"
+        }, 
+        {
+            "location": "/#vungle", 
+            "text": "", 
+            "title": "Vungle"
+        }, 
+        {
+            "location": "/#analytics", 
+            "text": "", 
+            "title": "Analytics"
+        }, 
+        {
+            "location": "/#google-analytics", 
+            "text": "", 
+            "title": "Google Analytics"
+        }, 
+        {
+            "location": "/#flurry-analytics", 
+            "text": "", 
+            "title": "Flurry Analytics"
+        }, 
+        {
+            "location": "/#attribution", 
+            "text": "", 
+            "title": "Attribution"
+        }, 
+        {
+            "location": "/#tune", 
+            "text": "", 
+            "title": "Tune"
+        }, 
+        {
+            "location": "/#kochava", 
+            "text": "", 
+            "title": "Kochava"
+        }, 
+        {
+            "location": "/installer/", 
+            "text": "SDKBOX: Installing SDKBOX Plugins using the Installer\n\n\nStep 1: Preparing to run the SDKBOX Installer\n\n\nBefore you can run the SDKBOX installer you need to do a few things.\n\n make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in \n/usr/local/bin\n)\n\n make sure you know the path to where you downloaded the SDKBOX plugin bundles.\n\n\nStep 2. Installing a Plugin using the SDKBOX Installer\n\n\nNow we are ready to install a plugin! There isn't much to it. Ready?\n\n\nInstalling for OS X\n\n\n\n\nFrom a command-line, \ncd\n to your applications root directory. Example:\n\n\n\n\ncd ~/MyGame\n\n\n\n\n\n\nNow, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:\n\n\n\n\npath\n/sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz\n\n\n\n\nWhat Next?\n\n\nThe SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:\n\n\n$ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\n Remaining Manual Steps:\n Android Integration:\n Step 2.5 - modify Cocos2dxActivity.java\n Step 2.5 - modify YourGameName.java\n Cocos2d-JS specific\n Step 3.2 - add appropriate headers for this plugin to your class.\n Step 3.2 - add appropriate call to initialize the Javascript callbacks.\n Step 3.2 - call sdkbox.IAP.init(); where appropriate in your code. We recommend to do this in the app.js\n Installation Successful :)\n\n\n\n\nOther Installer switches.\n\n\nThe SDKBOX Installer has several switches that you can use. You can always see these by running \nsdkbox\n by itself or using the \n-h\n help switch:\n\n\n$ \npath\n/sdkbox\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}\n\n\n\n\n\n\n\n\n\n\nswitch\n\n\nalternate switch\n\n\nwhat it does\n\n\n\n\n\n\n\n\n\n\n-h\n\n\n--help\n\n\nshow this help message and exit\n\n\n\n\n\n\n-v\n\n\n--verbose\n\n\nspecify verbosity level\n\n\n\n\n\n\n-p PROJECT\n\n\n--project PROJECT\n\n\npath to project root (defaults to .)\n\n\n\n\n\n\n-b PLUGIN\n\n\n--plugin PLUGIN\n\n\nspecify path to plugin (defaults to .)\n\n\n\n\n\n\n\n\n--dryrun\n\n\ntest install before performing.\n\n\n\n\n\n\n\n\nStaying Up-to-date\n\n\nThe SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.\n\n\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nA newer version of SDKBOX is available, would you like to update to v0.5?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.1 to v0.5 at sdkbox", 
+            "title": "Installer"
+        }, 
+        {
+            "location": "/installer/#sdkbox-installing-sdkbox-plugins-using-the-installer", 
+            "text": "", 
+            "title": "SDKBOX: Installing SDKBOX Plugins using the Installer"
+        }, 
+        {
+            "location": "/installer/#step-1-preparing-to-run-the-sdkbox-installer", 
+            "text": "Before you can run the SDKBOX installer you need to do a few things.  make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in  /usr/local/bin )  make sure you know the path to where you downloaded the SDKBOX plugin bundles.", 
+            "title": "Step 1: Preparing to run the SDKBOX Installer"
+        }, 
+        {
+            "location": "/installer/#step-2-installing-a-plugin-using-the-sdkbox-installer", 
+            "text": "Now we are ready to install a plugin! There isn't much to it. Ready?  Installing for OS X   From a command-line,  cd  to your applications root directory. Example:   cd ~/MyGame   Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:   path /sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz  What Next?  The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:  $ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\n Remaining Manual Steps:\n Android Integration:\n Step 2.5 - modify Cocos2dxActivity.java\n Step 2.5 - modify YourGameName.java\n Cocos2d-JS specific\n Step 3.2 - add appropriate headers for this plugin to your class.\n Step 3.2 - add appropriate call to initialize the Javascript callbacks.\n Step 3.2 - call sdkbox.IAP.init(); where appropriate in your code. We recommend to do this in the app.js\n Installation Successful :)  Other Installer switches.  The SDKBOX Installer has several switches that you can use. You can always see these by running  sdkbox  by itself or using the  -h  help switch:  $  path /sdkbox\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}     switch  alternate switch  what it does      -h  --help  show this help message and exit    -v  --verbose  specify verbosity level    -p PROJECT  --project PROJECT  path to project root (defaults to .)    -b PLUGIN  --plugin PLUGIN  specify path to plugin (defaults to .)     --dryrun  test install before performing.     Staying Up-to-date  The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.   _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nA newer version of SDKBOX is available, would you like to update to v0.5?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.1 to v0.5 at sdkbox", 
+            "title": "Step 2. Installing a Plugin using the SDKBOX Installer"
+        }, 
+        {
+            "location": "/plugins/iap/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "IAP"
+        }, 
+        {
+            "location": "/plugins/iap/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/iap/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/iap/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/adcolony/", 
+            "text": "AdColony for c++\n\n\nAdColony for javascript\n\n\nAdColony for lua", 
+            "title": "AdColony"
+        }, 
+        {
+            "location": "/plugins/adcolony/#adcolony-for-c", 
+            "text": "", 
+            "title": "AdColony for c++"
+        }, 
+        {
+            "location": "/plugins/adcolony/#adcolony-for-javascript", 
+            "text": "", 
+            "title": "AdColony for javascript"
+        }, 
+        {
+            "location": "/plugins/adcolony/#adcolony-for-lua", 
+            "text": "", 
+            "title": "AdColony for lua"
+        }, 
+        {
+            "location": "/plugins/chartboost/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Chartboost"
+        }, 
+        {
+            "location": "/plugins/chartboost/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/chartboost/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/chartboost/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/vungle/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Vungle"
+        }, 
+        {
+            "location": "/plugins/vungle/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/vungle/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/vungle/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/googleanalytics/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Google Analytics"
+        }, 
+        {
+            "location": "/plugins/googleanalytics/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/googleanalytics/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/googleanalytics/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/flurryanalytics/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Flurry Analytics"
+        }, 
+        {
+            "location": "/plugins/flurryanalytics/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/flurryanalytics/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/flurryanalytics/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/tune/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Tune"
+        }, 
+        {
+            "location": "/plugins/tune/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/tune/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/tune/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }, 
+        {
+            "location": "/plugins/kochava/", 
+            "text": "IAP for c++\n\n\nIAP for javascript\n\n\nIAP for lua", 
+            "title": "Kochava"
+        }, 
+        {
+            "location": "/plugins/kochava/#iap-for-c", 
+            "text": "", 
+            "title": "IAP for c++"
+        }, 
+        {
+            "location": "/plugins/kochava/#iap-for-javascript", 
+            "text": "", 
+            "title": "IAP for javascript"
+        }, 
+        {
+            "location": "/plugins/kochava/#iap-for-lua", 
+            "text": "", 
+            "title": "IAP for lua"
+        }
+    ]
+}
