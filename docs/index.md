@@ -7,7 +7,7 @@ SDKBOX Installer is a command line tool for install plugins to your cocos2d-x pr
 check out the [getting started guide](installer.md)
 
 #In-App Purchases
-##[SDKBOX IAP](plugins/iap.md)
+##[SDKBOX IAP](plugins/iap/v3-cpp.md)
 
 #Ad Units
 ##[AdColony](plugins/adcolony.md)

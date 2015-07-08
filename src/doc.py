@@ -37,7 +37,8 @@ class DocGen:
         self.name = name
         self.base_path = base_path
         self.main_file = os.path.join(base_path, 'readme.md')
-        self.out_path = out_path
+        self.out_path = os.path.abspath(out_path)
+        print 'set out path:' + self.out_path
         # self.pre = re.compile(ur'Include Base:(.*)')
         self.pre = re.compile(ur'<<\[(.*)\]')
         self.folders = []
@@ -47,7 +48,7 @@ class DocGen:
         for f in os.listdir(self.base_path):
             folder_path = os.path.join(self.base_path, f)
             if os.path.isdir(folder_path):
-                self.folders.append(folder_path)
+                self.folders.append(f)
                 # print "====> found " + f
 
     def generate(self):
@@ -55,23 +56,24 @@ class DocGen:
         if os.path.exists(self.main_file):
             print '===> generate ' + self.name
             mkdir(self.out_path)
-            data = read_file(self.main_file)
+            origin_data = read_file(self.main_file)
+            out_data = origin_data
 
-            match = re.search(self.pre, data)
+            for f in self.folders:
+                match = re.search(self.pre, out_data)
 
-            while match:
+                while match:
+                    section_path = match.group(1)
+                    section_path = os.path.join(self.base_path, f, section_path)
 
-                section = 'cpp226'
-                section_path = match.group(1)
-                section_path = os.path.join(self.base_path, section, section_path)
+                    section_file = read_file(section_path)
+                    out_data = re.sub(self.pre, section_file, out_data, 1)
 
-                section_file = read_file(section_path)
-                data = re.sub(self.pre, section_file, data, 1)
+                    match = re.search(self.pre, out_data)
 
-                match = re.search(self.pre, data)
-
-            out_file = os.path.join(self.out_path, section + '.md')
-            write_file(out_file, data)
+                out_file = os.path.join(self.out_path, f + '.md')
+                write_file(out_file, out_data)
+                print 'Write file: ' + out_file
         else:
             print '===> skip ' + self.name
             print '===> failed to find ' + self.main_file
@@ -83,7 +85,7 @@ class DocManager:
 
     def __init__(self, base_path, out_path):
         self.base_path = base_path
-        self.out_path = out_path
+        self.out_path = os.path.abspath(out_path)
         self.plugins = []
         self.search_plugin()
 
@@ -121,7 +123,8 @@ def main():
     args = parser.parse_args()
 
     curr_path = get_curr_path()
-    out_path = os.path.join(curr_path, '..', 'docs')
+    out_path = os.path.join(curr_path, '..', 'docs', 'plugins')
+    print 'global out_path:' + out_path
     doc_mgr = DocManager(curr_path, out_path)
     doc_mgr.generate(args.name)
 

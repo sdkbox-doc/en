@@ -3,7 +3,15 @@ pages:
 - Home: 'index.md'
 - Installer: 'installer.md'
 - Plugins: 
-    - 'IAP': 'plugins/iap.md'
+    - 'IAP':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/iap/v3-cpp.md'
+            - 'js': 'plugins/iap/v3-js.md'
+            - 'lua': 'plugins/iap/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/iap/v2-cpp.md'
+            - 'js': 'plugins/iap/v2-js.md'
+            - 'lua': 'plugins/iap/v2-lua.md'
     - 'AdColony': 'plugins/adcolony.md'
     - 'Chartboost': 'plugins/chartboost.md'
     - 'Vungle': 'plugins/vungle.md'
