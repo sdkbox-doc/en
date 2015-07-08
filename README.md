@@ -23,3 +23,10 @@ cd src
 ```
 
 If you want to edit document, you should edit the templates at `src/<plugin name>`
+
+# Publish
+
+Use the following command to publish document to live
+```
+mkdocs gh-deploy --clean
+```
