@@ -1,3 +1,4 @@
+##This is section A for Javascript
 ### 2.5 Modify `<YourGameName>.java`
 * Modify `proj.android/src/<package identifier>/<YourGameName>.java` to add the following imports:
 ```java
@@ -64,24 +65,36 @@ protected void onCreate(Bundle savedInstanceState){
       * Insert the __iap__ section of `sdkbox_config.json.sample` into your
       existing `sdkbox_config.json` and change the config as you see fit
 
-### 3.2 Initialize IAP
-* Call `sdkbox::IAP::init();` where appropriate in your code. We
-recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
+### 3.2 Modify Lua Code
+Modify `lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
-#include "PluginIAP/PluginIAP.h"
+#include "PluginIAPLua.hpp"
+#include "PluginIAPLuaHelper.hpp"
+```
+```cpp
+//Only get Lua state if it's not available
+lua_State *tolua_s = pStack->getLuaState();
+register_all_PluginIAPLua(tolua_s);
+register_all_PluginIAPLua_helper(tolua_s);
 ```
 
-### 3.3 Retrieve latest Product data
+### 3.3 Initialize IAP
+* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+```lua
+sdkbox.IAP:init();
+```
+
+### 3.4 Retrieve latest Product data
 It's always a good idea to retrieve the latest product data from store when your game starts.
 
-To retrieve latest IAP data, simply call `sdkbox::IAP::refresh()`.
+To retrieve latest IAP data, simply call `sdkbox.IAP:refresh()`.
 
 > `onProductRequestSuccess` if retrieved successfully.
 
 > `onProductRequestFailure` if exception occurs.
 
-### 3.4 Make a purchase
-To make a purchase call `sdkbox::IAP::purchase(name)`
+### 3.5 Make a purchase
+To make a purchase call `sdkbox.IAP:purchase(name)`
 
 __Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store
 
@@ -91,34 +104,39 @@ __Note:__ __name__ is the name of the IAP item in your config file under `items`
 
 > `onCanceled` will be triggered if purchase is canceled by user.
 
-### 3.5 Restore purchase
-To restore purchase call `sdkbox::IAP::restore()`.
+### 3.6 Restore purchase
+To restore purchase call `sdkbox.IAP:restore()`.
 
 > `onRestored` will be triggered if restore is successful.
 
 __Note:__ `onRestored` could be triggered multiple times
 
-### 3.6 Handling Purchase Events
+### 3.7 Handling Purchase Events
 This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
-
-* Allow your class to extend `sdkbox::IAPListener`:
-```cpp
-    #include "PluginIAP/PluginIAP.h"
-    class MyClass : public sdkbox::IAPListener
-    {
-    private:
-        virtual void onSuccess(sdkbox::Product const& p) override;
-        virtual void onFailure(sdkbox::Product const& p, const std::string &msg)
-           override;
-        virtual void onCanceled(sdkbox::Product const& p) override;
-        virtual void onRestored(sdkbox::Product const& p) override;
-        virtual void onProductRequestSuccess(std::vector<sdkbox::Product> const &products)
-        override;
-        virtual void onProductRequestFailure(const std::string &msg) override;
-    }
-```
-
-* Create a __listener__ that handles callbacks:
-```cpp
-sdkbox::IAP::setListener(listener);
+```lua
+sdkbox.IAP:setListener(function(args)
+        if "onSuccess" == args.event then
+                local product = args.product
+                dump(product, "onSuccess:")
+        elseif "onFailure" == args.event then
+                local product = args.product
+                local msg = args.msg
+                dump(product, "onFailure:")
+                print("msg:", msg)
+        elseif "onCanceled" == args.event then
+                local product = args.product
+                dump(product, "onCanceled:")
+        elseif "onRestored" == args.event then
+                local product = args.product
+                dump(product, "onRestored:")
+        elseif "onProductRequestSuccess" == args.event then
+                local products = args.products
+                dump(products, "onProductRequestSuccess:")
+        elseif "onProductRequestFailure" == args.event then
+                local msg = args.msg
+                print("msg:", msg)
+        else
+                print("unknow event ", args.event)
+        end
+end)
 ```

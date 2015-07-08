@@ -57,9 +57,9 @@ class DocGen:
             print '===> generate ' + self.name
             mkdir(self.out_path)
             origin_data = read_file(self.main_file)
-            out_data = origin_data
 
             for f in self.folders:
+                out_data = origin_data
                 match = re.search(self.pre, out_data)
 
                 while match:
