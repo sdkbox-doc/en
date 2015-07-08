@@ -9,12 +9,12 @@ Provides you one stop solution for IAP integration across multiple platform, SDK
 
 Use the following command to install SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import iap
+sdkbox import -b iap
 ```
 
 ##Extra steps
 
-### 2.5 Modify `<YourGameName>.java`
+### Modify `<YourGameName>.java`
 * Modify `proj.android/src/<package identifier>/<YourGameName>.java` to add the following imports:
 ```java
 import android.content.Intent;
@@ -68,26 +68,44 @@ protected void onCreate(Bundle savedInstanceState){
     }
 ```
 
-## Step 3: Modify your game code to invoke in-app purchase
 
-### 3.1 Config `sdkbox_config.json`
-* First time `SDKBOX` user:
-      * Rename the included `sdkbox_config.json.sample` to `sdkbox_config.json`
-      * Copy `sdkbox_config.json` to the __Resources__ directory of your project  
-      * Then Drag & drop `sdkbox_config.json` from your __Resources__ folder to Xcode’s Resources folder this will make sure `sdkbox_config.json` is in your bundle
+## Configuration
+SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-* If you already have an `sdkbox_config.json` file in your project:
-      * Insert the __iap__ section of `sdkbox_config.json.sample` into your
-      existing `sdkbox_config.json` and change the config as you see fit
+Here is an example of IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or [Google Play Console](https://play.google.com/apps/publish)
+```json
+"ios" :
+{
+    "iap":{
+        "items":{
+            "remove_ads":{
+                "id":"<put the product id for ios here>"
+            }
+        }
+    }
+},
+"android":
+{
+    "iap":{
+        "key":"put your googleplay key here",
+        "items":{
+          "remove_ads":{
+              "id":"<put the product id for android here>"
+          }
+        }
+    }
+}
+```
+##Usage
 
-### 3.2 Initialize IAP
+### Initialize IAP
 * Call `sdkbox::IAP::init();` where appropriate in your code. We
 recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 ```cpp
 #include "PluginIAP/PluginIAP.h"
 ```
 
-### 3.3 Retrieve latest Product data
+### Retrieve latest Product data
 It's always a good idea to retrieve the latest product data from store when your game starts.
 
 To retrieve latest IAP data, simply call `sdkbox::IAP::refresh()`.
@@ -96,7 +114,7 @@ To retrieve latest IAP data, simply call `sdkbox::IAP::refresh()`.
 
 > `onProductRequestFailure` if exception occurs.
 
-### 3.4 Make a purchase
+### Make a purchase
 To make a purchase call `sdkbox::IAP::purchase(name)`
 
 __Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store
@@ -107,14 +125,14 @@ __Note:__ __name__ is the name of the IAP item in your config file under `items`
 
 > `onCanceled` will be triggered if purchase is canceled by user.
 
-### 3.5 Restore purchase
+### Restore purchase
 To restore purchase call `sdkbox::IAP::restore()`.
 
 > `onRestored` will be triggered if restore is successful.
 
 __Note:__ `onRestored` could be triggered multiple times
 
-### 3.6 Handling Purchase Events
+### Handling Purchase Events
 This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
 
 * Allow your class to extend `sdkbox::IAPListener`:
@@ -138,4 +156,74 @@ This allows you to catch the `IAP` events so that you can perform operations bas
 ```cpp
 sdkbox::IAP::setListener(listener);
 ```
+
+## API Reference
+
+### Methods
+```cpp
+static void init();
+```
+> Initialize SDKBox IAP
+
+```cpp
+static void setDebug(bool debug);
+```
+> Enable/disable debug logging
+
+```cpp
+static void purchase(const std::string& name);
+```
+> Make a purchase request
+
+```cpp
+static void refresh();
+```
+> Refresh the IAP data(title, price, description)
+
+```cpp
+static void restore();
+```
+> Restore purchase
+
+```cpp
+static void setListener(IAPListener* listener);
+```
+> Set listener for IAP
+
+```cpp
+static void removeListener();
+```
+> Remove listener for IAP
+
+### Listeners
+```cpp
+virtual void onSuccess(const Product& p) = 0;
+```
+> Called when an IAP processed successfully
+
+```cpp
+virtual void onFailure(const Product& p, const std::string& msg) = 0;
+```
+> Called when an IAP fails
+
+```cpp
+virtual void onCanceled(const Product& p) = 0;
+```
+> Called when user canceled the IAP
+
+```cpp
+virtual void onRestored(const Product& p) = 0;
+```
+> Called when server returns the IAP items user already purchased
+
+```cpp
+virtual void onProductRequestSuccess(const std::vector<Product>& products) = 0;
+```
+> Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
+
+```cpp
+virtual void onProductRequestFailure(const std::string& msg) = 0;
+```
+> Called when the product request fails
+
 

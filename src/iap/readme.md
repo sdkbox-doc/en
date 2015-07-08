@@ -9,10 +9,42 @@ Provides you one stop solution for IAP integration across multiple platform, SDK
 
 Use the following command to install SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import iap
+sdkbox import -b iap
 ```
 
 ##Extra steps
 
-<<[section-a.md]
+<<[extra-step.md]
+
+## Configuration
+SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
+
+Here is an example of IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or [Google Play Console](https://play.google.com/apps/publish)
+```json
+"ios" :
+{
+    "iap":{
+        "items":{
+            "remove_ads":{
+                "id":"<put the product id for ios here>"
+            }
+        }
+    }
+},
+"android":
+{
+    "iap":{
+        "key":"put your googleplay key here",
+        "items":{
+          "remove_ads":{
+              "id":"<put the product id for android here>"
+          }
+        }
+    }
+}
+```
+##Usage
+<<[usage.md]
+
+<<[api-reference.md]
 

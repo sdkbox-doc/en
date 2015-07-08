@@ -9,13 +9,12 @@ Provides you one stop solution for IAP integration across multiple platform, SDK
 
 Use the following command to install SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import iap
+sdkbox import -b iap
 ```
 
 ##Extra steps
 
-##This is section A for Javascript
-### 2.5 Modify `<YourGameName>.java`
+### Modify `<YourGameName>.java`
 * Modify `proj.android/src/<package identifier>/<YourGameName>.java` to add the following imports:
 ```java
 import android.content.Intent;
@@ -69,19 +68,35 @@ protected void onCreate(Bundle savedInstanceState){
     }
 ```
 
-## Step 3: Modify your game code to invoke in-app purchase
+## Configuration
+SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-### 3.1 Config `sdkbox_config.json`
-* First time `SDKBOX` user:
-      * Rename the included `sdkbox_config.json.sample` to `sdkbox_config.json`
-      * Copy `sdkbox_config.json` to the __Resources__ directory of your project  
-      * Then Drag & drop `sdkbox_config.json` from your __Resources__ folder to Xcode’s Resources folder this will make sure `sdkbox_config.json` is in your bundle
-
-* If you already have an `sdkbox_config.json` file in your project:
-      * Insert the __iap__ section of `sdkbox_config.json.sample` into your
-      existing `sdkbox_config.json` and change the config as you see fit
-
-### 3.2 Modify Lua Code
+Here is an example of IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or [Google Play Console](https://play.google.com/apps/publish)
+```json
+"ios" :
+{
+    "iap":{
+        "items":{
+            "remove_ads":{
+                "id":"<put the product id for ios here>"
+            }
+        }
+    }
+},
+"android":
+{
+    "iap":{
+        "key":"put your googleplay key here",
+        "items":{
+          "remove_ads":{
+              "id":"<put the product id for android here>"
+          }
+        }
+    }
+}
+```
+##Usage
+### Modify Lua Code
 Modify `lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginIAPLua.hpp"
@@ -94,13 +109,13 @@ register_all_PluginIAPLua(tolua_s);
 register_all_PluginIAPLua_helper(tolua_s);
 ```
 
-### 3.3 Initialize IAP
+### Initialize IAP
 * modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
 sdkbox.IAP:init();
 ```
 
-### 3.4 Retrieve latest Product data
+### Retrieve latest Product data
 It's always a good idea to retrieve the latest product data from store when your game starts.
 
 To retrieve latest IAP data, simply call `sdkbox.IAP:refresh()`.
@@ -109,7 +124,7 @@ To retrieve latest IAP data, simply call `sdkbox.IAP:refresh()`.
 
 > `onProductRequestFailure` if exception occurs.
 
-### 3.5 Make a purchase
+### Make a purchase
 To make a purchase call `sdkbox.IAP:purchase(name)`
 
 __Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store
@@ -120,14 +135,14 @@ __Note:__ __name__ is the name of the IAP item in your config file under `items`
 
 > `onCanceled` will be triggered if purchase is canceled by user.
 
-### 3.6 Restore purchase
+### Restore purchase
 To restore purchase call `sdkbox.IAP:restore()`.
 
 > `onRestored` will be triggered if restore is successful.
 
 __Note:__ `onRestored` could be triggered multiple times
 
-### 3.7 Handling Purchase Events
+### Handling Purchase Events
 This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
 ```lua
 sdkbox.IAP:setListener(function(args)
@@ -156,4 +171,74 @@ sdkbox.IAP:setListener(function(args)
         end
 end)
 ```
+
+## API Reference
+
+### Methods
+```lua
+sdkbox.IAP:init();
+```
+> Initialize SDKBox IAP
+
+```lua
+sdkbox.IAP:setDebug(debug);
+```
+> Enable/disable debug logging
+
+```lua
+sdkbox.IAP:purchase(name);
+```
+> Make a purchase request
+
+```lua
+sdkbox.IAP:refresh();
+```
+> Refresh the IAP data(title, price, description)
+
+```lua
+sdkbox.IAP:restore();
+```
+> Restore purchase
+
+```lua
+sdkbox.IAP:setListener(listener);
+```
+> Set listener for IAP
+
+```lua
+sdkbox.IAP:removeListener();
+```
+> Remove listener for IAP
+
+### Listeners
+```lua
+sdkbox.IAP:onSuccess(product);
+```
+> Called when an IAP processed successfully
+
+```lua
+sdkbox.IAP:onFailure(product, message);
+```
+> Called when an IAP fails
+
+```lua
+sdkbox.IAP:onCanceled(product);
+```
+> Called when user canceled the IAP
+
+```lua
+sdkbox.IAP:onRestored(product);
+```
+> Called when server returns the IAP items user already purchased
+
+```lua
+sdkbox.IAP:onProductRequestSuccess(products);
+```
+> Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
+
+```lua
+sdkbox.IAP:onProductRequestFailure(message);
+```
+> Called when the product request fails
+
 
