@@ -20,8 +20,8 @@
     
         
     <url>
-     <loc>None/plugins/iap/</loc>
-     <lastmod>2015-07-07</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -67,6 +67,14 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>None/release-note/</loc>
+     <lastmod>2015-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
 </urlset>
