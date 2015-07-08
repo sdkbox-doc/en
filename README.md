@@ -1,5 +1,5 @@
 # Intro
-SDKBOX doc site uses mkdocs to generate static pages from markdown files
+SDKBOX doc site uses [mkdocs](http://www.mkdocs.org) to generate static pages from markdown files
 
 To view the site locally, you have to install mkdocs first
 
@@ -24,9 +24,15 @@ cd src
 
 If you want to edit document, you should edit the templates at `src/<plugin name>`
 
+# Edit document
+We recommend using [marked2](http://marked2app.com) while editing markdown document, because it supports the way we embed documents.
+
+However use local server is equally efficient.
+
 # Publish
 
 Use the following command to publish document to live
 ```
 mkdocs gh-deploy --clean
 ```
+
