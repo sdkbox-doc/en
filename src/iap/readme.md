@@ -16,7 +16,7 @@ sdkbox import -b iap
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-Here is an example of the IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or [Google Play Console](https://play.google.com/apps/publish)
+Here is an example of the IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or  replace `<put your googleplay key here>` from your [Google Play Console](https://play.google.com/apps/publish)
 ```json
 "ios" :
 {
@@ -31,7 +31,7 @@ Here is an example of the IAP configuration, you need to replace `<put the produ
 "android":
 {
     "iap":{
-        "key":"put your googleplay key here",
+        "key":"<put your googleplay key here>",
         "items":{
           "remove_ads":{
               "id":"<put the product id for android here>"
