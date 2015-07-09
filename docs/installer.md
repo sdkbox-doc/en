@@ -16,13 +16,13 @@ cd ~/MyGame
 
 * Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:
 ```sh
-<path>/sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz
+sdkbox import -b iap
 ```
 
 ## What Next?
 The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:
 ```sh
-$ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import
+$ sdkbox import -b iap
  _______ ______  _     _ ______   _____  _     _
  |______ |     \ |____/  |_____] |     |  \___/
  ______| |_____/ |    \_ |_____] |_____| _/   \_
@@ -42,7 +42,7 @@ $ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import
 ## Other Installer switches.
 The SDKBOX Installer has several switches that you can use. You can always see these by running `sdkbox` by itself or using the `-h` help switch:
 ```sh
-$ <path>/sdkbox
+$ sdkbox
  _______ ______  _     _ ______   _____  _     _
  |______ |     \ |____/  |_____] |     |  \___/
  ______| |_____/ |    \_ |_____] |_____| _/   \_
