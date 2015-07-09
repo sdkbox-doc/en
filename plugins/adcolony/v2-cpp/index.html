@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>c++ - SDKBOX</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">SDKBOX</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installer/">Installer</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">IAP</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AdColony</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Chartboost</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Vungle</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Google Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Tune</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Kochava</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../v3-lua/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../v2-js/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#adcolony">AdColony</a></li>
+        
+            <li><a href="#integration">Integration</a></li>
+        
+            <li><a href="#extra-steps">Extra steps</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#api-reference">API Reference</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+Include Base: /Users/niteluo/Projects/store/doc/en/src/adcolony/v3-cpp
+-->
+
+<h1 id="adcolony">AdColony</h1>
+<h2 id="integration">Integration</h2>
+<p>Use the following command to install the SDKBOX AdColony plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import -b adcolony
+</code></pre>
+
+<h2 id="extra-steps">Extra steps</h2>
+<h3 id="modify-yourgamenamejava">Modify <code>&lt;YourGameName&gt;.java</code></h3>
+<ul>
+<li>Modify <code>proj.android/src/&lt;package identifier&gt;/&lt;YourGameName&gt;.java</code> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-dontwarn android.webkit.**
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="configuration">Configuration</h2>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the AdColony configuration, you need to replace <code>&lt;app id&gt;</code> and <code>&lt;zone id&gt;</code> items with your specific <a href="https://clients.adcolony.com/login">AdColony</a> account information.</p>
+<pre><code class="json">&quot;AdColony&quot;:{
+    &quot;id&quot;:&quot;&lt;app id&gt;&quot;,
+    &quot;debug&quot;:true,
+    &quot;ads&quot;:{
+        &quot;video&quot;:{
+            &quot;zone&quot;: &quot;&lt;zone id&gt;&quot;,
+            &quot;v4vc&quot;: false
+        },
+        &quot;v4vc&quot;:{
+            &quot;zone&quot;: &quot;&lt;zone id&gt;&quot;,
+            &quot;v4vc&quot;: true,
+            &quot;pre_popup&quot; : true,
+            &quot;post_popup&quot;: true
+        }
+    }
+}
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-adcolony">Initialize AdColony</h3>
+<ul>
+<li>Call <code>sdkbox::PluginAdColony::init();</code> where appropriate in your code. We
+recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</li>
+</ul>
+<pre><code class="cpp">#include &quot;PluginAdColony/PluginAdColony.h&quot;
+</code></pre>
+
+<h3 id="showing-ads">Showing Ads</h3>
+<p>Display an ad where ever you want from your code:</p>
+<pre><code class="cpp">sdkbox::PluginAdColony::show(&quot;&lt;AD_NAME&gt;&quot;);
+</code></pre>
+
+<h3 id="catch-adcolony-events-optional">Catch AdColony events (optional)</h3>
+<p>This allows you to catch the <code>AdColony</code> events so that you can perform operations such as providing player rewards for watching the video.</p>
+<ul>
+<li>Allow your class to extend <code>sdkbox::AdColonyListener</code></li>
+</ul>
+<pre><code class="cpp">#include &quot;PluginAdColony/PluginAdColony.h&quot;
+class MyClass : public sdkbox::AdColonyListener
+{
+private:
+  void onAdColonyChange(const std::string&amp; zoneID, bool available);
+  void onAdColonyReward(const std::string&amp; zoneID,
+                        const std::string&amp; currencyName,
+                        int amount, bool success);
+  void onAdColonyStarted(const std::string&amp; zoneID);
+  void onAdColonyFinished(const sdkbox::AdColonyAdInfo&amp; info);
+};
+</code></pre>
+
+<ul>
+<li>Create a <strong>listener</strong> that handles callbacks:</li>
+</ul>
+<pre><code class="cpp">sdkbox::PluginAdColony::setListener(this);
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<pre><code class="cpp">static void init();
+</code></pre>
+
+<blockquote>
+<p>initialize the plugin instance.</p>
+</blockquote>
+<pre><code class="cpp">static AdColonyAdStatus getStatus(const std::string&amp; name);
+</code></pre>
+
+<blockquote>
+<p>Check the availability of the AdColony ads by name</p>
+</blockquote>
+<pre><code class="cpp">static int zoneStatusForZone(const std::string&amp; zoneID);
+</code></pre>
+
+<blockquote>
+<p>returns the status for the specified zone. Use this to pre-load a zone.</p>
+</blockquote>
+<pre><code class="cpp">static void show(const std::string&amp; name);
+</code></pre>
+
+<blockquote>
+<p>play video ad using provided <strong>zone name</strong> that was specified in <code>sdkbox_config.json</code>.</p>
+</blockquote>
+<pre><code class="cpp">static void setListener(AdColonyListener* listener);
+</code></pre>
+
+<blockquote>
+<p>set a listener to listen for event changes.</p>
+</blockquote>
+<pre><code class="cpp">static void removeListener();
+</code></pre>
+
+<blockquote>
+<p>remove the event listener.</p>
+</blockquote>
+<pre><code class="cpp">static bool isVirtualCurrencyRewardAvailableForZone(const std::string&amp; zoneID);
+</code></pre>
+
+<blockquote>
+<p>check if this zone offers a virtual currency reward.</p>
+</blockquote>
+<pre><code class="cpp">static int getVirtualCurrencyRewardsAvailableTodayForZone(
+  const std::string&amp; zoneID);
+</code></pre>
+
+<blockquote>
+<p>is there a virtual currency reward available to the user today for passed in
+zone.</p>
+</blockquote>
+<pre><code class="cpp">static std::string getVirtualCurrencyNameForZone(const std::string&amp; zoneID);
+</code></pre>
+
+<blockquote>
+<p>get virtual currency name for passed in zone.</p>
+</blockquote>
+<pre><code class="cpp">static int getVirtualCurrencyRewardAmountForZone(const std::string&amp; zoneID);
+</code></pre>
+
+<blockquote>
+<p>the amount of the virtual currency reward for passed in zone.</p>
+</blockquote>
+<pre><code class="cpp">static int getVideosPerReward(const std::string&amp; currencyName);
+</code></pre>
+
+<blockquote>
+<p>are there multiple videos to watch per reward? Get the number of them.</p>
+</blockquote>
+<pre><code class="cpp">static int getVideoCreditBalance(const std::string&amp; currencyName);
+</code></pre>
+
+<blockquote>
+<p>get video credit balance for passed in currency name.</p>
+</blockquote>
+<pre><code class="cpp">static void cancelAd();
+</code></pre>
+
+<blockquote>
+<p>stop the currently showing ad.</p>
+</blockquote>
+<pre><code class="cpp">static bool videoAdCurrentlyRunning();
+</code></pre>
+
+<blockquote>
+<p>is there a video currently showing?</p>
+</blockquote>
+<pre><code class="cpp">static void turnAllAdsOff();
+</code></pre>
+
+<blockquote>
+<p>turn off all ads.</p>
+</blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="cpp">void onAdColonyChange(const sdkbox::AdColonyAdInfo&amp; info, bool available);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony is finished loading.</p>
+</blockquote>
+<pre><code class="cpp">void onAdColonyReward(const sdkbox::AdColonyAdInfo&amp; info,
+  const std::string&amp; currencyName,
+  int amount, bool success);
+</code></pre>
+
+<blockquote>
+<p>reward was received.</p>
+</blockquote>
+<pre><code class="cpp">void onAdColonyStarted(const sdkbox::AdColonyAdInfo&amp; info);
+</code></pre>
+
+<blockquote>
+<p>showing an ad has started.</p>
+</blockquote>
+<pre><code class="cpp">void onAdColonyFinished(const sdkbox::AdColonyAdInfo&amp; info);
+</code></pre>
+
+<blockquote>
+<p>showing an ad has finished.</p>
+</blockquote></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

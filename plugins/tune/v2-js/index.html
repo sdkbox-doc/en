@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>js - SDKBOX</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">SDKBOX</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installer/">Installer</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">IAP</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AdColony</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Chartboost</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Vungle</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Google Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Tune</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Kochava</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../v2-cpp/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../v2-lua/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#tune">Tune</a></li>
+        
+            <li><a href="#integration">Integration</a></li>
+        
+            <li><a href="#extra-steps">Extra steps</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#api-reference">API Reference</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+Include Base: /Users/niteluo/Projects/store/doc/en/src/tune/v3-cpp
+-->
+
+<h1 id="tune">Tune</h1>
+<h2 id="integration">Integration</h2>
+<p>Use the following command to install the SDKBOX Tune plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import -b tune
+</code></pre>
+
+<h2 id="extra-steps">Extra steps</h2>
+<h3 id="modify-yourgamenamejava">Modify <code>&lt;YourGameName&gt;.java</code></h3>
+<ul>
+<li>Modify <code>proj.android/src/&lt;package identifier&gt;/&lt;YourGameName&gt;.java</code> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-keep public class com.mobileapptracker.** {
+    public *;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="configuration">Configuration</h2>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the Tune configuration, you need to replace
+<code>&lt;TUNE ID&gt;</code> and <code>&lt;TUNE KEY&gt;</code>  with your specific <a href="http://www.mobileapptracking.com"><strong>Tune ID</strong></a> account information.
+Here is an example adding <code>Tune</code>:</p>
+<pre><code class="json">&quot;Tune&quot;:{
+    &quot;id&quot;:&quot;&lt;TUNE ID&gt;&quot;,
+    &quot;key&quot;:&quot;&lt;TUNE KEY&gt;&quot;,
+    &quot;debug&quot;:false
+}
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-tune">Initialize Tune</h3>
+<ul>
+<li>
+<p>Call <code>sdkbox.PluginTune.init();</code> where appropriate in your code. We recommend to do this in the <code>app.js</code></p>
+</li>
+<li>
+<p>Modify <code>AppDelegate.cpp</code> to include the following headers:</p>
+</li>
+</ul>
+<pre><code class="cpp">#include &quot;PluginTuneJS.hpp&quot;
+#include &quot;PluginTuneJSHelper.hpp&quot;
+</code></pre>
+
+<ul>
+<li>Modify <code>AppDelegate.cpp</code> make sure to call:</li>
+</ul>
+<pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginTuneJS);
+sc-&gt;addRegisterCallback(register_PluginTuneJs_helper);
+</code></pre>
+
+<p>This registers the Javascript callbacks.</p>
+<h3 id="using-tune">Using Tune</h3>
+<p>After initialization you can begin to use the Tune functionality. Tune uses a concept of <strong>events</strong> (also known as <strong>MAT Native Event Types</strong>). You log <strong>events</strong> that you care about and you can later view them using the web-based report viewer. Tune provides a structure for these events in their documentation. Example:</p>
+<pre><code class="javascript">sdkbox.PluginTune.measureEventName(&quot;login&quot;);
+sdkbox.PluginTune.measureEventId(0123456789);
+
+var event = {};
+event.eventName = &quot;purchase&quot;;
+event.refId = &quot;RJ1357&quot;;
+event.searchString = &quot;sweet srisp red apples&quot;;
+event.attribute1 = &quot;srisp&quot;;
+event.attribute2 = &quot;red&quot;;
+event.quantity = 3;
+sdkbox.PluginTune.measureEventForScript(JSON.stringify(event));
+</code></pre>
+
+<h3 id="catch-tune-events-optional">Catch Tune events (optional)</h3>
+<p>This allows you to catch the <code>Tune</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
+<pre><code class="javascript">sdkbox.PluginTune.setListener({
+  onEnqueuedAction: function(data) {},
+  onSucceed: function(data) {},
+  onFailed: function(data) {},
+  onReceiveDeeplink: function(data) {}
+});
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<pre><code class="javascript">sdkbox.PluginTune.init();
+</code></pre>
+
+<blockquote>
+<p>initialize the plugin instance.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setDebugMode(enable);
+</code></pre>
+
+<blockquote>
+<p>Specifies that the server responses should include debug information.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setAllowDuplicateRequests(allow);
+</code></pre>
+
+<blockquote>
+<p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.checkForDeferredDeeplinkWithTimeout(timeout);
+</code></pre>
+
+<blockquote>
+<p>Check for a deferred deeplink entry point upon app installation.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.automateIapEventMeasurement(automate);
+</code></pre>
+
+<blockquote>
+<p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setFacebookEventLogging(logging, limit);
+</code></pre>
+
+<blockquote>
+<p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setExistingUser(existingUser);
+</code></pre>
+
+<blockquote>
+<p>Set whether this is an existing user or a new one. This is generally used to
+distinguish users who were using previous versions of the app, prior to
+integration of the MAT SDK. The default is to assume a new user.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled);
+</code></pre>
+
+<blockquote>
+<p>Set the Apple Advertising Identifier available in iOS 6.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setAppleVendorIdentifier(appleVendorIdentifier);
+</code></pre>
+
+<blockquote>
+<p>Set the Apple Vendor Identifier available in iOS 6.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setCurrencyCode(currencyCode);
+</code></pre>
+
+<blockquote>
+<p>Sets the currency code.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setJailbroken(jailbroken);
+</code></pre>
+
+<blockquote>
+<p>Sets the jailbroken device flag.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setPackageName(packageName);
+</code></pre>
+
+<blockquote>
+<p>Sets the package name (bundle identifier).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setShouldAutoDetectJailbroken(autoDetect);
+</code></pre>
+
+<blockquote>
+<p>Specifies if the sdk should auto detect if the iOS device is jailbroken.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
+</code></pre>
+
+<blockquote>
+<p>Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setSiteId(siteId);
+</code></pre>
+
+<blockquote>
+<p>Sets the site ID.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setTRUSTeId(tpid);
+</code></pre>
+
+<blockquote>
+<p>Set the TRUSTe Trusted Preference Identifier (TPID).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setUserEmail(userEmail);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's email address.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setUserId(userId);
+</code></pre>
+
+<blockquote>
+<p>Sets the user ID.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setUserName(userName);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's name.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setPhoneNumber(phoneNumber);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's phone number.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setFacebookUserId(facebookUserId);
+</code></pre>
+
+<blockquote>
+<p>Set user's Facebook ID.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setTwitterUserId(twitterUserId);
+</code></pre>
+
+<blockquote>
+<p>Set user's Twitter ID.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setGoogleUserId(googleUserId);
+</code></pre>
+
+<blockquote>
+<p>Set user's Google ID.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setAge(long userAge);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's age.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setGender(Gender userGender);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's gender.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setLatitude(latitude, longitude);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's location.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setLatitude(latitude, longitude, altitude);
+</code></pre>
+
+<blockquote>
+<p>Sets the user's location including altitude.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setAppAdTracking(enable);
+</code></pre>
+
+<blockquote>
+<p>Set app-level ad-tracking.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setPayingUser(isPayingUser);
+</code></pre>
+
+<blockquote>
+<p>Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setPreloadDataForScript(jsonString);
+sdkbox.PluginTune.setPreloadData(preloadData);
+</code></pre>
+
+<blockquote>
+<p>Sets publisher information for attribution.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.matId();
+</code></pre>
+
+<blockquote>
+<p>Get the MAT ID for this installation (mat_id).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.openLogId();
+</code></pre>
+
+<blockquote>
+<p>Get the MAT log ID for the first app open (open_log_id).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.isPayingUser();
+</code></pre>
+
+<blockquote>
+<p>Get whether the user is revenue-generating.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.measureSession();
+</code></pre>
+
+<blockquote>
+<p>To be called when an app opens; typically in the AppDelegate::applicationWillEnterForeground() event.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.measureEventName(eventName);
+</code></pre>
+
+<blockquote>
+<p>Record an event for an Event Name.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.measureEventId(eventId);
+</code></pre>
+
+<blockquote>
+<p>Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.measureEventForScript(jsonString);
+sdkbox.PluginTune.measureEvent(event);
+</code></pre>
+
+<blockquote>
+<p>Record an event with a MATEvent.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setUseCookieTracking(enable);
+</code></pre>
+
+<blockquote>
+<p>Sets whether or not to use cookie based tracking.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.setRedirectUrl(redirectUrl);
+</code></pre>
+
+<blockquote>
+<p>Sets a url to be used with app-to-app tracking so that the sdk can open the download (redirect) url. This is used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.startAppToAppTracking(targetAppPackageName,
+                                 targetAppAdvertiserId,
+                                 targetAdvertiserOfferId,
+                                 targetAdvertiserPublisherId,
+                                 shouldRedirect);
+</code></pre>
+
+<blockquote>
+<p>Start an app-to-app tracking session on the MAT server.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginTune.applicationDidOpenURL(urlString, sourceApplication);
+</code></pre>
+
+<blockquote>
+<p>Record the URL and Source when an application is opened via a URL scheme.
+This typically occurs during OAUTH or when an app exits and is returned
+to via a URL. The data will be sent to the HasOffers server when the next
+measureXXX method is called so that a Re-Engagement can be recorded.</p>
+</blockquote></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

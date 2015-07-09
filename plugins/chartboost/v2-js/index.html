@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>js - SDKBOX</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">SDKBOX</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installer/">Installer</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">IAP</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AdColony</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Chartboost</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Vungle</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Google Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Tune</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Kochava</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../v2-cpp/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../v2-lua/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#chartboost">Chartboost</a></li>
+        
+            <li><a href="#integration">Integration</a></li>
+        
+            <li><a href="#extra-steps">Extra steps</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#api-reference">API Reference</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+Include Base: /Users/niteluo/Projects/store/doc/en/src/chartboost/v3-cpp
+-->
+
+<h1 id="chartboost">Chartboost</h1>
+<h2 id="integration">Integration</h2>
+<p>Use the following command to install the SDKBOX Chartboost plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import -b chartboost
+</code></pre>
+
+<h2 id="extra-steps">Extra steps</h2>
+<h3 id="modify-yourgamenamejava">Modify <code>&lt;YourGameName&gt;.java</code></h3>
+<ul>
+<li>Modify <code>proj.android/src/&lt;package identifier&gt;/&lt;YourGameName&gt;.java</code> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-keep class com.chartboost.** { *; }
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="configuration">Configuration</h2>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the Chartboost configuration, you need to replace <code>&lt;CHARTBOOST ID&gt;</code> and <code>&lt;CHARTBOOST SIGNATURE&gt;</code> items with your specific <a href="https://www.chartboost.com">Chartboost</a> account information.</p>
+<pre><code class="json">&quot;Chartboost&quot;:{
+    &quot;id&quot;:&quot;&lt;CHARTBOOST ID&gt;&quot;,
+    &quot;signature&quot;:&quot;&lt;CHARTBOOST SIGNATURE&gt;&quot;,
+    &quot;ads&quot;:{
+        &quot;Default&quot;:{
+            &quot;type&quot;:&quot;interstitial&quot;
+        },
+        &quot;Level Complete&quot;:{
+            &quot;type&quot;:&quot;rewarded_video&quot;
+        },
+        &quot;MoreApp&quot;:{
+            &quot;type&quot;:&quot;more_app&quot;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-chartboost">Initialize Chartboost</h3>
+<ul>
+<li>
+<p>Call <code>sdkbox.PluginChartboost.init();</code> where appropriate in your code. We
+recommend to do this in the <code>app.js</code></p>
+</li>
+<li>
+<p>Modify <code>AppDelegate.cpp</code> to include the following headers:</p>
+</li>
+</ul>
+<pre><code class="cpp">#include &quot;PluginChartboostJS.hpp&quot;
+#include &quot;PluginChartboostJSHelper.h&quot;
+</code></pre>
+
+<ul>
+<li>Modify <code>AppDelegate.cpp</code> make sure to call:</li>
+</ul>
+<pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginChartboostJS);
+sc-&gt;addRegisterCallback(register_PluginChartboostJs_helper);
+</code></pre>
+
+<p>This registers the Javascript callbacks.</p>
+<h3 id="showing-ads">Showing Ads</h3>
+<p>Display an ad where ever you want from your code:</p>
+<pre><code class="javascript">// To use Chartboost's predefined location
+sdkbox.PluginChartboost.show(&quot;Default&quot;);
+// To use customized location
+sdkbox.PluginChartboost.show(&quot;your_ad_name&quot;);
+</code></pre>
+
+<h3 id="catch-chartboost-events-optional">Catch Chartboost events (optional)</h3>
+<p>This allows you to catch the <code>Chartboost</code> events so that you can perform operations such as providing player rewards for viewing ads.</p>
+<ul>
+<li>Create a listener (demonstrated by logging events):</li>
+</ul>
+<pre><code class="javascript">sdkbox.PluginChartboost.setListener({
+    onChartboostCached : function (name) { cc.log(&quot;onChartboostCached &quot; + name) },
+    onChartboostShouldDisplay : function (name) { cc.log(&quot;onChartboostShouldDisplay &quot; + name) },
+    onChartboostDisplay : function (name) { cc.log(&quot;onChartboostDisplay &quot; + name) },
+    onChartboostDismiss : function (name) { cc.log(&quot;onChartboostDismiss &quot; + name) },
+    onChartboostClose : function (name) { cc.log(&quot;onChartboostClose &quot; + name) },
+    onChartboostClick : function (name) { cc.log(&quot;onChartboostClick &quot; + name) },
+    onChartboostReward : function (name, reward) { cc.log(&quot;onChartboostReward &quot; + name + &quot; reward &quot; + reward) },
+    onChartboostFailedToLoad : function (name, e) { cc.log(&quot;onChartboostFailedToLoad &quot; + name + &quot; load error &quot; + e) },
+    onChartboostFailToRecordClick : function (name, e) { cc.log(&quot;onChartboostFailToRecordClick &quot; + name + &quot; click error &quot; + e) },
+    onChartboostConfirmation : function () { cc.log(&quot;onChartboostConfirmation&quot;) },
+    onChartboostCompleteStore : function () { cc.log(&quot;onChartboostCompleteStore&quot;) },
+})
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<pre><code class="javascript">sdkbox.PluginChartboost.init();
+</code></pre>
+
+<blockquote>
+<p>initialize the plugin instance.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.show(name);
+</code></pre>
+
+<blockquote>
+<p>show ad by specifying ad name.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setListener(listener);
+</code></pre>
+
+<blockquote>
+<p>creates the an optional listener.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.removeListener();
+</code></pre>
+
+<blockquote>
+<p>removed the listener.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.isAnyViewVisible();
+</code></pre>
+
+<blockquote>
+<p>check to see if any views are visible.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.isAvailable(name);
+</code></pre>
+
+<blockquote>
+<p>is the specified ad available?</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setAutoCacheAds(shouldCache);
+</code></pre>
+
+<blockquote>
+<p>set to enable and disable the auto cache feature (Enabled by default).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.getAutoCacheAds();
+</code></pre>
+
+<blockquote>
+<p>get the current auto cache behavior (Enabled by default).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.closeImpression();
+</code></pre>
+
+<blockquote>
+<p>close any visible Chartboost impressions (interstitials, more apps, rewarded
+video, etc..) and the loading view (if visible).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setStatusBarBehavior(behavior);
+</code></pre>
+
+<blockquote>
+<p>set to control how the fullscreen ad units should interact with the status bar. (CBStatusBarBehaviorIgnore by default).</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.didPassAgeGate(pass);
+</code></pre>
+
+<blockquote>
+<p>confirm if an age gate passed or failed. When specified Chartboost will wait for
+ this call before showing the IOS App Store.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setShouldPauseClickForConfirmation(shouldPause);
+</code></pre>
+
+<blockquote>
+<p>decide if Chartboost SDK should block for an age gate.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.handleOpenURL(url, sourceApp);
+</code></pre>
+
+<blockquote>
+<p>opens a "deep link" URL for a Chartboost Custom Scheme.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setCustomID(customID);
+</code></pre>
+
+<blockquote>
+<p>set a custom identifier to send in the POST body for all Chartboost API server requests.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.getCustomID();
+</code></pre>
+
+<blockquote>
+<p>get the current custom identifier being sent in the POST body for all Chartboost API server requests.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setShouldRequestInterstitialsInFirstSession(shouldRequest);
+</code></pre>
+
+<blockquote>
+<p>decide if Chartboost SDK should show interstitials in the first session.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setShouldDisplayLoadingViewForMoreApps(shouldDisplay);
+</code></pre>
+
+<blockquote>
+<p>decide if Chartboost SDK should show a loading view while preparing to display the "more applications" UI.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginChartboost.setShouldPrefetchVideoContent(shouldPrefetch);
+</code></pre>
+
+<blockquote>
+<p>decide if Chartboost SDK will attempt to fetch videos from the Chartboost API servers.</p>
+</blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="javascript">onChartboostCached();
+</code></pre>
+
+<blockquote>
+<p>there is cached content</p>
+</blockquote>
+<pre><code class="javascript">onChartboostShouldDisplay();
+</code></pre>
+
+<blockquote>
+<p>should Chartboost display</p>
+</blockquote>
+<pre><code class="javascript">onChartboostDisplay();
+</code></pre>
+
+<blockquote>
+<p>Charboost ad has displayed</p>
+</blockquote>
+<pre><code class="javascript">onChartboostDismiss();
+</code></pre>
+
+<blockquote>
+<p>Chartboost ad has been dismissed</p>
+</blockquote>
+<pre><code class="javascript">onChartboostClose();
+</code></pre>
+
+<blockquote>
+<p>Chartboost is not running</p>
+</blockquote>
+<pre><code class="javascript">onChartboostClick();
+</code></pre>
+
+<blockquote>
+<p>Chartboost ad was clicked on</p>
+</blockquote>
+<pre><code class="javascript">onChartboostReward();
+</code></pre>
+
+<blockquote>
+<p>Chartboost reward was given</p>
+</blockquote>
+<pre><code class="javascript">onChartboostFailedToLoad();
+</code></pre>
+
+<blockquote>
+<p>Chartboost failed to load</p>
+</blockquote>
+<pre><code class="javascript">onChartboostFailToRecordClick();
+</code></pre>
+
+<blockquote>
+<p>Chartboost failed to record click</p>
+</blockquote>
+<pre><code class="javascript">onChartboostConfirmation();
+</code></pre>
+
+<blockquote>
+<p>Chartboost confirmation</p>
+</blockquote>
+<pre><code class="javascript">onChartboostCompleteStore();
+</code></pre>
+
+<blockquote>
+<p>Chartboost complete store</p>
+</blockquote></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
