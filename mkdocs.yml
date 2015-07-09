@@ -12,7 +12,7 @@ pages:
             - 'c++': 'plugins/iap/v2-cpp.md'
             - 'js': 'plugins/iap/v2-js.md'
             - 'lua': 'plugins/iap/v2-lua.md'
-    - 'AdColony': 'plugins/adcolony.md'
+    - 'AdColony':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/adcolony/v3-cpp.md'
             - 'js': 'plugins/adcolony/v3-js.md'
@@ -21,7 +21,7 @@ pages:
             - 'c++': 'plugins/adcolony/v2-cpp.md'
             - 'js': 'plugins/adcolony/v2-js.md'
             - 'lua': 'plugins/adcolony/v2-lua.md'
-    - 'Chartboost': 'plugins/chartboost.md'
+    - 'Chartboost':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/chartboost/v3-cpp.md'
             - 'js': 'plugins/chartboost/v3-js.md'
@@ -30,7 +30,7 @@ pages:
             - 'c++': 'plugins/chartboost/v2-cpp.md'
             - 'js': 'plugins/chartboost/v2-js.md'
             - 'lua': 'plugins/chartboost/v2-lua.md'
-    - 'Vungle': 'plugins/vungle.md'
+    - 'Vungle':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/vungle/v3-cpp.md'
             - 'js': 'plugins/vungle/v3-js.md'
@@ -39,7 +39,7 @@ pages:
             - 'c++': 'plugins/vungle/v2-cpp.md'
             - 'js': 'plugins/vungle/v2-js.md'
             - 'lua': 'plugins/vungle/v2-lua.md'
-    - 'Google Analytics': 'plugins/googleanalytics.md'
+    - 'Google Analytics':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/googleanalytics/v3-cpp.md'
             - 'js': 'plugins/googleanalytics/v3-js.md'
@@ -48,7 +48,7 @@ pages:
             - 'c++': 'plugins/googleanalytics/v2-cpp.md'
             - 'js': 'plugins/googleanalytics/v2-js.md'
             - 'lua': 'plugins/googleanalytics/v2-lua.md'
-    - 'Flurry Analytics': 'plugins/flurryanalytics.md'
+    - 'Flurry Analytics':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/flurryanalytics/v3-cpp.md'
             - 'js': 'plugins/flurryanalytics/v3-js.md'
@@ -57,7 +57,7 @@ pages:
             - 'c++': 'plugins/flurryanalytics/v2-cpp.md'
             - 'js': 'plugins/flurryanalytics/v2-js.md'
             - 'lua': 'plugins/flurryanalytics/v2-lua.md'
-    - 'Tune': 'plugins/tune.md'
+    - 'Tune':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/tune/v3-cpp.md'
             - 'js': 'plugins/tune/v3-js.md'
@@ -66,7 +66,7 @@ pages:
             - 'c++': 'plugins/tune/v2-cpp.md'
             - 'js': 'plugins/tune/v2-js.md'
             - 'lua': 'plugins/tune/v2-lua.md'
-    - 'Kochava': 'plugins/kochava.md'
+    - 'Kochava': 
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/kochava/v3-cpp.md'
             - 'js': 'plugins/kochava/v3-js.md'
