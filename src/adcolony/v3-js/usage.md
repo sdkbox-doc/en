@@ -1,74 +1,52 @@
-
-### Initialize IAP
-* Call `sdkbox.IAP.init();` where appropriate in your code. We
+### Initialize AdColony
+* Call `sdkbox.PluginAdColony.init();` where appropriate in your code. We
 recommend to do this in the `app.js`
 
 * Modify `AppDelegate.cpp` to include the following headers:
 ```cpp
-#include "PluginIAPJS.hpp"
-#include "PluginIAPJSHelper.hpp"
+#include "PluginAdColonyJS.hpp"
 ```
 
 * Modify `AppDelegate.cpp` make sure to call:
 ```cpp
-sc->addRegisterCallback(register_all_PluginIAPJS);
-sc->addRegisterCallback(register_all_PluginIAPJS_helper);
+sc->addRegisterCallback(register_all_PluginAdColonyJS);
 ```
 This registers the Javascript callbacks.
 
-### Retrieve latest Product data
-It's always a good idea to retrieve the latest product data from store when your game starts.
+### Showing Ads
+Display an ad where ever you want from your code:
+```cpp
+sdkbox.PluginAdColony.show("<AD_NAME>");
+```
 
-To retrieve latest IAP data, simply call `sdkbox.IAP.refresh()`.
+### Catch AdColony events (optional)
+This allows you to catch the `AdColony` events so that you can perform operations such as providing player rewards for watching the video.
 
-> `onProductRequestSuccess` if retrieved successfully.
+* Create a listener (demonstrated by logging events):
+```javascript
+/**
+ * The structure of data
+ * data.name : name of the ad (in sdkbox_config.json)
+ * data.zoneID : the zoneID of the ad
+ * data.shown : indicates wether the ad gets shown or closed by user
+ * data.iapEnabled : indicating whether or not the associated ad is an IAP
+ * data.iapProductID : product identifier for the associated ad's IAP
+ * data.iapQuantity : he number of items the user wishes to purchase
+ * data.iapEngagementType : indicating the IAP engagement mechanism
+ */
 
-> `onProductRequestFailure` if exception occurs.
-
-### Make a purchase
-To make a purchase call `sdkbox.IAP.purchase(name)`
-
-__Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store
-
-> `onSuccess` will be triggered if purchase is successful.
-
-> `onFailure` will be triggered if purchase fails.
-
-> `onCanceled` will be triggered if purchase is canceled by user.
-
-### Restore purchase
-To restore purchase call `sdkbox.IAP.restore()`.
-
-> `onRestored` will be triggered if restore is successful.
-
-__Note:__ `onRestored` could be triggered multiple times
-
-### Handling Purchase Events
-This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
-```Javascript
-sdkbox.IAP.setListener({
-    onSuccess : function (product) {
-        //Purchase success
-    },
-    onFailure : function (product, msg) {
-        //Purchase failed
-        //msg is the error message
-    },
-    onCanceled : function (product) {
-        //Purchase was canceled by user
-    },
-    onRestored : function (product) {
-        //Purchase restored
-    },
-    onProductRequestSuccess : function (products) {
-        //Returns you the data for all the iap products
-        //You can get each item using following method
-        for (var i = 0; i < products.length; i++) {
-            // loop
-        }
-    },
-    onProductRequestFailure : function (msg) {
-        //When product refresh request fails.
-    }
+sdkbox.PluginAdColony.setListener({
+		onAdColonyChange : function (data, available) {
+				// Called when AdColony finish loading
+		},
+		onAdColonyReward : function (data, currencyName, amount, success) {
+				// Called when AdColony v4vc ad finish playing
+		},
+		onAdColonyStarted : function (data) {
+				// Called when ad starts playing
+		},
+		onAdColonyFinished : function (data) {
+				// Called when an ad finish displaying
+		}
 });
 ```
