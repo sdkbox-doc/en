@@ -1,14 +1,16 @@
-### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
+### Modify `AppDelegate.cpp`
+* Modify `AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginIAPLua.hpp"
 #include "PluginIAPLuaHelper.hpp"
 ```
-```cpp
-//Only get Lua state if it's not available
+
+* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginIAPLua(<lua_State*>);`. It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`. Here is an example of what this might look like for you:
+```lua
 lua_State *tolua_s = pStack->getLuaState();
 register_all_PluginIAPLua(tolua_s);
 register_all_PluginIAPLua_helper(tolua_s);
+tolua_extensions_ccb_open(tolua_s);
 ```
 
 ### Initialize IAP
@@ -48,28 +50,28 @@ __Note:__ `onRestored` could be triggered multiple times
 This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
 ```lua
 sdkbox.IAP:setListener(function(args)
-        if "onSuccess" == args.event then
-                local product = args.product
-                dump(product, "onSuccess:")
-        elseif "onFailure" == args.event then
-                local product = args.product
-                local msg = args.msg
-                dump(product, "onFailure:")
-                print("msg:", msg)
-        elseif "onCanceled" == args.event then
-                local product = args.product
-                dump(product, "onCanceled:")
-        elseif "onRestored" == args.event then
-                local product = args.product
-                dump(product, "onRestored:")
-        elseif "onProductRequestSuccess" == args.event then
-                local products = args.products
-                dump(products, "onProductRequestSuccess:")
-        elseif "onProductRequestFailure" == args.event then
-                local msg = args.msg
-                print("msg:", msg)
-        else
-                print("unknow event ", args.event)
-        end
+		if "onSuccess" == args.event then
+				local product = args.product
+				dump(product, "onSuccess:")
+		elseif "onFailure" == args.event then
+				local product = args.product
+				local msg = args.msg
+				dump(product, "onFailure:")
+				print("msg:", msg)
+		elseif "onCanceled" == args.event then
+				local product = args.product
+				dump(product, "onCanceled:")
+		elseif "onRestored" == args.event then
+				local product = args.product
+				dump(product, "onRestored:")
+		elseif "onProductRequestSuccess" == args.event then
+				local products = args.products
+				dump(products, "onProductRequestSuccess:")
+		elseif "onProductRequestFailure" == args.event then
+				local msg = args.msg
+				print("msg:", msg)
+		else
+				print("unknow event ", args.event)
+		end
 end)
 ```

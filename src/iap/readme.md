@@ -2,24 +2,21 @@
 Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
 -->
 
-##Overview
-Provides you one stop solution for IAP integration across multiple platform, SDKBOX IAP offers easy to use yet powerful API, really simplify the tedious process of implementing IAPs in your game.
+#In-App Purchase
 
 ##Integration
-
-Use the following command to install SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
+Use the following command to install the SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
 sdkbox import -b iap
 ```
 
 ##Extra steps
-
 <<[extra-step.md]
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-Here is an example of IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or [Google Play Console](https://play.google.com/apps/publish)
+Here is an example of the IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or  replace `<put your googleplay key here>` from your [Google Play Console](https://play.google.com/apps/publish)
 ```json
 "ios" :
 {
@@ -34,7 +31,7 @@ Here is an example of IAP configuration, you need to replace `<put the product i
 "android":
 {
     "iap":{
-        "key":"put your googleplay key here",
+        "key":"<put your googleplay key here>",
         "items":{
           "remove_ads":{
               "id":"<put the product id for android here>"
@@ -43,8 +40,8 @@ Here is an example of IAP configuration, you need to replace `<put the product i
     }
 }
 ```
+
 ##Usage
 <<[usage.md]
 
 <<[api-reference.md]
-

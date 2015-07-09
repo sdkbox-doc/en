@@ -2,7 +2,7 @@ site_name: SDKBOX
 pages:
 - Home: 'index.md'
 - Installer: 'installer.md'
-- Plugins: 
+- Plugins:
     - 'IAP':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/iap/v3-cpp.md'
@@ -13,12 +13,68 @@ pages:
             - 'js': 'plugins/iap/v2-js.md'
             - 'lua': 'plugins/iap/v2-lua.md'
     - 'AdColony': 'plugins/adcolony.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/adcolony/v3-cpp.md'
+            - 'js': 'plugins/adcolony/v3-js.md'
+            - 'lua': 'plugins/adcolony/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/adcolony/v2-cpp.md'
+            - 'js': 'plugins/adcolony/v2-js.md'
+            - 'lua': 'plugins/adcolony/v2-lua.md'
     - 'Chartboost': 'plugins/chartboost.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/chartboost/v3-cpp.md'
+            - 'js': 'plugins/chartboost/v3-js.md'
+            - 'lua': 'plugins/chartboost/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/chartboost/v2-cpp.md'
+            - 'js': 'plugins/chartboost/v2-js.md'
+            - 'lua': 'plugins/chartboost/v2-lua.md'
     - 'Vungle': 'plugins/vungle.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/vungle/v3-cpp.md'
+            - 'js': 'plugins/vungle/v3-js.md'
+            - 'lua': 'plugins/vungle/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/vungle/v2-cpp.md'
+            - 'js': 'plugins/vungle/v2-js.md'
+            - 'lua': 'plugins/vungle/v2-lua.md'
     - 'Google Analytics': 'plugins/googleanalytics.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/googleanalytics/v3-cpp.md'
+            - 'js': 'plugins/googleanalytics/v3-js.md'
+            - 'lua': 'plugins/googleanalytics/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/googleanalytics/v2-cpp.md'
+            - 'js': 'plugins/googleanalytics/v2-js.md'
+            - 'lua': 'plugins/googleanalytics/v2-lua.md'
     - 'Flurry Analytics': 'plugins/flurryanalytics.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/flurryanalytics/v3-cpp.md'
+            - 'js': 'plugins/flurryanalytics/v3-js.md'
+            - 'lua': 'plugins/flurryanalytics/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/flurryanalytics/v2-cpp.md'
+            - 'js': 'plugins/flurryanalytics/v2-js.md'
+            - 'lua': 'plugins/flurryanalytics/v2-lua.md'
     - 'Tune': 'plugins/tune.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/tune/v3-cpp.md'
+            - 'js': 'plugins/tune/v3-js.md'
+            - 'lua': 'plugins/tune/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/tune/v2-cpp.md'
+            - 'js': 'plugins/tune/v2-js.md'
+            - 'lua': 'plugins/tune/v2-lua.md'
     - 'Kochava': 'plugins/kochava.md'
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/kochava/v3-cpp.md'
+            - 'js': 'plugins/kochava/v3-js.md'
+            - 'lua': 'plugins/kochava/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/kochava/v2-cpp.md'
+            - 'js': 'plugins/kochava/v2-js.md'
+            - 'lua': 'plugins/kochava/v2-lua.md'
 - About: 'release-note.md'
 # theme: readthedocs
 google_analytics: ['UA-62579154-2', 'sdkbox-doc.github.io/en']
