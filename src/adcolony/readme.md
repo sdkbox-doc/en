@@ -2,7 +2,7 @@
 Include Base: /Users/niteluo/Projects/store/doc/en/src/adcolony/v3-cpp
 -->
 
-#AdColony, C++
+#AdColony
 
 ##Integration
 Use the following command to install the SDKBOX AdColony plugin, Make sure you setup SDKBOX installer correctly.

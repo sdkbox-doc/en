@@ -2,7 +2,7 @@
 Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
 -->
 
-#In-App Purchase, C++
+#In-App Purchase
 
 ##Integration
 Use the following command to install the SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.

@@ -2,7 +2,7 @@
 Include Base: /Users/niteluo/Projects/store/doc/en/src/vungle/v3-cpp
 -->
 
-#AdColony, C++
+#Vungle
 
 ##Integration
 Use the following command to install the SDKBOX Vungle plugin, Make sure you setup SDKBOX installer correctly.
