@@ -10,14 +10,14 @@ check out the [Getting Started Guide](installer.md)
 ##[SDKBOX IAP](plugins/iap/v3-cpp.md)
 
 #Ad Units
-##[AdColony](plugins/adcolony.md)
-##[Chartboost](plugins/chartboost.md)
-##[Vungle](plugins/vungle.md)
+##[AdColony](plugins/adcolony/v3-cpp.md)
+##[Chartboost](plugins/chartboost/v3-cpp.md)
+##[Vungle](plugins/vungle/v3-cpp.md)
 
 #Analytics
-##[Google Analytics](plugins/googleanalytics.md)
-##[Flurry Analytics](plugins/flurryanalytics.md)
+##[Google Analytics](plugins/googleanalytics/v3-cpp.md)
+##[Flurry Analytics](plugins/flurryanalytics/v3-cpp.md)
 
 #Attribution
-##[Tune](plugins/tune.md)
-##[Kochava](plugins/kochava.md)
+##[Tune](plugins/tune/v3-cpp.md)
+##[Kochava](plugins/kochava/v3-cpp.md)
