@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "SDKBOX\n\n\n\n\nSDKBOX makes it super EASY for Cocos2d-x developers to integrate 3rd party SDKs into their games. We do all the hard, tedious and tricky work so that developers won\u2019t have to. All services are tested and certified. No matter which version of the game engine you are using, C++ or Javascript or Lua, SDKBOX has you covered\n\n\nInstaller\n\n\nSDKBOX Installer is a command line tool for install plugins to your cocos2d-x project, you can integrate a plugin with simply one command\ncheck out the \nGetting Started Guide\n\n\nIn-App Purchases\n\n\nSDKBOX IAP\n\n\nAd Units\n\n\nAdColony\n\n\nChartboost\n\n\nVungle\n\n\nAnalytics\n\n\nGoogle Analytics\n\n\nFlurry Analytics\n\n\nAttribution\n\n\nTune\n\n\nKochava", 
+            "text": "SDKBOX\n\n\n\n\nSDKBOX makes it super EASY for Cocos2d-x developers to integrate 3rd party SDKs into their games. We do all the hard, tedious and tricky work so that developers won\u2019t have to. All services are tested and certified. No matter which version of the game engine you are using, C++ or Javascript or Lua, SDKBOX has you covered", 
             "title": "Home"
         }, 
         {
@@ -11,104 +11,24 @@
             "title": "SDKBOX"
         }, 
         {
-            "location": "/#installer", 
-            "text": "SDKBOX Installer is a command line tool for install plugins to your cocos2d-x project, you can integrate a plugin with simply one command\ncheck out the  Getting Started Guide", 
-            "title": "Installer"
-        }, 
-        {
-            "location": "/#in-app-purchases", 
-            "text": "", 
-            "title": "In-App Purchases"
-        }, 
-        {
-            "location": "/#sdkbox-iap", 
-            "text": "", 
-            "title": "SDKBOX IAP"
-        }, 
-        {
-            "location": "/#ad-units", 
-            "text": "", 
-            "title": "Ad Units"
-        }, 
-        {
-            "location": "/#adcolony", 
-            "text": "", 
-            "title": "AdColony"
-        }, 
-        {
-            "location": "/#chartboost", 
-            "text": "", 
-            "title": "Chartboost"
-        }, 
-        {
-            "location": "/#vungle", 
-            "text": "", 
-            "title": "Vungle"
-        }, 
-        {
-            "location": "/#analytics", 
-            "text": "", 
-            "title": "Analytics"
-        }, 
-        {
-            "location": "/#google-analytics", 
-            "text": "", 
-            "title": "Google Analytics"
-        }, 
-        {
-            "location": "/#flurry-analytics", 
-            "text": "", 
-            "title": "Flurry Analytics"
-        }, 
-        {
-            "location": "/#attribution", 
-            "text": "", 
-            "title": "Attribution"
-        }, 
-        {
-            "location": "/#tune", 
-            "text": "", 
-            "title": "Tune"
-        }, 
-        {
-            "location": "/#kochava", 
-            "text": "", 
-            "title": "Kochava"
-        }, 
-        {
             "location": "/installer/", 
-            "text": "Getting Started with Installer\n\n\nSetup\n\n\nBefore you can run the SDKBOX installer you need to do a few things.\n\n make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in \n/usr/local/bin\n)\n\n make sure you know the path to where you downloaded the SDKBOX plugin bundles.\n\n\nInstalling a Plugin\n\n\nNow we are ready to install a plugin! There isn't much to it. Ready?\n\n\nInstalling for OS X\n\n\n\n\nFrom a command-line, \ncd\n to your applications root directory. Example:\n\n\n\n\ncd ~/MyGame\n\n\n\n\n\n\nNow, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:\n\n\n\n\npath\n/sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz\n\n\n\n\nWhat Next?\n\n\nThe SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:\n\n\n$ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\n Remaining Manual Steps:\n Android Integration:\n Step 2.5 - modify Cocos2dxActivity.java\n Step 2.5 - modify YourGameName.java\n Cocos2d-JS specific\n Step 3.2 - add appropriate headers for this plugin to your class.\n Step 3.2 - add appropriate call to initialize the Javascript callbacks.\n Step 3.2 - call sdkbox.IAP.init(); where appropriate in your code. We recommend to do this in the app.js\n Installation Successful :)\n\n\n\n\nOther Installer switches.\n\n\nThe SDKBOX Installer has several switches that you can use. You can always see these by running \nsdkbox\n by itself or using the \n-h\n help switch:\n\n\n$ \npath\n/sdkbox\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}\n\n\n\n\n\n\n\n\n\n\nswitch\n\n\nalternate switch\n\n\nwhat it does\n\n\n\n\n\n\n\n\n\n\n-h\n\n\n--help\n\n\nshow this help message and exit\n\n\n\n\n\n\n-v\n\n\n--verbose\n\n\nspecify verbosity level\n\n\n\n\n\n\n-p PROJECT\n\n\n--project PROJECT\n\n\npath to project root (defaults to .)\n\n\n\n\n\n\n-b PLUGIN\n\n\n--plugin PLUGIN\n\n\nspecify path to plugin (defaults to .)\n\n\n\n\n\n\n\n\n--dryrun\n\n\ntest install before performing.\n\n\n\n\n\n\n\n\nStaying Up-to-date\n\n\nThe SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.\n\n\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nA newer version of SDKBOX is available, would you like to update to v0.5?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.1 to v0.5 at sdkbox", 
+            "text": "SDKBOX: Installing SDKBOX Plugins using the Installer\n\n\nPreparing to run the SDKBOX Installer\n\n\nBefore you can run the SDKBOX installer you need to do a few things.\n\n make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in \n/usr/local/bin\n)\n\n make sure you know the path to where you downloaded the SDKBOX plugin bundles.\n\n\nInstalling a Plugin using the SDKBOX Installer\n\n\nNow we are ready to install a plugin! There isn't much to it. Ready?\n\n\nInstalling for OS X\n\n\n\n\nFrom a command-line, \ncd\n to your applications root directory. Example:\n\n\n\n\ncd ~/MyGame\n\n\n\n\n\n\nNow, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:\n\n\n\n\nsdkbox import -b iap\n\n\n\n\nWhat Next?\n\n\nThe SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:\n\n\n$ sdkbox import -b iap\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.4\n\nPlease reference to the following section in integration documentation to finish the integration\n\nAndroid Integration:\nStep 2.5 - modify Cocos2dxActivity.java\nInstallation Successful :)\n\n\n\n\nOther Installer switches.\n\n\nThe SDKBOX Installer has several switches that you can use. You can always see these by running \nsdkbox\n by itself or using the \n-h\n help switch:\n\n\n$ \npath\n/sdkbox\n_______ ______  _     _ ______   _____  _     _\n|______ |     \\ |____/  |_____] |     |  \\___/\n______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.4\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}\n\n\n\n\n\n\n\n\n\n\nswitch\n\n\nalternate switch\n\n\nwhat it does\n\n\n\n\n\n\n\n\n\n\n-h\n\n\n--help\n\n\nshow this help message and exit\n\n\n\n\n\n\n-v\n\n\n--verbose\n\n\nspecify verbosity level\n\n\n\n\n\n\n-p PROJECT\n\n\n--project PROJECT\n\n\npath to project root (defaults to .)\n\n\n\n\n\n\n-b PLUGIN\n\n\n--plugin PLUGIN\n\n\nspecify path to plugin (defaults to .)\n\n\n\n\n\n\n\n\n--dryrun\n\n\ntest install before performing.\n\n\n\n\n\n\n\n\nStaying Up-to-date\n\n\nThe SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.\n\n\n_______ ______  _     _ ______   _____  _     _\n|______ |     \\ |____/  |_____] |     |  \\___/\n______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.3\n\nA newer version of SDKBOX is available, would you like to update to v0.5.4?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.5.3 to v0.5.4 at sdkbox", 
             "title": "Installer"
         }, 
         {
-            "location": "/installer/#getting-started-with-installer", 
+            "location": "/installer/#sdkbox-installing-sdkbox-plugins-using-the-installer", 
             "text": "", 
-            "title": "Getting Started with Installer"
+            "title": "SDKBOX: Installing SDKBOX Plugins using the Installer"
         }, 
         {
-            "location": "/installer/#setup", 
+            "location": "/installer/#preparing-to-run-the-sdkbox-installer", 
             "text": "Before you can run the SDKBOX installer you need to do a few things.  make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in  /usr/local/bin )  make sure you know the path to where you downloaded the SDKBOX plugin bundles.", 
-            "title": "Setup"
+            "title": "Preparing to run the SDKBOX Installer"
         }, 
         {
-            "location": "/installer/#installing-a-plugin", 
-            "text": "Now we are ready to install a plugin! There isn't much to it. Ready?  Installing for OS X   From a command-line,  cd  to your applications root directory. Example:   cd ~/MyGame   Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:   path /sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz", 
-            "title": "Installing a Plugin"
-        }, 
-        {
-            "location": "/installer/#what-next", 
-            "text": "The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:  $ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\n Remaining Manual Steps:\n Android Integration:\n Step 2.5 - modify Cocos2dxActivity.java\n Step 2.5 - modify YourGameName.java\n Cocos2d-JS specific\n Step 3.2 - add appropriate headers for this plugin to your class.\n Step 3.2 - add appropriate call to initialize the Javascript callbacks.\n Step 3.2 - call sdkbox.IAP.init(); where appropriate in your code. We recommend to do this in the app.js\n Installation Successful :)", 
-            "title": "What Next?"
-        }, 
-        {
-            "location": "/installer/#other-installer-switches", 
-            "text": "The SDKBOX Installer has several switches that you can use. You can always see these by running  sdkbox  by itself or using the  -h  help switch:  $  path /sdkbox\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}     switch  alternate switch  what it does      -h  --help  show this help message and exit    -v  --verbose  specify verbosity level    -p PROJECT  --project PROJECT  path to project root (defaults to .)    -b PLUGIN  --plugin PLUGIN  specify path to plugin (defaults to .)     --dryrun  test install before performing.", 
-            "title": "Other Installer switches."
-        }, 
-        {
-            "location": "/installer/#staying-up-to-date", 
-            "text": "The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.   _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\n Copyright \u00a9 2015 Chukong Technologies Inc. v0.1\n\nA newer version of SDKBOX is available, would you like to update to v0.5?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.1 to v0.5 at sdkbox", 
-            "title": "Staying Up-to-date"
+            "location": "/installer/#installing-a-plugin-using-the-sdkbox-installer", 
+            "text": "Now we are ready to install a plugin! There isn't much to it. Ready?  Installing for OS X   From a command-line,  cd  to your applications root directory. Example:   cd ~/MyGame   Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:   sdkbox import -b iap  What Next?  The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:  $ sdkbox import -b iap\n _______ ______  _     _ ______   _____  _     _\n |______ |     \\ |____/  |_____] |     |  \\___/\n ______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.4\n\nPlease reference to the following section in integration documentation to finish the integration\n\nAndroid Integration:\nStep 2.5 - modify Cocos2dxActivity.java\nInstallation Successful :)  Other Installer switches.  The SDKBOX Installer has several switches that you can use. You can always see these by running  sdkbox  by itself or using the  -h  help switch:  $  path /sdkbox\n_______ ______  _     _ ______   _____  _     _\n|______ |     \\ |____/  |_____] |     |  \\___/\n______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.4\n\nusage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]\n              {import,restore,symbols,api}     switch  alternate switch  what it does      -h  --help  show this help message and exit    -v  --verbose  specify verbosity level    -p PROJECT  --project PROJECT  path to project root (defaults to .)    -b PLUGIN  --plugin PLUGIN  specify path to plugin (defaults to .)     --dryrun  test install before performing.     Staying Up-to-date  The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.  _______ ______  _     _ ______   _____  _     _\n|______ |     \\ |____/  |_____] |     |  \\___/\n______| |_____/ |    \\_ |_____] |_____| _/   \\_\nCopyright (c) 2015 Chukong Technologies Inc. v0.5.3\n\nA newer version of SDKBOX is available, would you like to update to v0.5.4?\nPlease type Yes, No or Quit Yes\nupdated SDKBOX v0.5.3 to v0.5.4 at sdkbox", 
+            "title": "Installing a Plugin using the SDKBOX Installer"
         }, 
         {
             "location": "/plugins/iap/v3-cpp/", 

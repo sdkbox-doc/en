@@ -625,69 +625,59 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#getting-started-with-installer">Getting Started with Installer</a></li>
+        <li class="main active"><a href="#sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</a></li>
         
-            <li><a href="#setup">Setup</a></li>
+            <li><a href="#preparing-to-run-the-sdkbox-installer">Preparing to run the SDKBOX Installer</a></li>
         
-            <li><a href="#installing-a-plugin">Installing a Plugin</a></li>
-        
-            <li><a href="#what-next">What Next?</a></li>
-        
-            <li><a href="#other-installer-switches">Other Installer switches.</a></li>
-        
-            <li><a href="#staying-up-to-date">Staying Up-to-date</a></li>
+            <li><a href="#installing-a-plugin-using-the-sdkbox-installer">Installing a Plugin using the SDKBOX Installer</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="getting-started-with-installer">Getting Started with Installer</h1>
-<h2 id="setup">Setup</h2>
+<h1 id="sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</h1>
+<h2 id="preparing-to-run-the-sdkbox-installer">Preparing to run the SDKBOX Installer</h2>
 <p>Before you can run the SDKBOX installer you need to do a few things.
 <em> make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)
 </em> make sure you know the path to where you downloaded the SDKBOX plugin bundles.</p>
-<h2 id="installing-a-plugin">Installing a Plugin</h2>
+<h2 id="installing-a-plugin-using-the-sdkbox-installer">Installing a Plugin using the SDKBOX Installer</h2>
 <p>Now we are ready to install a plugin! There isn't much to it. Ready?</p>
 <h3 id="installing-for-os-x">Installing for OS X</h3>
 <ul>
 <li>From a command-line, <code>cd</code> to your applications root directory. Example:</li>
 </ul>
-<pre><code>cd ~/MyGame
+<pre><code class="sh">cd ~/MyGame
 </code></pre>
 
 <ul>
 <li>Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:</li>
 </ul>
-<pre><code>&lt;path&gt;/sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz
+<pre><code class="sh">sdkbox import -b iap
 </code></pre>
 
-<h2 id="what-next">What Next?</h2>
+<h3 id="what-next">What Next?</h3>
 <p>The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:</p>
-<pre><code>$ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import
+<pre><code class="sh">$ sdkbox import -b iap
  _______ ______  _     _ ______   _____  _     _
  |______ |     \ |____/  |_____] |     |  \___/
  ______| |_____/ |    \_ |_____] |_____| _/   \_
- Copyright © 2015 Chukong Technologies Inc. v0.1
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.4
 
- Remaining Manual Steps:
- Android Integration:
- Step 2.5 - modify Cocos2dxActivity.java
- Step 2.5 - modify YourGameName.java
- Cocos2d-JS specific
- Step 3.2 - add appropriate headers for this plugin to your class.
- Step 3.2 - add appropriate call to initialize the Javascript callbacks.
- Step 3.2 - call sdkbox.IAP.init(); where appropriate in your code. We recommend to do this in the app.js
- Installation Successful :)
+Please reference to the following section in integration documentation to finish the integration
+
+Android Integration:
+Step 2.5 - modify Cocos2dxActivity.java
+Installation Successful :)
 </code></pre>
 
-<h2 id="other-installer-switches">Other Installer switches.</h2>
+<h3 id="other-installer-switches">Other Installer switches.</h3>
 <p>The SDKBOX Installer has several switches that you can use. You can always see these by running <code>sdkbox</code> by itself or using the <code>-h</code> help switch:</p>
-<pre><code>$ &lt;path&gt;/sdkbox
- _______ ______  _     _ ______   _____  _     _
- |______ |     \ |____/  |_____] |     |  \___/
- ______| |_____/ |    \_ |_____] |_____| _/   \_
- Copyright © 2015 Chukong Technologies Inc. v0.1
+<pre><code class="sh">$ &lt;path&gt;/sdkbox
+_______ ______  _     _ ______   _____  _     _
+|______ |     \ |____/  |_____] |     |  \___/
+______| |_____/ |    \_ |_____] |_____| _/   \_
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.4
 
 usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
               {import,restore,symbols,api}
@@ -729,16 +719,16 @@ usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
 </tr>
 </tbody>
 </table>
-<h2 id="staying-up-to-date">Staying Up-to-date</h2>
+<h3 id="staying-up-to-date">Staying Up-to-date</h3>
 <p>The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.</p>
-<pre><code> _______ ______  _     _ ______   _____  _     _
- |______ |     \ |____/  |_____] |     |  \___/
- ______| |_____/ |    \_ |_____] |_____| _/   \_
- Copyright © 2015 Chukong Technologies Inc. v0.1
+<pre><code class="sh">_______ ______  _     _ ______   _____  _     _
+|______ |     \ |____/  |_____] |     |  \___/
+______| |_____/ |    \_ |_____] |_____| _/   \_
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.3
 
-A newer version of SDKBOX is available, would you like to update to v0.5?
+A newer version of SDKBOX is available, would you like to update to v0.5.4?
 Please type Yes, No or Quit Yes
-updated SDKBOX v0.1 to v0.5 at sdkbox
+updated SDKBOX v0.5.3 to v0.5.4 at sdkbox
 </code></pre></div>
             
         </div>
