@@ -1,6 +1,9 @@
 ### Initialize Kochava
-* Call `sdkbox.PluginKochava.init();` where appropriate in your code. We
-recommend to do this in the `app.js`
+* Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginKochava.init();
+```
 
 * modify `AppDelegate.cpp` to include the following headers:
 ```cpp

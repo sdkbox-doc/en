@@ -1,9 +1,11 @@
-
 ### Initialize IAP
-* Call `sdkbox::IAP::init();` where appropriate in your code. We
-recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 ```cpp
 #include "PluginIAP/PluginIAP.h"
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginIAP::init();
+}
 ```
 
 ### Retrieve latest Product data

@@ -1,6 +1,9 @@
 ### Initialize AdColony
-* Call `sdkbox.PluginAdColony.init();` where appropriate in your code. We
-recommend to do this in the `app.js`
+* Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginAdColony.init();
+```
 
 * Modify `AppDelegate.cpp` to include the following headers:
 ```cpp
@@ -15,7 +18,7 @@ This registers the Javascript callbacks.
 
 ### Showing Ads
 Display an ad where ever you want from your code:
-```cpp
+```javascript
 sdkbox.PluginAdColony.show("<AD_NAME>");
 ```
 
