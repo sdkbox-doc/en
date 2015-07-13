@@ -1,9 +1,11 @@
 ### Initialize Kochava
-Call `sdkbox::PluginKochava::init();` where appropriate in your code. We recommend
-to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the
-appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 ```cpp
 #include "PluginKochava/PluginKochava.h"
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginKochava::init();
+}
 ```
 
 ### Tracking Events

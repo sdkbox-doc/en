@@ -1,8 +1,11 @@
 ### Initialize Vungle
-Call `sdkbox::PluginVungle::init();` where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the
-appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers. Example:
 ```cpp
 #include "PluginVungle/PluginVungle.h"
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginVungle::init();
+}
 ```
 
 ### Showing Ads

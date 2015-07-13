@@ -1,16 +1,13 @@
 ### Initialize Flurry Analytics
-Call `sdkbox::PluginFlurryAnalytics::init();` where appropriate in your code.
-We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the
-appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers. `init()` and `startSession()` are required. Example:
 ```cpp
 #include "PluginFlurryAnalytics/PluginFlurryAnalytics.h"
-```
-It is also necessary to start a `FlurryAnalytics` session before attempting to use it's functionality. Your code might look like this:
-```cpp
-// init
-sdkbox::PluginFlurryAnalytics::init();
-// start session
-sdkbox::PluginFlurryAnalytics::startSession();
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginFlurryAnalytics::init();
+     // start session
+     sdkbox::PluginFlurryAnalytics::startSession();
+}
 ```
 
 ### Using Flurry Analytics

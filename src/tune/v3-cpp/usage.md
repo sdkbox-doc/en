@@ -1,13 +1,13 @@
 ### Initialize Tune
-Call `sdkbox::PluginTune::init();` where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or
-`AppController:didFinishLaunchingWithOptions()`. Make sure to include the
-appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers. `init()` and `measureSession()` are required. Example:
 ```cpp
 #include "PluginTune/PluginTune.h"
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginTune::init();
+     sdkbox::PluginTune::measureSession();
+}
 ```
-
-It is also necessary to call `sdkbox::PluginTune::measureSession();` where appropriate in your code. We also recommend to do this in the `AppDelegate::applicationWillEnterForeground()` or
-`AppController:didFinishLaunchingWithOptions()`.
 
 ### Using Tune
 After initialization you can begin to use the Tune functionality. Tune uses a concept of __events__ (also known as __MAT Native Event Types__). You log __events__ that you care about and you can later view them using the web-based report viewer. Tune provides a structure for these events in their documentation. Example:
