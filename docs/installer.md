@@ -10,20 +10,20 @@ Now we are ready to install a plugin! There isn't much to it. Ready?
 
 ### Installing for OS X
 * From a command-line, `cd` to your applications root directory. Example:
-```
+```sh
 cd ~/MyGame
 ```
 
 * Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:
-```
-<path>/sdkbox import -b ~/Downloads/sdkbox-iap_cpp_v1.1.tar.gz
+```sh
+sdkbox import -b iap
 ```
 
 ### What Next?
 The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:
-```
-$ sdkbox -b ../sdkbox-iap_cpp_v1.1/ import
-_______ ______  _     _ ______   _____  _     _
+```sh
+$ sdkbox import -b iap
+ _______ ______  _     _ ______   _____  _     _
  |______ |     \ |____/  |_____] |     |  \___/
  ______| |_____/ |    \_ |_____] |_____| _/   \_
 Copyright (c) 2015 Chukong Technologies Inc. v0.5.4
@@ -37,7 +37,7 @@ Installation Successful :)
 
 ### Other Installer switches.
 The SDKBOX Installer has several switches that you can use. You can always see these by running `sdkbox` by itself or using the `-h` help switch:
-```
+```sh
 $ <path>/sdkbox
 _______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
@@ -58,7 +58,7 @@ usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
 
 ### Staying Up-to-date
 The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.
-```
+```sh
 _______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
 ______| |_____/ |    \_ |_____] |_____| _/   \_
