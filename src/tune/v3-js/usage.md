@@ -8,7 +8,7 @@ sdkbox.PluginTune.init();
 * Modify `AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginTuneJS.hpp"
-#include "PluginTuneJSHelper.hpp"
+#include "PluginTuneJSHelper.h"
 ```
 
 * Modify `AppDelegate.cpp` make sure to call:
