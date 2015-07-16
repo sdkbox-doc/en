@@ -1,6 +1,13 @@
 #Release Notes
 ---
 
+##1.1.6
+SDKBOX now supports install plugin online
+SDKBOX online documentation
+Upgrade Vugnle SDK to new version
+ * iOS: 3.1.2
+ * Android: 3.3.1
+
 ##1.1.5
 Fix SDKBOX conflicts with Plugin-x
 
