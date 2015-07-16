@@ -12,7 +12,7 @@ pages:
             - 'c++': 'plugins/adcolony/v2-cpp.md'
             - 'js': 'plugins/adcolony/v2-js.md'
             - 'lua': 'plugins/adcolony/v2-lua.md'
-    - 'AdColony':
+    - 'AgeCheq':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/agecheq/v3-cpp.md'
             - 'js': 'plugins/agecheq/v3-js.md'
