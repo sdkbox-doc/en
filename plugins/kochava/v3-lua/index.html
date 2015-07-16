@@ -144,69 +144,6 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">AgeCheq</a>
-    <ul class="dropdown-menu">
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../agecheq/v3-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../agecheq/v3-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../agecheq/v3-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../agecheq/v2-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../agecheq/v2-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../agecheq/v2-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-    </ul>
-  </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -828,7 +765,7 @@ Here is an example adding <code>Kochava</code>:</p>
 <ul>
 <li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginKochava:init()
+<pre><code class="lua">sdkbox.PluginKochava:init();
 </code></pre>
 
 <h3 id="tracking-events">Tracking Events</h3>
@@ -836,61 +773,61 @@ Here is an example adding <code>Kochava</code>:</p>
 <ul>
 <li>Tracking a <strong>custom</strong> event:</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginKochava:trackEvent(&quot;&lt;EVENT&gt;&quot;, &quot;&lt;VALUE&gt;&quot;)
+<pre><code class="lua">sdkbox.PluginKochava:trackEvent(&quot;&lt;EVENT&gt;&quot;, &quot;&lt;VALUE&gt;&quot;);
 </code></pre>
 
 <ul>
 <li>Tracking a <strong>spatial</strong> event, by providing a title and position in the world:</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginKochava:spatialEvent(&quot;&lt;TITLE&gt;&quot;, &lt;X&gt;, &lt;Y&gt;, &lt;Z&gt;)
+<pre><code class="lua">sdkbox.PluginKochava:spatialEvent(&quot;&lt;TITLE&gt;&quot;, &lt;X&gt;, &lt;Y&gt;, &lt;Z&gt;);
 </code></pre>
 
 <ul>
 <li>Tracking a <strong>referral</strong> event (also known as a deep link):</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginKochava:sendDeepLink(&quot;&lt;URI&gt;&quot;, &quot;&lt;YOUR APP&gt;&quot;)
+<pre><code class="lua">sdkbox.PluginKochava:sendDeepLink(&quot;&lt;URI&gt;&quot;, &quot;&lt;YOUR APP&gt;&quot;);
 </code></pre>
 
 <p><strong>Note:</strong> On Android, the 2nd parameter (<strong><YOUR APP></strong>) is not used. You just need to pass the <strong><URI></strong>.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginKochava:init()
+<pre><code class="javascript">sdkbox.PluginKochava:init();
 </code></pre>
 
 <blockquote>
 <p>initialize the Kochava instance.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:identityLinkEvent()
+<pre><code class="javascript">sdkbox.PluginKochava:identityLinkEvent();
 </code></pre>
 
 <blockquote>
 <p>link one or more udid's to a Kochava id.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:spatialEvent()
+<pre><code class="javascript">sdkbox.PluginKochava:spatialEvent();
 </code></pre>
 
 <blockquote>
 <p>event specifying x, y, and z coordinate to Kochava server for visualizing your data.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:setLimitAdTracking()
+<pre><code class="javascript">sdkbox.PluginKochava:setLimitAdTracking();
 </code></pre>
 
 <blockquote>
 <p>turn ad tracking off or on by using true or false.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:enableLogging(bool)
+<pre><code class="javascript">sdkbox.PluginKochava:enableLogging(bool);
 </code></pre>
 
 <blockquote>
 <p>log? true or false.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:trackEvent()
+<pre><code class="javascript">sdkbox.PluginKochava:trackEvent();
 </code></pre>
 
 <blockquote>
 <p>track a single event, specifying the event and value.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginKochava:shutdown()
+<pre><code class="javascript">sdkbox.PluginKochava:shutdown();
 </code></pre>
 
 <blockquote>
