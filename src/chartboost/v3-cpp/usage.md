@@ -11,7 +11,7 @@ AppDelegate::applicationDidFinishLaunching()
 ### Showing Ads
 Display an ad where ever you want from your code:
 ```cpp
-// To use Chartboost's predefined location
+// To use the Chartboost predefined locations
 sdkbox::PluginChartboost::show(sdkbox::CB_Location_Default);
 // To use customized location
 sdkbox::PluginChartboost::show("your_ad_name");

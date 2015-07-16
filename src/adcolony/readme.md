@@ -7,7 +7,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/adcolony/v3-cpp
 ##Integration
 Use the following command to install the SDKBOX AdColony plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import -b adcolony
+sdkbox import adcolony
 ```
 
 ##Extra steps
@@ -15,7 +15,7 @@ sdkbox import -b adcolony
 <<[proguard.md]
 
 ## Configuration
-SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
+SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the AdColony configuration, you need to replace `<app id>` and `<zone id>` items with your specific [AdColony](https://clients.adcolony.com/login) account information.
 ```json

@@ -7,7 +7,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
 ##Integration
 Use the following command to install the SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import -b iap
+sdkbox import iap
 ```
 
 ##Extra steps

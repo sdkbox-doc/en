@@ -5,21 +5,25 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginAdColony.init();
 ```
 
-* Modify `AppDelegate.cpp` to include the following headers:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAdColonyJS.hpp"
 ```
 
-* Modify `AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginAdColonyJS);
 ```
 This registers the Javascript callbacks.
 
 ### Showing Ads
-Display an ad where ever you want from your code:
-```javascript
-sdkbox.PluginAdColony.show("<AD_NAME>");
+Display an ad wherever you want from your code, by specifying ad type:
+```cpp
+sdkbox.PluginAdColony.show("video");
+```
+or:
+```cpp
+sdkbox.PluginAdColony.show("v4vc");
 ```
 
 ### Catch AdColony events (optional)

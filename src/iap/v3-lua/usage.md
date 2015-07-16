@@ -1,12 +1,15 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginIAPLua.hpp"
 #include "PluginIAPLuaHelper.h"
 ```
 ```cpp
-register_all_PluginIAPLua(L);
-register_PluginIAPLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginIAPLua(L);
+  register_PluginIAPLua_helper(L);
+}
 ```
 
 ### Initialize IAP

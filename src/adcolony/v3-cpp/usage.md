@@ -27,11 +27,10 @@ This allows you to catch the `AdColony` events so that you can perform operation
 class MyClass : public sdkbox::AdColonyListener
 {
 private:
-  void onAdColonyChange(const std::string& zoneID, bool available);
-  void onAdColonyReward(const std::string& zoneID,
-                        const std::string& currencyName,
-                        int amount, bool success);
-  void onAdColonyStarted(const std::string& zoneID);
+  void onAdColonyChange(const sdkbox::AdColonyAdInfo& info, bool available);
+  void onAdColonyReward(const sdkbox::AdColonyAdInfo& info,
+		const std::string& currencyName, int amount, bool success);
+  void onAdColonyStarted(const sdkbox::AdColonyAdInfo& info);
   void onAdColonyFinished(const sdkbox::AdColonyAdInfo& info);
 };
 ```

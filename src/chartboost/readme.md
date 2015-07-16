@@ -7,7 +7,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/chartboost/v3-cpp
 ##Integration
 Use the following command to install the SDKBOX Chartboost plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import -b chartboost
+sdkbox import chartboost
 ```
 
 ##Extra steps

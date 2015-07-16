@@ -1,12 +1,15 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `Chartboost` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `Chartboost` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginChartboostLua.hpp"
 #include "PluginChartboostLuaHelper.h"
 ```
 ```cpp
-register_all_PluginChartboostLua(L);
-register_PluginChartboostLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginChartboostLua(L);
+  register_PluginChartboostLua_helper(L);
+}
 ```
 
 ### Initialize Chartboost
@@ -18,7 +21,7 @@ sdkbox.PluginChartboost:init();
 ### Showing Ads
 Display an ad where ever you want from your code:
 ```lua
-// To use Chartboost's predefined location
+// To use the Chartboost predefined locations
 sdkbox.PluginChartboost:show("Default");
 // To use customized location
 sdkbox.PluginChartboost:show("your_ad_name");
