@@ -764,7 +764,7 @@ SDKBox.init(this);
 <h3 id="modify-lua-code">Modify Lua Code</h3>
 <p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>IAP</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
 <pre><code class="cpp">#include &quot;PluginIAPLua.hpp&quot;
-#include &quot;PluginIAPLuaHelper.h&quot;
+#include &quot;PluginIAPLuaHelper.hpp&quot;
 </code></pre>
 
 <pre><code class="cpp">static int lua_module_register(lua_State* L)
