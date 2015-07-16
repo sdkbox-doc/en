@@ -2,7 +2,7 @@
 Modify `lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginIAPLua.hpp"
-#include "PluginIAPLuaHelper.h"
+#include "PluginIAPLuaHelper.hpp"
 ```
 ```cpp
 register_all_PluginIAPLua(L);
