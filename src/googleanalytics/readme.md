@@ -7,7 +7,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
 ##Integration
 Use the following command to install the SDKBOX Google Analytics plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import -b googleanalytics
+sdkbox import googleanalytics
 ```
 
 ##Extra steps
@@ -15,7 +15,7 @@ sdkbox import -b googleanalytics
 <<[proguard.md]
 
 ## Configuration
-SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
+SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the Google Analytics configuration, you need to replace `<TRACKING_CODE>`  with your specific [__Google Analytics Tracking Code__](https://support.google.com/analytics/answer/1008080?hl=en) account information.
 ```json

@@ -1,12 +1,15 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `AdColony` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `AdColony` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginAdColonyLua.hpp"
 #include "PluginAdColonyLuaHelper.h"
 ```
 ```cpp
-register_all_PluginAdColonyLua(L);
-register_PluginAdColonyLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginAdColonyLua(L);
+  register_PluginAdColonyLua_helper(L);
+}
 ```
 
 ### Initialize AdColony
@@ -16,9 +19,13 @@ sdkbox.PluginAdColony:init();
 ```
 
 ### Showing Ads
-Display an ad where ever you want from your code:
+Display an ad wherever you want from your code, by specifying ad type:
 ```lua
-sdkbox.PluginAdColony:show("<AD_NAME>");
+sdkbox.PluginAdColony:show("video");
+```
+or:
+```lua
+sdkbox.PluginAdColony:show("v4vc");
 ```
 
 ### Catch AdColony events (optional)

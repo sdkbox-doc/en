@@ -1,25 +1,28 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `FlurryAnalytics` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `FlurryAnalytics` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginFlurryAnalyticsLua.hpp"
 #include "PluginFlurryAnalyticsLuaHelper.h"
 ```
 ```cpp
-register_all_PluginFlurryAnalyticsLua(L);
-register_PluginFlurryAnalyticsLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginFlurryAnalyticsLua(L);
+  register_PluginFlurryAnalyticsLua_helper(L);
+}
 ```
 
 ### Initialize Flurry Analytics
 * modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginFlurryAnalytics:init();
+sdkbox.PluginFlurryAnalytics:init()
 ```
 
 ### Using Flurry Analytics
 After initialization you can begin to use the Flurry Analytics functionality. Use `logevent` where ever you want from your code:
 ```lua
 local eventName = "test event1"
-sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+sdkbox.PluginFlurryAnalytics:logEvent(eventName)
 ```
 
 ### Catch Flurry Analytics events (optional)
@@ -33,7 +36,7 @@ sdkbox.PluginFlurryAnalytics:setListener(function(data)
         print("Flurry analytics session exist: ", f:activeSessionExists())
         print("Flurry analytics session: ", f:getSessionID())
         local eventName = "test event1"
-        sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+        sdkbox.PluginFlurryAnalytics:logEvent(eventName)
     end)
 sdkbox.PluginFlurryAnalytics:startSession()
 ```
@@ -42,5 +45,5 @@ sdkbox.PluginFlurryAnalytics:startSession()
 When you are finished using `FlurryAnalytics` or when your games ends. It is necessary to end the `FlurryAnalytics` session. This is a requirement for Android but optional on iOS. Example:
 ```lua
 // end session just valid on android, but it's ok to invoke it on iOS
-sdkbox.PluginFlurryAnalytics:endSession();
+sdkbox.PluginFlurryAnalytics:endSession()
 ```

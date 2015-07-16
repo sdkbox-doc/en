@@ -7,7 +7,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/kochava/v3-cpp
 ##Integration
 Use the following command to install the SDKBOX Kochava plugin, Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import -b kochava
+sdkbox import kochava
 ```
 
 ##Extra steps

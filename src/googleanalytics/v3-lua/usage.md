@@ -1,12 +1,13 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `GoogleAnalytics` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `GoogleAnalytics` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginGoogleAnalyticsLua.hpp"
-#include "PluginGoogleAnalyticsLuaHelper.h"
 ```
 ```cpp
-register_all_PluginGoogleAnalyticsLua(L);
-register_PluginGoogleAnalyticsLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginGoogleAnalyticsLua(L);
+}
 ```
 
 ### Initialize Google Analytics

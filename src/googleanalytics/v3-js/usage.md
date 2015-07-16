@@ -5,12 +5,12 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginGoogleAnalytics.init();
 ```
 
-* modify `AppDelegate.cpp` to include the following headers:
+* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginGoogleAnalyticsJS.hpp"
 ```
 
-* Modify `AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginGoogleAnalyticsJS);
 ```
