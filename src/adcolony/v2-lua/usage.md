@@ -16,13 +16,17 @@ tolua_extensions_ccb_open(tolua_s);
 ### Initialize AdColony
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginAdColony:init();
+sdkbox.PluginAdColony:init()
 ```
 
 ### Showing Ads
-Display an ad where ever you want from your code:
+Display an ad wherever you want from your code, by specifying ad type:
 ```lua
-sdkbox.PluginAdColony:show("<AD_NAME>");
+sdkbox.PluginAdColony:show("video")
+```
+or:
+```lua
+sdkbox.PluginAdColony:show("v4vc")
 ```
 
 ### Catch AdColony events (optional)

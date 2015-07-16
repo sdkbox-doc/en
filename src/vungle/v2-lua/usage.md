@@ -16,14 +16,14 @@ tolua_extensions_ccb_open(tolua_s);
 ### Initialize Vungle
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginVungle:init();
+sdkbox.PluginVungle:init()
 ```
 
 ### Showing Ads
 Display an ad where ever you want from your code, either __video__ or __reward__:
 ```lua
-sdkbox.PluginVungle:show("video");
-sdkbox.PluginVungle:show("reward");
+sdkbox.PluginVungle:show("video")
+sdkbox.PluginVungle:show("reward")
 ```
 
 ### Catch Vungle events (optional)

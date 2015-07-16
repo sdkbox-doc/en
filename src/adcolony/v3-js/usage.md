@@ -8,11 +8,13 @@ sdkbox.PluginAdColony.init();
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAdColonyJS.hpp"
+#include "PluginAdColonyJSHelper.hpp"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginAdColonyJS);
+sc->addRegisterCallback(register_all_PluginAdColonyJS_helper);
 ```
 This registers the Javascript callbacks.
 

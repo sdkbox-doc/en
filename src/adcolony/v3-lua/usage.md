@@ -15,17 +15,17 @@ static int lua_module_register(lua_State* L)
 ### Initialize AdColony
 * modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginAdColony:init();
+sdkbox.PluginAdColony:init()
 ```
 
 ### Showing Ads
 Display an ad wherever you want from your code, by specifying ad type:
 ```lua
-sdkbox.PluginAdColony:show("video");
+sdkbox.PluginAdColony:show("video")
 ```
 or:
 ```lua
-sdkbox.PluginAdColony:show("v4vc");
+sdkbox.PluginAdColony:show("v4vc")
 ```
 
 ### Catch AdColony events (optional)
