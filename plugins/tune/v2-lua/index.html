@@ -144,6 +144,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -782,7 +845,7 @@ tolua_extensions_ccb_open(tolua_s);
 <ul>
 <li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="cpp">sdkbox.PluginTune:init();
+<pre><code class="cpp">sdkbox.PluginTune:init()
 </code></pre>
 
 <h3 id="using-tune">Using Tune</h3>
@@ -808,43 +871,43 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginTune:init();
+<pre><code class="lua">sdkbox.PluginTune:init()
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setDebugMode(enable);
+<pre><code class="lua">sdkbox.PluginTune:setDebugMode(enable)
 </code></pre>
 
 <blockquote>
 <p>Specifies that the server responses should include debug information.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAllowDuplicateRequests(allow);
+<pre><code class="lua">sdkbox.PluginTune:setAllowDuplicateRequests(allow)
 </code></pre>
 
 <blockquote>
 <p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:checkForDeferredDeeplinkWithTimeout(timeout);
+<pre><code class="lua">sdkbox.PluginTune:checkForDeferredDeeplinkWithTimeout(timeout)
 </code></pre>
 
 <blockquote>
 <p>Check for a deferred deeplink entry point upon app installation.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:automateIapEventMeasurement(automate);
+<pre><code class="lua">sdkbox.PluginTune:automateIapEventMeasurement(automate)
 </code></pre>
 
 <blockquote>
 <p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setFacebookEventLogging(logging, limit);
+<pre><code class="lua">sdkbox.PluginTune:setFacebookEventLogging(logging, limit)
 </code></pre>
 
 <blockquote>
 <p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setExistingUser(existingUser);
+<pre><code class="lua">sdkbox.PluginTune:setExistingUser(existingUser)
 </code></pre>
 
 <blockquote>
@@ -852,193 +915,193 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled);
+<pre><code class="lua">sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled)
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Advertising Identifier available in iOS 6.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAppleVendorIdentifier(appleVendorIdentifier);
+<pre><code class="lua">sdkbox.PluginTune:setAppleVendorIdentifier(appleVendorIdentifier)
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Vendor Identifier available in iOS 6.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setCurrencyCode(currencyCode);
+<pre><code class="lua">sdkbox.PluginTune:setCurrencyCode(currencyCode)
 </code></pre>
 
 <blockquote>
 <p>Sets the currency code.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setJailbroken(jailbroken);
+<pre><code class="lua">sdkbox.PluginTune:setJailbroken(jailbroken)
 </code></pre>
 
 <blockquote>
 <p>Sets the jailbroken device flag.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setPackageName(packageName);
+<pre><code class="lua">sdkbox.PluginTune:setPackageName(packageName)
 </code></pre>
 
 <blockquote>
 <p>Sets the package name (bundle identifier).</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setShouldAutoDetectJailbroken(autoDetect);
+<pre><code class="lua">sdkbox.PluginTune:setShouldAutoDetectJailbroken(autoDetect)
 </code></pre>
 
 <blockquote>
 <p>Specifies if the sdk should auto detect if the iOS device is jailbroken.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
+<pre><code class="lua">sdkbox.PluginTune:setShouldAutoGenerateAppleVendorIdentifier(autoGenerate)
 </code></pre>
 
 <blockquote>
 <p>Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setSiteId(siteId);
+<pre><code class="lua">sdkbox.PluginTune:setSiteId(siteId)
 </code></pre>
 
 <blockquote>
 <p>Sets the site ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setTRUSTeId(tpid);
+<pre><code class="lua">sdkbox.PluginTune:setTRUSTeId(tpid)
 </code></pre>
 
 <blockquote>
 <p>Set the TRUSTe Trusted Preference Identifier (TPID).</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setUserEmail(userEmail);
+<pre><code class="lua">sdkbox.PluginTune:setUserEmail(userEmail)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's email address.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setUserId(userId);
+<pre><code class="lua">sdkbox.PluginTune:setUserId(userId)
 </code></pre>
 
 <blockquote>
 <p>Sets the user ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setUserName(userName);
+<pre><code class="lua">sdkbox.PluginTune:setUserName(userName)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's name.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setPhoneNumber(phoneNumber);
+<pre><code class="lua">sdkbox.PluginTune:setPhoneNumber(phoneNumber)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's phone number.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setFacebookUserId(facebookUserId);
+<pre><code class="lua">sdkbox.PluginTune:setFacebookUserId(facebookUserId)
 </code></pre>
 
 <blockquote>
 <p>Set user's Facebook ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setTwitterUserId(twitterUserId);
+<pre><code class="lua">sdkbox.PluginTune:setTwitterUserId(twitterUserId)
 </code></pre>
 
 <blockquote>
 <p>Set user's Twitter ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setGoogleUserId(googleUserId);
+<pre><code class="lua">sdkbox.PluginTune:setGoogleUserId(googleUserId)
 </code></pre>
 
 <blockquote>
 <p>Set user's Google ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAge(long userAge);
+<pre><code class="lua">sdkbox.PluginTune:setAge(long userAge)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's age.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setGender(Gender userGender);
+<pre><code class="lua">sdkbox.PluginTune:setGender(Gender userGender)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's gender.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setLatitude(latitude, longitude);
+<pre><code class="lua">sdkbox.PluginTune:setLatitude(latitude, longitude)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's location.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setLatitude(latitude, longitude, altitude);
+<pre><code class="lua">sdkbox.PluginTune:setLatitude(latitude, longitude, altitude)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's location including altitude.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAppAdTracking(enable);
+<pre><code class="lua">sdkbox.PluginTune:setAppAdTracking(enable)
 </code></pre>
 
 <blockquote>
 <p>Set app-level ad-tracking.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setPayingUser(isPayingUser);
+<pre><code class="lua">sdkbox.PluginTune:setPayingUser(isPayingUser)
 </code></pre>
 
 <blockquote>
 <p>Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setPreloadData(jsonString);
+<pre><code class="lua">sdkbox.PluginTune:setPreloadData(jsonString)
 </code></pre>
 
 <blockquote>
 <p>Sets publisher information for attribution.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:matId();
+<pre><code class="lua">sdkbox.PluginTune:matId()
 </code></pre>
 
 <blockquote>
 <p>Get the MAT ID for this installation (mat_id).</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:openLogId();
+<pre><code class="lua">sdkbox.PluginTune:openLogId()
 </code></pre>
 
 <blockquote>
 <p>Get the MAT log ID for the first app open (open_log_id).</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:isPayingUser();
+<pre><code class="lua">sdkbox.PluginTune:isPayingUser()
 </code></pre>
 
 <blockquote>
 <p>Get whether the user is revenue-generating.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:measureSession();
+<pre><code class="lua">sdkbox.PluginTune:measureSession()
 </code></pre>
 
 <blockquote>
 <p>To be called when an app opens; typically in the AppDelegate::applicationWillEnterForeground() event.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:measureEventName(eventName);
+<pre><code class="lua">sdkbox.PluginTune:measureEventName(eventName)
 </code></pre>
 
 <blockquote>
 <p>Record an event for an Event Name.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:measureEventId(eventId);
+<pre><code class="lua">sdkbox.PluginTune:measureEventId(eventId)
 </code></pre>
 
 <blockquote>
 <p>Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:measureEvent(jsonString);
+<pre><code class="lua">sdkbox.PluginTune:measureEvent(jsonString)
 </code></pre>
 
 <blockquote>
 <p>Record an event with a MATEvent.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setUseCookieTracking(enable);
+<pre><code class="lua">sdkbox.PluginTune:setUseCookieTracking(enable)
 </code></pre>
 
 <blockquote>
 <p>Sets whether or not to use cookie based tracking.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setRedirectUrl(redirectUrl);
+<pre><code class="lua">sdkbox.PluginTune:setRedirectUrl(redirectUrl)
 </code></pre>
 
 <blockquote>
@@ -1048,13 +1111,13 @@ integration of the MAT SDK. The default is to assume a new user.</p>
                                  targetAppAdvertiserId,
                                  targetAdvertiserOfferId,
                                  targetAdvertiserPublisherId,
-                                 shouldRedirect);
+                                 shouldRedirect)
 </code></pre>
 
 <blockquote>
 <p>Start an app-to-app tracking session on the MAT server.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:applicationDidOpenURL(urlString, sourceApplication);
+<pre><code class="lua">sdkbox.PluginTune:applicationDidOpenURL(urlString, sourceApplication)
 </code></pre>
 
 <blockquote>

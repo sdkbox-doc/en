@@ -144,6 +144,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -765,7 +828,7 @@ tolua_extensions_ccb_open(tolua_s);
 <ul>
 <li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="lua">sdkbox.IAP:init();
+<pre><code class="lua">sdkbox.IAP:init()
 </code></pre>
 
 <h3 id="retrieve-latest-product-data">Retrieve latest Product data</h3>
@@ -820,80 +883,80 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.IAP:init();
+<pre><code class="lua">sdkbox.IAP:init()
 </code></pre>
 
 <blockquote>
 <p>Initialize SDKBox IAP</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:setDebug(debug);
+<pre><code class="lua">sdkbox.IAP:setDebug(debug)
 </code></pre>
 
 <blockquote>
 <p>Enable/disable debug logging</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:purchase(name);
+<pre><code class="lua">sdkbox.IAP:purchase(name)
 </code></pre>
 
 <blockquote>
 <p>Make a purchase request</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:refresh();
+<pre><code class="lua">sdkbox.IAP:refresh()
 </code></pre>
 
 <blockquote>
 <p>Refresh the IAP data(title, price, description)</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:restore();
+<pre><code class="lua">sdkbox.IAP:restore()
 </code></pre>
 
 <blockquote>
 <p>Restore purchase</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:setListener(listener);
+<pre><code class="lua">sdkbox.IAP:setListener(listener)
 </code></pre>
 
 <blockquote>
 <p>Set listener for IAP</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:removeListener();
+<pre><code class="lua">sdkbox.IAP:removeListener()
 </code></pre>
 
 <blockquote>
 <p>Remove listener for IAP</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">sdkbox.IAP:onSuccess(product);
+<pre><code class="lua">sdkbox.IAP:onSuccess(product)
 </code></pre>
 
 <blockquote>
 <p>Called when an IAP processed successfully</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:onFailure(product, message);
+<pre><code class="lua">sdkbox.IAP:onFailure(product, message)
 </code></pre>
 
 <blockquote>
 <p>Called when an IAP fails</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:onCanceled(product);
+<pre><code class="lua">sdkbox.IAP:onCanceled(product)
 </code></pre>
 
 <blockquote>
 <p>Called when user canceled the IAP</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:onRestored(product);
+<pre><code class="lua">sdkbox.IAP:onRestored(product)
 </code></pre>
 
 <blockquote>
 <p>Called when server returns the IAP items user already purchased</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:onProductRequestSuccess(products);
+<pre><code class="lua">sdkbox.IAP:onProductRequestSuccess(products)
 </code></pre>
 
 <blockquote>
 <p>Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:onProductRequestFailure(message);
+<pre><code class="lua">sdkbox.IAP:onProductRequestFailure(message)
 </code></pre>
 
 <blockquote>

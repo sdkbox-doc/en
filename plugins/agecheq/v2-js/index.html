@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	<title>c++ - SDKBOX</title>
+	<title>js - SDKBOX</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -154,19 +154,19 @@
         
             
 <li >
-    <a href="../../agecheq/v3-cpp/">c++</a>
+    <a href="../v3-cpp/">c++</a>
 </li>
 
         
             
 <li >
-    <a href="../../agecheq/v3-js/">js</a>
+    <a href="../v3-js/">js</a>
 </li>
 
         
             
 <li >
-    <a href="../../agecheq/v3-lua/">lua</a>
+    <a href="../v3-lua/">lua</a>
 </li>
 
         
@@ -181,19 +181,19 @@
         
             
 <li >
-    <a href="../../agecheq/v2-cpp/">c++</a>
+    <a href="../v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">js</a>
 </li>
 
         
             
 <li >
-    <a href="../../agecheq/v2-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../agecheq/v2-lua/">lua</a>
+    <a href="../v2-lua/">lua</a>
 </li>
 
         
@@ -469,19 +469,19 @@
         
             
 <li >
-    <a href="../v3-cpp/">c++</a>
+    <a href="../../kochava/v3-cpp/">c++</a>
 </li>
 
         
             
 <li >
-    <a href="../v3-js/">js</a>
+    <a href="../../kochava/v3-js/">js</a>
 </li>
 
         
             
 <li >
-    <a href="../v3-lua/">lua</a>
+    <a href="../../kochava/v3-lua/">lua</a>
 </li>
 
         
@@ -495,20 +495,20 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">c++</a>
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
 </li>
 
         
             
 <li >
-    <a href="../v2-js/">js</a>
+    <a href="../../kochava/v2-js/">js</a>
 </li>
 
         
             
 <li >
-    <a href="../v2-lua/">lua</a>
+    <a href="../../kochava/v2-lua/">lua</a>
 </li>
 
         
@@ -667,12 +667,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../v3-lua/">
+                        <a rel="next" href="../v2-cpp/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../v2-js/">
+                        <a rel="prev" href="../v2-lua/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -688,7 +688,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#tune">Tune</a></li>
+        <li class="main active"><a href="#agecheq">AgeCheq</a></li>
         
             <li><a href="#integration">Integration</a></li>
         
@@ -706,13 +706,13 @@
                 <div class="col-md-9" role="main">
 
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/kochava/v3-cpp
+Include Base: /Users/niteluo/Projects/store/doc/en/src/agecheq/v3-cpp
 -->
 
-<h1 id="tune">Tune</h1>
+<h1 id="agecheq">AgeCheq</h1>
 <h2 id="integration">Integration</h2>
-<p>Use the following command to install the SDKBOX Kochava plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import kochava
+<p>Use the following command to install the SDKBOX AgeCheq plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import agecheq
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -780,131 +780,134 @@ import com.sdkbox.plugin.SDKBox;
     }
 </code></pre>
 
+<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code># If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Kochava configuration, you need to replace
-<code>&lt;KOCHAVA_APP_ID&gt;</code> with your specific <a href="https://kochava.com/">Kochava</a> account information.
-Here is an example adding <code>Kochava</code>:</p>
-<pre><code class="json">&quot;kochava&quot; :
-{
-    &quot;kochavaAppId&quot; : &quot;&lt;KOCHAVA_APP_ID&gt;&quot;,
-    &quot;enableLogging&quot; : 1,
-    &quot;retrieveAttribution&quot; : 1
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the AgeCheq configuration, you need to replace <code>&lt;app id&gt;</code> and <code>&lt;zone id&gt;</code> items with your specific <a href="http://developer.agecheq.com/"><strong>AgeCheq ID</strong></a> account information.</p>
+<pre><code class="json">&quot;AgeCheq&quot;:{
+            &quot;AppID&quot;:&quot;ca0e20a3-3bb8-42e1-a5ac-55af7f63dbfc&quot;,
+            &quot;DeveloperKey&quot;:&quot;9102be76-232b-49b1-9c4f-1c6806d3a975&quot;
 }
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="initialize-kochava">Initialize Kochava</h3>
-<p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
-<pre><code class="cpp">#include &quot;PluginKochava/PluginKochava.h&quot;
-AppDelegate::applicationDidFinishLaunching()
-{
-     sdkbox::PluginKochava::init();
-}
-</code></pre>
-
-<h3 id="tracking-events">Tracking Events</h3>
-<p>Kochava provides tracking <strong>custom</strong>, <strong>spatial</strong> or <strong>referral</strong> events.</p>
+<h3 id="initialize-agecheq">Initialize AgeCheq</h3>
 <ul>
-<li>Tracking a <strong>custom</strong> event:</li>
+<li>Initialize the plugin by calling <code>init()</code> where appropriate in your code. We
+recommend to do this in the <code>app.js</code>. Example:</li>
 </ul>
-<pre><code class="cpp">sdkbox::PluginKochava::trackEvent(&quot;&lt;EVENT&gt;&quot;, &quot;&lt;VALUE&gt;&quot;);
+<pre><code class="javascript">sdkbox.PluginAgeCheq.init();
 </code></pre>
 
 <ul>
-<li>Tracking a <strong>spatial</strong> event, by providing a title and position in the world:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
-<pre><code class="cpp">sdkbox::PluginKochava::spatialEvent(&quot;&lt;TITLE&gt;&quot;, &lt;X&gt;, &lt;Y&gt;, &lt;Z&gt;);
+<pre><code class="cpp">#include &quot;PluginAgeCheqJS.hpp&quot;
+#include &quot;PluginAgeCheqJSHelper.hpp&quot;
 </code></pre>
 
 <ul>
-<li>Tracking a <strong>referral</strong> event (also known as a deep link):</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
-<pre><code class="cpp">sdkbox::PluginKochava::sendDeepLink(&quot;&lt;URI&gt;&quot;, &quot;&lt;YOUR APP&gt;&quot;);
+<pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginAgeCheqJS);
+sc-&gt;addRegisterCallback(register_all_PluginAgeCheqJS_helper);
 </code></pre>
 
-<p><strong>Note:</strong> On Android, the 2nd parameter (<strong><YOUR APP></strong>) is not used. You just
-need to pass the <strong><URI></strong>.</p>
-<h3 id="catch-kochava-events-optional">Catch Kochava events (optional)</h3>
-<p>This allows you to poll and catch <code>Kochava</code> events so that you get notified when
-referral or attribution data is returned from the server or secondly get notified
-when a user has crossed a beacon boundary, i.e. the user is near a Starbucks or
-perhaps walks into a Starbucks. The implementation here is simple using a <strong>lambda</strong> function:</p>
-<pre><code class="cpp">auto callback = [](const std::map&lt;std::string, std::string&gt;* attribution)
-{
-  if (attribution)
-  {
-      typedef std::map&lt;std::string, std::string&gt; map_type;
-      const map_type&amp; m = * attribution;
-
-      for (map_type::const_iterator it = m.begin(); it != m.end(); ++it)
-      {
-          const map_type::value_type&amp; kv = * it;
-          printf(&quot;%s -&gt; %s&quot;, kv.first.c_str(), kv.second.c_str());
-      }
-  }
-};
-
-sdkbox::PluginKochava::setAttributionCallback(callback);
+<p>This registers the Javascript callbacks.</p>
+<h3 id="using-agecheq">Using AgeCheq</h3>
+<p>After initialization you can begin to use the AgeCheq functionality. Use <code>check</code> wherever you want from your code:</p>
+<pre><code class="cpp">sdkbox.PluginAgeCheq.check(&quot;agecheqPin&quot;);
 </code></pre>
 
-<p><strong>Note</strong>: Asking for attribution data could take a while. You can  poll
- <code>getAttributionData()</code> until you get something back that is not <strong>null</strong>.</p>
+<h3 id="catch-agecheq-events-optional">Catch AgeCheq events (optional)</h3>
+<p>This allows you to catch the <code>AgeCheq</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
+<pre><code class="javascript">sdkbox.PluginAgeCheq.init();
+sdkbox.PluginAgeCheq.setListener({
+    checkResponse : function (rtn, rtnmsg, apiversion, checktype, appauthorized, appblocked, parentverified, under13, under18, underdevage, trials) {
+        cc.log(&quot;checkResponse rtn:&quot; + rtn + &quot; rtnmsg:&quot; + rtnmsg
+            + &quot; apiversion:&quot; + apiversion + &quot; checktype:&quot; + checktype
+            + &quot; appauthorized:&quot; + appauthorized + &quot; appblocked:&quot; + appblocked
+            + &quot; parentverified:&quot; + parentverified + &quot; under13:&quot; + under13
+            + &quot; under18:&quot; + under18 + &quot; underdevage:&quot; + underdevage + &quot; trials:&quot; + trials);
+    },
+    associateDataResponse : function (rtn, rtnmsg) {
+        cc.log(&quot;associateDataResponse rtn:&quot; + rtn + &quot; rtnmsg:&quot; + rtnmsg);
+    }
+})
+sdkbox.PluginAgeCheq.check(&quot;agecheqPin&quot;);
+</code></pre>
+
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init();
+<pre><code class="javascript">sdkbox.PluginAgeCheq.init();
 </code></pre>
 
 <blockquote>
-<p>initialize the Kochava service.</p>
+<p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void shutdown();
+<pre><code class="javascript">sdkbox.PluginAgeCheq.setListener(listener);
 </code></pre>
 
 <blockquote>
-<p>shutdown the Kochava service.</p>
+<p>Set listener to listen for adcolony events</p>
 </blockquote>
-<pre><code class="cpp">static void enableLogging(bool enabled);
+<pre><code class="javascript">sdkbox.PluginAgeCheq.check(ACPin);
 </code></pre>
 
 <blockquote>
-<p>log? true or false.</p>
+<p>The AgeCheq check method is used to determine the status of a child’s relationship with a particular
+ online service. It requires the developer’s unique identifier, the child’s AgeCheq PIN as set up by
+ their parent, and the unique identifier of the game or application.</p>
 </blockquote>
-<pre><code class="cpp">static void trackEvent(const char* event, const char* value);
+<pre><code class="javascript">sdkbox.PluginAgeCheq.associateData(ACPin, Data);
 </code></pre>
 
 <blockquote>
-<p>track a single event, specifying the event and value.</p>
+<p>The associateData method allows you to save a string of information linking it to a particular
+ AgeCheqPIN for a specific game or app. You’ll want to use that data later if a parent should
+ unauthorize your online service.</p>
 </blockquote>
-<pre><code class="cpp">static void identityLinkEvent(const std::map&lt;std::string, std::string&gt;&amp; data);
+<h3 id="listeners">Listeners</h3>
+<pre><code class="javascript">checkResponse(rtn,
+               rtnmsg,
+               apiversion,
+               checktype,
+               appauthorized,
+               appblocked,
+               parentverified,
+               under13,
+               under18,
+               underdevage,
+               trials);
 </code></pre>
 
 <blockquote>
-<p>link one or more udid's to a Kochava id.</p>
+<p>The delegate named checkResponse is triggered once the check command executes. It contains several
+ status variables that you can check against.</p>
 </blockquote>
-<pre><code class="cpp">static void spatialEvent(const char* title, float x, float y, float z);
+<pre><code class="javascript">associateDataResponse(rtn, rtnmsg);
 </code></pre>
 
 <blockquote>
-<p>event specifying x, y, and z coordinate to Kochava server for visualizing your data.</p>
-</blockquote>
-<pre><code class="cpp">static void setLimitAdTracking(bool limitAdTracking);
-</code></pre>
-
-<blockquote>
-<p>turn ad tracking off or on by using true or false.</p>
-</blockquote>
-<pre><code class="cpp">const std::map&lt;std::string, std::string&gt;&amp; retrieveAttribution() const;
-</code></pre>
-
-<blockquote>
-<p>returns the attribution data.</p>
-</blockquote>
-<pre><code class="cpp">void sendDeepLink(const char* url, const char* application);
-</code></pre>
-
-<blockquote>
-<p>send a referral to where your app was opened from.</p>
+<p>The delegate named associateDataResponse is triggered once the associateData command executes.</p>
 </blockquote></div>
             
         </div>
