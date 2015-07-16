@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/tune/v3-cpp
 <h1 id="tune">Tune</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Tune plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b tune
+<pre><code class="bash">sdkbox import tune
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -781,13 +781,16 @@ Here is an example adding <code>Tune</code>:</p>
 
 <h2 id="usage">Usage</h2>
 <h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>lua_module_register.h</code> to include the necessary headers and calls to register <code>Tune</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
+<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>Tune</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
 <pre><code class="cpp">#include &quot;PluginTuneLua.hpp&quot;
 #include &quot;PluginTuneLuaHelper.h&quot;
 </code></pre>
 
-<pre><code class="cpp">register_all_PluginTuneLua(L);
-register_PluginTuneLua_helper(L);
+<pre><code class="cpp">static int lua_module_register(lua_State* L)
+{
+  register_all_PluginTuneLua(L);
+  register_PluginTuneLua_helper(L);
+}
 </code></pre>
 
 <h3 id="initialize-tune">Initialize Tune</h3>

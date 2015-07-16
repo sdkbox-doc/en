@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/adcolony/v3-cpp
 <h1 id="adcolony">AdColony</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX AdColony plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b adcolony
+<pre><code class="bash">sdkbox import adcolony
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -732,7 +732,7 @@ import com.sdkbox.plugin.SDKBox;
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the AdColony configuration, you need to replace <code>&lt;app id&gt;</code> and <code>&lt;zone id&gt;</code> items with your specific <a href="https://clients.adcolony.com/login">AdColony</a> account information.</p>
 <pre><code class="json">&quot;AdColony&quot;:{
     &quot;id&quot;:&quot;&lt;app id&gt;&quot;,

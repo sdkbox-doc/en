@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/chartboost/v3-cpp
 <h1 id="chartboost">Chartboost</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Chartboost plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b chartboost
+<pre><code class="bash">sdkbox import chartboost
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -763,7 +763,7 @@ AppDelegate::applicationDidFinishLaunching()
 
 <h3 id="showing-ads">Showing Ads</h3>
 <p>Display an ad where ever you want from your code:</p>
-<pre><code class="cpp">// To use Chartboost's predefined location
+<pre><code class="cpp">// To use the Chartboost predefined locations
 sdkbox::PluginChartboost::show(sdkbox::CB_Location_Default);
 // To use customized location
 sdkbox::PluginChartboost::show(&quot;your_ad_name&quot;);

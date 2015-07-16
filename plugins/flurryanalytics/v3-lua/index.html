@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/flurryanalytics/v3-cpp
 <h1 id="flurry-analytics">Flurry Analytics</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Flurry Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b flurryanalytics
+<pre><code class="bash">sdkbox import flurryanalytics
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -795,26 +795,29 @@ Here is an example adding <code>FlurryAnalytics</code> to iOS:</p>
 
 <h2 id="usage">Usage</h2>
 <h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>lua_module_register.h</code> to include the necessary headers and calls to register <code>FlurryAnalytics</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
+<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>FlurryAnalytics</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
 <pre><code class="cpp">#include &quot;PluginFlurryAnalyticsLua.hpp&quot;
 #include &quot;PluginFlurryAnalyticsLuaHelper.h&quot;
 </code></pre>
 
-<pre><code class="cpp">register_all_PluginFlurryAnalyticsLua(L);
-register_PluginFlurryAnalyticsLua_helper(L);
+<pre><code class="cpp">static int lua_module_register(lua_State* L)
+{
+  register_all_PluginFlurryAnalyticsLua(L);
+  register_PluginFlurryAnalyticsLua_helper(L);
+}
 </code></pre>
 
 <h3 id="initialize-flurry-analytics">Initialize Flurry Analytics</h3>
 <ul>
 <li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginFlurryAnalytics:init();
+<pre><code class="lua">sdkbox.PluginFlurryAnalytics:init()
 </code></pre>
 
 <h3 id="using-flurry-analytics">Using Flurry Analytics</h3>
 <p>After initialization you can begin to use the Flurry Analytics functionality. Use <code>logevent</code> where ever you want from your code:</p>
 <pre><code class="lua">local eventName = &quot;test event1&quot;
-sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+sdkbox.PluginFlurryAnalytics:logEvent(eventName)
 </code></pre>
 
 <h3 id="catch-flurry-analytics-events-optional">Catch Flurry Analytics events (optional)</h3>
@@ -827,7 +830,7 @@ sdkbox.PluginFlurryAnalytics:setListener(function(data)
         print(&quot;Flurry analytics session exist: &quot;, f:activeSessionExists())
         print(&quot;Flurry analytics session: &quot;, f:getSessionID())
         local eventName = &quot;test event1&quot;
-        sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+        sdkbox.PluginFlurryAnalytics:logEvent(eventName)
     end)
 sdkbox.PluginFlurryAnalytics:startSession()
 </code></pre>
@@ -835,7 +838,7 @@ sdkbox.PluginFlurryAnalytics:startSession()
 <h3 id="ending-flurry-analytics-android-only">Ending Flurry Analytics (Android only)</h3>
 <p>When you are finished using <code>FlurryAnalytics</code> or when your games ends. It is necessary to end the <code>FlurryAnalytics</code> session. This is a requirement for Android but optional on iOS. Example:</p>
 <pre><code class="lua">// end session just valid on android, but it's ok to invoke it on iOS
-sdkbox.PluginFlurryAnalytics:endSession();
+sdkbox.PluginFlurryAnalytics:endSession()
 </code></pre>
 
 <h2 id="api-reference">API Reference</h2>

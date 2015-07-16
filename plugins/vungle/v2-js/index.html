@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/vungle/v3-cpp
 <h1 id="vungle">Vungle</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Vungle plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b vungle
+<pre><code class="bash">sdkbox import vungle
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -780,14 +780,14 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 </code></pre>
 
 <ul>
-<li>modify <code>AppDelegate.cpp</code> to include the following headers:</li>
+<li>modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginVungleJS.hpp&quot;
 #include &quot;PluginVungleJSHelper.h&quot;
 </code></pre>
 
 <ul>
-<li>modify <code>AppDelegate.cpp</code> make sure to call:</li>
+<li>modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginVungleJS);
 sc-&gt;addRegisterCallback(register_PluginVungelJs_helper);

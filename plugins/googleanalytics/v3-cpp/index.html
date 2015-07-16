@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
 <h1 id="google-analytics">Google Analytics</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Google Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b googleanalytics
+<pre><code class="bash">sdkbox import googleanalytics
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -766,7 +766,7 @@ SDKBox.init(this);
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;TRACKING_CODE&gt;</code>  with your specific <a href="https://support.google.com/analytics/answer/1008080?hl=en"><strong>Google Analytics Tracking Code</strong></a> account information.</p>
 <pre><code class="json">&quot;GoogleAnalytics&quot; : {
     &quot;trackingCode&quot; : &quot;&lt;TRACKING_CODE&gt;&quot;
@@ -841,7 +841,7 @@ inside your app you'd like to identify at analytics panel.</p>
 </code></pre>
 
 <blockquote>
-<p>GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
+<p>sdkbox::PluginGoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
 </blockquote>
 <h4 id="crashes-and-exceptions-crash-and-exception-measurement-allows-you-to-measure-the-number-and-type-of-caught-and-uncaught-crashes-and-exceptions-that-occur-in-your-game">Crashes and Exceptions. Crash and exception measurement allows you to measure the number and type of caught and uncaught crashes and exceptions that occur in your game.</h4>
 <pre><code class="cpp">static void logException(std::string exceptionDescription, bool isFatal);

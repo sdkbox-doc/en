@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
 <h1 id="in-app-purchase">In-App Purchase</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b iap
+<pre><code class="bash">sdkbox import iap
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -762,13 +762,16 @@ SDKBox.init(this);
 
 <h2 id="usage">Usage</h2>
 <h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>lua_module_register.h</code> to include the necessary headers and calls to register <code>IAP</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
+<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>IAP</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
 <pre><code class="cpp">#include &quot;PluginIAPLua.hpp&quot;
 #include &quot;PluginIAPLuaHelper.h&quot;
 </code></pre>
 
-<pre><code class="cpp">register_all_PluginIAPLua(L);
-register_PluginIAPLua_helper(L);
+<pre><code class="cpp">static int lua_module_register(lua_State* L)
+{
+  register_all_PluginIAPLua(L);
+  register_PluginIAPLua_helper(L);
+}
 </code></pre>
 
 <h3 id="initialize-iap">Initialize IAP</h3>

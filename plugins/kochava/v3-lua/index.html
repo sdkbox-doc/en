@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/kochava/v3-cpp
 <h1 id="tune">Tune</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Kochava plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b kochava
+<pre><code class="bash">sdkbox import kochava
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -750,10 +750,15 @@ Here is an example adding <code>Kochava</code>:</p>
 <h2 id="usage">Usage</h2>
 <h3 id="modify-lua-code">Modify Lua Code</h3>
 <ul>
-<li>Modify <code>lua_module_register.h</code> to include the necessary headers and calls to register <code>Kochava</code> with Lua. <strong>Note:</strong> this takes a parameter of <strong>lua_State*</strong>:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>Kochava</code> with Lua. <strong>Note:</strong> this takes a parameter of <strong>lua_State*</strong>:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginKochavaLua.hpp&quot;
-register_all_PluginKochavaLua(&lt;lua_State*&gt;);
+</code></pre>
+
+<pre><code class="cpp">static int lua_module_register(lua_State* L)
+{
+  register_all_PluginKochavaLua(&lt;lua_State*&gt;);
+}
 </code></pre>
 
 <h3 id="initialize-kochava">Initialize Kochava</h3>

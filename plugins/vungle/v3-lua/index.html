@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/vungle/v3-cpp
 <h1 id="vungle">Vungle</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Vungle plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b vungle
+<pre><code class="bash">sdkbox import vungle
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -789,13 +789,16 @@ Here is an example adding <code>Vungle</code> to iOS:</p>
 
 <h2 id="usage">Usage</h2>
 <h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>lua_module_register.h</code> to include the necessary headers and calls to register <code>Vungle</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
+<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>Vungle</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
 <pre><code class="cpp">#include &quot;PluginVungleLua.hpp&quot;
 #include &quot;PluginVungleLuaHelper.h&quot;
 </code></pre>
 
-<pre><code class="cpp">register_all_PluginVungleLua(L);
-register_PluginVungleLua_helper(L);
+<pre><code class="cpp">static int lua_module_register(lua_State* L)
+{
+  register_all_PluginVungleLua(L);
+  register_PluginVungleLua_helper(L);
+}
 </code></pre>
 
 <h3 id="initialize-vungle">Initialize Vungle</h3>

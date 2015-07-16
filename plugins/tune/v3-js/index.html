@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/tune/v3-cpp
 <h1 id="tune">Tune</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Tune plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b tune
+<pre><code class="bash">sdkbox import tune
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -789,14 +789,14 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 </code></pre>
 
 <ul>
-<li>Modify <code>AppDelegate.cpp</code> to include the following headers:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginTuneJS.hpp&quot;
 #include &quot;PluginTuneJSHelper.hpp&quot;
 </code></pre>
 
 <ul>
-<li>Modify <code>AppDelegate.cpp</code> make sure to call:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginTuneJS);
 sc-&gt;addRegisterCallback(register_PluginTuneJs_helper);

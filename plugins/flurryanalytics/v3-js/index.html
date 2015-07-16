@@ -649,7 +649,7 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/flurryanalytics/v3-cpp
 <h1 id="flurry-analytics">Flurry Analytics</h1>
 <h2 id="integration">Integration</h2>
 <p>Use the following command to install the SDKBOX Flurry Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import -b flurryanalytics
+<pre><code class="bash">sdkbox import flurryanalytics
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -803,14 +803,14 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 </code></pre>
 
 <ul>
-<li>Modify <code>AppDelegate.cpp</code> to include the following headers:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginFlurryAnalyticsJS.hpp&quot;
 #include &quot;PluginFlurryAnalyticsJSHelper.h&quot;
 </code></pre>
 
 <ul>
-<li>Modify <code>AppDelegate.cpp</code> make sure to call:</li>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginFlurryAnalyticsJS);
 sc-&gt;addRegisterCallback(register_PluginFlurryAnalyticsJs_helper);
