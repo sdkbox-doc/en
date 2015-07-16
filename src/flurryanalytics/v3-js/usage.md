@@ -5,13 +5,13 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginFlurryAnalytics.init();
 ```
 
-* Modify `AppDelegate.cpp` to include the following headers:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFlurryAnalyticsJS.hpp"
 #include "PluginFlurryAnalyticsJSHelper.h"
 ```
 
-* Modify `AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginFlurryAnalyticsJS);
 sc->addRegisterCallback(register_PluginFlurryAnalyticsJs_helper);

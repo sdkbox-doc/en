@@ -54,7 +54,7 @@ static void logEvent(std::string eventCategory,
                       std::string eventLabel,
                       long value);
 ```
-> GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);
+> sdkbox::PluginGoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);
 
 #### Crashes and Exceptions. Crash and exception measurement allows you to measure the number and type of caught and uncaught crashes and exceptions that occur in your game.
 

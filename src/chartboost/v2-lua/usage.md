@@ -22,7 +22,7 @@ sdkbox.PluginChartboost:init();
 ### Showing Ads
 Display an ad where ever you want from your code:
 ```lua
-// To use Chartboost's predefined location
+// To use the Chartboost predefined locations
 sdkbox.PluginChartboost:show("Default");
 // To use customized location
 sdkbox.PluginChartboost:show("your_ad_name");

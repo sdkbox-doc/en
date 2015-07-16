@@ -16,22 +16,20 @@ cd ~/MyGame
 
 * Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:
 ```sh
-sdkbox import -b iap
+sdkbox import iap
 ```
 
 ### What Next?
 The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:
 ```sh
-$ sdkbox import -b iap
- _______ ______  _     _ ______   _____  _     _
- |______ |     \ |____/  |_____] |     |  \___/
- ______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.4
+$ sdkbox import iap
+_______ ______  _     _ ______   _____  _     _
+|______ |     \ |____/  |_____] |     |  \___/
+______| |_____/ |    \_ |_____] |_____| _/   \_
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.7
 
-Please reference to the following section in integration documentation to finish the integration
-
-Android Integration:
-Step 2.5 - modify Cocos2dxActivity.java
+Please reference the online documentation to finish the integration:
+http://sdkbox-doc.github.io/en/plugins/iap/v3-cpp/
 Installation Successful :)
 ```
 
@@ -42,7 +40,7 @@ $ <path>/sdkbox
 _______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
 ______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.4
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.7
 
 usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
               {import,restore,symbols,api}
@@ -62,9 +60,9 @@ The SDKBOX installer automatically checks for updates to itself. It will ask for
 _______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
 ______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.3
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.6
 
-A newer version of SDKBOX is available, would you like to update to v0.5.4?
+A newer version of SDKBOX is available, would you like to update to v0.5.7?
 Please type Yes, No or Quit Yes
-updated SDKBOX v0.5.3 to v0.5.4 at sdkbox
+updated SDKBOX v0.5.6 to v0.5.7 at sdkbox
 ```

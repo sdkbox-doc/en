@@ -5,13 +5,13 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginVungle.init();
 ```
 
-* modify `AppDelegate.cpp` to include the following headers:
+* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginVungleJS.hpp"
 #include "PluginVungleJSHelper.h"
 ```
 
-* modify `AppDelegate.cpp` make sure to call:
+* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginVungleJS);
 sc->addRegisterCallback(register_PluginVungelJs_helper);

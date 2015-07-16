@@ -5,13 +5,13 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginChartboost.init();
 ```
 
-* Modify `AppDelegate.cpp` to include the following headers:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginChartboostJS.hpp"
 #include "PluginChartboostJSHelper.h"
 ```
 
-* Modify `AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginChartboostJS);
 sc->addRegisterCallback(register_PluginChartboostJs_helper);
@@ -21,7 +21,7 @@ This registers the Javascript callbacks.
 ### Showing Ads
 Display an ad where ever you want from your code:
 ```javascript
-// To use Chartboost's predefined location
+// To use the Chartboost predefined locations
 sdkbox.PluginChartboost.show("Default");
 // To use customized location
 sdkbox.PluginChartboost.show("your_ad_name");

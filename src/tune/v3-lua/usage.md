@@ -1,12 +1,15 @@
 ### Modify Lua Code
-Modify `lua_module_register.h` to include the necessary headers and calls to register `Tune` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `Tune` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginTuneLua.hpp"
 #include "PluginTuneLuaHelper.h"
 ```
 ```cpp
-register_all_PluginTuneLua(L);
-register_PluginTuneLua_helper(L);
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginTuneLua(L);
+  register_PluginTuneLua_helper(L);
+}
 ```
 
 ### Initialize Tune

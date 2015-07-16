@@ -1,8 +1,13 @@
 ### Modify Lua Code
-* Modify `lua_module_register.h` to include the necessary headers and calls to register `Kochava` with Lua. __Note:__ this takes a parameter of __lua_State*__:
+* Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `Kochava` with Lua. __Note:__ this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginKochavaLua.hpp"
-register_all_PluginKochavaLua(<lua_State*>);
+```
+```cpp
+static int lua_module_register(lua_State* L)
+{
+  register_all_PluginKochavaLua(<lua_State*>);
+}
 ```
 
 ### Initialize Kochava
