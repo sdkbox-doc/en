@@ -2,36 +2,36 @@
 
 ### Methods
 ```javascript
-sdkbox.PluginKochava:init();
+sdkbox.PluginKochava:init()
 ```
 > initialize the Kochava instance.
 
 ```javascript
-sdkbox.PluginKochava:identityLinkEvent();
+sdkbox.PluginKochava:identityLinkEvent()
 ```
 > link one or more udid's to a Kochava id.
 
 ```javascript
-sdkbox.PluginKochava:spatialEvent();
+sdkbox.PluginKochava:spatialEvent()
 ```
 > event specifying x, y, and z coordinate to Kochava server for visualizing your data.
 
 ```javascript
-sdkbox.PluginKochava:setLimitAdTracking();
+sdkbox.PluginKochava:setLimitAdTracking()
 ```
 > turn ad tracking off or on by using true or false.
 
 ```javascript
-sdkbox.PluginKochava:enableLogging(bool);
+sdkbox.PluginKochava:enableLogging(bool)
 ```
 > log? true or false.
 
 ```javascript
-sdkbox.PluginKochava:trackEvent();
+sdkbox.PluginKochava:trackEvent()
 ```
 > track a single event, specifying the event and value.
 
 ```javascript
-sdkbox.PluginKochava:shutdown();
+sdkbox.PluginKochava:shutdown()
 ```
 > shutdown the Kochava service.

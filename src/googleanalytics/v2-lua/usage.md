@@ -16,5 +16,5 @@ tolua_extensions_ccb_open(tolua_s);
 ### Initialize Google Analytics
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginGoogleAnalytics:init();
+sdkbox.PluginGoogleAnalytics:init()
 ```

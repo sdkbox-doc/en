@@ -2,47 +2,47 @@
 
 ### Methods
 ```lua
-sdkbox.PluginVungle:init();
+sdkbox.PluginVungle:init()
 ```
 > initialize the plugin instance.
 
 ```lua
-sdkbox.PluginVungle:show(name);
+sdkbox.PluginVungle:show(name)
 ```
 > show ad with a provided name.
 
 ```lua
-sdkbox.PluginVungle:setDebug(enable);
+sdkbox.PluginVungle:setDebug(enable)
 ```
 > enable or disable debug mode.
 
 ```lua
-sdkbox.PluginVungle:isCacheAvailable();
+sdkbox.PluginVungle:isCacheAvailable()
 ```
 > is there a cached video available.
 
 ```lua
-sdkbox.PluginVungle:setUserID(userID);
+sdkbox.PluginVungle:setUserID(userID)
 ```
 > sets userID for rewarded ads.
 
 ### Listeners
 ```lua
-onVungleCacheAvailable();
+onVungleCacheAvailable()
 ```
 > there is cache available of videos
 
 ```lua
-onVungleStarted();
+onVungleStarted()
 ```
 > Vungle has started and is ready to go.
 
 ```lua
-onVungleFinished();
+onVungleFinished()
 ```
 > Vungle is stopped and not running
 
 ```lua
-onVungleAdViewed();
+onVungleAdViewed()
 ```
 > an ad was viewed.

@@ -16,14 +16,14 @@ tolua_extensions_ccb_open(tolua_s);
 ### Initialize Flurry Analytics
 * modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginFlurryAnalytics:init();
+sdkbox.PluginFlurryAnalytics:init()
 ```
 
 ### Using Flurry Analytics
 After initialization you can begin to use the Flurry Analytics functionality. Use `logevent` where ever you want from your code:
 ```lua
 local eventName = "test event1"
-sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+sdkbox.PluginFlurryAnalytics:logEvent(eventName)
 ```
 
 ### Catch Flurry Analytics events (optional)
@@ -46,5 +46,5 @@ sdkbox.PluginFlurryAnalytics:startSession()
 When you are finished using `FlurryAnalytics` or when your games ends. It is necessary to end the `FlurryAnalytics` session. This is a requirement for Android but optional on iOS. Example:
 ```cpp
 // end session just valid on android, but it's ok to invoke it on iOS
-sdkbox.PluginFlurryAnalytics:endSession();
+sdkbox.PluginFlurryAnalytics:endSession()
 ```
