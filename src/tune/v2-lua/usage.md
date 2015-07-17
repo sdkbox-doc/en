@@ -1,5 +1,5 @@
 ### Modify Lua Code
-* modify `Classes/AppDelegate.cpp` to include the following headers:
+* Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginTuneLua.hpp"
 #include "PluginTuneLuaHelper.h"
@@ -23,7 +23,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 ```
 
 ### Initialize Tune
-* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```cpp
 sdkbox.PluginTune:init()
 ```
