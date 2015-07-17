@@ -1,16 +1,25 @@
 ### Modify Lua Code
-* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginAgeCheqLua(<lua_State*>);`. It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`. Here is an example of what this might look like for you:
-```cpp
-lua_State *tolua_s = pStack->getLuaState();
-register_all_PluginAgeCheqLua(tolua_s);
-register_PluginAgeCheqLua_helper(tolua_s);
-tolua_extensions_ccb_open(tolua_s);
-```
-
-* Modify to include the following headers:
+* Modify `Classes/AppDelegate.cpp`to include the following headers:
 ```cpp
 #include "PluginAgeCheqLua.hpp"
 #include "PluginAgeCheqLuaHelper.h"
+```
+
+* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginAgeCheqLua(<lua_State*>);`.
+
+  __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
+
+	Here is an example of what this might look like for you:
+```cpp
+#include "PluginAgeCheqLua.hpp"
+#include "PluginAgeCheqLuaHelper.hpp"
+bool AppDelegate::applicationDidFinishLaunching()
+{
+	lua_State *tolua_s = pStack->getLuaState();
+	register_all_PluginAgeCheqLua(tolua_s);
+	register_all_PluginAgeCheqLua_helper(tolua_s);
+	tolua_extensions_ccb_open(tolua_s);
+}
 ```
 
 ### Initialize AgeCheq
