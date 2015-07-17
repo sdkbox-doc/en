@@ -144,6 +144,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -782,12 +845,14 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 <li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginAdColonyJS.hpp&quot;
+#include &quot;PluginAdColonyJSHelper.hpp&quot;
 </code></pre>
 
 <ul>
 <li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginAdColonyJS);
+sc-&gt;addRegisterCallback(register_all_PluginAdColonyJS_helper);
 </code></pre>
 
 <p>This registers the Javascript callbacks.</p>

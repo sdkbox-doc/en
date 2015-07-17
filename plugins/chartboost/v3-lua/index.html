@@ -144,6 +144,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -786,15 +849,15 @@ SDKBox.init(this);
 <ul>
 <li>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginChartboost:init();
+<pre><code class="lua">sdkbox.PluginChartboost:init()
 </code></pre>
 
 <h3 id="showing-ads">Showing Ads</h3>
 <p>Display an ad where ever you want from your code:</p>
 <pre><code class="lua">// To use the Chartboost predefined locations
-sdkbox.PluginChartboost:show(&quot;Default&quot;);
+sdkbox.PluginChartboost:show(&quot;Default&quot;)
 // To use customized location
-sdkbox.PluginChartboost:show(&quot;your_ad_name&quot;);
+sdkbox.PluginChartboost:show(&quot;your_ad_name&quot;)
 </code></pre>
 
 <h3 id="catch-chartboost-events-optional">Catch Chartboost events (optional)</h3>
@@ -857,177 +920,177 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginChartboost:init();
+<pre><code class="javascript">sdkbox.PluginChartboost:init()
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:show(name);
+<pre><code class="javascript">sdkbox.PluginChartboost:show(name)
 </code></pre>
 
 <blockquote>
 <p>show ad by specifying ad name.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setListener(listener);
+<pre><code class="javascript">sdkbox.PluginChartboost:setListener(listener)
 </code></pre>
 
 <blockquote>
 <p>creates the an optional listener.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:removeListener();
+<pre><code class="javascript">sdkbox.PluginChartboost:removeListener()
 </code></pre>
 
 <blockquote>
 <p>removed the listener.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:isAnyViewVisible();
+<pre><code class="javascript">sdkbox.PluginChartboost:isAnyViewVisible()
 </code></pre>
 
 <blockquote>
 <p>check to see if any views are visible.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:isAvailable(name);
+<pre><code class="javascript">sdkbox.PluginChartboost:isAvailable(name)
 </code></pre>
 
 <blockquote>
 <p>is the specified ad available?</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setAutoCacheAds(shouldCache);
+<pre><code class="javascript">sdkbox.PluginChartboost:setAutoCacheAds(shouldCache)
 </code></pre>
 
 <blockquote>
 <p>set to enable and disable the auto cache feature (Enabled by default).</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:getAutoCacheAds();
+<pre><code class="javascript">sdkbox.PluginChartboost:getAutoCacheAds()
 </code></pre>
 
 <blockquote>
 <p>get the current auto cache behavior (Enabled by default).</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:closeImpression();
+<pre><code class="javascript">sdkbox.PluginChartboost:closeImpression()
 </code></pre>
 
 <blockquote>
 <p>close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setStatusBarBehavior(behavior);
+<pre><code class="javascript">sdkbox.PluginChartboost:setStatusBarBehavior(behavior)
 </code></pre>
 
 <blockquote>
 <p>set to control how the fullscreen ad units should interact with the status bar. (CBStatusBarBehaviorIgnore by default).</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:didPassAgeGate(pass);
+<pre><code class="javascript">sdkbox.PluginChartboost:didPassAgeGate(pass)
 </code></pre>
 
 <blockquote>
 <p>confirm if an age gate passed or failed. When specified Chartboost will wait for this call before showing the IOS App Store.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setShouldPauseClickForConfirmation(shouldPause);
+<pre><code class="javascript">sdkbox.PluginChartboost:setShouldPauseClickForConfirmation(shouldPause)
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should block for an age gate.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:handleOpenURL(url, sourceApp);
+<pre><code class="javascript">sdkbox.PluginChartboost:handleOpenURL(url, sourceApp)
 </code></pre>
 
 <blockquote>
 <p>opens a "deep link" URL for a Chartboost Custom Scheme.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setCustomID(customID);
+<pre><code class="javascript">sdkbox.PluginChartboost:setCustomID(customID)
 </code></pre>
 
 <blockquote>
 <p>set a custom identifier to send in the POST body for all Chartboost API server requests.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:getCustomID();
+<pre><code class="javascript">sdkbox.PluginChartboost:getCustomID()
 </code></pre>
 
 <blockquote>
 <p>get the current custom identifier being sent in the POST body for all Chartboost API server requests.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setShouldRequestInterstitialsInFirstSession(shouldRequest);
+<pre><code class="javascript">sdkbox.PluginChartboost:setShouldRequestInterstitialsInFirstSession(shouldRequest)
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should show interstitials in the first session.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setShouldDisplayLoadingViewForMoreApps(shouldDisplay);
+<pre><code class="javascript">sdkbox.PluginChartboost:setShouldDisplayLoadingViewForMoreApps(shouldDisplay)
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should show a loading view while preparing to display the "more applications" UI.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginChartboost:setShouldPrefetchVideoContent(shouldPrefetch);
+<pre><code class="javascript">sdkbox.PluginChartboost:setShouldPrefetchVideoContent(shouldPrefetch)
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK will attempt to fetch videos from the Chartboost API servers.</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onChartboostCached();
+<pre><code class="lua">onChartboostCached()
 </code></pre>
 
 <blockquote>
 <p>there is cached content</p>
 </blockquote>
-<pre><code class="lua">onChartboostShouldDisplay();
+<pre><code class="lua">onChartboostShouldDisplay()
 </code></pre>
 
 <blockquote>
 <p>should Chartboost display</p>
 </blockquote>
-<pre><code class="lua">onChartboostDisplay();
+<pre><code class="lua">onChartboostDisplay()
 </code></pre>
 
 <blockquote>
 <p>Charboost ad has displayed</p>
 </blockquote>
-<pre><code class="lua">onChartboostDismiss();
+<pre><code class="lua">onChartboostDismiss()
 </code></pre>
 
 <blockquote>
 <p>Chartboost ad has been dismissed</p>
 </blockquote>
-<pre><code class="lua">onChartboostClose();
+<pre><code class="lua">onChartboostClose()
 </code></pre>
 
 <blockquote>
 <p>Chartboost is not running</p>
 </blockquote>
-<pre><code class="lua">onChartboostClick();
+<pre><code class="lua">onChartboostClick()
 </code></pre>
 
 <blockquote>
 <p>Chartboost ad was clicked on</p>
 </blockquote>
-<pre><code class="lua">onChartboostReward();
+<pre><code class="lua">onChartboostReward()
 </code></pre>
 
 <blockquote>
 <p>Chartboost reward was given</p>
 </blockquote>
-<pre><code class="lua">onChartboostFailedToLoad();
+<pre><code class="lua">onChartboostFailedToLoad()
 </code></pre>
 
 <blockquote>
 <p>Chartboost failed to load</p>
 </blockquote>
-<pre><code class="lua">onChartboostFailToRecordClick();
+<pre><code class="lua">onChartboostFailToRecordClick()
 </code></pre>
 
 <blockquote>
 <p>Chartboost failed to record click</p>
 </blockquote>
-<pre><code class="lua">onChartboostConfirmation();
+<pre><code class="lua">onChartboostConfirmation()
 </code></pre>
 
 <blockquote>
 <p>Chartboost confirmation</p>
 </blockquote>
-<pre><code class="lua">onChartboostCompleteStore();
+<pre><code class="lua">onChartboostCompleteStore()
 </code></pre>
 
 <blockquote>

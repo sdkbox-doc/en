@@ -144,6 +144,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -609,7 +672,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../chartboost/v3-cpp/">
+                        <a rel="prev" href="../../agecheq/v3-cpp/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -755,29 +818,41 @@ import com.sdkbox.plugin.SDKBox;
 <h2 id="usage">Usage</h2>
 <h3 id="modify-appdelegatecpp">Modify <code>AppDelegate.cpp</code></h3>
 <ul>
-<li>Modify <code>AppDelegate.cpp</code> to include the following headers:</li>
+<li>Modify <code>Classes/AppDelegate.cpp</code> to include the following headers:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginAdColonyLua.hpp&quot;
 #include &quot;PluginAdColonyLuaHelper.hpp&quot;
 </code></pre>
 
 <ul>
-<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginAdColonyLua(&lt;lua_State*&gt;);</code>. It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>. Here is an example of what this might look like for you:</li>
+<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginAdColonyLua(&lt;lua_State*&gt;);</code>.</li>
 </ul>
-<pre><code class="lua">lua_State *tolua_s = pStack-&gt;getLuaState();
-register_all_PluginAdColonyLua(tolua_s);
-register_all_PluginAdColonyLua_helper(tolua_s);
-tolua_extensions_ccb_open(tolua_s);
+<p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
+<pre><code>Here is an example of what this might look like for you:
+</code></pre>
+<pre><code class="cpp">#include &quot;PluginAdColonyLua.hpp&quot;
+#include &quot;PluginAdColonyLuaHelper.hpp&quot;
+bool AppDelegate::applicationDidFinishLaunching()
+{
+    lua_State *tolua_s = pStack-&gt;getLuaState();
+    register_all_PluginAdColonyLua(tolua_s);
+    register_all_PluginAdColonyLua_helper(tolua_s);
+    tolua_extensions_ccb_open(tolua_s);
+}
 </code></pre>
 
 <h3 id="initialize-adcolony">Initialize AdColony</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
-<pre><code class="lua">sdkbox.PluginAdColony:init();
+<pre><code class="lua">sdkbox.PluginAdColony:init()
 </code></pre>
 
 <h3 id="showing-ads">Showing Ads</h3>
-<p>Display an ad where ever you want from your code:</p>
-<pre><code class="lua">sdkbox.PluginAdColony:show(&quot;&lt;AD_NAME&gt;&quot;);
+<p>Display an ad wherever you want from your code, by specifying ad type:</p>
+<pre><code class="lua">sdkbox.PluginAdColony:show(&quot;video&quot;)
+</code></pre>
+
+<p>or:</p>
+<pre><code class="lua">sdkbox.PluginAdColony:show(&quot;v4vc&quot;)
 </code></pre>
 
 <h3 id="catch-adcolony-events-optional">Catch AdColony events (optional)</h3>
@@ -812,81 +887,81 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginAdColony:zoneStatusForZone(zoneID);
+<pre><code class="lua">sdkbox.PluginAdColony:zoneStatusForZone(zoneID)
 </code></pre>
 
 <blockquote>
 <p>returns the status for the specified zone. Use this to pre-load a zone.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:isVirtualCurrencyRewardAvailableForZone(zoneID);
+<pre><code class="lua">sdkbox.PluginAdColony:isVirtualCurrencyRewardAvailableForZone(zoneID)
 </code></pre>
 
 <blockquote>
 <p>check if this zone offers a virtual currency reward.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:show(name);
+<pre><code class="lua">sdkbox.PluginAdColony:show(name)
 </code></pre>
 
 <blockquote>
 <p>play video ad using provided <strong>zone name</strong> that was specified in <code>sdkbox_config.json</code>.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getStatus(name);
+<pre><code class="lua">sdkbox.PluginAdColony:getStatus(name)
 </code></pre>
 
 <blockquote>
 <p>Check the availability of the AdColony ads by name</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyRewardAmountForZone(zoneID);
+<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyRewardAmountForZone(zoneID)
 </code></pre>
 
 <blockquote>
 <p>is there a virtual currency reward available to the user today for passed in
 zone.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:init();
+<pre><code class="lua">sdkbox.PluginAdColony:init()
 </code></pre>
 
 <blockquote>
 <p>initialize the instance.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:videoAdCurrentlyRunning();
+<pre><code class="lua">sdkbox.PluginAdColony:videoAdCurrentlyRunning()
 </code></pre>
 
 <blockquote>
 <p>is there a video currently showing?</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:turnAllAdsOff();
+<pre><code class="lua">sdkbox.PluginAdColony:turnAllAdsOff()
 </code></pre>
 
 <blockquote>
 <p>turn off all ads.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getVideoCreditBalance(currencyName);
+<pre><code class="lua">sdkbox.PluginAdColony:getVideoCreditBalance(currencyName)
 </code></pre>
 
 <blockquote>
 <p>get video credit balance for passed in currency name.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getVideosPerReward(currencyName);
+<pre><code class="lua">sdkbox.PluginAdColony:getVideosPerReward(currencyName)
 </code></pre>
 
 <blockquote>
 <p>are there multiple videos to watch per reward? Get the number of them.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyNameForZone(zoneID);
+<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyNameForZone(zoneID)
 </code></pre>
 
 <blockquote>
 <p>get virtual currency name for passed in zone.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyRewardsAvailableTodayForZone(zoneID);
+<pre><code class="lua">sdkbox.PluginAdColony:getVirtualCurrencyRewardsAvailableTodayForZone(zoneID)
 </code></pre>
 
 <blockquote>
 <p>is there a virtual currency reward available to the user today for passed in
 zone.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdColony:cancelAd();
+<pre><code class="lua">sdkbox.PluginAdColony:cancelAd()
 </code></pre>
 
 <blockquote>
@@ -907,25 +982,25 @@ zone.</p>
  */
 </code></pre>
 
-<pre><code class="lua">onAdColonyChange(data, available);
+<pre><code class="lua">onAdColonyChange(data, available)
 </code></pre>
 
 <blockquote>
 <p>called when AdColony is finished loading.</p>
 </blockquote>
-<pre><code class="lua">onAdColonyReward(data, currencyName, amount, success);
+<pre><code class="lua">onAdColonyReward(data, currencyName, amount, success)
 </code></pre>
 
 <blockquote>
 <p>reward was received.</p>
 </blockquote>
-<pre><code class="lua">onAdColonyStarted(data);
+<pre><code class="lua">onAdColonyStarted(data)
 </code></pre>
 
 <blockquote>
 <p>showing an ad has started.</p>
 </blockquote>
-<pre><code class="lua">onAdColonyFinished(data);
+<pre><code class="lua">onAdColonyFinished(data)
 </code></pre>
 
 <blockquote>
