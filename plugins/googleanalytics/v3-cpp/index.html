@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>c++ - SDKBOX</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">SDKBOX</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installer/">Installer</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">AdColony</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Chartboost</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Google Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">IAP</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Kochava</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Tune</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Vungle</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../../flurryanalytics/v2-lua/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../v3-js/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#google-analytics">Google Analytics</a></li>
+        
+            <li><a href="#integration">Integration</a></li>
+        
+            <li><a href="#extra-steps">Extra steps</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#api-reference">API Reference</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
+-->
+
+<h1 id="google-analytics">Google Analytics</h1>
+<h2 id="integration">Integration</h2>
+<p>Use the following command to install the SDKBOX Google Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import googleanalytics
+</code></pre>
+
+<h2 id="extra-steps">Extra steps</h2>
+<h3 id="modify-cocos2dxactivityjava">Modify <code>Cocos2dxActivity.java</code></h3>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source, assuming you are in the <code>proj.android</code> directory, <code>Cocos2dxActivity.java</code> is located:</p>
+<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
+lib/Cocos2dxActivity.java</code></p>
+</li>
+<li>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <code>Cocos2dxActivity.java</code> is located:</p>
+<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
+</li>
+</ul>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <code>Cocos2dxActivity.java</code> in a different location. One way to find the location is to look in <code>proj.android/project.properties</code>. Example:</p>
+<pre><code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java
+</code></pre>
+
+<p>In this case, <code>Cocos2dxActivity.java</code> should be located at:</p>
+<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
+</code></pre>
+
+<ul>
+<li>Modify <code>Cocos2dxActivity.java</code> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify <code>Cocos2dxActivity</code> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+</ul>
+<pre><code class="java">onLoadNativeLibraries();
+SDKBox.init(this);
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-libraryjars libs/android-support-v4.jar
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="configuration">Configuration</h2>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;TRACKING_CODE&gt;</code>  with your specific <a href="https://support.google.com/analytics/answer/1008080?hl=en"><strong>Google Analytics Tracking Code</strong></a> account information.</p>
+<pre><code class="json">&quot;GoogleAnalytics&quot; : {
+    &quot;trackingCode&quot; : &quot;&lt;TRACKING_CODE&gt;&quot;
+}
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-google-analytics">Initialize Google Analytics</h3>
+<p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
+<pre><code class="cpp">#include &quot;PluginGoogleAnalytics/PluginGoogleAnalytics.h&quot;
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginGoogleAnalytics::init();
+}
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<h4 id="dispatch-methods-dispatches-hits-view-events-etc-to-google-analytics-if-a-network-connection-is-available">Dispatch Methods. Dispatches hits (view, events, etc.) to Google Analytics if a network connection is available.</h4>
+<pre><code class="cpp">static void init();
+</code></pre>
+
+<blockquote>
+<p>initialize the plugin instance.</p>
+</blockquote>
+<pre><code class="cpp">static void dispatchHits();
+</code></pre>
+
+<blockquote>
+<p>Manually request dispatch of hits. By default, data is dispatched from the
+Google Analytics SDK for Android every 5 minutes.</p>
+</blockquote>
+<pre><code class="cpp">static void dispatchPeriodically(int numberOfSeconds);
+</code></pre>
+
+<blockquote>
+<p>Change the dispatch info time period to the desired amount of seconds.</p>
+</blockquote>
+<pre><code class="cpp">static void stopPeriodicalDispatch();
+</code></pre>
+
+<blockquote>
+<p>Stop periodically sending info. Then manually the <code>dispatchPeridically</code>
+or <code>dispatchHits</code> should be called.</p>
+</blockquote>
+<h4 id="session-control-a-session-represents-a-single-period-of-user-interaction-with-your-game-sessions-serve-as-useful-containers-of-measured-activity-which-includes-screen-views-events-and-ecommerce-transactions">Session control.  A session represents a single period of user interaction with your game. Sessions serve as useful containers of measured activity, which includes screen views, events, and ecommerce transactions.</h4>
+<pre><code class="cpp">static void startSession();
+</code></pre>
+
+<blockquote>
+<p>The analytics session is being explicitly started at plugin initialization time.</p>
+</blockquote>
+<pre><code class="cpp">static void stopSession();
+</code></pre>
+
+<blockquote>
+<p>You normally will never stop a session manually.</p>
+</blockquote>
+<h4 id="screens-screens-in-google-analytics-represent-content-users-are-viewing-within-your-game-a-screen-view-consists-of-a-single-string-field-that-will-be-used-as-the-screen-name-in-your-google-analytics-reports">Screens. Screens in Google Analytics represent content users are viewing within your game. A screen view consists of a single string field that will be used as the screen name in your Google Analytics reports.</h4>
+<pre><code class="cpp">static void logScreen(std::string title);
+</code></pre>
+
+<blockquote>
+<p>Log screen info. title is the title of a screen. Screens are logical units
+inside your app you'd like to identify at analytics panel.</p>
+</blockquote>
+<h4 id="events-events-are-a-useful-way-to-collect-data-about-a-users-interaction-with-interactive-components-of-your-game-like-the-use-of-a-particular-item-an-event-consists-of-four-fields-that-you-can-use-to-describe-a-users-interaction-with-your-game">Events. Events are a useful way to collect data about a user's interaction with interactive components of your game, like the use of a particular item. An event consists of four fields that you can use to describe a user's interaction with your game.</h4>
+<pre><code class="cpp">static void logEvent(std::string eventCategory,
+                      std::string eventAction,
+                      std::string eventLabel,
+                      long value);
+</code></pre>
+
+<blockquote>
+<p>sdkbox::PluginGoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
+</blockquote>
+<h4 id="crashes-and-exceptions-crash-and-exception-measurement-allows-you-to-measure-the-number-and-type-of-caught-and-uncaught-crashes-and-exceptions-that-occur-in-your-game">Crashes and Exceptions. Crash and exception measurement allows you to measure the number and type of caught and uncaught crashes and exceptions that occur in your game.</h4>
+<pre><code class="cpp">static void logException(std::string exceptionDescription, bool isFatal);
+</code></pre>
+
+<blockquote>
+<p>Log an exception. It is a basic support for in-app events.</p>
+</blockquote>
+<h4 id="user-timing-measuring-user-timings-provides-a-native-way-to-measure-a-period-of-time-in-google-analytics-for-example-this-can-be-useful-to-measure-resource-load-times">User timing. Measuring user timings provides a native way to measure a period of time in Google Analytics. For example, this can be useful to measure resource load times.</h4>
+<pre><code class="cpp">static void logTiming(std::string timingCategory,
+                        int timingInterval,
+                        std::string timingName,
+                        std::string timingLabel);
+</code></pre>
+
+<blockquote>
+<p>Measure a time inside the application.</p>
+</blockquote>
+<h4 id="social-social-interaction-measurement-allows-you-to-measure-a-users-interactions-with-various-social-network-sharing-and-recommendation-widgets-embedded-in-your-content">Social. Social interaction measurement allows you to measure a user's interactions with various social network sharing and recommendation widgets embedded in your content.</h4>
+<pre><code class="cpp">static void logSocial(std::string socialNetwork,
+                        std::string socialAction,
+                        std::string socialTarget);
+</code></pre>
+
+<blockquote>
+<p>Log a social event.</p>
+</blockquote>
+<h4 id="general-purpose-methods">General purpose methods.</h4>
+<pre><code class="cpp">static void setDryRun(bool dr);
+</code></pre>
+
+<blockquote>
+<p>While running on dry run, the tracked events won't be sent to the actual
+analytics account.</p>
+</blockquote>
+<pre><code class="cpp">static void enableAdvertisingTracking(bool e);
+</code></pre>
+
+<blockquote>
+<p>Enable advertising tracking when in google's ad vendors.</p>
+</blockquote>
+<pre><code class="cpp">static void createTracker(std::string trackerId);
+</code></pre>
+
+<blockquote>
+<p>Create a tracker identified by the google analytics tracker id XX-YYYYYYYY-Z.
+If the tracker already existed, no new tracker will be created. In any case, the
+tracker associated with tracker id will be set as default tracker for  analytics
+operations.</p>
+</blockquote>
+<pre><code class="cpp">static void enableTracker(std::string trackerId);
+</code></pre>
+
+<blockquote>
+<p>Enable a tracker identified by a trackerId. If the tracker does not exist,
+nothing will happen.</p>
+</blockquote></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
