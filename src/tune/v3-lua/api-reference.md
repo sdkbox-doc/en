@@ -2,199 +2,199 @@
 
 ### Methods
 ```lua
-sdkbox.PluginTune:init();
+sdkbox.PluginTune:init()
 ```
 > initialize the plugin instance.
 
 ```lua
-sdkbox.PluginTune:setDebugMode(enable);
+sdkbox.PluginTune:setDebugMode(enable)
 ```
 > Specifies that the server responses should include debug information.
 
 ```lua
-sdkbox.PluginTune:setAllowDuplicateRequests(allow);
+sdkbox.PluginTune:setAllowDuplicateRequests(allow)
 ```
 > Set to YES to allow duplicate requests to be registered with the MAT server.
 
 ```lua
-sdkbox.PluginTune:checkForDeferredDeeplinkWithTimeout(timeout);
+sdkbox.PluginTune:checkForDeferredDeeplinkWithTimeout(timeout)
 ```
 > Check for a deferred deeplink entry point upon app installation.
 
 ```lua
-sdkbox.PluginTune:automateIapEventMeasurement(automate);
+sdkbox.PluginTune:automateIapEventMeasurement(automate)
 ```
 > Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.
 
 ```lua
-sdkbox.PluginTune:setFacebookEventLogging(logging, limit);
+sdkbox.PluginTune:setFacebookEventLogging(logging, limit)
 ```
 > Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.
 
 ```lua
-sdkbox.PluginTune:setExistingUser(existingUser);
+sdkbox.PluginTune:setExistingUser(existingUser)
 ```
 > Set whether this is an existing user or a new one. This is generally used to
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.
 
 ```lua
-sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled);
+sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled)
 ```
 > Set the Apple Advertising Identifier available in iOS 6.
 
 ```lua
-sdkbox.PluginTune:setAppleVendorIdentifier(appleVendorIdentifier);
+sdkbox.PluginTune:setAppleVendorIdentifier(appleVendorIdentifier)
 ```
 > Set the Apple Vendor Identifier available in iOS 6.
 
 ```lua
-sdkbox.PluginTune:setCurrencyCode(currencyCode);
+sdkbox.PluginTune:setCurrencyCode(currencyCode)
 ```
 > Sets the currency code.
 
 ```lua
-sdkbox.PluginTune:setJailbroken(jailbroken);
+sdkbox.PluginTune:setJailbroken(jailbroken)
 ```
 > Sets the jailbroken device flag.
 
 ```lua
-sdkbox.PluginTune:setPackageName(packageName);
+sdkbox.PluginTune:setPackageName(packageName)
 ```
 > Sets the package name (bundle identifier).
 
 ```lua
-sdkbox.PluginTune:setShouldAutoDetectJailbroken(autoDetect);
+sdkbox.PluginTune:setShouldAutoDetectJailbroken(autoDetect)
 ```
 > Specifies if the sdk should auto detect if the iOS device is jailbroken.
 
 ```lua
-sdkbox.PluginTune:setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
+sdkbox.PluginTune:setShouldAutoGenerateAppleVendorIdentifier(autoGenerate)
 ```
 > Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.
 
 ```lua
-sdkbox.PluginTune:setSiteId(siteId);
+sdkbox.PluginTune:setSiteId(siteId)
 ```
 > Sets the site ID.
 
 ```lua
-sdkbox.PluginTune:setTRUSTeId(tpid);
+sdkbox.PluginTune:setTRUSTeId(tpid)
 ```
 > Set the TRUSTe Trusted Preference Identifier (TPID).
 
 ```lua
-sdkbox.PluginTune:setUserEmail(userEmail);
+sdkbox.PluginTune:setUserEmail(userEmail)
 ```
 > Sets the user's email address.
 
 ```lua
-sdkbox.PluginTune:setUserId(userId);
+sdkbox.PluginTune:setUserId(userId)
 ```
 > Sets the user ID.
 
 ```lua
-sdkbox.PluginTune:setUserName(userName);
+sdkbox.PluginTune:setUserName(userName)
 ```
 > Sets the user's name.
 
 ```lua
-sdkbox.PluginTune:setPhoneNumber(phoneNumber);
+sdkbox.PluginTune:setPhoneNumber(phoneNumber)
 ```
 > Sets the user's phone number.
 
 ```lua
-sdkbox.PluginTune:setFacebookUserId(facebookUserId);
+sdkbox.PluginTune:setFacebookUserId(facebookUserId)
 ```
 > Set user's Facebook ID.
 
 ```lua
-sdkbox.PluginTune:setTwitterUserId(twitterUserId);
+sdkbox.PluginTune:setTwitterUserId(twitterUserId)
 ```
 > Set user's Twitter ID.
 
 ```lua
-sdkbox.PluginTune:setGoogleUserId(googleUserId);
+sdkbox.PluginTune:setGoogleUserId(googleUserId)
 ```
 > Set user's Google ID.
 
 ```lua
-sdkbox.PluginTune:setAge(long userAge);
+sdkbox.PluginTune:setAge(long userAge)
 ```
 > Sets the user's age.
 
 ```lua
-sdkbox.PluginTune:setGender(Gender userGender);
+sdkbox.PluginTune:setGender(Gender userGender)
 ```
 > Sets the user's gender.
 
 ```lua
-sdkbox.PluginTune:setLatitude(latitude, longitude);
+sdkbox.PluginTune:setLatitude(latitude, longitude)
 ```
 > Sets the user's location.
 
 ```lua
-sdkbox.PluginTune:setLatitude(latitude, longitude, altitude);
+sdkbox.PluginTune:setLatitude(latitude, longitude, altitude)
 ```
 > Sets the user's location including altitude.
 
 ```lua
-sdkbox.PluginTune:setAppAdTracking(enable);
+sdkbox.PluginTune:setAppAdTracking(enable)
 ```
 > Set app-level ad-tracking.
 
 ```lua
-sdkbox.PluginTune:setPayingUser(isPayingUser);
+sdkbox.PluginTune:setPayingUser(isPayingUser)
 ```
 > Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.
 
 ```lua
-sdkbox.PluginTune:setPreloadData(jsonString);
+sdkbox.PluginTune:setPreloadData(jsonString)
 ```
 > Sets publisher information for attribution.
 
 ```lua
-sdkbox.PluginTune:matId();
+sdkbox.PluginTune:matId()
 ```
 > Get the MAT ID for this installation (mat_id).
 
 ```lua
-sdkbox.PluginTune:openLogId();
+sdkbox.PluginTune:openLogId()
 ```
 > Get the MAT log ID for the first app open (open_log_id).
 
 ```lua
-sdkbox.PluginTune:isPayingUser();
+sdkbox.PluginTune:isPayingUser()
 ```
 > Get whether the user is revenue-generating.
 
 ```lua
-sdkbox.PluginTune:measureSession();
+sdkbox.PluginTune:measureSession()
 ```
 > To be called when an app opens; typically in the AppDelegate::applicationWillEnterForeground() event.
 
 ```lua
-sdkbox.PluginTune:measureEventName(eventName);
+sdkbox.PluginTune:measureEventName(eventName)
 ```
 > Record an event for an Event Name.
 
 ```lua
-sdkbox.PluginTune:measureEventId(eventId);
+sdkbox.PluginTune:measureEventId(eventId)
 ```
 > Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.
 
 ```lua
-sdkbox.PluginTune:measureEvent(jsonString);
+sdkbox.PluginTune:measureEvent(jsonString)
 ```
 > Record an event with a MATEvent.
 
 ```lua
-sdkbox.PluginTune:setUseCookieTracking(enable);
+sdkbox.PluginTune:setUseCookieTracking(enable)
 ```
 > Sets whether or not to use cookie based tracking.
 
 ```lua
-sdkbox.PluginTune:setRedirectUrl(redirectUrl);
+sdkbox.PluginTune:setRedirectUrl(redirectUrl)
 ```
 > Sets a url to be used with app-to-app tracking so that the sdk can open the download (redirect) url. This is used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.
 
@@ -203,12 +203,12 @@ sdkbox.PluginTune:startAppToAppTracking(targetAppPackageName,
                                  targetAppAdvertiserId,
                                  targetAdvertiserOfferId,
                                  targetAdvertiserPublisherId,
-                                 shouldRedirect);
+                                 shouldRedirect)
 ```
 > Start an app-to-app tracking session on the MAT server.
 
 ```lua
-sdkbox.PluginTune:applicationDidOpenURL(urlString, sourceApplication);
+sdkbox.PluginTune:applicationDidOpenURL(urlString, sourceApplication)
 ```
 > Record the URL and Source when an application is opened via a URL scheme.
 This typically occurs during OAUTH or when an app exits and is returned
