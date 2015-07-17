@@ -1,22 +1,31 @@
 ### Modify Lua Code
-* modify `AppDelegate.cpp` to include the following headers:
+* Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginTuneLua.hpp"
 #include "PluginTuneLuaHelper.h"
 ```
 
-Modify `lua_module_register.h` to include a call to register `Tune` with Lua. Note this takes a parameter of __lua_State*__:
-```lua
-lua_State* tolua_s = pStack->getLuaState();
-register_all_PluginTuneLua(tolua_s);
-register_all_PluginTuneLua_helper(tolua_s);
-tolua_extensions_ccb_open(tolua_s);
+* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginTuneLua(<lua_State*>);`.
+
+  __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
+
+	Here is an example of what this might look like for you:
+```cpp
+#include "PluginTuneLua.hpp"
+#include "PluginTuneLuaHelper.hpp"
+bool AppDelegate::applicationDidFinishLaunching()
+{
+	lua_State *tolua_s = pStack->getLuaState();
+	register_all_PluginTuneLua(tolua_s);
+	register_all_PluginTuneLua_helper(tolua_s);
+	tolua_extensions_ccb_open(tolua_s);
+}
 ```
 
 ### Initialize Tune
-* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```cpp
-sdkbox.PluginTune:init();
+sdkbox.PluginTune:init()
 ```
 
 ### Using Tune

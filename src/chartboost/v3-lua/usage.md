@@ -15,16 +15,16 @@ static int lua_module_register(lua_State* L)
 ### Initialize Chartboost
 * Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginChartboost:init();
+sdkbox.PluginChartboost:init()
 ```
 
 ### Showing Ads
 Display an ad where ever you want from your code:
 ```lua
 // To use the Chartboost predefined locations
-sdkbox.PluginChartboost:show("Default");
+sdkbox.PluginChartboost:show("Default")
 // To use customized location
-sdkbox.PluginChartboost:show("your_ad_name");
+sdkbox.PluginChartboost:show("your_ad_name")
 ```
 
 ### Catch Chartboost events (optional)

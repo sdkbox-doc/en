@@ -4,7 +4,7 @@ Initialize the plugin where appropriate in your code. We recommend to do this in
 #include "PluginIAP/PluginIAP.h"
 AppDelegate::applicationDidFinishLaunching()
 {
-     sdkbox::PluginIAP::init();
+     sdkbox::IAP::init();
 }
 ```
 

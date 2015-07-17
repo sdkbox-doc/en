@@ -15,7 +15,7 @@ static int lua_module_register(lua_State* L)
 ### Initialize IAP
 * modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.IAP:init();
+sdkbox.IAP:init()
 ```
 
 ### Retrieve latest Product data

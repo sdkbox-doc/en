@@ -1,29 +1,38 @@
 ### Modify Lua Code
-* modify `AppDelegate.cpp` to include the following headers:
+* Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFlurryAnalyticsLua.hpp"
 #include "PluginFlurryAnalyticsLuaHelper.h"
 ```
 
-* We need to register the plugin with Lua. This is done by making a call to `register_all_PluginFlurryAnalyticsLua(<lua_State*>);`. It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`. Here is an example of what this might look like for you:
-```lua
-lua_State *tolua_s = pStack->getLuaState();
-register_all_PluginFlurryAnalyticsLua(tolua_s);
-register_PluginFlurryAnalyticsLua_helper(tolua_s);
-tolua_extensions_ccb_open(tolua_s);
+* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginFlurryAnalyticsLua(<lua_State*>);`.
+
+  __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
+
+	Here is an example of what this might look like for you:
+```cpp
+#include "PluginFlurryAnalyticsLua.hpp"
+#include "PluginFlurryAnalyticsLuaHelper.hpp"
+bool AppDelegate::applicationDidFinishLaunching()
+{
+	lua_State *tolua_s = pStack->getLuaState();
+	register_all_PluginFlurryAnalyticsLua(tolua_s);
+	register_all_PluginFlurryAnalyticsLua_helper(tolua_s);
+	tolua_extensions_ccb_open(tolua_s);
+}
 ```
 
 ### Initialize Flurry Analytics
-* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
-sdkbox.PluginFlurryAnalytics:init();
+sdkbox.PluginFlurryAnalytics:init()
 ```
 
 ### Using Flurry Analytics
 After initialization you can begin to use the Flurry Analytics functionality. Use `logevent` where ever you want from your code:
 ```lua
 local eventName = "test event1"
-sdkbox.PluginFlurryAnalytics:logEvent(eventName);
+sdkbox.PluginFlurryAnalytics:logEvent(eventName)
 ```
 
 ### Catch Flurry Analytics events (optional)
@@ -46,5 +55,5 @@ sdkbox.PluginFlurryAnalytics:startSession()
 When you are finished using `FlurryAnalytics` or when your games ends. It is necessary to end the `FlurryAnalytics` session. This is a requirement for Android but optional on iOS. Example:
 ```cpp
 // end session just valid on android, but it's ok to invoke it on iOS
-sdkbox.PluginFlurryAnalytics:endSession();
+sdkbox.PluginFlurryAnalytics:endSession()
 ```
