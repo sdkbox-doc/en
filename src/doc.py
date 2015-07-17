@@ -38,7 +38,6 @@ class DocGen:
         self.base_path = base_path
         self.main_file = os.path.join(base_path, 'readme.md')
         self.out_path = os.path.abspath(out_path)
-        print 'set out path:' + self.out_path
         # self.pre = re.compile(ur'Include Base:(.*)')
         self.pre = re.compile(ur'<<\[(.*)\]')
         self.folders = []
@@ -91,8 +90,8 @@ class DocManager:
 
     def search_plugin(self):
         for f in os.listdir(self.base_path):
-            if os.path.isdir(f) and f not in ['.git', '.idea']:
-                bp = os.path.join(self.base_path, f)
+            bp = os.path.join(self.base_path, f)
+            if os.path.isdir(bp) and f not in ['.git', '.idea']:
                 op = os.path.join(self.out_path, f)
                 d = DocGen(f, bp, op)
                 self.plugins.append(d)
@@ -124,7 +123,6 @@ def main():
 
     curr_path = get_curr_path()
     out_path = os.path.join(curr_path, '..', 'docs', 'plugins')
-    print 'global out_path:' + out_path
     doc_mgr = DocManager(curr_path, out_path)
     doc_mgr.generate(args.name)
 
