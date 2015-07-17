@@ -1,5 +1,5 @@
 ### Modify Lua Code
-* modify `Classes/AppDelegate.cpp` to include the following headers:
+* Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFlurryAnalyticsLua.hpp"
 #include "PluginFlurryAnalyticsLuaHelper.h"
@@ -23,7 +23,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 ```
 
 ### Initialize Flurry Analytics
-* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
 sdkbox.PluginFlurryAnalytics:init()
 ```
