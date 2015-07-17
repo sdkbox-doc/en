@@ -1,16 +1,25 @@
 ### Modify `AppDelegate.cpp`
-* Modify `AppDelegate.cpp` to include the following headers:
+* Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginChartboostLua.hpp"
 #include "PluginChartboostLuaHelper.h"
 ```
 
-* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginChartboostLua(<lua_State*>);`. It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`. Here is an example of what this might look like for you:
-```lua
-lua_State *tolua_s = pStack->getLuaState();
-register_all_PluginChartboostLua(tolua_s);
-register_PluginChartboostLua_helper(tolua_s);
-tolua_extensions_ccb_open(tolua_s);
+* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginChartboostLua(<lua_State*>);`.
+
+  __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
+
+	Here is an example of what this might look like for you:
+```cpp
+#include "PluginChartboostLua.hpp"
+#include "PluginChartboostLuaHelper.hpp"
+bool AppDelegate::applicationDidFinishLaunching()
+{
+	lua_State *tolua_s = pStack->getLuaState();
+	register_all_PluginChartboostLua(tolua_s);
+	register_all_PluginChartboostLua_helper(tolua_s);
+	tolua_extensions_ccb_open(tolua_s);
+}
 ```
 
 ### Initialize Chartboost
