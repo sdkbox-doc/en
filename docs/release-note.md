@@ -1,6 +1,12 @@
 #Release Notes
 ---
 
+##1.2.0
+Release AgeCheq Plugin.
+SDKBOX IAP Supports non-consumable
+Chinese version of documentation relased
+Bug fixes
+
 ##1.1.6
 SDKBOX now supports install plugin online
 SDKBOX online documentation
