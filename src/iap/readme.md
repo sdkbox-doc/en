@@ -41,6 +41,22 @@ Here is an example of the IAP configuration, you need to replace `<put the produ
 }
 ```
 
+If you have IAP items that are __non-consumable__, it is also necessary to supply this for each item in your `sdkbox_config.json`. Only __Android__ requires this step. Taking the same *json* above your config might now look like this example:
+```json
+"android":
+{
+    "iap":{
+        "key":"<put your googleplay key here>",
+        "items":{
+          "remove_ads":{
+              "id":"<put the product id for android here>",
+              "type":"non_consumable"
+          }
+        }
+    }
+}
+```
+
 ##Usage
 <<[usage.md]
 
