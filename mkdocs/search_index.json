@@ -1922,13 +1922,18 @@
         }, 
         {
             "location": "/release-note/", 
-            "text": "Release Notes\n\n\n\n\n1.1.6\n\n\nSDKBOX now supports install plugin online\nSDKBOX online documentation\nUpgrade Vugnle SDK to new version\n * iOS: 3.1.2\n * Android: 3.3.1\n\n\n1.1.5\n\n\nFix SDKBOX conflicts with Plugin-x\n\n\n1.1.4\n\n\nFix SDKBOX IAP plugin return invalid pricing data", 
+            "text": "Release Notes\n\n\n\n\n1.2.0\n\n\nRelease AgeCheq Plugin.\nSDKBOX IAP Supports non-consumable\nChinese version of documentation relased\nBug fixes\n\n\n1.1.6\n\n\nSDKBOX now supports install plugin online\nSDKBOX online documentation\nUpgrade Vugnle SDK to new version\n * iOS: 3.1.2\n * Android: 3.3.1\n\n\n1.1.5\n\n\nFix SDKBOX conflicts with Plugin-x\n\n\n1.1.4\n\n\nFix SDKBOX IAP plugin return invalid pricing data", 
             "title": "About"
         }, 
         {
             "location": "/release-note/#release-notes", 
             "text": "", 
             "title": "Release Notes"
+        }, 
+        {
+            "location": "/release-note/#120", 
+            "text": "Release AgeCheq Plugin.\nSDKBOX IAP Supports non-consumable\nChinese version of documentation relased\nBug fixes", 
+            "title": "1.2.0"
         }, 
         {
             "location": "/release-note/#116", 
