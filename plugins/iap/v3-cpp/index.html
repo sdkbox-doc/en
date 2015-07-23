@@ -823,21 +823,6 @@ SDKBox.init(this);
 }
 </code></pre>
 
-<p>If you have IAP items that are <strong>non-consumable</strong>, it is also necessary to supply this for each item in your <code>sdkbox_config.json</code>. Only <strong>Android</strong> requires this step. Taking the same <em>json</em> above your config might now look like this example:</p>
-<pre><code class="json">&quot;android&quot;:
-{
-    &quot;iap&quot;:{
-        &quot;key&quot;:&quot;&lt;put your googleplay key here&gt;&quot;,
-        &quot;items&quot;:{
-          &quot;remove_ads&quot;:{
-              &quot;id&quot;:&quot;&lt;put the product id for android here&gt;&quot;,
-              &quot;type&quot;:&quot;non_consumable&quot;
-          }
-        }
-    }
-}
-</code></pre>
-
 <h2 id="usage">Usage</h2>
 <h3 id="initialize-iap">Initialize IAP</h3>
 <p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
