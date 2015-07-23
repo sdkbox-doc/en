@@ -37,7 +37,8 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 ### Catch Tune events (optional)
 This allows you to catch the `Tune` events so that you can perform operations based upon responses. A simple example might look like this:
 ```lua
-sdkbox.PluginTune:setListener(function(eventName, eventData)
+sdkbox.PluginTune:setListener(function(eventName, eventData, timeout)
+        -- the third param "timeout" valid, when eventName equal "onReceiveDeeplink"
         print(eventName, eventData)
     end)
 ```
