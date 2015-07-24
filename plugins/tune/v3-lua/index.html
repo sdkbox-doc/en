@@ -880,7 +880,8 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 
 <h3 id="catch-tune-events-optional">Catch Tune events (optional)</h3>
 <p>This allows you to catch the <code>Tune</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
-<pre><code class="lua">sdkbox.PluginTune:setListener(function(eventName, eventData)
+<pre><code class="lua">sdkbox.PluginTune:setListener(function(eventName, eventData, timeout)
+        -- the third param &quot;timeout&quot; valid, when eventName equal &quot;onReceiveDeeplink&quot;
         print(eventName, eventData)
     end)
 </code></pre>
