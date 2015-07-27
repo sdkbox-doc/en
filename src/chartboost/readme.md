@@ -36,6 +36,8 @@ Here is an example of the Chartboost configuration, you need to replace `<CHARTB
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 

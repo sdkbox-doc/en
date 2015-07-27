@@ -28,6 +28,8 @@ Here is an example adding `Kochava`:
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 

@@ -62,6 +62,8 @@ Adding `FlurryAnalytics` to Android is a bit different as it supports __location
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 
