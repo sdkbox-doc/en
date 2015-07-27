@@ -1,5 +1,5 @@
-### Modify `<YourGameName>.java`
-* Modify `proj.android/src/<package identifier>/<YourGameName>.java` to add the following imports:
+### Modify __<YourGameName>.java__
+* Modify __proj.android/src/<package identifier>/<YourGameName>.java__ to add the following imports:
 ```java
 import android.content.Intent;
 import com.sdkbox.plugin.SDKBox;
