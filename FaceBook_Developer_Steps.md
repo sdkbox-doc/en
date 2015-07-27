@@ -3,9 +3,11 @@ Steps For Facebook Plugin
 
 * sign up to be a [Facebook Developer](http://developers.facebook.com)
 
-* create a __Test App__
+* create a new __APP__
 
-* create a __Test User__
+* create a test version of this __App__
+
+* under __Roles__ create a __Test User__. Ensure that you set a password for this test user and assign the permissions you need.
 
 * integrate sdkbox `sdkbox import facebook`
 
@@ -26,4 +28,27 @@ Steps For Facebook Plugin
 <string>655158077954837</string>
 <key>FacebookDisplayName</key>
 <string>MyTestApp</string>
+```
+
+* ios: ensure that you have added the following to `AppController.mm`:
+```objc
+(void)applicationDidBecomeActive:(UIApplication *)application {
+ [FBSDKAppEvents activateApp];
+}
+```
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ return [[FBSDKApplicationDelegate sharedInstance] application:application
+        didFinishLaunchingWithOptions:launchOptions];
+}
+```
+```objc
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            sourceApplication:(NSString *)sourceApplication
+            annotation:(id)annotation
+{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication
+        annotation:annotation];
+}
 ```
