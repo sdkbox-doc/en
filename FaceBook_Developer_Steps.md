@@ -11,7 +11,10 @@ Steps For Facebook Plugin
 
 * integrate sdkbox `sdkbox import facebook`
 
+## iOS
+
 * in the info.plist file you need to specify a few additional keys
+
 ```xml
 <key>CFBundleURLTypes</key>
 <array>
@@ -31,6 +34,7 @@ Steps For Facebook Plugin
 ```
 
 * ios: ensure that you have added the following to `AppController.mm`:
+
 ```objc
 (void)applicationDidBecomeActive:(UIApplication *)application {
  [FBSDKAppEvents activateApp];
@@ -52,3 +56,18 @@ Steps For Facebook Plugin
         annotation:annotation];
 }
 ```
+
+## Android
+
+* Configure your __APP__ on Facebook follow [Android Quick Start](https://developers.facebook.com/quickstarts/?platform=android)
+
+* Open `res/values/strings.xml`
+
+* Replace `facebook_app_id` and value as your `Facebook App ID`
+
+* Open `project.properties`
+
+* Set `target=android-15`
+
+**NOTE:** minSdkVersion version is android-15 (Android 4.0.3)
+
