@@ -57,6 +57,8 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 

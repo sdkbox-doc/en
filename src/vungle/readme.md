@@ -34,6 +34,8 @@ Here is an example adding `Vungle` to iOS:
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 Adding `Vungle` to Android is a bit different as it supports __sound__ and
 __backbutton__ settings. Here is an example adding `Vungle` to Android:
 ```json

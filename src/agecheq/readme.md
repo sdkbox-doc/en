@@ -25,6 +25,8 @@ Here is an example of the AgeCheq configuration, you need to replace `<app id>` 
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 

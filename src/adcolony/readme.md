@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/adcolony/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 -->
 
 #AdColony
@@ -36,6 +36,8 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
     }
 }
 ```
+
+<<[sdkbox-config-encrypt.md]
 
 ##Usage
 <<[usage.md]

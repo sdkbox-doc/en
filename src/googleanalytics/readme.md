@@ -24,6 +24,8 @@ Here is an example of the Google Analytics configuration, you need to replace `<
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 

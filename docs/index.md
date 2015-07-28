@@ -6,6 +6,9 @@ Check out more information at: http://sdkbox.com
 
 #Overview
 
-__SDKBOX Installer__ is a command line tool. It lets your integrate a service with a single line of command like ```sdkbox import iap```
+__SDKBOX Installer__ is a command line tool. It lets your integrate a service with a single line of command. Example:
+```
+sdkbox import iap
+```
 
-__SDKBOX plugins__ are the certified wrapper libraries for supported 3rd party libraries like: Chartboost, Google Anylytics, Vungle, AdColony, Flurry, Tune, Kochava...
+__SDKBOX plugins__ are certified wrapper libraries for supported 3rd party libraries like: Chartboost, Google Analytics, Vungle, AdColony, Flurry, Tune and Kochava...

@@ -28,6 +28,8 @@ Here is an example adding `Tune`:
 }
 ```
 
+<<[sdkbox-config-encrypt.md]
+
 ##Usage
 <<[usage.md]
 
