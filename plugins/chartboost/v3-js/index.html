@@ -270,69 +270,6 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Facebook</a>
-    <ul class="dropdown-menu">
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../facebook/v3-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v3-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v3-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../facebook/v2-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v2-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v2-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-    </ul>
-  </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Flurry Analytics</a>
     <ul class="dropdown-menu">
         
@@ -719,11 +656,6 @@
                     </li>
                 
                 
-
-                    <!-- new add for language button -->
-                    <li>
-                        <a href="http://sdkbox-doc.github.io/zh/">中文</a>
-                    </li>
                 </ul>
             
 
@@ -784,33 +716,35 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/chartboost/v3-cpp
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
-<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
+<h3 id="modify-cocos2dxactivityjava">Modify <code>Cocos2dxActivity.java</code></h3>
 <ul>
 <li>
-<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p>If you're using cocos2d-x from source, assuming you are in the <code>proj.android</code> directory, <code>Cocos2dxActivity.java</code> is located:</p>
 <p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
 lib/Cocos2dxActivity.java</code></p>
 </li>
 <li>
-<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <code>Cocos2dxActivity.java</code> is located:</p>
 <p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
 </li>
 </ul>
-<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
-  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
-<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <code>Cocos2dxActivity.java</code> in a different location. One way to find the location is to look in <code>proj.android/project.properties</code>. Example:</p>
+<pre><code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java
+</code></pre>
+
+<p>In this case, <code>Cocos2dxActivity.java</code> should be located at:</p>
 <pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
 </code></pre>
 
 <ul>
-<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
+<li>Modify <code>Cocos2dxActivity.java</code> to add the following imports:</li>
 </ul>
 <pre><code class="java">import android.content.Intent;
 import com.sdkbox.plugin.SDKBox;
 </code></pre>
 
 <ul>
-<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+<li>Second, modify <code>Cocos2dxActivity</code> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
 </ul>
 <pre><code class="java">onLoadNativeLibraries();
 SDKBox.init(this);
