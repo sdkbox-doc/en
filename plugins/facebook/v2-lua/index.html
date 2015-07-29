@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	<title>c++ - SDKBOX</title>
+	<title>lua - SDKBOX</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -280,69 +280,6 @@
         
             
 <li >
-    <a href="../../facebook/v3-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v3-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v3-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../facebook/v2-cpp/">c++</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v2-js/">js</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../facebook/v2-lua/">lua</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-    </ul>
-  </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Flurry Analytics</a>
-    <ul class="dropdown-menu">
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
     <a href="../v3-cpp/">c++</a>
 </li>
 
@@ -369,8 +306,8 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">c++</a>
+<li >
+    <a href="../v2-cpp/">c++</a>
 </li>
 
         
@@ -381,8 +318,71 @@
 
         
             
+<li class="active">
+    <a href="./">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../v2-lua/">lua</a>
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
 </li>
 
         
@@ -735,12 +735,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../v3-lua/">
+                        <a rel="next" href="../v2-js/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../v2-js/">
+                        <a rel="prev" href="../../flurryanalytics/v3-cpp/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -756,7 +756,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#flurry-analytics">Flurry Analytics</a></li>
+        <li class="main active"><a href="#facebook">Facebook</a></li>
         
             <li><a href="#integration">Integration</a></li>
         
@@ -774,13 +774,13 @@
                 <div class="col-md-9" role="main">
 
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/flurryanalytics/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
 -->
 
-<h1 id="flurry-analytics">Flurry Analytics</h1>
+<h1 id="facebook">Facebook</h1>
 <h2 id="integration">Integration</h2>
-<p>Use the following command to install the SDKBOX Flurry Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import flurryanalytics
+<p>Use the following command to install the SDKBOX Facebook plugin, Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">sdkbox import facebook
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -858,358 +858,275 @@ import com.sdkbox.plugin.SDKBox;
 <ul>
 <li>Edit the file you specified to include the following:</li>
 </ul>
-<pre><code>-dontwarn android.webkit.**
+<pre><code>-keep class com.facebook.** {
+   *;
+}
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;API KEY&gt;</code>  with your specific <a href="http://www.flurry.com/solutions/analytics"><strong>Flurry Analytics ID</strong></a> account information.
-Here is an example adding <code>FlurryAnalytics</code> to iOS:</p>
-<pre><code class="json">&quot;FlurryAnalytics&quot;:{
-            &quot;APIKey&quot;:&quot;&lt;API KEY&gt;&quot;,
-            &quot;AppVersion&quot;:&quot;V0.1&quot;,
-            &quot;Debug&quot;:false,
-            &quot;Level&quot;:2,
-            &quot;SessionTimeout&quot;:10,
-            &quot;CrashReport&quot;:true
-}
-</code></pre>
-
-<p>Adding <code>FlurryAnalytics</code> to Android is a bit different as it supports <strong>locations</strong>, <strong>pulse</strong> and <strong>origin</strong> settings. Here is an example adding <code>FlurryAnalytics</code> to Android:</p>
-<pre><code class="json">&quot;FlurryAnalytics&quot;:{
-            &quot;APIKey&quot;:&quot;&lt;API KEY&gt;&quot;,
-            &quot;AppVersion&quot;:&quot;V0.1&quot;,
-            &quot;Debug&quot;:false,
-            &quot;LogEvent&quot;:true,
-            &quot;Level&quot;:2,
-            &quot;SessionTimeout&quot;:10,
-            &quot;CrashReport&quot;:true,
-            &quot;LocationReport&quot;:true,
-            &quot;DefLocationLat&quot;:104.06,
-            &quot;DefLocationLon&quot;:30.67,
-            &quot;Pulse&quot;:true,
-            &quot;Origin&quot;:[
-                {
-                    &quot;OriginName&quot;:&quot;sdkbox&quot;,
-                    &quot;OriginVersion&quot;:&quot;v0.1&quot;,
-                    &quot;OriginParams&quot;:{
-                        &quot;Key1&quot;:&quot;Val1&quot;,
-                        &quot;Key2&quot;:&quot;Val2&quot;,
-                        &quot;Key3&quot;:&quot;Val3&quot;
-                    }
-                },
-                {
-                    &quot;OriginName&quot;:&quot;sdkbox&quot;,
-                    &quot;OriginVersion&quot;:&quot;v0.1&quot;
-                }
-            ]
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
+<p>Here is an example of the Facebook configuration there isn't much to do here except set your debug preference.</p>
+<pre><code class="json">&quot;Facebook&quot;:
+{
+    &quot;debug&quot;:true
 }
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="initialize-flurry-analytics">Initialize Flurry Analytics</h3>
-<p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers. <code>init()</code> and <code>startSession()</code> are required. Example:</p>
-<pre><code class="cpp">#include &quot;PluginFlurryAnalytics/PluginFlurryAnalytics.h&quot;
-AppDelegate::applicationDidFinishLaunching()
+<h3 id="modify-appdelegatecpp">Modify <code>AppDelegate.cpp</code></h3>
+<ul>
+<li>Modify <code>Classes/AppDelegate.cpp</code> to include the following headers:</li>
+</ul>
+<pre><code class="cpp">#include &quot;PluginFacebookLua.hpp&quot;
+#include &quot;PluginFacebookLuaHelper.hpp&quot;
+</code></pre>
+
+<ul>
+<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginFacebookLua(&lt;lua_State*&gt;);</code>.</li>
+</ul>
+<p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
+<pre><code>Here is an example of what this might look like for you:
+</code></pre>
+<pre><code class="cpp">#include &quot;PluginFacebookLua.hpp&quot;
+#include &quot;PluginFacebookLuaHelper.hpp&quot;
+bool AppDelegate::applicationDidFinishLaunching()
 {
-     sdkbox::PluginFlurryAnalytics::init();
-     // start session
-     sdkbox::PluginFlurryAnalytics::startSession();
+    lua_State *tolua_s = pStack-&gt;getLuaState();
+    register_all_PluginFacebookLua(tolua_s);
+    register_all_PluginFacebookLua_helper(tolua_s);
+    tolua_extensions_ccb_open(tolua_s);
 }
 </code></pre>
 
-<h3 id="using-flurry-analytics">Using Flurry Analytics</h3>
-<p>After initialization you can begin to use the Flurry Analytics functionality. Use <code>logevent</code> where ever you want from your code:</p>
-<pre><code class="cpp">std::string eventName = &quot;test event1&quot;;
-sdkbox::PluginFlurryAnalytics::logEvent(eventName);
+<h3 id="initialize-facebook">Initialize Facebook</h3>
+<ul>
+<li>Modify your app's <strong>Info.plist</strong> to include the following additional keys, ensuring that you replace <strong><APP ID></strong> with yours:</li>
+</ul>
+<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+    &lt;key&gt;CFBundleURLName&lt;/key&gt;
+    &lt;string&gt;&lt;/string&gt;
+    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;fb&lt;APP ID&gt;&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;FacebookAppID&lt;/key&gt;
+&lt;string&gt;&lt;APP ID&gt;&lt;/string&gt;
+&lt;key&gt;FacebookDisplayName&lt;/key&gt;
+&lt;string&gt;MyTestApp&lt;/string&gt;
 </code></pre>
 
-<h3 id="ending-flurry-analytics-android-only">Ending Flurry Analytics (Android only)</h3>
-<p>When you are finished using <code>FlurryAnalytics</code> or when your games ends. It is necessary to end the <code>FlurryAnalytics</code> session. This is a requirement for Android but optional on iOS. Example:</p>
-<pre><code class="cpp">// end session just valid on android, but it's ok to invoke it on iOS
-sdkbox::PluginFlurryAnalytics::endSession();
+<p>If my Facebook <strong>APP ID</strong> is <code>655158077954837</code> a completed example would be:</p>
+<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+    &lt;key&gt;CFBundleURLName&lt;/key&gt;
+    &lt;string&gt;&lt;/string&gt;
+    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;fb655158077954837&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;FacebookAppID&lt;/key&gt;
+&lt;string&gt;655158077954837&lt;/string&gt;
+&lt;key&gt;FacebookDisplayName&lt;/key&gt;
+&lt;string&gt;MyTestApp&lt;/string&gt;
+</code></pre>
+
+<ul>
+<li>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
+</ul>
+<pre><code class="lua">sdkbox.PluginFacebook:init()
+</code></pre>
+
+<h3 id="using-facebook">Using Facebook</h3>
+<p>There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call <code>login()</code>, example:
+  <code>lua
+  sdkbox.PluginFacebook:login();</code></p>
+<ul>
+<li>You can share links, example:
+  <code>lua
+  FBShareInfo info;
+  info.type  = FB_LINK;
+  info.link  = "http://www.cocos2d-x.org";
+  info.title = "cocos2d-x";
+  info.text  = "Best Game Engine";
+  info.image = "http://cocos2d-x.org/images/logo.png";
+  sdkbox.PluginFacebook.share(info);</code></li>
+<li>
+<p>You can share a link, but also comment on it at the same time, example:
+  <code>lua
+  FBShareInfo info;
+  info.type  = FB_LINK;
+  info.link  = "http://www.cocos2d-x.org";
+  info.title = "cocos2d-x";
+  info.text  = "Best Game Engine";
+  info.image = "http://cocos2d-x.org/images/logo.png";
+  sdkbox.PluginFacebook.dialog(info);</code></p>
+</li>
+<li>
+<p>You can share a photo example:
+  <code>lua
+  FBShareInfo info;
+  info.type  = FB_PHOTO;
+  info.title = "My Photo";
+  info.image = __path to image__;
+  sdkbox.PluginFacebook.share(info);</code></p>
+</li>
+<li>
+<p>You can share a photo, but also comment on it at the same time, example:
+  <code>lua
+  FBShareInfo info;
+  info.type  = FB_PHOTO;
+  info.title = "My Photo";
+  info.image = __path to image__;
+  sdkbox.PluginFacebook.dialog(info);</code></p>
+</li>
+<li>
+<p>Besides logging in, you also will need to request <code>read()</code> and <code>publish()</code> permissions to post. Example:
+  <code>lua
+  sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
+  sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});</code></p>
+</li>
+<li>
+<p>When are are finished, it is appropriate to call <code>logout()</code>, example:
+  <code>lua
+  sdkbox.PluginFacebook.logout();</code></p>
+</li>
+</ul>
+<h3 id="catch-facebook-events-optional">Catch Facebook events (optional)</h3>
+<p>This allows you to catch <code>Facebook</code> events so that you can perform operations after Facebook events have occurred.</p>
+<ul>
+<li>Allow your class to extend <code>sdkbox::FacebookListener</code> and override the functions listed:</li>
+</ul>
+<pre><code class="lua">sdkbox.PluginFacebook.setListener({
+        onLogin : function (isLogin, error) {
+                // Called when logged in
+        },
+        onAPI : function (tag, jsonData) {
+                // Called when API request completes
+        },
+        onSharedSuccess : function (message) {
+                // Called when you successfully share
+        },
+        onSharedFailed : function (message) {
+                // Called when sharing has failed
+        },
+        onSharedCancel : function (message) {
+                // Called when sharing is canceled
+        }
+});
 </code></pre>
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static bool init ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:init();
 </code></pre>
 
 <blockquote>
-<p>init plugin, must be first invoke</p>
+<p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppVersion ( const std::string &amp; version ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:login();
 </code></pre>
 
 <blockquote>
-<p>Explicitly specifies the App Version that Flurry will use to group Analytics data.</p>
+<p>log in</p>
 </blockquote>
-<pre><code class="cpp">static std::string getFlurryAgentVersion ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:logInWithReadPermissions(permissions);
 </code></pre>
 
 <blockquote>
-<p>Retrieves the Flurry Agent Build Version.</p>
+<p>log in with specific read permissions, conflict with publish permissions
+https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="cpp">static void setShowErrorInLogEnabled ( bool value ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:logInWithPublishPermissions(permissions);
 </code></pre>
 
 <blockquote>
-<p>Displays an exception in the debug log if thrown during a Session.</p>
+<p>log in with specific public permissions
+https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="cpp">static void setDebugLogEnabled ( bool value ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:logout();
 </code></pre>
 
 <blockquote>
-<p>Generates debug logs to console.</p>
+<p>log out</p>
 </blockquote>
-<pre><code class="cpp">static void setLogLevel ( FA_FlurryLogLevel value ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:isLogined();
 </code></pre>
 
 <blockquote>
-<p>Generates debug logs to console.</p>
+<p>Check whether the user logined or not</p>
 </blockquote>
-<pre><code class="cpp">static void setSessionContinueSeconds ( float seconds ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:getUserID();
 </code></pre>
 
 <blockquote>
-<p>Set the timeout for expiring a Flurry session.</p>
+<p>get UserID</p>
 </blockquote>
-<pre><code class="cpp">static void setCrashReportingEnabled ( bool value ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:getAccessToken();
 </code></pre>
 
 <blockquote>
-<p>Enable automatic collection of crash reports.</p>
+<p>get AccessToken</p>
 </blockquote>
-<pre><code class="cpp">static void startSession ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:getPermissionList();
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>get permissoin list</p>
 </blockquote>
-<pre><code class="cpp">static void endSession ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:share(info);
 </code></pre>
 
 <blockquote>
-<p>end session, just valid on android</p>
+<p>share</p>
 </blockquote>
-<pre><code class="cpp">static bool activeSessionExists ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:dialog(info);
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>open a dialog of Facebook app</p>
 </blockquote>
-<pre><code class="cpp">static std::string getSessionID ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:api(path, method, params, tag);
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>use Facebook Open Graph api
+https://developers.facebook.com/docs/ios/graph</p>
 </blockquote>
-<pre><code class="cpp">static void pauseBackgroundSession ( ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:activateApp();
 </code></pre>
 
 <blockquote>
-<p>Pauses a Flurry session left running in background. on valid on ios</p>
+<p>Notifies the events system that the app has launched &amp; logs an activatedApp event.</p>
 </blockquote>
-<pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
-                        const std::string &amp; originVersion ) ;
+<pre><code class="lua">sdkbox.PluginFacebook:getSDKVersion();
 </code></pre>
 
 <blockquote>
-<p>Adds an SDK origin specified by @c originName and @c originVersion.</p>
-</blockquote>
-<pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
-                        const std::string &amp; originVersion ,
-                        std::map &lt;std::string ,
-                        std::string&gt; &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>Adds a custom parameterized origin specified by @c originName with @c originVersion and @c parameters.</p>
-</blockquote>
-<pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
-                        const std::string &amp; originVersion ,
-                        const std::string &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>just for lua, js binding, have the same function with addOrigin(string, string, map)</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ) ;
-</code></pre>
-
-<blockquote>
-<p>Records a custom event specified by @c eventName.</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
-                      std::map &lt;std::string ,
-                      std::string&gt; &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>Records a custom parameterized event specified by @c eventName with @c parameters.</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
-                      const std::string &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>just for lua, js binding, have same function with logEvent(string, map)</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName , bool timed ) ;
-</code></pre>
-
-<blockquote>
-<p>Records a timed event specified by @c eventName.</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
-                      std::map &lt;std::string ,
-                      std::string&gt; &amp; parameters ,
-                      bool timed ) ;
-</code></pre>
-
-<blockquote>
-<p>Records a custom parameterized timed event specified by @c eventName with @c parameters.</p>
-</blockquote>
-<pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
-                      const std::string &amp; parameters ,
-                      bool timed ) ;
-</code></pre>
-
-<blockquote>
-<p>just for lua, js binding, have the same function with logEvent(string, map, bool)</p>
-</blockquote>
-<pre><code class="cpp">static void endTimedEvent ( const std::string &amp; eventId ) ;
-</code></pre>
-
-<blockquote>
-<p>End a timed event</p>
-</blockquote>
-<pre><code class="cpp">static void endTimedEvent ( const std::string &amp; eventName ,
-                            std::map &lt;std::string ,
-                            std::string&gt; &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.</p>
-</blockquote>
-<pre><code class="cpp">static void endTimedEvent ( const std::string &amp; eventName ,
-                            const std::string &amp; parameters ) ;
-</code></pre>
-
-<blockquote>
-<p>just for lua, js binding, have same function with endTimeEvent(string, map)</p>
-</blockquote>
-<pre><code class="cpp">static void logError ( const std::string &amp; errorID ,
-                       const std::string &amp; message ,
-                       const std::string &amp; info ) ;
-</code></pre>
-
-<blockquote>
-<p>Records an app exception. Commonly used to catch unhandled exceptions.</p>
-</blockquote>
-<pre><code class="cpp">static void logPageView ( ) ;
-</code></pre>
-
-<blockquote>
-<p>Explicitly track a page view during a session.</p>
-</blockquote>
-<pre><code class="cpp">static void setUserID ( const std::string &amp; userID ) ;
-</code></pre>
-
-<blockquote>
-<p>Assign a unique id for a user in your app.</p>
-</blockquote>
-<pre><code class="cpp">static void setAge ( int age ) ;
-</code></pre>
-
-<blockquote>
-<p>Set your user's age in years.</p>
-</blockquote>
-<pre><code class="cpp">static void setGender ( const std::string &amp; gender ) ;
-</code></pre>
-
-<blockquote>
-<p>Set your user's gender.</p>
-</blockquote>
-<pre><code class="cpp">     static void setReportLocation ( bool reportLocation ) ;
-</code></pre>
-
-<blockquote>
-<p>Set whether Flurry should record location via GPS. Defaults to true. valid on android</p>
-</blockquote>
-<pre><code class="cpp">static void setLatitude ( double latitude ,
-                          double longitude ,
-                          float horizontalAccuracy ,
-                          float verticalAccuracy ) ;
-</code></pre>
-
-<blockquote>
-<p>Set the location of the session.</p>
-</blockquote>
-<pre><code class="cpp">static void clearLocation ( ) ;
-</code></pre>
-
-<blockquote>
-<p>clear the default location.valid on andriod</p>
-</blockquote>
-<pre><code class="cpp">static void setSessionReportsOnCloseEnabled ( bool sendSessionReportsOnClose ) ;
-</code></pre>
-
-<blockquote>
-<p>Set session to report when app closes.valid on ios</p>
-</blockquote>
-<pre><code class="cpp">static void setSessionReportsOnPauseEnabled ( bool setSessionReportsOnPauseEnabled ) ;
-</code></pre>
-
-<blockquote>
-<p>Set session to report when app is sent to the background.valid on ios</p>
-</blockquote>
-<pre><code class="cpp">static void setBackgroundSessionEnabled ( bool setBackgroundSessionEnabled ) ;
-</code></pre>
-
-<blockquote>
-<p>Set session to support background execution.valid on ios</p>
-</blockquote>
-<pre><code class="cpp">static void setEventLoggingEnabled ( bool value ) ;
-</code></pre>
-
-<blockquote>
-<p>Enable custom event logging.</p>
-</blockquote>
-<pre><code class="cpp">static void setPulseEnabled ( bool value ) ;
-</code></pre>
-
-<blockquote>
-<p>Enables Flurry Pulse</p>
-</blockquote>
-<pre><code class="cpp">static void setListener ( FlurryAnalyticsListener * listener ) ;
-</code></pre>
-
-<blockquote>
-<p>set listener for session callback</p>
-</blockquote>
-<pre><code class="cpp">static FlurryAnalyticsListener * getListener ( ) ;
-</code></pre>
-
-<blockquote>
-<p>get listener</p>
-</blockquote>
-<pre><code class="cpp">static void removeListener ( ) ;
-</code></pre>
-
-<blockquote>
-<p>remove listener, just set null, will not delete it
-        the user should delete listener self</p>
+<p>@breif return the version of Facebook SDK for Cocos</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void flurrySessionDidCreateWithInfo ( std::map &lt;std::string ,
-                                      std::string&gt; &amp; info );
+<pre><code class="lua">onLogin(isLogin, error);
 </code></pre>
 
-<blockquote>
-<p>Invoked when analytics session is created,</p>
-</blockquote></div>
+<pre><code class="lua">onAPI(key, jsonData);
+</code></pre>
+
+<pre><code class="lua">onSharedSuccess(message);
+</code></pre>
+
+<pre><code class="lua">onSharedFailed(message);
+</code></pre>
+
+<pre><code class="lua">onSharedCancel();
+</code></pre></div>
             
         </div>
 
