@@ -30,6 +30,15 @@ pages:
             - 'c++': 'plugins/chartboost/v2-cpp.md'
             - 'js': 'plugins/chartboost/v2-js.md'
             - 'lua': 'plugins/chartboost/v2-lua.md'
+    - 'Facebook':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/facebook/v3-cpp.md'
+            - 'js': 'plugins/facebook/v3-js.md'
+            - 'lua': 'plugins/facebook/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/facebook/v2-cpp.md'
+            - 'js': 'plugins/facebook/v2-js.md'
+            - 'lua': 'plugins/facebook/v2-lua.md'
     - 'Flurry Analytics':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/flurryanalytics/v3-cpp.md'
