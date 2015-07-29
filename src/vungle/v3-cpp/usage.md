@@ -28,7 +28,7 @@ private:
   void onVungleCacheAvailable();
   void onVungleStarted();
   void onVungleFinished();
-  void onVungleOpenStore();
+  void onVungleAdViewed(bool isComplete);
 }
 ```
 

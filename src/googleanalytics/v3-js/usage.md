@@ -15,3 +15,15 @@ sdkbox.PluginGoogleAnalytics.init();
 sc->addRegisterCallback(register_all_PluginGoogleAnalyticsJS);
 ```
 This registers the Javascript callbacks.
+
+You can always manually stop recording events at any time by calling:
+```javascript
+sdkbox.PluginGoogleAnalytics.stopSession();
+```
+
+However, in-order to record events again you must then manually call:
+```javascript
+sdkbox.PluginGoogleAnalytics.startSession();
+```
+
+Logged data usually shows up within one day.

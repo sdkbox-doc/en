@@ -13,7 +13,7 @@ static int lua_module_register(lua_State* L)
 ```
 
 ### Initialize AdColony
-* modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
+Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
 sdkbox.PluginAdColony:init()
 ```
