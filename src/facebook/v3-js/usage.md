@@ -1,125 +1,120 @@
-### Initialize Facebook
-* Modify your app's __Info.plist__ to include the following additional keys, ensuring that you replace __<APP ID>__ with yours:
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-<dict>
-    <key>CFBundleURLName</key>
-    <string></string>
-    <key>CFBundleURLSchemes</key>
-    <array>
-        <string>fb<APP ID></string>
-    </array>
-</dict>
-</array>
-<key>FacebookAppID</key>
-<string><APP ID></string>
-<key>FacebookDisplayName</key>
-<string>MyTestApp</string>
-```
+### Register javascript function
+You need to register all the facebook js functions with cocos2d-x before using them
 
-If my Facebook __APP ID__ is `655158077954837` a completed example would be:
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-<dict>
-    <key>CFBundleURLName</key>
-    <string></string>
-    <key>CFBundleURLSchemes</key>
-    <array>
-        <string>fb655158077954837</string>
-    </array>
-</dict>
-</array>
-<key>FacebookAppID</key>
-<string>655158077954837</string>
-<key>FacebookDisplayName</key>
-<string>MyTestApp</string>
-```
-
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginFacebook.init();
-```
-
+To do this
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFacebookJS.hpp"
-#include "PluginFacebookJSHelper.hpp"
+#include "PluginFacebookJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginFacebookJS);
-sc->addRegisterCallback(register_all_PluginFacebookJS_helper);
+sc->addRegisterCallback(register_PluginFacebookJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Facebook
+* Initialize the plugin where appropriate in your code.
+
+```javascript
+sdkbox.PluginFacebook.init();
+```
 
 ### Using Facebook
-There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call `login()`, example:
+####Login
+First user needs to login to facebook in order to use it.
 ```javascript
 sdkbox.PluginFacebook.login();
 ```
-
-* You can share links, example:
-```javascript
-FBShareInfo info;
-info.type  = FB_LINK;
-info.link  = "http://www.cocos2d-x.org";
-info.title = "cocos2d-x";
-info.text  = "Best Game Engine";
-info.image = "http://cocos2d-x.org/images/logo.png";
-sdkbox.PluginFacebook.share(info);
-```
-
-* You can share a link, but also comment on it at the same time, example:
-```javascript
-FBShareInfo info;
-info.type  = FB_LINK;
-info.link  = "http://www.cocos2d-x.org";
-info.title = "cocos2d-x";
-info.text  = "Best Game Engine";
-info.image = "http://cocos2d-x.org/images/logo.png";
-sdkbox.PluginFacebook.dialog(info);
-```
-
-* You can share a photo example:
-```javascript
-FBShareInfo info;
-info.type  = FB_PHOTO;
-info.title = "My Photo";
-info.image = __path to image__;
-sdkbox.PluginFacebook.share(info);
-```
-
-* You can share a photo, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
-```javascript
-FBShareInfo info;
-info.type  = FB_PHOTO;
-info.title = "My Photo";
-info.image = __path to image__;
-sdkbox.PluginFacebook.dialog(info);
-```
-
-* Besides logging in, you also will need to request `read()` and `publish()` permissions to post. Example:
-```javascript
-sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
-```
-
-* When are are finished, it is appropriate to call `logout()`, example:
+If a user don't want to use facebook funcationality anymore, perform logout using
 ```javascript
 sdkbox.PluginFacebook.logout();
 ```
+You can check weather user already loggedin using
+```javascript
+sdkbox.PluginFacebook.isLoggedIn();
+```
+> Note: user only needs to perform login once, unless they logout
 
-### Catch Facebook events (optional)
+####Permissions
+Facebook requires you to ask user's permission before you can perform actions like posting on user's behave.
+There are two types of permission __read__ and __publish__
+You can get a complete list of permission [here](https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference)
+
+SDKBOX provides some most commonly used permissions here
+
+* FB_PERM_READ_PUBLIC_PROFILE
+* FB_PERM_READ_EMAIL
+* FB_PERM_READ_USER_FRIENDS
+* FB_PERM_PUBLISH_POST
+
+To request a permission
+```javascript
+sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+```
+
+####Share
+There are two types of sharing function
+
+* __share__ will automatically post to user's wall
+share a link:
+```javascript
+var info = new Object();
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.share(info);
+```
+share a photo:
+```javascript
+var info = new Object();
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.share(info);
+```
+* __dialog__ will show a dialog and promote user to write their own share message
+
+present a share dialog:
+```javascript
+var info = new Object();
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.dialog(info);
+```
+
+share a photo with comments:
+```javascript
+var info = new Object();
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.dialog(info);
+```
+ > Note: sharing photo with comments requires the __Facebook app__ to be installed on the device.
+
+### Graph API
+You can perform [Graph API](https://developers.facebook.com/docs/graph-api/overview/) using `api` function
+
+For example, to get the friend list
+```javascript
+var params = new Object();
+sdkbox.PluginFacebook.api("/me/friendlists", "GET", params, "/me/friendlists");
+```
+
+### Facebook events
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.
 
-* Allow your class to extend `sdkbox::FacebookListener` and override the functions listed:
 ```javascript
 sdkbox.PluginFacebook.setListener({
-    onLogin: function(hasLogon, data) {},
+    onLogin: function(isLogin, msg) {},
     onAPI: function(tag, data) {},
     onSharedSuccess: function(data) {},
     onSharedFailed: function(data) {},

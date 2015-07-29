@@ -31,6 +31,7 @@ There are two types of permission __read__ and __publish__
 You can get a complete list of permission [here](https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference)
 
 SDKBOX provides some most commonly used permissions here
+
 * FB_PERM_READ_PUBLIC_PROFILE
 * FB_PERM_READ_EMAIL
 * FB_PERM_READ_USER_FRIENDS
@@ -38,8 +39,8 @@ SDKBOX provides some most commonly used permissions here
 
 To request a permission
 ```cpp
-PluginFacebook::requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
-PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
+sdkbox::PluginFacebook::requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
+sdkbox::PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
 ```
 
 ####Share
@@ -48,42 +49,42 @@ There are two types of sharing function
 * __share__ will automatically post to user's wall
 share a link:
 ```cpp
-FBShareInfo info;
+sdkbox::FBShareInfo info;
 info.type  = FB_LINK;
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
 info.image = "http://cocos2d-x.org/images/logo.png";
-PluginFacebook::share(info);
+sdkbox::PluginFacebook::share(info);
 ```
 share a photo:
 ```cpp
-FBShareInfo info;
+sdkbox::FBShareInfo info;
 info.type  = FB_PHOTO;
 info.title = "My Photo";
 info.image = __path to image__;
-PluginFacebook::share(info);
+sdkbox::PluginFacebook::share(info);
 ```
 * __dialog__ will show a dialog and promote user to write their own share message
 
 present a share dialog:
 ```cpp
-FBShareInfo info;
+sdkbox::FBShareInfo info;
 info.type  = FB_LINK;
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
 info.image = "http://cocos2d-x.org/images/logo.png";
-PluginFacebook::dialog(info);
+sdkbox::PluginFacebook::dialog(info);
 ```
 
 share a photo with comments:
 ```cpp
-FBShareInfo info;
+sdkbox::FBShareInfo info;
 info.type  = FB_PHOTO;
 info.title = "My Photo";
 info.image = __path to image__;
-PluginFacebook::dialog(info);
+sdkbox::PluginFacebook::dialog(info);
 ```
  > Note: sharing photo with comments requires the __Facebook app__ to be installed on the device.
 
@@ -92,8 +93,8 @@ You can perform [Graph API](https://developers.facebook.com/docs/graph-api/overv
 
 For example, to get the friend list
 ```
-PluginFacebook::FBAPIParam params;
-PluginFacebook::api("/me/friendlists", "GET", params, "/me/friendlists");
+sdkbox::PluginFacebook::FBAPIParam params;
+sdkbox::PluginFacebook::api("/me/friendlists", "GET", params, "/me/friendlists");
 ```
 
 ### Facebook events
@@ -105,7 +106,8 @@ This allows you to catch `Facebook` events so that you can perform operations af
 class MyClass : public sdkbox::FacebookListener
 {
 private:
-  void onLogin(bool isLogin, const std::string& error);
+  void onLogin(bool isLogin, const std::string& msg);
+  void onPermission(bool isLogin, const std::string& msg);
   void onAPI(const std::string& tag, const std::string& jsonData);
   void onSharedSuccess(const std::string& message);
   void onSharedFailed(const std::string& message);
