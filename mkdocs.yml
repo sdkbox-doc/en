@@ -85,6 +85,8 @@ pages:
             - 'js': 'plugins/vungle/v2-js.md'
             - 'lua': 'plugins/vungle/v2-lua.md'
 - About: 'release-note.md'
-# theme: readable
-# theme_dir: 'theme'
+
+theme: mkdocs
+theme_dir: 'custom_theme'
+
 google_analytics: ['UA-62579154-2', 'sdkbox-doc.github.io/en']
