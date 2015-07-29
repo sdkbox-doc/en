@@ -93,7 +93,7 @@ info.image = __path to image__;
 sdkbox.PluginFacebook.share(info);
 ```
 
-* You can share a photo, but also comment on it at the same time, example:
+* You can share a photo, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
 ```javascript
 FBShareInfo info;
 info.type  = FB_PHOTO;
@@ -119,20 +119,11 @@ This allows you to catch `Facebook` events so that you can perform operations af
 * Allow your class to extend `sdkbox::FacebookListener` and override the functions listed:
 ```javascript
 sdkbox.PluginFacebook.setListener({
-		onLogin : function (isLogin, error) {
-				// Called when logged in
-		},
-		onAPI : function (tag, jsonData) {
-				// Called when API request completes
-		},
-		onSharedSuccess : function (message) {
-				// Called when you successfully share
-		},
-		onSharedFailed : function (message) {
-				// Called when sharing has failed
-		},
-		onSharedCancel : function (message) {
-				// Called when sharing is canceled
-		}
+    onLogin: function(hasLogon, data) {},
+    onAPI: function(tag, data) {},
+    onSharedSuccess: function(data) {},
+    onSharedFailed: function(data) {},
+    onSharedCancel: function() {},
+    onPermission: function(isLogin, msg) {}
 });
 ```
