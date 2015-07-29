@@ -906,7 +906,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 </ul>
 <pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
 &lt;array&gt;
-&lt;dict&gt;
+&lt;dict
     &lt;key&gt;CFBundleURLName&lt;/key&gt;
     &lt;string&gt;&lt;/string&gt;
     &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
@@ -950,7 +950,8 @@ bool AppDelegate::applicationDidFinishLaunching()
   <code>lua
   sdkbox.PluginFacebook:login();</code></p>
 <ul>
-<li>You can share links, example:
+<li>
+<p>You can share links, example:
   <code>lua
   FBShareInfo info;
   info.type  = FB_LINK;
@@ -958,7 +959,8 @@ bool AppDelegate::applicationDidFinishLaunching()
   info.title = "cocos2d-x";
   info.text  = "Best Game Engine";
   info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.share(info);</code></li>
+  sdkbox.PluginFacebook.share(info);</code></p>
+</li>
 <li>
 <p>You can share a link, but also comment on it at the same time, example:
   <code>lua
