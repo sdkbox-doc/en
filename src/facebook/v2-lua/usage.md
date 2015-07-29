@@ -128,21 +128,8 @@ This allows you to catch `Facebook` events so that you can perform operations af
 
 * Allow your class to extend `sdkbox::FacebookListener` and override the functions listed:
 ```lua
-sdkbox.PluginFacebook.setListener({
-		onLogin : function (isLogin, error) {
-				// Called when logged in
-		},
-		onAPI : function (tag, jsonData) {
-				// Called when API request completes
-		},
-		onSharedSuccess : function (message) {
-				// Called when you successfully share
-		},
-		onSharedFailed : function (message) {
-				// Called when sharing has failed
-		},
-		onSharedCancel : function (message) {
-				// Called when sharing is canceled
-		}
-});
+sdkbox.PluginFacebook:setListener(function(event)
+    print("PluginFacebook callback")
+    dump(event)
+end)
 ```
