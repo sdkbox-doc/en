@@ -38,6 +38,7 @@ If my Facebook __APP ID__ is `655158077954837` a completed example would be:
 ```
 
 * Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
+
 ```cpp
 #include "PluginFacebook/PluginFacebook.h"
 AppDelegate::applicationDidFinishLaunching()
@@ -48,60 +49,60 @@ AppDelegate::applicationDidFinishLaunching()
 
 ### Using Facebook
 There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call `login()`, example:
-  ```cpp
-  sdkbox::PluginFacebook::login();
-  ```
+```cpp
+sdkbox::PluginFacebook::login();
+```
 
 * You can share links, example:
-  ```cpp
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  PluginFacebook::share(info);
-  ```
-  
+```cpp
+FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+PluginFacebook::share(info);
+```
+
 * You can share a link, but also comment on it at the same time, example:
-  ```cpp
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  PluginFacebook::dialog(info);
-  ```
+```cpp
+FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+PluginFacebook::dialog(info);
+```
 
 * You can share a photo example:
-  ```cpp
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  PluginFacebook::share(info);
-  ```
+```cpp
+FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+PluginFacebook::share(info);
+```
 
 * You can share a photo, but also comment on it at the same time, example:
-  ```cpp
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  PluginFacebook::dialog(info);
-  ```
+```cpp
+FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+PluginFacebook::dialog(info);
+```
 
 * Besides logging in, you also will need to request `read()` and `publish()` permissions to post. Example:
-  ```cpp
-  PluginFacebook::requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-  PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
-  ```
+```cpp
+PluginFacebook::requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
+PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
+```
 
 * When are are finished, it is appropriate to call `logout()`, example:
-  ```cpp
-  sdkbox::PluginFacebook::logout();
-  ```
+```cpp
+sdkbox::PluginFacebook::logout();
+```
 
 ### Catch Facebook events (optional)
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.

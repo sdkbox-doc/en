@@ -58,60 +58,60 @@ This registers the Javascript callbacks.
 
 ### Using Facebook
 There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call `login()`, example:
-  ```javascript
-  sdkbox.PluginFacebook.login();
-  ```
+```javascript
+sdkbox.PluginFacebook.login();
+```
 
 * You can share links, example:
-  ```javascript
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.share(info);
-  ```
-  
+```javascript
+FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.share(info);
+```
+
 * You can share a link, but also comment on it at the same time, example:
-  ```javascript
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.dialog(info);
-  ```
+```javascript
+FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.dialog(info);
+```
 
 * You can share a photo example:
-  ```javascript
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.share(info);
-  ```
+```javascript
+FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.share(info);
+```
 
 * You can share a photo, but also comment on it at the same time, example:
-  ```javascript
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.dialog(info);
-  ```
+```javascript
+FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.dialog(info);
+```
 
 * Besides logging in, you also will need to request `read()` and `publish()` permissions to post. Example:
-  ```javascript
-  sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-  sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
-  ```
+```javascript
+sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+```
 
 * When are are finished, it is appropriate to call `logout()`, example:
-  ```javascript
-  sdkbox.PluginFacebook.logout();
-  ```
+```javascript
+sdkbox.PluginFacebook.logout();
+```
 
 ### Catch Facebook events (optional)
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.
