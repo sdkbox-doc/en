@@ -62,6 +62,7 @@ There are many Facebook operations that you can take advantage of. Before using 
   info.image = "http://cocos2d-x.org/images/logo.png";
   PluginFacebook::share(info);
   ```
+  
 * You can share a link, but also comment on it at the same time, example:
   ```cpp
   FBShareInfo info;
