@@ -859,8 +859,10 @@ import com.sdkbox.plugin.SDKBox;
 <ul>
 <li>Edit the file you specified to include the following:</li>
 </ul>
-<pre><code>-keep class com.facebook.** {
-   *;
+<pre><code>-libraryjars libs/facebook_lib/libs/android-support-v4.jar
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
 }
 </code></pre>
 
@@ -946,84 +948,76 @@ bool AppDelegate::applicationDidFinishLaunching()
 </code></pre>
 
 <h3 id="using-facebook">Using Facebook</h3>
-<p>There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call <code>login()</code>, example:
-  <code>lua
-  sdkbox.PluginFacebook:login();</code></p>
+<p>There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call <code>login()</code>, example:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:login();
+</code></pre>
+
 <ul>
-<li>
-<p>You can share links, example:
-  <code>lua
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.share(info);</code></p>
-</li>
-<li>
-<p>You can share a link, but also comment on it at the same time, example:
-  <code>lua
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.dialog(info);</code></p>
-</li>
-<li>
-<p>You can share a photo example:
-  <code>lua
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.share(info);</code></p>
-</li>
-<li>
-<p>You can share a photo, but also comment on it at the same time, example:
-  <code>lua
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.dialog(info);</code></p>
-</li>
-<li>
-<p>Besides logging in, you also will need to request <code>read()</code> and <code>publish()</code> permissions to post. Example:
-  <code>lua
-  sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-  sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});</code></p>
-</li>
-<li>
-<p>When are are finished, it is appropriate to call <code>logout()</code>, example:
-  <code>lua
-  sdkbox.PluginFacebook.logout();</code></p>
-</li>
+<li>You can share links, example:</li>
 </ul>
+<pre><code class="lua">FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = &quot;http://www.cocos2d-x.org&quot;;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;Best Game Engine&quot;;
+info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox.PluginFacebook.share(info);
+</code></pre>
+
+<ul>
+<li>You can share a link, but also comment on it at the same time. This requires the <strong>Facebook app</strong> to be installed on the device. Example:</li>
+</ul>
+<pre><code class="lua">FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = &quot;http://www.cocos2d-x.org&quot;;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;Best Game Engine&quot;;
+info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox.PluginFacebook.dialog(info);
+</code></pre>
+
+<ul>
+<li>You can share a photo example:</li>
+</ul>
+<pre><code class="lua">FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = &quot;My Photo&quot;;
+info.image = __path to image__;
+sdkbox.PluginFacebook.share(info);
+</code></pre>
+
+<ul>
+<li>You can share a photo, but also comment on it at the same time, example:</li>
+</ul>
+<pre><code class="lua">FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = &quot;My Photo&quot;;
+info.image = __path to image__;
+sdkbox.PluginFacebook.dialog(info);
+</code></pre>
+
+<ul>
+<li>Besides logging in, you also will need to request <code>read()</code> and <code>publish()</code> permissions to post. Example:</li>
+</ul>
+<pre><code class="lua">sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+</code></pre>
+
+<ul>
+<li>When are are finished, it is appropriate to call <code>logout()</code>, example:</li>
+</ul>
+<pre><code class="lua">sdkbox.PluginFacebook.logout();
+</code></pre>
+
 <h3 id="catch-facebook-events-optional">Catch Facebook events (optional)</h3>
 <p>This allows you to catch <code>Facebook</code> events so that you can perform operations after Facebook events have occurred.</p>
 <ul>
 <li>Allow your class to extend <code>sdkbox::FacebookListener</code> and override the functions listed:</li>
 </ul>
-<pre><code class="lua">sdkbox.PluginFacebook.setListener({
-        onLogin : function (isLogin, error) {
-                // Called when logged in
-        },
-        onAPI : function (tag, jsonData) {
-                // Called when API request completes
-        },
-        onSharedSuccess : function (message) {
-                // Called when you successfully share
-        },
-        onSharedFailed : function (message) {
-                // Called when sharing has failed
-        },
-        onSharedCancel : function (message) {
-                // Called when sharing is canceled
-        }
-});
+<pre><code class="lua">sdkbox.PluginFacebook:setListener(function(event)
+    print(&quot;PluginFacebook callback&quot;)
+    dump(event)
+end)
 </code></pre>
 
 <h2 id="api-reference">API Reference</h2>
