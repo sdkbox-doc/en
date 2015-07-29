@@ -270,6 +270,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Facebook</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../facebook/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../facebook/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Flurry Analytics</a>
     <ul class="dropdown-menu">
         
@@ -656,6 +719,12 @@
                     </li>
                 
                 
+
+                <!-- new add for language button -->
+                <li>
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
                 </ul>
             
 
@@ -716,9 +785,9 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
-<h3 id="modify-yourgamenamejava">Modify <code>&lt;YourGameName&gt;.java</code></h3>
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
 <ul>
-<li>Modify <code>proj.android/src/&lt;package identifier&gt;/&lt;YourGameName&gt;.java</code> to add the following imports:</li>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
 </ul>
 <pre><code class="java">import android.content.Intent;
 import com.sdkbox.plugin.SDKBox;
@@ -841,6 +910,15 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 </code></pre>
 
 <p>This registers the Javascript callbacks.</p>
+<p>You can always manually stop recording events at any time by calling:</p>
+<pre><code class="javascript">sdkbox.PluginGoogleAnalytics.stopSession();
+</code></pre>
+
+<p>However, in-order to record events again you must then manually call:</p>
+<pre><code class="javascript">sdkbox.PluginGoogleAnalytics.startSession();
+</code></pre>
+
+<p>Logged data usually shows up within one day.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <h4 id="dispatch-methods-dispatches-hits-view-events-etc-to-google-analytics-if-a-network-connection-is-available">Dispatch Methods. Dispatches hits (view, events, etc.) to Google Analytics if a network connection is available.</h4>
