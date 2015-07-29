@@ -656,6 +656,11 @@
                     </li>
                 
                 
+
+                    <!-- new add for language button -->
+                    <li>
+                        <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                    </li>
                 </ul>
             
 
@@ -844,6 +849,15 @@ AppDelegate::applicationDidFinishLaunching()
 }
 </code></pre>
 
+<p>You can always manually stop recording events at any time by calling:</p>
+<pre><code class="cpp">sdkbox::PluginGoogleAnalytics::stopSession();
+</code></pre>
+
+<p>However, in-order to record events again you must then manually call:</p>
+<pre><code class="cpp">sdkbox::PluginGoogleAnalytics::startSession();
+</code></pre>
+
+<p>Logged data usually shows up within one day.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <h4 id="dispatch-methods-dispatches-hits-view-events-etc-to-google-analytics-if-a-network-connection-is-available">Dispatch Methods. Dispatches hits (view, events, etc.) to Google Analytics if a network connection is available.</h4>
