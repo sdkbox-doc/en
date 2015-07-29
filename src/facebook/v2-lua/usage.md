@@ -83,7 +83,7 @@ info.image = "http://cocos2d-x.org/images/logo.png";
 sdkbox.PluginFacebook.share(info);
 ```
 
-* You can share a link, but also comment on it at the same time, example:
+* You can share a link, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
 ```lua
 FBShareInfo info;
 info.type  = FB_LINK;

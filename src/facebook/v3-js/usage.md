@@ -93,7 +93,7 @@ info.image = __path to image__;
 sdkbox.PluginFacebook.share(info);
 ```
 
-* You can share a photo, but also comment on it at the same time, example:
+* You can share a photo, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
 ```javascript
 FBShareInfo info;
 info.type  = FB_PHOTO;
