@@ -96,6 +96,6 @@ pages:
 - About: 'release-note.md'
 
 theme: mkdocs
-theme_dir: 'custom_theme'
+theme_dir: 'theme'
 
 google_analytics: ['UA-62579154-2', 'sdkbox-doc.github.io/en']
