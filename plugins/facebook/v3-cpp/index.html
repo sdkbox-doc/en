@@ -785,6 +785,20 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
+<p>The following step assuming you already registered as a Facebook Developer
+And created a new <strong>APP</strong> on Facebook</p>
+<h3 id="setup-ios">Setup iOS</h3>
+<ul>
+<li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
+<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.m</code></li>
+</ul>
+<h3 id="setup-android">Setup Android</h3>
+<ul>
+<li>Configure your <strong>APP</strong> on Facebook follow <a href="https://developers.facebook.com/quickstarts/?platform=android">Android Quick Start Guide</a></li>
+<li>Open <code>res/values/strings.xml</code> and replace <code>facebook_app_id</code> with your <code>Facebook App ID</code></li>
+<li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your <code>Facebook App ID</code></li>
+<li>Open <code>project.properties</code> and change target to <code>target=android-15</code></li>
+</ul>
 <h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
 <ul>
 <li>
@@ -883,8 +897,8 @@ SDKBox.init(this);
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Facebook configuration there isn't much to do here except set your debug preference.</p>
+<p>SDKBOX Installer will automatically create a sample configuration <code>sdkbox_config.json</code> for you</p>
+<p>Here is an example of the Facebook configuration you can enable/disable debug mode for facebook here</p>
 <pre><code class="json">&quot;Facebook&quot;:
 {
     &quot;debug&quot;:true
@@ -893,44 +907,6 @@ SDKBox.init(this);
 
 <h2 id="usage">Usage</h2>
 <h3 id="initialize-facebook">Initialize Facebook</h3>
-<ul>
-<li>Modify your app's <strong>Info.plist</strong> to include the following additional keys, ensuring that you replace <strong><APP ID></strong> with yours:</li>
-</ul>
-<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-&lt;dict&gt;
-    &lt;key&gt;CFBundleURLName&lt;/key&gt;
-    &lt;string&gt;&lt;/string&gt;
-    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;fb&lt;APP ID&gt;&lt;/string&gt;
-    &lt;/array&gt;
-&lt;/dict&gt;
-&lt;/array&gt;
-&lt;key&gt;FacebookAppID&lt;/key&gt;
-&lt;string&gt;&lt;APP ID&gt;&lt;/string&gt;
-&lt;key&gt;FacebookDisplayName&lt;/key&gt;
-&lt;string&gt;MyTestApp&lt;/string&gt;
-</code></pre>
-
-<p>If my Facebook <strong>APP ID</strong> is <code>655158077954837</code> a completed example would be:</p>
-<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-&lt;dict&gt;
-    &lt;key&gt;CFBundleURLName&lt;/key&gt;
-    &lt;string&gt;&lt;/string&gt;
-    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;fb655158077954837&lt;/string&gt;
-    &lt;/array&gt;
-&lt;/dict&gt;
-&lt;/array&gt;
-&lt;key&gt;FacebookAppID&lt;/key&gt;
-&lt;string&gt;655158077954837&lt;/string&gt;
-&lt;key&gt;FacebookDisplayName&lt;/key&gt;
-&lt;string&gt;MyTestApp&lt;/string&gt;
-</code></pre>
-
 <ul>
 <li>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</li>
 </ul>
@@ -942,68 +918,93 @@ AppDelegate::applicationDidFinishLaunching()
 </code></pre>
 
 <h3 id="using-facebook">Using Facebook</h3>
-<p>There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call <code>login()</code>, example:</p>
+<h4 id="login">Login</h4>
+<p>First user needs to login to facebook in order to use it.</p>
 <pre><code class="cpp">sdkbox::PluginFacebook::login();
 </code></pre>
 
-<ul>
-<li>You can share links, example:</li>
-</ul>
-<pre><code class="cpp">FBShareInfo info;
-info.type  = FB_LINK;
-info.link  = &quot;http://www.cocos2d-x.org&quot;;
-info.title = &quot;cocos2d-x&quot;;
-info.text  = &quot;Best Game Engine&quot;;
-info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
-PluginFacebook::share(info);
-</code></pre>
-
-<ul>
-<li>You can share a link, but also comment on it at the same time, example:</li>
-</ul>
-<pre><code class="cpp">FBShareInfo info;
-info.type  = FB_LINK;
-info.link  = &quot;http://www.cocos2d-x.org&quot;;
-info.title = &quot;cocos2d-x&quot;;
-info.text  = &quot;Best Game Engine&quot;;
-info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
-PluginFacebook::dialog(info);
-</code></pre>
-
-<ul>
-<li>You can share a photo example:</li>
-</ul>
-<pre><code class="cpp">FBShareInfo info;
-info.type  = FB_PHOTO;
-info.title = &quot;My Photo&quot;;
-info.image = __path to image__;
-PluginFacebook::share(info);
-</code></pre>
-
-<ul>
-<li>You can share a photo, but also comment on it at the same time. This requires the <strong>Facebook app</strong> to be installed on the device. Example:</li>
-</ul>
-<pre><code class="cpp">FBShareInfo info;
-info.type  = FB_PHOTO;
-info.title = &quot;My Photo&quot;;
-info.image = __path to image__;
-PluginFacebook::dialog(info);
-</code></pre>
-
-<ul>
-<li>Besides logging in, you also will need to request <code>read()</code> and <code>publish()</code> permissions to post. Example:</li>
-</ul>
-<pre><code class="cpp">PluginFacebook::requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
-</code></pre>
-
-<ul>
-<li>When are are finished, it is appropriate to call <code>logout()</code>, example:</li>
-</ul>
+<p>If a user don't want to use facebook funcationality anymore, perform logout using</p>
 <pre><code class="cpp">sdkbox::PluginFacebook::logout();
 </code></pre>
 
-<h3 id="catch-facebook-events-optional">Catch Facebook events (optional)</h3>
+<p>You can check weather user already loggedin using</p>
+<pre><code class="cpp">sdkbox::PluginFacebook::isLoggedIn();
+</code></pre>
+
+<blockquote>
+<p>Note: user only needs to perform login once, unless they logout</p>
+</blockquote>
+<h4 id="permissions">Permissions</h4>
+<p>Facebook requires you to ask user's permission before you can perform actions like posting on user's behave.
+There are two types of permission <strong>read</strong> and <strong>publish</strong>
+You can get a complete list of permission <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference">here</a></p>
+<p>SDKBOX provides some most commonly used permissions here</p>
+<ul>
+<li>FB_PERM_READ_PUBLIC_PROFILE</li>
+<li>FB_PERM_READ_EMAIL</li>
+<li>FB_PERM_READ_USER_FRIENDS</li>
+<li>FB_PERM_PUBLISH_POST</li>
+</ul>
+<p>To request a permission</p>
+<pre><code class="cpp">sdkbox::PluginFacebook::requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
+sdkbox::PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
+</code></pre>
+
+<h4 id="share">Share</h4>
+<p>There are two types of sharing function</p>
+<ul>
+<li><strong>share</strong> will automatically post to user's wall
+share a link:</li>
+</ul>
+<pre><code class="cpp">sdkbox::FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = &quot;http://www.cocos2d-x.org&quot;;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;Best Game Engine&quot;;
+info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox::PluginFacebook::share(info);
+</code></pre>
+
+<p>share a photo:</p>
+<pre><code class="cpp">sdkbox::FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = &quot;My Photo&quot;;
+info.image = __path to image__;
+sdkbox::PluginFacebook::share(info);
+</code></pre>
+
+<ul>
+<li><strong>dialog</strong> will show a dialog and promote user to write their own share message</li>
+</ul>
+<p>present a share dialog:</p>
+<pre><code class="cpp">sdkbox::FBShareInfo info;
+info.type  = FB_LINK;
+info.link  = &quot;http://www.cocos2d-x.org&quot;;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;Best Game Engine&quot;;
+info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox::PluginFacebook::dialog(info);
+</code></pre>
+
+<p>share a photo with comments:</p>
+<pre><code class="cpp">sdkbox::FBShareInfo info;
+info.type  = FB_PHOTO;
+info.title = &quot;My Photo&quot;;
+info.image = __path to image__;
+sdkbox::PluginFacebook::dialog(info);
+</code></pre>
+
+<blockquote>
+<p>Note: sharing photo with comments requires the <strong>Facebook app</strong> to be installed on the device.</p>
+</blockquote>
+<h3 id="graph-api">Graph API</h3>
+<p>You can perform <a href="https://developers.facebook.com/docs/graph-api/overview/">Graph API</a> using <code>api</code> function</p>
+<p>For example, to get the friend list</p>
+<pre><code>sdkbox::PluginFacebook::FBAPIParam params;
+sdkbox::PluginFacebook::api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, &quot;/me/friendlists&quot;);
+</code></pre>
+
+<h3 id="facebook-events">Facebook events</h3>
 <p>This allows you to catch <code>Facebook</code> events so that you can perform operations after Facebook events have occurred.</p>
 <ul>
 <li>Allow your class to extend <code>sdkbox::FacebookListener</code> and override the functions listed:</li>
@@ -1012,7 +1013,8 @@ PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
 class MyClass : public sdkbox::FacebookListener
 {
 private:
-  void onLogin(bool isLogin, const std::string&amp; error);
+  void onLogin(bool isLogin, const std::string&amp; msg);
+  void onPermission(bool isLogin, const std::string&amp; msg);
   void onAPI(const std::string&amp; tag, const std::string&amp; jsonData);
   void onSharedSuccess(const std::string&amp; message);
   void onSharedFailed(const std::string&amp; message);

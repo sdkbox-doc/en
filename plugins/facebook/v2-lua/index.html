@@ -785,6 +785,20 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
+<p>The following step assuming you already registered as a Facebook Developer
+And created a new <strong>APP</strong> on Facebook</p>
+<h3 id="setup-ios">Setup iOS</h3>
+<ul>
+<li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
+<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.m</code></li>
+</ul>
+<h3 id="setup-android">Setup Android</h3>
+<ul>
+<li>Configure your <strong>APP</strong> on Facebook follow <a href="https://developers.facebook.com/quickstarts/?platform=android">Android Quick Start Guide</a></li>
+<li>Open <code>res/values/strings.xml</code> and replace <code>facebook_app_id</code> with your <code>Facebook App ID</code></li>
+<li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your <code>Facebook App ID</code></li>
+<li>Open <code>project.properties</code> and change target to <code>target=android-15</code></li>
+</ul>
 <h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
 <ul>
 <li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
@@ -868,8 +882,8 @@ import com.sdkbox.plugin.SDKBox;
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Facebook configuration there isn't much to do here except set your debug preference.</p>
+<p>SDKBOX Installer will automatically create a sample configuration <code>sdkbox_config.json</code> for you</p>
+<p>Here is an example of the Facebook configuration you can enable/disable debug mode for facebook here</p>
 <pre><code class="json">&quot;Facebook&quot;:
 {
     &quot;debug&quot;:true
