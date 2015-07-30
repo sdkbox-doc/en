@@ -31,7 +31,7 @@ And created a new __APP__ on Facebook
 ## Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
-Here is an example of the Facebook configuration you can enable/disable debug mode for facebook here
+Here is an example of the Facebook configuration you can enable/disable debug mode for Facebook here
 ```json
 "Facebook":
 {
