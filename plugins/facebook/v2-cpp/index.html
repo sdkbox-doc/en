@@ -790,10 +790,31 @@ And created a new <strong>APP</strong> on Facebook</p>
 <h3 id="setup-ios">Setup iOS</h3>
 <ul>
 <li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
-<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.m</code></li>
+<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.cpp</code></li>
 </ul>
+<pre><code>- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                         openURL:url
+                                               sourceApplication:sourceApplication
+                                                      annotation:annotation];
+}
+</code></pre>
+
 <h3 id="setup-android">Setup Android</h3>
 <ul>
+<li>Make sure <code>java -version</code> &gt;= 1.7</li>
 <li>Configure your <strong>APP</strong> on Facebook follow <a href="https://developers.facebook.com/quickstarts/?platform=android">Android Quick Start Guide</a></li>
 <li>Open <code>res/values/strings.xml</code> and replace <code>facebook_app_id</code> with your <code>Facebook App ID</code></li>
 <li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your <code>Facebook App ID</code></li>
@@ -1023,7 +1044,7 @@ private:
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for adcolony events</p>
+<p>Set listener to listen for facebook events</p>
 </blockquote>
 <pre><code class="cpp">static FacebookListener * getListener ( ) ;
 </code></pre>
@@ -1043,14 +1064,14 @@ private:
 <blockquote>
 <p>log in</p>
 </blockquote>
-<pre><code class="cpp">static void logInWithReadPermissions ( const std::string &amp; permissions ) ;
+<pre><code class="cpp">static void requestReadPermissions ( const std::vector &lt;std::string&gt; &amp; permissions ) ;
 </code></pre>
 
 <blockquote>
 <p>log in with specific read permissions, conflict with publish permissions
 https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="cpp">static void logInWithPublishPermissions ( const std::string &amp; permissions ) ;
+<pre><code class="cpp">static void requestPublishPermissions ( const std::vector &lt;std::string&gt; &amp; permissions ) ;
 </code></pre>
 
 <blockquote>
@@ -1063,7 +1084,7 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>log out</p>
 </blockquote>
-<pre><code class="cpp">static bool isLogined ( ) ;
+<pre><code class="cpp">static bool isLoggedIn ( ) ;
 </code></pre>
 
 <blockquote>
@@ -1081,27 +1102,33 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>get AccessToken</p>
 </blockquote>
-<pre><code class="cpp">static std::string getPermissionList ( ) ;
+<pre><code class="cpp">static std::vector &lt;std::string&gt; getPermissionList ( ) ;
 </code></pre>
 
 <blockquote>
 <p>get permissoin list</p>
 </blockquote>
-<pre><code class="cpp">static void share ( FBInfo &amp; info ) ;
+<pre><code class="cpp">static void share ( const FBShareInfo &amp; info ) ;
 </code></pre>
 
 <blockquote>
 <p>share</p>
 </blockquote>
-<pre><code class="cpp">static void dialog ( FBInfo &amp; info ) ;
+<pre><code class="cpp">static void dialog ( const FBShareInfo &amp; info ) ;
 </code></pre>
 
 <blockquote>
-<p>open a dialog of Facebook app</p>
+<p>open a dialog of Facebook app or WebDialog (dialog with photo only avaible with native Facebook app)</p>
+</blockquote>
+<pre><code class="cpp">static std::string getSDKVersion ( ) ;
+</code></pre>
+
+<blockquote>
+<p>return the version of Facebook SDK</p>
 </blockquote>
 <pre><code class="cpp">static void api ( const std::string &amp; path ,
                   const std::string &amp; method ,
-                  FBInfo &amp; params ,
+                  const FBAPIParam &amp; params ,
                   const std::string &amp; tag ) ;
 </code></pre>
 
@@ -1109,23 +1136,8 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <p>use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph</p>
 </blockquote>
-<pre><code class="cpp">static void activateApp ( ) ;
-</code></pre>
-
-<blockquote>
-<p>Notifies the events system that the app has launched &amp; logs an activatedApp event.</p>
-</blockquote>
-<pre><code class="cpp">static std::string getSDKVersion ( ) ;
-</code></pre>
-
-<blockquote>
-<p>@breif return the version of Facebook SDK for Cocos</p>
-</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onLogin ( bool isLogin , const std::string &amp; error );
-</code></pre>
-
-<pre><code class="cpp">void onAPI ( const std::string &amp; key , const std::string &amp; jsonData );
 </code></pre>
 
 <pre><code class="cpp">void onSharedSuccess ( const std::string &amp; message );
@@ -1135,6 +1147,12 @@ https://developers.facebook.com/docs/ios/graph</p>
 </code></pre>
 
 <pre><code class="cpp">void onSharedCancel ( );
+</code></pre>
+
+<pre><code class="cpp">void onAPI ( const std::string &amp; key , const std::string &amp; jsonData );
+</code></pre>
+
+<pre><code class="cpp">void onPermission ( bool isLogin , const std::string &amp; error );
 </code></pre></div>
             
         </div>

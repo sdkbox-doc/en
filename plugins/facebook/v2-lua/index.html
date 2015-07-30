@@ -790,10 +790,31 @@ And created a new <strong>APP</strong> on Facebook</p>
 <h3 id="setup-ios">Setup iOS</h3>
 <ul>
 <li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
-<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.m</code></li>
+<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.cpp</code></li>
 </ul>
+<pre><code>- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                         openURL:url
+                                               sourceApplication:sourceApplication
+                                                      annotation:annotation];
+}
+</code></pre>
+
 <h3 id="setup-android">Setup Android</h3>
 <ul>
+<li>Make sure <code>java -version</code> &gt;= 1.7</li>
 <li>Configure your <strong>APP</strong> on Facebook follow <a href="https://developers.facebook.com/quickstarts/?platform=android">Android Quick Start Guide</a></li>
 <li>Open <code>res/values/strings.xml</code> and replace <code>facebook_app_id</code> with your <code>Facebook App ID</code></li>
 <li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your <code>Facebook App ID</code></li>
@@ -1036,107 +1057,104 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginFacebook:init();
+<pre><code class="lua">sdkbox.PluginFacebook:init()
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:login();
+<pre><code class="lua">sdkbox.PluginFacebook:login()
 </code></pre>
 
 <blockquote>
 <p>log in</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:logInWithReadPermissions(permissions);
+<pre><code class="lua">sdkbox.PluginFacebook:requestReadPermissions(permissions)
 </code></pre>
 
 <blockquote>
 <p>log in with specific read permissions, conflict with publish permissions
 https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:logInWithPublishPermissions(permissions);
+<pre><code class="lua">sdkbox.PluginFacebook:requestPublishPermissions(permissions)
 </code></pre>
 
 <blockquote>
 <p>log in with specific public permissions
 https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:logout();
+<pre><code class="lua">sdkbox.PluginFacebook:logout()
 </code></pre>
 
 <blockquote>
 <p>log out</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:isLogined();
+<pre><code class="lua">sdkbox.PluginFacebook:isLoggedIn()
 </code></pre>
 
 <blockquote>
 <p>Check whether the user logined or not</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:getUserID();
+<pre><code class="lua">sdkbox.PluginFacebook:getUserID()
 </code></pre>
 
 <blockquote>
 <p>get UserID</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:getAccessToken();
+<pre><code class="lua">sdkbox.PluginFacebook:getAccessToken()
 </code></pre>
 
 <blockquote>
 <p>get AccessToken</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:getPermissionList();
+<pre><code class="lua">sdkbox.PluginFacebook:getPermissionList()
 </code></pre>
 
 <blockquote>
 <p>get permissoin list</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:share(info);
+<pre><code class="lua">sdkbox.PluginFacebook:share(info)
 </code></pre>
 
 <blockquote>
 <p>share</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:dialog(info);
+<pre><code class="lua">sdkbox.PluginFacebook:dialog(info)
 </code></pre>
 
 <blockquote>
-<p>open a dialog of Facebook app</p>
+<p>open a dialog of Facebook app or WebDialog (dialog with photo only avaible with native Facebook app)</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:api(path, method, params, tag);
+<pre><code class="lua">sdkbox.PluginFacebook:getSDKVersion()
+</code></pre>
+
+<blockquote>
+<p>return the version of Facebook SDK</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:api(path, method, params, tag)
 </code></pre>
 
 <blockquote>
 <p>use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:activateApp();
-</code></pre>
-
-<blockquote>
-<p>Notifies the events system that the app has launched &amp; logs an activatedApp event.</p>
-</blockquote>
-<pre><code class="lua">sdkbox.PluginFacebook:getSDKVersion();
-</code></pre>
-
-<blockquote>
-<p>@breif return the version of Facebook SDK for Cocos</p>
-</blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onLogin(isLogin, error);
+<pre><code class="lua">onLogin(isLogin, error)
 </code></pre>
 
-<pre><code class="lua">onAPI(key, jsonData);
+<pre><code class="lua">onSharedSuccess(message)
 </code></pre>
 
-<pre><code class="lua">onSharedSuccess(message);
+<pre><code class="lua">onSharedFailed(message)
 </code></pre>
 
-<pre><code class="lua">onSharedFailed(message);
+<pre><code class="lua">onSharedCancel()
 </code></pre>
 
-<pre><code class="lua">onSharedCancel();
+<pre><code class="lua">onAPI(key, jsonData)
+</code></pre>
+
+<pre><code class="lua">onPermission(isLogin, error)
 </code></pre></div>
             
         </div>

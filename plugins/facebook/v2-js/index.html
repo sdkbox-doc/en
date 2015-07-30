@@ -790,10 +790,31 @@ And created a new <strong>APP</strong> on Facebook</p>
 <h3 id="setup-ios">Setup iOS</h3>
 <ul>
 <li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
-<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.m</code></li>
+<li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.cpp</code></li>
 </ul>
+<pre><code>- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                         openURL:url
+                                               sourceApplication:sourceApplication
+                                                      annotation:annotation];
+}
+</code></pre>
+
 <h3 id="setup-android">Setup Android</h3>
 <ul>
+<li>Make sure <code>java -version</code> &gt;= 1.7</li>
 <li>Configure your <strong>APP</strong> on Facebook follow <a href="https://developers.facebook.com/quickstarts/?platform=android">Android Quick Start Guide</a></li>
 <li>Open <code>res/values/strings.xml</code> and replace <code>facebook_app_id</code> with your <code>Facebook App ID</code></li>
 <li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your <code>Facebook App ID</code></li>
@@ -1020,14 +1041,14 @@ sdkbox.PluginFacebook.api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, 
 <blockquote>
 <p>log in</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginFacebook.logInWithReadPermissions(permissions);
+<pre><code class="javascript">sdkbox.PluginFacebook.requestReadPermissions(permissions);
 </code></pre>
 
 <blockquote>
 <p>log in with specific read permissions, conflict with publish permissions
 https://developers.facebook.com/docs/facebook-login/permissions</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginFacebook.logInWithPublishPermissions(permissions);
+<pre><code class="javascript">sdkbox.PluginFacebook.requestPublishPermissions(permissions);
 </code></pre>
 
 <blockquote>
@@ -1040,7 +1061,7 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>log out</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginFacebook.isLogined();
+<pre><code class="javascript">sdkbox.PluginFacebook.isLoggedIn();
 </code></pre>
 
 <blockquote>
@@ -1074,7 +1095,13 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 </code></pre>
 
 <blockquote>
-<p>open a dialog of Facebook app</p>
+<p>open a dialog of Facebook app or WebDialog (dialog with photo only avaible with native Facebook app)</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.getSDKVersion();
+</code></pre>
+
+<blockquote>
+<p>return the version of Facebook SDK</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginFacebook.api(path, method, params, tag);
 </code></pre>
@@ -1083,23 +1110,8 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <p>use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginFacebook.activateApp();
-</code></pre>
-
-<blockquote>
-<p>Notifies the events system that the app has launched &amp; logs an activatedApp event.</p>
-</blockquote>
-<pre><code class="javascript">sdkbox.PluginFacebook.getSDKVersion();
-</code></pre>
-
-<blockquote>
-<p>@breif return the version of Facebook SDK for Cocos</p>
-</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onLogin(isLogin, error);
-</code></pre>
-
-<pre><code class="javascript">onAPI(key, jsonData);
 </code></pre>
 
 <pre><code class="javascript">onSharedSuccess(message);
@@ -1109,6 +1121,12 @@ https://developers.facebook.com/docs/ios/graph</p>
 </code></pre>
 
 <pre><code class="javascript">onSharedCancel();
+</code></pre>
+
+<pre><code class="javascript">onAPI(key, jsonData);
+</code></pre>
+
+<pre><code class="javascript">onPermission(isLogin, error);
 </code></pre></div>
             
         </div>
