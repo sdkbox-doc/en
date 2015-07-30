@@ -898,7 +898,7 @@ SDKBox.init(this);
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically create a sample configuration <code>sdkbox_config.json</code> for you</p>
-<p>Here is an example of the Facebook configuration you can enable/disable debug mode for facebook here</p>
+<p>Here is an example of the Facebook configuration you can enable/disable debug mode for Facebook here</p>
 <pre><code class="json">&quot;Facebook&quot;:
 {
     &quot;debug&quot;:true
@@ -907,8 +907,8 @@ SDKBox.init(this);
 
 <h2 id="usage">Usage</h2>
 <h3 id="register-javascript-function">Register javascript function</h3>
-<p>You need to register all the facebook js functions with cocos2d-x before using them</p>
-<p>To do this
+<p>You need to register all the Facebook JS functions with cocos2d-x before using them.</p>
+<p>To do this:
 * Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</p>
 <pre><code class="cpp">#include &quot;PluginFacebookJS.hpp&quot;
 #include &quot;PluginFacebookJSHelper.h&quot;
@@ -923,22 +923,23 @@ sc-&gt;addRegisterCallback(register_PluginFacebookJS_helper);
 
 <h3 id="initialize-facebook">Initialize Facebook</h3>
 <ul>
-<li>Initialize the plugin where appropriate in your code.</li>
+<li>Initialize the plugin by calling <code>init()</code> where appropriate in your code. We
+recommend to do this in the <code>app.js</code>. Example:</li>
 </ul>
 <pre><code class="javascript">sdkbox.PluginFacebook.init();
 </code></pre>
 
 <h3 id="using-facebook">Using Facebook</h3>
 <h4 id="login">Login</h4>
-<p>First user needs to login to facebook in order to use it.</p>
+<p>First the user needs to login to Facebook in order to use it.</p>
 <pre><code class="javascript">sdkbox.PluginFacebook.login();
 </code></pre>
 
-<p>If a user don't want to use facebook funcationality anymore, perform logout using</p>
+<p>If a user doesn't want to use Facebook functionality anymore, logout. using</p>
 <pre><code class="javascript">sdkbox.PluginFacebook.logout();
 </code></pre>
 
-<p>You can check weather user already loggedin using</p>
+<p>You can check whether user already logged in using</p>
 <pre><code class="javascript">sdkbox.PluginFacebook.isLoggedIn();
 </code></pre>
 
@@ -946,25 +947,18 @@ sc-&gt;addRegisterCallback(register_PluginFacebookJS_helper);
 <p>Note: user only needs to perform login once, unless they logout</p>
 </blockquote>
 <h4 id="permissions">Permissions</h4>
-<p>Facebook requires you to ask user's permission before you can perform actions like posting on user's behave.
+<p>Facebook requires you to ask for the user's permission before you can perform actions, such as, posting on the user's behalf.
 There are two types of permission <strong>read</strong> and <strong>publish</strong>
-You can get a complete list of permission <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference">here</a></p>
-<p>SDKBOX provides some most commonly used permissions here</p>
-<ul>
-<li>FB_PERM_READ_PUBLIC_PROFILE</li>
-<li>FB_PERM_READ_EMAIL</li>
-<li>FB_PERM_READ_USER_FRIENDS</li>
-<li>FB_PERM_PUBLISH_POST</li>
-</ul>
-<p>To request a permission</p>
-<pre><code class="javascript">sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+You can get a complete list of permissions <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference">here</a></p>
+<p>To request a permission, you do so by specifying what you want:</p>
+<pre><code class="javascript">sdkbox.PluginFacebook.requestReadPermissions([&quot;public_profile&quot;, &quot;email&quot;]);
+sdkbox.PluginFacebook.requestPublishPermissions([&quot;publish_actions&quot;]);
 </code></pre>
 
 <h4 id="share">Share</h4>
-<p>There are two types of sharing function</p>
+<p>There are two types of sharing functionality.</p>
 <ul>
-<li><strong>share</strong> will automatically post to user's wall
+<li><strong>share</strong> will automatically post to the user's wall
 share a link:</li>
 </ul>
 <pre><code class="javascript">var info = new Object();
@@ -985,7 +979,7 @@ sdkbox.PluginFacebook.share(info);
 </code></pre>
 
 <ul>
-<li><strong>dialog</strong> will show a dialog and promote user to write their own share message</li>
+<li><strong>dialog</strong> will show a dialog and prompt the user to write their own comments in addition:</li>
 </ul>
 <p>present a share dialog:</p>
 <pre><code class="javascript">var info = new Object();
@@ -1009,8 +1003,8 @@ sdkbox.PluginFacebook.dialog(info);
 <p>Note: sharing photo with comments requires the <strong>Facebook app</strong> to be installed on the device.</p>
 </blockquote>
 <h3 id="graph-api">Graph API</h3>
-<p>You can perform <a href="https://developers.facebook.com/docs/graph-api/overview/">Graph API</a> using <code>api</code> function</p>
-<p>For example, to get the friend list</p>
+<p>You can perform <a href="https://developers.facebook.com/docs/graph-api/overview/">Graph API</a> using the <code>api</code> function</p>
+<p>For example, to get the friend list:</p>
 <pre><code class="javascript">var params = new Object();
 sdkbox.PluginFacebook.api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, &quot;/me/friendlists&quot;);
 </code></pre>
