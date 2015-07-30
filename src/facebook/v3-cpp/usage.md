@@ -1,5 +1,5 @@
 ### Initialize Facebook
-* Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 
 ```cpp
 #include "PluginFacebook/PluginFacebook.h"
@@ -11,42 +11,42 @@ AppDelegate::applicationDidFinishLaunching()
 
 ### Using Facebook
 ####Login
-First user needs to login to facebook in order to use it.
+First the user needs to login to Facebook in order to use it.
 ```cpp
 sdkbox::PluginFacebook::login();
 ```
-If a user don't want to use facebook funcationality anymore, perform logout using
+If a user doesn't want to use Facebook functionality anymore, logout.
 ```cpp
 sdkbox::PluginFacebook::logout();
 ```
-You can check weather user already loggedin using
+You can check whether user already logged in using
 ```cpp
 sdkbox::PluginFacebook::isLoggedIn();
 ```
 > Note: user only needs to perform login once, unless they logout
 
 ####Permissions
-Facebook requires you to ask user's permission before you can perform actions like posting on user's behave.
+Facebook requires you to ask for the user's permission before you can perform actions, such as, posting on the user's behalf.
 There are two types of permission __read__ and __publish__
-You can get a complete list of permission [here](https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference)
+You can get a complete list of permissions [here](https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference)
 
-SDKBOX provides some most commonly used permissions here
+SDKBOX provides the most commonly used permissions:
 
 * FB_PERM_READ_PUBLIC_PROFILE
 * FB_PERM_READ_EMAIL
 * FB_PERM_READ_USER_FRIENDS
 * FB_PERM_PUBLISH_POST
 
-To request a permission
+To request a permission, you do so by specifying what you want:
 ```cpp
 sdkbox::PluginFacebook::requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
 sdkbox::PluginFacebook::requestPublishPermissions({FB_PERM_PUBLISH_POST});
 ```
 
 ####Share
-There are two types of sharing function
+There are two types of sharing functionality.
 
-* __share__ will automatically post to user's wall
+* __share__ will automatically post to the user's wall
 share a link:
 ```cpp
 sdkbox::FBShareInfo info;
@@ -65,7 +65,7 @@ info.title = "My Photo";
 info.image = __path to image__;
 sdkbox::PluginFacebook::share(info);
 ```
-* __dialog__ will show a dialog and promote user to write their own share message
+* __dialog__ will show a dialog and prompt the user to write their own comments in addition:
 
 present a share dialog:
 ```cpp
@@ -89,9 +89,9 @@ sdkbox::PluginFacebook::dialog(info);
  > Note: sharing photo with comments requires the __Facebook app__ to be installed on the device.
 
 ### Graph API
-You can perform [Graph API](https://developers.facebook.com/docs/graph-api/overview/) using `api` function
+You can perform [Graph API](https://developers.facebook.com/docs/graph-api/overview/) using the `api` function
 
-For example, to get the friend list
+For example, to get the friend list:
 ```
 sdkbox::PluginFacebook::FBAPIParam params;
 sdkbox::PluginFacebook::api("/me/friendlists", "GET", params, "/me/friendlists");
