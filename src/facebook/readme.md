@@ -17,9 +17,31 @@ And created a new __APP__ on Facebook
 
 ###Setup iOS
 * Configure your __APP__ following [iOS Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=ios)
-* Apply the code change to `AppController.mm` instead of `AppDelegate.m`
+* Apply the code change to `AppController.mm` instead of `AppDelegate.cpp`
+
+```
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                         openURL:url
+                                               sourceApplication:sourceApplication
+                                                      annotation:annotation];
+}
+```
 
 ###Setup Android
+* Make sure `java -version` >= 1.7
 * Configure your __APP__ on Facebook follow [Android Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=android)
 * Open `res/values/strings.xml` and replace `facebook_app_id` with your `Facebook App ID`
 * Open `AndroidManifest.xml` and replace `_replace_with_your_app_id_` with your `Facebook App ID`

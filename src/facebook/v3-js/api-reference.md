@@ -12,13 +12,13 @@ sdkbox.PluginFacebook.login();
 > log in
 
 ```javascript
-sdkbox.PluginFacebook.logInWithReadPermissions(permissions);
+sdkbox.PluginFacebook.requestReadPermissions(permissions);
 ```
 > log in with specific read permissions, conflict with publish permissions
 https://developers.facebook.com/docs/facebook-login/permissions
 
 ```javascript
-sdkbox.PluginFacebook.logInWithPublishPermissions(permissions);
+sdkbox.PluginFacebook.requestPublishPermissions(permissions);
 ```
 > log in with specific public permissions
 https://developers.facebook.com/docs/facebook-login/permissions
@@ -29,7 +29,7 @@ sdkbox.PluginFacebook.logout();
 > log out
 
 ```javascript
-sdkbox.PluginFacebook.isLogined();
+sdkbox.PluginFacebook.isLoggedIn();
 ```
 > Check whether the user logined or not
 
@@ -56,7 +56,12 @@ sdkbox.PluginFacebook.share(info);
 ```javascript
 sdkbox.PluginFacebook.dialog(info);
 ```
-> open a dialog of Facebook app
+> open a dialog of Facebook app or WebDialog (dialog with photo only avaible with native Facebook app)
+
+```javascript
+sdkbox.PluginFacebook.getSDKVersion();
+```
+> return the version of Facebook SDK
 
 ```javascript
 sdkbox.PluginFacebook.api(path, method, params, tag);
@@ -64,24 +69,10 @@ sdkbox.PluginFacebook.api(path, method, params, tag);
 > use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph
 
-```javascript
-sdkbox.PluginFacebook.activateApp();
-```
-> Notifies the events system that the app has launched & logs an activatedApp event.
-
-```javascript
-sdkbox.PluginFacebook.getSDKVersion();
-```
-> @breif return the version of Facebook SDK for Cocos
-
 
 ### Listeners
 ```javascript
 onLogin(isLogin, error);
-```
-
-```javascript
-onAPI(key, jsonData);
 ```
 
 ```javascript
@@ -95,3 +86,13 @@ onSharedFailed(message);
 ```javascript
 onSharedCancel();
 ```
+
+```javascript
+onAPI(key, jsonData);
+```
+
+```javascript
+onPermission(isLogin, error);
+```
+
+
