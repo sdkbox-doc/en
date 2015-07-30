@@ -42,17 +42,10 @@ Facebook requires you to ask for the user's permission before you can perform ac
 There are two types of permission __read__ and __publish__
 You can get a complete list of permissions [here](https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference)
 
-SDKBOX provides the most commonly used permissions:
-
-* FB_PERM_READ_PUBLIC_PROFILE
-* FB_PERM_READ_EMAIL
-* FB_PERM_READ_USER_FRIENDS
-* FB_PERM_PUBLISH_POST
-
 To request a permission, you do so by specifying what you want:
 ```javascript
-sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+sdkbox.PluginFacebook.requestReadPermissions(["public_profile", "email"]);
+sdkbox.PluginFacebook.requestPublishPermissions(["publish_actions"]);
 ```
 
 ####Share
