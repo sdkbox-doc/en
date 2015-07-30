@@ -110,7 +110,7 @@ sdkbox.PluginFacebook:api("/me/friendlists", "GET", params, "/me/friendlists");
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.
 
 ```lua
-sdkbox.PluginAdColony:setListener(function(args)
+sdkbox.PluginFacebook:setListener(function(args)
     if "onLogin" == args.name then
         local isLogin = args.isLogin;
         local msg = args.msg;
@@ -127,14 +127,4 @@ sdkbox.PluginAdColony:setListener(function(args)
     elseif "onSharedCancel" ==  args.name then
     end
 end)
-
-class MyClass : public sdkbox.FacebookListener
-{
-private:
-  void onLogin(bool isLogin, const std::string& msg);
-  void onAPI(const std::string& tag, const std::string& jsonData);
-  void onSharedSuccess(const std::string& message);
-  void onSharedFailed(const std::string& message);
-  void onSharedCancel();
-};
 ```
