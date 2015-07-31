@@ -5,12 +5,12 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/kochava/v3-cpp
 #Tune
 
 ##Integration
-Use the following command to install the SDKBOX Kochava plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Kochava plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import kochava
+$ sdkbox import kochava
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 
 ## Configuration

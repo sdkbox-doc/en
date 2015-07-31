@@ -5,12 +5,12 @@ Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
 #Google Analytics
 
 ##Integration
-Use the following command to install the SDKBOX Google Analytics plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Google Analytics plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import googleanalytics
+$ sdkbox import googleanalytics
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]
 

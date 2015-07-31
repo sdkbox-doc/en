@@ -1,11 +1,8 @@
-### Initialize Google Analytics
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginGoogleAnalytics.init();
-```
+### Register Javascript Functions
+You need to register all the Google Analytics JS functions with cocos2d-x before using them.
 
-* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
+To do this:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginGoogleAnalyticsJS.hpp"
 ```
@@ -14,7 +11,13 @@ sdkbox.PluginGoogleAnalytics.init();
 ```cpp
 sc->addRegisterCallback(register_all_PluginGoogleAnalyticsJS);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Google Analytics
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginGoogleAnalytics.init();
+```
 
 You can always manually stop recording events at any time by calling:
 ```javascript

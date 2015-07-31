@@ -1,4 +1,4 @@
-### Register javascript function
+### Register Javascript Functions
 You need to register all the Facebook JS functions with cocos2d-x before using them.
 
 To do this:
@@ -15,7 +15,7 @@ sc->addRegisterCallback(register_PluginFacebookJS_helper);
 ```
 
 ### Initialize Facebook
-* Initialize the plugin by calling `init()` where appropriate in your code. We
+Initialize the plugin by calling `init()` where appropriate in your code. We
 recommend to do this in the `app.js`. Example:
 ```javascript
 sdkbox.PluginFacebook.init();

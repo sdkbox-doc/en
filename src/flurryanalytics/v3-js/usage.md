@@ -1,10 +1,7 @@
-### Initialize Flurry Analytics
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginFlurryAnalytics.init();
-```
+### Register Javascript Functions
+You need to register all the Facebook JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFlurryAnalyticsJS.hpp"
@@ -16,7 +13,13 @@ sdkbox.PluginFlurryAnalytics.init();
 sc->addRegisterCallback(register_all_PluginFlurryAnalyticsJS);
 sc->addRegisterCallback(register_PluginFlurryAnalyticsJs_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Flurry Analytics
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginFlurryAnalytics.init();
+```
 
 ### Using Flurry Analytics
 After initialization you can begin to use the Flurry Analytics functionality. Use `logevent` where ever you want from your code:

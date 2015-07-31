@@ -5,12 +5,12 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
 #Facebook
 
 ##Integration
-Use the following command to install the SDKBOX Facebook plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Facebook plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import facebook
+$ sdkbox import facebook
 ```
 
-##Extra steps
+##Extra steps for Android
 
 The following step assuming you already registered as a Facebook Developer
 And created a new __APP__ on Facebook
