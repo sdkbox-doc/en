@@ -1,5 +1,5 @@
 ### Register Javascript Functions
-You need to register all the Facebook JS functions with cocos2d-x before using them.
+You need to register all the Flurry Analytics JS functions with cocos2d-x before using them.
 
 To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
