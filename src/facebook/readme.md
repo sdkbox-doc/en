@@ -67,3 +67,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
