@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-lua
 -->
 
 #AdColony
@@ -43,3 +43,7 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
