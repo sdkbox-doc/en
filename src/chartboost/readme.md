@@ -42,3 +42,7 @@ Here is an example of the Chartboost configuration, you need to replace `<CHARTB
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
