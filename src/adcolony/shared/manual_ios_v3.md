@@ -1,5 +1,5 @@
 ## Manual Integration For iOS
-* Drag and drop the following frameworks from the __plugins/ios__ folder of the `AdColony` bundle into your Xcode project, check `Copy items if needed` when adding frameworks:
+Drag and drop the following frameworks from the __plugins/ios__ folder of the `AdColony` bundle into your Xcode project, check `Copy items if needed` when adding frameworks:
 
     > sdkbox.framework
 
@@ -7,7 +7,7 @@
 
     > AdColony.framework
 
-* The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:
+The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:
 
     > libz.1.2.5.dylib
 
@@ -43,7 +43,7 @@
 
     > WebKit.framework (Set to Optional)
 
-* Add two separate linker flags to:
+Add two separate linker flags to:
 __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
     > -force_load AdColony.framework/AdColony
