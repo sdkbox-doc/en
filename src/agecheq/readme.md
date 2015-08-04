@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/agecheq/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/agecheq/v3-cpp
 -->
 
 #AgeCheq
@@ -31,3 +31,7 @@ Here is an example of the AgeCheq configuration, you need to replace `<app id>` 
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
