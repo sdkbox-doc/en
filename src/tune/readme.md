@@ -34,3 +34,7 @@ Here is an example adding `Tune`:
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
