@@ -1,1 +1,0 @@
-../v3-cpp/manual_ios.md
