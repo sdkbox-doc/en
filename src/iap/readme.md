@@ -63,3 +63,7 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
