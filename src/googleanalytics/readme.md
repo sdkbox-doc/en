@@ -30,3 +30,7 @@ Here is an example of the Google Analytics configuration, you need to replace `<
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
