@@ -4,11 +4,11 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-    > AgeCheqLib.jar
+> AgeCheqLib.jar
 
-    > PluginAgeCheq.jar
+> PluginAgeCheq.jar
 
-    > sdkbox.jar
+> sdkbox.jar
 
 Copy the `pluginagecheq` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 

@@ -4,11 +4,11 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-    > AgeCheqLib.jar
+> AgeCheqLib.jar
 
-    > PluginAgeCheq.jar
+> PluginAgeCheq.jar
 
-    > sdkbox.jar
+> sdkbox.jar
 
 
 * If you're using cocos2d-x from source copy the __jar__ files to:

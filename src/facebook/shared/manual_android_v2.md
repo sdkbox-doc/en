@@ -4,9 +4,9 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-    > PluginFacebook.jar
+> PluginFacebook.jar
 
-    > sdkbox.jar
+> sdkbox.jar
 
 Copy the `pluginfacebook` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 
