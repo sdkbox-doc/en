@@ -10,21 +10,25 @@ bundle into your project’s __proj.android/libs__ folder.
 
   	> sdkbox.jar
 
+
 * If you're using cocos2d-x from source copy the __jar__ files to:
+
 	```
 	cocos2d/cocos/platform/android/java/libs
 	```
 
 * If you're using cocos2d-js or lua copy the __jar__ files to:
+
 	```
 	frameworks/cocos2d-x/cocos/platform/android/java/libs
 	```
 
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
+
 	```
 	proj.android/libs
 	```
-	
+
 Copy the `pluginadcolony` and `sdkbox` directories from `plugin/android/jni`
 to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 

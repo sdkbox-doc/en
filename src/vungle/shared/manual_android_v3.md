@@ -18,6 +18,7 @@ bundle into your project’s __proj.android/libs__ folder.
 
   > dagger-1.2.2.jar
 
+
 * If you're using cocos2d-x from source copy the __jar__ files to:
 
 ```

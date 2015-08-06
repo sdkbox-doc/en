@@ -10,6 +10,7 @@ bundle into your project’s __proj.android/libs__ folder.
 
     > MobileAppTracker-3.9.jar
 
+
 * If you're using cocos2d-x from source copy the __jar__ files to:
 
   ```
