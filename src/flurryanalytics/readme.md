@@ -1,16 +1,16 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/flurryanalytics/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/flurryanalytics/v3-cpp
 -->
 
 #Flurry Analytics
 
 ##Integration
-Use the following command to install the SDKBOX Flurry Analytics plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Flurry Analytics plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import flurryanalytics
+$ sdkbox import flurryanalytics
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]
 
@@ -68,3 +68,7 @@ Adding `FlurryAnalytics` to Android is a bit different as it supports __location
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]

@@ -1,16 +1,16 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/chartboost/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/chartboost/v3-cpp
 -->
 
 #Chartboost
 
 ##Integration
-Use the following command to install the SDKBOX Chartboost plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Chartboost plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import chartboost
+$ sdkbox import chartboost
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]
 
@@ -42,3 +42,7 @@ Here is an example of the Chartboost configuration, you need to replace `<CHARTB
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]

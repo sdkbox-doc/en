@@ -5,12 +5,12 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 #AdColony
 
 ##Integration
-Use the following command to install the SDKBOX AdColony plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX AdColony plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import adcolony
+$ sdkbox import adcolony
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]
 
@@ -43,3 +43,7 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]

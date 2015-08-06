@@ -1,16 +1,16 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 -->
 
 #In-App Purchase
 
 ##Integration
-Use the following command to install the SDKBOX IAP plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import iap
+$ sdkbox import iap
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 
 ## Configuration
@@ -63,3 +63,7 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]

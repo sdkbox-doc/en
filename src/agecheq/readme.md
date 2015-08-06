@@ -1,16 +1,16 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/agecheq/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/agecheq/v3-cpp
 -->
 
 #AgeCheq
 
 ##Integration
-Use the following command to install the SDKBOX AgeCheq plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX AgeCheq plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import agecheq
+$ sdkbox import agecheq
 ```
 
-##Extra steps
+##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]
 
@@ -31,3 +31,7 @@ Here is an example of the AgeCheq configuration, you need to replace `<app id>` 
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
