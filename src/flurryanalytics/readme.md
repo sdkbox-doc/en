@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/flurryanalytics/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/flurryanalytics/v3-cpp
 -->
 
 #Flurry Analytics
