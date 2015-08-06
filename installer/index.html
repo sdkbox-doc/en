@@ -771,30 +771,32 @@
 <h1 id="sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</h1>
 <h2 id="preparing-to-run-the-sdkbox-installer">Preparing to run the SDKBOX Installer</h2>
 <p>Before you can run the SDKBOX installer you need to do a few things.
-<em> make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)
-</em> make sure you know the path to where you downloaded the SDKBOX plugin bundles.</p>
+* make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)</p>
 <h2 id="installing-a-plugin-using-the-sdkbox-installer">Installing a Plugin using the SDKBOX Installer</h2>
 <p>Now we are ready to install a plugin! There isn't much to it. Ready?</p>
 <h3 id="installing-for-os-x">Installing for OS X</h3>
 <ul>
 <li>From a command-line, <code>cd</code> to your applications root directory. Example:</li>
 </ul>
-<pre><code class="sh">cd ~/MyGame
+<pre><code class="sh">$ cd ~/MyGame
 </code></pre>
 
 <ul>
-<li>Now, you can install your plugin using the SDKBOX installer, noting the locations of where you placed the installer and the plugin bundles. Example:</li>
+<li>Now, you can install your plugin using the SDKBOX installer. Example:</li>
 </ul>
-<pre><code class="sh">sdkbox import iap
+<pre><code class="sh">$ sdkbox import iap
 </code></pre>
 
 <h3 id="what-next">What Next?</h3>
 <p>The SDKBOX installer takes care of most of what you need. However, there are still a few manual steps that you must complete. After the installer runs it outputs a list of the remaining steps that you need to perform, referring to the plugin bundle PDF. Example output from running the above command:</p>
 <pre><code class="sh">$ sdkbox import iap
 _______ ______  _     _ ______   _____  _     _
-|______ |     \ |____/  |_____] |     |  \___/
-______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.7
+ |______ |     \ |____/  |_____] |     |  \___/
+ ______| |_____/ |    \_ |_____] |_____| _/   \_
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.6.9
+usage: sdkbox [-h] [-v] [-p [PROJECT]] [-s] [-b [PLUGIN]] [-D SYMBOL]
+              [--china] [--dryrun] [--nohelp] [--forcedownload]
+              {import,list,restore,symbols,update}
 
 Please reference the online documentation to finish the integration:
 http://sdkbox-doc.github.io/en/plugins/iap/v3-cpp/
@@ -807,10 +809,10 @@ Installation Successful :)
 _______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
 ______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.7
-
-usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
-              {import,restore,symbols,api}
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.6.9
+usage: sdkbox [-h] [-v] [-p [PROJECT]] [-s] [-b [PLUGIN]] [-D SYMBOL]
+              [--china] [--dryrun] [--nohelp] [--forcedownload]
+              {import,list,restore,symbols,update}
 </code></pre>
 
 <table>
@@ -843,22 +845,51 @@ usage: sdkbox [-h] [-v] [-p PROJECT] [-b PLUGIN] [--yes] [--dryrun]
 <td>specify path to plugin (defaults to .)</td>
 </tr>
 <tr>
-<td></td>
-<td align="right">--dryrun</td>
-<td>test install before performing.</td>
+<td>-q</td>
+<td align="right">--nohelp</td>
+<td>don't open online documentation after installation.</td>
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>--forcedownload</th>
+<th>force download of package even if it is already downloaded.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>--china</td>
+<td>use China based server instead of US</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<pre><code># Add 'In App Purchase' plugin to your game
+$ sdkbox import -b iap -p /path/to/your/cocos2dx/game/
+</code></pre>
+
+<pre><code># The -b option may be omitted and -p too if you are in your project directory
+$ sdkbox import iap
+</code></pre>
+
+<pre><code># List all available modules
+$ sdkbox list
+</code></pre>
+
 <h3 id="staying-up-to-date">Staying Up-to-date</h3>
 <p>The SDKBOX installer automatically checks for updates to itself. It will ask for your permission before updating. This will allow you to stay current and also automatically pull updates to your plugin bundles when they become available.</p>
 <pre><code class="sh">_______ ______  _     _ ______   _____  _     _
 |______ |     \ |____/  |_____] |     |  \___/
 ______| |_____/ |    \_ |_____] |_____| _/   \_
-Copyright (c) 2015 Chukong Technologies Inc. v0.5.6
+Copyright (c) 2015 Chukong Technologies Inc. v0.5.6.9
 
-A newer version of SDKBOX is available, would you like to update to v0.5.7?
+A newer version of SDKBOX is available, would you like to update to v0.5.11?
 Please type Yes, No or Quit Yes
-updated SDKBOX v0.5.6 to v0.5.7 at sdkbox
+updated SDKBOX v0.5.9 to v0.5.11 at sdkbox
 </code></pre></div>
             
         </div>

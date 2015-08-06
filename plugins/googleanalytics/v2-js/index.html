@@ -761,13 +761,19 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps">Extra steps</a></li>
+            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
         
             <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#tracker">Tracker</a></li>
         
             <li><a href="#usage">Usage</a></li>
         
             <li><a href="#api-reference">API Reference</a></li>
+        
+            <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
+        
+            <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
         
     
     </ul>
@@ -775,16 +781,16 @@
                 <div class="col-md-9" role="main">
 
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/googleanalytics/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/googleanalytics/v3-cpp
 -->
 
 <h1 id="google-analytics">Google Analytics</h1>
 <h2 id="integration">Integration</h2>
-<p>Use the following command to install the SDKBOX Google Analytics plugin, Make sure you setup SDKBOX installer correctly.</p>
-<pre><code class="bash">sdkbox import googleanalytics
+<p>Open a terminal and use the following command to install the SDKBOX Google Analytics plugin. Make sure you setup SDKBOX installer correctly.</p>
+<pre><code class="bash">$ sdkbox import googleanalytics
 </code></pre>
 
-<h2 id="extra-steps">Extra steps</h2>
+<h2 id="extra-steps-for-android">Extra steps for Android</h2>
 <h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
 <ul>
 <li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
@@ -888,18 +894,33 @@ import com.sdkbox.plugin.SDKBox;
 }
 </code></pre>
 
+<h2 id="tracker">Tracker</h2>
+<p>A <strong>tracker</strong> is used to aggregate the tracked events. There are some considerations that the developer must review:</p>
+<ul>
+<li>
+<p>You must create a mobile tracker or reuse a previously created one.</p>
+</li>
+<li>
+<p>If the tracker is new, it will take up to 24 hours to show tracking data.</p>
+</li>
+<li>
+<p>Once you see some historical activity on the tracker, you can see realtime data as well, not before.</p>
+</li>
+<li>
+<p>You can create as many trackers as you wish, but the plugin configuration only allows to define one (the base use case).</p>
+</li>
+<li>
+<p>If no tracker is set in the configuration, there will be no tracking session. This means that at a later time, a new (or more) tracker can be created. In this case, a explicit call to <code>startSession()</code> should be performed.</p>
+</li>
+<li>
+<p>Whether the tracker is set in the plugin configuration or manually created, all tracking events will be sent to the server automatically. The implementation buffers tracking events and sends them to the server it batches.</p>
+</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<h3 id="initialize-google-analytics">Initialize Google Analytics</h3>
-<ul>
-<li>Initialize the plugin by calling <code>init()</code> where appropriate in your code. We
-recommend to do this in the <code>app.js</code>. Example:</li>
-</ul>
-<pre><code class="javascript">sdkbox.PluginGoogleAnalytics.init();
-</code></pre>
-
-<ul>
-<li>modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</li>
-</ul>
+<h3 id="register-javascript-functions">Register Javascript Functions</h3>
+<p>You need to register all the Google Analytics JS functions with cocos2d-x before using them.</p>
+<p>To do this:
+* Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</p>
 <pre><code class="cpp">#include &quot;PluginGoogleAnalyticsJS.hpp&quot;
 </code></pre>
 
@@ -909,7 +930,12 @@ recommend to do this in the <code>app.js</code>. Example:</li>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginGoogleAnalyticsJS);
 </code></pre>
 
-<p>This registers the Javascript callbacks.</p>
+<h3 id="initialize-google-analytics">Initialize Google Analytics</h3>
+<p>Initialize the plugin by calling <code>init()</code> where appropriate in your code. We
+recommend to do this in the <code>app.js</code>. Example:</p>
+<pre><code class="javascript">sdkbox.PluginGoogleAnalytics.init();
+</code></pre>
+
 <p>You can always manually stop recording events at any time by calling:</p>
 <pre><code class="javascript">sdkbox.PluginGoogleAnalytics.stopSession();
 </code></pre>
@@ -1026,7 +1052,113 @@ operations.</p>
 <blockquote>
 <p>Enable a tracker identified by a trackerId. If the tracker does not exist,
 nothing will happen.</p>
-</blockquote></div>
+</blockquote>
+<h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of
+the<code>GoogleAnalytics</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
+<pre><code>&gt; sdkbox.framework
+
+&gt; PluginGoogleAnalytics.framework
+</code></pre>
+<p>The above frameworks depend upon other frameworks. You also need to add the
+following system frameworks, if you don't already have them:</p>
+<pre><code>&gt; CoreData.framework
+
+&gt; Security.framework
+
+&gt; SystemConfiguration.framework
+
+&gt; libz.dylib
+
+&gt; libsqlite3.dylib
+
+&gt; libAdIdAccess.a (optional, required for IDFA)
+
+&gt; AdSupport.framework (optional, required for IDFA)
+</code></pre>
+<p>Add a linker flag, if your setup requires it, to:
+<strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
+<pre><code>&gt; -force_load /path/to/libAdIdAccess.a
+</code></pre>
+<p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
+<h2 id="manual-integration-for-android">Manual Integration For Android.</h2>
+<h3 id="copy-files">Copy Files</h3>
+<p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
+bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
+<pre><code>&gt; PluginGoogleAnalytics.jar
+
+&gt; sdkbox.jar
+</code></pre>
+<p>Copy the <code>plugingoogleanalytics</code> and <code>sdkbox</code> directories from <code>plugin/android/jni</code> to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
+<h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
+<p>Include the following permissions above the <strong>application tag</strong>:</p>
+<pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+</code></pre>
+
+<p>To enable <strong>hardware acceleration</strong> in your <strong>application tag</strong>. This tag is
+optional on newer sdk versions and doesn't work on version 2.3.3.</p>
+<pre><code class="xml">&lt;android:hardwareAccelerated=&quot;true&quot; /&gt;
+</code></pre>
+
+<p>There are also a few necessary meta-data tags that also need to be added:</p>
+<pre><code class="xml">&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
+    android:value=&quot;@integer/google_play_services_version&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.google.android.gms.analytics.globalConfigResource&quot;
+    android:resource=&quot;@xml/global_tracker&quot; /&gt;
+</code></pre>
+
+<h3 id="edit-the-meta-data-files">Edit the meta-data files</h3>
+<p>In the step above a file named <code>global_tracker.xml</code> was specified. This file must be placed in <code>proj.android/res/xml/</code>. This file needs to contain required settings. The contents of this file could be something like this:</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;integer name=&quot;ga_dispatchPeriod&quot;&gt;300&lt;/integer&gt;
+    &lt;string name=&quot;ga_logLevel&quot;&gt;verbose&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
+<p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
+<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_STATIC_LIBRARIES += android_native_app_glue
+LOCAL_LDLIBS += -landroid
+LOCAL_LDLIBS += -llog
+LOCAL_STATIC_LIBRARIES += PluginGoogleAnalytics
+LOCAL_STATIC_LIBRARIES += sdkbox
+</code></pre>
+
+<p>Add a call to:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+</code></pre>
+
+<p>before any <strong>import-module</strong> statements.</p>
+<p>Add additional <strong>import-module</strong> statements at the end:</p>
+<pre><code>$(call import-module, ./sdkbox)
+$(call import-module, ./plugingoogleanalytics)
+</code></pre>
+
+<p>This means that your ordering should look similar to this:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+$(call import-module, ./sdkbox)
+$(call import-module, ./plugingoogleanalytics)
+</code></pre>
+
+<h3 id="edit-aplicationmk">Edit <code>Aplication.mk</code></h3>
+<p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
+<p>Add <strong>APP_PATFORM</strong> version requirements:</p>
+<pre><code>APP_PLATFORM := android-9
+</code></pre>
+
+<p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
+<pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
+                  ../../Classes/AppDelegate.cpp \
+                  ../../Classes/HelloWorldScene.cpp \
+                                    ../../Classes/NewSourceFile.cpp
+</code></pre></div>
             
         </div>
 
