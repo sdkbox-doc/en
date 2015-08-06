@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/iap/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 -->
 
 #In-App Purchase
