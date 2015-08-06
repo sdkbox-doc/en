@@ -1,5 +1,5 @@
 <!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v2-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 -->
 
 #AdColony
