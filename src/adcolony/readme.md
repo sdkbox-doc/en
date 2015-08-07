@@ -44,6 +44,8 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 
 <<[api-reference.md]
 
+<<[manual_integration.md]
+
 <<[manual_ios.md]
 
 <<[manual_android.md]

@@ -46,6 +46,8 @@ A __tracker__ is used to aggregate the tracked events. There are some considerat
 
 <<[api-reference.md]
 
+<<[manual_integration.md]
+
 <<[manual_ios.md]
 
 <<[manual_android.md]

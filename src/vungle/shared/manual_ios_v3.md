@@ -2,40 +2,40 @@
 Drag and drop the following frameworks from the __plugins/ios__ folder of the `Vungle` bundle into your Xcode project, check `Copy items if needed` when
 adding frameworks:
 
-    > sdkbox.framework
+> sdkbox.framework
 
-    > PluginVungle.framework
+> PluginVungle.framework
 
-    > VungleSDK.framework
+> VungleSDK.framework
 
 The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:
 
-    > AdSupport.framework
+> AdSupport.framework
 
-    > AudioToolbox.framework
+> AudioToolbox.framework
 
-    > AVFoundation.framework
+> AVFoundation.framework
 
-    > CFNetwork.framework
+> CFNetwork.framework
 
-    > CoreGraphics.framework
+> CoreGraphics.framework
 
-    > CoreMedia.framework
+> CoreMedia.framework
 
-    > Foundation.framework
+> Foundation.framework
 
-    > libz.dylib
+> libz.dylib
 
-    > libsqlite3.dylib
+> libsqlite3.dylib
 
-    > MediaPlayer.framework
+> MediaPlayer.framework
 
-    > QuartzCore.framework
+> QuartzCore.framework
 
-    > Security.framework
+> Security.framework
 
-    > StoreKit.framework
+> StoreKit.framework
 
-    > SystemConfiguration.framework
+> SystemConfiguration.framework
 
-    > UIKit.framework
+> UIKit.framework

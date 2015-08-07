@@ -4,11 +4,11 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-    > PluginTune.jar
+> PluginTune.jar
 
-    > sdkbox.jar
+> sdkbox.jar
 
-    > MobileAppTracker-3.9.jar
+> MobileAppTracker-3.9.jar
 
 Copy the `plugintune` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 

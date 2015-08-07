@@ -4,19 +4,19 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-  > vungle-publisher-adaptive-id-3.3.0..jar
+> vungle-publisher-adaptive-id-3.3.0..jar
 
-  > PluginVungle.jar
+> PluginVungle.jar
 
-  > sdkbox.jar
+> sdkbox.jar
 
-  > support-v4-18.0.0.jar
+> support-v4-18.0.0.jar
 
-  > nineoldandroids-2.4.0.jar
+> nineoldandroids-2.4.0.jar
 
-  > javax.inject-1.jar
+> javax.inject-1.jar
 
-  > dagger-1.2.2.jar
+> dagger-1.2.2.jar
 
 
 * If you're using cocos2d-x from source copy the __jar__ files to:

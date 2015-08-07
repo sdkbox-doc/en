@@ -69,6 +69,8 @@ Adding `FlurryAnalytics` to Android is a bit different as it supports __location
 
 <<[api-reference.md]
 
+<<[manual_integration.md]
+
 <<[manual_ios.md]
 
 <<[manual_android.md]

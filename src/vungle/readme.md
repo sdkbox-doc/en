@@ -61,6 +61,8 @@ __backbutton__ settings. Here is an example adding `Vungle` to Android:
 
 <<[api-reference.md]
 
+<<[manual_integration.md]
+
 <<[manual_ios.md]
 
 <<[manual_android.md]

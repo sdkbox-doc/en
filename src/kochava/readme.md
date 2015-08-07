@@ -35,6 +35,8 @@ Here is an example adding `Kochava`:
 
 <<[api-reference.md]
 
+<<[manual_integration.md]
+
 <<[manual_ios.md]
 
 <<[manual_android.md]
