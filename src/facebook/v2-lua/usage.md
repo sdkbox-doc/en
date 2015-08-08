@@ -75,7 +75,7 @@ sdkbox.PluginFacebook:login();
 * You can share links, example:
 ```lua
 FBShareInfo info;
-info.type  = FB_LINK;
+info.type  = "link";
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
@@ -86,7 +86,7 @@ sdkbox.PluginFacebook.share(info);
 * You can share a link, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
 ```lua
 FBShareInfo info;
-info.type  = FB_LINK;
+info.type  = "link";
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
@@ -97,7 +97,7 @@ sdkbox.PluginFacebook.dialog(info);
 * You can share a photo example:
 ```lua
 FBShareInfo info;
-info.type  = FB_PHOTO;
+info.type  = "photo";
 info.title = "My Photo";
 info.image = __path to image__;
 sdkbox.PluginFacebook.share(info);
@@ -106,7 +106,7 @@ sdkbox.PluginFacebook.share(info);
 * You can share a photo, but also comment on it at the same time, example:
 ```lua
 FBShareInfo info;
-info.type  = FB_PHOTO;
+info.type  = "photo";
 info.title = "My Photo";
 info.image = __path to image__;
 sdkbox.PluginFacebook.dialog(info);
