@@ -769,6 +769,8 @@
         
             <li><a href="#api-reference">API Reference</a></li>
         
+            <li><a href="#manual-integration">Manual Integration</a></li>
+        
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
@@ -1047,27 +1049,29 @@ AppDelegate::applicationDidFinishLaunching()
 <blockquote>
 <p>Called when the product request fails</p>
 </blockquote>
+<h2 id="manual-integration">Manual Integration</h2>
+<p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
+<p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
 <h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
 <p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>IAP</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
-<pre><code>&gt; sdkbox.framework
-
-&gt; PluginIAP.framework
-</code></pre>
+<blockquote>
+<p>sdkbox.framework</p>
+<p>PluginIAP.framework</p>
+</blockquote>
 <p>The above frameworks depend upon other frameworks. You also need to add the following system frameworks, if you don't already have them:</p>
-<pre><code>&gt; Security.framework
-
-&gt; StoreKit.framework
-</code></pre>
+<blockquote>
+<p>Security.framework</p>
+<p>StoreKit.framework</p>
+</blockquote>
 <h2 id="manual-integration-for-android">Manual Integration For Android.</h2>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
-<pre><code>&gt; PluginGooglePlay.jar
-
-&gt; PluginIAP.jar
-
-&gt; sdkbox.jar
-</code></pre>
+<blockquote>
+<p>PluginGooglePlay.jar</p>
+<p>PluginIAP.jar</p>
+<p>sdkbox.jar</p>
+</blockquote>
 <ul>
 <li>
 <p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>

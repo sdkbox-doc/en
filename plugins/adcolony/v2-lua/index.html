@@ -769,6 +769,8 @@
         
             <li><a href="#api-reference">API Reference</a></li>
         
+            <li><a href="#manual-integration">Manual Integration</a></li>
+        
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
@@ -1079,67 +1081,53 @@ zone.</p>
 <blockquote>
 <p>showing an ad has finished.</p>
 </blockquote>
+<h2 id="manual-integration">Manual Integration</h2>
+<p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
+<p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
 <h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
 <p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>AdColony</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
-<pre><code>&gt; sdkbox.framework
-
-&gt; PluginAdColony.framework
-
-&gt; AdColony.framework
-</code></pre>
+<blockquote>
+<p>sdkbox.framework</p>
+<p>PluginAdColony.framework</p>
+<p>AdColony.framework</p>
+</blockquote>
 <p>The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:</p>
-<pre><code>&gt; libz.1.2.5.dylib
-
-&gt; AdSupport.framework (Set to Optional)
-
-&gt; AudioToolbox.framework
-
-&gt; AVFoundation.framework
-
-&gt; CoreGraphics.framework
-
-&gt; CoreMedia.framework
-
-&gt; CoreTelephony.framework
-
-&gt; EventKit.framework
-
-&gt; EventKitUI.framework
-
-&gt; MediaPlayer.framework
-
-&gt; MessageUI.framework
-
-&gt; QuartzCore.framework
-
-&gt; Security.framework
-
-&gt; Social.framework (Set to Optional)
-
-&gt; StoreKit.framework (Set to Optional)
-
-&gt; SystemConfiguration.framework
-
-&gt; WebKit.framework (Set to Optional)
-</code></pre>
+<blockquote>
+<p>libz.1.2.5.dylib</p>
+<p>AdSupport.framework (Set to Optional)</p>
+<p>AudioToolbox.framework</p>
+<p>AVFoundation.framework</p>
+<p>CoreGraphics.framework</p>
+<p>CoreMedia.framework</p>
+<p>CoreTelephony.framework</p>
+<p>EventKit.framework</p>
+<p>EventKitUI.framework</p>
+<p>MediaPlayer.framework</p>
+<p>MessageUI.framework</p>
+<p>QuartzCore.framework</p>
+<p>Security.framework</p>
+<p>Social.framework (Set to Optional)</p>
+<p>StoreKit.framework (Set to Optional)</p>
+<p>SystemConfiguration.framework</p>
+<p>WebKit.framework (Set to Optional)</p>
+</blockquote>
 <p>Add two separate linker flags to:
 <strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
-<pre><code>&gt; -force_load AdColony.framework/AdColony
-
-&gt; -fobjc-arc (this allows AdColony to use ARC even if your project does not)
-</code></pre>
+<blockquote>
+<p>-force_load AdColony.framework/AdColony</p>
+<p>-fobjc-arc (this allows AdColony to use ARC even if your project does not)</p>
+</blockquote>
 <p>Copy all source and header files from <code>plugin/luabindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
 <h2 id="manual-integration-for-android">Manual Integration For Android.</h2>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
-<pre><code>&gt; adcolony.jar
-
-&gt; PluginAdColony.jar
-
-&gt; sdkbox.jar
-</code></pre>
+<blockquote>
+<p>adcolony.jar</p>
+<p>PluginAdColony.jar</p>
+<p>sdkbox.jar</p>
+</blockquote>
 <p>Copy the <code>pluginadcolony</code> and <code>sdkbox</code> directories from <code>plugin/android/jni</code>
 to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
 <h3 id="22-edit-androidmanifestxml">2.2 Edit <code>AndroidManifest.xml</code></h3>
