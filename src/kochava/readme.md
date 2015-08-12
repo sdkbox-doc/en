@@ -2,7 +2,7 @@
 Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/kochava/v3-cpp
 -->
 
-#Tune
+#Kochava
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Kochava plugin. Make sure you setup SDKBOX installer correctly.
