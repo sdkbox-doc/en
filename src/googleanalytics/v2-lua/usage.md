@@ -2,7 +2,7 @@
 * Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginGoogleAnalyticsLua.hpp"
-#include "PLuginGoogleAnalyticsLuaHelper.hpp"
+#include "PluginGoogleAnalyticsLuaHelper.hpp"
 ```
 
 * Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginGoogleAnalyticsLua(<lua_State*>);`.
