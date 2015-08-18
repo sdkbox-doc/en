@@ -916,14 +916,17 @@ sdkbox::PluginChartboost::show(&quot;your_ad_name&quot;);
 class MyClass : public sdkbox::ChartboostListener
 {
 public:
-      void onChartboostCached(const std::string&amp; name);
-      void onChartboostShouldDisplay(const std::string&amp; name);
-      void onChartboostDisplay(const std::string&amp; name);
-      void onChartboostDismiss(const std::string&amp; name);
-      void onChartboostClose(const std::string&amp; name);
-      void onChartboostClick(const std::string&amp; name);
-      void onChartboostReward(const std::string&amp; name, int reward);
-      void onChartboostPauseClickForConfirmation();
+    void onChartboostCached(const std::string&amp; name);
+    bool onChartboostShouldDisplay(const std::string&amp; name);
+    void onChartboostDisplay(const std::string&amp; name);
+    void onChartboostDismiss(const std::string&amp; name);
+    void onChartboostClose(const std::string&amp; name);
+    void onChartboostClick(const std::string&amp; name);
+    void onChartboostReward(const std::string&amp; name, int reward);
+    void onChartboostFailedToLoad(const std::string&amp; name, sdkbox::CB_LoadError e);
+    void onChartboostFailToRecordClick(const std::string&amp; name, sdkbox::CB_ClickError e);
+    void onChartboostConfirmation();
+    void onChartboostCompleteStore();
 };
 </code></pre>
 
