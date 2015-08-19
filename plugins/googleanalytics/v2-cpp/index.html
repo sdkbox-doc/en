@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#tracker">Tracker</a></li>
@@ -776,6 +774,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -792,102 +792,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/googleanalytics/v3-cpp
 <pre><code class="bash">$ sdkbox import googleanalytics
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-libraryjars libs/android-support-v4.jar
-
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
-}
-
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;TRACKING_CODE&gt;</code>  with your specific <a href="https://support.google.com/analytics/answer/1008080?hl=en"><strong>Google Analytics Tracking Code</strong></a> account information.</p>
@@ -939,105 +843,97 @@ AppDelegate::applicationDidFinishLaunching()
 <p>Logged data usually shows up within one day.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<h4 id="dispatch-methods-dispatches-hits-view-events-etc-to-google-analytics-if-a-network-connection-is-available">Dispatch Methods. Dispatches hits (view, events, etc.) to Google Analytics if a network connection is available.</h4>
-<pre><code class="cpp">static void init();
+<pre><code class="cpp">static void init ( ) ;
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void dispatchHits();
+<pre><code class="cpp">static void startSession ( ) ;
+</code></pre>
+
+<blockquote>
+<p>The analytics session is being explicitly started at plugin initialization time.</p>
+</blockquote>
+<pre><code class="cpp">static void stopSession ( ) ;
+</code></pre>
+
+<blockquote>
+<p>You normally will never stop a session manually.</p>
+</blockquote>
+<pre><code class="cpp">static void dispatchHits ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Manually request dispatch of hits. By default, data is dispatched from the
 Google Analytics SDK for Android every 5 minutes.</p>
 </blockquote>
-<pre><code class="cpp">static void dispatchPeriodically(int numberOfSeconds);
+<pre><code class="cpp">static void dispatchPeriodically ( int seconds ) ;
 </code></pre>
 
 <blockquote>
 <p>Change the dispatch info time period to the desired amount of seconds.</p>
 </blockquote>
-<pre><code class="cpp">static void stopPeriodicalDispatch();
+<pre><code class="cpp">static void stopPeriodicalDispatch ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Stop periodically sending info. Then manually the <code>dispatchPeridically</code>
 or <code>dispatchHits</code> should be called.</p>
 </blockquote>
-<h4 id="session-control-a-session-represents-a-single-period-of-user-interaction-with-your-game-sessions-serve-as-useful-containers-of-measured-activity-which-includes-screen-views-events-and-ecommerce-transactions">Session control.  A session represents a single period of user interaction with your game. Sessions serve as useful containers of measured activity, which includes screen views, events, and ecommerce transactions.</h4>
-<pre><code class="cpp">static void startSession();
-</code></pre>
-
-<blockquote>
-<p>The analytics session is being explicitly started at plugin initialization time.</p>
-</blockquote>
-<pre><code class="cpp">static void stopSession();
-</code></pre>
-
-<blockquote>
-<p>You normally will never stop a session manually.</p>
-</blockquote>
-<h4 id="screens-screens-in-google-analytics-represent-content-users-are-viewing-within-your-game-a-screen-view-consists-of-a-single-string-field-that-will-be-used-as-the-screen-name-in-your-google-analytics-reports">Screens. Screens in Google Analytics represent content users are viewing within your game. A screen view consists of a single string field that will be used as the screen name in your Google Analytics reports.</h4>
-<pre><code class="cpp">static void logScreen(std::string title);
+<pre><code class="cpp">static void logScreen ( string title ) ;
 </code></pre>
 
 <blockquote>
 <p>Log screen info. title is the title of a screen. Screens are logical units
 inside your app you'd like to identify at analytics panel.</p>
 </blockquote>
-<h4 id="events-events-are-a-useful-way-to-collect-data-about-a-users-interaction-with-interactive-components-of-your-game-like-the-use-of-a-particular-item-an-event-consists-of-four-fields-that-you-can-use-to-describe-a-users-interaction-with-your-game">Events. Events are a useful way to collect data about a user's interaction with interactive components of your game, like the use of a particular item. An event consists of four fields that you can use to describe a user's interaction with your game.</h4>
-<pre><code class="cpp">static void logEvent(std::string eventCategory,
-                      std::string eventAction,
-                      std::string eventLabel,
-                      long value);
+<pre><code class="cpp">static void logEvent ( string eventCategory ,
+                       string eventAction ,
+                       string eventLabel ,
+                       int value ) ;
 </code></pre>
 
 <blockquote>
-<p>sdkbox::PluginGoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
+<p>GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
 </blockquote>
-<h4 id="crashes-and-exceptions-crash-and-exception-measurement-allows-you-to-measure-the-number-and-type-of-caught-and-uncaught-crashes-and-exceptions-that-occur-in-your-game">Crashes and Exceptions. Crash and exception measurement allows you to measure the number and type of caught and uncaught crashes and exceptions that occur in your game.</h4>
-<pre><code class="cpp">static void logException(std::string exceptionDescription, bool isFatal);
+<pre><code class="cpp">static void logException ( string exceptionDescription , bool isFatal ) ;
 </code></pre>
 
 <blockquote>
 <p>Log an exception. It is a basic support for in-app events.</p>
 </blockquote>
-<h4 id="user-timing-measuring-user-timings-provides-a-native-way-to-measure-a-period-of-time-in-google-analytics-for-example-this-can-be-useful-to-measure-resource-load-times">User timing. Measuring user timings provides a native way to measure a period of time in Google Analytics. For example, this can be useful to measure resource load times.</h4>
-<pre><code class="cpp">static void logTiming(std::string timingCategory,
-                        int timingInterval,
-                        std::string timingName,
-                        std::string timingLabel);
+<pre><code class="cpp">static void logTiming ( string timingCategory ,
+                        int timingInterval ,
+                        string timingName ,
+                        string timingLabel ) ;
 </code></pre>
 
 <blockquote>
 <p>Measure a time inside the application.</p>
 </blockquote>
-<h4 id="social-social-interaction-measurement-allows-you-to-measure-a-users-interactions-with-various-social-network-sharing-and-recommendation-widgets-embedded-in-your-content">Social. Social interaction measurement allows you to measure a user's interactions with various social network sharing and recommendation widgets embedded in your content.</h4>
-<pre><code class="cpp">static void logSocial(std::string socialNetwork,
-                        std::string socialAction,
-                        std::string socialTarget);
+<pre><code class="cpp">static void logSocial ( string socialNetwork ,
+                        string socialAction ,
+                        string socialTarget ) ;
 </code></pre>
 
 <blockquote>
 <p>Log a social event.</p>
 </blockquote>
-<h4 id="general-purpose-methods">General purpose methods.</h4>
-<pre><code class="cpp">static void setDryRun(bool dr);
+<pre><code class="cpp">static void setDryRun ( bool dr ) ;
 </code></pre>
 
 <blockquote>
 <p>While running on dry run, the tracked events won't be sent to the actual
 analytics account.</p>
 </blockquote>
-<pre><code class="cpp">static void enableAdvertisingTracking(bool e);
+<pre><code class="cpp">static void enableAdvertisingTracking ( bool e ) ;
 </code></pre>
 
 <blockquote>
 <p>Enable advertising tracking when in google's ad vendors.</p>
 </blockquote>
-<pre><code class="cpp">static void createTracker(std::string trackerId);
+<pre><code class="cpp">static void createTracker ( string trackerId ) ;
 </code></pre>
 
 <blockquote>
@@ -1046,13 +942,14 @@ If the tracker already existed, no new tracker will be created. In any case, the
 tracker associated with tracker id will be set as default tracker for  analytics
 operations.</p>
 </blockquote>
-<pre><code class="cpp">static void enableTracker(std::string trackerId);
+<pre><code class="cpp">static void enableTracker ( string trackerId ) ;
 </code></pre>
 
 <blockquote>
 <p>Enable a tracker identified by a trackerId. If the tracker does not exist,
 nothing will happen.</p>
 </blockquote>
+<h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1147,7 +1044,103 @@ $(call import-module, ./plugingoogleanalytics)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-libraryjars libs/android-support-v4.jar
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 

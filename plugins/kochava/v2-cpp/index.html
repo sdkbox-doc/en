@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -788,71 +786,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/kochava/v3-cpp
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Kochava plugin. Make sure you setup SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import kochava
-</code></pre>
-
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
 </code></pre>
 
 <h2 id="configuration">Configuration</h2>
@@ -927,60 +860,67 @@ sdkbox::PluginKochava::setAttributionCallback(callback);
  <code>getAttributionData()</code> until you get something back that is not <strong>null</strong>.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init();
+<pre><code class="cpp">static void init ( ) ;
 </code></pre>
 
 <blockquote>
-<p>initialize the Kochava service.</p>
+<p>init the kochava service</p>
 </blockquote>
-<pre><code class="cpp">static void shutdown();
+<pre><code class="cpp">static void shutdown ( ) ;
 </code></pre>
 
 <blockquote>
-<p>shutdown the Kochava service.</p>
+<p>shutdown the kochava service</p>
 </blockquote>
-<pre><code class="cpp">static void enableLogging(bool enabled);
+<pre><code class="cpp">static void enableLogging ( bool enabled ) ;
 </code></pre>
 
 <blockquote>
-<p>log? true or false.</p>
+<p>enable kochava api logging</p>
 </blockquote>
-<pre><code class="cpp">static void trackEvent(const char* event, const char* value);
+<pre><code class="cpp">static void trackEvent ( const char * event , const char * value ) ;
 </code></pre>
 
 <blockquote>
-<p>track a single event, specifying the event and value.</p>
+<p>track a single event</p>
 </blockquote>
-<pre><code class="cpp">static void identityLinkEvent(const std::map&lt;std::string, std::string&gt;&amp; data);
+<pre><code class="cpp">static void spatialEvent ( const char * title , float x , float y , float z ) ;
 </code></pre>
 
 <blockquote>
-<p>link one or more udid's to a Kochava id.</p>
+<p>spatial event to help visualize data</p>
 </blockquote>
-<pre><code class="cpp">static void spatialEvent(const char* title, float x, float y, float z);
+<pre><code class="cpp">static void setLimitAdTracking ( bool limitAdTracking ) ;
 </code></pre>
 
 <blockquote>
-<p>event specifying x, y, and z coordinate to Kochava server for visualizing your data.</p>
+<p>turn on/off ad tracking</p>
 </blockquote>
-<pre><code class="cpp">static void setLimitAdTracking(bool limitAdTracking);
+<pre><code class="cpp">static const std::map &lt;std::string , std::string&gt; * retrieveAttribution ( ) ;
 </code></pre>
 
 <blockquote>
-<p>turn ad tracking off or on by using true or false.</p>
+<p>returns the attribution data</p>
 </blockquote>
-<pre><code class="cpp">const std::map&lt;std::string, std::string&gt;&amp; retrieveAttribution() const;
-</code></pre>
-
-<blockquote>
-<p>returns the attribution data.</p>
-</blockquote>
-<pre><code class="cpp">void sendDeepLink(const char* url, const char* application);
+<pre><code class="cpp">static void sendDeepLink ( const char * url , const char * application ) ;
 </code></pre>
 
 <blockquote>
 <p>send a referral to where your app was opened from.</p>
 </blockquote>
+<pre><code class="cpp">static void setAttributionCallback ( kochavaCallbackDict callback ) ;
+</code></pre>
+
+<blockquote>
+<p>specify callback for attribution</p>
+</blockquote>
+<pre><code class="cpp">static void setBeaconCallback ( kochavaCallbackString callback ) ;
+</code></pre>
+
+<blockquote>
+<p>specify beacon transition callback</p>
+</blockquote>
+<h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1069,6 +1009,70 @@ $(call import-module, ./pluginkochava)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
 </code></pre></div>
             
         </div>

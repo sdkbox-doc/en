@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -774,6 +772,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -790,119 +790,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/tune/v3-cpp
 <pre><code class="bash">$ sdkbox import tune
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
-<ul>
-<li>
-<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
-<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
-lib/Cocos2dxActivity.java</code></p>
-</li>
-<li>
-<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
-<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
-</li>
-</ul>
-<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
-  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
-<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
-<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
-</code></pre>
-
-<ul>
-<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
-</ul>
-<pre><code class="java">onLoadNativeLibraries();
-SDKBox.init(this);
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-keep public class com.mobileapptracker.** {
-    public *;
-}
-
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
-}
-
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Tune configuration, you need to replace
@@ -945,43 +832,65 @@ AppDelegate::applicationDidFinishLaunching()
 <p>Notice that at the end of the <strong>event</strong> <code>PluginTune::measureEvent(event)</code> was called. This takes care of logging our event.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init();
+<pre><code class="cpp">static void setListener ( TuneListener * listener ) ;
 </code></pre>
 
 <blockquote>
-<p>initialize the plugin instance.</p>
+<p>set a listener to listen for event changes.</p>
 </blockquote>
-<pre><code class="cpp">static void setDebugMode(bool enable);
+<pre><code class="cpp">static TuneListener * getListener ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Get the listener</p>
+</blockquote>
+<pre><code class="cpp">static void removeListener ( ) ;
+</code></pre>
+
+<blockquote>
+<p>remove the listener, and can't listen to events anymore</p>
+</blockquote>
+<pre><code class="cpp">static void init ( ) ;
+</code></pre>
+
+<blockquote>
+<p>init the instance.</p>
+</blockquote>
+<pre><code class="cpp">static void setDebugMode ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>Specifies that the server responses should include debug information.</p>
 </blockquote>
-<pre><code class="cpp">static void setAllowDuplicateRequests(bool allow);
+<pre><code class="cpp">static void setAllowDuplicateRequests ( bool allow ) ;
 </code></pre>
 
 <blockquote>
 <p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
 </blockquote>
-<pre><code class="cpp">static void checkForDeferredDeeplinkWithTimeout(double timeout);
+<pre><code class="cpp">static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
 </code></pre>
 
 <blockquote>
-<p>Check for a deferred deeplink entry point upon app installation.</p>
+<p>Check for a deferred deeplink entry point upon app installation.
+This is safe to call at every app launch, since the function does nothing
+unless this is the first launch.</p>
 </blockquote>
-<pre><code class="cpp">static void automateIapEventMeasurement(bool automate);
+<pre><code class="cpp">static void automateIapEventMeasurement ( bool automate ) ;
 </code></pre>
 
 <blockquote>
-<p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
+<p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code
+should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
 </blockquote>
-<pre><code class="cpp">static void setFacebookEventLogging(bool logging, bool limit);
+<pre><code class="cpp">static void setFacebookEventLogging ( bool logging , bool limit ) ;
 </code></pre>
 
 <blockquote>
-<p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.</p>
+<p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
+if the Facebook SDK is not present.</p>
 </blockquote>
-<pre><code class="cpp">static void setExistingUser(bool existingUser);
+<pre><code class="cpp">static void setExistingUser ( bool existingUser ) ;
 </code></pre>
 
 <blockquote>
@@ -989,211 +898,224 @@ AppDelegate::applicationDidFinishLaunching()
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppleAdvertisingIdentifier(const std::string &amp;appleAdvertisingIdentifier, bool adTrackingEnabled);
+<pre><code class="cpp">static void setAppleAdvertisingIdentifier ( const std::string &amp; appleAdvertisingIdentifier ,
+                                            bool adTrackingEnabled ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Advertising Identifier available in iOS 6.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppleVendorIdentifier(const std::string &amp;appleVendorIdentifier);
+<pre><code class="cpp">static void setAppleVendorIdentifier ( const std::string &amp; appleVendorIdentifier ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Vendor Identifier available in iOS 6.</p>
 </blockquote>
-<pre><code class="cpp">static void setCurrencyCode(const std::string &amp;currencyCode);
+<pre><code class="cpp">static void setCurrencyCode ( const std::string &amp; currencyCode ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the currency code.</p>
 </blockquote>
-<pre><code class="cpp">static void setJailbroken(bool jailbroken);
+<pre><code class="cpp">static void setJailbroken ( bool jailbroken ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the jailbroken device flag.</p>
 </blockquote>
-<pre><code class="cpp">static void setPackageName(const std::string &amp;packageName);
+<pre><code class="cpp">static void setPackageName ( const std::string &amp; packageName ) ;
 </code></pre>
 
 <blockquote>
-<p>Sets the package name (bundle identifier).</p>
+<p>Sets the package name (bundle identifier).
+Defaults to the Bundle Identifier of the app that is running the sdk.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldAutoDetectJailbroken(bool autoDetect);
+<pre><code class="cpp">static void setShouldAutoDetectJailbroken ( bool autoDetect ) ;
 </code></pre>
 
 <blockquote>
 <p>Specifies if the sdk should auto detect if the iOS device is jailbroken.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldAutoGenerateAppleVendorIdentifier(bool autoGenerate);
+<pre><code class="cpp">static void setShouldAutoGenerateAppleVendorIdentifier ( bool autoGenerate ) ;
 </code></pre>
 
 <blockquote>
-<p>Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.</p>
+<p>Specifies if the sdk should pull the Apple Vendor Identifier from the device.
+Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
-<pre><code class="cpp">static void setSiteId(const std::string &amp;siteId);
+<pre><code class="cpp">static void setSiteId ( const std::string &amp; siteId ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the site ID.</p>
 </blockquote>
-<pre><code class="cpp">static void setTRUSTeId(const std::string &amp;tpid);
+<pre><code class="cpp">static void setTRUSTeId ( const std::string &amp; tpid ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the TRUSTe Trusted Preference Identifier (TPID).</p>
 </blockquote>
-<pre><code class="cpp">static void setUserEmail(const std::string &amp;userEmail);
+<pre><code class="cpp">static void setUserEmail ( const std::string &amp; userEmail ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's email address.</p>
 </blockquote>
-<pre><code class="cpp">static void setUserId(const std::string &amp;userId);
+<pre><code class="cpp">static void setUserId ( const std::string &amp; userId ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user ID.</p>
 </blockquote>
-<pre><code class="cpp">static void setUserName(const std::string &amp;userName);
+<pre><code class="cpp">static void setUserName ( const std::string &amp; userName ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's name.</p>
 </blockquote>
-<pre><code class="cpp">static void setPhoneNumber(const std::string &amp;phoneNumber);
+<pre><code class="cpp">static void setPhoneNumber ( const std::string &amp; phoneNumber ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's phone number.</p>
 </blockquote>
-<pre><code class="cpp">static void setFacebookUserId(const std::string &amp;facebookUserId);
+<pre><code class="cpp">static void setFacebookUserId ( const std::string &amp; facebookUserId ) ;
 </code></pre>
 
 <blockquote>
 <p>Set user's Facebook ID.</p>
 </blockquote>
-<pre><code class="cpp">static void setTwitterUserId(const std::string &amp;twitterUserId);
+<pre><code class="cpp">static void setTwitterUserId ( const std::string &amp; twitterUserId ) ;
 </code></pre>
 
 <blockquote>
 <p>Set user's Twitter ID.</p>
 </blockquote>
-<pre><code class="cpp">static void setGoogleUserId(const std::string &amp;googleUserId);
+<pre><code class="cpp">static void setGoogleUserId ( const std::string &amp; googleUserId ) ;
 </code></pre>
 
 <blockquote>
 <p>Set user's Google ID.</p>
 </blockquote>
-<pre><code class="cpp">static void setAge(int userAge);
+<pre><code class="cpp">static void setAge ( int userAge ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's age.</p>
 </blockquote>
-<pre><code class="cpp">static void setGender(Gender userGender);
+<pre><code class="cpp">static void setGender ( Gender userGender ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's gender.</p>
 </blockquote>
-<pre><code class="cpp">static void setLatitude(double latitude, double longitude);
+<pre><code class="cpp">static void setLatitude ( double latitude , double longitude ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's location.</p>
 </blockquote>
-<pre><code class="cpp">static void setLatitude(double latitude, double longitude, double altitude);
+<pre><code class="cpp">static void setLatitude ( double latitude ,
+                          double longitude ,
+                          double altitude ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the user's location including altitude.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppAdTracking(bool enable);
+<pre><code class="cpp">static void setAppAdTracking ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>Set app-level ad-tracking.</p>
 </blockquote>
-<pre><code class="cpp">static void setPayingUser(bool isPayingUser);
+<pre><code class="cpp">static void setPayingUser ( bool isPayingUser ) ;
 </code></pre>
 
 <blockquote>
-<p>Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
+<p>Set whether the user is generating revenue for the app or not.
+If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
 </blockquote>
-<pre><code class="cpp">static void setPreloadDataForScript(const std::string &amp;jsonString);
-static void setPreloadData(const TunePreloadData &amp;preloadData);
+<pre><code class="cpp">static void setPreloadData ( const TunePreloadData &amp; preloadData ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets publisher information for attribution.</p>
 </blockquote>
-<pre><code class="cpp">static std::string matId();
+<pre><code class="cpp">static void setPreloadDataForScript ( const std::string &amp; jsonString ) ;
+</code></pre>
+
+<pre><code class="cpp">static std::string matId ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get the MAT ID for this installation (mat_id).</p>
 </blockquote>
-<pre><code class="cpp">static std::string openLogId();
+<pre><code class="cpp">static std::string openLogId ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get the MAT log ID for the first app open (open_log_id).</p>
 </blockquote>
-<pre><code class="cpp">static bool isPayingUser();
+<pre><code class="cpp">static bool isPayingUser ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get whether the user is revenue-generating.</p>
 </blockquote>
-<pre><code class="cpp">static void measureSession();
+<pre><code class="cpp">static void measureSession ( ) ;
 </code></pre>
 
 <blockquote>
 <p>To be called when an app opens; typically in the AppDelegate::applicationWillEnterForeground() event.</p>
 </blockquote>
-<pre><code class="cpp">static void measureEventName(const std::string &amp;eventName);
+<pre><code class="cpp">static void measureEventName ( const std::string &amp; eventName ) ;
 </code></pre>
 
 <blockquote>
 <p>Record an event for an Event Name.</p>
 </blockquote>
-<pre><code class="cpp">static void measureEventId(int eventId);
+<pre><code class="cpp">static void measureEventId ( int eventId ) ;
 </code></pre>
 
 <blockquote>
 <p>Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.</p>
 </blockquote>
-<pre><code class="cpp">static void measureEventForScript(const std::string &amp;jsonString);
-static void measureEvent(const TuneEvent &amp;event);
+<pre><code class="cpp">static void measureEvent ( const TuneEvent &amp; event ) ;
 </code></pre>
 
 <blockquote>
 <p>Record an event with a MATEvent.</p>
 </blockquote>
-<pre><code class="cpp">static void setUseCookieTracking(bool enable);
+<pre><code class="cpp">static void measureEventForScript ( const std::string &amp; jsonString ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setUseCookieTracking ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets whether or not to use cookie based tracking.</p>
 </blockquote>
-<pre><code class="cpp">static void setRedirectUrl(const std::string &amp;redirectUrl);
+<pre><code class="cpp">static void setRedirectUrl ( const std::string &amp; redirectUrl ) ;
 </code></pre>
 
 <blockquote>
-<p>Sets a url to be used with app-to-app tracking so that the sdk can open the download (redirect) url. This is used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.</p>
+<p>Sets a url to be used with app-to-app tracking so that
+the sdk can open the download (redirect) url. This is
+used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.</p>
 </blockquote>
-<pre><code class="cpp">static void startAppToAppTracking(const std::string &amp;targetAppPackageName,
-                                 const std::string &amp;targetAppAdvertiserId,
-                                 const std::string &amp;targetAdvertiserOfferId,
-                                 const std::string &amp;targetAdvertiserPublisherId,
-                                 bool shouldRedirect);
+<pre><code class="cpp">static void startAppToAppTracking ( const std::string &amp; targetAppPackageName ,
+                                    const std::string &amp; targetAppAdvertiserId ,
+                                    const std::string &amp; targetAdvertiserOfferId ,
+                                    const std::string &amp; targetAdvertiserPublisherId ,
+                                    bool shouldRedirect ) ;
 </code></pre>
 
 <blockquote>
 <p>Start an app-to-app tracking session on the MAT server.</p>
 </blockquote>
-<pre><code class="cpp">static void applicationDidOpenURL(const std::string &amp;urlString, const std::string &amp;sourceApplication);
+<pre><code class="cpp">static void applicationDidOpenURL ( const std::string &amp; urlString ,
+                                    const std::string &amp; sourceApplication ) ;
 </code></pre>
 
 <blockquote>
@@ -1202,6 +1124,23 @@ This typically occurs during OAUTH or when an app exits and is returned
 to via a URL. The data will be sent to the HasOffers server when the next
 measureXXX method is called so that a Re-Engagement can be recorded.</p>
 </blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="cpp">void onMobileAppTrackerEnqueuedActionWithReferenceId ( const std::string &amp; referenceId );
+</code></pre>
+
+<pre><code class="cpp">void onMobileAppTrackerDidSucceedWithData ( const std::string &amp; data );
+</code></pre>
+
+<pre><code class="cpp">void onMobileAppTrackerDidFailWithError ( const std::string &amp; errorString );
+</code></pre>
+
+<pre><code class="cpp">void onMobileAppTrackerDidReceiveDeeplink ( const std::string &amp; deeplink ,
+                                            bool timeout );
+</code></pre>
+
+<pre><code class="cpp">void onMobileAppTrackerDidFailDeeplinkWithError ( const std::string &amp; errorString );
+</code></pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1297,7 +1236,120 @@ $(call import-module, ./plugintune)
 correctly. If <code>Application.mk</code> contains <code>APP_STL := c++_static</code>, it should be
 changed to:</p>
 <pre><code>APP_STL := gnustl_static
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
+lib/Cocos2dxActivity.java</code></p>
+</li>
+<li>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
+</li>
+</ul>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
+  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
+<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
+<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
+</code></pre>
+
+<ul>
+<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+</ul>
+<pre><code class="java">onLoadNativeLibraries();
+SDKBox.init(this);
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-keep public class com.mobileapptracker.** {
+    public *;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 

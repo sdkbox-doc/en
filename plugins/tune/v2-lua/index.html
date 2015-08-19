@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -774,6 +772,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -790,104 +790,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/tune/v3-cpp
 <pre><code class="bash">$ sdkbox import tune
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-keep public class com.mobileapptracker.** {
-    public *;
-}
-
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
-}
-
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Tune configuration, you need to replace
@@ -955,11 +857,17 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
+<pre><code class="lua">sdkbox.PluginTune:setListener(listener)
+</code></pre>
+
+<blockquote>
+<p>set a listener to listen for event changes.</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginTune:init()
 </code></pre>
 
 <blockquote>
-<p>initialize the plugin instance.</p>
+<p>init the instance.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:setDebugMode(enable)
 </code></pre>
@@ -977,19 +885,23 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 </code></pre>
 
 <blockquote>
-<p>Check for a deferred deeplink entry point upon app installation.</p>
+<p>Check for a deferred deeplink entry point upon app installation.
+This is safe to call at every app launch, since the function does nothing
+unless this is the first launch.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:automateIapEventMeasurement(automate)
 </code></pre>
 
 <blockquote>
-<p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
+<p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code
+should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:setFacebookEventLogging(logging, limit)
 </code></pre>
 
 <blockquote>
-<p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.</p>
+<p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
+if the Facebook SDK is not present.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:setExistingUser(existingUser)
 </code></pre>
@@ -999,7 +911,8 @@ sdkbox.PluginTune:measureEventForScript(json.encode(event))
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled)
+<pre><code class="lua">sdkbox.PluginTune:setAppleAdvertisingIdentifier(appleAdvertisingIdentifier,
+                                                 adTrackingEnabled)
 </code></pre>
 
 <blockquote>
@@ -1027,7 +940,8 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 </code></pre>
 
 <blockquote>
-<p>Sets the package name (bundle identifier).</p>
+<p>Sets the package name (bundle identifier).
+Defaults to the Bundle Identifier of the app that is running the sdk.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:setShouldAutoDetectJailbroken(autoDetect)
 </code></pre>
@@ -1039,7 +953,8 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 </code></pre>
 
 <blockquote>
-<p>Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.</p>
+<p>Specifies if the sdk should pull the Apple Vendor Identifier from the device.
+Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:setSiteId(siteId)
 </code></pre>
@@ -1095,13 +1010,13 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 <blockquote>
 <p>Set user's Google ID.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setAge(long userAge)
+<pre><code class="lua">sdkbox.PluginTune:setAge(userAge)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's age.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setGender(Gender userGender)
+<pre><code class="lua">sdkbox.PluginTune:setGender(userGender)
 </code></pre>
 
 <blockquote>
@@ -1129,9 +1044,10 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 </code></pre>
 
 <blockquote>
-<p>Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
+<p>Set whether the user is generating revenue for the app or not.
+If measureEvent is called with a non-zero revenue, this is automatically set to YES.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:setPreloadData(jsonString)
+<pre><code class="lua">sdkbox.PluginTune:setPreloadData(preloadData)
 </code></pre>
 
 <blockquote>
@@ -1173,7 +1089,7 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 <blockquote>
 <p>Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginTune:measureEvent(jsonString)
+<pre><code class="lua">sdkbox.PluginTune:measureEvent(event)
 </code></pre>
 
 <blockquote>
@@ -1189,13 +1105,15 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 </code></pre>
 
 <blockquote>
-<p>Sets a url to be used with app-to-app tracking so that the sdk can open the download (redirect) url. This is used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.</p>
+<p>Sets a url to be used with app-to-app tracking so that
+the sdk can open the download (redirect) url. This is
+used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginTune:startAppToAppTracking(targetAppPackageName,
-                                 targetAppAdvertiserId,
-                                 targetAdvertiserOfferId,
-                                 targetAdvertiserPublisherId,
-                                 shouldRedirect)
+                                         targetAppAdvertiserId,
+                                         targetAdvertiserOfferId,
+                                         targetAdvertiserPublisherId,
+                                         shouldRedirect)
 </code></pre>
 
 <blockquote>
@@ -1210,6 +1128,22 @@ This typically occurs during OAUTH or when an app exits and is returned
 to via a URL. The data will be sent to the HasOffers server when the next
 measureXXX method is called so that a Re-Engagement can be recorded.</p>
 </blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="lua">onEnqueuedAction(referenceId)
+</code></pre>
+
+<pre><code class="lua">onSucceed(data)
+</code></pre>
+
+<pre><code class="lua">onFailed(errorString)
+</code></pre>
+
+<pre><code class="lua">onReceiveDeeplink(deeplink, timeout)
+</code></pre>
+
+<pre><code class="lua">onMobileAppTrackerDidFailDeeplinkWithError(errorString)
+</code></pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1304,7 +1238,105 @@ $(call import-module, ./plugintune)
                 ../../Classes/AppDelegate.cpp \
                 ../../Classes/HelloWorldScene.cpp \
                                 ../../Classes/NewSourceFile.cpp
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-keep public class com.mobileapptracker.** {
+    public *;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 

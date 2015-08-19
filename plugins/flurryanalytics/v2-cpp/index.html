@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -774,6 +772,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -790,85 +790,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/flurryanalytics/v3-cpp
 <pre><code class="bash">$ sdkbox import flurryanalytics
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-dontwarn android.webkit.**
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;API KEY&gt;</code>  with your specific <a href="http://www.flurry.com/solutions/analytics"><strong>Flurry Analytics ID</strong></a> account information.
@@ -992,38 +913,38 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>Start a Flurry session for the project denoted by  apiKey.</p>
 </blockquote>
 <pre><code class="cpp">static void endSession ( ) ;
 </code></pre>
 
 <blockquote>
-<p>end session, just valid on android</p>
+<p>end session, just valid on Android</p>
 </blockquote>
 <pre><code class="cpp">static bool activeSessionExists ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>Start a Flurry session for the project denoted by  apiKey.</p>
 </blockquote>
 <pre><code class="cpp">static std::string getSessionID ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Start a Flurry session for the project denoted by @c apiKey.</p>
+<p>Start a Flurry session for the project denoted by  apiKey.</p>
 </blockquote>
 <pre><code class="cpp">static void pauseBackgroundSession ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Pauses a Flurry session left running in background. on valid on ios</p>
+<p>Pauses a Flurry session left running in background. on valid on iOS</p>
 </blockquote>
 <pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
                         const std::string &amp; originVersion ) ;
 </code></pre>
 
 <blockquote>
-<p>Adds an SDK origin specified by @c originName and @c originVersion.</p>
+<p>Adds an SDK origin specified by  originName and  originVersion.</p>
 </blockquote>
 <pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
                         const std::string &amp; originVersion ,
@@ -1032,7 +953,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Adds a custom parameterized origin specified by @c originName with @c originVersion and @c parameters.</p>
+<p>Adds a custom parameterized origin specified by  originName with  originVersion and  parameters.</p>
 </blockquote>
 <pre><code class="cpp">static void addOrigin ( const std::string &amp; originName ,
                         const std::string &amp; originVersion ,
@@ -1046,7 +967,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Records a custom event specified by @c eventName.</p>
+<p>Records a custom event specified by  eventName.</p>
 </blockquote>
 <pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
                       std::map &lt;std::string ,
@@ -1054,7 +975,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Records a custom parameterized event specified by @c eventName with @c parameters.</p>
+<p>Records a custom parameterized event specified by  eventName with  parameters.</p>
 </blockquote>
 <pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
                       const std::string &amp; parameters ) ;
@@ -1067,7 +988,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Records a timed event specified by @c eventName.</p>
+<p>Records a timed event specified by  eventName.</p>
 </blockquote>
 <pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
                       std::map &lt;std::string ,
@@ -1076,7 +997,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Records a custom parameterized timed event specified by @c eventName with @c parameters.</p>
+<p>Records a custom parameterized timed event specified by  eventName with  parameters.</p>
 </blockquote>
 <pre><code class="cpp">static int logEvent ( const std::string &amp; eventName ,
                       const std::string &amp; parameters ,
@@ -1098,7 +1019,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.</p>
+<p>Ends a timed event specified by  eventName and optionally updates parameters with  parameters.</p>
 </blockquote>
 <pre><code class="cpp">static void endTimedEvent ( const std::string &amp; eventName ,
                             const std::string &amp; parameters ) ;
@@ -1143,7 +1064,7 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>Set whether Flurry should record location via GPS. Defaults to true. valid on android</p>
+<p>Set whether Flurry should record location via GPS. Defaults to true. valid on Android</p>
 </blockquote>
 <pre><code class="cpp">static void setLatitude ( double latitude ,
                           double longitude ,
@@ -1158,25 +1079,25 @@ sdkbox::PluginFlurryAnalytics::endSession();
 </code></pre>
 
 <blockquote>
-<p>clear the default location.valid on andriod</p>
+<p>clear the default location.valid on Android</p>
 </blockquote>
 <pre><code class="cpp">static void setSessionReportsOnCloseEnabled ( bool sendSessionReportsOnClose ) ;
 </code></pre>
 
 <blockquote>
-<p>Set session to report when app closes.valid on ios</p>
+<p>Set session to report when app closes.valid on iOS</p>
 </blockquote>
 <pre><code class="cpp">static void setSessionReportsOnPauseEnabled ( bool setSessionReportsOnPauseEnabled ) ;
 </code></pre>
 
 <blockquote>
-<p>Set session to report when app is sent to the background.valid on ios</p>
+<p>Set session to report when app is sent to the background.valid on iOS</p>
 </blockquote>
 <pre><code class="cpp">static void setBackgroundSessionEnabled ( bool setBackgroundSessionEnabled ) ;
 </code></pre>
 
 <blockquote>
-<p>Set session to support background execution.valid on ios</p>
+<p>Set session to support background execution.valid on iOS</p>
 </blockquote>
 <pre><code class="cpp">static void setEventLoggingEnabled ( bool value ) ;
 </code></pre>
@@ -1285,7 +1206,86 @@ $(call import-module, ./pluginflurryanalytics)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-dontwarn android.webkit.**
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 

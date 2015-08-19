@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -788,71 +786,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import iap
-</code></pre>
-
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
 </code></pre>
 
 <h2 id="configuration">Configuration</h2>
@@ -1013,41 +946,54 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <p>Remove listener for IAP</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="javascript">sdkbox.IAP.onSuccess(product);
+<pre><code class="javascript">onInitialized(ok);
+</code></pre>
+
+<blockquote>
+<p>Called when IAP initialized</p>
+</blockquote>
+<pre><code class="javascript">onSuccess(p);
 </code></pre>
 
 <blockquote>
 <p>Called when an IAP processed successfully</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.IAP.onFailure(product, message);
+<pre><code class="javascript">onFailure(p, msg);
 </code></pre>
 
 <blockquote>
 <p>Called when an IAP fails</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.IAP.onCanceled(product);
+<pre><code class="javascript">onCanceled(p);
 </code></pre>
 
 <blockquote>
 <p>Called when user canceled the IAP</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.IAP.onRestored(product);
+<pre><code class="javascript">onRestored(p);
 </code></pre>
 
 <blockquote>
-<p>Called when server returns the IAP items user already purchased</p>
+<p>Called when server returns the IAP items user already purchased
+@note this callback will be called multiple times if there are multiple IAP</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.IAP.onProductRequestSuccess(products);
+<pre><code class="javascript">onProductRequestSuccess(products);
 </code></pre>
 
 <blockquote>
 <p>Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.IAP.onProductRequestFailure(message);
+<pre><code class="javascript">onProductRequestFailure(msg);
 </code></pre>
 
 <blockquote>
 <p>Called when the product request fails</p>
+</blockquote>
+<pre><code class="javascript">onRestoreComplete(ok, msg);
+</code></pre>
+
+<blockquote>
+<p>Called when the restore completed</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -1121,6 +1067,70 @@ $(call import-module, ./pluginiap)
                   ../../Classes/AppDelegate.cpp \
                   ../../Classes/HelloWorldScene.cpp \
                                     ../../Classes/NewSourceFile.cpp
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
 </code></pre></div>
             
         </div>

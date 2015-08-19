@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -774,6 +772,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -790,87 +790,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/vungle/v3-cpp
 <pre><code class="bash">$ sdkbox import vungle
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-dontwarn com.vungle.**
--keep class com.vungle.** { public *; }
--keep class javax.inject.*
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Vungle configuration, you need to replace <code>&lt;vungle id&gt;</code>  with your specific <a href="http://vungle.com">Vungle</a> Publisher account information.
@@ -949,72 +868,78 @@ private:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init();
+<pre><code class="cpp">static void init ( ) ;
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void show(const std::string&amp; name);
+<pre><code class="cpp">static void show ( const std::string &amp; name ) ;
 </code></pre>
 
 <blockquote>
 <p>show ad with a provided name.</p>
 </blockquote>
-<pre><code class="cpp">static void setListener(VungleListener* listener);
+<pre><code class="cpp">static void setListener ( VungleListener * listener ) ;
 </code></pre>
 
 <blockquote>
 <p>set provided listener.</p>
 </blockquote>
-<pre><code class="cpp">static void removeListener();
+<pre><code class="cpp">static VungleListener * getListener ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get provided listener.</p>
+</blockquote>
+<pre><code class="cpp">static void removeListener ( ) ;
 </code></pre>
 
 <blockquote>
 <p>remove listeners.</p>
 </blockquote>
-<pre><code class="cpp">static void setDebug(bool enable);
+<pre><code class="cpp">static void setDebug ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>enable or disable debug mode.</p>
 </blockquote>
-<pre><code class="cpp">static bool isCacheAvailable();
+<pre><code class="cpp">static bool isCacheAvailable ( ) ;
 </code></pre>
 
 <blockquote>
 <p>is there a cached video available.</p>
 </blockquote>
-<pre><code class="cpp">static void setUserID(const std::string&amp; userID);
+<pre><code class="cpp">static void setUserID ( const std::string &amp; userID ) ;
 </code></pre>
 
 <blockquote>
 <p>sets the userID for rewarded ads.</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onVungleStarted();
+<pre><code class="cpp">void onVungleCacheAvailable ( );
+</code></pre>
+
+<blockquote>
+<p>ad cache is available.</p>
+</blockquote>
+<pre><code class="cpp">void onVungleStarted ( );
 </code></pre>
 
 <blockquote>
 <p>Vungle is running and available.</p>
 </blockquote>
-<pre><code class="cpp">void onVungleFinished();
+<pre><code class="cpp">void onVungleFinished ( );
 </code></pre>
 
 <blockquote>
 <p>Vungle is not running/has stopped.</p>
 </blockquote>
-<pre><code class="cpp">void onVungleOpenStore();
+<pre><code class="cpp">void onVungleAdViewed ( bool isComplete );
 </code></pre>
 
 <blockquote>
-<p>is the Vungle store available.</p>
-</blockquote>
-<pre><code class="cpp">void onVungleCacheAvailable();
-</code></pre>
-
-<blockquote>
-<p>ad cache is available.</p>
+<p>Vungle ad has been viewed.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -1106,7 +1031,88 @@ $(call import-module, ./pluginvungle)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-dontwarn com.vungle.**
+-keep class com.vungle.** { public *; }
+-keep class javax.inject.*
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 

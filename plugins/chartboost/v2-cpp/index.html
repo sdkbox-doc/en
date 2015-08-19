@@ -761,8 +761,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#extra-steps-for-android">Extra steps for Android</a></li>
-        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -774,6 +772,8 @@
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
             <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
     
     </ul>
@@ -790,85 +790,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/chartboost/v3-cpp
 <pre><code class="bash">$ sdkbox import chartboost
 </code></pre>
 
-<h2 id="extra-steps-for-android">Extra steps for Android</h2>
-<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
-<ul>
-<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
-</ul>
-<pre><code class="java">import android.content.Intent;
-import com.sdkbox.plugin.SDKBox;
-</code></pre>
-
-<ul>
-<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
-</ul>
-<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
-  super.onCreate(savedInstanceState);
-  SDKBox.init(this);
-}
-</code></pre>
-
-<ul>
-<li>
-<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
-<ul>
-<li>
-<p>If the method listed has not been defined, <strong>add it</strong>.</p>
-</li>
-<li>
-<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="java">    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-          }
-    }
-    @Override
-    protected void onStart() {
-          super.onStart();
-          SDKBox.onStart();
-    }
-    @Override
-    protected void onStop() {
-          super.onStop();
-          SDKBox.onStop();
-    }
-    @Override
-    protected void onResume() {
-          super.onResume();
-          SDKBox.onResume();
-    }
-    @Override
-    protected void onPause() {
-          super.onPause();
-          SDKBox.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-          if(!SDKBox.onBackPressed()) {
-            super.onBackPressed();
-          }
-    }
-</code></pre>
-
-<h3 id="proguard-release-optional">Proguard (release, optional)</h3>
-<ul>
-<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
-</ul>
-<pre><code>proguard.config=proguard.cfg
-</code></pre>
-
-<ul>
-<li>Edit the file you specified to include the following:</li>
-</ul>
-<pre><code>-keep class com.chartboost.** { *; }
-</code></pre>
-
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Chartboost configuration, you need to replace <code>&lt;CHARTBOOST ID&gt;</code> and <code>&lt;CHARTBOOST SIGNATURE&gt;</code> items with your specific <a href="https://www.chartboost.com">Chartboost</a> account information.</p>
@@ -938,119 +859,194 @@ public:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init();
+<pre><code class="cpp">static void init ( ) ;
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void show(const std::string&amp; name);
+<pre><code class="cpp">static void show ( const std::string &amp; name ) ;
 </code></pre>
 
 <blockquote>
 <p>show ad by specifying ad name.</p>
 </blockquote>
-<pre><code class="cpp">static void setListener(ChartboostListener* listener);
+<pre><code class="cpp">static void setListener ( ChartboostListener * listener ) ;
 </code></pre>
 
 <blockquote>
 <p>creates the an optional listener.</p>
 </blockquote>
-<pre><code class="cpp">static void removeListener();
+<pre><code class="cpp">static ChartboostListener * getListener ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void removeListener ( ) ;
 </code></pre>
 
 <blockquote>
 <p>removed the listener.</p>
 </blockquote>
-<pre><code class="cpp">static bool isAnyViewVisible();
+<pre><code class="cpp">static bool isAnyViewVisible ( ) ;
 </code></pre>
 
 <blockquote>
 <p>check to see if any views are visible.</p>
 </blockquote>
-<pre><code class="cpp">static bool isAvailable(const std::string&amp; name);
+<pre><code class="cpp">static bool isAvailable ( const std::string &amp; name ) ;
 </code></pre>
 
 <blockquote>
 <p>is the specified ad available?</p>
 </blockquote>
-<pre><code class="cpp">static void setAutoCacheAds(bool shouldCache);
+<pre><code class="cpp">static void cache ( const std::string &amp; name ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setAutoCacheAds ( bool shouldCache ) ;
 </code></pre>
 
 <blockquote>
 <p>set to enable and disable the auto cache feature (Enabled by default).</p>
 </blockquote>
-<pre><code class="cpp">static bool getAutoCacheAds();
+<pre><code class="cpp">static bool getAutoCacheAds ( ) ;
 </code></pre>
 
 <blockquote>
 <p>get the current auto cache behavior (Enabled by default).</p>
 </blockquote>
-<pre><code class="cpp">static void closeImpression();
+<pre><code class="cpp">static void closeImpression ( ) ;
 </code></pre>
 
 <blockquote>
 <p>close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).</p>
 </blockquote>
-<pre><code class="cpp">static void setStatusBarBehavior(CB_StatusBarBehavior behavior);
+<pre><code class="cpp">static void setStatusBarBehavior ( CB_StatusBarBehavior behavior ) ;
 </code></pre>
 
 <blockquote>
-<p>set to control how the fullscreen ad units should interact with the status bar. (CBStatusBarBehaviorIgnore by default).</p>
+<p>set to control how the fullscreen ad units should interact with the status bar.
+(CBStatusBarBehaviorIgnore by default).</p>
 </blockquote>
-<pre><code class="cpp">static void didPassAgeGate(bool pass);
+<pre><code class="cpp">static void didPassAgeGate ( bool pass ) ;
 </code></pre>
 
 <blockquote>
 <p>confirm if an age gate passed or failed. When specified Chartboost will wait for
- this call before showing the IOS App Store.</p>
+call before showing the IOS App Store.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldPauseClickForConfirmation(bool shouldPause);
+<pre><code class="cpp">static void setShouldPauseClickForConfirmation ( bool shouldPause ) ;
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should block for an age gate.</p>
 </blockquote>
-<pre><code class="cpp">static bool handleOpenURL(const std::string&amp; url, const std::string&amp; sourceApp);
+<pre><code class="cpp">static bool handleOpenURL ( const std::string &amp; url ,
+                            const std::string &amp; sourceApp ) ;
 </code></pre>
 
 <blockquote>
 <p>opens a "deep link" URL for a Chartboost Custom Scheme.</p>
 </blockquote>
-<pre><code class="cpp">static void setCustomID(const std::string&amp; customID);
+<pre><code class="cpp">static void setCustomID ( const std::string &amp; customID ) ;
 </code></pre>
 
 <blockquote>
-<p>set a custom identifier to send in the POST body for all Chartboost API server
-requests.</p>
+<p>set a custom identifier to send in the POST body for all Chartboost API server requests.</p>
 </blockquote>
-<pre><code class="cpp">static std::string getCustomID();
+<pre><code class="cpp">static std::string getCustomID ( ) ;
 </code></pre>
 
 <blockquote>
 <p>get the current custom identifier being sent in the POST body for all Chartboost
 API server requests.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldRequestInterstitialsInFirstSession(bool shouldRequest);
+<pre><code class="cpp">static void setShouldRequestInterstitialsInFirstSession ( bool shouldRequest ) ;
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should show interstitials in the first session.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldDisplayLoadingViewForMoreApps(bool shouldDisplay);
+<pre><code class="cpp">static void setShouldDisplayLoadingViewForMoreApps ( bool shouldDisplay ) ;
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK should show a loading view while preparing to display
 the "more applications" UI.</p>
 </blockquote>
-<pre><code class="cpp">static void setShouldPrefetchVideoContent(bool shouldPrefetch);
+<pre><code class="cpp">static void setShouldPrefetchVideoContent ( bool shouldPrefetch ) ;
 </code></pre>
 
 <blockquote>
 <p>decide if Chartboost SDK will attempt to fetch videos from the Chartboost API
 servers.</p>
+</blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="cpp">void onChartboostCached ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>there is cached content</p>
+</blockquote>
+<pre><code class="cpp">bool onChartboostShouldDisplay ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>should Chartboost display</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostDisplay ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>Charboost ad has displayed</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostDismiss ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>Chartboost ad has been dismissed</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostClose ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>Chartboost is not running</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostClick ( const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>Chartboost ad was clicked on</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostReward ( const std::string &amp; name , int reward );
+</code></pre>
+
+<blockquote>
+<p>Chartboost reward was given</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostFailedToLoad ( const std::string &amp; name , CB_LoadError e );
+</code></pre>
+
+<blockquote>
+<p>Chartboost failed to load</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostFailToRecordClick ( const std::string &amp; name ,
+                                     CB_ClickError e );
+</code></pre>
+
+<blockquote>
+<p>Chartboost failed to record click</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostConfirmation ( );
+</code></pre>
+
+<blockquote>
+<p>Chartboost confirmation</p>
+</blockquote>
+<pre><code class="cpp">void onChartboostCompleteStore ( );
+</code></pre>
+
+<blockquote>
+<p>Chartboost complete store</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -1124,7 +1120,86 @@ $(call import-module, ./pluginchartboost)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
-</code></pre></div>
+</code></pre>
+
+<h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
+<ul>
+<li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify the class to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. Example of what this might look like for you:</li>
+</ul>
+<pre><code class="java">protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  SDKBox.init(this);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code>-keep class com.chartboost.** { *; }
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 
