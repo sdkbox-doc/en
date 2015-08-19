@@ -2,9 +2,14 @@
 
 ### Methods
 ```javascript
+sdkbox.PluginTune.setListener(listener);
+```
+> set a listener to listen for event changes.
+
+```javascript
 sdkbox.PluginTune.init();
 ```
-> initialize the plugin instance.
+> init the instance.
 
 ```javascript
 sdkbox.PluginTune.setDebugMode(enable);
@@ -20,16 +25,20 @@ sdkbox.PluginTune.setAllowDuplicateRequests(allow);
 sdkbox.PluginTune.checkForDeferredDeeplinkWithTimeout(timeout);
 ```
 > Check for a deferred deeplink entry point upon app installation.
+This is safe to call at every app launch, since the function does nothing
+unless this is the first launch.
 
 ```javascript
 sdkbox.PluginTune.automateIapEventMeasurement(automate);
 ```
-> Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.
+> Enable automatic measurement of app store in-app-purchase events. When enabled, your code
+should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.
 
 ```javascript
 sdkbox.PluginTune.setFacebookEventLogging(logging, limit);
 ```
-> Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored if the Facebook SDK is not present.
+> Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
+if the Facebook SDK is not present.
 
 ```javascript
 sdkbox.PluginTune.setExistingUser(existingUser);
@@ -39,7 +48,8 @@ distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.
 
 ```javascript
-sdkbox.PluginTune.setAppleAdvertisingIdentifier(appleAdvertisingIdentifier, adTrackingEnabled);
+sdkbox.PluginTune.setAppleAdvertisingIdentifier(appleAdvertisingIdentifier,
+                                                 adTrackingEnabled);
 ```
 > Set the Apple Advertising Identifier available in iOS 6.
 
@@ -62,6 +72,7 @@ sdkbox.PluginTune.setJailbroken(jailbroken);
 sdkbox.PluginTune.setPackageName(packageName);
 ```
 > Sets the package name (bundle identifier).
+Defaults to the Bundle Identifier of the app that is running the sdk.
 
 ```javascript
 sdkbox.PluginTune.setShouldAutoDetectJailbroken(autoDetect);
@@ -71,7 +82,8 @@ sdkbox.PluginTune.setShouldAutoDetectJailbroken(autoDetect);
 ```javascript
 sdkbox.PluginTune.setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
 ```
-> Specifies if the sdk should pull the Apple Vendor Identifier from the device. Note that setting to false will clear any previously set value for the property.
+> Specifies if the sdk should pull the Apple Vendor Identifier from the device.
+Note that setting to false will clear any previously set value for the property.
 
 ```javascript
 sdkbox.PluginTune.setSiteId(siteId);
@@ -119,12 +131,12 @@ sdkbox.PluginTune.setGoogleUserId(googleUserId);
 > Set user's Google ID.
 
 ```javascript
-sdkbox.PluginTune.setAge(long userAge);
+sdkbox.PluginTune.setAge(userAge);
 ```
 > Sets the user's age.
 
 ```javascript
-sdkbox.PluginTune.setGender(Gender userGender);
+sdkbox.PluginTune.setGender(userGender);
 ```
 > Sets the user's gender.
 
@@ -146,10 +158,10 @@ sdkbox.PluginTune.setAppAdTracking(enable);
 ```javascript
 sdkbox.PluginTune.setPayingUser(isPayingUser);
 ```
-> Set whether the user is generating revenue for the app or not. If measureEvent is called with a non-zero revenue, this is automatically set to YES.
+> Set whether the user is generating revenue for the app or not.
+If measureEvent is called with a non-zero revenue, this is automatically set to YES.
 
 ```javascript
-sdkbox.PluginTune.setPreloadDataForScript(jsonString);
 sdkbox.PluginTune.setPreloadData(preloadData);
 ```
 > Sets publisher information for attribution.
@@ -185,7 +197,6 @@ sdkbox.PluginTune.measureEventId(eventId);
 > Record an event by providing the equivalent Event ID defined on the MobileAppTracking dashboard.
 
 ```javascript
-sdkbox.PluginTune.measureEventForScript(jsonString);
 sdkbox.PluginTune.measureEvent(event);
 ```
 > Record an event with a MATEvent.
@@ -198,14 +209,16 @@ sdkbox.PluginTune.setUseCookieTracking(enable);
 ```javascript
 sdkbox.PluginTune.setRedirectUrl(redirectUrl);
 ```
-> Sets a url to be used with app-to-app tracking so that the sdk can open the download (redirect) url. This is used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.
+> Sets a url to be used with app-to-app tracking so that
+the sdk can open the download (redirect) url. This is
+used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.
 
 ```javascript
 sdkbox.PluginTune.startAppToAppTracking(targetAppPackageName,
-                                 targetAppAdvertiserId,
-                                 targetAdvertiserOfferId,
-                                 targetAdvertiserPublisherId,
-                                 shouldRedirect);
+                                         targetAppAdvertiserId,
+                                         targetAdvertiserOfferId,
+                                         targetAdvertiserPublisherId,
+                                         shouldRedirect);
 ```
 > Start an app-to-app tracking session on the MAT server.
 
@@ -216,3 +229,27 @@ sdkbox.PluginTune.applicationDidOpenURL(urlString, sourceApplication);
 This typically occurs during OAUTH or when an app exits and is returned
 to via a URL. The data will be sent to the HasOffers server when the next
 measureXXX method is called so that a Re-Engagement can be recorded.
+
+
+### Listeners
+```javascript
+onEnqueuedAction(referenceId);
+```
+
+```javascript
+onSucceed(data);
+```
+
+```javascript
+onFailed(errorString);
+```
+
+```javascript
+onReceiveDeeplink(deeplink, timeout);
+```
+
+```javascript
+onMobileAppTrackerDidFailDeeplinkWithError(errorString);
+```
+
+

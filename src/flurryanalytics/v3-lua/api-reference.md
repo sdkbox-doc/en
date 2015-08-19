@@ -44,37 +44,37 @@ sdkbox.PluginFlurryAnalytics:setCrashReportingEnabled(value)
 ```lua
 sdkbox.PluginFlurryAnalytics:startSession()
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:endSession()
 ```
-> end session, just valid on android
+> end session, just valid on Android
 
 ```lua
 sdkbox.PluginFlurryAnalytics:activeSessionExists()
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:getSessionID()
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:pauseBackgroundSession()
 ```
-> Pauses a Flurry session left running in background. on valid on ios
+> Pauses a Flurry session left running in background. on valid on iOS
 
 ```lua
 sdkbox.PluginFlurryAnalytics:addOrigin(originName, originVersion)
 ```
-> Adds an SDK origin specified by @c originName and @c originVersion.
+> Adds an SDK origin specified by  originName and  originVersion.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:addOrigin(originName, originVersion, parameters)
 ```
-> Adds a custom parameterized origin specified by @c originName with @c originVersion and @c parameters.
+> Adds a custom parameterized origin specified by  originName with  originVersion and  parameters.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:addOrigin(originName, originVersion, parameters)
@@ -84,12 +84,12 @@ sdkbox.PluginFlurryAnalytics:addOrigin(originName, originVersion, parameters)
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName)
 ```
-> Records a custom event specified by @c eventName.
+> Records a custom event specified by  eventName.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName, parameters)
 ```
-> Records a custom parameterized event specified by @c eventName with @c parameters.
+> Records a custom parameterized event specified by  eventName with  parameters.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName, parameters)
@@ -99,12 +99,12 @@ sdkbox.PluginFlurryAnalytics:logEvent(eventName, parameters)
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName, timed)
 ```
-> Records a timed event specified by @c eventName.
+> Records a timed event specified by  eventName.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName, parameters, timed)
 ```
-> Records a custom parameterized timed event specified by @c eventName with @c parameters.
+> Records a custom parameterized timed event specified by  eventName with  parameters.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:logEvent(eventName, parameters, timed)
@@ -119,7 +119,7 @@ sdkbox.PluginFlurryAnalytics:endTimedEvent(eventId)
 ```lua
 sdkbox.PluginFlurryAnalytics:endTimedEvent(eventName, parameters)
 ```
-> Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.
+> Ends a timed event specified by  eventName and optionally updates parameters with  parameters.
 
 ```lua
 sdkbox.PluginFlurryAnalytics:endTimedEvent(eventName, parameters)
@@ -154,7 +154,7 @@ sdkbox.PluginFlurryAnalytics:setGender(gender)
 ```lua
 sdkbox.PluginFlurryAnalytics:setReportLocation(reportLocation)
 ```
-> Set whether Flurry should record location via GPS. Defaults to true. valid on android
+> Set whether Flurry should record location via GPS. Defaults to true. valid on Android
 
 ```lua
 sdkbox.PluginFlurryAnalytics:setLatitude(latitude,
@@ -167,22 +167,22 @@ sdkbox.PluginFlurryAnalytics:setLatitude(latitude,
 ```lua
 sdkbox.PluginFlurryAnalytics:clearLocation()
 ```
-> clear the default location.valid on andriod
+> clear the default location.valid on Android
 
 ```lua
 sdkbox.PluginFlurryAnalytics:setSessionReportsOnCloseEnabled(sendSessionReportsOnClose)
 ```
-> Set session to report when app closes.valid on ios
+> Set session to report when app closes.valid on iOS
 
 ```lua
 sdkbox.PluginFlurryAnalytics:setSessionReportsOnPauseEnabled(setSessionReportsOnPauseEnabled)
 ```
-> Set session to report when app is sent to the background.valid on ios
+> Set session to report when app is sent to the background.valid on iOS
 
 ```lua
 sdkbox.PluginFlurryAnalytics:setBackgroundSessionEnabled(setBackgroundSessionEnabled)
 ```
-> Set session to support background execution.valid on ios
+> Set session to support background execution.valid on iOS
 
 ```lua
 sdkbox.PluginFlurryAnalytics:setEventLoggingEnabled(value)
@@ -205,3 +205,5 @@ sdkbox.PluginFlurryAnalytics:setListener(listener)
 flurrySessionDidCreateWithInfo(info)
 ```
 > Invoked when analytics session is created,
+
+

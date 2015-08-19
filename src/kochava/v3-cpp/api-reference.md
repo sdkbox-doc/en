@@ -2,46 +2,55 @@
 
 ### Methods
 ```cpp
-static void init();
+static void init ( ) ;
 ```
-> initialize the Kochava service.
+> init the kochava service
 
 ```cpp
-static void shutdown();
+static void shutdown ( ) ;
 ```
-> shutdown the Kochava service.
+> shutdown the kochava service
 
 ```cpp
-static void enableLogging(bool enabled);
+static void enableLogging ( bool enabled ) ;
 ```
-> log? true or false.
+> enable kochava api logging
 
 ```cpp
-static void trackEvent(const char* event, const char* value);
+static void trackEvent ( const char * event , const char * value ) ;
 ```
-> track a single event, specifying the event and value.
+> track a single event
 
 ```cpp
-static void identityLinkEvent(const std::map<std::string, std::string>& data);
+static void spatialEvent ( const char * title , float x , float y , float z ) ;
 ```
-> link one or more udid's to a Kochava id.
+> spatial event to help visualize data
 
 ```cpp
-static void spatialEvent(const char* title, float x, float y, float z);
+static void setLimitAdTracking ( bool limitAdTracking ) ;
 ```
-> event specifying x, y, and z coordinate to Kochava server for visualizing your data.
+> turn on/off ad tracking
 
 ```cpp
-static void setLimitAdTracking(bool limitAdTracking);
+static const std::map <std::string , std::string> * retrieveAttribution ( ) ;
 ```
-> turn ad tracking off or on by using true or false.
+> returns the attribution data
 
 ```cpp
-const std::map<std::string, std::string>& retrieveAttribution() const;
-```
-> returns the attribution data.
-
-```cpp
-void sendDeepLink(const char* url, const char* application);
+static void sendDeepLink ( const char * url , const char * application ) ;
 ```
 > send a referral to where your app was opened from.
+
+```cpp
+static void setAttributionCallback ( kochavaCallbackDict callback ) ;
+```
+> specify callback for attribution
+
+```cpp
+static void setBeaconCallback ( kochavaCallbackString callback ) ;
+```
+> specify beacon transition callback
+
+
+### Listeners
+

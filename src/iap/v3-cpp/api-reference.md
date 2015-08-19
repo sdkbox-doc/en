@@ -2,67 +2,81 @@
 
 ### Methods
 ```cpp
-static void init();
+static void init ( ) ;
 ```
 > Initialize SDKBox IAP
 
 ```cpp
-static void setDebug(bool debug);
+static void setDebug ( bool debug ) ;
 ```
 > Enable/disable debug logging
 
 ```cpp
-static void purchase(const std::string& name);
+static void purchase ( const std::string & name ) ;
 ```
 > Make a purchase request
 
 ```cpp
-static void refresh();
+static void refresh ( ) ;
 ```
 > Refresh the IAP data(title, price, description)
 
 ```cpp
-static void restore();
+static void restore ( ) ;
 ```
 > Restore purchase
 
 ```cpp
-static void setListener(IAPListener* listener);
+static void setListener ( IAPListener * listener ) ;
 ```
 > Set listener for IAP
 
 ```cpp
-static void removeListener();
+static void removeListener ( ) ;
 ```
 > Remove listener for IAP
 
+
 ### Listeners
 ```cpp
-virtual void onSuccess(const Product& p) = 0;
+void onInitialized ( bool ok );
+```
+> Called when IAP initialized
+
+```cpp
+void onSuccess ( const Product & p );
 ```
 > Called when an IAP processed successfully
 
 ```cpp
-virtual void onFailure(const Product& p, const std::string& msg) = 0;
+void onFailure ( const Product & p , const std::string & msg );
 ```
 > Called when an IAP fails
 
 ```cpp
-virtual void onCanceled(const Product& p) = 0;
+void onCanceled ( const Product & p );
 ```
 > Called when user canceled the IAP
 
 ```cpp
-virtual void onRestored(const Product& p) = 0;
+void onRestored ( const Product & p );
 ```
 > Called when server returns the IAP items user already purchased
+@note this callback will be called multiple times if there are multiple IAP
 
 ```cpp
-virtual void onProductRequestSuccess(const std::vector<Product>& products) = 0;
+void onProductRequestSuccess ( const std::vector <Product> & products );
 ```
 > Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
 
 ```cpp
-virtual void onProductRequestFailure(const std::string& msg) = 0;
+void onProductRequestFailure ( const std::string & msg );
 ```
 > Called when the product request fails
+
+```cpp
+void onRestoreComplete ( bool ok , const std::string & msg );
+```
+> Called when the restore completed
+
+

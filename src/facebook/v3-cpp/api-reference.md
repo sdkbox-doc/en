@@ -87,10 +87,20 @@ static void api ( const std::string & path ,
 > use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph
 
+```cpp
+static void fetchFriends ( ) ;
+```
+> fetch friends data from Facebook
+
+```cpp
+static std::vector <FBGraphUser> getFriends ( ) ;
+```
+> get friends info
+
 
 ### Listeners
 ```cpp
-void onLogin ( bool isLogin , const std::string & error );
+void onLogin ( bool isLogin , const std::string & msg );
 ```
 
 ```cpp
@@ -110,7 +120,11 @@ void onAPI ( const std::string & key , const std::string & jsonData );
 ```
 
 ```cpp
-void onPermission ( bool isLogin , const std::string & error );
+void onPermission ( bool isLogin , const std::string & msg );
+```
+
+```cpp
+void onFetchFriends ( bool ok , const std::string & msg );
 ```
 
 

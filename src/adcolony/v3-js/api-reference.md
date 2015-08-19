@@ -2,112 +2,120 @@
 
 ### Methods
 ```javascript
-sdkbox.PluginAdColony.zoneStatusForZone(zoneID);
-```
-> returns the status for the specified zone. Use this to pre-load a zone.
-
-```javascript
-sdkbox.PluginAdColony.isVirtualCurrencyRewardAvailableForZone(zoneID);
-```
-> check if this zone offers a virtual currency reward.
-
-```javascript
-sdkbox.PluginAdColony.show(name);
-```
-> play video ad using provided __zone name__ that was specified in `sdkbox_config.json`.
-
-```javascript
-sdkbox.PluginAdColony.getStatus(name);
-```
-> Check the availability of the AdColony ads by name
-
-```javascript
-sdkbox.PluginAdColony.setListener(listener);
-```
-> set a listener to listen for event changes.
-
-```javascript
-sdkbox.PluginAdColony.removeListener();
-```
-> remove the event listener.
-
-```javascript
-sdkbox.PluginAdColony.getVirtualCurrencyRewardAmountForZone(zoneID);
-```
-> is there a virtual currency reward available to the user today for passed in zone.
-
-```javascript
 sdkbox.PluginAdColony.init();
 ```
 > initialize the plugin instance.
 
 ```javascript
-sdkbox.PluginAdColony.videoAdCurrentlyRunning();
+sdkbox.PluginAdColony.show(name);
 ```
-> is there a video currently showing?
+> play video ad using provided name that was specified in sdkbox_config.json
 
 ```javascript
-sdkbox.PluginAdColony.turnAllAdsOff();
+sdkbox.PluginAdColony.setListener(listener);
 ```
-> turn off all ads.
+> Set listener to listen for adcolony events
 
 ```javascript
-sdkbox.PluginAdColony.getVideoCreditBalance(currencyName);
+sdkbox.PluginAdColony.zoneStatusForZone(zoneID);
 ```
-> get video credit balance for passed in currency name.
+> Returns the zone status for the specified zone.
+
+```javascript
+sdkbox.PluginAdColony.getStatus(name);
+```
+> Check the availability of the adcolony ads by name
+
+```javascript
+sdkbox.PluginAdColony.setCustomID(customID);
+```
+> Assigns your own custom identifier to the current app user.
+
+```javascript
+sdkbox.PluginAdColony.getCustomID();
+```
+> Returns the device's current custom identifier.
+
+```javascript
+sdkbox.PluginAdColony.getUniqueDeviceID();
+```
+> Returns an AdColony-defined device identifier.
+
+```javascript
+sdkbox.PluginAdColony.getAdvertisingIdentifier();
+```
+> Returns the device's advertising identifier.
+
+```javascript
+sdkbox.PluginAdColony.getVendorIdentifier();
+```
+> Returns the device's vendor identifier.
 
 ```javascript
 sdkbox.PluginAdColony.getVideosPerReward(currencyName);
 ```
-> are there multiple videos to watch per reward? Get the number of them.
+> Returns the number of ads that the user must play to earn the designated reward.
 
 ```javascript
-sdkbox.PluginAdColony.getVirtualCurrencyNameForZone(zoneID);
+sdkbox.PluginAdColony.getVideoCreditBalance(currencyName);
 ```
-> get virtual currency name for passed in zone.
-
-```javascript
-sdkbox.PluginAdColony.getVirtualCurrencyRewardsAvailableTodayForZone(zoneID);
-```
-> is there a virtual currency reward available to the user today for passed in
-zone.
+> Returns the number of ads that the user has seen towards their next reward.
 
 ```javascript
 sdkbox.PluginAdColony.cancelAd();
 ```
-> stop the currently showing ad.
+> Cancels any full-screen ad that is currently playing and returns control to the app.
+
+```javascript
+sdkbox.PluginAdColony.videoAdCurrentlyRunning();
+```
+> Whether a full-screen AdColony ad is currently being played.
+
+```javascript
+sdkbox.PluginAdColony.turnAllAdsOff();
+```
+> This method permanently turns off all AdColony ads for this app on the current device.
+
+```javascript
+sdkbox.PluginAdColony.setUserMetadata(metadataType, value);
+```
+> Provide AdColony with per-user non personally-identifiable information for ad targeting purposes.
+
+```javascript
+sdkbox.PluginAdColony.userInterestedIn(topic);
+```
+> Provide AdColony with real-time feedback about what a user is interested in.
+
+```javascript
+sdkbox.PluginAdColony.notifyIAPComplete(transactionID,
+                                         productID,
+                                         quantity,
+                                         price,
+                                         currencyCode);
+```
+> Call this method to report IAPs within your application. Note that this API can be leveraged to report standard IAPs
+as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and will improve overall ad targeting.
+
 
 ### Listeners
-```cpp
-/**
- * The structure of data
- * data.name : name of the ad (in sdkbox_config.json)
- * data.zoneID : the zoneID of the ad
- * data.shown : indicates wether the ad gets shown or closed by user
- * data.iapEnabled : indicating whether or not the associated ad is an IAP
- * data.iapProductID : product identifier for the associated ad's IAP
- * data.iapQuantity : he number of items the user wishes to purchase
- * data.iapEngagementType : indicating the IAP engagement mechanism
- *
- * avail = bool
- */
-```
 ```javascript
-onAdColonyChange(data, available);
+onAdColonyChange(info, available);
 ```
 > called when AdColony is finished loading.
 
 ```javascript
-onAdColonyReward(data, currencyName, amount, success);
+onAdColonyReward(info, currencyName, amount, success);
 ```
 > reward was received.
 
 ```javascript
-onAdColonyStarted(data);
+onAdColonyStarted(info);
 ```
 > showing an ad has started.
 
 ```javascript
-onAdColonyFinished(data);
+onAdColonyFinished(info);
 ```
 > showing an ad has finished.
+
+

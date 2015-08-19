@@ -24,25 +24,28 @@ sdkbox.PluginVungle.isCacheAvailable();
 ```javascript
 sdkbox.PluginVungle.setUserID(userID);
 ```
-> sets userID for rewarded ads.
+> sets the userID for rewarded ads.
+
 
 ### Listeners
 ```javascript
-onVungleCacheAvailable()
+onVungleCacheAvailable();
 ```
 > ad cache is available.
 
 ```javascript
-onVungleStarted()
+onVungleStarted();
 ```
 > Vungle is running and available.
 
 ```javascript
-onVungleFinished()
+onVungleFinished();
 ```
 > Vungle is not running/has stopped.
 
 ```javascript
-onVungleAdViewed()
+onVungleAdViewed(isComplete);
 ```
 > Vungle ad has been viewed.
+
+

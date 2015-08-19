@@ -24,25 +24,28 @@ sdkbox.PluginVungle:isCacheAvailable()
 ```lua
 sdkbox.PluginVungle:setUserID(userID)
 ```
-> sets userID for rewarded ads.
+> sets the userID for rewarded ads.
+
 
 ### Listeners
 ```lua
 onVungleCacheAvailable()
 ```
-> there is cache available of videos
+> ad cache is available.
 
 ```lua
 onVungleStarted()
 ```
-> Vungle has started and is ready to go.
+> Vungle is running and available.
 
 ```lua
 onVungleFinished()
 ```
-> Vungle is stopped and not running
+> Vungle is not running/has stopped.
 
 ```lua
-onVungleAdViewed()
+onVungleAdViewed(isComplete)
 ```
-> an ad was viewed.
+> Vungle ad has been viewed.
+
+

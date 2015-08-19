@@ -2,57 +2,65 @@
 
 ### Methods
 ```cpp
-static void init();
+static void init ( ) ;
 ```
 > initialize the plugin instance.
 
 ```cpp
-static void show(const std::string& name);
+static void show ( const std::string & name ) ;
 ```
 > show ad with a provided name.
 
 ```cpp
-static void setListener(VungleListener* listener);
+static void setListener ( VungleListener * listener ) ;
 ```
 > set provided listener.
 
 ```cpp
-static void removeListener();
+static VungleListener * getListener ( ) ;
+```
+> get provided listener.
+
+```cpp
+static void removeListener ( ) ;
 ```
 > remove listeners.
 
 ```cpp
-static void setDebug(bool enable);
+static void setDebug ( bool enable ) ;
 ```
 > enable or disable debug mode.
 
 ```cpp
-static bool isCacheAvailable();
+static bool isCacheAvailable ( ) ;
 ```
 > is there a cached video available.
 
 ```cpp
-static void setUserID(const std::string& userID);
+static void setUserID ( const std::string & userID ) ;
 ```
 > sets the userID for rewarded ads.
 
+
 ### Listeners
 ```cpp
-void onVungleStarted();
+void onVungleCacheAvailable ( );
+```
+> ad cache is available.
+
+```cpp
+void onVungleStarted ( );
 ```
 > Vungle is running and available.
 
 ```cpp
-void onVungleFinished();
+void onVungleFinished ( );
 ```
 > Vungle is not running/has stopped.
 
 ```cpp
-void onVungleOpenStore();
+void onVungleAdViewed ( bool isComplete );
 ```
-> is the Vungle store available.
+> Vungle ad has been viewed.
 
-```cpp
-void onVungleCacheAvailable();
-```
-> ad cache is available.
+

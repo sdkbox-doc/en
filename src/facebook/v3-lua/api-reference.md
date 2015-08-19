@@ -64,15 +64,14 @@ sdkbox.PluginFacebook:getSDKVersion()
 > return the version of Facebook SDK
 
 ```lua
-sdkbox.PluginFacebook:api(path, method, params, tag)
+sdkbox.PluginFacebook:fetchFriends()
 ```
-> use Facebook Open Graph api
-https://developers.facebook.com/docs/ios/graph
+> fetch friends data from Facebook
 
 
 ### Listeners
 ```lua
-onLogin(isLogin, error)
+onLogin(isLogin, msg)
 ```
 
 ```lua
@@ -92,7 +91,11 @@ onAPI(key, jsonData)
 ```
 
 ```lua
-onPermission(isLogin, error)
+onPermission(isLogin, msg)
+```
+
+```lua
+onFetchFriends(ok, msg)
 ```
 
 
