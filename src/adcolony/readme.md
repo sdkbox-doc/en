@@ -10,10 +10,6 @@ Open a terminal and use the following command to install the SDKBOX AdColony plu
 $ sdkbox import adcolony
 ```
 
-##Extra steps for Android
-<<[extra-step.md]
-<<[proguard.md]
-
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
@@ -49,3 +45,7 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 <<[manual_ios.md]
 
 <<[manual_android.md]
+
+<<[extra-step.md]
+<<[proguard.md]
+

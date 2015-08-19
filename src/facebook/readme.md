@@ -10,7 +10,7 @@ Open a terminal and use the following command to install the SDKBOX Facebook plu
 $ sdkbox import facebook
 ```
 
-##Extra steps for Android
+##Extra steps
 
 The following step assuming you already registered as a Facebook Developer
 And created a new __APP__ on Facebook
@@ -47,9 +47,6 @@ And created a new __APP__ on Facebook
 * Open `AndroidManifest.xml` and replace `_replace_with_your_app_id_` with your `Facebook App ID`
 * Open `project.properties` and change target to `target=android-15`
 
-<<[extra-step.md]
-<<[proguard.md]
-
 ## Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
@@ -73,3 +70,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 <<[manual_ios.md]
 
 <<[manual_android.md]
+
+<<[extra-step.md]
+
+<<[proguard.md]

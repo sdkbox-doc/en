@@ -10,10 +10,6 @@ Open a terminal and use the following command to install the SDKBOX Vungle plugi
 $ sdkbox import vungle
 ```
 
-##Extra steps for Android
-<<[extra-step.md]
-<<[proguard.md]
-
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
@@ -66,3 +62,7 @@ __backbutton__ settings. Here is an example adding `Vungle` to Android:
 <<[manual_ios.md]
 
 <<[manual_android.md]
+
+<<[extra-step.md]
+
+<<[proguard.md]

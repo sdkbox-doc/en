@@ -10,9 +10,6 @@ Open a terminal and use the following command to install the SDKBOX IAP plugin. 
 $ sdkbox import iap
 ```
 
-##Extra steps for Android
-<<[extra-step.md]
-
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
@@ -69,3 +66,5 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 <<[manual_ios.md]
 
 <<[manual_android.md]
+
+<<[extra-step.md]

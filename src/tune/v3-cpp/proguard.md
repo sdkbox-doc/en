@@ -1,4 +1,4 @@
-### Proguard (release, optional)
+## Proguard (optional)
 * Edit `project.properties`  to specify a `Proguard` configuration file. Example:
 ```
 proguard.config=proguard.cfg

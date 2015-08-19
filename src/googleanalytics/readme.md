@@ -10,10 +10,6 @@ Open a terminal and use the following command to install the SDKBOX Google Analy
 $ sdkbox import googleanalytics
 ```
 
-##Extra steps for Android
-<<[extra-step.md]
-<<[proguard.md]
-
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
@@ -51,3 +47,7 @@ A __tracker__ is used to aggregate the tracked events. There are some considerat
 <<[manual_ios.md]
 
 <<[manual_android.md]
+
+<<[extra-step.md]
+
+<<[proguard.md]
