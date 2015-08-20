@@ -800,9 +800,7 @@ And created a new <strong>APP</strong> on Facebook</p>
 <li>Configure your <strong>APP</strong> following <a href="https://developers.facebook.com/quickstarts/?platform=ios">iOS Quick Start Guide</a></li>
 <li>Apply the code change to <code>AppController.mm</code> instead of <code>AppDelegate.cpp</code></li>
 </ul>
-<pre><code>- (void)applicationDidBecomeActive:(UIApplication *)application {
-  [FBSDKAppEvents activateApp];
-}
+<pre><code>#import &lt;FBSDKCoreKit/FBSDKCoreKit.h&gt;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   return [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -818,6 +816,11 @@ And created a new <strong>APP</strong> on Facebook</p>
                                                sourceApplication:sourceApplication
                                                       annotation:annotation];
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
 </code></pre>
 
 <h3 id="setup-android">Setup Android</h3>
