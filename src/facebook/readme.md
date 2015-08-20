@@ -20,9 +20,7 @@ And created a new __APP__ on Facebook
 * Apply the code change to `AppController.mm` instead of `AppDelegate.cpp`
 
 ```
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-  [FBSDKAppEvents activateApp];
-}
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   return [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -38,6 +36,11 @@ And created a new __APP__ on Facebook
                                                sourceApplication:sourceApplication
                                                       annotation:annotation];
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+
 ```
 
 ###Setup Android
