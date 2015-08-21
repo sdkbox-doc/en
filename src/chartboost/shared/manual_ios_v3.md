@@ -19,3 +19,5 @@ following system frameworks, if you don't already have them:
 > CoreGraphics.framework
 
 > UIKit.framework
+
+> AdSupport.framework

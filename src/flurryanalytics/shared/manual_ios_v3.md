@@ -11,3 +11,5 @@ following system frameworks, if you don't already have them:
 > Security.framework
 
 > SystemConfiguration.framework
+
+> AdSupport.framework

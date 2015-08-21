@@ -10,3 +10,5 @@ The above frameworks depend upon other frameworks. You also need to add the foll
 > Security.framework
 
 > StoreKit.framework
+
+> AdSupport.framework

@@ -19,9 +19,9 @@ following system frameworks, if you don't already have them:
 
 > libsqlite3.dylib
 
-> libAdIdAccess.a (optional, required for IDFA)
+> libAdIdAccess.a
 
-> AdSupport.framework (optional, required for IDFA)
+> AdSupport.framework
 
 Add a linker flag, if your setup requires it, to:
 __Target -> Build Settings -> Linking -> Other Linker Flags__:

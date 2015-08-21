@@ -9,3 +9,5 @@ the`Facebook` bundle into your Xcode project, check `Copy items if needed` when 
 The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:
 
 > Security.framework
+
+> AdSupport.framework
