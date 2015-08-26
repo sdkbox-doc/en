@@ -67,10 +67,10 @@ Open `res/values/strings.xml`, Add a new string with the name
 ### Edit `Android.mk`
 Edit `proj.android/jni/Android.mk` to:
 
-Add additional requirements to __LOCAL_STATIC_LIBRARIES__:
+Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_STATIC_LIBRARIES += PluginFacebook
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginFacebook
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:

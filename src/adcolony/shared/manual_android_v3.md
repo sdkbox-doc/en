@@ -65,10 +65,10 @@ Copy and paste the following three activity definitions just before the end of t
 ### Edit `Android.mk`
 Edit `proj.android/jni/Android.mk` to:
 
-Add additional requirements to __LOCAL_STATIC_LIBRARIES__:
+Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_STATIC_LIBRARIES += PluginAdColony
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginAdColony
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:
