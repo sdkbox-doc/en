@@ -40,3 +40,5 @@ Here is an example adding `Tune`:
 <<[extra-step.md]
 
 <<[proguard.md]
+
+<<[manual_integration_google_play_step.md]
