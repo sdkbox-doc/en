@@ -48,4 +48,7 @@ onVungleAdViewed(isComplete)
 ```
 > Vungle ad has been viewed.
 
-
+```lua
+onVungleAdReward(adName);
+```
+> find out which video is reward
