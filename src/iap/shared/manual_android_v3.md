@@ -43,10 +43,10 @@ Include the following permissions above the __application tag__:
 ### Edit `Android.mk`
 Edit `proj.android/jni/Android.mk` to:
 
-Add additional dependencies to __LOCAL_STATIC_LIBRARIES__:
+Add additional dependencies to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_STATIC_LIBRARIES += PluginIAP
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginIAP
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:

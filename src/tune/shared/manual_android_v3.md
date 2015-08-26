@@ -60,10 +60,10 @@ It is also necessary to create an __application tag__:
 ### Edit `Android.mk`
 Edit `proj.android/jni/Android.mk` to:
 
-Add additional requirements to __LOCAL_STATIC_LIBRARIES__:
+Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_STATIC_LIBRARIES += PluginTune
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginTune
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:
