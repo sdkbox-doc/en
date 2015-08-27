@@ -63,4 +63,7 @@ void onVungleAdViewed ( bool isComplete );
 ```
 > Vungle ad has been viewed.
 
-
+```cpp
+void onVungleAdReward( std::string adName );
+```
+> find out which video is reward

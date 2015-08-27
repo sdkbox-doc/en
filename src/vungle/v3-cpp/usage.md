@@ -29,6 +29,7 @@ private:
   void onVungleStarted();
   void onVungleFinished();
   void onVungleAdViewed(bool isComplete);
+  void onVungleAdReward(std::string adName);
 }
 ```
 

@@ -68,3 +68,5 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 <<[manual_android.md]
 
 <<[extra-step.md]
+
+<<[manual_integration_google_play_step.md]
