@@ -23,8 +23,20 @@ And created a new __APP__ on Facebook
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+  // ...
+
+  //
+  // **************************
+  // !! IMPORTANT !!
+  // **************************
+  //
+  // call [[FBSDKApplicationDelegate sharedInstance] application:didFinishLaunchingWithOptions
+  // before app->run()
+
+  BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                      didFinishLaunchingWithOptions:launchOptions];
+  app->run();
+  return ret;
 }
 
 - (BOOL)application:(UIApplication *)application
