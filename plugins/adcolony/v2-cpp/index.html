@@ -1086,12 +1086,12 @@ optional on newer sdk versions and doesn't work on version 2.3.3.</p>
 <p><strong>Note:</strong> if your application targets below <strong>API 13</strong>, you will likely need to remove <code>screenSize</code> from the <strong>configChanges</strong> property of the above <strong>activity tags</strong>.</p>
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
-<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
-<pre><code>LOCAL_STATIC_LIBRARIES += android_native_app_glue
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_LDLIBS += -landroid
 LOCAL_LDLIBS += -llog
-LOCAL_STATIC_LIBRARIES += PluginAdColony
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginAdColony
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
 <p>Add a call to:</p>

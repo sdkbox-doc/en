@@ -803,8 +803,20 @@ And created a new <strong>APP</strong> on Facebook</p>
 <pre><code>#import &lt;FBSDKCoreKit/FBSDKCoreKit.h&gt;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+  // ...
+
+  //
+  // **************************
+  // !! IMPORTANT !!
+  // **************************
+  //
+  // call [[FBSDKApplicationDelegate sharedInstance] application:didFinishLaunchingWithOptions
+  // before app-&gt;run()
+
+  BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                      didFinishLaunchingWithOptions:launchOptions];
+  app-&gt;run();
+  return ret;
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -1126,9 +1138,9 @@ bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
     &lt;/resources&gt;</code></p>
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
-<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
-<pre><code>LOCAL_STATIC_LIBRARIES += PluginFacebook
-LOCAL_STATIC_LIBRARIES += sdkbox
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginFacebook
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
 <p>Add a call to:</p>

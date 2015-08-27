@@ -803,8 +803,20 @@ And created a new <strong>APP</strong> on Facebook</p>
 <pre><code>#import &lt;FBSDKCoreKit/FBSDKCoreKit.h&gt;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+  // ...
+
+  //
+  // **************************
+  // !! IMPORTANT !!
+  // **************************
+  //
+  // call [[FBSDKApplicationDelegate sharedInstance] application:didFinishLaunchingWithOptions
+  // before app-&gt;run()
+
+  BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                      didFinishLaunchingWithOptions:launchOptions];
+  app-&gt;run();
+  return ret;
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -1119,12 +1131,12 @@ optional on newer sdk versions and doesn't work on version 2.3.3.</p>
     &lt;/resources&gt;</code></p>
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
-<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
-<pre><code>LOCAL_STATIC_LIBRARIES += android_native_app_glue
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_LDLIBS += -landroid
 LOCAL_LDLIBS += -llog
-LOCAL_STATIC_LIBRARIES += PluginFacebook
-LOCAL_STATIC_LIBRARIES += sdkbox
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginFacebook
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
 <p>Add a call to:</p>

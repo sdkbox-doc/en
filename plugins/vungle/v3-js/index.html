@@ -925,6 +925,12 @@ sdkbox.PluginVungle.show(&quot;reward&quot;);
 <blockquote>
 <p>Vungle ad has been viewed.</p>
 </blockquote>
+<pre><code class="javascript">onVungleAdReward(adName);
+</code></pre>
+
+<blockquote>
+<p>find out which video is reward</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1007,9 +1013,9 @@ to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> fol
 <p><strong>Note:</strong> if your application targets below <strong>API 13</strong>, you will likely need to remove the <strong>configChanges</strong> property of the above <strong>activity tags</strong>.</p>
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
-<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
-<pre><code>LOCAL_STATIC_LIBRARIES += PluginVungle
-LOCAL_STATIC_LIBRARIES += sdkbox
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginVungle
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
 <p>Add a call to:</p>

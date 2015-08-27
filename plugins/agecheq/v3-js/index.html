@@ -942,9 +942,9 @@ bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
 
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
-<p>Add additional requirements to <strong>LOCAL_STATIC_LIBRARIES</strong>:</p>
-<pre><code>LOCAL_STATIC_LIBRARIES += PluginAgeCheq
-LOCAL_STATIC_LIBRARIES += sdkbox
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginAgeCheq
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
 <p>Add a call to:</p>
