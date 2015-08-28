@@ -1,6 +1,17 @@
 #Release Notes
 ---
 
+1.2.3 Release Notes
+===
+##Highlight
+* 1.2.3 Fixes some major bugs for the plugins, we strongly recommend updating older versions to 1.2.3
+
+##Bugfix
+Sometimes using callbacks will result in sprites show up as black, this is due to invoking cocos2d-x from a different thread
+[IAP: item description can't contain newline](http://discuss.cocos2d-x.org/t/solved-google-play-iab-hasnt-been-initilized/22761/21)
+[Facebook: missing api function for js/lua binding](http://discuss.cocos2d-x.org/t/sdkbox-facebook-no-api-bug/23414)
+[Installer: fix COCOS_CONSOLE_ROOT invalid error](http://discuss.cocos2d-x.org/t/installation-error-for-sdkbox-iap/22898)
+
 1.2.2 Release Notes
 ====
 ##Highlight
