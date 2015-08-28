@@ -11,7 +11,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginTuneJS);
-sc->addRegisterCallback(register_PluginTuneJs_helper);
+sc->addRegisterCallback(register_PluginTuneJS_helper);
 ```
 
 ### Initialize Tune

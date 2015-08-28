@@ -2,7 +2,7 @@
 Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `IAP` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginIAPLua.hpp"
-#include "PluginIAPLuaHelper.hpp"
+#include "PluginIAPLuaHelper.h"
 ```
 ```cpp
 static int lua_module_register(lua_State* L)

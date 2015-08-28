@@ -5,7 +5,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAdColonyJS.hpp"
-#include "PluginAdColonyJSHelper.hpp"
+#include "PluginAdColonyJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:

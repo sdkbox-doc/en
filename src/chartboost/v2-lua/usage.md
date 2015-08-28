@@ -12,7 +12,7 @@
 	Here is an example of what this might look like for you:
 ```cpp
 #include "PluginChartboostLua.hpp"
-#include "PluginChartboostLuaHelper.hpp"
+#include "PluginChartboostLuaHelper.h"
 bool AppDelegate::applicationDidFinishLaunching()
 {
 	lua_State *tolua_s = pStack->getLuaState();
