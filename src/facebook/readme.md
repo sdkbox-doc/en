@@ -10,6 +10,14 @@ Open a terminal and use the following command to install the SDKBOX Facebook plu
 $ sdkbox import facebook
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `register_PluginFacebookJS_helper` -> `register_all_PluginFacebookJS_helper`
+2. `register_PluginFacebookLua_helper` -> `register_all_PluginFacebookLua_helper`
+3. Update Facebook iOS SDK to 4.5.1
+4. Update Facebook Android SDK to 4.5.1
+
 ##Extra steps
 
 The following step assuming you already registered as a Facebook Developer

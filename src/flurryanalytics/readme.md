@@ -10,6 +10,14 @@ Open a terminal and use the following command to install the SDKBOX Flurry Analy
 $ sdkbox import flurryanalytics
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `register_PluginFlurryAnalyticsJS_helper` -> `register_all_PluginFlurryAnalyticsJS_helper`
+2. `register_PluginFlurryAnalyticsLua_helper` -> `register_all_PluginFlurryAnalyticsLua_helper`
+3. Update Flurry iOS SDK to 6.7.0
+4. Update Flurry Android SDK to 5.6.0
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 

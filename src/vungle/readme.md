@@ -10,6 +10,12 @@ Open a terminal and use the following command to install the SDKBOX Vungle plugi
 $ sdkbox import vungle
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `register_PluginVungleJS_helper` -> `register_all_PluginVungleJS_helper`
+2. `register_PluginVungleLua_helper` -> `register_all_PluginVungleLua_helper`
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
