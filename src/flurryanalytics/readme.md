@@ -17,6 +17,7 @@ version-x.y.z:
 2. `register_PluginFlurryAnalyticsLua_helper` -> `register_all_PluginFlurryAnalyticsLua_helper`
 3. Update Flurry iOS SDK to 6.7.0
 4. Update Flurry Android SDK to 5.6.0
+5. `#include "PluginFlurryAnalyticsLuaHelper.hpp"` -> `#include "PluginFlurryAnalyticsLuaHelper.h"`
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app

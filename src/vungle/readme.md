@@ -15,6 +15,7 @@ $ sdkbox import vungle
 version-x.y.z:
 1. `register_PluginVungleJS_helper` -> `register_all_PluginVungleJS_helper`
 2. `register_PluginVungleLua_helper` -> `register_all_PluginVungleLua_helper`
+3. `#include "PluginVungleLuaHelper.hpp"` -> `#include "PluginVungleLuaHelper.h"`
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app

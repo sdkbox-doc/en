@@ -10,6 +10,11 @@ Open a terminal and use the following command to install the SDKBOX Google Analy
 $ sdkbox import googleanalytics
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `#include "PluginGoogleAnalyticsLuaHelper.hpp"` -> `#include "PluginGoogleAnalyticsLuaHelper.h"`
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 

@@ -17,7 +17,7 @@ version-x.y.z:
 2. `register_PluginFacebookLua_helper` -> `register_all_PluginFacebookLua_helper`
 3. Update Facebook iOS SDK to 4.5.1
 4. Update Facebook Android SDK to 4.5.1
-
+5. `#include "PluginFacebookLuaHelper.hpp"` -> `#include "PluginFacebookLuaHelper.h"`
 ##Extra steps
 
 The following step assuming you already registered as a Facebook Developer

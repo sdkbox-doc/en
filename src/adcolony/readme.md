@@ -15,6 +15,8 @@ $ sdkbox import adcolony
 version-x.y.z:
 1. Update AdColony iOS SDK to 2.5.3
 2. `register_PluginAdColonyLua_helper` -> `register_all_PluginAdColonyLua_helper`
+3. `#include "PluginAdColonyLuaHelper.hpp"` -> `#include "PluginAdColonyLuaHelper.h"`
+4. `#include "PluginAdColonyJSHelper.hpp"` -> `#include "PluginAdColonyJSHelper.h"`
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
