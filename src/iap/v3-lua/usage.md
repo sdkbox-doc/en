@@ -8,7 +8,7 @@ Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the n
 static int lua_module_register(lua_State* L)
 {
   register_all_PluginIAPLua(L);
-  register_PluginIAPLua_helper(L);
+  register_all_PluginIAPLua_helper(L);
 }
 ```
 

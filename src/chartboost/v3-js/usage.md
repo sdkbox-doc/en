@@ -11,7 +11,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginChartboostJS);
-sc->addRegisterCallback(register_PluginChartboostJS_helper);
+sc->addRegisterCallback(register_all_PluginChartboostJS_helper);
 ```
 
 ### Initialize Chartboost
