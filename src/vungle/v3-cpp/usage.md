@@ -22,16 +22,21 @@ your game.
 * Allow your class to extend `sdkbox::VungleListener`
 ```cpp
 #include "PluginVungle/PluginVungle.h"
-class MyClass : public sdkbox::VungleListener
+class MyClass : public sdkbox::VungleListener, public Ref
 {
 private:
   void onVungleCacheAvailable();
   void onVungleStarted();
   void onVungleFinished();
   void onVungleAdViewed(bool isComplete);
-  void onVungleAdReward(const std::string& name);
+  void onVungleAdReward(const std::string& name) {
+        Director::getInstance()->getScheduler()->schedule(CC_SCHEDULE_SELECTOR(MyClass::changeUI), this, 0.1, false, 0.1, false);
+    }
 }
 ```
+
+`Note:` DONOT change your game uiNode in the `onVungleAdViewed` or `onVungleAdReward` immediately, becase the cocos opengl is disable when `Vungle` send `onVungleAdViewed` or `onVungleAdReward`. use `schedule` delay change ui.
+
 
 * Create a __listener__ that handles callbacks (optional):
 ```cpp
