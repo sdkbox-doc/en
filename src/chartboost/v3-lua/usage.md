@@ -8,7 +8,7 @@ Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the n
 static int lua_module_register(lua_State* L)
 {
   register_all_PluginChartboostLua(L);
-  register_PluginChartboostLua_helper(L);
+  register_all_PluginChartboostLua_helper(L);
 }
 ```
 

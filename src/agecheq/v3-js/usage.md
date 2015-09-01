@@ -5,7 +5,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAgeCheqJS.hpp"
-#include "PluginAgeCheqJSHelper.hpp"
+#include "PluginAgeCheqJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:

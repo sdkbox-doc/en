@@ -11,7 +11,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginVungleJS);
-sc->addRegisterCallback(register_PluginVungleJs_helper);
+sc->addRegisterCallback(register_all_PluginVungleJS_helper);
 ```
 
 ### Initialize Vungle

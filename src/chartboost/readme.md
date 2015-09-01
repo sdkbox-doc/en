@@ -10,6 +10,15 @@ Open a terminal and use the following command to install the SDKBOX Chartboost p
 $ sdkbox import chartboost
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `register_PluginChartboostJS_helper` -> `register_all_PluginChartboostJS_helper`
+2. `register_PluginChartboostLua_helper` -> `register_all_PluginChartboostLua_helper`
+3. Update Chartboost iOS SDK to 5.5.3
+4. Update Chartboost Android SDK to 5.5.3
+5. `#include "PluginChartboostLuaHelper.hpp"` -> `#include "PluginChartboostLuaHelper.h"`
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 

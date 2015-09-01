@@ -12,7 +12,7 @@
 	Here is an example of what this might look like for you:
 ```cpp
 #include "PluginFlurryAnalyticsLua.hpp"
-#include "PluginFlurryAnalyticsLuaHelper.hpp"
+#include "PluginFlurryAnalyticsLuaHelper.h"
 bool AppDelegate::applicationDidFinishLaunching()
 {
 	lua_State *tolua_s = pStack->getLuaState();

@@ -10,6 +10,13 @@ Open a terminal and use the following command to install the SDKBOX AgeCheq plug
 $ sdkbox import agecheq
 ```
 
+## Changelog
+
+version-x.y.z:
+1. `register_PluginAgeCheqLua_helper` -> `register_all_PluginAgeCheqLua_helper`
+2. `#include "PluginAgeCheqLuaHelper.hpp"` -> `#include "PluginAgeCheqLuaHelper.h"`
+3. `#include "PluginAgeCheqJSHelper.hpp"` -> `#include "PluginAgeCheqJSHelper.h"`
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
