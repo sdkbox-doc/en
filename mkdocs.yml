@@ -75,6 +75,15 @@ pages:
             - 'c++': 'plugins/kochava/v2-cpp.md'
             - 'js': 'plugins/kochava/v2-js.md'
             - 'lua': 'plugins/kochava/v2-lua.md'
+    - 'Review':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/review/v3-cpp.md'
+            - 'js': 'plugins/review/v3-js.md'
+            - 'lua': 'plugins/review/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/review/v2-cpp.md'
+            - 'js': 'plugins/review/v2-js.md'
+            - 'lua': 'plugins/review/v2-lua.md'
     - 'Tune':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/tune/v3-cpp.md'
