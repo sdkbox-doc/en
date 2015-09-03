@@ -1,14 +1,11 @@
-### Initialize IAP
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.IAP.init();
-```
+### Register Javascript Functions
+You need to register all the IAP JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginIAPJS.hpp"
-#include "PluginIAPJSHelper.hpp"
+#include "PluginIAPJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
@@ -16,7 +13,13 @@ sdkbox.IAP.init();
 sc->addRegisterCallback(register_all_PluginIAPJS);
 sc->addRegisterCallback(register_all_PluginIAPJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize IAP
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.IAP.init();
+```
 
 ### Retrieve latest Product data
 It's always a good idea to retrieve the latest product data from store when your game starts.

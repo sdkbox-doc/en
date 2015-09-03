@@ -2,101 +2,134 @@
 
 ### Methods
 ```cpp
-static void init();
+static void init ( ) ;
 ```
 > initialize the plugin instance.
 
 ```cpp
-static AdColonyAdStatus getStatus(const std::string& name);
+static void show ( const std::string & name ) ;
 ```
-> Check the availability of the AdColony ads by name
+> play video ad using provided name that was specified in sdkbox_config.json
 
 ```cpp
-static int zoneStatusForZone(const std::string& zoneID);
+static void setListener ( AdColonyListener * listener ) ;
 ```
-> returns the status for the specified zone. Use this to pre-load a zone.
+> Set listener to listen for adcolony events
 
 ```cpp
-static void show(const std::string& name);
+static AdColonyListener * getListener ( ) ;
 ```
-> play video ad using provided __zone name__ that was specified in `sdkbox_config.json`.
+> Get the listener
 
 ```cpp
-static void setListener(AdColonyListener* listener);
+static void removeListener ( ) ;
 ```
-> set a listener to listen for event changes.
+> Remove the listener, and can't listen to events anymore
 
 ```cpp
-static void removeListener();
+static int zoneStatusForZone ( const std::string & zoneID ) ;
 ```
-> remove the event listener.
+> Returns the zone status for the specified zone.
 
 ```cpp
-static bool isVirtualCurrencyRewardAvailableForZone(const std::string& zoneID);
+static AdColonyAdStatus getStatus ( const std::string & name ) ;
 ```
-> check if this zone offers a virtual currency reward.
+> Check the availability of the adcolony ads by name
 
 ```cpp
-static int getVirtualCurrencyRewardsAvailableTodayForZone(
-  const std::string& zoneID);
+static void setCustomID ( const std::string & customID ) ;
 ```
-> is there a virtual currency reward available to the user today for passed in
-zone.
+> Assigns your own custom identifier to the current app user.
 
 ```cpp
-static std::string getVirtualCurrencyNameForZone(const std::string& zoneID);
+static std::string getCustomID ( ) ;
 ```
-> get virtual currency name for passed in zone.
+> Returns the device's current custom identifier.
 
 ```cpp
-static int getVirtualCurrencyRewardAmountForZone(const std::string& zoneID);
+static std::string getUniqueDeviceID ( ) ;
 ```
-> the amount of the virtual currency reward for passed in zone.
+> Returns an AdColony-defined device identifier.
 
 ```cpp
-static int getVideosPerReward(const std::string& currencyName);
+static std::string getAdvertisingIdentifier ( ) ;
 ```
-> are there multiple videos to watch per reward? Get the number of them.
+> Returns the device's advertising identifier.
 
 ```cpp
-static int getVideoCreditBalance(const std::string& currencyName);
+static std::string getVendorIdentifier ( ) ;
 ```
-> get video credit balance for passed in currency name.
+> Returns the device's vendor identifier.
 
 ```cpp
-static void cancelAd();
+static int getVideosPerReward ( const std::string & currencyName ) ;
 ```
-> stop the currently showing ad.
+> Returns the number of ads that the user must play to earn the designated reward.
 
 ```cpp
-static bool videoAdCurrentlyRunning();
+static int getVideoCreditBalance ( const std::string & currencyName ) ;
 ```
-> is there a video currently showing?
+> Returns the number of ads that the user has seen towards their next reward.
 
 ```cpp
-static void turnAllAdsOff();
+static void cancelAd ( ) ;
 ```
-> turn off all ads.
+> Cancels any full-screen ad that is currently playing and returns control to the app.
+
+```cpp
+static bool videoAdCurrentlyRunning ( ) ;
+```
+> Whether a full-screen AdColony ad is currently being played.
+
+```cpp
+static void turnAllAdsOff ( ) ;
+```
+> This method permanently turns off all AdColony ads for this app on the current device.
+
+```cpp
+static void setUserMetadata ( const std::string & metadataType ,
+                              const std::string & value ) ;
+```
+> Provide AdColony with per-user non personally-identifiable information for ad targeting purposes.
+
+```cpp
+static void userInterestedIn ( const std::string & topic ) ;
+```
+> Provide AdColony with real-time feedback about what a user is interested in.
+
+```cpp
+static void notifyIAPComplete ( const std::string & transactionID ,
+                                const std::string & productID ,
+                                int quantity ,
+                                float price ,
+                                const std::string & currencyCode ) ;
+```
+> Call this method to report IAPs within your application. Note that this API can be leveraged to report standard IAPs
+as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and will improve overall ad targeting.
+
 
 ### Listeners
 ```cpp
-void onAdColonyChange(const sdkbox::AdColonyAdInfo& info, bool available);
+void onAdColonyChange ( const AdColonyAdInfo & info , bool available );
 ```
 > called when AdColony is finished loading.
 
 ```cpp
-void onAdColonyReward(const sdkbox::AdColonyAdInfo& info,
-  const std::string& currencyName,
-  int amount, bool success);
+void onAdColonyReward ( const AdColonyAdInfo & info ,
+                        const std::string & currencyName ,
+                        int amount ,
+                        bool success );
 ```
 > reward was received.
 
 ```cpp
-void onAdColonyStarted(const sdkbox::AdColonyAdInfo& info);
+void onAdColonyStarted ( const AdColonyAdInfo & info );
 ```
 > showing an ad has started.
 
 ```cpp
-void onAdColonyFinished(const sdkbox::AdColonyAdInfo& info);
+void onAdColonyFinished ( const AdColonyAdInfo & info );
 ```
 > showing an ad has finished.
+
+

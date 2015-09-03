@@ -1,10 +1,7 @@
-### Initialize Tune
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginTune.init();
-```
+### Register Javascript Functions
+You need to register all the Tune JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginTuneJS.hpp"
@@ -14,9 +11,15 @@ sdkbox.PluginTune.init();
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginTuneJS);
-sc->addRegisterCallback(register_PluginTuneJs_helper);
+sc->addRegisterCallback(register_all_PluginTuneJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Tune
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginTune.init();
+```
 
 ### Using Tune
 After initialization you can begin to use the Tune functionality. Tune uses a concept of __events__ (also known as __MAT Native Event Types__). You log __events__ that you care about and you can later view them using the web-based report viewer. Tune provides a structure for these events in their documentation. Example:

@@ -1,140 +1,145 @@
 ## API Reference
 
 ### Methods
-```javascript
+```lua
 sdkbox.PluginChartboost:init()
 ```
 > initialize the plugin instance.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:show(name)
 ```
 > show ad by specifying ad name.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setListener(listener)
 ```
 > creates the an optional listener.
 
-```javascript
-sdkbox.PluginChartboost:removeListener()
-```
-> removed the listener.
-
-```javascript
+```lua
 sdkbox.PluginChartboost:isAnyViewVisible()
 ```
 > check to see if any views are visible.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:isAvailable(name)
 ```
 > is the specified ad available?
 
-```javascript
+```lua
+sdkbox.PluginChartboost:cache(name)
+```
+
+```lua
 sdkbox.PluginChartboost:setAutoCacheAds(shouldCache)
 ```
 > set to enable and disable the auto cache feature (Enabled by default).
 
-```javascript
+```lua
 sdkbox.PluginChartboost:getAutoCacheAds()
 ```
 > get the current auto cache behavior (Enabled by default).
 
-```javascript
+```lua
 sdkbox.PluginChartboost:closeImpression()
 ```
 > close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setStatusBarBehavior(behavior)
 ```
-> set to control how the fullscreen ad units should interact with the status bar. (CBStatusBarBehaviorIgnore by default).
+> set to control how the fullscreen ad units should interact with the status bar.
+(CBStatusBarBehaviorIgnore by default).
 
-```javascript
+```lua
 sdkbox.PluginChartboost:didPassAgeGate(pass)
 ```
-> confirm if an age gate passed or failed. When specified Chartboost will wait for this call before showing the IOS App Store.
+> confirm if an age gate passed or failed. When specified Chartboost will wait for
+call before showing the IOS App Store.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setShouldPauseClickForConfirmation(shouldPause)
 ```
 > decide if Chartboost SDK should block for an age gate.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:handleOpenURL(url, sourceApp)
 ```
 > opens a "deep link" URL for a Chartboost Custom Scheme.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setCustomID(customID)
 ```
 > set a custom identifier to send in the POST body for all Chartboost API server requests.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:getCustomID()
 ```
-> get the current custom identifier being sent in the POST body for all Chartboost API server requests.
+> get the current custom identifier being sent in the POST body for all Chartboost
+API server requests.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setShouldRequestInterstitialsInFirstSession(shouldRequest)
 ```
 > decide if Chartboost SDK should show interstitials in the first session.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setShouldDisplayLoadingViewForMoreApps(shouldDisplay)
 ```
-> decide if Chartboost SDK should show a loading view while preparing to display the "more applications" UI.
+> decide if Chartboost SDK should show a loading view while preparing to display
+the "more applications" UI.
 
-```javascript
+```lua
 sdkbox.PluginChartboost:setShouldPrefetchVideoContent(shouldPrefetch)
 ```
-> decide if Chartboost SDK will attempt to fetch videos from the Chartboost API servers.
+> decide if Chartboost SDK will attempt to fetch videos from the Chartboost API
+servers.
+
 
 ### Listeners
 ```lua
-onChartboostCached()
+onChartboostCached(name)
 ```
 > there is cached content
 
 ```lua
-onChartboostShouldDisplay()
+onChartboostShouldDisplay(name)
 ```
 > should Chartboost display
 
 ```lua
-onChartboostDisplay()
+onChartboostDisplay(name)
 ```
 > Charboost ad has displayed
 
 ```lua
-onChartboostDismiss()
+onChartboostDismiss(name)
 ```
 > Chartboost ad has been dismissed
 
 ```lua
-onChartboostClose()
+onChartboostClose(name)
 ```
 > Chartboost is not running
 
 ```lua
-onChartboostClick()
+onChartboostClick(name)
 ```
 > Chartboost ad was clicked on
 
 ```lua
-onChartboostReward()
+onChartboostReward(name, reward)
 ```
 > Chartboost reward was given
 
 ```lua
-onChartboostFailedToLoad()
+onChartboostFailedToLoad(name, e)
 ```
 > Chartboost failed to load
 
 ```lua
-onChartboostFailToRecordClick()
+onChartboostFailToRecordClick(name, e)
 ```
 > Chartboost failed to record click
 
@@ -147,3 +152,5 @@ onChartboostConfirmation()
 onChartboostCompleteStore()
 ```
 > Chartboost complete store
+
+

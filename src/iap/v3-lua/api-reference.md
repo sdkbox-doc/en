@@ -36,33 +36,47 @@ sdkbox.IAP:removeListener()
 ```
 > Remove listener for IAP
 
+
 ### Listeners
 ```lua
-sdkbox.IAP:onSuccess(product)
+onInitialized(ok)
+```
+> Called when IAP initialized
+
+```lua
+onSuccess(p)
 ```
 > Called when an IAP processed successfully
 
 ```lua
-sdkbox.IAP:onFailure(product, message)
+onFailure(p, msg)
 ```
 > Called when an IAP fails
 
 ```lua
-sdkbox.IAP:onCanceled(product)
+onCanceled(p)
 ```
 > Called when user canceled the IAP
 
 ```lua
-sdkbox.IAP:onRestored(product)
+onRestored(p)
 ```
 > Called when server returns the IAP items user already purchased
+@note this callback will be called multiple times if there are multiple IAP
 
 ```lua
-sdkbox.IAP:onProductRequestSuccess(products)
+onProductRequestSuccess(products)
 ```
 > Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
 
 ```lua
-sdkbox.IAP:onProductRequestFailure(message)
+onProductRequestFailure(msg)
 ```
 > Called when the product request fails
+
+```lua
+onRestoreComplete(ok, msg)
+```
+> Called when the restore completed
+
+

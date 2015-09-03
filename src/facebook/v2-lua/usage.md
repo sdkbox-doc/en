@@ -2,7 +2,7 @@
 * Modify `Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginFacebookLua.hpp"
-#include "PluginFacebookLuaHelper.hpp"
+#include "PluginFacebookLuaHelper.h"
 ```
 
 * Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginFacebookLua(<lua_State*>);`.
@@ -12,7 +12,7 @@
 	Here is an example of what this might look like for you:
 ```cpp
 #include "PluginFacebookLua.hpp"
-#include "PluginFacebookLuaHelper.hpp"
+#include "PluginFacebookLuaHelper.h"
 bool AppDelegate::applicationDidFinishLaunching()
 {
 	lua_State *tolua_s = pStack->getLuaState();
@@ -27,7 +27,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 ```xml
 <key>CFBundleURLTypes</key>
 <array>
-<dict>
+<dict
     <key>CFBundleURLName</key>
     <string></string>
     <key>CFBundleURLSchemes</key>
@@ -68,80 +68,68 @@ sdkbox.PluginFacebook:init()
 
 ### Using Facebook
 There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call `login()`, example:
-  ```lua
-  sdkbox.PluginFacebook:login();
-  ```
+```lua
+sdkbox.PluginFacebook:login();
+```
 
 * You can share links, example:
-  ```lua
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.share(info);
-  ```
-* You can share a link, but also comment on it at the same time, example:
-  ```lua
-  FBShareInfo info;
-  info.type  = FB_LINK;
-  info.link  = "http://www.cocos2d-x.org";
-  info.title = "cocos2d-x";
-  info.text  = "Best Game Engine";
-  info.image = "http://cocos2d-x.org/images/logo.png";
-  sdkbox.PluginFacebook.dialog(info);
-  ```
+```lua
+FBShareInfo info;
+info.type  = "link";
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.share(info);
+```
+
+* You can share a link, but also comment on it at the same time. This requires the __Facebook app__ to be installed on the device. Example:
+```lua
+FBShareInfo info;
+info.type  = "link";
+info.link  = "http://www.cocos2d-x.org";
+info.title = "cocos2d-x";
+info.text  = "Best Game Engine";
+info.image = "http://cocos2d-x.org/images/logo.png";
+sdkbox.PluginFacebook.dialog(info);
+```
 
 * You can share a photo example:
-  ```lua
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.share(info);
-  ```
+```lua
+FBShareInfo info;
+info.type  = "photo";
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.share(info);
+```
 
 * You can share a photo, but also comment on it at the same time, example:
-  ```lua
-  FBShareInfo info;
-  info.type  = FB_PHOTO;
-  info.title = "My Photo";
-  info.image = __path to image__;
-  sdkbox.PluginFacebook.dialog(info);
-  ```
+```lua
+FBShareInfo info;
+info.type  = "photo";
+info.title = "My Photo";
+info.image = __path to image__;
+sdkbox.PluginFacebook.dialog(info);
+```
 
 * Besides logging in, you also will need to request `read()` and `publish()` permissions to post. Example:
-  ```lua
-  sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-  sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
-  ```
+```lua
+sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+```
 
 * When are are finished, it is appropriate to call `logout()`, example:
-  ```lua
-  sdkbox.PluginFacebook.logout();
-  ```
+```lua
+sdkbox.PluginFacebook.logout();
+```
 
 ### Catch Facebook events (optional)
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.
 
 * Allow your class to extend `sdkbox::FacebookListener` and override the functions listed:
 ```lua
-sdkbox.PluginFacebook.setListener({
-		onLogin : function (isLogin, error) {
-				// Called when logged in
-		},
-		onAPI : function (tag, jsonData) {
-				// Called when API request completes
-		},
-		onSharedSuccess : function (message) {
-				// Called when you successfully share
-		},
-		onSharedFailed : function (message) {
-				// Called when sharing has failed
-		},
-		onSharedCancel : function (message) {
-				// Called when sharing is canceled
-		}
-});
+sdkbox.PluginFacebook:setListener(function(event)
+    print("PluginFacebook callback")
+    dump(event)
+end)
 ```

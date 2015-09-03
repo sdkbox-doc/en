@@ -44,33 +44,33 @@ static void setCrashReportingEnabled ( bool value ) ;
 ```cpp
 static void startSession ( ) ;
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```cpp
 static void endSession ( ) ;
 ```
-> end session, just valid on android
+> end session, just valid on Android
 
 ```cpp
 static bool activeSessionExists ( ) ;
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```cpp
 static std::string getSessionID ( ) ;
 ```
-> Start a Flurry session for the project denoted by @c apiKey.
+> Start a Flurry session for the project denoted by  apiKey.
 
 ```cpp
 static void pauseBackgroundSession ( ) ;
 ```
-> Pauses a Flurry session left running in background. on valid on ios
+> Pauses a Flurry session left running in background. on valid on iOS
 
 ```cpp
 static void addOrigin ( const std::string & originName ,
                         const std::string & originVersion ) ;
 ```
-> Adds an SDK origin specified by @c originName and @c originVersion.
+> Adds an SDK origin specified by  originName and  originVersion.
 
 ```cpp
 static void addOrigin ( const std::string & originName ,
@@ -78,7 +78,7 @@ static void addOrigin ( const std::string & originName ,
                         std::map <std::string ,
                         std::string> & parameters ) ;
 ```
-> Adds a custom parameterized origin specified by @c originName with @c originVersion and @c parameters.
+> Adds a custom parameterized origin specified by  originName with  originVersion and  parameters.
 
 ```cpp
 static void addOrigin ( const std::string & originName ,
@@ -90,14 +90,14 @@ static void addOrigin ( const std::string & originName ,
 ```cpp
 static int logEvent ( const std::string & eventName ) ;
 ```
-> Records a custom event specified by @c eventName.
+> Records a custom event specified by  eventName.
 
 ```cpp
 static int logEvent ( const std::string & eventName ,
                       std::map <std::string ,
                       std::string> & parameters ) ;
 ```
-> Records a custom parameterized event specified by @c eventName with @c parameters.
+> Records a custom parameterized event specified by  eventName with  parameters.
 
 ```cpp
 static int logEvent ( const std::string & eventName ,
@@ -108,7 +108,7 @@ static int logEvent ( const std::string & eventName ,
 ```cpp
 static int logEvent ( const std::string & eventName , bool timed ) ;
 ```
-> Records a timed event specified by @c eventName.
+> Records a timed event specified by  eventName.
 
 ```cpp
 static int logEvent ( const std::string & eventName ,
@@ -116,7 +116,7 @@ static int logEvent ( const std::string & eventName ,
                       std::string> & parameters ,
                       bool timed ) ;
 ```
-> Records a custom parameterized timed event specified by @c eventName with @c parameters.
+> Records a custom parameterized timed event specified by  eventName with  parameters.
 
 ```cpp
 static int logEvent ( const std::string & eventName ,
@@ -135,7 +135,7 @@ static void endTimedEvent ( const std::string & eventName ,
                             std::map <std::string ,
                             std::string> & parameters ) ;
 ```
-> Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.
+> Ends a timed event specified by  eventName and optionally updates parameters with  parameters.
 
 ```cpp
 static void endTimedEvent ( const std::string & eventName ,
@@ -173,7 +173,7 @@ static void setGender ( const std::string & gender ) ;
 ```cpp
 	 static void setReportLocation ( bool reportLocation ) ;
 ```
-> Set whether Flurry should record location via GPS. Defaults to true. valid on android
+> Set whether Flurry should record location via GPS. Defaults to true. valid on Android
 
 ```cpp
 static void setLatitude ( double latitude ,
@@ -186,22 +186,22 @@ static void setLatitude ( double latitude ,
 ```cpp
 static void clearLocation ( ) ;
 ```
-> clear the default location.valid on andriod
+> clear the default location.valid on Android
 
 ```cpp
 static void setSessionReportsOnCloseEnabled ( bool sendSessionReportsOnClose ) ;
 ```
-> Set session to report when app closes.valid on ios
+> Set session to report when app closes.valid on iOS
 
 ```cpp
 static void setSessionReportsOnPauseEnabled ( bool setSessionReportsOnPauseEnabled ) ;
 ```
-> Set session to report when app is sent to the background.valid on ios
+> Set session to report when app is sent to the background.valid on iOS
 
 ```cpp
 static void setBackgroundSessionEnabled ( bool setBackgroundSessionEnabled ) ;
 ```
-> Set session to support background execution.valid on ios
+> Set session to support background execution.valid on iOS
 
 ```cpp
 static void setEventLoggingEnabled ( bool value ) ;
@@ -236,3 +236,5 @@ void flurrySessionDidCreateWithInfo ( std::map <std::string ,
                                       std::string> & info );
 ```
 > Invoked when analytics session is created,
+
+

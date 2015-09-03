@@ -1,20 +1,23 @@
-### Initialize Kochava
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginKochava.init();
-```
+### Register Javascript Functions
+You need to register all the Kochava JS functions with cocos2d-x before using them.
 
-* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
+To do this:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginKochavaJS.hpp"
 ```
 
-* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginKochavaJS);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Kochava
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginKochava.init();
+```
 
 ### Tracking Events
 Kochava provides tracking __custom__, __spatial__ or __referral__ events.

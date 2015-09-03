@@ -9,7 +9,7 @@ static void init ( ) ;
 ```cpp
 static void setListener ( FacebookListener * listener ) ;
 ```
-> Set listener to listen for adcolony events
+> Set listener to listen for facebook events
 
 ```cpp
 static FacebookListener * getListener ( ) ;
@@ -27,13 +27,13 @@ static void login ( ) ;
 > log in
 
 ```cpp
-static void logInWithReadPermissions ( const std::string & permissions ) ;
+static void requestReadPermissions ( const std::vector <std::string> & permissions ) ;
 ```
 > log in with specific read permissions, conflict with publish permissions
 https://developers.facebook.com/docs/facebook-login/permissions
 
 ```cpp
-static void logInWithPublishPermissions ( const std::string & permissions ) ;
+static void requestPublishPermissions ( const std::vector <std::string> & permissions ) ;
 ```
 > log in with specific public permissions
 https://developers.facebook.com/docs/facebook-login/permissions
@@ -44,7 +44,7 @@ static void logout ( ) ;
 > log out
 
 ```cpp
-static bool isLogined ( ) ;
+static bool isLoggedIn ( ) ;
 ```
 > Check whether the user logined or not
 
@@ -59,47 +59,48 @@ static std::string getAccessToken ( ) ;
 > get AccessToken
 
 ```cpp
-static std::string getPermissionList ( ) ;
+static std::vector <std::string> getPermissionList ( ) ;
 ```
 > get permissoin list
 
 ```cpp
-static void share ( FBInfo & info ) ;
+static void share ( const FBShareInfo & info ) ;
 ```
 > share
 
 ```cpp
-static void dialog ( FBInfo & info ) ;
+static void dialog ( const FBShareInfo & info ) ;
 ```
-> open a dialog of Facebook app
+> open a dialog of Facebook app or WebDialog (dialog with photo only avaible with native Facebook app)
+
+```cpp
+static std::string getSDKVersion ( ) ;
+```
+> return the version of Facebook SDK
 
 ```cpp
 static void api ( const std::string & path ,
                   const std::string & method ,
-                  FBInfo & params ,
+                  const FBAPIParam & params ,
                   const std::string & tag ) ;
 ```
 > use Facebook Open Graph api
 https://developers.facebook.com/docs/ios/graph
 
 ```cpp
-static void activateApp ( ) ;
+static void fetchFriends ( ) ;
 ```
-> Notifies the events system that the app has launched & logs an activatedApp event.
+> fetch friends data from Facebook
 
 ```cpp
-static std::string getSDKVersion ( ) ;
+static std::vector <FBGraphUser> getFriends ( ) ;
 ```
-> @breif return the version of Facebook SDK for Cocos
+> get friends info
 
 
 ### Listeners
 ```cpp
-void onLogin ( bool isLogin , const std::string & error );
-```
-
-```cpp
-void onAPI ( const std::string & key , const std::string & jsonData );
+void onLogin ( bool isLogin , const std::string & msg );
 ```
 
 ```cpp
@@ -113,3 +114,17 @@ void onSharedFailed ( const std::string & message );
 ```cpp
 void onSharedCancel ( );
 ```
+
+```cpp
+void onAPI ( const std::string & key , const std::string & jsonData );
+```
+
+```cpp
+void onPermission ( bool isLogin , const std::string & msg );
+```
+
+```cpp
+void onFetchFriends ( bool ok , const std::string & msg );
+```
+
+

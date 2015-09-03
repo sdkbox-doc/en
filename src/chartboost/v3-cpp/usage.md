@@ -26,14 +26,17 @@ This allows you to catch the `Chartboost` events so that you can perform operati
 class MyClass : public sdkbox::ChartboostListener
 {
 public:
-      void onChartboostCached(const std::string& name);
-      void onChartboostShouldDisplay(const std::string& name);
-      void onChartboostDisplay(const std::string& name);
-      void onChartboostDismiss(const std::string& name);
-      void onChartboostClose(const std::string& name);
-      void onChartboostClick(const std::string& name);
-      void onChartboostReward(const std::string& name, int reward);
-      void onChartboostPauseClickForConfirmation();
+    void onChartboostCached(const std::string& name);
+    bool onChartboostShouldDisplay(const std::string& name);
+    void onChartboostDisplay(const std::string& name);
+    void onChartboostDismiss(const std::string& name);
+    void onChartboostClose(const std::string& name);
+    void onChartboostClick(const std::string& name);
+    void onChartboostReward(const std::string& name, int reward);
+    void onChartboostFailedToLoad(const std::string& name, sdkbox::CB_LoadError e);
+    void onChartboostFailToRecordClick(const std::string& name, sdkbox::CB_ClickError e);
+    void onChartboostConfirmation();
+    void onChartboostCompleteStore();
 };
 ```
 

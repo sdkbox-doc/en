@@ -1,14 +1,11 @@
-### Initialize AdColony
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginAdColony.init();
-```
+### Register Javascript Functions
+You need to register all the Adcolony JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAdColonyJS.hpp"
-#include "PluginAdColonyJSHelper.hpp"
+#include "PluginAdColonyJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
@@ -16,7 +13,13 @@ sdkbox.PluginAdColony.init();
 sc->addRegisterCallback(register_all_PluginAdColonyJS);
 sc->addRegisterCallback(register_all_PluginAdColonyJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize AdColony
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginAdColony.init();
+```
 
 ### Showing Ads
 Display an ad wherever you want from your code, by specifying ad type:

@@ -1,17 +1,14 @@
 <!--
-Include Base: /Users/niteluo/Projects/store/doc/en/src/kochava/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/kochava/v3-cpp
 -->
 
-#Tune
+#Kochava
 
 ##Integration
-Use the following command to install the SDKBOX Kochava plugin, Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Kochava plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
-sdkbox import kochava
+$ sdkbox import kochava
 ```
-
-##Extra steps
-<<[extra-step.md]
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -34,3 +31,11 @@ Here is an example adding `Kochava`:
 <<[usage.md]
 
 <<[api-reference.md]
+
+<<[manual_integration.md]
+
+<<[manual_ios.md]
+
+<<[manual_android.md]
+
+<<[extra-step.md]

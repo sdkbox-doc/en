@@ -1,22 +1,25 @@
-### Initialize Vungle
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginVungle.init();
-```
+### Register Javascript Functions
+You need to register all the Vungle JS functions with cocos2d-x before using them.
 
-* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
+To do this:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginVungleJS.hpp"
 #include "PluginVungleJSHelper.h"
 ```
 
-* modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
+* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginVungleJS);
-sc->addRegisterCallback(register_PluginVungelJs_helper);
+sc->addRegisterCallback(register_all_PluginVungleJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Vungle
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginVungle.init();
+```
 
 ### Showing Ads
 Display an ad where ever you want from your code, either __video__ or __reward__:
@@ -34,6 +37,7 @@ sdkbox.PluginVungle.setListener({
     onVungleCacheAvailable : function() { cc.log("onVungleCacheAvailable") },
     onVungleStarted : function() { cc.log("onVungleStarted") },
     onVungleFinished : function() { cc.log("onVungleFinished") },
-    onVungleAdViewed : function(isComplete) { cc.log("onVungleAdViewed" + isComplete) }
+    onVungleAdViewed : function(isComplete) { cc.log("onVungleAdViewed" + isComplete) },
+    onVungleAdReward : function(name) { cc.log("reward received:" + name) }
 })
 ```

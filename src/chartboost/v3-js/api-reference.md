@@ -17,11 +17,6 @@ sdkbox.PluginChartboost.setListener(listener);
 > creates the an optional listener.
 
 ```javascript
-sdkbox.PluginChartboost.removeListener();
-```
-> removed the listener.
-
-```javascript
 sdkbox.PluginChartboost.isAnyViewVisible();
 ```
 > check to see if any views are visible.
@@ -30,6 +25,10 @@ sdkbox.PluginChartboost.isAnyViewVisible();
 sdkbox.PluginChartboost.isAvailable(name);
 ```
 > is the specified ad available?
+
+```javascript
+sdkbox.PluginChartboost.cache(name);
+```
 
 ```javascript
 sdkbox.PluginChartboost.setAutoCacheAds(shouldCache);
@@ -50,13 +49,14 @@ video, etc..) and the loading view (if visible).
 ```javascript
 sdkbox.PluginChartboost.setStatusBarBehavior(behavior);
 ```
-> set to control how the fullscreen ad units should interact with the status bar. (CBStatusBarBehaviorIgnore by default).
+> set to control how the fullscreen ad units should interact with the status bar.
+(CBStatusBarBehaviorIgnore by default).
 
 ```javascript
 sdkbox.PluginChartboost.didPassAgeGate(pass);
 ```
 > confirm if an age gate passed or failed. When specified Chartboost will wait for
- this call before showing the IOS App Store.
+call before showing the IOS App Store.
 
 ```javascript
 sdkbox.PluginChartboost.setShouldPauseClickForConfirmation(shouldPause);
@@ -76,7 +76,8 @@ sdkbox.PluginChartboost.setCustomID(customID);
 ```javascript
 sdkbox.PluginChartboost.getCustomID();
 ```
-> get the current custom identifier being sent in the POST body for all Chartboost API server requests.
+> get the current custom identifier being sent in the POST body for all Chartboost
+API server requests.
 
 ```javascript
 sdkbox.PluginChartboost.setShouldRequestInterstitialsInFirstSession(shouldRequest);
@@ -86,56 +87,59 @@ sdkbox.PluginChartboost.setShouldRequestInterstitialsInFirstSession(shouldReques
 ```javascript
 sdkbox.PluginChartboost.setShouldDisplayLoadingViewForMoreApps(shouldDisplay);
 ```
-> decide if Chartboost SDK should show a loading view while preparing to display the "more applications" UI.
+> decide if Chartboost SDK should show a loading view while preparing to display
+the "more applications" UI.
 
 ```javascript
 sdkbox.PluginChartboost.setShouldPrefetchVideoContent(shouldPrefetch);
 ```
-> decide if Chartboost SDK will attempt to fetch videos from the Chartboost API servers.
+> decide if Chartboost SDK will attempt to fetch videos from the Chartboost API
+servers.
+
 
 ### Listeners
 ```javascript
-onChartboostCached();
+onChartboostCached(name);
 ```
 > there is cached content
 
 ```javascript
-onChartboostShouldDisplay();
+onChartboostShouldDisplay(name);
 ```
 > should Chartboost display
 
 ```javascript
-onChartboostDisplay();
+onChartboostDisplay(name);
 ```
 > Charboost ad has displayed
 
 ```javascript
-onChartboostDismiss();
+onChartboostDismiss(name);
 ```
 > Chartboost ad has been dismissed
 
 ```javascript
-onChartboostClose();
+onChartboostClose(name);
 ```
 > Chartboost is not running
 
 ```javascript
-onChartboostClick();
+onChartboostClick(name);
 ```
 > Chartboost ad was clicked on
 
 ```javascript
-onChartboostReward();
+onChartboostReward(name, reward);
 ```
 > Chartboost reward was given
 
 ```javascript
-onChartboostFailedToLoad();
+onChartboostFailedToLoad(name, e);
 ```
 > Chartboost failed to load
 
 ```javascript
-onChartboostFailToRecordClick();
+onChartboostFailToRecordClick(name, e);
 ```
 > Chartboost failed to record click
 
@@ -148,3 +152,5 @@ onChartboostConfirmation();
 onChartboostCompleteStore();
 ```
 > Chartboost complete store
+
+

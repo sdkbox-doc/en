@@ -1,37 +1,51 @@
 ## API Reference
 
 ### Methods
-```javascript
+```lua
 sdkbox.PluginKochava:init()
 ```
-> initialize the Kochava instance.
+> init the kochava service
 
-```javascript
-sdkbox.PluginKochava:identityLinkEvent()
-```
-> link one or more udid's to a Kochava id.
-
-```javascript
-sdkbox.PluginKochava:spatialEvent()
-```
-> event specifying x, y, and z coordinate to Kochava server for visualizing your data.
-
-```javascript
-sdkbox.PluginKochava:setLimitAdTracking()
-```
-> turn ad tracking off or on by using true or false.
-
-```javascript
-sdkbox.PluginKochava:enableLogging(bool)
-```
-> log? true or false.
-
-```javascript
-sdkbox.PluginKochava:trackEvent()
-```
-> track a single event, specifying the event and value.
-
-```javascript
+```lua
 sdkbox.PluginKochava:shutdown()
 ```
-> shutdown the Kochava service.
+> shutdown the kochava service
+
+```lua
+sdkbox.PluginKochava:enableLogging(enabled)
+```
+> enable kochava api logging
+
+```lua
+sdkbox.PluginKochava:trackEvent(event, value)
+```
+> track a single event
+
+```lua
+sdkbox.PluginKochava:spatialEvent(title, x, y, z)
+```
+> spatial event to help visualize data
+
+```lua
+sdkbox.PluginKochava:setLimitAdTracking(limitAdTracking)
+```
+> turn on/off ad tracking
+
+```lua
+sdkbox.PluginKochava:retrieveAttribution()
+```
+> returns the attribution data
+
+```lua
+sdkbox.PluginKochava:sendDeepLink(url, application)
+```
+> send a referral to where your app was opened from.
+
+```lua
+sdkbox.PluginKochava:setBeaconCallback(callback)
+```
+> specify beacon transition callback
+
+
+### Listeners
+

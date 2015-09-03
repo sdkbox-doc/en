@@ -36,33 +36,47 @@ sdkbox.IAP.removeListener();
 ```
 > Remove listener for IAP
 
+
 ### Listeners
 ```javascript
-sdkbox.IAP.onSuccess(product);
+onInitialized(ok);
+```
+> Called when IAP initialized
+
+```javascript
+onSuccess(p);
 ```
 > Called when an IAP processed successfully
 
 ```javascript
-sdkbox.IAP.onFailure(product, message);
+onFailure(p, msg);
 ```
 > Called when an IAP fails
 
 ```javascript
-sdkbox.IAP.onCanceled(product);
+onCanceled(p);
 ```
 > Called when user canceled the IAP
 
 ```javascript
-sdkbox.IAP.onRestored(product);
+onRestored(p);
 ```
 > Called when server returns the IAP items user already purchased
+@note this callback will be called multiple times if there are multiple IAP
 
 ```javascript
-sdkbox.IAP.onProductRequestSuccess(products);
+onProductRequestSuccess(products);
 ```
 > Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
 
 ```javascript
-sdkbox.IAP.onProductRequestFailure(message);
+onProductRequestFailure(msg);
 ```
 > Called when the product request fails
+
+```javascript
+onRestoreComplete(ok, msg);
+```
+> Called when the restore completed
+
+

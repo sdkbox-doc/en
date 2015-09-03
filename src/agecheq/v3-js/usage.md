@@ -1,14 +1,11 @@
-### Initialize AgeCheq
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginAgeCheq.init();
-```
+### Register Javascript Functions
+You need to register all the AgeCheq JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginAgeCheqJS.hpp"
-#include "PluginAgeCheqJSHelper.hpp"
+#include "PluginAgeCheqJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
@@ -16,7 +13,13 @@ sdkbox.PluginAgeCheq.init();
 sc->addRegisterCallback(register_all_PluginAgeCheqJS);
 sc->addRegisterCallback(register_all_PluginAgeCheqJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize AgeCheq
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginAgeCheq.init();
+```
 
 ### Using AgeCheq
 After initialization you can begin to use the AgeCheq functionality. Use `check` wherever you want from your code:

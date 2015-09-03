@@ -25,6 +25,7 @@ def get_curr_path():
     return os.path.dirname(os.path.realpath(__file__))
 
 def read_file(path):
+    print "path: " + path
     with open(path, "r") as target_file:
         return target_file.read()
 
@@ -46,12 +47,12 @@ class DocGen:
     def search_folders(self):
         for f in os.listdir(self.base_path):
             folder_path = os.path.join(self.base_path, f)
-            if os.path.isdir(folder_path):
+            if os.path.isdir(folder_path) and not folder_path.endswith('shared'):
+            #if os.path.isdir(folder_path):
                 self.folders.append(f)
-                # print "====> found " + f
+            #print "====> found " + f
 
     def generate(self):
-
         if os.path.exists(self.main_file):
             print '===> generate ' + self.name
             mkdir(self.out_path)

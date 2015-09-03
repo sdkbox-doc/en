@@ -2,103 +2,120 @@
 
 ### Methods
 ```lua
-sdkbox.PluginAdColony:zoneStatusForZone(zoneID)
+sdkbox.PluginAdColony:init()
 ```
-> returns the status for the specified zone. Use this to pre-load a zone.
-
-```lua
-sdkbox.PluginAdColony:isVirtualCurrencyRewardAvailableForZone(zoneID)
-```
-> check if this zone offers a virtual currency reward.
+> initialize the plugin instance.
 
 ```lua
 sdkbox.PluginAdColony:show(name)
 ```
-> play video ad using provided __zone name__ that was specified in `sdkbox_config.json`.
+> play video ad using provided name that was specified in sdkbox_config.json
+
+```lua
+sdkbox.PluginAdColony:setListener(listener)
+```
+> Set listener to listen for adcolony events
+
+```lua
+sdkbox.PluginAdColony:zoneStatusForZone(zoneID)
+```
+> Returns the zone status for the specified zone.
 
 ```lua
 sdkbox.PluginAdColony:getStatus(name)
 ```
-> Check the availability of the AdColony ads by name
+> Check the availability of the adcolony ads by name
 
 ```lua
-sdkbox.PluginAdColony:getVirtualCurrencyRewardAmountForZone(zoneID)
+sdkbox.PluginAdColony:setCustomID(customID)
 ```
-> is there a virtual currency reward available to the user today for passed in
-zone.
+> Assigns your own custom identifier to the current app user.
 
 ```lua
-sdkbox.PluginAdColony:init()
+sdkbox.PluginAdColony:getCustomID()
 ```
-> initialize the instance.
+> Returns the device's current custom identifier.
 
 ```lua
-sdkbox.PluginAdColony:videoAdCurrentlyRunning()
+sdkbox.PluginAdColony:getUniqueDeviceID()
 ```
-> is there a video currently showing?
+> Returns an AdColony-defined device identifier.
 
 ```lua
-sdkbox.PluginAdColony:turnAllAdsOff()
+sdkbox.PluginAdColony:getAdvertisingIdentifier()
 ```
-> turn off all ads.
+> Returns the device's advertising identifier.
 
 ```lua
-sdkbox.PluginAdColony:getVideoCreditBalance(currencyName)
+sdkbox.PluginAdColony:getVendorIdentifier()
 ```
-> get video credit balance for passed in currency name.
+> Returns the device's vendor identifier.
 
 ```lua
 sdkbox.PluginAdColony:getVideosPerReward(currencyName)
 ```
-> are there multiple videos to watch per reward? Get the number of them.
+> Returns the number of ads that the user must play to earn the designated reward.
 
 ```lua
-sdkbox.PluginAdColony:getVirtualCurrencyNameForZone(zoneID)
+sdkbox.PluginAdColony:getVideoCreditBalance(currencyName)
 ```
-> get virtual currency name for passed in zone.
-
-```lua
-sdkbox.PluginAdColony:getVirtualCurrencyRewardsAvailableTodayForZone(zoneID)
-```
-> is there a virtual currency reward available to the user today for passed in
-zone.
+> Returns the number of ads that the user has seen towards their next reward.
 
 ```lua
 sdkbox.PluginAdColony:cancelAd()
 ```
-> stop the currently showing ad.
+> Cancels any full-screen ad that is currently playing and returns control to the app.
+
+```lua
+sdkbox.PluginAdColony:videoAdCurrentlyRunning()
+```
+> Whether a full-screen AdColony ad is currently being played.
+
+```lua
+sdkbox.PluginAdColony:turnAllAdsOff()
+```
+> This method permanently turns off all AdColony ads for this app on the current device.
+
+```lua
+sdkbox.PluginAdColony:setUserMetadata(metadataType, value)
+```
+> Provide AdColony with per-user non personally-identifiable information for ad targeting purposes.
+
+```lua
+sdkbox.PluginAdColony:userInterestedIn(topic)
+```
+> Provide AdColony with real-time feedback about what a user is interested in.
+
+```lua
+sdkbox.PluginAdColony:notifyIAPComplete(transactionID,
+                                         productID,
+                                         quantity,
+                                         price,
+                                         currencyCode)
+```
+> Call this method to report IAPs within your application. Note that this API can be leveraged to report standard IAPs
+as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and will improve overall ad targeting.
+
 
 ### Listeners
-```cpp
-/**
- * The structure of data
- * data.name : name of the ad (in sdkbox_config.json)
- * data.zoneID : the zoneID of the ad
- * data.shown : indicates wether the ad gets shown or closed by user
- * data.iapEnabled : indicating whether or not the associated ad is an IAP
- * data.iapProductID : product identifier for the associated ad's IAP
- * data.iapQuantity : he number of items the user wishes to purchase
- * data.iapEngagementType : indicating the IAP engagement mechanism
- *
- * avail = bool
- */
-```
 ```lua
-onAdColonyChange(data, available)
+onAdColonyChange(info, available)
 ```
 > called when AdColony is finished loading.
 
 ```lua
-onAdColonyReward(data, currencyName, amount, success)
+onAdColonyReward(info, currencyName, amount, success)
 ```
 > reward was received.
 
 ```lua
-onAdColonyStarted(data)
+onAdColonyStarted(info)
 ```
 > showing an ad has started.
 
 ```lua
-onAdColonyFinished(data)
+onAdColonyFinished(info)
 ```
 > showing an ad has finished.
+
+

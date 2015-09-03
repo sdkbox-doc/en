@@ -1,10 +1,7 @@
-### Initialize Chartboost
-* Initialize the plugin by calling `init()` where appropriate in your code. We
-recommend to do this in the `app.js`. Example:
-```javascript
-sdkbox.PluginChartboost.init();
-```
+### Register Javascript Functions
+You need to register all the Chartboost JS functions with cocos2d-x before using them.
 
+To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
 #include "PluginChartboostJS.hpp"
@@ -14,9 +11,15 @@ sdkbox.PluginChartboost.init();
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginChartboostJS);
-sc->addRegisterCallback(register_PluginChartboostJs_helper);
+sc->addRegisterCallback(register_all_PluginChartboostJS_helper);
 ```
-This registers the Javascript callbacks.
+
+### Initialize Chartboost
+Initialize the plugin by calling `init()` where appropriate in your code. We
+recommend to do this in the `app.js`. Example:
+```javascript
+sdkbox.PluginChartboost.init();
+```
 
 ### Showing Ads
 Display an ad where ever you want from your code:
