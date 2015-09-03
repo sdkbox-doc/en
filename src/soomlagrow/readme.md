@@ -2,8 +2,8 @@
 Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/soomlagrow/v3-cpp
 -->
 
-#SoomlaGrow
-SoomlaGrow can collect plugins info which you app intergate, now support `facebook` and `iap` plugin
+#Soomla Grow
+__Soomla Grow__ is a community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX SoomlaGrow plugin. Make sure you setup SDKBOX installer correctly.
