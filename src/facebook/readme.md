@@ -4,20 +4,15 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
 
 #Facebook
 
+##Prerequisites
+* __For Android, Facebook requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Facebook plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
 $ sdkbox import facebook
 ```
 
-## Changelog
-
-version-x.y.z:
-1. `register_PluginFacebookJS_helper` -> `register_all_PluginFacebookJS_helper`
-2. `register_PluginFacebookLua_helper` -> `register_all_PluginFacebookLua_helper`
-3. Update Facebook iOS SDK to 4.5.1
-4. Update Facebook Android SDK to 4.5.1
-5. `#include "PluginFacebookLuaHelper.hpp"` -> `#include "PluginFacebookLuaHelper.h"`
 ##Extra steps
 
 The following step assuming you already registered as a Facebook Developer

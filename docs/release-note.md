@@ -12,13 +12,74 @@ Sometimes using callbacks will result in sprites show up as black, this is due t
 [Facebook: missing api function for js/lua binding](http://discuss.cocos2d-x.org/t/sdkbox-facebook-no-api-bug/23414)
 [Installer: fix COCOS_CONSOLE_ROOT invalid error](http://discuss.cocos2d-x.org/t/installation-error-for-sdkbox-iap/22898)
 
+##AdColony
+## Changelog
+1. Update AdColony iOS SDK to 2.5.3
+2. `register_PluginAdColonyLua_helper` -> `register_all_PluginAdColonyLua_helper`
+3. `#include "PluginAdColonyLuaHelper.hpp"` -> `#include "PluginAdColonyLuaHelper.h"`
+4. `#include "PluginAdColonyJSHelper.hpp"` -> `#include "PluginAdColonyJSHelper.h"`
+
+##AgeCheq
+## Changelog
+1. `register_PluginAgeCheqLua_helper` -> `register_all_PluginAgeCheqLua_helper`
+2. `#include "PluginAgeCheqLuaHelper.hpp"` -> `#include "PluginAgeCheqLuaHelper.h"`
+3. `#include "PluginAgeCheqJSHelper.hpp"` -> `#include "PluginAgeCheqJSHelper.h"`
+
+##Chartboost
+## Changelog
+1. `register_PluginChartboostJS_helper` -> `register_all_PluginChartboostJS_helper`
+2. `register_PluginChartboostLua_helper` -> `register_all_PluginChartboostLua_helper`
+3. Update Chartboost iOS SDK to 5.5.3
+4. Update Chartboost Android SDK to 5.5.3
+5. `#include "PluginChartboostLuaHelper.hpp"` -> `#include "PluginChartboostLuaHelper.h"`
+
+##Facebook
+## Changelog
+1. `register_PluginFacebookJS_helper` -> `register_all_PluginFacebookJS_helper`
+2. `register_PluginFacebookLua_helper` -> `register_all_PluginFacebookLua_helper`
+3. Update Facebook iOS SDK to 4.5.1
+4. Update Facebook Android SDK to 4.5.1
+5. `#include "PluginFacebookLuaHelper.hpp"` -> `#include "PluginFacebookLuaHelper.h"`
+
+##Flurry Analytics
+## Changelog
+1. `register_PluginFlurryAnalyticsJS_helper` -> `register_all_PluginFlurryAnalyticsJS_helper`
+2. `register_PluginFlurryAnalyticsLua_helper` -> `register_all_PluginFlurryAnalyticsLua_helper`
+3. Update Flurry iOS SDK to 6.7.0
+4. Update Flurry Android SDK to 5.6.0
+5. `#include "PluginFlurryAnalyticsLuaHelper.hpp"` -> `#include "PluginFlurryAnalyticsLuaHelper.h"`
+
+##Google Analytics
+## Changelog
+1. `#include "PluginGoogleAnalyticsLuaHelper.hpp"` -> `#include "PluginGoogleAnalyticsLuaHelper.h"`
+
+##IAP
+## Changelog
+1. `register_PluginIAPLua_helper` -> `register_all_PluginIAPLua_helper`
+2. `#include "PluginIAPLuaHelper.hpp"` -> `#include "PluginIAPLuaHelper.h"`
+3. `#include "PluginIAPJSHelper.hpp"` -> `#include "PluginIAPJSHelper.h"`
+
+##Tune
+1. `register_PluginTuneJS_helper` -> `register_all_PluginTuneJS_helper`
+2. `register_PluginTuneLua_helper` -> `register_all_PluginTuneLua_helper`
+3. Update MobileAppTracker Android SDK to 3.10.1
+4. `#include "PluginTuneLuaHelper.hpp"` -> `#include "PluginTuneLuaHelper.h"`
+
+##Vungle
+## Changelog
+1. `register_PluginVungleJS_helper` -> `register_all_PluginVungleJS_helper`
+2. `register_PluginVungleLua_helper` -> `register_all_PluginVungleLua_helper`
+3. `#include "PluginVungleLuaHelper.hpp"` -> `#include "PluginVungleLuaHelper.h"`
+
+
+
 1.2.2 Release Notes
 ====
 ##Highlight
 * Installer will automatically modify `Cocos2dxActivity.java` for you
 * Facebook Plugin supports `getFriends()` function
 * IAP supports `onRestoreComplete()` callback
-* IAP will auto consume items if 
+* IAP will auto consume items if
 
 ##Bugfix
 
