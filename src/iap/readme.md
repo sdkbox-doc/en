@@ -10,13 +10,6 @@ Open a terminal and use the following command to install the SDKBOX IAP plugin. 
 $ sdkbox import iap
 ```
 
-## Changelog
-
-version-x.y.z:
-1. `register_PluginIAPLua_helper` -> `register_all_PluginIAPLua_helper`
-2. `#include "PluginIAPLuaHelper.hpp"` -> `#include "PluginIAPLuaHelper.h"`
-3. `#include "PluginIAPJSHelper.hpp"` -> `#include "PluginIAPJSHelper.h"`
-
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
