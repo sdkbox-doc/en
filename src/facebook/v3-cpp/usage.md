@@ -50,7 +50,7 @@ There are two types of sharing functionality.
 share a link:
 ```cpp
 sdkbox::FBShareInfo info;
-info.type  = FB_LINK;
+info.type  = sdkbox::FB_LINK;
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
@@ -60,7 +60,7 @@ sdkbox::PluginFacebook::share(info);
 share a photo:
 ```cpp
 sdkbox::FBShareInfo info;
-info.type  = FB_PHOTO;
+info.type  = sdkbox::FB_PHOTO;
 info.title = "My Photo";
 info.image = __path to image__;
 sdkbox::PluginFacebook::share(info);
@@ -70,7 +70,7 @@ sdkbox::PluginFacebook::share(info);
 present a share dialog:
 ```cpp
 sdkbox::FBShareInfo info;
-info.type  = FB_LINK;
+info.type  = sdkbox::FB_LINK;
 info.link  = "http://www.cocos2d-x.org";
 info.title = "cocos2d-x";
 info.text  = "Best Game Engine";
@@ -81,7 +81,7 @@ sdkbox::PluginFacebook::dialog(info);
 share a photo with comments:
 ```cpp
 sdkbox::FBShareInfo info;
-info.type  = FB_PHOTO;
+info.type  = sdkbox::FB_PHOTO;
 info.title = "My Photo";
 info.image = __path to image__;
 sdkbox::PluginFacebook::dialog(info);
