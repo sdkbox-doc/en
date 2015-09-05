@@ -30,7 +30,9 @@ private:
   void onVungleFinished();
   void onVungleAdViewed(bool isComplete);
   void onVungleAdReward(const std::string& name) {
-        Director::getInstance()->getScheduler()->schedule(CC_SCHEDULE_SELECTOR(MyClass::changeUI), this, 0.1, false, 0.1, false);
+        cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+        	//change ui
+        })
     }
 }
 ```
