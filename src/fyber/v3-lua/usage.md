@@ -19,7 +19,6 @@ sdkbox.PluginFyber:init();
 ```
 
 ### Using Fyber
-### Using Fyber
 #### Offer Wall
 Displaying the Offer Wall with default placementId
 ```lua
@@ -59,6 +58,16 @@ sdkbox.PluginFyber:requestInterstitial();
 Shows an interstitial ad. call `requestInterstitial` first.
 ```lua
 sdkbox.PluginFyber:showInterstitial();
+```
+
+Fetches the amount of a given currency earned since the last time this method was
+invoked for the current user ID / app ID combination.
+```lua
+sdkbox.PluginFyber:requestDeltaOfCoins();
+```
+or
+```
+sdkbox.PluginFyber:requestDeltaOfCoins("currencyId")
 ```
 
 ### Fyber events

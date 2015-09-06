@@ -47,7 +47,7 @@ static void showInterstitial ( ) ;
 > Shows an interstitial ad. Check first that one is ready to be shown with requestInterstitial.
 
 ```cpp
-static void requestDeltaOfCoins ( const std::string & placementId = "" ) ;
+static void requestDeltaOfCoins ( const std::string & currencyId = "" ) ;
 ```
 > Fetches the amount of a given currency earned since the last time this method was
 invoked for the current user ID / app ID combination.

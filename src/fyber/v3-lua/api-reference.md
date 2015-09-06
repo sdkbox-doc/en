@@ -32,7 +32,7 @@ sdkbox.PluginFyber:showInterstitial()
 > Shows an interstitial ad. Check first that one is ready to be shown with requestInterstitial.
 
 ```lua
-sdkbox.PluginFyber:requestDeltaOfCoins(placementId)
+sdkbox.PluginFyber:requestDeltaOfCoins(currencyId)
 ```
 > Fetches the amount of a given currency earned since the last time this method was
 invoked for the current user ID / app ID combination.

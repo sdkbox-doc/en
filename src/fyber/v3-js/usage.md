@@ -63,6 +63,16 @@ Shows an interstitial ad. call `requestInterstitial` first.
 sdkbox.PluginFyber.showInterstitial();
 ```
 
+Fetches the amount of a given currency earned since the last time this method was
+invoked for the current user ID / app ID combination.
+```javascript
+sdkbox.PluginFyber.requestDeltaOfCoins();
+```
+or
+```
+sdkbox.PluginFyber.requestDeltaOfCoins("currencyId")
+```
+
 ### Fyber events
 This allows you to catch `Fyber` events so that you can perform operations after Fyber events have occurred.
 
