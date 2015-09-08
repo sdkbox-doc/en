@@ -1,7 +1,5 @@
 ### Initialize Fyber
-Initialize the plugin where appropriate in your code. We recommend to do this in the
-`AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`.
-Make sure to include the appropriate headers:
+Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 
 ```cpp
 #include "PluginFyber/PluginFyber.h"
@@ -13,12 +11,12 @@ AppDelegate::applicationDidFinishLaunching()
 
 ### Using Fyber
 #### Offer Wall
-Displaying the Offer Wall with default placementId
+Displaying the Offer Wall with default __placementId__
 ```cpp
 sdkbox::PluginFyber::showOfferWall();
 ```
 
-Displaying the Offer Wall with custom placementId
+Displaying the Offer Wall with custom __placementId__
 ```cpp
 sdkbox::PluginFyber::showOfferWall("coins");
 ```
@@ -27,38 +25,37 @@ sdkbox::PluginFyber::showOfferWall("coins");
 - iOS configure follow [rewarded-video-iOS](http://developer.fyber.com/content/ios/rewarded-video/introduction/existing-integration/)
 - Android configure follow [rewarded-video-android](http://developer.fyber.com/content/android/rewarded-video/)
 
-Queries the server for BrandEngage offers availability with default placementId.
+Queries the server for __BrandEngage__ offers availability with __default placementId__:
 ```cpp
 sdkbox::PluginFyber::requestOffers();
 ```
 
-Queries the server for BrandEngage offers availability with custom placementId.
+Queries the server for __BrandEngage__ offers availability with custom __placementId__:
 ```
 sdkbox::PluginFyber::requestOffers("coins");
 ```
 
-Display an available rewarded video, call `requestOffers` first.
+Display an available rewarded video, call `requestOffers` first.:
 ```cpp
 sdkbox::PluginFyber::showOffers();
 ```
 
 #### Interstitials
-Check if interstitial ads are available
+Check if interstitial ads are available:
 ```cpp
 sdkbox::PluginFyber::requestInterstitial();
 ```
 
-Shows an interstitial ad. call `requestInterstitial` first.
+Shows an interstitial ad. Call `requestInterstitial` first:
 ```cpp
 sdkbox::PluginFyber::showInterstitial();
 ```
 
-Fetches the amount of a given currency earned since the last time this method was
-invoked for the current user ID / app ID combination.
+Fetches the amount of a given currency earned since the last time this method was invoked for the current user ID / app ID combination:
 ```cpp
 sdkbox::PluginFyber::requestDeltaOfCoins();
 ```
-or
+or:
 ```
 sdkbox::PluginFyber::requestDeltaOfCoins("currencyId")
 ```
