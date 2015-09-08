@@ -41,3 +41,5 @@ sdkbox.PluginVungle.setListener({
     onVungleAdReward : function(name) { cc.log("reward received:" + name) }
 })
 ```
+
+`Note:` DONOT change your game uiNode in the `onVungleAdViewed` or `onVungleAdReward` immediately, becase the cocos opengl is disable when `Vungle` send `onVungleAdViewed` or `onVungleAdReward`. use `schedule` delay change ui.
