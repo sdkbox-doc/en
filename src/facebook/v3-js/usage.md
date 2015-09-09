@@ -11,7 +11,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginFacebookJS);
-sc->addRegisterCallback(register_all_PluginFacebookJS_helper);
+sc->addRegisterCallback(register_PluginFacebookJS_helper);
 ```
 
 ### Initialize Facebook
