@@ -11,7 +11,7 @@ To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
 sc->addRegisterCallback(register_all_PluginAdColonyJS);
-sc->addRegisterCallback(register_all_PluginAdColonyJS_helper);
+sc->addRegisterCallback(register_PluginAdColonyJS_helper);
 ```
 
 ### Initialize AdColony
