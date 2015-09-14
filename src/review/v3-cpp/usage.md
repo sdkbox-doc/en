@@ -13,22 +13,17 @@ You can set a custom string for the rate prompt, if you don't want to use the de
 
 `Note:` if you set `tryPromptWhenInit` to __true__ which is in `sdkbox.config`, you must call the following functions before `init()`:
 ```cpp
-sdkbox::PluginReview::setCustomPromptTitle("custom title");
-sdkbox::PluginReview::setCustomPromptMessage("custom message");
-sdkbox::PluginReview::setCustomPromptCancelButtonTitle("custom cancel");
-sdkbox::PluginReview::setCustomPromptRateButtonTitle("custom rate");
-sdkbox::PluginReview::setCustomPromptRateLaterButtonTitle("custom rate later");
+sdkbox::PluginReview::setTitle("custom title");
+sdkbox::PluginReview::setMessage("custom message");
+sdkbox::PluginReview::setCancelButtonTitle("custom cancel");
+sdkbox::PluginReview::setRateButtonTitle("custom rate");
+sdkbox::PluginReview::setRateLaterButtonTitle("custom rate later");
 ```
 
 After initialization you can begin to use the Review functionality.
-Use `tryToShowPrompt` try to display rate prompt:
+Use `show` to display rate prompt:
 ```cpp
-sdkbox::PluginReview::tryToShowPrompt();
-```
-
-Use `forceToShowPrompt` to display rate prompt without checks:
-```cpp
-sdkbox::PluginReview::forceToShowPrompt();
+sdkbox::PluginReview::show();
 ```
 
 If you set `UserEventLimit` to something other than 0 in `sdkbox.config`, you must call `userDidSignificantEvent` to increase user event count. Example:
@@ -45,10 +40,10 @@ This allows you to catch the `Review` events so that you can perform operations 
 class MyClass : public sdkbox::ReviewListener
 {
 private:
-    void didDisplayAlert();
-    void didDeclineToRate();
-    void didToRate();
-    void didToRemindLater();
+    void onDisplayAlert();
+    void onDeclineToRate();
+    void onRate();
+    void onRemindLater();
 };
 ```
 

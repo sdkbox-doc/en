@@ -22,7 +22,7 @@ sdkbox.PluginReview:init()
 You can set a custom string for the rate prompt, if you don't want to use the default string.
 
 `Note:` if you set `tryPromptWhenInit` to __true__ which is in `sdkbox.config`, you must call the following functions before `init()`:
-```cpp
+```lua
 sdkbox.PluginReview:setCustomPromptTitle("custom title");
 sdkbox.PluginReview:setCustomPromptMessage("custom message");
 sdkbox.PluginReview:setCustomPromptCancelButtonTitle("custom cancel");
@@ -31,18 +31,13 @@ sdkbox.PluginReview:setCustomPromptRateLaterButtonTitle("custom rate later");
 ```
 
 After initialization you can begin to use the Review functionality.
-Use `tryToShowPrompt` try to display rate prompt:
-```cpp
-sdkbox.PluginReview:tryToShowPrompt();
-```
-
-Use `forceToShowPrompt` to display rate prompt without checks:
-```cpp
-sdkbox.PluginReview:forceToShowPrompt();
+Use `show` try to display rate prompt:
+```lua
+sdkbox.PluginReview:show();
 ```
 
 If you set `UserEventLimit` not 0 in `sdkbox.config`, you must call `userDidSignificantEvent` increase user event count: `userDidSignificantEvent` increase user event count
-```cpp
+```lua
 sdkbox.PluginReview:userDidSignificantEvent(true);
 ```
 
