@@ -9,18 +9,18 @@ sdkbox.PluginSoomlaGrow.init();
 ```javascript
 sdkbox.PluginSoomlaGrow.setListener(listener);
 ```
-> Set listener to listen for soomlagrow events
+> Set listener to listen to GROW events
 
 ```javascript
 sdkbox.PluginSoomlaGrow.refreshInsight()
 ```
->  Refreshed SoomlaInsights information from the server
+>  Refreshed Insights information from the server
 
 ```javascript
 sdkbox.PluginSoomlaGrow.getUserInsightInfo()
 ```
->  get user insight info
->  Note: the return may be empty
+>  get user insights info
+>  Note: the returned value may be empty
 
 
 ### Listeners
@@ -28,17 +28,16 @@ sdkbox.PluginSoomlaGrow.getUserInsightInfo()
 onHighWayInitialized()
 ```
 
->  The delegate named onHighWayInitialized is triggerred once the highway initialized.
+>  This event is triggered once the highway initialized.
 
 ```javascript
 onHighWayConnected()
 ```
 
->  The delegate named onHighWayConnected is triggerred once the highway connected to server success.
+>  This event is triggered once the highway is connected to server.
 
 ```javascript
 onHighWayDisconnected()
 ```
 
->  The delegate named onHighWayDisconnected is triggerred once the highway disconnect to server.
-
+>  This event is triggered once the highway disconnect from the server.

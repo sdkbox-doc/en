@@ -1,5 +1,5 @@
 ### Register Javascript Functions
-You need to register all the SoomlaGrow JS functions with cocos2d-x before using them.
+You need to register all the GROW JS functions with cocos2d-x before using them.
 
 To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
@@ -21,15 +21,15 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginSoomlaGrow.init();
 ```
 
-### Using SoomlaGrow user insight module
-After initialization you can begin to use the SoomlaGrow functionality. Use `refreshInsight`, 'getUserInsightInfo' wherever you want from your code:
+### Using GROW's Insights module
+After initialization you can begin to use the Insights functionality. Use `refreshInsight`, 'getUserInsightInfo' wherever you want from your code:
 ```javascript
 sdkbox.PluginSoomlaGrow.refreshInsight()
 sdkbox.PluginSoomlaGrow.getUserInsightInfo()
 ```
 
 ### Catch SoomlaGrow events (optional)
-This allows you to catch the `SoomlaGrow` events so that you can perform operations based upon responses. A simple example might look like this:
+This allows you to catch the `GROW` events so that you can perform operations based upon responses. A simple example might look like this:
 ```javascript
 sdkbox.PluginSoomlaGrow.setListener({
             onHighWayInitialized: function(data) {cc.log("onHighWayInitialized")},

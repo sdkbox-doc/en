@@ -9,7 +9,7 @@ static bool init();
 ```cpp
 static void setListener(SoomlaGrowListener* listener);
 ```
-> Set listener to listen for agecheq events
+> Set listener to listen for different events (list below)
 
 ```cpp
 static SoomlaGrowListener* getListener();
@@ -24,13 +24,13 @@ static void removeListener();
 ```cpp
 static void refreshInsight();
 ```
->  Refreshed SoomlaInsights information from the server
+>  Refreshed GROW's Insights information from the server
 
 ```cpp
 static std::string getUserInsightInfo();
 ```
 >  get user insight info
->  Note: the return may be empty
+>  Note: the returned value may be empty
 
 
 ### Listeners
@@ -38,17 +38,16 @@ static std::string getUserInsightInfo();
 void onHighWayInitialized();
 ```
 
->  The delegate named onHighWayInitialized is triggerred once the highway initialized.
+>  This event is triggered once the highway initialized.
 
 ```cpp
 void onHighWayConnected();
 ```
 
->  The delegate named onHighWayConnected is triggerred once the highway connected to server success.
+>  This event is triggered once the highway is connected to server.
 
 ```cpp
 void onHighWayDisconnected();
 ```
 
->  The delegate named onHighWayDisconnected is triggerred once the highway disconnect to server.
-
+>  This event is triggered once the highway disconnect from the server.

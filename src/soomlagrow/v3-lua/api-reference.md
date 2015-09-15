@@ -9,18 +9,18 @@ sdkbox.PluginSoomlaGrow:init()
 ```lua
 sdkbox.PluginSoomlaGrow:setListener(listener)
 ```
-> Set listener to listen for adcolony events
+> Set listener to listen for GROW events
 
 ```lua
 sdkbox.PluginSoomlaGrow:refreshInsight()
 ```
->  Refreshed SoomlaInsights information from the server
+>  Refreshed Insights information from the server
 
 ```lua
 sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 ```
 >  get user insight info
->  Note: the return may be empty
+>  Note: the returned value may be empty
 
 
 ### Listeners
@@ -28,17 +28,16 @@ sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 onHighWayInitialized()
 ```
 
->  The delegate named onHighWayInitialized is triggerred once the highway initialized.
+>  This event is triggered once the highway initialized.
 
 ```lua
 onHighWayConnected()
 ```
 
->  The delegate named onHighWayConnected is triggerred once the highway connected to server success.
+>  This event is triggered once the highway is connected to server.
 
 ```lua
 onHighWayDisconnected()
 ```
 
->  The delegate named onHighWayDisconnected is triggerred once the highway disconnect to server.
-
+>  This event is triggered once the highway disconnect from the server.
