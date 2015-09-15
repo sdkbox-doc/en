@@ -47,8 +47,9 @@ Queries the server for BrandEngage offers availability with custom placementId.
 sdkbox.PluginFyber.requestOffers("coins");
 ```
 
-Display an available rewarded video, call `requestOffers` first.
+Display an available rewarded video, call `requestOffers()` first and then `showOffers()`. Developer can `requestOffers()` anytime, then `showOffers()` without any delay:
 ```javascript
+sdkbox.PluginFyber.requestOffers();
 sdkbox.PluginFyber.showOffers();
 ```
 
