@@ -2,19 +2,24 @@
 Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/soomlagrow/v3-cpp
 -->
 
-#Soomla Grow
-__Soomla Grow__ is a community-driven analytics dashboard. Developers using GROW can gain valuable insights about their games' performance and compare the data to benchmarks of other games in the GROW community.
+#GROW
+GROW is [SOOMLA](http://soom.la)'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Anaytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
+Information about GROW can be found on the [Knowledge Base](http://know.soom.la/).
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX SoomlaGrow plugin. Make sure you setup SDKBOX installer correctly.
-```bash
-$ sdkbox import soomlagrow
-```
+1. If you still didn't sign up on the GROW Dashboard, go ahead and do it [here](http://dashboard.soom.la).
+
+2. Open a terminal and use the following command to install GROW's SDKBOX plugin. Make sure you setup SDKBOX installer correctly.
+
+  ```bash
+  $ sdkbox import soomlagrow
+  ```
 
 ## Configuration
-SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
+SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you will have to modify before you use in your own app.
 
-Here is an example of the SoomlaGrow configuration, you need to replace `<gameKey>` and `<envKey>` items with your specific [__Soomla ID__](http://soom.la/) account information. Even through you will use the same `<gameKey>` and `<envKey>`, if you are targeting both iOS and Android you need to specify it, twice, once for each platform. Example:
+Here is an example of the GROW configuration, you need to replace `<gameKey>` and `<envkey>` items with the ones you were given by the [GROW Dashboard](http://dashboard.soom.la). You will probably use the same `<gameKey>` and `<envKey>` for Android and iOS but you will still need to specify it twice, once for each platform. Example:
+
 ```json
 "ios" :
 {
