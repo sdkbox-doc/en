@@ -2,105 +2,84 @@
 
 ### Methods
 ```cpp
-static bool init();
+static bool init ( ) ;
 ```
 >  initialize the plugin instance.
 
 ```cpp
-static void setListener(ReviewListener* listener);
+static void setListener ( ReviewListener * listener ) ;
 ```
 > Set listener to listen for adcolony events
 
 ```cpp
-static ReviewListener* getListener();
+static ReviewListener * getListener ( ) ;
 ```
 > Get the listener
 
 ```cpp
-static void removeListener();
+static void removeListener ( ) ;
 ```
 > Remove the listener, and can't listen to events anymore
 
 ```cpp
-static void tryToShowPrompt();
+static void show ( bool force = false ) ;
 ```
-> Tells PluginReview to try and show the prompt (a rating alert). The prompt will be showed
-  if there is connection available, the user hasn't declined to rate
-  or hasn't rated current version.
-  if the item `tryPromptWhenInit` in sdkbox.config is false, you can call this try to show prompt
+> Tells 'SDKBox review plugin' to try and show the prompt (a rating alert).
+if you call `show` with `false` or null params,
+the prompt will be showed if there is connection available,
+the user hasn't declined to rate or hasn't rated current version.
+if the item `tryPromptWhenInit` in sdkbox.config is false, you can call this try to show prompt
+if you call `show` with `true` params
+the prompt will be showed without checks (the prompt is always displayed).
+The case where you should call this is if your app has an
+explicit "Rate this app" command somewhere. This is similar to rateApp,
+but instead of jumping to the review directly, an intermediary prompt is displayed.
+another case is for debug
 
 ```cpp
-static void forceToShowPrompt(bool displayRateLaterButton = true);
+static void userDidSignificantEvent ( bool canPromptForRating ) ;
 ```
-> Tells PluginReview to show the prompt (a rating alert).
-  Similar to tryToShowPrompt, but without checks (the prompt is always displayed).
-  Passing false will hide the rate later button on the prompt.
-
-  The case where you should call this is if your app has an
-  explicit "Rate this app" command somewhere. This is similar to rateApp,
-  but instead of jumping to the review directly, an intermediary prompt is displayed.
-
-  another case is for debug
 
 ```cpp
-static void userDidSignificantEvent(bool canPromptForRating);
+static void setTitle ( const std::string & title ) ;
 ```
-> Tells PluginReview that the user performed a significant event. A significant
-  event is whatever you want it to be. If you're app is used to make VoIP
-  calls, then you might want to call this method whenever the user places
-  a call. If it's a game, you might want to call this whenever the user
-  beats a level boss.
-
-  If the user has performed enough significant events and used the app enough,
-  you can suppress the rating alert by passing NO for canPromptForRating. The
-  rating alert will simply be postponed until it is called again with YES for
-  canPromptForRating. The rating alert can also be triggered by appLaunched:
-  and appEnteredForeground: (as long as you pass YES for canPromptForRating
-  in those methods).
 
 ```cpp
-static void setCustomPromptTitle(const std::string& title);
+static void setMessage ( const std::string & message ) ;
 ```
-> Set customized title for alert view.
 
 ```cpp
-static void setCustomPromptMessage(const std::string& message);
+static void setCancelButtonTitle ( const std::string & cancelTitle ) ;
 ```
-> Set customized message for alert view.
 
 ```cpp
-static void setCustomPromptCancelButtonTitle(const std::string& cancelTitle);
+static void setRateButtonTitle ( const std::string & rateTitle ) ;
 ```
-> Set customized cancel button title for alert view.
 
 ```cpp
-static void setCustomPromptRateButtonTitle(const std::string& rateTitle);
+static void setRateLaterButtonTitle ( const std::string & rateLaterTitle ) ;
 ```
-> Set customized rate button title for alert view.
-
-```cpp
-static void setCustomPromptRateLaterButtonTitle(const std::string& rateLaterTitle);
-```
-> Set customized rate later button title for alert view.
 
 
 ### Listeners
 ```cpp
-void didDisplayAlert();
+void onDisplayAlert ( );
 ```
-> trigger when rate prompt display
+> trigger when alert prompt show
 
 ```cpp
-void didDeclineToRate();
+void onDeclineToRate ( );
 ```
 > trigger when user refuse to rate
 
 ```cpp
-void didToRate();
+void onRate ( );
 ```
 > trigger when user want to rate
 
 ```cpp
-void didToRemindLater();
+void onRemindLater ( );
 ```
 > trigger when user want to remind later
+
+
