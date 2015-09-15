@@ -35,8 +35,9 @@ Queries the server for __BrandEngage__ offers availability with custom __placeme
 sdkbox::PluginFyber::requestOffers("coins");
 ```
 
-Display an available rewarded video, call `requestOffers` first.:
+Display an available rewarded video, call `requestOffers()` first and then `showOffers()`. Developer can `requestOffers()` anytime, then `showOffers()` without any delay:
 ```cpp
+sdkbox::PluginFyber::requestOffers();
 sdkbox::PluginFyber::showOffers();
 ```
 
