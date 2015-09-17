@@ -1,6 +1,6 @@
-site_name: SDKBOX
+site_name: SDKBOX Documentation
 pages:
-- Home: 'index.md'
+- Overview: 'index.md'
 - Installer: 'installer.md'
 - Plugins:
     - 'AdColony':
