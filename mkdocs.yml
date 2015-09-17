@@ -84,7 +84,7 @@ pages:
             - 'c++': 'plugins/kochava/v2-cpp.md'
             - 'js': 'plugins/kochava/v2-js.md'
             - 'lua': 'plugins/kochava/v2-lua.md'
-    - 'Review':
+    - 'Ratings & Reviews':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/review/v3-cpp.md'
             - 'js': 'plugins/review/v3-js.md'
