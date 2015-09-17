@@ -9,12 +9,14 @@
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	<title>js - SDKBOX</title>
+	<title>js - SDKBOX Documentation</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/custom.css" rel="stylesheet">
+
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -53,7 +55,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../../..">SDKBOX</a>
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png"></a>
         </div>
 
         <!-- Expanded navigation -->
@@ -64,7 +66,7 @@
                 
                 
                     <li >
-                        <a href="../../..">Home</a>
+                        <a href="../../..">Overview</a>
                     </li>
                 
                 
@@ -585,6 +587,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Ratings & Reviews</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../review/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../review/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Tune</a>
     <ul class="dropdown-menu">
         
@@ -848,7 +913,7 @@ Here is an example adding <code>FlurryAnalytics</code> to iOS:</p>
 <li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
 <pre><code class="cpp">sc-&gt;addRegisterCallback(register_all_PluginFlurryAnalyticsJS);
-sc-&gt;addRegisterCallback(register_PluginFlurryAnalyticsJs_helper);
+sc-&gt;addRegisterCallback(register_all_PluginFlurryAnalyticsJS_helper);
 </code></pre>
 
 <h3 id="initialize-flurry-analytics">Initialize Flurry Analytics</h3>

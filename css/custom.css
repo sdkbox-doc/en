@@ -1,0 +1,12 @@
+.navbar {
+background-image: none;
+background-color: #273033;
+}
+.navbar-brand {
+padding: 0px;
+}
+.navbar-brand img {
+height: 48px;
+maring-top: 2px;
+margin-right: 50px;
+}
