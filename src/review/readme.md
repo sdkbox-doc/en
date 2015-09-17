@@ -2,11 +2,11 @@
 Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/review/v3-cpp
 -->
 
-#Review
-Review is a plugin that will help remind your users to review your app on the App Store.
+#Ratings & Reviews
+This is a plugin that will help remind your users to rate and review your app on the App Store.
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Review plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Ratings & Reviews plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
 $ sdkbox import review
 ```
@@ -18,7 +18,7 @@ $ sdkbox import review
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-Here is an example of the Review configuration.
+Here is an example of the configuration.
 ```json
 "Review":{
     "ios": {
