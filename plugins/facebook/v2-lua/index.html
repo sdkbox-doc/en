@@ -1224,12 +1224,13 @@ optional on newer sdk versions and doesn't work on version 2.3.3.</p>
 <h3 id="edit-stringsxml">Edit strings.xml</h3>
 <p>Open <code>res/values/strings.xml</code>, Add a new string with the name
 <code>facebook_app_id</code> and value as your Facebook App ID. Example:</p>
-<p><code>xml
-    &lt;?xml version="1.0" encoding="utf-8"?&gt;
-    &lt;resources&gt;
-        &lt;string name="app_name"&gt;facebook&lt;/string&gt;
-        &lt;string name="facebook_app_id"&gt;280194012150923&lt;/string&gt;
-    &lt;/resources&gt;</code></p>
+<pre><code class="xml">  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+  &lt;resources&gt;
+      &lt;string name=&quot;app_name&quot;&gt;facebook&lt;/string&gt;
+      &lt;string name=&quot;facebook_app_id&quot;&gt;280194012150923&lt;/string&gt;
+  &lt;/resources&gt;
+</code></pre>
+
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
 <p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
@@ -1270,6 +1271,15 @@ $(call import-module, ./pluginfacebook)
                                 ../../Classes/NewSourceFile.cpp
 </code></pre>
 
+<h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
+<p>Add following line to your <code>project.properties</code></p>
+<pre><code>android.library.reference.1=./libs/facebook_lib
+</code></pre>
+
+<blockquote>
+<p>Note: if you already have an <code>android.library.reference.1</code> you can add
+another by incrementing the final digit as <code>android.library.reference.2</code>, etc.</p>
+</blockquote>
 <h3 id="modify-java">Modify <strong><YourGameName>.java</strong></h3>
 <ul>
 <li>Modify <strong>proj.android/src/<package identifier>/<YourGameName>.java</strong> to add the following imports:</li>

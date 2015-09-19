@@ -1136,6 +1136,18 @@ changed to:</p>
                                 ../../Classes/NewSourceFile.cpp
 </code></pre>
 
+<h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
+<p>An <strong>Android Library Reference</strong> for <strong>Google Play Services</strong> is required. The
+path will be different depending upon your setup. Also, this is an additional
+download that does not come as part of a standard install. To install use the
+<strong>sdk installer</strong> and choose <strong>extras-&gt;google play services</strong>. Here is an example of what this line could look like:</p>
+<pre><code>android.library.reference.1=
+../android/sdk.latest/extras/google/google_play_services/libproject/
+google-play-services_lib
+</code></pre>
+
+<p><strong>Note:</strong> if you already have an <code>android.library.reference.1</code> you can add
+another by incrementing the number as <code>android.library.reference.2</code>, etc.</p>
 <h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
 <ul>
 <li>
@@ -1245,19 +1257,7 @@ SDKBox.init(this);
 }
 </code></pre>
 
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
-<h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
-<p>An <strong>Android Library Reference</strong> for <strong>Google Play Services</strong> is required. The
-path will be different depending upon your setup. Also, this is an additional
-download that does not come as part of a standard install. To install use the
-<strong>sdk installer</strong> and choose <strong>extras-&gt;google play services</strong>. Here is an example of what this line could look like:</p>
-<pre><code>android.library.reference.1=
-../android/sdk.latest/extras/google/google_play_services/libproject/
-google-play-services_lib
-</code></pre>
-
-<p><strong>Note:</strong> if you already have an <code>android.library.reference.1</code> you can add
-another by incrementing the number as <code>android.library.reference.2</code>, etc.</p></div>
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
 
