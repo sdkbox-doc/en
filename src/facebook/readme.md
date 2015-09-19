@@ -89,6 +89,16 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 
 <<[manual_android.md]
 
+### Modify `project.properties`
+Add following line to your `project.properties`
+
+```
+android.library.reference.1=./libs/facebook_lib
+```
+
+> Note: if you already have an `android.library.reference.1` you can add
+another by incrementing the final digit as `android.library.reference.2`, etc.
+
 <<[extra-step.md]
 
 <<[proguard.md]
