@@ -56,13 +56,13 @@ There are also a few necessary meta-data tags that also need to be added:
 Open `res/values/strings.xml`, Add a new string with the name
 `facebook_app_id` and value as your Facebook App ID. Example:
 
-  ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <string name="app_name">facebook</string>
-        <string name="facebook_app_id">280194012150923</string>
-    </resources>
-  ```
+```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+      <string name="app_name">facebook</string>
+      <string name="facebook_app_id">280194012150923</string>
+  </resources>
+```
 
 ### Edit `Android.mk`
 Edit `proj.android/jni/Android.mk` to:
