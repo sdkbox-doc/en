@@ -27,7 +27,6 @@ Here is an example adding `Tune`:
 ##Extra steps
 
 ###Setup iOS
-* Configure your __APP__ following [iOS Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=ios)
 * Apply the code change to `AppController.mm` instead of `AppDelegate.cpp`
 
 ```
