@@ -30,8 +30,7 @@ __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
 
 Add URL Schemes:
-__Target -> Info -> URL Types:
+__Target -> Info -> URL Types__:
 
 1. click "+"
 2. fill "URL Schemes" with "your bee7 scheme"
-
