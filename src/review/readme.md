@@ -11,6 +11,8 @@ Open a terminal and use the following command to install the SDKBOX Ratings & Re
 $ sdkbox import review
 ```
 
+<<[../../shared/notice.md]
+
 ##Extra steps for Android
 <<[extra-step.md]
 <<[proguard.md]

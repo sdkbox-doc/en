@@ -17,6 +17,8 @@ Open a terminal and use the following command to install the SDKBOX Bee7 plugin.
 $ sdkbox import bee7
 ```
 
+<<[../../shared/notice.md]
+
 ## Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 

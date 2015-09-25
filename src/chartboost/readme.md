@@ -10,6 +10,9 @@ Open a terminal and use the following command to install the SDKBOX Chartboost p
 $ sdkbox import chartboost
 ```
 
+<<[../../shared/notice.md]
+For chartboost, follow [this link](https://www.chartboost.com/blog/2015/09/how-to-prepare-your-mobile-game-for-ios-9/)
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
