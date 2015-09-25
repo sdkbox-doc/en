@@ -1,5 +1,3 @@
-## Manual Integration For Android.
-
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
@@ -10,8 +8,7 @@ bundle into your project’s __proj.android/libs__ folder.
 
 Copy the `pluginreview` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 
-Copy the `plugin_review_res_project` directory from `plugin/android` to your `proj.android` directory.
-make your android project reference the `plugin_review_res_project` project.
+Copy the `plugin_review_res_project` directory from `plugin/android` to your `proj.android` directory. Make your Android project reference the `plugin_review_res_project` project.
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
