@@ -13,6 +13,8 @@ Open a terminal and use the following command to install the SDKBOX Fyber plugin
 $ sdkbox import fyber
 ```
 
+<<[../../shared/notice.md]
+
 ##Extra steps
 
 The following step assuming you already registered as a Fyber Developer

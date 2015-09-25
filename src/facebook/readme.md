@@ -13,6 +13,9 @@ Open a terminal and use the following command to install the SDKBOX Facebook plu
 $ sdkbox import facebook
 ```
 
+<<[../../shared/notice.md]
+For facebook, follow [this link](https://developers.facebook.com/docs/ios/ios9)
+
 ##Extra steps
 
 The following step assuming you already registered as a Facebook Developer

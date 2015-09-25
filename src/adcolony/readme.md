@@ -10,6 +10,10 @@ Open a terminal and use the following command to install the SDKBOX AdColony plu
 $ sdkbox import adcolony
 ```
 
+<<[../../shared/notice.md]
+
+For AdColony follow [this link](https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl)
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 

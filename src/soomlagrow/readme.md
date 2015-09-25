@@ -15,6 +15,8 @@ Information about GROW can be found on the [Knowledge Base](http://know.soom.la/
   $ sdkbox import soomlagrow
   ```
 
+<<[../../shared/notice.md]
+
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you will have to modify before you use in your own app.
 
