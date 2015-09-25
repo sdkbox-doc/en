@@ -1,8 +1,6 @@
-## Manual Integration For Android.
-
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __proj.android/libs__ folder.
+bundle into your project’s __<project_root>/libs__ folder.
 
 > adcolony.jar
 
@@ -13,24 +11,37 @@ bundle into your project’s __proj.android/libs__ folder.
 
 * If you're using cocos2d-x from source copy the __jar__ files to:
 
+	Android command-line:
 	```
 	cocos2d/cocos/platform/android/java/libs
 	```
 
+	Android Studio:
+	```
+	cocos2d/cocos/platform/android/libcocos2dx/libs
+	```
+
 * If you're using cocos2d-js or lua copy the __jar__ files to:
 
+	Android command-line:
 	```
 	frameworks/cocos2d-x/cocos/platform/android/java/libs
 	```
 
+	Android Studio:
+	```
+	frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
+	```
+
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
 
+	Android command-line:
 	```
 	proj.android/libs
 	```
 
 Copy the `pluginadcolony` and `sdkbox` directories from `plugin/android/jni`
-to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+to your `<project_root>/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
@@ -42,7 +53,7 @@ Include the following permissions above the __application tag__:
 ```
 
 To enable __hardware acceleration__ in your __application tag__. This tag is
-optional on newer sdk versions and doesn't work on version 2.3.3.
+optional on newer SDK versions and doesn't work on version 2.3.3.
 ```xml
 <android:hardwareAccelerated="true" />
 ```
@@ -63,7 +74,7 @@ Copy and paste the following three activity definitions just before the end of t
  __Note:__ if your application targets below __API 13__, you will likely need to remove `screenSize` from the __configChanges__ property of the above __activity tags__.
 
 ### Edit `Android.mk`
-Edit `proj.android/jni/Android.mk` to:
+Edit `<project_root>/jni/Android.mk` to:
 
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
@@ -93,7 +104,7 @@ $(call import-module, ./pluginadcolony)
   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
 
 ### Modify `Application.mk` (Cocos2d-x v3.0 to v3.2 only)
-Edit `proj.android/jni/Application.mk` to make sure __APP_STL__ is defined
+Edit `<project_root>/jni/Application.mk` to make sure __APP_STL__ is defined
 correctly. If `Application.mk` contains `APP_STL := c++_static`, it should be
 changed to:
 ```

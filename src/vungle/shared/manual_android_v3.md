@@ -1,8 +1,6 @@
-## Manual Integration For Android.
-
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __proj.android/libs__ folder.
+bundle into your project’s __<project_root>/libs__ folder.
 
 > vungle-publisher-adaptive-id-3.3.0..jar
 
@@ -34,11 +32,11 @@ frameworks/cocos2d-x/cocos/platform/android/java/libs
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
 
 ```
-proj.android/libs
+<project_root>/libs
 ```
 
 Copy the `pluginvungle` and `sdkbox` directories from `plugin/android/jni`
-to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+to your `<project_root>/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
@@ -60,7 +58,7 @@ __application tags__, near the bottom.
  __Note:__ if your application targets below __API 13__, you will likely need to remove the __configChanges__ property of the above __activity tags__.
 
 ### Edit `Android.mk`
-Edit `proj.android/jni/Android.mk` to:
+Edit `<project_root>/jni/Android.mk` to:
 
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
@@ -90,7 +88,7 @@ $(call import-module, ./pluginvungle)
   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
 
 ### Modify `Application.mk` (Cocos2d-x v3.0 to v3.2 only)
-Edit `proj.android/jni/Application.mk` to make sure __APP_STL__ is defined
+Edit `<project_root>/jni/Application.mk` to make sure __APP_STL__ is defined
 correctly. If `Application.mk` contains `APP_STL := c++_static`, it should be
 changed to:
 ```
