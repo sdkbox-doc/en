@@ -4,7 +4,7 @@
 1.3 Release Notes
 ===
 ##Highlight
-* New `update` command in sdkbox installer, which will automatically updates your SDKBOX integration to the latest version
+* New `update` command in sdkbox installer, which will automatically update your SDKBOX integration to the latest version
 * [SDKBOX Fyber plugin](http://cocos2d-x.org/sdkbox/fyber)
 * [SDKBOX Bee7 plugin](http://cocos2d-x.org/sdkbox/bee7)
 * [SDKBOX Soomla Grow plugin](http://cocos2d-x.org/sdkbox/soomlagrow)
