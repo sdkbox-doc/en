@@ -1,6 +1,21 @@
 #Release Notes
 ---
 
+1.3 Release Notes
+===
+##Highlight
+* New `update` command in sdkbox installer, which will automatically updates your SDKBOX integration to the latest version
+* [SDKBOX Fyber plugin](http://cocos2d-x.org/sdkbox/fyber)
+* [SDKBOX Bee7 plugin](http://cocos2d-x.org/sdkbox/bee7)
+* [SDKBOX Soomla Grow plugin](http://cocos2d-x.org/sdkbox/soomlagrow)
+* [SDKBOX Ratings and Review plugin](http://cocos2d-x.org/sdkbox/ratings_reviews)
+
+##Bugfix
+* [Fix facebook plugin requires login after app restart]()
+* [Fix SDKBOX using absolute path for resources]()
+* [Fix SDKBOX iap not handling network connection issue]()
+
+
 1.2.5 Release Notes
 ===
 ##Highlight
