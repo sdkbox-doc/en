@@ -4,8 +4,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 
 #Bee7
 
-[http://bee7.com/](http://bee7.com/)
-
 ##Prerequisites
 * __For Android, Bee7 requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
 
@@ -18,24 +16,6 @@ $ sdkbox import bee7
 ```
 
 <<[../../shared/notice.md]
-
-##Extra steps
-
-The following step assuming you already registered as a [Bee7](http://bee7.com/)
-And created a new __APP__ and activate it.
-
-###Setup iOS
-* Modify `Info.plist`, add URL Schemes:
-
-	__Target -> Info -> URL Types__:
-
-	1. click "+"
-	2. fill "URL Schemes" with "your bee7 scheme"
-
-
-###Setup Android
-* Open `AndroidManifest.xml` and replace `_replace_with_your_bee7_scheme_` with your `bee7 scheme`
-* Open `project.properties` and change target to `target=android-21`
 
 ## Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
@@ -53,6 +33,22 @@ Here is an example of the Bee7 configuration you can enable/disable debug mode f
 <<[sdkbox-config-encrypt.md]
 
 ##Usage
+
+##Extra steps
+The following step assumes you already registered at [Bee7](http://bee7.com/), created a new __APP__ and activated it.
+
+###Setup iOS
+* Modify `Info.plist`, add URL Schemes:
+
+	__Target -> Info -> URL Types__:
+
+	1. click "+"
+	2. fill "URL Schemes" with "your bee7 scheme"
+
+###Setup Android
+* Open `AndroidManifest.xml` and replace `_replace_with_your_bee7_scheme_` with your `bee7 scheme`
+* Open `project.properties` and change target to `target=android-21`
+
 <<[usage.md]
 
 <<[api-reference.md]
