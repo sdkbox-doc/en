@@ -1,5 +1,5 @@
 ### Modify Lua Code
-Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `SoomlaGrow` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `SOOMLA Grow` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginSoomlaGrowLua.hpp"
 #include "PluginSoomlaGrowLuaHelper.h"
@@ -26,7 +26,7 @@ sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 ```
 
 ### Catch GROW events (optional)
-This allows you to catch the `GROW` events so that you can perform operations based upon responses. A simple example might look like this:
+This allows you to catch the `SOOMLA Grow` events so that you can perform operations based upon responses. A simple example might look like this:
 ```lua
 sdkbox.PluginSoomlaGrow:setListener(function(data)
             if "onHighWayInitialized" == data.event then
