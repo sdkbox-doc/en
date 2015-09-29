@@ -28,9 +28,3 @@ __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
 > -force_load PluginBee7.framework/PluginBee7
 
-
-Add URL Schemes:
-__Target -> Info -> URL Types__:
-
-1. click "+"
-2. fill "URL Schemes" with "your bee7 scheme"

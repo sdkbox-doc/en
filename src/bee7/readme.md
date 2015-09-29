@@ -19,6 +19,24 @@ $ sdkbox import bee7
 
 <<[../../shared/notice.md]
 
+##Extra steps
+
+The following step assuming you already registered as a [Bee7](http://bee7.com/)
+And created a new __APP__ and activate it.
+
+###Setup iOS
+* Modify `Info.plist`, add URL Schemes:
+
+	__Target -> Info -> URL Types__:
+
+	1. click "+"
+	2. fill "URL Schemes" with "your bee7 scheme"
+
+
+###Setup Android
+* Open `AndroidManifest.xml` and replace `_replace_with_your_bee7_scheme_` with your `bee7 scheme`
+* Open `project.properties` and change target to `target=android-21`
+
 ## Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
