@@ -9,7 +9,7 @@
 
   __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
 
-	Here is an example of what this might look like for you:
+Here is an example of what this might look like for you:
 ```cpp
 #include "PluginSoomlaGrowLua.hpp"
 #include "PluginSoomlaGrowLuaHelper.h"
@@ -22,21 +22,21 @@ bool AppDelegate::applicationDidFinishLaunching()
 }
 ```
 
-### Initialize GROW
+### Initialize SOOMLA Grow
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
 sdkbox.PluginSoomlaGrow:init()
 ```
 
-### Using GROW's Insights module
+### Using SOOMLA Grow's Insights module
 After initialization you can begin to use GROW's Insights functionality. Use `refreshInsight`, 'getUserInsightInfo' wherever you want from your code:
 ```lua
 sdkbox.PluginSoomlaGrow:refreshInsight()
 sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 ```
 
-### Catch GROW events (optional)
-This allows you to catch the `GROW` events so that you can perform operations based upon responses. A simple example might look like this:
+### Catch SOOMLA Grow events (optional)
+This allows you to catch the `SOOMLA Grow` events so that you can perform operations based upon responses. A simple example might look like this:
 ```lua
 sdkbox.PluginSoomlaGrow:setListener(function(data)
 			if "onHighWayInitialized" == data.event then

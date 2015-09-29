@@ -3,7 +3,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/soomlagrow/v3-cpp
 -->
 
 #GROW
-GROW is [SOOMLA](http://soom.la)'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Anaytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
+GROW is [SOOMLA](http://soom.la)'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Analytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
 Information about GROW can be found on the [Knowledge Base](http://know.soom.la/).
 
 ##Integration
