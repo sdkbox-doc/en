@@ -209,6 +209,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Bee7</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -385,6 +448,69 @@
             
 <li >
     <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Fyber</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-lua/">lua</a>
 </li>
 
         
@@ -650,6 +776,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Tune</a>
     <ul class="dropdown-menu">
         
@@ -826,6 +1015,8 @@
         
             <li><a href="#integration">Integration</a></li>
         
+            <li><a href="#important-notice">Important Notice</a></li>
+        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -836,7 +1027,7 @@
         
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
-            <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+            <li><a href="#manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</a></li>
         
             <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
@@ -855,6 +1046,23 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/vungle/v3-cpp
 <pre><code class="bash">$ sdkbox import vungle
 </code></pre>
 
+<h2 id="important-notice">Important Notice</h2>
+<p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
+<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
+<p>Adding the following entry to the plist:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
+<p>You have to turn off Bitcode support otherwise you won't be able to build cocos2d-x</p>
+<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
+<p>if your game don't support all the orientations you will need to check <code>Requires full screen</code> in xcode, otherwise, you won't be able to submit your app to Apple.</p>
+<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
+<p>Depends on the plugins in your project, you need to add the required entry to the plist, under <code>LSApplicationQueriesSchemes</code></p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Vungle configuration, you need to replace <code>&lt;vungle id&gt;</code>  with your specific <a href="http://vungle.com">Vungle</a> Publisher account information.
@@ -1044,7 +1252,8 @@ adding frameworks:</p>
 </blockquote>
 <p>Copy all source and header files from <code>plugin/luabindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
-<h2 id="manual-integration-for-android">Manual Integration For Android.</h2>
+<h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>
+<p>Both <strong>Android</strong> development using a command-line and using <strong>Android Studio</strong> are supported. <code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> development, while <code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong>.</p>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong>proj.android/libs</strong> folder.</p>

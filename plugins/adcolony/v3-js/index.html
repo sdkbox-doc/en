@@ -209,6 +209,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Bee7</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Chartboost</a>
     <ul class="dropdown-menu">
         
@@ -385,6 +448,69 @@
             
 <li >
     <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Fyber</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-lua/">lua</a>
 </li>
 
         
@@ -650,6 +776,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Tune</a>
     <ul class="dropdown-menu">
         
@@ -826,6 +1015,8 @@
         
             <li><a href="#integration">Integration</a></li>
         
+            <li><a href="#important-notice">Important Notice</a></li>
+        
             <li><a href="#configuration">Configuration</a></li>
         
             <li><a href="#usage">Usage</a></li>
@@ -836,7 +1027,7 @@
         
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
-            <li><a href="#manual-integration-for-android">Manual Integration For Android.</a></li>
+            <li><a href="#manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</a></li>
         
             <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
@@ -855,6 +1046,24 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 <pre><code class="bash">$ sdkbox import adcolony
 </code></pre>
 
+<h2 id="important-notice">Important Notice</h2>
+<p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
+<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
+<p>Adding the following entry to the plist:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
+<p>You have to turn off Bitcode support otherwise you won't be able to build cocos2d-x</p>
+<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
+<p>if your game don't support all the orientations you will need to check <code>Requires full screen</code> in xcode, otherwise, you won't be able to submit your app to Apple.</p>
+<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
+<p>Depends on the plugins in your project, you need to add the required entry to the plist, under <code>LSApplicationQueriesSchemes</code></p>
+<p>For AdColony follow <a href="https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl">this link</a></p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the AdColony configuration, you need to replace <code>&lt;app id&gt;</code> and <code>&lt;zone id&gt;</code> items with your specific <a href="https://clients.adcolony.com/login">AdColony</a> account information.</p>
@@ -1117,10 +1326,11 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
-<h2 id="manual-integration-for-android">Manual Integration For Android.</h2>
+<h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>
+<p>Both <strong>Android</strong> development using a command-line and using <strong>Android Studio</strong> are supported. <code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> development, while <code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong>.</p>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
-bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
+bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 <blockquote>
 <p>adcolony.jar</p>
 <p>PluginAdColony.jar</p>
@@ -1129,19 +1339,26 @@ bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
 <ul>
 <li>
 <p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>
-<p><code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android command-line:
+<code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
 </li>
 <li>
 <p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
-<p><code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android command-line:
+<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
 </li>
 <li>
 <p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
-<p><code>proj.android/libs</code></p>
+<p>Android command-line:
+<code>proj.android/libs</code></p>
 </li>
 </ul>
 <p>Copy the <code>pluginadcolony</code> and <code>sdkbox</code> directories from <code>plugin/android/jni</code>
-to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
+to your <code>&lt;project_root&gt;/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
 <h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
 <p>Include the following permissions above the <strong>application tag</strong>:</p>
 <pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
@@ -1151,7 +1368,7 @@ to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> fol
 </code></pre>
 
 <p>To enable <strong>hardware acceleration</strong> in your <strong>application tag</strong>. This tag is
-optional on newer sdk versions and doesn't work on version 2.3.3.</p>
+optional on newer SDK versions and doesn't work on version 2.3.3.</p>
 <pre><code class="xml">&lt;android:hardwareAccelerated=&quot;true&quot; /&gt;
 </code></pre>
 
@@ -1169,7 +1386,7 @@ optional on newer sdk versions and doesn't work on version 2.3.3.</p>
 
 <p><strong>Note:</strong> if your application targets below <strong>API 13</strong>, you will likely need to remove <code>screenSize</code> from the <strong>configChanges</strong> property of the above <strong>activity tags</strong>.</p>
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
-<p>Edit <code>proj.android/jni/Android.mk</code> to:</p>
+<p>Edit <code>&lt;project_root&gt;/jni/Android.mk</code> to:</p>
 <p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
 <pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginAdColony
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
@@ -1193,7 +1410,7 @@ $(call import-module, ./pluginadcolony)
 
 <p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>
 <h3 id="modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify <code>Application.mk</code> (Cocos2d-x v3.0 to v3.2 only)</h3>
-<p>Edit <code>proj.android/jni/Application.mk</code> to make sure <strong>APP_STL</strong> is defined
+<p>Edit <code>&lt;project_root&gt;/jni/Application.mk</code> to make sure <strong>APP_STL</strong> is defined
 correctly. If <code>Application.mk</code> contains <code>APP_STL := c++_static</code>, it should be
 changed to:</p>
 <pre><code>APP_STL := gnustl_static
