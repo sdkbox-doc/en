@@ -1023,6 +1023,8 @@
         
             <li><a href="#usage">Usage</a></li>
         
+            <li><a href="#extra-steps">Extra steps</a></li>
+        
             <li><a href="#api-reference">API Reference</a></li>
         
             <li><a href="#manual-integration">Manual Integration</a></li>
@@ -1043,7 +1045,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 -->
 
 <h1 id="bee7">Bee7</h1>
-<p><a href="http://bee7.com/">http://bee7.com/</a></p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>
@@ -1070,11 +1071,11 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 </code></pre>
 
 <h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off Bitcode support otherwise you won't be able to build cocos2d-x</p>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
 <h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>if your game don't support all the orientations you will need to check <code>Requires full screen</code> in xcode, otherwise, you won't be able to submit your app to Apple.</p>
+<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>Depends on the plugins in your project, you need to add the required entry to the plist, under <code>LSApplicationQueriesSchemes</code></p>
+<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically create a sample configuration <code>sdkbox_config.json</code> for you</p>
 <p>Here is an example of the Bee7 configuration you can enable/disable debug mode for Bee7 here</p>
@@ -1086,6 +1087,24 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 </code></pre>
 
 <h2 id="usage">Usage</h2>
+<h2 id="extra-steps">Extra steps</h2>
+<p>The following step assumes you already registered at <a href="http://bee7.com/">Bee7</a>, created a new <strong>APP</strong> and activated it.</p>
+<h3 id="setup-ios">Setup iOS</h3>
+<ul>
+<li>
+<p>Modify <code>Info.plist</code>, add URL Schemes:</p>
+<p><strong>Target -&gt; Info -&gt; URL Types</strong>:</p>
+<ol>
+<li>click "+"</li>
+<li>fill "URL Schemes" with "your bee7 scheme"</li>
+</ol>
+</li>
+</ul>
+<h3 id="setup-android">Setup Android</h3>
+<ul>
+<li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_bee7_scheme_</code> with your <code>bee7 scheme</code></li>
+<li>Open <code>project.properties</code> and change target to <code>target=android-21</code></li>
+</ul>
 <h3 id="register-javascript-functions">Register Javascript Functions</h3>
 <p>You need to register all the Bee7 JS functions with cocos2d-x before using them.</p>
 <p>To do this:
@@ -1177,12 +1196,6 @@ the<code>Bee7</code> bundle into your Xcode project, check <code>Copy items if n
 <blockquote>
 <p>-force_load PluginBee7.framework/PluginBee7</p>
 </blockquote>
-<p>Add URL Schemes:
-<strong>Target -&gt; Info -&gt; URL Types</strong>:</p>
-<ol>
-<li>click "+"</li>
-<li>fill "URL Schemes" with "your bee7 scheme"</li>
-</ol>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
 <h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>

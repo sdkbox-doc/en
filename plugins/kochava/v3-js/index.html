@@ -1056,11 +1056,11 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/kochava/v3-cpp
 </code></pre>
 
 <h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off Bitcode support otherwise you won't be able to build cocos2d-x</p>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
 <h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>if your game don't support all the orientations you will need to check <code>Requires full screen</code> in xcode, otherwise, you won't be able to submit your app to Apple.</p>
+<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>Depends on the plugins in your project, you need to add the required entry to the plist, under <code>LSApplicationQueriesSchemes</code></p>
+<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Kochava configuration, you need to replace

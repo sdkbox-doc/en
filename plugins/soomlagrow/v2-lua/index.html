@@ -1039,7 +1039,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/soomlagrow/v3-cpp
 -->
 
 <h1 id="grow">GROW</h1>
-<p>GROW is <a href="http://soom.la">SOOMLA</a>'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Anaytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
+<p>GROW is <a href="http://soom.la">SOOMLA</a>'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Analytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
 Information about GROW can be found on the <a href="http://know.soom.la/">Knowledge Base</a>.</p>
 <h2 id="integration">Integration</h2>
 <ol>
@@ -1064,11 +1064,11 @@ Information about GROW can be found on the <a href="http://know.soom.la/">Knowle
 </code></pre>
 
 <h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off Bitcode support otherwise you won't be able to build cocos2d-x</p>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
 <h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>if your game don't support all the orientations you will need to check <code>Requires full screen</code> in xcode, otherwise, you won't be able to submit your app to Apple.</p>
+<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>Depends on the plugins in your project, you need to add the required entry to the plist, under <code>LSApplicationQueriesSchemes</code></p>
+<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you will have to modify before you use in your own app.</p>
 <p>Here is an example of the GROW configuration, you need to replace <code>&lt;gameKey&gt;</code> and <code>&lt;envkey&gt;</code> items with the ones you were given by the <a href="http://dashboard.soom.la">GROW Dashboard</a>. You will probably use the same <code>&lt;gameKey&gt;</code> and <code>&lt;envKey&gt;</code> for Android and iOS but you will still need to specify it twice, once for each platform. Example:</p>
@@ -1101,8 +1101,7 @@ Information about GROW can be found on the <a href="http://know.soom.la/">Knowle
 <li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginSoomlaGrowLua(&lt;lua_State*&gt;);</code>.</li>
 </ul>
 <p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
-<pre><code>Here is an example of what this might look like for you:
-</code></pre>
+<p>Here is an example of what this might look like for you:</p>
 <pre><code class="cpp">#include &quot;PluginSoomlaGrowLua.hpp&quot;
 #include &quot;PluginSoomlaGrowLuaHelper.h&quot;
 bool AppDelegate::applicationDidFinishLaunching()
@@ -1114,19 +1113,19 @@ bool AppDelegate::applicationDidFinishLaunching()
 }
 </code></pre>
 
-<h3 id="initialize-grow">Initialize GROW</h3>
+<h3 id="initialize-soomla-grow">Initialize SOOMLA Grow</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginSoomlaGrow:init()
 </code></pre>
 
-<h3 id="using-grows-insights-module">Using GROW's Insights module</h3>
+<h3 id="using-soomla-grows-insights-module">Using SOOMLA Grow's Insights module</h3>
 <p>After initialization you can begin to use GROW's Insights functionality. Use <code>refreshInsight</code>, 'getUserInsightInfo' wherever you want from your code:</p>
 <pre><code class="lua">sdkbox.PluginSoomlaGrow:refreshInsight()
 sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 </code></pre>
 
-<h3 id="catch-grow-events-optional">Catch GROW events (optional)</h3>
-<p>This allows you to catch the <code>GROW</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
+<h3 id="catch-soomla-grow-events-optional">Catch SOOMLA Grow events (optional)</h3>
+<p>This allows you to catch the <code>SOOMLA Grow</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="lua">sdkbox.PluginSoomlaGrow:setListener(function(data)
             if &quot;onHighWayInitialized&quot; == data.event then
                 //highway initialized
@@ -1189,7 +1188,7 @@ sdkbox.PluginSoomlaGrow:init()
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
 <h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
-<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>SoomlaGrow</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>SOOMLA Grow</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
 <blockquote>
 <p>sdkbox.framework</p>
 <p>PluginSoomlaGrow.framework</p>
