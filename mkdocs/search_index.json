@@ -3488,7 +3488,7 @@
         {
             "location": "/plugins/review/v3-cpp/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v3-cpp/#integration", 
@@ -3543,7 +3543,7 @@
         {
             "location": "/plugins/review/v3-js/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v3-js/#integration", 
@@ -3598,7 +3598,7 @@
         {
             "location": "/plugins/review/v3-lua/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v3-lua/#integration", 
@@ -3653,7 +3653,7 @@
         {
             "location": "/plugins/review/v2-cpp/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v2-cpp/#integration", 
@@ -3708,7 +3708,7 @@
         {
             "location": "/plugins/review/v2-js/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v2-js/#integration", 
@@ -3763,7 +3763,7 @@
         {
             "location": "/plugins/review/v2-lua/#ratings-reviews", 
             "text": "This is a plugin that will help remind your users to rate and review your app on the App Store.", 
-            "title": "Ratings &amp; Reviews"
+            "title": "Ratings  Reviews"
         }, 
         {
             "location": "/plugins/review/v2-lua/#integration", 
