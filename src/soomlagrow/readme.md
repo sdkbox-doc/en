@@ -18,6 +18,10 @@ Information about GROW can be found on the [Knowledge Base](http://know.soom.la/
 <<[../../shared/notice.md]
 
 ## Configuration
+
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you will have to modify before you use in your own app.
 
 Here is an example of the GROW configuration, you need to replace `<gameKey>` and `<envkey>` items with the ones you were given by the [GROW Dashboard](http://dashboard.soom.la). You will probably use the same `<gameKey>` and `<envKey>` for Android and iOS but you will still need to specify it twice, once for each platform. Example:

@@ -13,6 +13,10 @@ $ sdkbox import flurryanalytics
 <<[../../shared/notice.md]
 
 ## Configuration
+
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the Google Analytics configuration, you need to replace `<API KEY>`  with your specific [__Flurry Analytics ID__](http://www.flurry.com/solutions/analytics) account information.

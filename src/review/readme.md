@@ -18,6 +18,10 @@ $ sdkbox import review
 <<[proguard.md]
 
 ## Configuration
+
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the configuration.
