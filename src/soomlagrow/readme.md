@@ -18,7 +18,7 @@ Information about GROW can be found on the [Knowledge Base](http://know.soom.la/
 <<[../../shared/notice.md]
 
 ## Configuration
-
+<<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
 ### JSON Configuration

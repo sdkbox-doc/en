@@ -29,7 +29,7 @@ And created a new __APP__ on Fyber
 * Open `project.properties` and change target to `target=android-15`
 
 ## Configuration
-
+<<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
 ### JSON Configuration

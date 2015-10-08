@@ -15,7 +15,7 @@ $ sdkbox import adcolony
 Follow [this link](https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl)
 
 ## Configuration
-
+<<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
 ### JSON Configuration

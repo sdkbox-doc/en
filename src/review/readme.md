@@ -18,7 +18,7 @@ $ sdkbox import review
 <<[proguard.md]
 
 ## Configuration
-
+<<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
 ### JSON Configuration

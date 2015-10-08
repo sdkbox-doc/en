@@ -18,7 +18,7 @@ $ sdkbox import bee7
 <<[../../shared/notice.md]
 
 ## Configuration
-
+<<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
 ### JSON Configuration
