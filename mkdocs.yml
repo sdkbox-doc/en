@@ -102,7 +102,7 @@ pages:
             - 'c++': 'plugins/review/v2-cpp.md'
             - 'js': 'plugins/review/v2-js.md'
             - 'lua': 'plugins/review/v2-lua.md'
-    - 'Soomla Grow':
+    - 'SOOMLA Grow':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/soomlagrow/v3-cpp.md'
             - 'js': 'plugins/soomlagrow/v3-js.md'
