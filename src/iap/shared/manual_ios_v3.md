@@ -12,3 +12,5 @@ The above frameworks depend upon other frameworks. You also need to add the foll
 > StoreKit.framework
 
 > AdSupport.framework
+
+> SystemConfiguration.framework
