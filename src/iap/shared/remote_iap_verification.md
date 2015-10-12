@@ -4,4 +4,4 @@ These scenarios are for timeout or networking errors when communicating with Chu
 
 It is important to note that the plugin remotely authenticates based on the __Applications hash value__. It is possible that the verification process can be performed, but for some reason, remotely fails. For example, the __application hash value__ that was passed-in to the `sdkbox::init()` call has an invalid token, etc. In this case, instead of notifying `onFailure()` the system will fallback to local verification.
 
-For the Android platform, the local receipt verification needs the __Google Play__ developer console’s application private key. If the __priavte key__ is not supplied, the local verification will always notify `onFail()`.
+For the Android platform, the local receipt verification needs the __Google Play__ developer console’s application private key. If the __private key__ is not supplied, the local verification will always notify `onFail()`.
