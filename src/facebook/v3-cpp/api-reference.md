@@ -27,6 +27,10 @@ static void login ( ) ;
 > log in
 
 ```cpp
+static void login ( std::vector <std::string> & permissions ) ;
+```
+
+```cpp
 static void requestReadPermissions ( const std::vector <std::string> & permissions ) ;
 ```
 > log in with specific read permissions, conflict with publish permissions
@@ -97,6 +101,29 @@ static std::vector <FBGraphUser> getFriends ( ) ;
 ```
 > get friends info
 
+```cpp
+static bool canPresentWithFBApp ( const FBShareInfo & info ) ;
+```
+> check whether can present Facebook App
+
+```cpp
+static void requestInvitableFriends ( const FBAPIParam & ) ;
+```
+> Get a vector of invitable friends info which can be used to build a custom friends invite dialog.
+
+```cpp
+static void inviteFriendsWithInviteIds ( const std::vector <std::string> & invite_ids ,
+                                         const std::string & title ,
+                                         const std::string & invite_text ) ;
+```
+> Invite friends based on the result obtained from a call to <code>requestInvitableFriends</code>
+
+```cpp
+static void inviteFriends ( const std::string & app_link_url ,
+                            const std::string & preview_image_url ) ;
+```
+> Use the default FB dialog to invite friends.
+
 
 ### Listeners
 ```cpp
@@ -127,4 +154,20 @@ void onPermission ( bool isLogin , const std::string & msg );
 void onFetchFriends ( bool ok , const std::string & msg );
 ```
 
+```cpp
+void onRequestInvitableFriends ( const FBInvitableFriendsInfo & invitable_friends_and_pagination_json_as_string );
+```
+> invitable_friends_and_pagination_json_as_string has the following format:
 
+```cpp
+void onInviteFriendsWithInviteIdsResult ( bool result ,
+                                          const std::string & description );
+```
+
+```cpp
+void onInviteFriendsResult ( bool result , const std::string & description );
+```
+
+```cpp
+void onGetUserInfo ( const FBGraphUser & userInfo );
+```

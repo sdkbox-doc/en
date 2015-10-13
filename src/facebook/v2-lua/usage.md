@@ -123,6 +123,36 @@ sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
 sdkbox.PluginFacebook.logout();
 ```
 
+#### Invite
+There are both __standard__ and __custom__ *Invite* dialogs available to use when inviting your Friends.
+
+When using the *standard invite dialog*, it is necessary to select the friends to send the invitation request too. The API call is `inviteFriends()` passing in a URL for __app__ and a __preview image__. Example:
+```lua
+sdkbox.PluginFacebook:inviteFriends(
+  "https://play.google.com/store/apps/details?id=com.cocos2dx.PluginTest",
+  "http://www.cocos2d-x.org/attachments/801/cocos2dx_portrait.png");
+```
+
+The __app__ URL must be to a valid GooglePlay/iTunes application URL. At runtime, a custom message can be attached to the invite request. It is not possible to set a predefined invite message.
+
+Creating a *custom invite dialog* is a two step process, starting with a call to `requestInvitableFriends()` then a call to `inviteFriendsWithInviteIds()` to actually send the invites. Example:
+```lua
+sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, “title", “invitation text");
+```
+
+The `requestInvitableFriends()` function has a __Bundle(map<string,string>)__ parameter, where the developer can define a few flags:
+
+| Flag  | Description  |
+| :---- | :---------------|
+| fields | a comma separated values of the fields you want to get from your invitable friend’s profiles. |
+| exclude_ids | a comma separated FB ids to exclude from the result. |
+| limit | number of friends per page. |
+
+A call to `requestInvitableFriends()` will return a different collection of friends per call, and it is Facebook's decision which ones to return first.
+This function returns a `FBInvitableFriendsInfo` object, which will contain a collection of the friends data and a pagination cursor object which has URLS for requesting the next and previous page of invitable friends.
+
+The *custom invite dialog* is only available for games with a __canvas implementation__ for the Facebook application. The __canvas__ must be defined but doesn't need to how any web content. If the __canvas__ is not defined a *standard invite dialog* is used instead.
+
 ### Catch Facebook events (optional)
 This allows you to catch `Facebook` events so that you can perform operations after Facebook events have occurred.
 
