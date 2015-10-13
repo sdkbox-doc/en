@@ -18,6 +18,10 @@ $ sdkbox import bee7
 <<[../../shared/notice.md]
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
 Here is an example of the Bee7 configuration you can enable/disable debug mode for Bee7 here

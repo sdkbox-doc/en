@@ -1,0 +1,7 @@
+### Remote IAP Verification
+Once SDKBOX is started with your __applications hash__ and __secret__, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Whether the authentication is remote or local, the same plugins public interface methods: `onSuccess()` and `onFailure()` will be notified with the verification result. If the remote verification request fails, the system will automatically fallback to local receipt verification.
+These scenarios are for timeout or networking errors when communicating with Chukongs validation servers. Currently, only purchases are being remotely authenticated. Locally stored receipts are not checked, but we plan to add support for this ASAP. No additional code will be required to achieve this.
+
+It is important to note that the plugin remotely authenticates based on the __Applications hash value__. It is possible that the verification process can be performed, but for some reason, remotely fails. For example, the __application hash value__ that was passed-in to the `sdkbox::init()` call has an invalid token, etc. In this case, instead of notifying `onFailure()` the system will fallback to local verification.
+
+For the Android platform, the local receipt verification needs the __Google Play__ developer console’s application private key. If the __private key__ is not supplied, the local verification will always notify `onFail()`.

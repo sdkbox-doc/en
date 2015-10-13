@@ -14,7 +14,7 @@ $ sdkbox import facebook
 ```
 
 <<[../../shared/notice.md]
-For facebook, follow [this link](https://developers.facebook.com/docs/ios/ios9)
+Follow [this link](https://developers.facebook.com/docs/ios/ios9)
 
 ##Extra steps
 
@@ -69,6 +69,10 @@ And created a new __APP__ on Facebook
 * Open `project.properties` and change target to `target=android-15`
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
 Here is an example of the Facebook configuration you can enable/disable debug mode for Facebook here

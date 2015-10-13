@@ -29,6 +29,10 @@ And created a new __APP__ on Fyber
 * Open `project.properties` and change target to `target=android-15`
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
 Here is an example of the Fyber configuration you can enable/disable debug mode for Fyber here

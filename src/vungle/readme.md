@@ -13,6 +13,10 @@ $ sdkbox import vungle
 <<[../../shared/notice.md]
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the Vungle configuration, you need to replace `<vungle id>`  with your specific [Vungle](http://vungle.com) Publisher account information.

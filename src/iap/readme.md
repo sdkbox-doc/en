@@ -13,6 +13,11 @@ $ sdkbox import iap
 <<[../../shared/notice.md]
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+<<[shared/remote_iap_verification.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or  replace `<put your googleplay key here>` from your [Google Play Console](https://play.google.com/apps/publish)
