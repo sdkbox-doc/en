@@ -1,27 +1,3 @@
-### Modify `AppDelegate.cpp`
-* Modify `Classes/AppDelegate.cpp` to include the following headers:
-```cpp
-#include "PluginFacebookLua.hpp"
-#include "PluginFacebookLuaHelper.h"
-```
-
-* Second, We need to register the plugin with Lua. This is done by making a call to `register_all_PluginFacebookLua(<lua_State*>);`.
-
-  __Note:__ It is important to note that this call must be made after `lua_State *tolua_s = pStack->getLuaState();` and before `tolua_extensions_ccb_open(tolua_s);`.
-
-	Here is an example of what this might look like for you:
-```cpp
-#include "PluginFacebookLua.hpp"
-#include "PluginFacebookLuaHelper.h"
-bool AppDelegate::applicationDidFinishLaunching()
-{
-	lua_State *tolua_s = pStack->getLuaState();
-	register_all_PluginFacebookLua(tolua_s);
-	register_all_PluginFacebookLua_helper(tolua_s);
-	tolua_extensions_ccb_open(tolua_s);
-}
-```
-
 ### Initialize Facebook
 * Modify your app's __Info.plist__ to include the following additional keys, ensuring that you replace __<APP ID>__ with yours:
 ```xml
