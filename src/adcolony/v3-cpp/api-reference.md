@@ -131,5 +131,3 @@ void onAdColonyStarted ( const AdColonyAdInfo & info );
 void onAdColonyFinished ( const AdColonyAdInfo & info );
 ```
 > showing an ad has finished.
-
-

@@ -1,17 +1,3 @@
-### Modify Lua Code
-Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `Review` with Lua. Note this takes a parameter of __lua_State*__:
-```cpp
-#include "PluginReviewLua.hpp"
-#include "PluginReviewLuaHelper.h"
-```
-```cpp
-static int lua_module_register(lua_State* L)
-{
-  register_all_PluginReviewLua(L);
-  register_PluginReviewLua_helper(L);
-}
-```
-
 ### Initialize Review
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
