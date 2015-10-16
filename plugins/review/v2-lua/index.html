@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1011,7 +1011,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#ratings-reviews">Ratings  Reviews</a></li>
+        <li class="main active"><a href="#ratings-reviews">Ratings &amp; Reviews</a></li>
         
             <li><a href="#integration">Integration</a></li>
         
@@ -1177,31 +1177,6 @@ import com.sdkbox.plugin.SDKBox;
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="modify-lua-code">Modify Lua Code</h3>
-<ul>
-<li>Modify <code>Classes/AppDelegate.cpp</code>to include the following headers:</li>
-</ul>
-<pre><code class="cpp">#include &quot;PluginReviewLua.hpp&quot;
-#include &quot;PluginReviewLuaHelper.h&quot;
-</code></pre>
-
-<ul>
-<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginReviewLua(&lt;lua_State*&gt;);</code>.</li>
-</ul>
-<p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
-<pre><code>Here is an example of what this might look like for you:
-</code></pre>
-<pre><code class="cpp">#include &quot;PluginReviewLua.hpp&quot;
-#include &quot;PluginReviewLuaHelper.hpp&quot;
-bool AppDelegate::applicationDidFinishLaunching()
-{
-    lua_State *tolua_s = pStack-&gt;getLuaState();
-    register_all_PluginReviewLua(tolua_s);
-    register_all_PluginReviewLua_helper(tolua_s);
-    tolua_extensions_ccb_open(tolua_s);
-}
-</code></pre>
-
 <h3 id="initialize-review">Initialize Review</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginReview:init()
@@ -1210,20 +1185,20 @@ bool AppDelegate::applicationDidFinishLaunching()
 <h3 id="setting-review-optional">Setting Review (optional)</h3>
 <p>You can set a custom string for the rate prompt, if you don't want to use the default string.</p>
 <p><code>Note:</code> if you set <code>tryPromptWhenInit</code> to <strong>true</strong> which is in <code>sdkbox.config</code>, you must call the following functions before <code>init()</code>:</p>
-<pre><code class="cpp">sdkbox.PluginReview:setTitle(&quot;custom title&quot;);
-sdkbox.PluginReview:setMessage(&quot;custom message&quot;);
-sdkbox.PluginReview:setCancelButtonTitle(&quot;custom cancel&quot;);
-sdkbox.PluginReview:setRateButtonTitle(&quot;custom rate&quot;);
-sdkbox.PluginReview:setRateLaterButtonTitle(&quot;custom rate later&quot;);
+<pre><code class="lua">sdkbox.PluginReview:setCustomPromptTitle(&quot;custom title&quot;);
+sdkbox.PluginReview:setCustomPromptMessage(&quot;custom message&quot;);
+sdkbox.PluginReview:setCustomPromptCancelButtonTitle(&quot;custom cancel&quot;);
+sdkbox.PluginReview:setCustomPromptRateButtonTitle(&quot;custom rate&quot;);
+sdkbox.PluginReview:setCustomPromptRateLaterButtonTitle(&quot;custom rate later&quot;);
 </code></pre>
 
 <p>After initialization you can begin to use the Review functionality.
 Use <code>show</code> try to display rate prompt:</p>
-<pre><code class="cpp">sdkbox.PluginReview:show();
+<pre><code class="lua">sdkbox.PluginReview:show();
 </code></pre>
 
-<p>If you set <code>UserEventLimit</code> not 0 in <code>sdkbox.config</code>, you must call <code>userDidSignificantEvent</code> increase user event count:</p>
-<pre><code class="cpp">sdkbox.PluginReview:userDidSignificantEvent(true);
+<p>If you set <code>UserEventLimit</code> not 0 in <code>sdkbox.config</code>, you must call <code>userDidSignificantEvent</code> increase user event count: <code>userDidSignificantEvent</code> increase user event count</p>
+<pre><code class="lua">sdkbox.PluginReview:userDidSignificantEvent(true);
 </code></pre>
 
 <h3 id="catch-review-events-optional">Catch Review events (optional)</h3>
@@ -1231,13 +1206,13 @@ Use <code>show</code> try to display rate prompt:</p>
 <pre><code class="lua">local plugin = sdkbox.PluginReview
 plugin:setListener(function(args)
     local event = args.event
-    if &quot;onDisplayAlert&quot; == event then
+    if &quot;didDisplayAlert&quot; == event then
         print(&quot;didDisplayAlert&quot;)
-    elseif &quot;onDeclineToRate&quot; == event then
+    elseif &quot;didDeclineToRate&quot; == event then
         print(&quot;didDeclineToRate&quot;)
-    elseif &quot;onRate&quot; == event then
+    elseif &quot;didToRate&quot; == event then
         print(&quot;didToRate&quot;)
-    elseif &quot;onRemindLater&quot; == event then
+    elseif &quot;didToRemindLater&quot; == event then
         print(&quot;didToRemindLater&quot;)
     end
 end)

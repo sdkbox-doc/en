@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1105,19 +1105,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 <li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_bee7_scheme_</code> with your <code>bee7 scheme</code></li>
 <li>Open <code>project.properties</code> and change target to <code>target=android-21</code></li>
 </ul>
-<h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>Bee7</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
-<pre><code class="cpp">#include &quot;PluginBee7Lua.hpp&quot;
-#include &quot;PluginBee7LuaHelper.h&quot;
-</code></pre>
-
-<pre><code class="cpp">static int lua_module_register(lua_State* L)
-{
-  register_all_PluginBee7Lua(L);
-  register_all_PluginBee7Lua_helper(L);
-}
-</code></pre>
-
 <h3 id="initialize-bee7">Initialize Bee7</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginBee7:init();

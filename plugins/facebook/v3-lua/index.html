@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1041,7 +1041,7 @@
                 <div class="col-md-9" role="main">
 
 <!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/en/src/facebook/v3-cpp
 -->
 
 <h1 id="facebook">Facebook</h1>
@@ -1133,19 +1133,6 @@ And created a new <strong>APP</strong> on Facebook</p>
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>Facebook</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
-<pre><code class="cpp">#include &quot;PluginFacebookLua.hpp&quot;
-#include &quot;PluginFacebookLuaHelper.h&quot;
-</code></pre>
-
-<pre><code class="cpp">static int lua_module_register(lua_State* L)
-{
-  register_all_PluginFacebookLua(L);
-  register_all_PluginFacebookLua_helper(L);
-}
-</code></pre>
-
 <h3 id="initialize-facebook">Initialize Facebook</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginFacebook:init();
@@ -1231,6 +1218,45 @@ sdkbox.PluginFacebook:dialog(info);
 <blockquote>
 <p>Note: sharing photo with comments requires the <strong>Facebook app</strong> to be installed on the device.</p>
 </blockquote>
+<h4 id="invite">Invite</h4>
+<p>There are both <strong>standard</strong> and <strong>custom</strong> <em>Invite</em> dialogs available to use when inviting your Friends.</p>
+<p>When using the <em>standard invite dialog</em>, it is necessary to select the friends to send the invitation request too. The API call is <code>inviteFriends()</code> passing in a URL for <strong>app</strong> and a <strong>preview image</strong>. Example:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:inviteFriends(
+ &quot;https://play.google.com/store/apps/details?id=com.cocos2dx.PluginTest&quot;,
+ &quot;http://www.cocos2d-x.org/attachments/801/cocos2dx_portrait.png&quot;);
+</code></pre>
+
+<p>The <strong>app</strong> URL must be to a valid GooglePlay/iTunes application URL. At runtime, a custom message can be attached to the invite request. It is not possible to set a predefined invite message.</p>
+<p>Creating a <em>custom invite dialog</em> is a two step process, starting with a call to <code>requestInvitableFriends()</code> then a call to <code>inviteFriendsWithInviteIds()</code> to actually send the invites. Example:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, “title&quot;, “invitation text&quot;);
+</code></pre>
+
+<p>The <code>requestInvitableFriends()</code> function has a <strong>Bundle(map<string,string>)</strong> parameter, where the developer can define a few flags:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fields</td>
+<td>a comma separated values of the fields you want to get from your invitable friend’s profiles.</td>
+</tr>
+<tr>
+<td>exclude_ids</td>
+<td>a comma separated FB ids to exclude from the result.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>number of friends per page.</td>
+</tr>
+</tbody>
+</table>
+<p>A call to <code>requestInvitableFriends()</code> will return a different collection of friends per call, and it is Facebook's decision which ones to return first.
+This function returns a <code>FBInvitableFriendsInfo</code> object, which will contain a collection of the friends data and a pagination cursor object which has URLS for requesting the next and previous page of invitable friends.</p>
+<p>The <em>custom invite dialog</em> is only available for games with a <strong>canvas implementation</strong> for the Facebook application. The <strong>canvas</strong> must be defined but doesn't need to how any web content. If the <strong>canvas</strong> is not defined a <em>standard invite dialog</em> is used instead.</p>
 <h3 id="graph-api">Graph API</h3>
 <p>You can perform <a href="https://developers.facebook.com/docs/graph-api/overview/">Graph API</a> using <code>api</code> function</p>
 <p>For example, to get the friend list:</p>

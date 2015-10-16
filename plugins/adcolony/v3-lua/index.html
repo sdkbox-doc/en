@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1086,19 +1086,6 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>AdColony</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
-<pre><code class="cpp">#include &quot;PluginAdColonyLua.hpp&quot;
-#include &quot;PluginAdColonyLuaHelper.h&quot;
-</code></pre>
-
-<pre><code class="cpp">static int lua_module_register(lua_State* L)
-{
-  register_all_PluginAdColonyLua(L);
-  register_all_PluginAdColonyLua_helper(L);
-}
-</code></pre>
-
 <h3 id="initialize-adcolony">Initialize AdColony</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginAdColony:init()

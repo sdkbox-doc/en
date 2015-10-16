@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1105,48 +1105,17 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 <li>Open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_bee7_scheme_</code> with your <code>bee7 scheme</code></li>
 <li>Open <code>project.properties</code> and change target to <code>target=android-21</code></li>
 </ul>
-<h3 id="modify-appdelegatecpp">Modify <code>AppDelegate.cpp</code></h3>
-<ul>
-<li>Modify <code>Classes/AppDelegate.cpp</code> to include the following headers:</li>
-</ul>
-<pre><code class="cpp">#include &quot;PluginBee7Lua.hpp&quot;
-#include &quot;PluginBee7LuaHelper.h&quot;
-</code></pre>
-
-<ul>
-<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginBee7Lua(&lt;lua_State*&gt;);</code>.</li>
-</ul>
-<p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
-<pre><code>Here is an example of what this might look like for you:
-</code></pre>
-<pre><code class="cpp">#include &quot;PluginBee7Lua.hpp&quot;
-#include &quot;PluginBee7LuaHelper.h&quot;
-bool AppDelegate::applicationDidFinishLaunching()
-{
-    lua_State *tolua_s = pStack-&gt;getLuaState();
-    register_all_PluginBee7Lua(tolua_s);
-    register_all_PluginBee7Lua_helper(tolua_s);
-    tolua_extensions_ccb_open(tolua_s);
-}
-</code></pre>
-
 <h3 id="initialize-bee7">Initialize Bee7</h3>
-<ul>
-<li>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
-</ul>
-<pre><code class="lua">sdkbox.PluginBee7:init()
+<p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
+<pre><code class="lua">sdkbox.PluginBee7:init();
 </code></pre>
 
 <h3 id="using-bee7">Using Bee7</h3>
 <h4 id="show-game-wall">Show Game Wall</h4>
-<pre><code class="lua">sdkbox.PluginBee7:showOfferWall()
-</code></pre>
-
-<p>Displaying the Offer Wall with custom placementId</p>
 <pre><code class="lua">sdkbox.PluginBee7:showGameWall()
 </code></pre>
 
-<h3 id="catch-bee7-events-optional">Catch Bee7 events (optional)</h3>
+<h3 id="bee7-events">Bee7 events</h3>
 <p>This allows you to catch <code>Bee7</code> events so that you can perform operations after Bee7 events have occurred.</p>
 <pre><code class="lua">sdkbox.PluginBee7:setListener(function(args)
     dump(args)

@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1044,7 +1044,7 @@ Information about GROW can be found on the <a href="http://know.soom.la/">Knowle
 <h2 id="integration">Integration</h2>
 <ol>
 <li>
-<p>If you still didn't sign up on the GROW Dashboard, go ahead and do it <a href="http://dashboard.soom.la">here</a>.</p>
+<p>If you still didn't sign up on the GROW Dashboard, go ahead and do it <a href="https://soom.la/signup/sdkbox">here</a>.</p>
 </li>
 <li>
 <p>Open a terminal and use the following command to install GROW's SDKBOX plugin. Make sure you setup SDKBOX installer correctly.</p>
@@ -1089,19 +1089,6 @@ Information about GROW can be found on the <a href="http://know.soom.la/">Knowle
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="modify-lua-code">Modify Lua Code</h3>
-<p>Modify <code>./frameworks/runtime-src/Classes/lua_module_register.h</code> to include the necessary headers and calls to register <code>SOOMLA Grow</code> with Lua. Note this takes a parameter of <strong>lua_State*</strong>:</p>
-<pre><code class="cpp">#include &quot;PluginSoomlaGrowLua.hpp&quot;
-#include &quot;PluginSoomlaGrowLuaHelper.h&quot;
-</code></pre>
-
-<pre><code class="cpp">static int lua_module_register(lua_State* L)
-{
-  register_all_PluginSoomlaGrowLua(L);
-  register_PluginSoomlaGrowLua_helper(L);
-}
-</code></pre>
-
 <h3 id="initialize-soomlagrow">Initialize SoomlaGrow</h3>
 <p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
 <pre><code class="lua">sdkbox.PluginSoomlaGrow:init()

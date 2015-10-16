@@ -776,7 +776,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
     <ul class="dropdown-menu">
         
             
@@ -1041,7 +1041,7 @@
                 <div class="col-md-9" role="main">
 
 <!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/facebook/v3-cpp
+Include Base: /Users/jtsm/Chukong-Inc/en/src/facebook/v3-cpp
 -->
 
 <h1 id="facebook">Facebook</h1>
@@ -1133,146 +1133,155 @@ And created a new <strong>APP</strong> on Facebook</p>
 </code></pre>
 
 <h2 id="usage">Usage</h2>
-<h3 id="modify-appdelegatecpp">Modify <code>AppDelegate.cpp</code></h3>
-<ul>
-<li>Modify <code>Classes/AppDelegate.cpp</code> to include the following headers:</li>
-</ul>
-<pre><code class="cpp">#include &quot;PluginFacebookLua.hpp&quot;
-#include &quot;PluginFacebookLuaHelper.h&quot;
-</code></pre>
-
-<ul>
-<li>Second, We need to register the plugin with Lua. This is done by making a call to <code>register_all_PluginFacebookLua(&lt;lua_State*&gt;);</code>.</li>
-</ul>
-<p><strong>Note:</strong> It is important to note that this call must be made after <code>lua_State *tolua_s = pStack-&gt;getLuaState();</code> and before <code>tolua_extensions_ccb_open(tolua_s);</code>.</p>
-<pre><code>Here is an example of what this might look like for you:
-</code></pre>
-<pre><code class="cpp">#include &quot;PluginFacebookLua.hpp&quot;
-#include &quot;PluginFacebookLuaHelper.h&quot;
-bool AppDelegate::applicationDidFinishLaunching()
-{
-    lua_State *tolua_s = pStack-&gt;getLuaState();
-    register_all_PluginFacebookLua(tolua_s);
-    register_all_PluginFacebookLua_helper(tolua_s);
-    tolua_extensions_ccb_open(tolua_s);
-}
-</code></pre>
-
 <h3 id="initialize-facebook">Initialize Facebook</h3>
-<ul>
-<li>Modify your app's <strong>Info.plist</strong> to include the following additional keys, ensuring that you replace <strong><APP ID></strong> with yours:</li>
-</ul>
-<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-&lt;dict
-    &lt;key&gt;CFBundleURLName&lt;/key&gt;
-    &lt;string&gt;&lt;/string&gt;
-    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;fb&lt;APP ID&gt;&lt;/string&gt;
-    &lt;/array&gt;
-&lt;/dict&gt;
-&lt;/array&gt;
-&lt;key&gt;FacebookAppID&lt;/key&gt;
-&lt;string&gt;&lt;APP ID&gt;&lt;/string&gt;
-&lt;key&gt;FacebookDisplayName&lt;/key&gt;
-&lt;string&gt;MyTestApp&lt;/string&gt;
-</code></pre>
-
-<p>If my Facebook <strong>APP ID</strong> is <code>655158077954837</code> a completed example would be:</p>
-<pre><code class="xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-&lt;dict&gt;
-    &lt;key&gt;CFBundleURLName&lt;/key&gt;
-    &lt;string&gt;&lt;/string&gt;
-    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;fb655158077954837&lt;/string&gt;
-    &lt;/array&gt;
-&lt;/dict&gt;
-&lt;/array&gt;
-&lt;key&gt;FacebookAppID&lt;/key&gt;
-&lt;string&gt;655158077954837&lt;/string&gt;
-&lt;key&gt;FacebookDisplayName&lt;/key&gt;
-&lt;string&gt;MyTestApp&lt;/string&gt;
-</code></pre>
-
-<ul>
-<li>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
-</ul>
-<pre><code class="lua">sdkbox.PluginFacebook:init()
+<p>Modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</p>
+<pre><code class="lua">sdkbox.PluginFacebook:init();
 </code></pre>
 
 <h3 id="using-facebook">Using Facebook</h3>
-<p>There are many Facebook operations that you can take advantage of. Before using any of them it is necessary to call <code>login()</code>, example:</p>
+<h4 id="login">Login</h4>
+<p>First the user needs to login to Facebook in order to use it.</p>
 <pre><code class="lua">sdkbox.PluginFacebook:login();
 </code></pre>
 
+<p>If a user doesn't want to use Facebook functionality anymore, logout. using</p>
+<pre><code class="lua">sdkbox.PluginFacebook:logout();
+</code></pre>
+
+<p>You can check whether user already logged in using</p>
+<pre><code class="lua">sdkbox.PluginFacebook:isLoggedIn();
+</code></pre>
+
+<blockquote>
+<p>Note: user only needs to perform login once, unless they logout</p>
+</blockquote>
+<h4 id="permissions">Permissions</h4>
+<p>Facebook requires you to ask for the user's permission before you can perform actions, such as, posting on the user's behalf.
+There are two types of permission <strong>read</strong> and <strong>publish</strong>
+You can get a complete list of permissions <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference">here</a></p>
+<p>SDKBOX provides the most commonly used permissions:</p>
 <ul>
-<li>You can share links, example:</li>
+<li>FB_PERM_READ_PUBLIC_PROFILE</li>
+<li>FB_PERM_READ_EMAIL</li>
+<li>FB_PERM_READ_USER_FRIENDS</li>
+<li>FB_PERM_PUBLISH_POST</li>
 </ul>
-<pre><code class="lua">FBShareInfo info;
+<p>To request a permission, you do so by specifying what you want:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook:requestPublishPermissions({FB_PERM_PUBLISH_POST});
+</code></pre>
+
+<h4 id="share">Share</h4>
+<p>There are two types of sharing functionality.</p>
+<ul>
+<li><strong>share</strong> will automatically post to the user's wall
+share a link:</li>
+</ul>
+<pre><code class="lua">local info;
 info.type  = &quot;link&quot;;
 info.link  = &quot;http://www.cocos2d-x.org&quot;;
 info.title = &quot;cocos2d-x&quot;;
 info.text  = &quot;Best Game Engine&quot;;
 info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
-sdkbox.PluginFacebook.share(info);
+sdkbox.PluginFacebook:share(info);
+</code></pre>
+
+<p>share a photo:</p>
+<pre><code class="lua">local info;
+info.type  = &quot;photo&quot;;
+info.title = &quot;My Photo&quot;;
+info.image = __path to image__;
+sdkbox.PluginFacebook:share(info);
 </code></pre>
 
 <ul>
-<li>You can share a link, but also comment on it at the same time. This requires the <strong>Facebook app</strong> to be installed on the device. Example:</li>
+<li><strong>dialog</strong> will show a dialog and prompt the user to write their own comments in addition:</li>
 </ul>
-<pre><code class="lua">FBShareInfo info;
+<p>present a share dialog:</p>
+<pre><code class="lua">local info;
 info.type  = &quot;link&quot;;
 info.link  = &quot;http://www.cocos2d-x.org&quot;;
 info.title = &quot;cocos2d-x&quot;;
 info.text  = &quot;Best Game Engine&quot;;
 info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
-sdkbox.PluginFacebook.dialog(info);
+sdkbox.PluginFacebook:dialog(info);
 </code></pre>
 
-<ul>
-<li>You can share a photo example:</li>
-</ul>
-<pre><code class="lua">FBShareInfo info;
+<p>share a photo with comments:</p>
+<pre><code class="lua">local info;
 info.type  = &quot;photo&quot;;
 info.title = &quot;My Photo&quot;;
 info.image = __path to image__;
-sdkbox.PluginFacebook.share(info);
+sdkbox.PluginFacebook:dialog(info);
 </code></pre>
 
-<ul>
-<li>You can share a photo, but also comment on it at the same time, example:</li>
-</ul>
-<pre><code class="lua">FBShareInfo info;
-info.type  = &quot;photo&quot;;
-info.title = &quot;My Photo&quot;;
-info.image = __path to image__;
-sdkbox.PluginFacebook.dialog(info);
+<blockquote>
+<p>Note: sharing photo with comments requires the <strong>Facebook app</strong> to be installed on the device.</p>
+</blockquote>
+<h4 id="invite">Invite</h4>
+<p>There are both <strong>standard</strong> and <strong>custom</strong> <em>Invite</em> dialogs available to use when inviting your Friends.</p>
+<p>When using the <em>standard invite dialog</em>, it is necessary to select the friends to send the invitation request too. The API call is <code>inviteFriends()</code> passing in a URL for <strong>app</strong> and a <strong>preview image</strong>. Example:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:inviteFriends(
+ &quot;https://play.google.com/store/apps/details?id=com.cocos2dx.PluginTest&quot;,
+ &quot;http://www.cocos2d-x.org/attachments/801/cocos2dx_portrait.png&quot;);
 </code></pre>
 
-<ul>
-<li>Besides logging in, you also will need to request <code>read()</code> and <code>publish()</code> permissions to post. Example:</li>
-</ul>
-<pre><code class="lua">sdkbox.PluginFacebook.requestReadPermissions({FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook.requestPublishPermissions({FB_PERM_PUBLISH_POST});
+<p>The <strong>app</strong> URL must be to a valid GooglePlay/iTunes application URL. At runtime, a custom message can be attached to the invite request. It is not possible to set a predefined invite message.</p>
+<p>Creating a <em>custom invite dialog</em> is a two step process, starting with a call to <code>requestInvitableFriends()</code> then a call to <code>inviteFriendsWithInviteIds()</code> to actually send the invites. Example:</p>
+<pre><code class="lua">sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, “title&quot;, “invitation text&quot;);
 </code></pre>
 
-<ul>
-<li>When are are finished, it is appropriate to call <code>logout()</code>, example:</li>
-</ul>
-<pre><code class="lua">sdkbox.PluginFacebook.logout();
+<p>The <code>requestInvitableFriends()</code> function has a <strong>Bundle(map<string,string>)</strong> parameter, where the developer can define a few flags:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fields</td>
+<td>a comma separated values of the fields you want to get from your invitable friend’s profiles.</td>
+</tr>
+<tr>
+<td>exclude_ids</td>
+<td>a comma separated FB ids to exclude from the result.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>number of friends per page.</td>
+</tr>
+</tbody>
+</table>
+<p>A call to <code>requestInvitableFriends()</code> will return a different collection of friends per call, and it is Facebook's decision which ones to return first.
+This function returns a <code>FBInvitableFriendsInfo</code> object, which will contain a collection of the friends data and a pagination cursor object which has URLS for requesting the next and previous page of invitable friends.</p>
+<p>The <em>custom invite dialog</em> is only available for games with a <strong>canvas implementation</strong> for the Facebook application. The <strong>canvas</strong> must be defined but doesn't need to how any web content. If the <strong>canvas</strong> is not defined a <em>standard invite dialog</em> is used instead.</p>
+<h3 id="graph-api">Graph API</h3>
+<p>You can perform <a href="https://developers.facebook.com/docs/graph-api/overview/">Graph API</a> using <code>api</code> function</p>
+<p>For example, to get the friend list:</p>
+<pre><code>local params;
+sdkbox.PluginFacebook:api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, &quot;/me/friendlists&quot;);
 </code></pre>
 
-<h3 id="catch-facebook-events-optional">Catch Facebook events (optional)</h3>
+<h3 id="facebook-events">Facebook events</h3>
 <p>This allows you to catch <code>Facebook</code> events so that you can perform operations after Facebook events have occurred.</p>
-<ul>
-<li>Allow your class to extend <code>sdkbox::FacebookListener</code> and override the functions listed:</li>
-</ul>
-<pre><code class="lua">sdkbox.PluginFacebook:setListener(function(event)
-    print(&quot;PluginFacebook callback&quot;)
-    dump(event)
+<pre><code class="lua">sdkbox.PluginFacebook:setListener(function(args)
+    if &quot;onLogin&quot; == args.name then
+        local isLogin = args.isLogin;
+        local msg = args.msg;
+    elseif &quot;onPermission&quot; ==  args.name then
+        local isLogin = args.isLogin;
+        local msg = args.msg;
+    elseif &quot;onAPI&quot; ==  args.name then
+        local tag = args.tag;
+        local jsonData = args.jsonData;
+    elseif &quot;onSharedSuccess&quot; ==  args.name then
+        local msg = args.message
+    elseif &quot;onSharedFailed&quot; ==  args.name then
+        local msg = args.message
+    elseif &quot;onSharedCancel&quot; ==  args.name then
+    end
 end)
 </code></pre>
 
