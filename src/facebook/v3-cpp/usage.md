@@ -88,7 +88,7 @@ sdkbox::PluginFacebook::dialog(info);
 ```
  > Note: sharing photo with comments requires the __Facebook app__ to be installed on the device.
 
-### Invite
+#### Invite
 There are both __standard__ and __custom__ *Invite* dialogs available to use when inviting your Friends.
 
 When using the *standard invite dialog*, it is necessary to select the friends to send the invitation request too. The API call is `inviteFriends()` passing in a URL for __app__ and a __preview image__. Example:
