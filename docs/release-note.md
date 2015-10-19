@@ -1,5 +1,14 @@
 #Release Notes
 ---
+1.3.1 Release Notes
+===
+##Highlight
+* Added Invite functionality for Facebook Plugin
+
+##Bugfix
+* Fix a bug that prevent user to use sdkbox update function
+* Fix multiple bugs for Vungle plugin
+
 
 1.3 Release Notes
 ===
