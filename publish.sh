@@ -8,4 +8,4 @@ git pull
 git checkout master
 git pull
 python ./src/doc.py all
-mkdocs gh-deploy --clean
+mkdocs gh-deploy #--clean
