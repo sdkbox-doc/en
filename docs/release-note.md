@@ -4,6 +4,8 @@
 ===
 ##Highlight
 * Added Invite functionality for Facebook Plugin
+* SDKBOX now fully support iOS 9 and Xcode 7
+* Upgraded all the SDKs with iOS 9 support
 
 ##Bugfix
 * Fix a bug that prevent user to use sdkbox update function
