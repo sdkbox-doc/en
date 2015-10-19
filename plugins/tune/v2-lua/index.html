@@ -902,6 +902,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">ValuePotion</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Vungle</a>
     <ul class="dropdown-menu">
         
@@ -995,7 +1058,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../vungle/v3-cpp/">
+                        <a rel="prev" href="../../valuepotion/v3-cpp/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -1066,6 +1129,20 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/tune/v3-cpp
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
+<h3 id="sdkbox-cloud">SDKBOX Cloud</h3>
+<p>SDKBOX Cloud enables developers to receive the benefits of a centralized application management interface, by helping to boost their applications with extended functionality. The two main features are: <strong>Remote Application Management</strong> which provides the abilities of updating and testing, and <strong>IAP Receipt Verification</strong>.</p>
+<p>Developers must register at Chukong’s website to get <strong>developers credentials</strong>. After receiving <strong>developers credentials</strong>, developers can register an unlimited number of <strong>applications</strong>. Each <strong>application</strong> will have an associated <strong>application token</strong> and a <strong>application secret</strong>. These are used to securely transmit new plugin configurations to the clients as well as grant access to all the remotely accessible services.</p>
+<h3 id="remote-application-configuration">Remote Application Configuration</h3>
+<p>SDKBOX allows developers to create a <strong>Remote Application Configuration</strong> for each application they are developing.</p>
+<p>Registering the applications’ allows for on-the-fly update of its plugin’s configuration. For example, it will allow the change of the Google Analytics tracking code, switch to a new AdColony campaign or add new in-app purchase products without rebuilding and redeploying your apps to the app stores.</p>
+<p>To enable this cloud service in your applications is as easy as calling a single <strong>init()</strong> function and passing in your <strong>application token</strong> and <strong>application secret</strong> that were provided when you created the app in the previous section.</p>
+<pre><code>sdkbox::init( &lt;application token&gt;, &lt;application secret&gt; );
+</code></pre>
+
+<p><strong>Note</strong>: each application will have it’s own <strong>application token</strong> and each configuration for each game will have it’s own <strong>application secret</strong>. The <strong>application secret</strong> is the actual encryption key used to decipher the remote configuration.</p>
+<p>When the developer updates a <strong>Remote Application Configuration</strong> the application will automatically pull the new configuration and put it into effect. This means that you can update configuration information on the fly and everyone playing your game will get updated the next time the user starts the application!</p>
+<p>To ensure security, during normal execution the new configuration is locally saved in the applications’s private folder, and the next time it restarts it is applied. Also, configurations are cyphered and its contents are not exposed, even if your application runs on a rooted/jailbroken device.</p>
+<h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Tune configuration, you need to replace
 <code>&lt;TUNE ID&gt;</code> and <code>&lt;TUNE KEY&gt;</code>  with your specific <a href="http://www.mobileapptracking.com"><strong>Tune ID</strong></a> account information.

@@ -902,6 +902,69 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">ValuePotion</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">Vungle</a>
     <ul class="dropdown-menu">
         
@@ -1062,6 +1125,25 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
+<h3 id="sdkbox-cloud">SDKBOX Cloud</h3>
+<p>SDKBOX Cloud enables developers to receive the benefits of a centralized application management interface, by helping to boost their applications with extended functionality. The two main features are: <strong>Remote Application Management</strong> which provides the abilities of updating and testing, and <strong>IAP Receipt Verification</strong>.</p>
+<p>Developers must register at Chukong’s website to get <strong>developers credentials</strong>. After receiving <strong>developers credentials</strong>, developers can register an unlimited number of <strong>applications</strong>. Each <strong>application</strong> will have an associated <strong>application token</strong> and a <strong>application secret</strong>. These are used to securely transmit new plugin configurations to the clients as well as grant access to all the remotely accessible services.</p>
+<h3 id="remote-application-configuration">Remote Application Configuration</h3>
+<p>SDKBOX allows developers to create a <strong>Remote Application Configuration</strong> for each application they are developing.</p>
+<p>Registering the applications’ allows for on-the-fly update of its plugin’s configuration. For example, it will allow the change of the Google Analytics tracking code, switch to a new AdColony campaign or add new in-app purchase products without rebuilding and redeploying your apps to the app stores.</p>
+<p>To enable this cloud service in your applications is as easy as calling a single <strong>init()</strong> function and passing in your <strong>application token</strong> and <strong>application secret</strong> that were provided when you created the app in the previous section.</p>
+<pre><code>sdkbox::init( &lt;application token&gt;, &lt;application secret&gt; );
+</code></pre>
+
+<p><strong>Note</strong>: each application will have it’s own <strong>application token</strong> and each configuration for each game will have it’s own <strong>application secret</strong>. The <strong>application secret</strong> is the actual encryption key used to decipher the remote configuration.</p>
+<p>When the developer updates a <strong>Remote Application Configuration</strong> the application will automatically pull the new configuration and put it into effect. This means that you can update configuration information on the fly and everyone playing your game will get updated the next time the user starts the application!</p>
+<p>To ensure security, during normal execution the new configuration is locally saved in the applications’s private folder, and the next time it restarts it is applied. Also, configurations are cyphered and its contents are not exposed, even if your application runs on a rooted/jailbroken device.</p>
+<h3 id="remote-iap-verification">Remote IAP Verification</h3>
+<p>Once SDKBOX is started with your <strong>applications hash</strong> and <strong>secret</strong>, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Whether the authentication is remote or local, the same plugins public interface methods: <code>onSuccess()</code> and <code>onFailure()</code> will be notified with the verification result. If the remote verification request fails, the system will automatically fallback to local receipt verification.
+These scenarios are for timeout or networking errors when communicating with Chukongs validation servers. Currently, only purchases are being remotely authenticated. Locally stored receipts are not checked, but we plan to add support for this ASAP. No additional code will be required to achieve this.</p>
+<p>It is important to note that the plugin remotely authenticates based on the <strong>Applications hash value</strong>. It is possible that the verification process can be performed, but for some reason, remotely fails. For example, the <strong>application hash value</strong> that was passed-in to the <code>sdkbox::init()</code> call has an invalid token, etc. In this case, instead of notifying <code>onFailure()</code> the system will fallback to local verification.</p>
+<p>For the Android platform, the local receipt verification needs the <strong>Google Play</strong> developer console’s application private key. If the <strong>private key</strong> is not supplied, the local verification will always notify <code>onFail()</code>.</p>
+<h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the IAP configuration, you need to replace <code>&lt;put the product id for ios here&gt;</code> with the product id from your <a href="http://itunesconnect.apple.com">iTunes Connect</a> or  replace <code>&lt;put your googleplay key here&gt;</code> from your <a href="https://play.google.com/apps/publish">Google Play Console</a></p>
 <pre><code class="json">&quot;ios&quot; :
@@ -1138,19 +1220,19 @@ AppDelegate::applicationDidFinishLaunching()
 <ul>
 <li>Allow your class to extend <code>sdkbox::IAPListener</code>:</li>
 </ul>
-<pre><code class="cpp">    #include &quot;PluginIAP/PluginIAP.h&quot;
-    class MyClass : public sdkbox::IAPListener
-    {
-    private:
-        virtual void onSuccess(sdkbox::Product const&amp; p) override;
-        virtual void onFailure(sdkbox::Product const&amp; p, const std::string &amp;msg)
-           override;
-        virtual void onCanceled(sdkbox::Product const&amp; p) override;
-        virtual void onRestored(sdkbox::Product const&amp; p) override;
-        virtual void onProductRequestSuccess(std::vector&lt;sdkbox::Product&gt; const &amp;products)
-        override;
-        virtual void onProductRequestFailure(const std::string &amp;msg) override;
-    }
+<pre><code class="cpp">#include &quot;PluginIAP/PluginIAP.h&quot;
+class MyClass : public sdkbox::IAPListener
+{
+private:
+  virtual void onInitialized(bool ok) override;
+  virtual void onSuccess(sdkbox::Product const&amp; p) override;
+  virtual void onFailure(sdkbox::Product const&amp; p, const std::string &amp;msg) override;
+  virtual void onCanceled(sdkbox::Product const&amp; p) override;
+  virtual void onRestored(sdkbox::Product const&amp; p) override;
+  virtual void onProductRequestSuccess(std::vector&lt;sdkbox::Product&gt; const &amp;products) override;
+  virtual void onProductRequestFailure(const std::string &amp;msg) override;
+  void onRestoreComplete(bool ok, const std::string &amp;msg);
+}
 </code></pre>
 
 <ul>
@@ -1267,6 +1349,7 @@ AppDelegate::applicationDidFinishLaunching()
 <p>Security.framework</p>
 <p>StoreKit.framework</p>
 <p>AdSupport.framework</p>
+<p>SystemConfiguration.framework</p>
 </blockquote>
 <h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>
 <p>Both <strong>Android</strong> development using a command-line and using <strong>Android Studio</strong> are supported. <code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> development, while <code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong>.</p>
