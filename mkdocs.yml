@@ -120,7 +120,7 @@ pages:
             - 'c++': 'plugins/tune/v2-cpp.md'
             - 'js': 'plugins/tune/v2-js.md'
             - 'lua': 'plugins/tune/v2-lua.md'
-    - 'ValuePotion':
+    - 'Valuepotion':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/valuepotion/v3-cpp.md'
             - 'js': 'plugins/valuepotion/v3-js.md'
