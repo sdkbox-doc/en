@@ -1,5 +1,5 @@
 ### Modify Lua Code
-Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `ValuePotion` with Lua. Note this takes a parameter of __lua_State*__:
+Modify `./frameworks/runtime-src/Classes/lua_module_register.h` to include the necessary headers and calls to register `Valuepotion` with Lua. Note this takes a parameter of __lua_State*__:
 ```cpp
 #include "PluginValuePotionLua.hpp"
 #include "PluginValuePotionLuaHelper.h"
@@ -12,14 +12,14 @@ static int lua_module_register(lua_State* L)
 }
 ```
 
-### Initialize ValuePotion
+### Initialize Valuepotion
 Modify your Lua code to `init()` the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.
 ```lua
 sdkbox.PluginValuePotion:init()
 ```
 
-### Using ValuePotion
-After initialization you can begin to use the ValuePotion functionality. Use `check` wherever you want from your code:
+### Using Valuepotion
+After initialization you can begin to use the Valuepotion functionality. Use `check` wherever you want from your code:
 ```lua
 sdkbox.PluginValuePotion:init()
 sdkbox.PluginValuePotion:setTest(true)
@@ -44,8 +44,8 @@ sdkbox.PluginValuePotion:userinfo("firends", "3")
 sdkbox.PluginValuePotion:userinfo("accounttype", "facebook")
 ```
 
-### Catch ValuePotion events (optional)
-This allows you to catch the `ValuePotion` events so that you can perform operations based upon responses. A simple example might look like this:
+### Catch Valuepotion events (optional)
+This allows you to catch the `Valuepotion` events so that you can perform operations based upon responses. A simple example might look like this:
 ```lua
 sdkbox.PluginValuePotion:init()
 sdkbox.PluginValuePotion:setListener(function(data)

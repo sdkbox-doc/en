@@ -1,5 +1,5 @@
 ### Register Javascript Functions
-You need to register all the ValuePotion JS functions with cocos2d-x before using them.
+You need to register all the Valuepotion JS functions with cocos2d-x before using them.
 
 To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
@@ -14,15 +14,15 @@ sc->addRegisterCallback(register_all_PluginValuePotionJS);
 sc->addRegisterCallback(register_all_PluginValuePotionJS_helper);
 ```
 
-### Initialize ValuePotion
+### Initialize Valuepotion
 Initialize the plugin by calling `init()` where appropriate in your code. We
 recommend to do this in the `app.js`. Example:
 ```javascript
 sdkbox.PluginValuePotion.init();
 ```
 
-### Using ValuePotion
-After initialization you can begin to use the ValuePotion functionality. Use `check` wherever you want from your code:
+### Using Valuepotion
+After initialization you can begin to use the Valuepotion functionality. Use `check` wherever you want from your code:
 ```javascript
 sdkbox.PluginValuePotion.setTest(true)
 if (!sdkbox.PluginValuePotion.hasCachedInterstitial("default")) {
@@ -46,8 +46,8 @@ sdkbox.PluginValuePotion.userinfo("firends", "3")
 sdkbox.PluginValuePotion.userinfo("accounttype", "facebook")
 ```
 
-### Catch ValuePotion events (optional)
-This allows you to catch the `ValuePotion` events so that you can perform operations based upon responses. A simple example might look like this:
+### Catch Valuepotion events (optional)
+This allows you to catch the `Valuepotion` events so that you can perform operations based upon responses. A simple example might look like this:
 ```javascript
 sdkbox.PluginValuePotion.init();
 sdkbox.PluginValuePotion.setListener({
@@ -69,6 +69,4 @@ sdkbox.PluginValuePotion.setListener({
 
     }
 })
-
-
 ```
