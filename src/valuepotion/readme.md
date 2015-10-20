@@ -2,10 +2,10 @@
 Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/valuepotion/v3-cpp
 -->
 
-#ValuePotion
+#Valuepotion
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX ValuePotion plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Valuepotion plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
 $ sdkbox import valuepotion
 ```
@@ -13,9 +13,13 @@ $ sdkbox import valuepotion
 <<[../../shared/notice.md]
 
 ## Configuration
+<<[../../shared/sdkbox_cloud.md]
+<<[../../shared/remote_application_config.md]
+
+### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-Here is an example of the ValuePotion configuration, you need to replace `<client id>` and `<secret key>` items with your specific [__ValuePotion ID__](https://www.valuepotion.com/) account information.
+Here is an example of the ValuePotion configuration, you need to replace `<client id>` and `<secret key>` items with your specific [__Valuepotion ID__](https://www.valuepotion.com/) account information.
 `<sender id>` item valid on android, which is GCM(google cloud message) project number id
 ```json
 "ValuePotion":{

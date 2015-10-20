@@ -1,4 +1,4 @@
-### Initialize ValuePotion
+### Initialize Valuepotion
 Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 ```cpp
 #include "PluginValuePotion/PluginValuePotion.h"
@@ -8,8 +8,8 @@ AppDelegate::applicationDidFinishLaunching()
 }
 ```
 
-### Using ValuePotion
-After initialization you can begin to use the ValuePotion functionality.
+### Using Valuepotion
+After initialization you can begin to use the Valuepotion functionality.
 ```cpp
 sdkbox::PluginValuePotion::setTest(true);
 sdkbox::PluginValuePotion::hasCachedInterstitial("default");
@@ -31,8 +31,8 @@ sdkbox::PluginValuePotion::userinfo("friends", "3");
 sdkbox::PluginValuePotion::userinfo("accounttype", "facebook");
 ```
 
-### Catch ValuePotion events (optional)
-This allows you to catch the `ValuePotion` events so that you can perform operations based upon responses. A simple example might look like this:
+### Catch Valuepotion events (optional)
+This allows you to catch the `Valuepotion` events so that you can perform operations based upon responses. A simple example might look like this:
 
 * Allow your class to extend `sdkbox::ValuePotionListener`
 ```cpp

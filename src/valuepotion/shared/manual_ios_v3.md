@@ -5,7 +5,7 @@ Drag and drop the following frameworks from the __plugins/ios__ folder of the `V
 
 > PluginValuePotion.framework
 
-add the following system frameworks, if you don't already have them:
+The above frameworks depend upon other frameworks. You also need to add the following system frameworks, if you don't already have them:
 
 > UIKit.framework
 
