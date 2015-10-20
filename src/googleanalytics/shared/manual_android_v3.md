@@ -57,6 +57,31 @@ There are also a few necessary meta-data tags that also need to be added:
     android:resource="@xml/global_tracker" />
 ```
 
+Next, register the __AnalyticsReceiver__:
+```xml
+<receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+    android:enabled="true">
+    <intent-filter>
+        <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+    </intent-filter>
+</receiver>
+<service android:name="com.google.android.gms.analytics.AnalyticsService"
+    android:enabled="true"
+    android:exported="false"/>
+```
+
+If you want to use optional __Receivers__, specify them next:
+```xml
+<!-- Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable installation campaign reporting -->
+<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+    </intent-filter>
+</receiver>
+<service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+```
+
 ### Edit the meta-data files
 In the step above a file named `global_tracker.xml` was specified. This file must be placed in `<project_root>/res/values/`. This file needs to contain required settings. The contents of this file could be something like this:
 ```xml
