@@ -4,6 +4,9 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/adcolony/v3-cpp
 
 #AdColony
 
+##Prerequisites
+* Certain SDKBOX plugins do not work together. If you use __AdColony__, then you cannot also use the __Fyber__ and __SOOMLA GROW__ services, in the same project.
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX AdColony plugin. Make sure you setup SDKBOX installer correctly.
 ```bash
