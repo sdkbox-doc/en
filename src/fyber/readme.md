@@ -6,6 +6,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/fyber/v3-cpp
 
 ##Prerequisites
 * __For Android, Fyber requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
+* Certain SDKBOX plugins do not work together. If you use __Fyber__, then you cannot also use the __AdColony__ and __SOOMLA GROW__ services, in the same project.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Fyber plugin. Make sure you setup SDKBOX installer correctly.

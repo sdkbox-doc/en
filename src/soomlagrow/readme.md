@@ -3,8 +3,10 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/soomlagrow/v3-cpp
 -->
 
 #GROW
-GROW is [SOOMLA](http://soom.la)'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Analytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games.
-Information about GROW can be found on the [Knowledge Base](http://know.soom.la/).
+GROW is [SOOMLA](http://soom.la)'s flagship, community-driven, data network. Mobile game studios can take advantage of GROW's Analytics, Whales Reports and Insights in order to gain valuable knowledge about users' behavior in other games. Information about GROW can be found on the [Knowledge Base](http://know.soom.la/).
+
+##Prerequisites
+* Certain SDKBOX plugins do not work together. If you use __GROW__, then you cannot also use the __AdColony__ and __Fyber__ services, in the same project.
 
 ##Integration
 1. If you still didn't sign up on the GROW Dashboard, go ahead and do it [here](https://soom.la/signup/sdkbox).
