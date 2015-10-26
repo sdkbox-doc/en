@@ -9,7 +9,7 @@ sdkbox.PluginAppodeal.init();
 ```javascript
 sdkbox.PluginAppodeal.setListener(listener);
 ```
-> Set listener to listen for adcolony events
+> Set listener to listen for Appodeal events
 
 ```javascript
 sdkbox.PluginAppodeal.setDebugEnabled(debugEnabled);
@@ -146,5 +146,3 @@ onVideoWillDismiss();
 onVideoDidFinish();
 ```
 > trigger when video finish
-
-
