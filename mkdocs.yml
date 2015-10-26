@@ -21,6 +21,15 @@ pages:
             - 'c++': 'plugins/agecheq/v2-cpp.md'
             - 'js': 'plugins/agecheq/v2-js.md'
             - 'lua': 'plugins/agecheq/v2-lua.md'
+    - 'Appodeal':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/appodeal/v3-cpp.md'
+            - 'js': 'plugins/appodeal/v3-js.md'
+            - 'lua': 'plugins/appodeal/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/appodeal/v2-cpp.md'
+            - 'js': 'plugins/appodeal/v2-js.md'
+            - 'lua': 'plugins/appodeal/v2-lua.md'
     - 'Bee7':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/bee7/v3-cpp.md'

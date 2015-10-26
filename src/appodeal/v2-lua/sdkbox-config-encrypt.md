@@ -1,0 +1,1 @@
+../../shared/sdkbox-config-encrypt.md
