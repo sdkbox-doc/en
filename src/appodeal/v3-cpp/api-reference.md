@@ -9,7 +9,7 @@ static bool init ( ) ;
 ```cpp
 static void setListener ( AppodealListener * listener ) ;
 ```
-> Set listener to listen for adcolony events
+> Set listener to listen for Appodeal events
 
 ```cpp
 static AppodealListener * getListener ( ) ;
@@ -156,5 +156,3 @@ void onVideoWillDismiss ( );
 void onVideoDidFinish ( );
 ```
 > trigger when video finish
-
-
