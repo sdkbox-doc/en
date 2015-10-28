@@ -7,7 +7,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 ##Prerequisites
 * __For Android, Bee7 requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
 
-* __For iOS, Bee7's game wall is currently supporting only portrait.__
+* __For iOS, Bee7's game wall currently supports only portrait orientation.__
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup the SDKBOX installer correctly.
