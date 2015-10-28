@@ -9,6 +9,7 @@ Currently, `Playphone` is only available for __Android__
 Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import playphone
+$ sdkbox import iap
 ```
 
 <<[../../shared/notice.md]

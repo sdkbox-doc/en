@@ -12,6 +12,7 @@ Open a terminal and use the following command to install the SDKBOX Achievement 
 ```bash
 $ sdkbox import achievement
 $ sdkbox import playphone
+$ sdkbox import iap
 ```
 
 <<[../../shared/notice.md]
