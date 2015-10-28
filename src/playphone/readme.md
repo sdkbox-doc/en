@@ -24,13 +24,13 @@ And created a new __game__ on [Playphone](https://developer.playphone.com/games/
 <meta-data android:name="channel" android:value="playphone" />
 ```
 
-*NOTE: If you submite your apk to other channel, such as `Google play`, please remove this line or set the `channel` with empty value, otherwise, you
+*NOTE: If you submite your apk to other channel, such as `Google play`, please remove this line or set the `channel` with `googleplay`, otherwise, you
 will get wrong configuration for the other channel.*
 
 example:
 
 ```
-<meta-data android:name="channel" android:value="" />
+<meta-data android:name="channel" android:value="googleplay" />
 ```
 
 # Open `AndroidManifest.xml` and replace `your_package_name` with android 
