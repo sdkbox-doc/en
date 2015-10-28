@@ -3,7 +3,7 @@ Include Base: /Users/jtsm/Chukong-Inc/en/src/playphone/v3-cpp
 -->
 
 #Playphone
-Currently, `Playphone` is only available for __Android__
+Currently, `Playphone` is only available for __Android__.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.
@@ -25,10 +25,6 @@ The following step assuming you already registered as a __Playphone Developer__ 
 ```
 
   NOTE: If you submit your *apk* to other channel, such as __Google Play__, please remove this line or set the `channel` with `googleplay`, otherwise, you will get wrong configuration for the other channel. Example: `<meta-data android:name="channel" android:value="googleplay" />`
-
-<!--## Configuration
-<<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -68,18 +64,3 @@ Here is an example of the Playphone configuration, you need to replace `<base64E
     }
 }
 ```
-
-<!--<<[sdkbox-config-encrypt.md]-->
-
-##Usage
-<<[usage.md]
-
-<<[manual_integration.md]
-
-<<[../../shared/manual_integration_android_and_android_studio.md]
-
-<<[manual_android.md]
-
-<<[extra-step.md]
-
-<<[proguard.md]
