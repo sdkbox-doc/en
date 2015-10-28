@@ -23,10 +23,7 @@ The following step assuming you already registered as a __Playphone Developer__ 
 <meta-data android:name="channel" android:value="playphone" />
 ```
 
-  NOTE: If you submit your *apk* to other channel, such as `Google play`, please remove this line or set the `channel` with empty value, otherwise, you will get wrong configuration for the other channel. Example: `<meta-data android:name="channel" android:value="" />`
-
-* Open `AndroidManifest.xml` and replace `your_package_name` with android
-  package name, such as `org.cocos2dx.cpp`.
+  NOTE: If you submit your *apk* to other channel, such as __Google Play__, please remove this line or set the `channel` with `googleplay`, otherwise, you will get wrong configuration for the other channel. Example: `<meta-data android:name="channel" android:value="googleplay" />`
 
 <!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
