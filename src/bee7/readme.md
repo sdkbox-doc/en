@@ -10,7 +10,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 * __For iOS, Bee7's game wall is currently supporting only portrait.__
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import bee7
 ```

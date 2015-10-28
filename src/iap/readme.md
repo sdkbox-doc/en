@@ -5,7 +5,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 #In-App Purchase
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import iap
 ```
