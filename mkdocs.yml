@@ -3,6 +3,15 @@ pages:
 - Overview: 'index.md'
 - Installer: 'installer.md'
 - Plugins:
+    - 'Achievements':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/achievement/v3-cpp.md'
+            - 'js': 'plugins/achievement/v3-js.md'
+            - 'lua': 'plugins/achievement/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/achievement/v2-cpp.md'
+            - 'js': 'plugins/achievement/v2-js.md'
+            - 'lua': 'plugins/achievement/v2-lua.md'
     - 'AdColony':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/adcolony/v3-cpp.md'
@@ -102,6 +111,24 @@ pages:
             - 'c++': 'plugins/kochava/v2-cpp.md'
             - 'js': 'plugins/kochava/v2-js.md'
             - 'lua': 'plugins/kochava/v2-lua.md'
+    - 'Leaderboard':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/leaderboard/v3-cpp.md'
+            - 'js': 'plugins/leaderboard/v3-js.md'
+            - 'lua': 'plugins/leaderboard/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/leaderboard/v2-cpp.md'
+            - 'js': 'plugins/leaderboard/v2-js.md'
+            - 'lua': 'plugins/leaderboard/v2-lua.md'
+    - 'Playphone':
+        - 'Cocos2dx 3.x':
+            - 'c++': 'plugins/playphone/v3-cpp.md'
+            - 'js': 'plugins/playphone/v3-js.md'
+            - 'lua': 'plugins/playphone/v3-lua.md'
+        - 'Cocos2dx 2.x':
+            - 'c++': 'plugins/playphone/v2-cpp.md'
+            - 'js': 'plugins/playphone/v2-js.md'
+            - 'lua': 'plugins/playphone/v2-lua.md'
     - 'Ratings & Reviews':
         - 'Cocos2dx 3.x':
             - 'c++': 'plugins/review/v3-cpp.md'
