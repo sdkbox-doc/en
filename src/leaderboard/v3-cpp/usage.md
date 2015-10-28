@@ -6,6 +6,7 @@ Initialize the plugin where appropriate in your code. We recommend to do this in
 AppDelegate::applicationDidFinishLaunching()
 {
      sdkbox::PluginLeaderboard::init();
+     sdkbox::IAP::init();
 }
 ```
 
