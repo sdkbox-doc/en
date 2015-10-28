@@ -9,6 +9,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/achievement/v3-cpp
 
 supported backend:
 - playphone
+    + if you using playphone as backend, please call `IAP::init()` to initialize playphone
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Achievement plugin. Make sure you setup SDKBOX installer correctly.
