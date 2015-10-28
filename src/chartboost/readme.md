@@ -13,9 +13,9 @@ $ sdkbox import chartboost
 <<[../../shared/notice.md]
 Follow [this link](https://www.chartboost.com/blog/2015/09/how-to-prepare-your-mobile-game-for-ios-9/)
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -39,7 +39,7 @@ Here is an example of the Chartboost configuration, you need to replace `<CHARTB
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]

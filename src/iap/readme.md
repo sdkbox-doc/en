@@ -12,10 +12,10 @@ $ sdkbox import iap
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
-<<[../shared/remote_iap_verification.md]
+<<[../shared/remote_iap_verification.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -61,7 +61,7 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]

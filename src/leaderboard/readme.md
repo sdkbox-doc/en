@@ -23,11 +23,11 @@ $ sdkbox import playphone
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
 
-<<[sdkbox-config-encrypt.md]
+<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 

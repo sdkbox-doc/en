@@ -33,13 +33,13 @@ example:
 <meta-data android:name="channel" android:value="" />
 ```
 
-# Open `AndroidManifest.xml` and replace `your_package_name` with android 
+# Open `AndroidManifest.xml` and replace `your_package_name` with android
   package name, such as `org.cocos2dx.cpp`.
 
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -81,7 +81,7 @@ Here is an example adding `playphone`:
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]

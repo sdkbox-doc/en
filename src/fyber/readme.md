@@ -17,7 +17,6 @@ $ sdkbox import fyber
 <<[../../shared/notice.md]
 
 ##Extra steps
-
 The following step assuming you already registered as a Fyber Developer
 And created a new __APP__ on Fyber
 
@@ -29,9 +28,9 @@ And created a new __APP__ on Fyber
 * Configure your __APP__ on Fyber follow [Android Quick Start Guide](http://developer.fyber.com/content/android/basics/)
 * Open `project.properties` and change target to `target=android-15`
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
@@ -46,7 +45,7 @@ Here is an example of the Fyber configuration you can enable/disable debug mode 
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]

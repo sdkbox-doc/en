@@ -17,9 +17,9 @@ $ sdkbox import adcolony
 
 Follow [this link](https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl)
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -44,7 +44,7 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
