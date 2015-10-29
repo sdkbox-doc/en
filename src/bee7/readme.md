@@ -7,19 +7,19 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
 ##Prerequisites
 * __For Android, Bee7 requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
 
-* __For iOS, Bee7's game wall is currently supporting only portrait.__
+* __For iOS, Bee7's game wall currently supports only portrait orientation.__
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import bee7
 ```
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
@@ -34,7 +34,7 @@ Here is an example of the Bee7 configuration you can enable/disable debug mode f
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 
@@ -61,8 +61,8 @@ The following step assumes you already registered at [Bee7](http://bee7.com/), c
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 <<[extra-step.md]

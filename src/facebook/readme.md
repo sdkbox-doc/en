@@ -8,7 +8,7 @@ Include Base: /Users/jtsm/Chukong-Inc/en/src/facebook/v3-cpp
 * __For Android__, Facebook requires a minimum version of __API 15: Android 4.0.3__. This version is newer than what the other SDKBOX plugins require.
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Facebook plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Facebook plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import facebook
 ```
@@ -17,7 +17,6 @@ $ sdkbox import facebook
 Follow [this link](https://developers.facebook.com/docs/ios/ios9)
 
 ##Extra steps
-
 The following step assuming you already registered as a Facebook Developer
 And created a new __APP__ on Facebook
 
@@ -68,9 +67,9 @@ And created a new __APP__ on Facebook
 * Open `AndroidManifest.xml` and replace `_replace_with_your_app_id_` with your `Facebook App ID`
 * Open `project.properties` and change target to `target=android-15`
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
@@ -83,7 +82,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
@@ -94,8 +93,8 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 ###Modify `project.properties`

@@ -5,17 +5,17 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/iap/v3-cpp
 #In-App Purchase
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX IAP plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import iap
 ```
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]
-<<[../shared/remote_iap_verification.md]
+<<[../shared/remote_iap_verification.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -61,7 +61,7 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
@@ -72,8 +72,8 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 <<[extra-step.md]

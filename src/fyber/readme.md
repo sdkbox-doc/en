@@ -9,7 +9,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/fyber/v3-cpp
 * Certain SDKBOX plugins do not work together. If you use __Fyber__, then you cannot also use the __AdColony__ and __SOOMLA GROW__ services, in the same project.
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Fyber plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Fyber plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import fyber
 ```
@@ -17,7 +17,6 @@ $ sdkbox import fyber
 <<[../../shared/notice.md]
 
 ##Extra steps
-
 The following step assuming you already registered as a Fyber Developer
 And created a new __APP__ on Fyber
 
@@ -29,9 +28,9 @@ And created a new __APP__ on Fyber
 * Configure your __APP__ on Fyber follow [Android Quick Start Guide](http://developer.fyber.com/content/android/basics/)
 * Open `project.properties` and change target to `target=android-15`
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
@@ -46,7 +45,7 @@ Here is an example of the Fyber configuration you can enable/disable debug mode 
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
@@ -57,8 +56,8 @@ Here is an example of the Fyber configuration you can enable/disable debug mode 
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 <<[extra-step.md]

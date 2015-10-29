@@ -5,16 +5,16 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/googleanalytics/v3-cpp
 #Google Analytics
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Google Analytics plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Google Analytics plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import googleanalytics
 ```
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -41,7 +41,7 @@ A __tracker__ is used to aggregate the tracked events. There are some considerat
 
 * Whether the tracker is set in the plugin configuration or manually created, all tracking events will be sent to the server automatically. The implementation buffers tracking events and sends them to the server it batches.
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
@@ -52,8 +52,8 @@ A __tracker__ is used to aggregate the tracked events. There are some considerat
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 <<[manual_integration_google_play_step.md]

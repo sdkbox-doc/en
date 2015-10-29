@@ -5,16 +5,16 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/appodeal/v3-cpp
 #Appodeal
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Appodeal plugin. Make sure you setup SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Appodeal plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import appodeal
 ```
 
 <<[../../shared/notice.md]
 
-## Configuration
+<!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
-<<[../../shared/remote_application_config.md]
+<<[../../shared/remote_application_config.md]-->
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -26,7 +26,7 @@ Here is an example of the Appodeal configuration, you need to replace `<app_key>
 }
 ```
 
-<<[sdkbox-config-encrypt.md]
+<!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
@@ -37,8 +37,8 @@ Here is an example of the Appodeal configuration, you need to replace `<app_key>
 
 <<[manual_ios.md]
 
-##Manual Integration For Android and Android Studio
-Both __Android__ development using a command-line and using __Android Studio__ are supported. `proj.android` will be used as our `<project_root>` for __command-line__ development, while `proj.android-studio` will be used as our `<project_root>` for __Android Studio__.
+<<[../../shared/manual_integration_android_and_android_studio.md]
+
 <<[manual_android.md]
 
 <<[extra-step.md]
