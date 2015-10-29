@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>c++ - SDKBOX Documentation</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/custom.css" rel="stylesheet">
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png"></a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installer/">Installer</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Achievements</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">AdColony</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../adcolony/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../adcolony/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">AgeCheq</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../agecheq/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../agecheq/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Appodeal</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../appodeal/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../appodeal/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../appodeal/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../appodeal/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../appodeal/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../appodeal/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Bee7</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../bee7/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../bee7/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Chartboost</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../chartboost/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../chartboost/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Facebook</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../facebook/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../facebook/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Flurry Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Fyber</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../fyber/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../fyber/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Google Analytics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../googleanalytics/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">IAP</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../iap/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../iap/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Kochava</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../kochava/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../kochava/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Leaderboard</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../leaderboard/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../leaderboard/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../leaderboard/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../leaderboard/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../leaderboard/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../leaderboard/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Playphone</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../playphone/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../playphone/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../playphone/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../playphone/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../playphone/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../playphone/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Ratings & Reviews</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../review/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../review/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../review/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">SOOMLA Grow</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../soomlagrow/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Tune</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../tune/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../tune/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Valuepotion</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../valuepotion/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../valuepotion/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Vungle</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v3-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v3-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../vungle/v2-cpp/">c++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-js/">js</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../vungle/v2-lua/">lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <!-- new add for language button -->
+                <li>
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../../../installer/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../v3-js/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#achievements">Achievements</a></li>
+        
+            <li><a href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a href="#integration">Integration</a></li>
+        
+            <li><a href="#important-notice">Important Notice</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#api-reference">API Reference</a></li>
+        
+            <li><a href="#manual-integration">Manual Integration</a></li>
+        
+            <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
+        
+            <li><a href="#manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</a></li>
+        
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/achievement/v3-cpp
+-->
+
+<h1 id="achievements">Achievements</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Currently, <code>Achievements</code> is only available for <strong>Android</strong> and only supports <strong>Playphone</strong> as a backend.</p>
+<h2 id="integration">Integration</h2>
+<p>Open a terminal and use the following command to install the SDKBOX Achievement plugin. Make sure you setup the SDKBOX installer correctly.</p>
+<pre><code class="bash">$ sdkbox import achievement
+$ sdkbox import playphone
+$ sdkbox import iap
+</code></pre>
+
+<h2 id="important-notice">Important Notice</h2>
+<p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
+<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
+<p>Adding the following entry to the plist:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
+<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
+<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
+<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
+<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<!--## Configuration
+### SDKBOX Cloud
+SDKBOX Cloud enables developers to receive the benefits of a centralized application management interface, by helping to boost their applications with extended functionality. The two main features are: __Remote Application Management__ which provides the abilities of updating and testing, and __IAP Receipt Verification__.
+
+Developers must register at Chukong’s website to get __developers credentials__. After receiving __developers credentials__, developers can register an unlimited number of __applications__. Each __application__ will have an associated __application token__ and a __application secret__. These are used to securely transmit new plugin configurations to the clients as well as grant access to all the remotely accessible services.
+
+### Remote Application Configuration
+SDKBOX allows developers to create a __Remote Application Configuration__ for each application they are developing.
+
+Registering the applications’ allows for on-the-fly update of its plugin’s configuration. For example, it will allow the change of the Google Analytics tracking code, switch to a new AdColony campaign or add new in-app purchase products without rebuilding and redeploying your apps to the app stores.
+
+To enable this cloud service in your applications is as easy as calling a single __init()__ function and passing in your __application token__ and __application secret__ that were provided when you created the app in the previous section.
+
+wzxhzdk:2
+
+  __Note__: each application will have it’s own __application token__ and each configuration for each game will have it’s own __application secret__. The __application secret__ is the actual encryption key used to decipher the remote configuration.
+
+When the developer updates a __Remote Application Configuration__ the application will automatically pull the new configuration and put it into effect. This means that you can update configuration information on the fly and everyone playing your game will get updated the next time the user starts the application!
+
+To ensure security, during normal execution the new configuration is locally saved in the applications’s private folder, and the next time it restarts it is applied. Also, configurations are cyphered and its contents are not exposed, even if your application runs on a rooted/jailbroken device.
+
+
+-->
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-achievement">Initialize Achievement</h3>
+<p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
+<pre><code class="cpp">#include &quot;PluginAchievement/PluginAchievement.h&quot;
+AppDelegate::applicationDidFinishLaunching()
+{
+     sdkbox::PluginAchievement::init();
+     sdkbox::IAP::init();
+}
+</code></pre>
+
+<h3 id="using-achievement">Using Achievement</h3>
+<h4 id="unlock-achievement">unlock achievement</h4>
+<pre><code class="cpp">sdkbox::PluginAchievement::unlock(achievementId);
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<pre><code class="cpp">static void init ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void unlock ( const std::string &amp; achievementId ) ;
+</code></pre>
+
+<h3 id="listeners">Listeners</h3>
+<h2 id="manual-integration">Manual Integration</h2>
+<p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
+<p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
+<h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>Achievement</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
+<blockquote>
+<p>sdkbox.framework</p>
+<p>PluginAchievement.framework</p>
+</blockquote>
+<p>The above frameworks depend upon a large number of other frameworks. You also need to add the following system frameworks, if you don't already have them:</p>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>
+<p>Both <strong>Android</strong> development using a command-line and using <strong>Android Studio</strong> are supported. <code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> development, while <code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong>.</p>
+<h3 id="copy-files">Copy Files</h3>
+<p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
+bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+<blockquote>
+<p>PluginAchievement.jar</p>
+<p>sdkbox.jar</p>
+</blockquote>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>proj.android/libs</code></p>
+</li>
+</ul>
+<p>Copy the <code>pluginachievement</code> and <code>sdkbox</code> directories from <code>plugin/android/jni</code>
+to your <code>&lt;project_root&gt;/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
+<h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
+<p>To enable <strong>hardware acceleration</strong> in your <strong>application tag</strong>. This tag is
+optional on newer SDK versions and doesn't work on version 2.3.3.</p>
+<pre><code class="xml">&lt;android:hardwareAccelerated=&quot;true&quot; /&gt;
+</code></pre>
+
+<h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Android.mk</code> to:</p>
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginAchievement
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
+</code></pre>
+
+<p>Add a call to:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+</code></pre>
+
+<p>before any <strong>import-module</strong> statements.</p>
+<p>Add additional <strong>import-module</strong> statements at the end:</p>
+<pre><code>$(call import-module, ./sdkbox)
+$(call import-module, ./pluginachievement)
+</code></pre>
+
+<p>This means that your ordering should look similar to this:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+$(call import-module, ./sdkbox)
+$(call import-module, ./pluginachievement)
+</code></pre>
+
+<p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>
+<h3 id="modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify <code>Application.mk</code> (Cocos2d-x v3.0 to v3.2 only)</h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Application.mk</code> to make sure <strong>APP_STL</strong> is defined
+correctly. If <code>Application.mk</code> contains <code>APP_STL := c++_static</code>, it should be
+changed to:</p>
+<pre><code>APP_STL := gnustl_static
+</code></pre>
+
+<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
+lib/Cocos2dxActivity.java</code></p>
+</li>
+<li>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
+</li>
+</ul>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
+  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
+<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
+<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
+</code></pre>
+
+<ul>
+<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+</ul>
+<pre><code class="java">onLoadNativeLibraries();
+SDKBox.init(this);
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
