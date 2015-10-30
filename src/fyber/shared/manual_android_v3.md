@@ -63,6 +63,8 @@ There are also a few necessary meta-data tags that also need to be added:
     android:configChanges="screenSize|orientation"
     android:name="com.sponsorpay.publisher.mbe.SPBrandEngageActivity"
     android:hardwareAccelerated="true"/>
+<activity android:name="com.fyber.ads.videos.RewardedVideoActivity"
+	android:configChanges="screenSize|orientation" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent" />
 ```
 
 ### Edit `Android.mk`
