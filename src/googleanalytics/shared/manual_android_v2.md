@@ -57,7 +57,15 @@ If you want to use optional __Receivers__, specify them next:
 ```
 
 ### Edit the meta-data files
-In the step above a file named `global_tracker.xml` was specified. This file must be placed in `proj.android/res/xml/`. This file needs to contain required settings. The contents of this file could be something like this:
+In the step above a file named `global_tracker.xml` was specified. This file needs to be created and populated with a few required settings. So where does it go? Take a look again at the code tag from above:
+```
+<meta-data
+    android:name="com.google.android.gms.analytics.globalConfigResource"
+    android:resource="@xml/global_tracker" />
+```
+Notice the `android:resource=` attribute. This gives you the path of where to create this file, in this case it would be `<project_root>/res/xml`.
+
+This file needs to contain required settings. The contents of this file could be something like this:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
