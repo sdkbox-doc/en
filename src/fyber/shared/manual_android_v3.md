@@ -54,15 +54,23 @@ Include the following permissions above the __application tag__:
 
 There are also a few necessary meta-data tags that also need to be added:
 ```xml
-<activity android:name="com.sponsorpay.publisher.ofw.SPOfferWallActivity" android:configChanges="orientation"/>
+<activity
+    android:name="com.fyber.ads.ofw.OfferWallActivity"
+    android:configChanges="screenSize|orientation" />
+<activity
+    android:name="com.fyber.ads.videos.RewardedVideoActivity"
+    android:configChanges="screenSize|orientation"
+    android:hardwareAccelerated="true"
+  android:theme="@android:style/Theme.Translucent" />
+<activity
+    android:name="com.fyber.ads.interstitials.InterstitialActivity"
+    android:configChanges="screenSize|orientation"
+    android:theme="@android:style/Theme.Translucent" />
 <activity
     android:configChanges="screenSize|orientation"
-    android:name="com.sponsorpay.publisher.interstitial.SPInterstitialActivity"
+    android:name="com.fyber.cache.CacheVideoDownloadService"
     android:hardwareAccelerated="true"/>
-<activity
-    android:configChanges="screenSize|orientation"
-    android:name="com.sponsorpay.publisher.mbe.SPBrandEngageActivity"
-    android:hardwareAccelerated="true"/>
+<service android:name="com.fyber.cache.CacheVideoDownloadService" android:exported="false" />
 ```
 
 ### Edit `Android.mk`
