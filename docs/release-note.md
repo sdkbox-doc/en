@@ -1,5 +1,12 @@
 #Release Notes
 ---
+1.4 Release Notes
+===
+##Highlight
+* [SDKBOX Playphone plugin](http://cocos2d-x.org/sdkbox/playphone)
+* [SDKBOX Valuepotion plugin](http://cocos2d-x.org/sdkbox/valuepotion)
+* [SDKBOX Appodeal plugin](http://cocos2d-x.org/sdkbox/appodeal)
+
 
 1.3 Release Notes
 ===
