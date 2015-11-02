@@ -1,5 +1,6 @@
 ### Initialize Achievement
 Before initializing achievements for Playphone:
+
   - Register as a Playphone developer in the [Playphone Developer Portal](http://developer.playphone.com)
   - Create a new game and setup achievements for that game in the [Playphone
    Developer Portal](https://developer.playphone.com/games).
