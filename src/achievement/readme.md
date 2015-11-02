@@ -5,7 +5,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/achievement/v3-cpp
 #Achievements
 
 ##Prerequisites
-Currently, `Achievements` is only available for __Android__ and only supports __Playphone__ as a backend.
+Currently, `Achievements` is only available for __Android__ and only supports __Playphone__ as a backend. Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Achievement plugin. Make sure you setup the SDKBOX installer correctly.
@@ -14,8 +14,6 @@ $ sdkbox import achievement
 $ sdkbox import playphone
 $ sdkbox import iap
 ```
-
-<<[../../shared/notice.md]
 
 <!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
