@@ -1332,8 +1332,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#important-notice">Important Notice</a></li>
-        
             <li><a href="#usage">Usage</a></li>
         
             <li><a href="#api-reference">API Reference</a></li>
@@ -1357,7 +1355,7 @@ Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/achievement/v3-cpp
 
 <h1 id="achievements">Achievements</h1>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Currently, <code>Achievements</code> is only available for <strong>Android</strong> and only supports <strong>Playphone</strong> as a backend.</p>
+<p>Currently, <code>Achievements</code> is only available for <strong>Android</strong> and only supports <strong>Playphone</strong> as a backend. Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.</p>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Achievement plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import achievement
@@ -1365,23 +1363,6 @@ $ sdkbox import playphone
 $ sdkbox import iap
 </code></pre>
 
-<h2 id="important-notice">Important Notice</h2>
-<p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
-<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
-<p>Adding the following entry to the plist:</p>
-<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
-&lt;dict&gt;
-    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
-    &lt;true/&gt;
-&lt;/dict&gt;
-</code></pre>
-
-<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
-<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
-<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <!--## Configuration
 ### SDKBOX Cloud
 SDKBOX Cloud enables developers to receive the benefits of a centralized application management interface, by helping to boost their applications with extended functionality. The two main features are: __Remote Application Management__ which provides the abilities of updating and testing, and __IAP Receipt Verification__.
@@ -1395,7 +1376,7 @@ Registering the applications’ allows for on-the-fly update of its plugin’s c
 
 To enable this cloud service in your applications is as easy as calling a single __init()__ function and passing in your __application token__ and __application secret__ that were provided when you created the app in the previous section.
 
-wzxhzdk:2
+wzxhzdk:1
 
   __Note__: each application will have it’s own __application token__ and each configuration for each game will have it’s own __application secret__. The __application secret__ is the actual encryption key used to decipher the remote configuration.
 
@@ -1408,6 +1389,13 @@ To ensure security, during normal execution the new configuration is locally sav
 
 <h2 id="usage">Usage</h2>
 <h3 id="initialize-achievement">Initialize Achievement</h3>
+<p>Before initializing achievements for Playphone:</p>
+<ul>
+<li>Register as a Playphone developer in the <a href="http://developer.playphone.com">Playphone Developer Portal</a></li>
+<li>Create a new game and setup achievements for that game in the <a href="https://developer.playphone.com/games">Playphone
+   Developer Portal</a>.</li>
+<li>Setup Playphone configuration by following the JSON Configuration step as outlined in <a href="http://sdkbox- staging.github.io/en/plugins/playphone/v3 -cpp/#extra-steps">Playphone plugin documentation</a></li>
+</ul>
 <p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
 <pre><code class="cpp">#include &quot;PluginAchievement/PluginAchievement.h&quot;
 AppDelegate::applicationDidFinishLaunching()

@@ -1330,8 +1330,6 @@
         
             <li><a href="#integration">Integration</a></li>
         
-            <li><a href="#important-notice">Important Notice</a></li>
-        
             <li><a href="#extra-steps">Extra steps</a></li>
         
     
@@ -1344,32 +1342,15 @@ Include Base: /Users/jtsm/Chukong-Inc/en/src/playphone/v3-cpp
 -->
 
 <h1 id="playphone">Playphone</h1>
-<p>Currently, <code>Playphone</code> is only available for <strong>Android</strong>.</p>
+<p>Currently, <code>Playphone</code> is only available for <strong>Android</strong>.  Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.</p>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import playphone
 $ sdkbox import iap
 </code></pre>
 
-<h2 id="important-notice">Important Notice</h2>
-<p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
-<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
-<p>Adding the following entry to the plist:</p>
-<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
-&lt;dict&gt;
-    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
-    &lt;true/&gt;
-&lt;/dict&gt;
-</code></pre>
-
-<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
-<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
-<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="extra-steps">Extra steps</h2>
-<p>The following step assuming you already registered as a <strong>Playphone Developer</strong> and created a new <strong>game</strong> on <a href="https://developer.playphone.com/games/">Playphone</a></p>
+<p>The following step assumes you have already registered as a <strong>Playphone Developer</strong> in the Playphone Developer Portal and created a new <strong>game</strong> there.</p>
 <h3 id="setup-android">Setup Android</h3>
 <ul>
 <li>Open <code>AndroidManifest.xml</code> add the following line:</li>
@@ -1377,10 +1358,13 @@ $ sdkbox import iap
 <pre><code>&lt;meta-data android:name=&quot;channel&quot; android:value=&quot;playphone&quot; /&gt;
 </code></pre>
 
-<p>NOTE: If you submit your <em>apk</em> to other channel, such as <strong>Google Play</strong>, please remove this line or set the <code>channel</code> with <code>googleplay</code>, otherwise, you will get wrong configuration for the other channel. Example: <code>&lt;meta-data android:name="channel" android:value="googleplay" /&gt;</code></p>
+<p>NOTE: If you submit your <em>apk</em> to other channels, such as <strong>Google Play</strong>, please remove this line or set the <code>channel</code> with <code>googleplay</code>, otherwise, you will get wrong configuration for the other channel. Example: <code>&lt;meta-data android:name="channel" android:value="googleplay" /&gt;</code></p>
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Playphone configuration, you need to replace <code>&lt;base64EncodedPublicKey&gt;</code> and <code>&lt;your secret key&gt;</code>  with your specific Playphone account information. Here is an example adding <code>Playphone</code>:</p>
+<p>Here is an example of the Playphone configuration, you need to replace <code>&lt;base64EncodedPublicKey&gt;</code> and <code>&lt;your secret key&gt;</code>  with your specific Playphone account information.</p>
+<p>The <base64EncodedPublicKey> is the Public License Key for the game that can be found in the General section for that game in the Playphone Developer Portal.</p>
+<p><your secret key> is a unique key that identifies you as the Playphone developer and can be found in the Company section of the Profile page of the Playphone Developer Portal.</p>
+<p>Here is an example adding <code>Playphone</code>:</p>
 <pre><code class="json">{
     &quot;ios&quot;:
     {

@@ -1685,15 +1685,23 @@ bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 </code></pre>
 
 <p>There are also a few necessary meta-data tags that also need to be added:</p>
-<pre><code class="xml">&lt;activity android:name=&quot;com.sponsorpay.publisher.ofw.SPOfferWallActivity&quot; android:configChanges=&quot;orientation&quot;/&gt;
+<pre><code class="xml">&lt;activity
+    android:name=&quot;com.fyber.ads.ofw.OfferWallActivity&quot;
+    android:configChanges=&quot;screenSize|orientation&quot; /&gt;
+&lt;activity
+    android:name=&quot;com.fyber.ads.videos.RewardedVideoActivity&quot;
+    android:configChanges=&quot;screenSize|orientation&quot;
+    android:hardwareAccelerated=&quot;true&quot;
+  android:theme=&quot;@android:style/Theme.Translucent&quot; /&gt;
+&lt;activity
+    android:name=&quot;com.fyber.ads.interstitials.InterstitialActivity&quot;
+    android:configChanges=&quot;screenSize|orientation&quot;
+    android:theme=&quot;@android:style/Theme.Translucent&quot; /&gt;
 &lt;activity
     android:configChanges=&quot;screenSize|orientation&quot;
-    android:name=&quot;com.sponsorpay.publisher.interstitial.SPInterstitialActivity&quot;
+    android:name=&quot;com.fyber.cache.CacheVideoDownloadService&quot;
     android:hardwareAccelerated=&quot;true&quot;/&gt;
-&lt;activity
-    android:configChanges=&quot;screenSize|orientation&quot;
-    android:name=&quot;com.sponsorpay.publisher.mbe.SPBrandEngageActivity&quot;
-    android:hardwareAccelerated=&quot;true&quot;/&gt;
+&lt;service android:name=&quot;com.fyber.cache.CacheVideoDownloadService&quot; android:exported=&quot;false&quot; /&gt;
 </code></pre>
 
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
