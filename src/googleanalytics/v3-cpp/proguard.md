@@ -1,12 +1,21 @@
 ## Proguard (optional)
 * Edit `project.properties`  to specify a `Proguard` configuration file. Example:
 ```
-proguard.config=proguard.cfg
+proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt
 ```
 
 * Edit the file you specified to include the following:
+
 ```
--libraryjars libs/android-support-v4.jar
+# cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# google play service
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
@@ -24,5 +33,10 @@ proguard.config=proguard.cfg
 -keepnames class * implements android.os.Parcelable {
     public static final ** CREATOR;
 }
+
+#sdkbox
+-keep class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
 ```
+
  __Note:__ Proguard only works with __Release__ builds (i.e `cocos run -m release`) debug builds do not invoke Proguard rules.
