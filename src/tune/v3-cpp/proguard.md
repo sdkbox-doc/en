@@ -6,9 +6,22 @@ proguard.config=proguard.cfg
 
 * Edit the file you specified to include the following:
 ```
--keep public class com.mobileapptracker.** {
-    public *;
-}
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# google play service
+-keep public class com.google.android.gms.** { public *; }
+-dontwarn com.google.android.gms.**
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
@@ -26,5 +39,15 @@ proguard.config=proguard.cfg
 -keepnames class * implements android.os.Parcelable {
     public static final ** CREATOR;
 }
+
+#sdkbox
+-keep public class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
+
+#tune
+-keep public class com.mobileapptracker.** {
+    public *;
+}
+
 ```
  __Note:__ Proguard only works with __Release__ builds (i.e `cocos run -m release`) debug builds do not invoke Proguard rules.
