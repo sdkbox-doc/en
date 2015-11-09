@@ -47,3 +47,5 @@ Here is an example adding `Kochava`:
 <<[manual_android.md]
 
 <<[extra-step.md]
+
+<<[proguard.md]

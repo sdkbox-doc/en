@@ -4,7 +4,8 @@
 proguard.config=proguard.cfg
 ```
 
-* Edit the file you specified to include the following:
+* proguard.cfg:
+
 ```
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
@@ -43,10 +44,6 @@ proguard.config=proguard.cfg
 #sdkbox
 -keep public class com.sdkbox.** { *; }
 -dontwarn com.sdkbox.**
-
-# vungle
--keep public class com.valuepotion.** { *; }
--dontwarn com.valuepotion.**
-
 ```
+
  __Note:__ Proguard only works with __Release__ builds (i.e `cocos run -m release`) debug builds do not invoke Proguard rules.
