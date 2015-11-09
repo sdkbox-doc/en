@@ -99,11 +99,11 @@ There are both __standard__ and __custom__ *Invite* dialogs available to use whe
 When using the *standard invite dialog*, it is necessary to select the friends to send the invitation request too. The API call is `inviteFriends()` passing in a URL for __app__ and a __preview image__. Example:
 ```js
 sdkbox.PluginFacebook.inviteFriends(
- "https://play.google.com/store/apps/details?id=com.cocos2dx.PluginTest",
+ "https://fb.me/322164761287181",
  "http://www.cocos2d-x.org/attachments/801/cocos2dx_portrait.png");
 ```
 
-The __app__ URL must be to a valid GooglePlay/iTunes application URL. At runtime, a custom message can be attached to the invite request. It is not possible to set a predefined invite message.
+  > Note: Contrary to what it may seem the __app link url__, it is not an App Store or Google Play application url. You must follow the instructions on this [page](https://developers.facebook.com/quickstarts/?platform=app-links-host)  and use the resulting url as the __app_link_url__ parameter. Facebook hosts this file for the developer, but anyone could host their own file using this [format](https://developers.facebook.com/docs/app-invites/android#app_links)
 
 Creating a *custom invite dialog* is a two step process, starting with a call to `requestInvitableFriends()` then a call to `inviteFriendsWithInviteIds()` to actually send the invites. Example:
 ```js
