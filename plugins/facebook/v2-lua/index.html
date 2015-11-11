@@ -1559,11 +1559,13 @@ sdkbox.PluginFacebook:dialog(info);
 <p>There are both <strong>standard</strong> and <strong>custom</strong> <em>Invite</em> dialogs available to use when inviting your Friends.</p>
 <p>When using the <em>standard invite dialog</em>, it is necessary to select the friends to send the invitation request too. The API call is <code>inviteFriends()</code> passing in a URL for <strong>app</strong> and a <strong>preview image</strong>. Example:</p>
 <pre><code class="lua">sdkbox.PluginFacebook:inviteFriends(
- &quot;https://play.google.com/store/apps/details?id=com.cocos2dx.PluginTest&quot;,
+ &quot;https://fb.me/322164761287181&quot;,
  &quot;http://www.cocos2d-x.org/attachments/801/cocos2dx_portrait.png&quot;);
 </code></pre>
 
-<p>The <strong>app</strong> URL must be to a valid GooglePlay/iTunes application URL. At runtime, a custom message can be attached to the invite request. It is not possible to set a predefined invite message.</p>
+<blockquote>
+<p>Note: Contrary to what it may seem the <strong>app link url</strong>, it is not an App Store or Google Play application url. You must follow the instructions on this <a href="https://developers.facebook.com/quickstarts/?platform=app-links-host">page</a>  and use the resulting url as the <strong>app_link_url</strong> parameter. Facebook hosts this file for the developer, but anyone could host their own file using this <a href="https://developers.facebook.com/docs/app-invites/android#app_links">format</a></p>
+</blockquote>
 <p>Creating a <em>custom invite dialog</em> is a two step process, starting with a call to <code>requestInvitableFriends()</code> then a call to <code>inviteFriendsWithInviteIds()</code> to actually send the invites. Example:</p>
 <pre><code class="lua">sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, “title&quot;, “invitation text&quot;);
 </code></pre>
@@ -1904,17 +1906,46 @@ import com.sdkbox.plugin.SDKBox;
 <ul>
 <li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
 </ul>
-<pre><code>proguard.config=proguard.cfg
+<pre><code>proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt
 </code></pre>
 
 <ul>
 <li>Edit the file you specified to include the following:</li>
 </ul>
-<pre><code>-libraryjars libs/facebook_lib/libs/android-support-v4.jar
+<pre><code># facebook
+-keep public class com.facebook.** { *; }
+-dontwarn com.facebook.**
+
+# cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# google play service
+-keep public class com.google.android.gms.** { public *; }
+-dontwarn com.google.android.gms.**
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+#sdkbox
+-keep class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>

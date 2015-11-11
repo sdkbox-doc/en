@@ -1943,9 +1943,22 @@ import com.sdkbox.plugin.SDKBox;
 <ul>
 <li>Edit the file you specified to include the following:</li>
 </ul>
-<pre><code>-keep public class com.mobileapptracker.** {
-    public *;
-}
+<pre><code># If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# google play service
+-keep public class com.google.android.gms.** { public *; }
+-dontwarn com.google.android.gms.**
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
@@ -1963,6 +1976,16 @@ import com.sdkbox.plugin.SDKBox;
 -keepnames class * implements android.os.Parcelable {
     public static final ** CREATOR;
 }
+
+#sdkbox
+-keep public class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
+
+#tune
+-keep public class com.mobileapptracker.** {
+    public *;
+}
+
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
