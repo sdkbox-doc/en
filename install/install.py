@@ -11,7 +11,7 @@ import zipfile
 import stat
 
 # install command
-# python -c "import urllib; d = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install.py').read(); exec d"
+# python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
 
 
 
