@@ -1,5 +1,20 @@
 #Release Notes
 ---
+
+1.4.1 Release Notes
+===
+##Highlight
+* Automatic installation script help you setup sdkbox in a flash
+* Update vungle android SDK to 3.3.3
+* Update appodeal to support rewarded video
+* Update tune SDK
+
+##Bugfix
+* Fix facebook invite app link documentation
+* Installer will no longer modify osx projects
+* Fix chartboost isAvailable functions
+* Fix proguard setttings
+
 1.4 Release Notes
 ===
 ##Highlight
