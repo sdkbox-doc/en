@@ -179,4 +179,4 @@ pages:
 theme: mkdocs
 theme_dir: 'theme'
 
-google_analytics: ['UA-62579154-2', 'sdkbox-doc.github.io/en']
+google_analytics: ['UA-70044300-1', 'sdkbox-doc.github.io/en']
