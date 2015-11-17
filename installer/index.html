@@ -1317,7 +1317,17 @@
     
         <li class="main active"><a href="#sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</a></li>
         
-            <li><a href="#sdkbox-installing-sdkbox-plugins-using-the-installer_1">SDKBOX: Installing SDKBOX Plugins using the Installer</a></li>
+            <li><a href="#get-the-installer">Get the Installer</a></li>
+        
+            <li><a href="#installing-for-os-x">Installing for OS X</a></li>
+        
+            <li><a href="#installing-for-windows">Installing for Windows</a></li>
+        
+            <li><a href="#what-next">What Next?</a></li>
+        
+            <li><a href="#other-installer-options">Other Installer options.</a></li>
+        
+            <li><a href="#staying-up-to-date">Staying Up-to-date</a></li>
         
     
     </ul>
@@ -1325,10 +1335,17 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</h1>
-<h2 id="sdkbox-installing-sdkbox-plugins-using-the-installer_1">SDKBOX: Installing SDKBOX Plugins using the Installer</h2>
-<p>Before you can run the SDKBOX installer you need to do a few things.
-* make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)</p>
-<p>Now we are ready to install a plugin! There isn't much to it. Ready?</p>
+<h3 id="get-the-installer">Get the Installer</h3>
+<p>You can get SDKBOX Installer using either one of the following methods:</p>
+<ul>
+<li>(Recommended) Paste the script below into a terminal/prompt. It will explain what it does and setup everything to run the installer: </li>
+</ul>
+<pre><code>python -c &quot;import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s&quot;
+</code></pre>
+
+<ul>
+<li>Or, download the <a href="http://download.sdkbox.com/installer/v1/sdkbox_installer.zip">zip file</a>). And then, make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)</li>
+</ul>
 <h3 id="installing-for-os-x">Installing for OS X</h3>
 <ul>
 <li>From a command-line, <code>cd</code> to your applications root directory. Example:</li>
@@ -1597,7 +1614,7 @@ updated SDKBOX v0.5.6.18 to v0.5.7.1 at sdkbox
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-70044300-1', 'sdkbox-doc.github.io/en');
+            ga('create', 'UA-70044300-2', 'docs.sdkbox.com/en');
             ga('send', 'pageview');
         </script>
         
