@@ -395,7 +395,8 @@ def main():
     # 5. set env for sdkbox installer
     Env.set_env_if(ENV_SDKBOX_HOME, os.path.join(SDKBOX_DIR))
 
-    print('SUCCESS! SDBOX installer have been installed')
+    print('SUCCESS! SDBOX installer have been installed.')
+    print('Next, type "sdkbox -h" to see the usage help.")
 
 if __name__ == '__main__':
     main()
