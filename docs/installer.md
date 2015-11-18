@@ -1,10 +1,15 @@
 # SDKBOX: Installing SDKBOX Plugins using the Installer
 
-## SDKBOX: Installing SDKBOX Plugins using the Installer
-Before you can run the SDKBOX installer you need to do a few things.
-* make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in `/usr/local/bin`)
+### Get the Installer
+You can get SDKBOX Installer using either one of the following methods:
 
-Now we are ready to install a plugin! There isn't much to it. Ready?
+* (Recommended) Paste the script below into a terminal/prompt. It will explain what it does and setup everything to run the installer: 
+```
+python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
+```
+
+* Or, download the [zip file](http://download.sdkbox.com/installer/v1/sdkbox_installer.zip)). And then, make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in `/usr/local/bin`)
+
 
 ### Installing for OS X
 * From a command-line, `cd` to your applications root directory. Example:
