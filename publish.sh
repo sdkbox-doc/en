@@ -1,9 +1,11 @@
 
 #!/bin/bash
 
-git branch -D gh-pages
+BRANCHNAME=gh-pages
+
+git branch -D ${BRANCHNAME}
 git fetch
-git checkout -b gh-pages  origin/gh-pages
+git checkout -b ${BRANCHNAME} origin/gh-pages
 git pull
 git checkout master
 git pull
