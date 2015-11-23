@@ -73,7 +73,7 @@ class DocGen:
 
                 out_file = os.path.join(self.out_path, f + '.md')
                 write_file(out_file, out_data)
-                print 'Write file: ' + out_file
+                # print 'Write file: ' + out_file
         else:
             print '===> skip ' + self.name
             print '===> failed to find ' + self.main_file
