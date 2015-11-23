@@ -25,7 +25,9 @@ bundle into your project’s __proj.android/libs__ folder.
   proj.android/libs
   ```
 
-Copy the `pluginbee7` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+
+<<[../../shared/copy_jni_lib.md]
+
 
 Copy the `bee7-android-sdk-gamewall` directories from `plugin/android/libs` to your `proj.android/libs/` directory.
 

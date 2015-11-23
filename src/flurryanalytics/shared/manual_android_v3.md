@@ -40,7 +40,8 @@ bundle into your project’s __<project_root>/libs__ folder.
 	<project_root>/libs
 	```
 
-Copy the `pluginflurryanalytics` and `sdkbox` directories from `plugin/android/jni` to your `<project_root>/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+<<[../../shared/copy_jni_lib.md]
+
 
 ### 2.2 Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:

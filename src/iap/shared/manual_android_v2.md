@@ -1,4 +1,5 @@
 ### Copy Files
+#### Copy jar files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
@@ -8,8 +9,7 @@ bundle into your project’s __proj.android/libs__ folder.
 
 > sdkbox.jar
 
-Copy the `pluginiap` and `sdkbox` directories from `plugin/android/jni`
-to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+<<[../../shared/copy_jni_lib.md]
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:

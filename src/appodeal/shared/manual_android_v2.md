@@ -19,7 +19,9 @@ bundle into your project’s __proj.android/libs__ folder.
 > unity-ads-1.4.7.jar
 
 
-Copy the `pluginappodeal` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
+
+<<[../../shared/copy_jni_lib.md]
+
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
