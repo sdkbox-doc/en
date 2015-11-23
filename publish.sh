@@ -3,7 +3,7 @@
 
 BRANCHNAME=gh-pages
 
-if [ `git branch --list ${BRANCHNAME} `]
+if [ `git branch --list ${BRANCHNAME} ` ]
 then
    echo "Removing old ${BRANCHNAME} branch"
    git branch -D ${BRANCHNAME}
