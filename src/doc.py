@@ -25,7 +25,7 @@ def get_curr_path():
     return os.path.dirname(os.path.realpath(__file__))
 
 def read_file(path):
-    print "path: " + path
+    # print "path: " + path
     with open(path, "r") as target_file:
         return target_file.read()
 
