@@ -3,7 +3,11 @@
 
 BRANCHNAME=gh-pages
 
-git branch -D ${BRANCHNAME}
+if [ `git branch --list ${BRANCHNAME} `]
+then
+   echo "Removing old ${BRANCHNAME} branch"
+   git branch -D ${BRANCHNAME}
+fi
 git fetch
 git checkout -b ${BRANCHNAME} origin/gh-pages
 git pull
