@@ -25,7 +25,7 @@ def get_curr_path():
     return os.path.dirname(os.path.realpath(__file__))
 
 def read_file(path):
-    print "path: " + path
+    # print "path: " + path
     with open(path, "r") as target_file:
         return target_file.read()
 
@@ -73,7 +73,7 @@ class DocGen:
 
                 out_file = os.path.join(self.out_path, f + '.md')
                 write_file(out_file, out_data)
-                print 'Write file: ' + out_file
+                # print 'Write file: ' + out_file
         else:
             print '===> skip ' + self.name
             print '===> failed to find ' + self.main_file

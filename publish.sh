@@ -1,9 +1,15 @@
 
 #!/bin/bash
 
-git branch -D "gh-pages"
+BRANCHNAME=gh-pages
+
+if [ `git branch --list ${BRANCHNAME} ` ]
+then
+   echo "Removing old ${BRANCHNAME} branch"
+   git branch -D ${BRANCHNAME}
+fi
 git fetch
-git checkout -b "gh-pages"  origin/gh-pages
+git checkout -b ${BRANCHNAME} origin/gh-pages
 git pull
 git checkout master
 git pull

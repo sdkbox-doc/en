@@ -38,9 +38,9 @@ bundle into your project’s __<project_root>/libs__ folder.
 	proj.android/libs
 	```
 
-Copy the `pluginfacebook` and `sdkbox` directories from `plugin/android/jni` to your `<project_root>/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
-
 Copy the `facebook_lib` directories from `plugin/android/libs` to your `<project_root>/libs/` directory.
+
+<<[../../shared/copy_jni_lib.md]
 
 
 ### Edit `AndroidManifest.xml`

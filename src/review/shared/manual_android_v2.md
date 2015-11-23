@@ -6,9 +6,9 @@ bundle into your project’s __proj.android/libs__ folder.
 
 > sdkbox.jar
 
-Copy the `pluginreview` and `sdkbox` directories from `plugin/android/jni` to your `proj.android/jni/` directory. If the `sdkbox` folder exists, it's ok to overwrite it.
-
 Copy the `plugin_review_res_project` directory from `plugin/android` to your `proj.android` directory. Make your Android project reference the `plugin_review_res_project` project.
+
+<<[../../shared/copy_jni_lib.md]
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
