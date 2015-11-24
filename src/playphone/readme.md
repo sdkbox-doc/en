@@ -9,7 +9,6 @@ Currently, `Playphone` is only available for __Android__.  Playphone is the lead
 Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import playphone
-$ sdkbox import iap
 ```
 
 ##Extra steps
@@ -18,11 +17,16 @@ The following step assumes you have already registered as a __Playphone Develope
 ###Setup Android
 * Open `AndroidManifest.xml` add the following line:
 
-```
+```xml
 <meta-data android:name="channel" android:value="playphone" />
+<meta-data android:name="leaderboard" android:value="playphone" />
 ```
 
   NOTE: If you submit your *apk* to other channels, such as __Google Play__, please remove this line or set the `channel` with `googleplay`, otherwise, you will get wrong configuration for the other channel. Example: `<meta-data android:name="channel" android:value="googleplay" />`
+
+```bash
+$ sdkbox set channel googleplay
+```
 
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
@@ -44,10 +48,10 @@ Here is an example adding `Playphone`:
     },
     "playphone" :
     {
+        "skey":"<your secret key>",
         "iap":
         {
             "key":"<base64EncodedPublicKey>",
-            "skey":"<your secret key>",
             "items":{
                 "remove_ads":{
                     "id":"com.cocos2dx.non1",
