@@ -18,14 +18,14 @@ The following step assumes you have already registered as a __Playphone Develope
 * Open `AndroidManifest.xml` add the following line:
 
 ```xml
-<meta-data android:name="channel" android:value="playphone" />
+<meta-data android:name="store" android:value="playphone" />
 <meta-data android:name="leaderboard" android:value="playphone" />
 ```
 
-  NOTE: If you submit your *apk* to other channels, such as __Google Play__, please remove this line or set the `channel` with `googleplay`, otherwise, you will get wrong configuration for the other channel. Example: `<meta-data android:name="channel" android:value="googleplay" />`
+  NOTE: If you submit your *apk* to other store, such as __Google Play__, please remove this line or set the `store` with `googleplay`, otherwise, you will get wrong configuration for the other store. Example: `<meta-data android:name="store" android:value="googleplay" />`
 
 ```bash
-$ sdkbox set channel googleplay
+$ sdkbox set store googleplay
 ```
 
 ### JSON Configuration
