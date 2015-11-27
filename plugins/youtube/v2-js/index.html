@@ -1596,6 +1596,11 @@ adding frameworks:</p>
 <p>WebKit.framework</p>
 <p>SystemConfiguration.framework</p>
 </blockquote>
+<h3 id="add-assets-folder">Add "Assets" folder</h3>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong>/plugin_youtube_res_bundle folder of the <code>Youtube</code> bundle into your Xcode project, check <code>Copy items if needed</code> and <code>Create folder references</code> when</p>
+<blockquote>
+<p>Assets</p>
+</blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
@@ -1651,6 +1656,20 @@ $(call import-module, ./pluginyoutube)
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-9
+</code></pre>
+
+<h3 id="add-assets-folder_1">Add "Assets" folder</h3>
+<p>Edit <code>proj.android/build-cfg.json</code></p>
+<pre><code class="json">    &quot;copy_resources&quot;: [
+        {
+            &quot;from&quot;: &quot;../Resources&quot;,
+            &quot;to&quot;: &quot;&quot;
+        },
+        {
+            &quot;from&quot;: &quot;plugin_youtube_res_project/Assets&quot;,
+            &quot;to&quot;: &quot;&quot;
+        }
+    ]
 </code></pre>
 
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
