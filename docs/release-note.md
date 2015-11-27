@@ -1,6 +1,24 @@
 #Release Notes
 ---
 
+1.5.1 Release Notes
+===
+##Highlight
+* ScientificRevenue Plugin
+* Youtube Plugin
+* SDKBOX Installer now support switching different android app stores with `sdkbox set store`
+* SDKBOX Installer now supports dependencies between plugins
+* Created automatic installation script for installer
+* c++static lib support
+* Add SDKBOX_ENABLED flag to support projects in other platforms (win, osx, linux)
+
+
+##Bugfix
+* Installer download update to the wrong folder
+* remove dependency to ANDROID_SDK_ROOT, installer will find android SDK automatically
+* remove dependency to COCOS_CONSOLE_ROOT
+
+
 1.4.1 Release Notes
 ===
 ##Highlight
