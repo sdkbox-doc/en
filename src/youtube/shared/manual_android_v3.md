@@ -70,3 +70,19 @@ changed to:
 ```
 APP_STL := gnustl_static
 ```
+
+### Add "Assets" folder
+Edit `proj.android/build-cfg.json`
+
+```json
+    "copy_resources": [
+        {
+            "from": "../Resources",
+            "to": ""
+        },
+        {
+            "from": "plugin_youtube_res_project/Assets",
+            "to": ""
+        }
+    ]
+```
