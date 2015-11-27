@@ -1267,6 +1267,69 @@
   </li>
 
                         
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Youtube</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2d-x v3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../youtube/v3-cpp/">Youtube with C++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v3-js/">Youtube with Javascript</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v3-lua/">Youtube with Lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2d-x v2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../youtube/v2-cpp/">Youtube with C++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v2-js/">Youtube with Javascript</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v2-lua/">Youtube with Lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
                         </ul>
                     </li>
                 
@@ -1332,7 +1395,6 @@ Include Base: /Users/jtsm/Chukong-Inc/en/src/playphone/v3-cpp
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import playphone
-$ sdkbox import iap
 </code></pre>
 
 <h2 id="extra-steps">Extra steps</h2>
@@ -1341,10 +1403,14 @@ $ sdkbox import iap
 <ul>
 <li>Open <code>AndroidManifest.xml</code> add the following line:</li>
 </ul>
-<pre><code>&lt;meta-data android:name=&quot;channel&quot; android:value=&quot;playphone&quot; /&gt;
+<pre><code class="xml">&lt;meta-data android:name=&quot;store&quot; android:value=&quot;playphone&quot; /&gt;
+&lt;meta-data android:name=&quot;leaderboard&quot; android:value=&quot;playphone&quot; /&gt;
 </code></pre>
 
-<p>NOTE: If you submit your <em>apk</em> to other channels, such as <strong>Google Play</strong>, please remove this line or set the <code>channel</code> with <code>googleplay</code>, otherwise, you will get wrong configuration for the other channel. Example: <code>&lt;meta-data android:name="channel" android:value="googleplay" /&gt;</code></p>
+<p>NOTE: If you submit your <em>apk</em> to other store, such as <strong>Google Play</strong>, please remove this line or set the <code>store</code> with <code>googleplay</code>, otherwise, you will get wrong configuration for the other store. Example: <code>&lt;meta-data android:name="store" android:value="googleplay" /&gt;</code></p>
+<pre><code class="bash">$ sdkbox set store googleplay
+</code></pre>
+
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Playphone configuration, you need to replace <code>&lt;base64EncodedPublicKey&gt;</code> and <code>&lt;your secret key&gt;</code>  with your specific Playphone account information.</p>
@@ -1360,10 +1426,10 @@ $ sdkbox import iap
     },
     &quot;playphone&quot; :
     {
+        &quot;skey&quot;:&quot;&lt;your secret key&gt;&quot;,
         &quot;iap&quot;:
         {
             &quot;key&quot;:&quot;&lt;base64EncodedPublicKey&gt;&quot;,
-            &quot;skey&quot;:&quot;&lt;your secret key&gt;&quot;,
             &quot;items&quot;:{
                 &quot;remove_ads&quot;:{
                     &quot;id&quot;:&quot;com.cocos2dx.non1&quot;,

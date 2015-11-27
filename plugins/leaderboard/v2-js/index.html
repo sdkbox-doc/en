@@ -1267,6 +1267,69 @@
   </li>
 
                         
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Youtube</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2d-x v3.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../youtube/v3-cpp/">Youtube with C++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v3-js/">Youtube with Javascript</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v3-lua/">Youtube with Lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Cocos2d-x v2.x</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../youtube/v2-cpp/">Youtube with C++</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v2-js/">Youtube with Javascript</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../youtube/v2-lua/">Youtube with Lua</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                        
                         </ul>
                     </li>
                 
@@ -1324,7 +1387,7 @@
         
             <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
-            <li><a href="#manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</a></li>
+            <li><a href="#manual-integration-for-android">Manual Integration For Android</a></li>
         
             <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
@@ -1465,8 +1528,12 @@ sdkbox.IAP.init();
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
-<h2 id="manual-integration-for-android-and-android-studio">Manual Integration For Android and Android Studio</h2>
-<p>Both <strong>Android</strong> development using a command-line and using <strong>Android Studio</strong> are supported. <code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> development, while <code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong>.</p>
+<h2 id="manual-integration-for-android">Manual Integration For Android</h2>
+<p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
+<ul>
+<li><code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> and <strong>eclipse</strong> project</li>
+<li><code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong> project.</li>
+</ul>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
@@ -1474,8 +1541,12 @@ bundle into your project’s <strong>proj.android/libs</strong> folder.</p>
 <p>PluginLeaderboard.jar</p>
 <p>sdkbox.jar</p>
 </blockquote>
-<p>Copy the <code>pluginleaderboard</code> and <code>sdkbox</code> directories from <code>plugin/android/jni</code>
-to your <code>proj.android/jni/</code> directory. If the <code>sdkbox</code> folder exists, it's ok to overwrite it.</p>
+<h4 id="copy-jni-libs">Copy jni libs</h4>
+<p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
+to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
+<blockquote>
+<p>Note: sdkbox link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
+</blockquote>
 <h3 id="22-edit-androidmanifestxml">2.2 Edit <code>AndroidManifest.xml</code></h3>
 <p>To enable <strong>hardware acceleration</strong> in your <strong>application tag</strong>. This tag is
 optional on newer sdk versions and doesn't work on version 2.3.3.</p>
