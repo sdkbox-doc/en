@@ -1,7 +1,7 @@
 #Release Notes
 ---
 
-1.5.1 Release Notes
+1.5 Release Notes
 ===
 ##Highlight
 * ScientificRevenue Plugin
