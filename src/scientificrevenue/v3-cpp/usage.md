@@ -1,6 +1,8 @@
 ### Please check Scientific Revenue Documentation
 
-https://documentation.scientificrevenue.com/article-one/
+https://documentation.scientificrevenue.com/sdkbox-cocos2d-x/
+
+contact ted@scientificrevenue.com for access. 
 
 Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 ```cpp
