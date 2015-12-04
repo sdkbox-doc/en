@@ -102,6 +102,15 @@ pages:
             - 'In-App Purchases(IAP) with C++': 'plugins/iap/v2-cpp.md'
             - 'In-App Purchases(IAP) with Javascript': 'plugins/iap/v2-js.md'
             - 'In-App Purchases(IAP) with Lua': 'plugins/iap/v2-lua.md'
+    - 'InMobi':
+        - 'Cocos2d-x v3.x':
+            - 'InMobi with C++': 'plugins/inmobi/v3-cpp.md'
+            - 'InMobi with Javascript': 'plugins/inmobi/v3-js.md'
+            - 'InMobi with Lua': 'plugins/inmobi/v3-lua.md'
+        - 'Cocos2d-x v2.x':
+            - 'InMobi with C++': 'plugins/inmobi/v2-cpp.md'
+            - 'InMobi with Javascript': 'plugins/inmobi/v2-js.md'
+            - 'InMobi with Lua': 'plugins/inmobi/v2-lua.md'
     - 'Kochava':
         - 'Cocos2d-x v3.x':
             - 'Kochava with C++': 'plugins/kochava/v3-cpp.md'
