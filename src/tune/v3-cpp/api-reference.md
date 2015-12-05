@@ -188,6 +188,11 @@ static std::string matId ( ) ;
 > Get the MAT ID for this installation (mat_id).
 
 ```cpp
+static std::string tuneId ( ) ;
+```
+> Get the Tune ID for this installation.
+
+```cpp
 static std::string openLogId ( ) ;
 ```
 > Get the MAT log ID for the first app open (open_log_id).

@@ -172,6 +172,11 @@ sdkbox.PluginTune.matId();
 > Get the MAT ID for this installation (mat_id).
 
 ```javascript
+sdkbox.PluginTune.tuneId();
+```
+> Get the Tune ID for this installation.
+
+```javascript
 sdkbox.PluginTune.openLogId();
 ```
 > Get the MAT log ID for the first app open (open_log_id).
