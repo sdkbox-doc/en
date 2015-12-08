@@ -4,7 +4,7 @@ Modify your Lua code to `init()` the plugin. This can be done anyplace, however 
 sdkbox.PluginInMobi:init()
 ```
 
-### Using InMobi
+### Show interstitial
 After initialization you can begin to use the InMobi functionality:
 ```lua
 local plugin = sdkbox.PluginInMobi
@@ -14,6 +14,27 @@ plugin:setListener(function(args)
 end)
 plugin:init()
 
+-- Manually Loading Ads
+-- plugin:loadInterstitial();
+
+-- show intestitial
+if plugin:isInterstitialReady() then
+    print('inmobi interstitial ad is ready');
+    plugin:showInterstitial();
+else
+    print('inmobi interstitial ad is not ready');
+end
+```
+
+### Set Log level
+You can set log level with follow function
+```
+plugin:setLogLevel(sdkbox.PluginInMobi.SBIMSDKLogLevel.kIMSDKLogLevelDebug);
+```
+
+### Set user data
+You can use following functions to set user data
+```
 -- setting if need
 print("inmobi plugin version:" .. plugin:getVersion());
 plugin:setLogLevel(sdkbox.PluginInMobi.SBIMSDKLogLevel.kIMSDKLogLevelDebug);
@@ -34,17 +55,6 @@ plugin:setLocation("cd", "sc", "usa");
 plugin:setLocation(102, 348);
 plugin:setNationality("nationality");
 plugin:setPostalCode("618000");
-
--- Manually Loading Ads
--- plugin:loadInterstitial();
-
--- show intestitial
-if plugin:isInterstitialReady() then
-    print('inmobi interstitial ad is ready');
-    plugin:showInterstitial();
-else
-    print('inmobi interstitial ad is not ready');
-end
 ```
 
 ### Catch InMobi events (optional)

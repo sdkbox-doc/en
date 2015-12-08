@@ -19,9 +19,32 @@ Initialize the plugin by calling `init()` where appropriate in your code. We
 recommend to do this in the `app.js`. Example:
 ```javascript
 sdkbox.PluginInMobi.init();
+```
 
-//setting if need
+### Show Interstitial
+After initialization you can begin to use the InMobi functionality. Use `showInterstitial` wherever you want from your code:
+```javascript
+// Manually Loading Ads
+sdkbox.PluginInMobi.loadInterstitial();
+
+// show interstitial
+if (sdkbox.PluginInMobi.isInterstitialReady()) {
+    console.log('inmobi interstitial ad is ready');
+    sdkbox.PluginInMobi.showInterstitial();
+} else {
+    console.log('inmobi interstitial ad is not ready');
+}
+```
+
+### Set Log level
+You can set log level with follow function
+```
 sdkbox.PluginInMobi.setLogLevel(sdkbox.PluginInMobi.SBIMSDKLogLevel.kIMSDKLogLevelDebug);
+```
+
+### Set user data
+You can use following functions to set user data
+```
 sdkbox.PluginInMobi.addIdForType("test", sdkbox.PluginInMobi.SBIMSDKIdType.kIMSDKIdTypeLogin);
 sdkbox.PluginInMobi.removeIdType(sdkbox.PluginInMobi.SBIMSDKIdType.kIMSDKIdTypeLogin);
 sdkbox.PluginInMobi.setAge(18);
@@ -39,21 +62,6 @@ sdkbox.PluginInMobi.setLocation("cd", "sc", "usa");
 sdkbox.PluginInMobi.setLocation(102, 348);
 sdkbox.PluginInMobi.setNationality("nationality");
 sdkbox.PluginInMobi.setPostalCode("618000");
-```
-
-### Show Interstitial
-After initialization you can begin to use the InMobi functionality. Use `showInterstitial` wherever you want from your code:
-```javascript
-// Manually Loading Ads
-sdkbox.PluginInMobi.loadInterstitial();
-
-// show interstitial
-if (sdkbox.PluginInMobi.isInterstitialReady()) {
-    console.log('inmobi interstitial ad is ready');
-    sdkbox.PluginInMobi.showInterstitial();
-} else {
-    console.log('inmobi interstitial ad is not ready');
-}
 ```
 
 ### Catch InMobi events (optional)
