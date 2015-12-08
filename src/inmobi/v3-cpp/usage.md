@@ -8,28 +8,9 @@ AppDelegate::applicationDidFinishLaunching()
 }
 ```
 
-### Using InMobi
+### Show interstitial
 After initialization you can begin to use the InMobi functionality:
 ```cpp
-sdkbox::PluginInMobi::setLogLevel(sdkbox::PluginInMobi::SBIMSDKLogLevel::kIMSDKLogLevelDebug);
-sdkbox::PluginInMobi::addIdForType("test", sdkbox::PluginInMobi::SBIMSDKIdType::kIMSDKIdTypeLogin);
-sdkbox::PluginInMobi::removeIdType(sdkbox::PluginInMobi::SBIMSDKIdType::kIMSDKIdTypeLogin);
-sdkbox::PluginInMobi::setAge(18);
-sdkbox::PluginInMobi::setAreaCode("area code");
-sdkbox::PluginInMobi::setAgeGroup(sdkbox::PluginInMobi::SBIMSDKAgeGroup::kIMSDKAgeGroupBetween18And20);
-sdkbox::PluginInMobi::setYearOfBirth(1989);
-sdkbox::PluginInMobi::setEducation(sdkbox::PluginInMobi::SBIMSDKEducation::kIMSDKEducationHighSchoolOrLess);
-sdkbox::PluginInMobi::setEthnicity(sdkbox::PluginInMobi::SBIMSDKEthnicity::kIMSDKEthnicityHispanic);
-sdkbox::PluginInMobi::setGender(sdkbox::PluginInMobi::SBIMSDKGender::kIMSDKGenderMale);
-sdkbox::PluginInMobi::setHouseholdIncome(sdkbox::PluginInMobi::SBIMSDKHouseholdIncome::kIMSDKHouseholdIncomeBelow5kUSD);
-sdkbox::PluginInMobi::setIncome(4500);
-sdkbox::PluginInMobi::setInterests("game");
-sdkbox::PluginInMobi::setLanguage("zh-cn");
-sdkbox::PluginInMobi::setLocation("cd", "sc", "usa");
-sdkbox::PluginInMobi::setLocation(102, 348);
-sdkbox::PluginInMobi::setNationality("nationality");
-sdkbox::PluginInMobi::setPostalCode("618000");
-
 // Manually Loading Ads
 sdkbox::PluginInMobi::loadInterstitial();
 
@@ -39,6 +20,34 @@ if (sdkbox::PluginInMobi::isInterstitialReady()) {
 } else {
     CCLOG("Plugin InMobi interstitial ad is not ready");
 }
+```
+
+### Set Log level
+You can set log level with follow function
+```cpp
+sdkbox::PluginInMobi::setLogLevel(sdkbox::PluginInMobi::SBIMSDKLogLevel::kIMSDKLogLevelDebug);
+```
+
+### Set user data
+You can use following functions to set user data
+```cpp
+sdkbox::PluginInMobi::addIdForType("test", sdkbox::PluginInMobi::SBIMSDKIdType::kIMSDKIdTypeLogin);
+sdkbox::PluginInMobi::removeIdType(sdkbox::PluginInMobi::SBIMSDKIdType::kIMSDKIdTypeLogin);
+sdkbox::PluginInMobi::setAge(18);
+sdkbox::PluginInMobi::setAreaCode("900");
+sdkbox::PluginInMobi::setAgeGroup(sdkbox::PluginInMobi::SBIMSDKAgeGroup::kIMSDKAgeGroupBetween18And20);
+sdkbox::PluginInMobi::setYearOfBirth(1989);
+sdkbox::PluginInMobi::setEducation(sdkbox::PluginInMobi::SBIMSDKEducation::kIMSDKEducationHighSchoolOrLess);
+sdkbox::PluginInMobi::setEthnicity(sdkbox::PluginInMobi::SBIMSDKEthnicity::kIMSDKEthnicityHispanic);
+sdkbox::PluginInMobi::setGender(sdkbox::PluginInMobi::SBIMSDKGender::kIMSDKGenderMale);
+sdkbox::PluginInMobi::setHouseholdIncome(sdkbox::PluginInMobi::SBIMSDKHouseholdIncome::kIMSDKHouseholdIncomeBelow5kUSD);
+sdkbox::PluginInMobi::setIncome(4500);
+sdkbox::PluginInMobi::setInterests("game");
+sdkbox::PluginInMobi::setLanguage("en-us");
+sdkbox::PluginInMobi::setLocation("cd", "sc", "usa");
+sdkbox::PluginInMobi::setLocation(102, 348);
+sdkbox::PluginInMobi::setNationality("nationality");
+sdkbox::PluginInMobi::setPostalCode("618000");
 ```
 
 ### Catch InMobi events (optional)
