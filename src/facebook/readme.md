@@ -22,6 +22,7 @@ And created a new __APP__ on Facebook
 
 ###Setup iOS
 * Configure your __APP__ following [iOS Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=ios)
+* Special for iOS9 [https://developers.facebook.com/docs/ios/ios9](https://developers.facebook.com/docs/ios/ios9)
 * Apply the code change to `AppController.mm` instead of `AppDelegate.cpp`
 
 ```
