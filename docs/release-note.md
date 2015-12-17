@@ -1,5 +1,19 @@
 #Release Notes
 ---
+1.5.1 Release Notes
+===
+##Highlight
+* InMobi plugin
+* Update Tune plugin
+* Update Appodeal plugin
+* Installer will not auto detects projects using c++static library and install correct binary
+* Add SDKBOX_ENABLED flag to support projects in other platforms (win, osx, linux)
+
+##Bugfix
+* Fix a crash when user attempt purchase in offline mode for IAP plugin.
+* Fix generate n/a directory for windows
+* Fix a bug that will result android platform have incorrect APP_PLATFORM, and failed to build.
+
 
 1.5 Release Notes
 ===
