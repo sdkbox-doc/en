@@ -1440,9 +1440,7 @@
         
             <li><a href="#get-the-installer">Get the Installer</a></li>
         
-            <li><a href="#installing-for-os-x">Installing for OS X</a></li>
-        
-            <li><a href="#installing-for-windows">Installing for Windows</a></li>
+            <li><a href="#install-a-plugin">Install a plugin</a></li>
         
             <li><a href="#what-next">What Next?</a></li>
         
@@ -1457,34 +1455,22 @@
 
 <h1 id="sdkbox-installing-sdkbox-plugins-using-the-installer">SDKBOX: Installing SDKBOX Plugins using the Installer</h1>
 <h3 id="get-the-installer">Get the Installer</h3>
-<p>You can get SDKBOX Installer using either one of the following methods:</p>
 <ul>
-<li>(Recommended) Paste the script below into a terminal/prompt. It will explain what it does and setup everything to run the installer: </li>
+<li>
+<p>Make sure your system have <a href="https://www.python.org">python</a></p>
+</li>
+<li>
+<p>Paste the script below into a terminal prompt. It will explain what it does and setup everything for you:</p>
+</li>
 </ul>
 <pre><code>python -c &quot;import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s&quot;
 </code></pre>
 
-<ul>
-<li>Or, download the <a href="http://download.sdkbox.com/installer/v1/sdkbox_installer.zip">zip file</a>). And then, make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in <code>/usr/local/bin</code>)</li>
-</ul>
-<h3 id="installing-for-os-x">Installing for OS X</h3>
+<h3 id="install-a-plugin">Install a plugin</h3>
 <ul>
 <li>From a command-line, <code>cd</code> to your applications root directory. Example:</li>
 </ul>
-<pre><code class="sh">cd ~/MyGame
-</code></pre>
-
-<ul>
-<li>Now, you can install your plugin using the SDKBOX installer. Example:</li>
-</ul>
-<pre><code class="sh">sdkbox import facebook
-</code></pre>
-
-<h3 id="installing-for-windows">Installing for Windows</h3>
-<ul>
-<li>From a command-prompt, change to your applications root directory. Example:</li>
-</ul>
-<pre><code>c:\Users\&lt;MY_USER_ID&gt;\MyGame
+<pre><code class="sh">cd MyGame
 </code></pre>
 
 <ul>
@@ -1515,25 +1501,48 @@ Installation Successful :)
 </code></pre>
 
 <h3 id="other-installer-options">Other Installer options.</h3>
+<h4 id="commands">Commands:</h4>
+<p>The SDKBOX Installer has several commands that you can use. You can always see these by running <code>sdkbox</code> by itself or using the <code>-h</code> help switch:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>list available and cached packages installed on your machine. The package repository is located in your home directory.</td>
+</tr>
+<tr>
+<td>import [name]</td>
+<td>imports the package 'name' into your project. For a list of names, see the list command. You can also specify local archived packages or a directory by specifying the -b option (see above).</td>
+</tr>
+<tr>
+<td>update</td>
+<td>re-imports all imported packages to update them to the latest version. If you have imported packages prior to SDKBOX v0.5.6.19 then you must manually import your packages again to add them to the package manifest.</td>
+</tr>
+<tr>
+<td>info</td>
+<td>displays the packages that have been imported into your project. If you have packages imported that are not in the package manifest, SDKBOX will alert you as to which packages it thinks are imported.</td>
+</tr>
+<tr>
+<td>restore</td>
+<td>restores your project to the latest backup that can be found. If you have made changes to your project files since importing, this will overwrite your changes, so use carefully.</td>
+</tr>
+<tr>
+<td>clean [N]</td>
+<td>removes all packages older than N days.</td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>displays the symbols that are used to drive the import process. These symbols are very useful for debugging, so if you have issues, and post on the forums, please include the symbols if possible.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="switches">Switches</h4>
 <p>The SDKBOX Installer has several switches that you can use. You can always see these by running <code>sdkbox</code> by itself or using the <code>-h</code> help switch:</p>
-<pre><code class="sh">$ sdkbox
- _______ ______  _     _ ______   _____  _     _
- |______ |     \ |____/  |_____] |     |  \___/
- ______| |_____/ |    \_ |_____] |_____| _/   \_
- Copyright (c) 2015 Chukong Technologies Inc. v0.5.7.1
- usage: sdkbox [-h] [-v] [-p [PROJECT]] [-b [PLUGIN]] [-D SYMBOL] [-q]
-               [-d [DAYS]] [--china] [--dryrun] [--forcedownload] [--noupdate]
-               [--patcherrors] [--nopatching]
-               {import,info,update,restore,list,clean,symbols}
-
- Import SDKBOX packages into Cocos2d-x projects
-
- positional arguments:
-   {import,info,update,restore,list,clean,symbols}
-                         issue sdkbox installer command
-</code></pre>
-
 <table>
 <thead>
 <tr>
@@ -1551,7 +1560,7 @@ Installation Successful :)
 <tr>
 <td>-v</td>
 <td>--verbose</td>
-<td>specify verbosity level</td>
+<td>specify verbosity level of the log</td>
 </tr>
 <tr>
 <td>-p PROJECT</td>
@@ -1600,6 +1609,16 @@ Installation Successful :)
 </tr>
 <tr>
 <td></td>
+<td>--alwaysupdate</td>
+<td>alwyas update to the latest version</td>
+</tr>
+<tr>
+<td></td>
+<td>--jsonapi</td>
+<td>treat commands as API calls and return JSON formatted output</td>
+</tr>
+<tr>
+<td></td>
 <td>--patcherrors</td>
 <td>patch failures are counted as errors instead of warnings.</td>
 </tr>
@@ -1610,69 +1629,33 @@ Installation Successful :)
 </tr>
 </tbody>
 </table>
-<h4 id="commands">Commands:</h4>
-<p>The SDKBOX Installer has several commands that you can use. You can always see these by running <code>sdkbox</code> by itself or using the <code>-h</code> help switch:</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>import [name]</td>
-<td>imports the package 'name' into your project. For a list of names, see the list command. You can also specify local archived packages or a directory by specifying the -b option (see above).</td>
-</tr>
-<tr>
-<td>update</td>
-<td>re-imports all imported packages to update them to the latest version. If you have imported packages prior to SDKBOX v0.5.6.19 then you must manually import your packages again to add them to the package manifest.</td>
-</tr>
-<tr>
-<td>info</td>
-<td>displays the packages that have been imported into your project. If you have packages imported that are not in the package manifest, SDKBOX will alert you as to which packages it thinks are imported.</td>
-</tr>
-<tr>
-<td>restore</td>
-<td>restores your project to the latest backup that can be found. If you have made changes to your project files since importing, this will overwrite your changes, so use carefully.</td>
-</tr>
-<tr>
-<td>list</td>
-<td>list available and cached packages installed on your machine. The package repository is located in your home directory.</td>
-</tr>
-<tr>
-<td>clean [N]</td>
-<td>removes all packages older than N days.</td>
-</tr>
-<tr>
-<td>symbols</td>
-<td>displays the symbols that are used to drive the import process. These symbols are very useful for debugging, so if you have issues, and post on the forums, please include the symbols if possible.</td>
-</tr>
-</tbody>
-</table>
 <p>Examples:</p>
-<pre><code>// Add 'In App Purchase' plugin to your game
+<pre><code class="sh">Add 'In App Purchase' plugin to your game
 $ sdkbox import -b iap -p /path/to/your/cocos2dx/game/
 </code></pre>
 
-<pre><code>// The -b option may be omitted and -p too if you are in your project directory
+<pre><code class="sh">#The -b option may be omitted and -p too if you are in your project directory
 $ sdkbox import iap
 </code></pre>
 
-<pre><code>// If you have a package directory you may specify it too
-$ sdkbox -b /path/to/your/package
+<pre><code class="sh">#If you want to install a earlier version of the plugin
+$ sdkbox import -b /path/to/your/package
 </code></pre>
 
-<pre><code>// List all available packages on the server
+<pre><code class="sh">#List all available packages on the server
 $ sdkbox list
 </code></pre>
 
-<pre><code>//Show all package imported into your project
+<pre><code class="sh">#Show all package imported into your project
 $ sdkbox info
 </code></pre>
 
-<pre><code>//clean logs and packages older than 5 days
+<pre><code class="sh">#clean logs and packages older than 5 days
 $ sdkbox clean 5
+</code></pre>
+
+<pre><code class="sh">#use playphone as your store for android
+$ sdkbox set store playphone
 </code></pre>
 
 <h3 id="staying-up-to-date">Staying Up-to-date</h3>
