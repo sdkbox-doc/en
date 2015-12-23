@@ -1,31 +1,19 @@
 # SDKBOX: Installing SDKBOX Plugins using the Installer
 
 ### Get the Installer
-You can get SDKBOX Installer using either one of the following methods:
 
-* (Recommended) Paste the script below into a terminal/prompt. It will explain what it does and setup everything to run the installer: 
+* Make sure your system have [python](https://www.python.org)
+
+* Paste the script below into a terminal prompt. It will explain what it does and setup everything for you:
 ```
 python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
 ```
 
-* Or, download the [zip file](http://download.sdkbox.com/installer/v1/sdkbox_installer.zip)). And then, make sure you know the path to where you downloaded the SDKBOX installer. (you can always put it in `/usr/local/bin`)
 
-
-### Installing for OS X
+### Install a plugin
 * From a command-line, `cd` to your applications root directory. Example:
 ```sh
-cd ~/MyGame
-```
-
-* Now, you can install your plugin using the SDKBOX installer. Example:
-```sh
-sdkbox import facebook
-```
-
-### Installing for Windows
-* From a command-prompt, change to your applications root directory. Example:
-```
-c:\Users\<MY_USER_ID>\MyGame
+cd MyGame
 ```
 
 * Now, you can install your plugin using the SDKBOX installer. Example:
@@ -57,30 +45,26 @@ Installation Successful :)
 
 ### Other Installer options.
 
+#### Commands:
+The SDKBOX Installer has several commands that you can use. You can always see these by running `sdkbox` by itself or using the `-h` help switch:
+
+| Command            | Description  |
+| :--------------------- | :----------- |
+| list | list available and cached packages installed on your machine. The package repository is located in your home directory. |
+|  import [name] |  imports the package 'name' into your project. For a list of names, see the list command. You can also specify local archived packages or a directory by specifying the -b option (see above). |
+| update | re-imports all imported packages to update them to the latest version. If you have imported packages prior to SDKBOX v0.5.6.19 then you must manually import your packages again to add them to the package manifest. |
+| info | displays the packages that have been imported into your project. If you have packages imported that are not in the package manifest, SDKBOX will alert you as to which packages it thinks are imported. |
+| restore | restores your project to the latest backup that can be found. If you have made changes to your project files since importing, this will overwrite your changes, so use carefully. |
+| clean [N] | removes all packages older than N days. |
+| symbols | displays the symbols that are used to drive the import process. These symbols are very useful for debugging, so if you have issues, and post on the forums, please include the symbols if possible. |
+
 #### Switches
 The SDKBOX Installer has several switches that you can use. You can always see these by running `sdkbox` by itself or using the `-h` help switch:
-```sh
-$ sdkbox
- _______ ______  _     _ ______   _____  _     _
- |______ |     \ |____/  |_____] |     |  \___/
- ______| |_____/ |    \_ |_____] |_____| _/   \_
- Copyright (c) 2015 Chukong Technologies Inc. v0.5.7.1
- usage: sdkbox [-h] [-v] [-p [PROJECT]] [-b [PLUGIN]] [-D SYMBOL] [-q]
-               [-d [DAYS]] [--china] [--dryrun] [--forcedownload] [--noupdate]
-               [--patcherrors] [--nopatching]
-               {import,info,update,restore,list,clean,symbols}
-
- Import SDKBOX packages into Cocos2d-x projects
-
- positional arguments:
-   {import,info,update,restore,list,clean,symbols}
-                         issue sdkbox installer command
-```
 
 | switch  | alternate switch  | what it does |
 | :------------- | :------------------------| :-----|
 | -h      | --help          |show this help message and exit |
-| -v      | --verbose       |specify verbosity level |
+| -v      | --verbose       |specify verbosity level of the log |
 | -p PROJECT | --project PROJECT |path to project root (defaults to .) |
 | -b PLUGIN | --plugin PLUGIN |specify path to plugin (defaults to .) |
 | -D SYMBOL | --symbol SYMBOL |define a symbol for the package script |
@@ -90,46 +74,39 @@ $ sdkbox
 |         | --dryrun        |test install before performing. |
 |         | --forcedownload |force download of package even if it is already downloaded. |
 |         | --noupdate        |ignore available updates. |
+|         | --alwaysupdate    |alwyas update to the latest version |
+|         | --jsonapi        |treat commands as API calls and return JSON formatted output |
 |         | --patcherrors        |patch failures are counted as errors instead of warnings. |
 |         | --nopatching        |skip all patching commands when executing package script. |
 
-#### Commands:
-The SDKBOX Installer has several commands that you can use. You can always see these by running `sdkbox` by itself or using the `-h` help switch:
-
-| Command            | Description  |
-| :--------------------- | :----------- |
-|  import [name] |  imports the package 'name' into your project. For a list of names, see the list command. You can also specify local archived packages or a directory by specifying the -b option (see above). |
-| update | re-imports all imported packages to update them to the latest version. If you have imported packages prior to SDKBOX v0.5.6.19 then you must manually import your packages again to add them to the package manifest. |
-| info | displays the packages that have been imported into your project. If you have packages imported that are not in the package manifest, SDKBOX will alert you as to which packages it thinks are imported. |
-| restore | restores your project to the latest backup that can be found. If you have made changes to your project files since importing, this will overwrite your changes, so use carefully. |
-| list | list available and cached packages installed on your machine. The package repository is located in your home directory. |
-| clean [N] | removes all packages older than N days. |
-| symbols | displays the symbols that are used to drive the import process. These symbols are very useful for debugging, so if you have issues, and post on the forums, please include the symbols if possible. |
-
 Examples:
-```
-// Add 'In App Purchase' plugin to your game
+```sh
+Add 'In App Purchase' plugin to your game
 $ sdkbox import -b iap -p /path/to/your/cocos2dx/game/
 ```
-```
-// The -b option may be omitted and -p too if you are in your project directory
+```sh
+#The -b option may be omitted and -p too if you are in your project directory
 $ sdkbox import iap
 ```
+```sh
+#If you want to install a earlier version of the plugin
+$ sdkbox import -b /path/to/your/package
 ```
-// If you have a package directory you may specify it too
-$ sdkbox -b /path/to/your/package
-```
-```
-// List all available packages on the server
+```sh
+#List all available packages on the server
 $ sdkbox list
 ```
-```
-//Show all package imported into your project
+```sh
+#Show all package imported into your project
 $ sdkbox info
 ```
-```
-//clean logs and packages older than 5 days
+```sh
+#clean logs and packages older than 5 days
 $ sdkbox clean 5
+```
+```sh
+#use playphone as your store for android
+$ sdkbox set store playphone
 ```
 
 ### Staying Up-to-date
