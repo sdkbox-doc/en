@@ -22,7 +22,15 @@ sdkbox.PluginTune.setAllowDuplicateRequests(allow);
 > Set to YES to allow duplicate requests to be registered with the MAT server.
 
 ```javascript
+// use checkForDeferredDeepLink()
 sdkbox.PluginTune.checkForDeferredDeeplinkWithTimeout(timeout);
+```
+> Check for a deferred deeplink entry point upon app installation.
+This is safe to call at every app launch, since the function does nothing
+unless this is the first launch.
+
+```javascript
+sdkbox.PluginTune.checkForDeferredDeepLink();
 ```
 > Check for a deferred deeplink entry point upon app installation.
 This is safe to call at every app launch, since the function does nothing
@@ -86,6 +94,7 @@ sdkbox.PluginTune.setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
 Note that setting to false will clear any previously set value for the property.
 
 ```javascript
+// use setPackageName()
 sdkbox.PluginTune.setSiteId(siteId);
 ```
 > Sets the site ID.
@@ -167,6 +176,7 @@ sdkbox.PluginTune.setPreloadData(preloadData);
 > Sets publisher information for attribution.
 
 ```javascript
+// use tuneId()
 sdkbox.PluginTune.matId();
 ```
 > Get the MAT ID for this installation (mat_id).
@@ -234,6 +244,11 @@ sdkbox.PluginTune.applicationDidOpenURL(urlString, sourceApplication);
 This typically occurs during OAUTH or when an app exits and is returned
 to via a URL. The data will be sent to the HasOffers server when the next
 measureXXX method is called so that a Re-Engagement can be recorded.
+
+```javascript
+sdkbox.PluginTune.setDeepLink(deepLinkUrl);
+```
+> Record the URL and Source when an application is opened via a URL scheme.
 
 
 ### Listeners
