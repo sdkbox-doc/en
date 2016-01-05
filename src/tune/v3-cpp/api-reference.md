@@ -32,7 +32,15 @@ static void setAllowDuplicateRequests ( bool allow ) ;
 > Set to YES to allow duplicate requests to be registered with the MAT server.
 
 ```cpp
+// use "checkForDeferredDeepLink"
 static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
+```
+> Check for a deferred deeplink entry point upon app installation.
+This is safe to call at every app launch, since the function does nothing
+unless this is the first launch.
+
+```cpp
+static void checkForDeferredDeepLink ( ) ;
 ```
 > Check for a deferred deeplink entry point upon app installation.
 This is safe to call at every app launch, since the function does nothing
@@ -96,6 +104,7 @@ static void setShouldAutoGenerateAppleVendorIdentifier ( bool autoGenerate ) ;
 Note that setting to false will clear any previously set value for the property.
 
 ```cpp
+// use "setPackageName"
 static void setSiteId ( const std::string & siteId ) ;
 ```
 > Sets the site ID.
@@ -183,6 +192,7 @@ static void setPreloadDataForScript ( const std::string & jsonString ) ;
 ```
 
 ```cpp
+// use "tuneId"
 static std::string matId ( ) ;
 ```
 > Get the MAT ID for this installation (mat_id).
@@ -255,6 +265,11 @@ static void applicationDidOpenURL ( const std::string & urlString ,
 This typically occurs during OAUTH or when an app exits and is returned
 to via a URL. The data will be sent to the HasOffers server when the next
 measureXXX method is called so that a Re-Engagement can be recorded.
+
+```cpp
+static void setDeepLink ( const std::string & deepLinkUrl ) ;
+```
+> Record the URL and Source when an application is opened via a URL scheme.
 
 
 ### Listeners
