@@ -2032,7 +2032,9 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 <p>Note: sdkbox link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
 </blockquote>
 <h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
-<p>Include the following permissions above the <strong>application tag</strong>:</p>
+<ul>
+<li>Include the following permissions above the <strong>application tag</strong>:</li>
+</ul>
 <pre><code class="xml">&lt;!--Mandatory permissions to receive ads--&gt;
 &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
 &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
@@ -2049,6 +2051,34 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 &lt;uses-permission android:name=&quot;android.permission.READ_CALENDAR&quot;/&gt;
 &lt;uses-permission android:name=&quot;android.permission.WRITE_CALENDAR&quot;/&gt;
 &lt;uses-permission android:name=&quot;android.permission.GET_TASKS&quot;/&gt;
+</code></pre>
+
+<ul>
+<li>Include the following lines above the <strong>application tag</strong>:</li>
+</ul>
+<pre><code class="xml">&lt;!--Required Activity for rendering ads in the embedded browser--&gt;
+&lt;activity android:name=&quot;com.inmobi.rendering.InMobiAdActivity&quot;
+            android:configChanges=&quot;keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize&quot;
+            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot;
+            android:hardwareAccelerated=&quot;true&quot; /&gt;
+
+
+&lt;!--Required Receiver for enhanced targeting for better ads.--&gt;
+
+&lt;receiver android:name=&quot;com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver&quot;
+            android:enabled=&quot;true&quot;
+            android:exported=&quot;true&quot; &gt;
+    &lt;intent-filter&gt;
+       &lt;action android:name=&quot;com.inmobi.share.id&quot; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+
+&lt;service android:enabled=&quot;true&quot; android:name=&quot;com.inmobi.signals.activityrecognition.ActivityRecognitionManager&quot; /&gt;
+
+&lt;!--Required for Google Play Services--&gt;
+
+&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
+            android:value=&quot;@integer/google_play_services_version&quot;/&gt;
 </code></pre>
 
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
