@@ -13,7 +13,8 @@ bundle into your project’s __proj.android/libs__ folder.
 
 
 ### Edit `AndroidManifest.xml`
-Include the following permissions above the __application tag__:
+* Include the following permissions above the __application tag__:
+
 ```xml
 <!--Mandatory permissions to receive ads-->
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -31,6 +32,34 @@ Include the following permissions above the __application tag__:
 <uses-permission android:name="android.permission.READ_CALENDAR"/>
 <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>
+```
+
+* Include the following lines above the __application tag__:
+
+```xml
+<!--Required Activity for rendering ads in the embedded browser-->
+<activity android:name="com.inmobi.rendering.InMobiAdActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:hardwareAccelerated="true" />
+
+
+<!--Required Receiver for enhanced targeting for better ads.-->
+
+<receiver android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+    <intent-filter>
+       <action android:name="com.inmobi.share.id" />
+    </intent-filter>
+</receiver>
+
+<service android:enabled="true" android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager" />
+
+<!--Required for Google Play Services-->
+
+<meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
 ```
 
 ### Edit `Android.mk`

@@ -237,8 +237,8 @@ void bannerDidFailToLoadWithError ( PluginInMobi::SBIMStatusCode code ,
 > Notifies the delegate that the banner has failed to load with some error.
 
 ```cpp
-void bannerDidInteractWithParams ( std::map <std::string ,
-                                   std::string> params ) {
+void bannerDidInteractWithParams ( const std::map <std::string ,
+                                   std::string> & params ) {
 ```
 > Notifies the delegate that the banner was interacted with.
 
@@ -268,8 +268,8 @@ void bannerDidDismissScreen ( ) {
 > Notifies the delegate that the banner has dismissed the presented screen.
 
 ```cpp
-void bannerRewardActionCompletedWithRewards ( std::map <std::string ,
-                                              std::string> rewards ) {
+void bannerRewardActionCompletedWithRewards ( const std::map <std::string ,
+                                              std::string> & rewards );
 ```
 > Notifies the delegate that the user has completed the action to be incentivised with.
 
@@ -311,14 +311,14 @@ void interstitialDidDismiss ( ) {
 > Notifies the delegate that the interstitial has been dismissed.
 
 ```cpp
-void interstitialDidInteractWithParams ( std::map <std::string ,
-                                         std::string> params ) {
+void interstitialDidInteractWithParams ( const std::map <std::string ,
+                                         std::string> & params ) {
 ```
 > Notifies the delegate that the interstitial has been interacted with.
 
 ```cpp
-void interstitialRewardActionCompletedWithRewards ( std::map <std::string ,
-                                                    std::string> rewards ) {
+void interstitialRewardActionCompletedWithRewards ( const std::map <std::string ,
+                                                    std::string> & rewards );
 ```
 > Notifies the delegate that the user has performed the action to be incentivised with.
 
