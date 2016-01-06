@@ -1585,7 +1585,7 @@ public:
         CCLOG(&quot;bannerDidFailToLoadWithError status:%d, desc:%s&quot;, code, description.c_str());
     };
 
-    void bannerDidInteractWithParams(std::map&lt;std::string, std::string&gt;&amp; params) {
+    void bannerDidInteractWithParams(const std::map&lt;std::string, std::string&gt;&amp; params) {
         CCLOG(&quot;bannerDidInteractWithParams&quot;);
     };
 
@@ -1609,7 +1609,7 @@ public:
         CCLOG(&quot;bannerDidDismissScreen&quot;);
     };
 
-    void bannerRewardActionCompletedWithRewards(std::map&lt;std::string, std::string&gt;&amp; rewards) {
+    void bannerRewardActionCompletedWithRewards(const std::map&lt;std::string, std::string&gt;&amp; rewards) {
         CCLOG(&quot;bannerRewardActionCompletedWithRewards&quot;);
     };
 
@@ -1641,11 +1641,11 @@ public:
         CCLOG(&quot;interstitialDidDismiss&quot;);
     };
 
-    void interstitialDidInteractWithParams(std::map&lt;std::string, std::string&gt;&amp; params) {
+    void interstitialDidInteractWithParams(const std::map&lt;std::string, std::string&gt;&amp; params) {
         CCLOG(&quot;interstitialDidInteractWithParams&quot;);
     };
 
-    void interstitialRewardActionCompletedWithRewards(std::map&lt;std::string, std::string&gt;&amp; rewards) {
+    void interstitialRewardActionCompletedWithRewards(const std::map&lt;std::string, std::string&gt;&amp; rewards) {
         CCLOG(&quot;interstitialRewardActionCompletedWithRewards&quot;);
     };
 
