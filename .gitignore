@@ -1,16 +1,16 @@
 .idea/
 site/
 
-docs/plugins/
-docs/plugins/adcolony/
-docs/plugins/agecheq/
-docs/plugins/chartboost/
-docs/plugins/flurryanalytics/
-docs/plugins/googleanalytics/
-docs/plugins/iap/
-docs/plugins/kochava/
-docs/plugins/tune/
-docs/plugins/vungle/
+#docs/plugins/
+#docs/plugins/adcolony/
+#docs/plugins/agecheq/
+#docs/plugins/chartboost/
+#docs/plugins/flurryanalytics/
+#docs/plugins/googleanalytics/
+#docs/plugins/iap/
+#docs/plugins/kochava/
+#docs/plugins/tune/
+#docs/plugins/vungle/
 
 .DS_Store
 
