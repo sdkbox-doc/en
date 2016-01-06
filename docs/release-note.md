@@ -1,5 +1,14 @@
 #Release Notes
 ---
+1.5.2 Release Notes
+===
+##Highlight
+* Include Google Play Services SDK for needed plugins. No need to install it manually anymore. 
+* Support the coming Cocos 3.10 release
+
+##Bugfix
+* 
+
 1.5.1 Release Notes
 ===
 ##Highlight
