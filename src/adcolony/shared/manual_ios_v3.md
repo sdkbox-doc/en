@@ -35,6 +35,8 @@ The above frameworks depend upon a large number of other frameworks. You also ne
 
 > Security.framework
 
+> GameController.framework
+
 > Social.framework (Set to Optional)
 
 > StoreKit.framework (Set to Optional)
@@ -46,6 +48,6 @@ The above frameworks depend upon a large number of other frameworks. You also ne
 Add two separate linker flags to:
 __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
-> -force_load AdColony.framework/AdColony
+> -ObjC
 
 > -fobjc-arc (this allows AdColony to use ARC even if your project does not)
