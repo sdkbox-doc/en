@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/leaderboard/v3-cpp
--->
+[&#8249; Leaderboard Doc Home](./)
 
-#Leaderboard
+<h1>Leaderboard Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Prerequisites
 Currently, `Leaderboard` is only available for __Android__ and only supports __Playphone__ as a backend. Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.

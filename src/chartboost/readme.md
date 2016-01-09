@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/chartboost/v3-cpp
--->
+[&#8249; Chartboost Doc Home](./)
 
-#Chartboost
+<h1>Chartboost Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Chartboost plugin. Make sure you setup the SDKBOX installer correctly.

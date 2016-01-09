@@ -52,31 +52,45 @@ class DocGen:
                 self.folders.append(f)
             #print "====> found " + f
 
+    def generate_data(self, f, origin_data): 
+        out_data = origin_data
+        match = re.search(self.pre, out_data)
+
+        while match:
+            section_path = match.group(1).replace("-VERSION-", f)                    
+            section_path = os.path.join(self.base_path, f, section_path)
+
+            section_file = read_file(section_path)
+            out_data = re.sub(self.pre, section_file, out_data, 1)
+
+            match = re.search(self.pre, out_data)
+
+        return out_data
+
+
     def generate(self):
-        if os.path.exists(self.main_file):
+        if os.path.isfile(self.main_file):
+            
             print '===> generate ' + self.name
             mkdir(self.out_path)
             origin_data = read_file(self.main_file)
 
             for f in self.folders:
-                out_data = origin_data
-                match = re.search(self.pre, out_data)
 
-                while match:
-                    section_path = match.group(1)
-                    section_path = os.path.join(self.base_path, f, section_path)
-
-                    section_file = read_file(section_path)
-                    out_data = re.sub(self.pre, section_file, out_data, 1)
-
-                    match = re.search(self.pre, out_data)
-
+                out_data = self.generate_data(f, origin_data)
                 out_file = os.path.join(self.out_path, f + '.md')
                 write_file(out_file, out_data)
                 # print 'Write file: ' + out_file
+
+            if os.path.isfile(os.path.join(self.base_path, 'index.md')):            
+                print '===> copy index ' + self.name            
+                
+                origin_data = read_file(os.path.join(self.base_path, 'index.md'))
+                out_data = self.generate_data('', origin_data)
+                write_file(os.path.join(self.out_path, 'index.md'), out_data)
+                
         else:
             print '===> skip ' + self.name
-            print '===> failed to find ' + self.main_file
 
     def get_name(self):
         return self.name

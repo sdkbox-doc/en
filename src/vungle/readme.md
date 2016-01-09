@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/vungle/v3-cpp
--->
+[&#8249; Vungle Doc Home](./)
 
-#Vungle
+<h1>Vungle Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Vungle plugin. Make sure you setup the SDKBOX installer correctly.

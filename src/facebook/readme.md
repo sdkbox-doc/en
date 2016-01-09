@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/en/src/facebook/v3-cpp
--->
+[&#8249; Facebook Doc Home](./)
 
-#Facebook
+<h1>Facebook Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Prerequisites
 * __For Android__, Facebook requires a minimum version of __API 15: Android 4.0.3__. This version is newer than what the other SDKBOX plugins require.

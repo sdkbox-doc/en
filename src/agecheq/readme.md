@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/agecheq/v3-cpp
--->
+[&#8249; AgeCheq Doc Home](./)
 
-#AgeCheq
+<h1>AgeCheq Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX AgeCheq plugin. Make sure you setup the SDKBOX installer correctly.

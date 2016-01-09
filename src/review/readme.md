@@ -1,9 +1,8 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/review/v3-cpp
--->
+[&#8249; Reviews&Ratings Doc Home](./)
 
-#Ratings & Reviews
-This is a plugin that will help remind your users to rate and review your app on the App Store.
+<h1>Reviews & Ratings Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
+
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Ratings & Reviews plugin. Make sure you setup the SDKBOX installer correctly.

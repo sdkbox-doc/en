@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/bee7/v3-cpp
--->
+[&#8249; Bee7 Doc Home](./)
 
-#Bee7
+<h1>Bee7 Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Prerequisites
 * __For Android, Bee7 requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
