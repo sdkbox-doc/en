@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/fyber/v3-cpp
--->
+[&#8249; Fyber Doc Home](./)
 
-#Fyber
+<h1>Fyber Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Prerequisites
 * __For Android, Fyber requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__

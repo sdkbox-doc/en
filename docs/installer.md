@@ -1,10 +1,11 @@
-# SDKBOX: Installing SDKBOX Plugins using the Installer
+<h1>SDKBOX Installer</h1>
+<h4>Automatically integrate third-party SDKs</h4>
 
 ### Get the Installer
 
 * Make sure your system have [python](https://www.python.org)
-
-* Paste the script below into a terminal prompt. It will explain what it does and setup everything for you:
+* Dowload from [this link](http://download.sdkbox.com/installer/v1/sdkbox_installer.zip)
+* Or, paste the script below into a terminal prompt. It will explain what it does and setup everything for you:
 ```
 python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
 ```

@@ -1,11 +1,10 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/appodeal/v3-cpp
--->
+[&#8249; Appodeal Doc Home](./)
 
-#Appodeal
+<h1>Appodeal Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Prerequisites
-* Certain SDKBOX plugins do not work together. If you use __Appodeal__, then you cannot also use the __Flurry Analytics__ and __Chartboost__ services, in the same project.
+Certain SDKBOX plugins do not work together. If you use __Appodeal__, then you cannot also use the __Flurry Analytics__ and __Chartboost__ services, in the same project.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Appodeal plugin. Make sure you setup the SDKBOX installer correctly.

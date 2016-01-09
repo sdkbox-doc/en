@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/valuepotion/v3-cpp
--->
+[&#8249; Valuepotion Doc Home](./)
 
-#Valuepotion
+<h1>Valuepotion Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Valuepotion plugin. Make sure you setup the SDKBOX installer correctly.

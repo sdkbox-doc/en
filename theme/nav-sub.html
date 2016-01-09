@@ -3,6 +3,7 @@
     <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
 </li>
 {% else %}
+  {% if not nav_item.title.strip().startswith("_") %}
   <li class="dropdown-submenu">
     <a tabindex="-1" class="non-link">{{ nav_item.title }}</a>
     <ul class="dropdown-menu">
@@ -11,4 +12,5 @@
         {% endfor %}
     </ul>
   </li>
+  {% endif %}
 {% endif %}

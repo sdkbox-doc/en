@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/googleanalytics/v3-cpp
--->
+[&#8249; Google Analytics Doc Home](./)
 
-#Google Analytics
+<h1>Google Analytics Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Google Analytics plugin. Make sure you setup the SDKBOX installer correctly.

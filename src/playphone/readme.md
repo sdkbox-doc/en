@@ -1,8 +1,9 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/en/src/playphone/v3-cpp
--->
+[&#8249; Playphone Doc Home](./)
 
-#Playphone
+<h1>Playphone Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
+
+#Prerequisites
 Currently, `Playphone` is only available for __Android__.  Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.
 
 ##Prerequisites

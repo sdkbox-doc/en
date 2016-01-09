@@ -3,7 +3,8 @@ pages:
 - Overview: 'index.md'
 - Installer: 'installer.md'
 - Plugins:
-    - 'Achievements':
+    - 'Achievements': 'plugins/achievement/index.md'
+    - '_Achievements': 
         - 'Cocos2d-x v3.x':
             - 'Achievements with C++': 'plugins/achievement/v3-cpp.md'
             - 'Achievements with Javascript': 'plugins/achievement/v3-js.md'
@@ -12,7 +13,8 @@ pages:
             - 'Achievements with C++': 'plugins/achievement/v2-cpp.md'
             - 'Achievements with Javascript': 'plugins/achievement/v2-js.md'
             - 'Achievements with Lua': 'plugins/achievement/v2-lua.md'
-    - 'AdColony':
+    - 'AdColony': 'plugins/adcolony/index.md'
+    - '_AdColony':
         - 'Cocos2d-x v3.x':
             - 'AdColony with C++': 'plugins/adcolony/v3-cpp.md'
             - 'AdColony with JS': 'plugins/adcolony/v3-js.md'
@@ -21,7 +23,8 @@ pages:
             - 'AdColony with C++': 'plugins/adcolony/v2-cpp.md'
             - 'AdColony with Javascript': 'plugins/adcolony/v2-js.md'
             - 'AdColony with Lua': 'plugins/adcolony/v2-lua.md'
-    - 'AgeCheq':
+    - 'AgeCheq': 'plugins/agecheq/index.md'
+    - '_AgeCheq':
         - 'Cocos2d-x v3.x':
             - 'AgeCheq with C++': 'plugins/agecheq/v3-cpp.md'
             - 'AgeCheq with Javascript': 'plugins/agecheq/v3-js.md'
@@ -30,7 +33,8 @@ pages:
             - 'AgeCheq with C++': 'plugins/agecheq/v2-cpp.md'
             - 'AgeCheq with Javascript': 'plugins/agecheq/v2-js.md'
             - 'AgeCheq with Lua': 'plugins/agecheq/v2-lua.md'
-    - 'Appodeal':
+    - 'Appodeal': 'plugins/appodeal/index.md'
+    - '_Appodeal':
         - 'Cocos2d-x v3.x':
             - 'Appodeal with C++': 'plugins/appodeal/v3-cpp.md'
             - 'Appodeal with Javascript': 'plugins/appodeal/v3-js.md'
@@ -39,7 +43,8 @@ pages:
             - 'Appodeal with C++': 'plugins/appodeal/v2-cpp.md'
             - 'Appodeal with Javascript': 'plugins/appodeal/v2-js.md'
             - 'Appodeal with Lua': 'plugins/appodeal/v2-lua.md'
-    - 'Bee7':
+    - 'Bee7': 'plugins/bee7/index.md'
+    - '_Bee7':
         - 'Cocos2d-x v3.x':
             - 'Bee7 with C++': 'plugins/bee7/v3-cpp.md'
             - 'Bee7 with Javascript': 'plugins/bee7/v3-js.md'
@@ -48,7 +53,8 @@ pages:
             - 'Bee7 with C++': 'plugins/bee7/v2-cpp.md'
             - 'Bee7 with Javascript': 'plugins/bee7/v2-js.md'
             - 'Bee7 with Lua': 'plugins/bee7/v2-lua.md'
-    - 'Chartboost':
+    - 'Chartboost': 'plugins/chartboost/index.md'
+    - '_Chartboost':
         - 'Cocos2d-x v3.x':
             - 'Chartboost with C++': 'plugins/chartboost/v3-cpp.md'
             - 'Chartboost with Javascript': 'plugins/chartboost/v3-js.md'
@@ -57,7 +63,8 @@ pages:
             - 'Chartboost with C++': 'plugins/chartboost/v2-cpp.md'
             - 'Chartboost with Javascript': 'plugins/chartboost/v2-js.md'
             - 'Chartboost with Lua': 'plugins/chartboost/v2-lua.md'
-    - 'Facebook':
+    - 'Facebook': 'plugins/facebook/index.md'
+    - '_Facebook':
         - 'Cocos2d-x v3.x':
             - 'Facebook with C++': 'plugins/facebook/v3-cpp.md'
             - 'Facebook with Javascript': 'plugins/facebook/v3-js.md'
@@ -66,7 +73,8 @@ pages:
             - 'Facebook with C++': 'plugins/facebook/v2-cpp.md'
             - 'Facebook with Javascript': 'plugins/facebook/v2-js.md'
             - 'Facebook with Lua': 'plugins/facebook/v2-lua.md'
-    - 'Flurry Analytics':
+    - 'Flurry Analytics': 'plugins/flurryanalytics/index.md'
+    - '_Flurry Analytics':
         - 'Cocos2d-x v3.x':
             - 'Flurry with C++': 'plugins/flurryanalytics/v3-cpp.md'
             - 'Flurry with Javascript': 'plugins/flurryanalytics/v3-js.md'
@@ -75,7 +83,8 @@ pages:
             - 'Flurry with C++': 'plugins/flurryanalytics/v2-cpp.md'
             - 'Flurry with Javascript': 'plugins/flurryanalytics/v2-js.md'
             - 'Flurry with Lua': 'plugins/flurryanalytics/v2-lua.md'
-    - 'Fyber':
+    - 'Fyber': 'plugins/fyber/index.md'
+    - '_Fyber':
         - 'Cocos2d-x v3.x':
             - 'Fyber with C++': 'plugins/fyber/v3-cpp.md'
             - 'Fyber with Javascript': 'plugins/fyber/v3-js.md'
@@ -84,7 +93,8 @@ pages:
             - 'Fyber with C++': 'plugins/fyber/v2-cpp.md'
             - 'Fyber with Javascript': 'plugins/fyber/v2-js.md'
             - 'Fyber with Lua': 'plugins/fyber/v2-lua.md'
-    - 'Google Analytics':
+    - 'Google Analytics': 'plugins/googleanalytics/index.md'
+    - '_Google Analytics':
         - 'Cocos2d-x v3.x':
             - 'Google Analytics with C++': 'plugins/googleanalytics/v3-cpp.md'
             - 'Google Analytics with Javascript': 'plugins/googleanalytics/v3-js.md'
@@ -93,7 +103,8 @@ pages:
             - 'Google Analytics with C++': 'plugins/googleanalytics/v2-cpp.md'
             - 'Google Analytics with Javascript': 'plugins/googleanalytics/v2-js.md'
             - 'Google Analytics with Lua': 'plugins/googleanalytics/v2-lua.md'
-    - 'IAP':
+    - 'In-App Purchase': 'plugins/iap/index.md'
+    - '_IAP':
         - 'Cocos2d-x v3.x':
             - 'In-App Purchases(IAP) with C++': 'plugins/iap/v3-cpp.md'
             - 'In-App Purchases(IAP) with Javascript': 'plugins/iap/v3-js.md'
@@ -102,7 +113,8 @@ pages:
             - 'In-App Purchases(IAP) with C++': 'plugins/iap/v2-cpp.md'
             - 'In-App Purchases(IAP) with Javascript': 'plugins/iap/v2-js.md'
             - 'In-App Purchases(IAP) with Lua': 'plugins/iap/v2-lua.md'
-    - 'InMobi':
+    - 'InMobi': 'plugins/inmobi/index.md'
+    - '_InMobi':
         - 'Cocos2d-x v3.x':
             - 'InMobi with C++': 'plugins/inmobi/v3-cpp.md'
             - 'InMobi with Javascript': 'plugins/inmobi/v3-js.md'
@@ -111,7 +123,8 @@ pages:
             - 'InMobi with C++': 'plugins/inmobi/v2-cpp.md'
             - 'InMobi with Javascript': 'plugins/inmobi/v2-js.md'
             - 'InMobi with Lua': 'plugins/inmobi/v2-lua.md'
-    - 'Kochava':
+    - 'Kochava': 'plugins/kochava/index.md'
+    - '_Kochava':
         - 'Cocos2d-x v3.x':
             - 'Kochava with C++': 'plugins/kochava/v3-cpp.md'
             - 'Kochava with Javascript': 'plugins/kochava/v3-js.md'
@@ -120,7 +133,8 @@ pages:
             - 'Kochava with C++': 'plugins/kochava/v2-cpp.md'
             - 'Kochava with Javascript': 'plugins/kochava/v2-js.md'
             - 'Kochava with Lua': 'plugins/kochava/v2-lua.md'
-    - 'Leaderboard':
+    - 'Leaderboard': 'plugins/leaderboard/index.md'
+    - '_Leaderboard':
         - 'Cocos2d-x v3.x':
             - 'Leaderboard with C++': 'plugins/leaderboard/v3-cpp.md'
             - 'Leaderboard with Javascript': 'plugins/leaderboard/v3-js.md'
@@ -129,7 +143,8 @@ pages:
             - 'Leaderboard with C++': 'plugins/leaderboard/v2-cpp.md'
             - 'Leaderboard with Javascript': 'plugins/leaderboard/v2-js.md'
             - 'Leaderboard with Lua': 'plugins/leaderboard/v2-lua.md'
-    - 'Playphone':
+    - 'Playphone': 'plugins/playphone/index.md'
+    - '_Playphone':
         - 'Cocos2d-x v3.x':
             - 'Playphone with C++': 'plugins/playphone/v3-cpp.md'
             - 'Playphone with Javascript': 'plugins/playphone/v3-js.md'
@@ -138,7 +153,8 @@ pages:
             - 'Playphone with C++': 'plugins/playphone/v2-cpp.md'
             - 'Playphone with Javascript': 'plugins/playphone/v2-js.md'
             - 'Playphone with Lua': 'plugins/playphone/v2-lua.md'
-    - 'Ratings & Reviews':
+    - 'Ratings & Reviews': 'plugins/review/index.md'
+    - '_Ratings & Reviews':
         - 'Cocos2d-x v3.x':
             - 'App Rating & Review with C++': 'plugins/review/v3-cpp.md'
             - 'App Rating & Review with Javascript': 'plugins/review/v3-js.md'
@@ -147,7 +163,8 @@ pages:
             - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
             - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
             - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
-    - 'SOOMLA Grow':
+    - 'SOOMLA Grow': 'plugins/soomlagrow/index.md'
+    - '_SOOMLA Grow':
         - 'Cocos2d-x v3.x':
             - 'SOOMLA Grow with C++': 'plugins/soomlagrow/v3-cpp.md'
             - 'SOOMLA Grow with Javascript': 'plugins/soomlagrow/v3-js.md'
@@ -156,7 +173,8 @@ pages:
             - 'SOOMLA Grow with C++': 'plugins/soomlagrow/v2-cpp.md'
             - 'SOOMLA Grow with Javascript': 'plugins/soomlagrow/v2-js.md'
             - 'SOOMLA Grow with Lua': 'plugins/soomlagrow/v2-lua.md'
-    - 'Tune':
+    - 'Tune': 'plugins/tune/index.md'
+    - '_Tune':
         - 'Cocos2d-x v3.x':
             - 'Tune with C++': 'plugins/tune/v3-cpp.md'
             - 'Tune with Javascript': 'plugins/tune/v3-js.md'
@@ -165,7 +183,8 @@ pages:
             - 'Tune with C++': 'plugins/tune/v2-cpp.md'
             - 'Tune with Javascript': 'plugins/tune/v2-js.md'
             - 'Tune with Lua': 'plugins/tune/v2-lua.md'
-    - 'Valuepotion':
+    - 'Valuepotion': 'plugins/valuepotion/index.md'
+    - '_Valuepotion':
         - 'Cocos2d-x v3.x':
             - 'Valuepotion with C++': 'plugins/valuepotion/v3-cpp.md'
             - 'Valuepotion with Javascript': 'plugins/valuepotion/v3-js.md'
@@ -174,7 +193,8 @@ pages:
             - 'Valuepotion with C++': 'plugins/valuepotion/v2-cpp.md'
             - 'Valuepotion with Javascript': 'plugins/valuepotion/v2-js.md'
             - 'Valuepotion with Lua': 'plugins/valuepotion/v2-lua.md'
-    - 'Vungle':
+    - 'Vungle': 'plugins/vungle/index.md'
+    - '_Vungle':
         - 'Cocos2d-x v3.x':
             - 'Vungle with C++': 'plugins/vungle/v3-cpp.md'
             - 'Vungle with Javascript': 'plugins/vungle/v3-js.md'
@@ -183,7 +203,8 @@ pages:
             - 'Vungle with C++': 'plugins/vungle/v2-cpp.md'
             - 'Vungle with Javascript': 'plugins/vungle/v2-js.md'
             - 'Vungle with Lua': 'plugins/vungle/v2-lua.md'
-    - 'Youtube':
+    - 'Youtube': 'plugins/youtube/index.md'
+    - '_Youtube':
         - 'Cocos2d-x v3.x':
             - 'Youtube with C++': 'plugins/youtube/v3-cpp.md'
             - 'Youtube with Javascript': 'plugins/youtube/v3-js.md'

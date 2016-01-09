@@ -1,8 +1,7 @@
-<!--
-Include Base: /Users/jtsm/Chukong-Inc/pr/en/src/youtube/v3-cpp
--->
+[&#8249; YouTube Doc Home](./)
 
-#Youtube
+<h1>YouTube Integration Guide</h1>
+<<[../../shared/-VERSION-/version.md]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Youtube plugin.
