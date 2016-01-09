@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <link rel="shortcut icon" href="./img/favicon.ico">
-
-	<title>SDKBOX Documentation</title>
+	<title>AdColony - SDKBOX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -22,17 +24,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-62579154-2', 'sdkbox-doc.github.io/en');
-            ga('send', 'pageview');
-        </script>
-
     </head>
 
     <body>
@@ -42,7 +33,7 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-
+            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -50,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
+            
 
             <!-- Main title -->
             <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png"></a>
@@ -58,948 +49,343 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-
+            
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
-
-
+                
+                
                     <li >
-                        <a href="../../">Overview</a>
+                        <a href="../..">Overview</a>
                     </li>
-
-
-
+                
+                
+                
                     <li >
                         <a href="../../installer/">Installer</a>
                     </li>
-
-
-
-                    <li class="dropdown">
+                
+                
+                
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
-
-                          <li class="dropdown-submenu">
-                            <a tabindex="-1" class="non-link">AdColony</a>
-                            <ul class="dropdown-menu">
-
-
-                          <li class="dropdown-submenu">
-                            <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-                            <ul class="dropdown-menu">
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v3-cpp/">c++</a>
-                          </li>
-
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v3-js/">js</a>
-                          </li>
-
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v3-lua/">lua</a>
-                          </li>
-
-
-                            </ul>
-                          </li>
-
-
-
-                          <li class="dropdown-submenu">
-                            <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-                            <ul class="dropdown-menu">
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v2-cpp/">c++</a>
-                          </li>
-
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v2-js/">js</a>
-                          </li>
-
-
-
-                          <li >
-                            <a href="../../plugins/adcolony/v2-lua/">lua</a>
-                          </li>
-
-
-                            </ul>
-                          </li>
-
-
-                            </ul>
-                          </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">AgeCheq</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/agecheq/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/agecheq/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/agecheq/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/agecheq/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/agecheq/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/agecheq/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Chartboost</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/chartboost/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/chartboost/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/chartboost/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/chartboost/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/chartboost/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/chartboost/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Facebook</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/facebook/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/facebook/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/facebook/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/facebook/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/facebook/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/facebook/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Flurry Analytics</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/flurryanalytics/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Fyber</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/fyber/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/fyber/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/fyber/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/fyber/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/fyber/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/fyber/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Google Analytics</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/googleanalytics/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">IAP</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/iap/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/iap/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/iap/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/iap/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/iap/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/iap/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Kochava</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/kochava/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/kochava/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/kochava/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/kochava/v2-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/kochava/v2-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/kochava/v2-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Ratings & Reviews</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
-<li >
-    <a href="../../plugins/review/v3-cpp/">c++</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/review/v3-js/">js</a>
-</li>
-
-
-
-<li >
-    <a href="../../plugins/review/v3-lua/">lua</a>
-</li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/review/v2-cpp/">c++</a>
+    <a href="../achievement/">Achievements</a>
 </li>
 
+                        
+                            
+  
 
-
-<li >
-    <a href="../../plugins/review/v2-js/">js</a>
+                        
+                            
+<li class="active">
+    <a href="./">AdColony</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/review/v2-lua/">lua</a>
+    <a href="../agecheq/">AgeCheq</a>
 </li>
-
 
-    </ul>
-  </li>
+                        
+                            
+  
 
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Soomla Grow</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v3-cpp/">c++</a>
+    <a href="../appodeal/">Appodeal</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v3-js/">js</a>
+    <a href="../bee7/">Bee7</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v3-lua/">lua</a>
+    <a href="../chartboost/">Chartboost</a>
 </li>
-
-
-    </ul>
-  </li>
-
-
 
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v2-cpp/">c++</a>
+    <a href="../facebook/">Facebook</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v2-js/">js</a>
+    <a href="../flurryanalytics/">Flurry Analytics</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/soomlagrow/v2-lua/">lua</a>
+    <a href="../fyber/">Fyber</a>
 </li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
 
+                        
+                            
+  
 
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Tune</a>
-    <ul class="dropdown-menu">
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v3-cpp/">c++</a>
+    <a href="../googleanalytics/">Google Analytics</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v3-js/">js</a>
+    <a href="../iap/">In-App Purchase</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v3-lua/">lua</a>
+    <a href="../inmobi/">InMobi</a>
 </li>
 
+                        
+                            
+  
 
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v2-cpp/">c++</a>
+    <a href="../kochava/">Kochava</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v2-js/">js</a>
+    <a href="../leaderboard/">Leaderboard</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/tune/v2-lua/">lua</a>
+    <a href="../playphone/">Playphone</a>
 </li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
-
-
-
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Vungle</a>
-    <ul class="dropdown-menu">
 
+                        
+                            
+  
 
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 3.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v3-cpp/">c++</a>
+    <a href="../review/">Ratings & Reviews</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v3-js/">js</a>
+    <a href="../soomlagrow/">SOOMLA Grow</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v3-lua/">lua</a>
+    <a href="../tune/">Tune</a>
 </li>
-
-
-    </ul>
-  </li>
-
 
+                        
+                            
+  
 
-  <li class="dropdown-submenu">
-    <a tabindex="-1" class="non-link">Cocos2dx 2.x</a>
-    <ul class="dropdown-menu">
-
-
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v2-cpp/">c++</a>
+    <a href="../valuepotion/">Valuepotion</a>
 </li>
 
+                        
+                            
+  
 
-
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v2-js/">js</a>
+    <a href="../vungle/">Vungle</a>
 </li>
-
 
+                        
+                            
+  
 
+                        
+                            
 <li >
-    <a href="../../plugins/vungle/v2-lua/">lua</a>
+    <a href="../youtube/">Youtube</a>
 </li>
-
-
-    </ul>
-  </li>
-
-
-    </ul>
-  </li>
 
+                        
+                            
+  
 
+                        
                         </ul>
                     </li>
-
-
-
+                
+                
+                
                     <li >
                         <a href="../../release-note/">About</a>
                     </li>
-
-
+                
+                
 
                 <!-- new add for language button -->
                 <li>
                     <a href="http://sdkbox-doc.github.io/zh/">中文</a>
                 </li>
-
+                
                 </ul>
-
+            
 
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-
-                    <li class="disabled">
-                        <a rel="next" >
+                
+                    <li >
+                        <a rel="next" href="../achievement/v2-lua/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="v3-cpp/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
-
-
+                
+                
             </ul>
         </div>
     </div>
 </div>
 
         <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#overview">Overview</a></li>
+        
+    
+        <li class="main "><a href="#integration-guides">Integration Guides</a></li>
+        
+            <li><a href="#for-games-using-cocos2d-x-v3x">For games using cocos2d-x v3.x</a></li>
+        
+            <li><a href="#for-games-using-cocos2d-x-v2x">For games using cocos2d-x v2.x</a></li>
+        
+    
+        <li class="main "><a href="#sample-project">Sample Project</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
+<p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
+<h1>AdColony Plugin</h1>
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h2 style="text-align: center">AdColony</h2>
-        <p>AdColony is a mobile video advertising platform whose proprietary Instant-Play™ technology serves razor sharp, crystal-clear video ads instantly in HD across the world’s hottest apps.
-        </p>
-        <h3 style="text-align: center">Cocos2d-x v3</h3>
-          <p style="text-align: center"><a href="v3-cpp/">cpp</a></p>
-          <p style="text-align: center"><a href="v3-js/">js</a></p>
-          <p style="text-align: center"><a href="v3-lua/">lua</a></p>
-        <h3 style="text-align: center">Cocos2d-x v2</h3>
-          <p style="text-align: center"><a href="v2-cpp/">cpp</a></p>
-          <p style="text-align: center"><a href="v2-js/">js</a></p>
-          <p style="text-align: center"><a href="v2-lua/">lua</a></p>
-      </div>
-    </div>
-
-
+<h2 id="overview">Overview</h2>
+<p>You can find <a href="http://www.cocos2d-x.org/sdkbox/adcolony">more information about this plugin here.</a></p>
+<h2 id="integration-guides">Integration Guides</h2>
+<h4 id="for-games-using-cocos2d-x-v3x">For games using cocos2d-x v3.x</h4>
+<ul>
+<li><a href="./v3-cpp">The C++ version</a></li>
+<li><a href="./v3-js">The Javascript version</a></li>
+<li><a href="./v3-lua">The Lua version</a></li>
+</ul>
+<h4 id="for-games-using-cocos2d-x-v2x">For games using cocos2d-x v2.x</h4>
+<ul>
+<li><a href="./v2-cpp">The C++ version</a></li>
+<li><a href="./v2-js">The Javascript version</a></li>
+<li><a href="./v2-lua">The Lua version</a></li>
+</ul>
+<h2 id="sample-project">Sample Project</h2>
+<p><a href="https://github.com/sdkbox/sdkbox-adcolony-sample">A demo project on github</a></p></div>
+            
         </div>
 
         <footer class="col-md-12">
             <hr>
-
+            
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         <script src="../../js/jquery-1.10.2.min.js"></script>
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
-        <script>var base_url = '../../';</script>
-        <script data-main="../../mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script>var base_url = '../..';</script>
         <script src="../../js/base.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
     </body>
 </html>
