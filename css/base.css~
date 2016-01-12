@@ -150,12 +150,6 @@ footer {
     font-size: 90%;
 }
 
-.sub-sidebar {
- padding: 0 0 0 10px;
- border-left: 1px solid #888;
- margin-left: 5px;
-}
-
 /* Show and affix the side nav when space allows it */
 @media (min-width: 992px) {
     .bs-sidebar .nav > .active > ul {
