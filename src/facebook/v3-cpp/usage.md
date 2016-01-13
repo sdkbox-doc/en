@@ -128,6 +128,7 @@ You can perform [Graph API](https://developers.facebook.com/docs/graph-api/overv
 For example, to get the friend list:
 ```
 sdkbox::PluginFacebook::FBAPIParam params;
+params["fields"] = "name,email";
 sdkbox::PluginFacebook::api("/me/friendlists", "GET", params, "/me/friendlists");
 ```
 
