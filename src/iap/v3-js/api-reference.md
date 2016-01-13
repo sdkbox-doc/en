@@ -36,10 +36,14 @@ sdkbox.IAP.removeListener();
 ```
 > Remove listener for IAP
 
+```javascript
+sdkbox.IAP.enableUserSideVerification();
+```
+
 
 ### Listeners
 ```javascript
-onInitialized(ok);
+onInitialized(success);
 ```
 > Called when IAP initialized
 

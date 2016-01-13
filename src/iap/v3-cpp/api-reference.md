@@ -36,10 +36,14 @@ static void removeListener ( ) ;
 ```
 > Remove listener for IAP
 
+```cpp
+static void enableUserSideVerification ( bool ) ;
+```
+
 
 ### Listeners
 ```cpp
-void onInitialized ( bool ok );
+void onInitialized ( bool success );
 ```
 > Called when IAP initialized
 
