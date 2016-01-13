@@ -77,3 +77,11 @@ sdkbox.IAP.setListener({
     }
 });
 ```
+
+### Verify IAP receipt
+You can use the following API to turn on the IAP receipts
+```cpp
+sdkbox.IAP.enableUserSideVerification(true);
+```
+And check `product.receipt` and `product.receiptCipheredPayload` for IAP receipt data
+> Note: only Google Play provides receipt data, iOS only provides ciphered payload for user to perform IAP verification
