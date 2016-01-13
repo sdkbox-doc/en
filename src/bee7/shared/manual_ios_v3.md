@@ -22,9 +22,14 @@ The above frameworks depend upon a large number of other frameworks. You also ne
 
 > libsqlite3.dylib
 
+> CoreText.framework
+
+> GameController.framework
+
+> MediaPlayer.framework
 
 Add separate linker flags to:
 __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
-> -force_load PluginBee7.framework/PluginBee7
+> -ObjC
 

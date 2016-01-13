@@ -28,8 +28,10 @@ The above frameworks depend upon a large number of other frameworks. You also ne
 
 > CFNetwork.framework
 
+> GameController.framework
+
 Add separate linker flags to:
 __Target -> Build Settings -> Linking -> Other Linker Flags__:
 
-> -force_load PluginFyber.framework/PluginFyber
+> -ObjC
 
