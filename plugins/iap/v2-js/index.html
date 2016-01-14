@@ -359,6 +359,8 @@
         
             <li><a href="#handling-purchase-events">Handling Purchase Events</a></li>
         
+            <li><a href="#verify-iap-receipt">Verify IAP receipt</a></li>
+        
 	</ul>
 	
     
@@ -577,6 +579,15 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 });
 </code></pre>
 
+<h3 id="verify-iap-receipt">Verify IAP receipt</h3>
+<p>You can use the following API to turn on the IAP receipts</p>
+<pre><code class="cpp">sdkbox.IAP.enableUserSideVerification(true);
+</code></pre>
+
+<p>And check <code>product.receipt</code> and <code>product.receiptCipheredPayload</code> for IAP receipt data</p>
+<blockquote>
+<p>Note: only Google Play provides receipt data, iOS only provides ciphered payload for user to perform IAP verification</p>
+</blockquote>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="javascript">sdkbox.IAP.init();
@@ -621,8 +632,11 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <blockquote>
 <p>Remove listener for IAP</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.IAP.enableUserSideVerification();
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="javascript">onInitialized(ok);
+<pre><code class="javascript">onInitialized(success);
 </code></pre>
 
 <blockquote>

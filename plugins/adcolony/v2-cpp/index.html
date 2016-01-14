@@ -700,6 +700,7 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 <p>MessageUI.framework</p>
 <p>QuartzCore.framework</p>
 <p>Security.framework</p>
+<p>GameController.framework</p>
 <p>Social.framework (Set to Optional)</p>
 <p>StoreKit.framework (Set to Optional)</p>
 <p>SystemConfiguration.framework</p>
@@ -708,7 +709,7 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 <p>Add two separate linker flags to:
 <strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
 <blockquote>
-<p>-force_load AdColony.framework/AdColony</p>
+<p>-ObjC</p>
 <p>-fobjc-arc (this allows AdColony to use ARC even if your project does not)</p>
 </blockquote>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>

@@ -696,11 +696,12 @@ the<code>Fyber</code> bundle into your Xcode project, check <code>Copy items if 
 <p>SystemConfiguration.framework</p>
 <p>Security.framework</p>
 <p>CFNetwork.framework</p>
+<p>GameController.framework</p>
 </blockquote>
 <p>Add separate linker flags to:
 <strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
 <blockquote>
-<p>-force_load PluginFyber.framework/PluginFyber</p>
+<p>-ObjC</p>
 </blockquote>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
 <p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>

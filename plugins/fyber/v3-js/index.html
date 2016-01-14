@@ -674,11 +674,12 @@ the<code>Fyber</code> bundle into your Xcode project, check <code>Copy items if 
 <p>SystemConfiguration.framework</p>
 <p>Security.framework</p>
 <p>CFNetwork.framework</p>
+<p>GameController.framework</p>
 </blockquote>
 <p>Add separate linker flags to:
 <strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
 <blockquote>
-<p>-force_load PluginFyber.framework/PluginFyber</p>
+<p>-ObjC</p>
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
