@@ -1,5 +1,20 @@
 #Release Notes
 ---
+
+1.5.3 Release Notes
+===
+##Highlight
+* IAP now provides receipts, see tutorial [here]()
+* Update Tune SDK to the latest version
+* Shorten google play service name to solve compile issue on windows
+* Improve performance of installer
+
+##Bugfix
+* Fix compatiblity issues between plugin, you should be able to install more plugins and they should all work together
+* Fix sdkbox commandline error
+* Fix documentation for InMobi
+* Fix a crash issue with TrackingLocalStorage
+
 1.5.2 Release Notes
 ===
 ##Highlight
