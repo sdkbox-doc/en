@@ -4,7 +4,7 @@
 1.5.3 Release Notes
 ===
 ##Highlight
-* IAP now provides receipts, see tutorial [here]()
+* IAP now provides receipts, see tutorial [here](http://docs.sdkbox.com/en/plugins/iap/v3-cpp/#verify-iap-receipt)
 * Update Tune SDK to the latest version
 * Shorten google play service name to solve compile issue on windows
 * Improve performance of installer
