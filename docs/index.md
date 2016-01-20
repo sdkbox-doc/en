@@ -4,19 +4,30 @@
 
 ##Overview
 ---
-SDKBOX makes it super EASY and FREE for Cocos2d-x developers to integrate 3rd party SDKs into their games. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. 
-
-Check out more information [on SDKBOX's homepage](http://sdkbox.com)
-
-![chart](./imgs/phone-demo.jpg)
+SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage](http://sdkbox.com)
 
 
-##Installer
-__SDKBOX Installer__ is a command line tool. It lets you integrate service plugins by a single line of command. ([Learn more](./installer/))
+##Architecture
+---
+SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd party libraries directly in the app, and talk to the services' backend without any proxy/middle layer. This design provides the best performance, stability, and compatibility. 
+
+![chart](./imgs/sdkbox_sequence.jpg)
 
 
-##Plugins
-__SDKBOX Plugins__ are certified wrapper libraries for supported 3rd party libraries like: 
+##Platforms
+---
+SDKBOX currently support the most popular mobile game engiens. Click to learn more: 
+
+<div class="platforms">
+<a href="/cocos"><img src="/imgs/cocos.png"></a>
+<a href="/unity"><img src="/imgs/unity.png"></a>
+<a href="/unreal"><img src="/imgs/unreal.png"></a>
+</div>
+
+
+##Services
+---
+SDKBOX includs lots of useful services which are crutial for your games: 
 
 > ![chart](./imgs/iap.png)
 > ![chart](./imgs/review.jpg)
