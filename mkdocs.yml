@@ -25,6 +25,12 @@ pages:
                 - 'AdColony with C++': 'plugins/adcolony/v2-cpp.md'
                 - 'AdColony with Javascript': 'plugins/adcolony/v2-js.md'
                 - 'AdColony with Lua': 'plugins/adcolony/v2-lua.md'
+        - 'Ads': 'plugins/ads/index.md'
+        - '_Ads':
+            - 'Cocos2d-x v3.x':
+                - 'Ads with C++': 'plugins/ads/v3-cpp.md'
+                - 'Ads with Javascript': 'plugins/ads/v3-js.md'
+                - 'Ads with Lua': 'plugins/ads/v3-lua.md'        
         - 'AgeCheq': 'plugins/agecheq/index.md'
         - '_AgeCheq':
             - 'Cocos2d-x v3.x':
@@ -234,3 +240,6 @@ theme: mkdocs
 theme_dir: 'theme'
 
 google_analytics: ['UA-70044300-2', 'auto']
+
+markdown_extensions:
+    - admonition

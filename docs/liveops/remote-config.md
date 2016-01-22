@@ -15,8 +15,7 @@ __Note__: the application will automatically pull the new configuration and put 
 sdkbox::init( <application token>, <application secret> );
 ```
 
-<div class="admonition note">
-Note: to ensure security, during normal execution the new configuration is locally saved in the applications’s private folder. Also, configurations are cyphered and its contents are not exposed, even if your application runs on a rooted/jailbroken device.
-</div>
+!!! note
+To ensure security, during normal execution the new configuration is locally saved in the applications’s private folder. Also, configurations are cyphered and its contents are not exposed, even if your application runs on a rooted/jailbroken device.
 
 

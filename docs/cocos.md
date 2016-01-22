@@ -24,7 +24,6 @@ SDKBOX Installer is an optional command line tool for any version of cocos2d-x p
 If you prefer to see exactly which libaries and assets are needed for a integration, you can download the plugn bundle file. A bundle packages everything including SDK libs, instrucations, and sample codes. You can download the bundle files from [the SDKBOX Plugins page](http://sdkbox.com). 
 
 
-<div class="admonition note">
-    NOTE: After integration, please make sure to check out each plugin's individual documentation for the detail information about updateing settings and calling APIs from your game.
-</div>
+!!! note
+    After integration, please make sure to check out each plugin's individual documentation for the detail information about updateing settings and calling APIs from your game.
 
