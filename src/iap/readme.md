@@ -55,14 +55,15 @@ If you have IAP items that are __non-consumable__, it is also necessary to suppl
 }
 ```
 
-### Remote IAP Verification
-[Click here to learn more.](/liveops/receipt-verification)
-
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
 <<[usage.md]
+
+<<[../../shared/remote_application_config.md]
+
+<<[../shared/receipts_verification.md]
 
 <<[api-reference.md]
 

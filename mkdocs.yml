@@ -230,7 +230,7 @@ pages:
    - Plugins: 
        - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps: 
-   - 'Overview': 'liveops/index.md'
+   - 'Setup': 'liveops/index.md'
    - 'Remote Config': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
    - 'On-the-fly catalog management': 'liveops/catalog-management.md'
