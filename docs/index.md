@@ -3,19 +3,16 @@
 <h1>SDKBOX Documentation</h1>
 
 ##Overview
----
 SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage](http://sdkbox.com)
 
 
 ##Architecture
----
 SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd party libraries directly in the app, and talk to the services' backend without any proxy/middle layer. This design provides the best performance, stability, and compatibility. 
 
 ![chart](./imgs/sdkbox_sequence.jpg)
 
 
 ##Platforms
----
 SDKBOX currently support the most popular mobile game engiens. Click to learn more: 
 
 <div class="platforms">
@@ -26,7 +23,6 @@ SDKBOX currently support the most popular mobile game engiens. Click to learn mo
 
 
 ##Services
----
 SDKBOX includs lots of useful services which are crutial for your games: 
 
 > ![chart](./imgs/iap.png)
