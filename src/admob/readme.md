@@ -4,10 +4,13 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX AdMob plugin.
+First, you must sign up for [AdMob](https://www.google.com/admob/).
+Secode, Open a terminal and use the following command to install the SDKBOX AdMob plugin.
 ```bash
 $ sdkbox import admob
 ```
+
+Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-start#faq) and [Android FAQ](https://developers.google.com/admob/android/quick-start#faq)
 
 <<[../../shared/notice.md]
 
@@ -18,6 +21,29 @@ $ sdkbox import admob
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
+type: 
+    - "banner"
+    - "interstitial"
+alignment: 
+    - "top"
+    - "bottom"
+    - "left"
+    - "right"
+    - "center"
+    - "top_left" or "left_top"
+    - "top_right" or "right_top"
+    - "bottom_left" or "left_bottom"
+    - "bottom_right" or "right_bottom"
+width x height: 
+    - 320x50
+    - 468x60
+    - 320x100
+    - 728x90
+    - 300x250
+    - 160x600
+    - 0x0    # 0x0 means auto size.
+
+Example:
 ```json
 
 {
