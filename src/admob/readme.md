@@ -5,7 +5,8 @@
 
 ##Integration
 First, you must sign up for [AdMob](https://www.google.com/admob/).
-Secode, Open a terminal and use the following command to install the SDKBOX AdMob plugin.
+
+Second, Open a terminal and use the following command to install the SDKBOX AdMob plugin.
 ```bash
 $ sdkbox import admob
 ```
@@ -22,9 +23,12 @@ Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-s
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 type: 
+
     - "banner"
     - "interstitial"
+
 alignment: 
+
     - "top"
     - "bottom"
     - "left"
@@ -34,7 +38,9 @@ alignment:
     - "top_right" or "right_top"
     - "bottom_left" or "left_bottom"
     - "bottom_right" or "right_bottom"
+    
 width x height: 
+
     - 320x50
     - 468x60
     - 320x100

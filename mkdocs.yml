@@ -232,9 +232,7 @@ pages:
                 - 'Youtube with Javascript': 'plugins/youtube/v2-js.md'
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
 - Unity:
-   - 'Unity Integration': 'unity/index.md'
-   - Plugins:
-       - 'In-App Purchase': 'unity/iap/index.md'
+   - 'In-App Purchase': 'unity/iap/index.md'
 - Unreal:
    - 'Unreal Integration': 'unreal/index.md'
    - Plugins:
