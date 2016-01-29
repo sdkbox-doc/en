@@ -1,12 +1,12 @@
 site_name: SDKBOX
 pages:
 - Overview: 'index.md'
-- Cocos: 
+- Cocos:
     - 'Cocos Integration': 'cocos.md'
     - Installer: 'installer.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
-        - '_Achievements': 
+        - '_Achievements':
             - 'Cocos2d-x v3.x':
                 - 'Achievements with C++': 'plugins/achievement/v3-cpp.md'
                 - 'Achievements with Javascript': 'plugins/achievement/v3-js.md'
@@ -30,7 +30,7 @@ pages:
             - 'Cocos2d-x v3.x':
                 - 'Ads with C++': 'plugins/ads/v3-cpp.md'
                 - 'Ads with Javascript': 'plugins/ads/v3-js.md'
-                - 'Ads with Lua': 'plugins/ads/v3-lua.md'        
+                - 'Ads with Lua': 'plugins/ads/v3-lua.md'
         - 'AgeCheq': 'plugins/agecheq/index.md'
         - '_AgeCheq':
             - 'Cocos2d-x v3.x':
@@ -171,6 +171,16 @@ pages:
                 - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
                 - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
                 - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
+        - 'Share': 'plugins/share/index.md'
+        - '_Share':
+            - 'Cocos2d-x v3.x':
+                - 'Share with C++': 'plugins/share/v3-cpp.md'
+                - 'Share with Javascript': 'plugins/share/v3-js.md'
+                - 'Share with Lua': 'plugins/share/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Share with C++': 'plugins/share/v2-cpp.md'
+                - 'Share with Javascript': 'plugins/share/v2-js.md'
+                - 'Share with Lua': 'plugins/share/v2-lua.md'
         - 'SOOMLA Grow': 'plugins/soomlagrow/index.md'
         - '_SOOMLA Grow':
             - 'Cocos2d-x v3.x':
@@ -221,13 +231,13 @@ pages:
                 - 'Youtube with C++': 'plugins/youtube/v2-cpp.md'
                 - 'Youtube with Javascript': 'plugins/youtube/v2-js.md'
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
-- Unity: 
+- Unity:
    - 'In-App Purchase': 'unity/iap/index.md'
-- Unreal: 
+- Unreal:
    - 'Unreal Integration': 'unreal/index.md'
-   - Plugins: 
+   - Plugins:
        - 'In-App Purchase': 'unreal/iap/index.md'
-- LiveOps: 
+- LiveOps:
    - 'Setup': 'liveops/index.md'
    - 'Remote Config': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
