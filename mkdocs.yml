@@ -181,6 +181,16 @@ pages:
                 - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
                 - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
                 - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
+        - 'Share': 'plugins/share/index.md'
+        - '_Share':
+            - 'Cocos2d-x v3.x':
+                - 'Share with C++': 'plugins/share/v3-cpp.md'
+                - 'Share with Javascript': 'plugins/share/v3-js.md'
+                - 'Share with Lua': 'plugins/share/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Share with C++': 'plugins/share/v2-cpp.md'
+                - 'Share with Javascript': 'plugins/share/v2-js.md'
+                - 'Share with Lua': 'plugins/share/v2-lua.md'
         - 'SOOMLA Grow': 'plugins/soomlagrow/index.md'
         - '_SOOMLA Grow':
             - 'Cocos2d-x v3.x':
