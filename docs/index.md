@@ -34,7 +34,7 @@ SDKBOX includs lots of useful services which are crutial for your games:
 > ![chart](./imgs/chartboost.jpg)
 > ![chart](./imgs/facebook.jpg)
 > ![chart](./imgs/flurry.png)
-> ![chart](./imgs/fyber.png)
+> ![chart](./imgs/fyber.jpg)
 > ![chart](./imgs/ga.jpg)
 > ![chart](./imgs/inmobi.jpg)
 > ![chart](./imgs/kochava.jpg)
