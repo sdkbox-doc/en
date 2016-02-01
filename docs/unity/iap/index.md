@@ -36,20 +36,6 @@ Select the IAP game object in the hierarchy and in your inspector pane you can c
 
 On Android, you specify an API key which is used to connect to the google play store and retrieve products. Copy and paste this key into the Android Key field.
 
-##Adding Vendor Billing (Android)
-
-In order for In-App-Purchase to work on Android, it needs the following permission to be added.
-
-```
-<uses-permission android:name="com.android.vending.BILLING" />
-```
-
-If you have not specified your own AndroidManifest.xml then when you import the package, one will be copied that already has this permission set.
-
-If you do have your own already, then you will need to add this permission to it.
-
-The AndroidManifest.xml is merged with the main manifest that Unity creates when building the APK.
-
 ##Adding Products
 
 Products are added on either iTunes connect for Apple, or Google Play Portal for Google. Follow directions <insert links> on how to setup products for Apple and Google platforms.
@@ -142,3 +128,27 @@ In the ```Callbacks``` section of the IAP script inspector pane, you can click `
 The product class contains all the information about a product retrieved from the server, as well as the consumable state set in the editor.
 
 You should not create your own products, but rather allow SDKBOX IAP to create them for you.
+
+##Additional Android Instructions
+
+##Override Unity Activity (Android)
+
+In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.
+
+1. Copy the file *CustomActivity.jar* from **Assets/IAP/Assets/Plugins/Android** to **Assets/Plugins/Android**
+2. Modify your AndroidManifest.xml to use *CustomActivity.jar* by replacing the Unity activity as follows. ```<activity
+            android:name="com.sdkbox.activity.CustomActivity" ...```
+
+##Adding Vendor Billing (Android)
+
+In order for In-App-Purchase to work on Android, it needs the following permission to be added.
+
+```
+<uses-permission android:name="com.android.vending.BILLING" />
+```
+
+If you have not specified your own AndroidManifest.xml then when you import the package, one will be copied that already has this permission set.
+
+If you do have your own already, then you will need to add this permission to it.
+
+The AndroidManifest.xml is merged with the main manifest that Unity creates when building the APK.
