@@ -1,12 +1,12 @@
 site_name: SDKBOX
 pages:
 - Overview: 'index.md'
-- Cocos: 
+- Cocos:
     - 'Cocos Integration': 'cocos.md'
     - Installer: 'installer.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
-        - '_Achievements': 
+        - '_Achievements':
             - 'Cocos2d-x v3.x':
                 - 'Achievements with C++': 'plugins/achievement/v3-cpp.md'
                 - 'Achievements with Javascript': 'plugins/achievement/v3-js.md'
@@ -25,12 +25,22 @@ pages:
                 - 'AdColony with C++': 'plugins/adcolony/v2-cpp.md'
                 - 'AdColony with Javascript': 'plugins/adcolony/v2-js.md'
                 - 'AdColony with Lua': 'plugins/adcolony/v2-lua.md'
+        - 'AdMob': 'plugins/admob/index.md'
+        - '_AdMob':
+            - 'Cocos2d-x v3.x':
+                - 'AdMob with C++': 'plugins/admob/v3-cpp.md'
+                - 'AdMob with Javascript': 'plugins/admob/v3-js.md'
+                - 'AdMob with Lua': 'plugins/admob/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'AdMob with C++': 'plugins/admob/v2-cpp.md'
+                - 'AdMob with Javascript': 'plugins/admob/v2-js.md'
+                - 'AdMob with Lua': 'plugins/admob/v2-lua.md'
         - 'Ads': 'plugins/ads/index.md'
         - '_Ads':
             - 'Cocos2d-x v3.x':
                 - 'Ads with C++': 'plugins/ads/v3-cpp.md'
                 - 'Ads with Javascript': 'plugins/ads/v3-js.md'
-                - 'Ads with Lua': 'plugins/ads/v3-lua.md'        
+                - 'Ads with Lua': 'plugins/ads/v3-lua.md'
         - 'AgeCheq': 'plugins/agecheq/index.md'
         - '_AgeCheq':
             - 'Cocos2d-x v3.x':
@@ -221,13 +231,13 @@ pages:
                 - 'Youtube with C++': 'plugins/youtube/v2-cpp.md'
                 - 'Youtube with Javascript': 'plugins/youtube/v2-js.md'
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
-- Unity: 
+- Unity:
    - 'In-App Purchase': 'unity/iap/index.md'
-- Unreal: 
+- Unreal:
    - 'Unreal Integration': 'unreal/index.md'
-   - Plugins: 
+   - Plugins:
        - 'In-App Purchase': 'unreal/iap/index.md'
-- LiveOps: 
+- LiveOps:
    - 'Setup': 'liveops/index.md'
    - 'Remote Config': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
