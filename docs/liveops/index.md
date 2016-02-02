@@ -1,10 +1,10 @@
 <h1>SDKBOX LiveOps</h1>
 
 ## Overview
-__SDKBOX LiveOps__ enables developers to receive the benefits of cloud based functionalities. It helps to boost the mobile applications with extended functionality. 
+__SDKBOX LiveOps__ enables developers to receive the benefits of cloud based functionalities, such as live-updating [Remote Configuration](./remote-config), server-side [IAP receipts verification](./receipt-verification), and on-the-fly [store catalog management](catalog-management). It helps to boost the mobile applications with extended features. 
 
 !!! note
-    LiveOps is optional. All SDKBOX plugins work just fine locally on device when LiveOps is not used. 
+    SDKBOX LiveOps is an optional step for using SDKBOX to integrate mobile services. All SDKBOX plugins would work just fine locally on the device even when LiveOps is not used. 
 
 ## Setup LiveOps
 
