@@ -18,12 +18,16 @@ $ sdkbox import share
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `res/sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-Here is an example of the Share configuration, you need to replace `<consumer_key>`, `<consumer_secret>` item with your specific [Twitter](http://apps.twitter.com/) account information.
+Here is an example of the Share configuration, you need to replace `<key>`, `<secret>` item with your specific [Twitter](http://apps.twitter.com/) account information.
 ```json
 "Share":{
-    "Twitter":{
-        "consumer_key":"EuovpLL0UhSGB7Jv5eKFJNMqO",
-        "consumer_secret":"nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne"
+    "platforms":{
+        "Twitter":{
+            "params": {
+                "key":"BUJTV6NEM7BAhhm82B12VbKGy",
+                "secret":"haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9"
+            }
+        }
     }
 }
 ```
