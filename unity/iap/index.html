@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>In-App Purchase - SDKBOX</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/custom.css" rel="stylesheet">
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../cocos/">Cocos Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../installer/">Installer</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../plugins/achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/soomlagrow/">SOOMLA Grow</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">In-App Purchase</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#overview">Overview</a></li>
+	
+    
+        <li class="main "><a href="#setting-up-your-unity-project-for-in-app-purchase">Setting up your Unity project for In App Purchase</a></li>
+	
+    
+        <li class="main "><a href="#importing-sdkbox-iap">Importing SDKBOX IAP</a></li>
+	
+    
+        <li class="main "><a href="#specifying-a-key-android">Specifying a key (Android)</a></li>
+	
+    
+        <li class="main "><a href="#adding-products">Adding Products</a></li>
+	
+    
+        <li class="main "><a href="#making-purchases">Making Purchases</a></li>
+	
+    
+        <li class="main "><a href="#handling-callbacks">Handling Callbacks</a></li>
+	
+    
+        <li class="main "><a href="#handling-iap-events">Handling IAP Events</a></li>
+	
+    
+        <li class="main "><a href="#product-class">Product Class</a></li>
+	
+    
+        <li class="main "><a href="#additional-android-instructions">Additional Android Instructions</a></li>
+	
+    
+        <li class="main "><a href="#override-unity-activity-android">Override Unity Activity (Android)</a></li>
+	
+    
+        <li class="main "><a href="#adding-vendor-billing-android">Adding Vendor Billing (Android)</a></li>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
+<h1>In-App Purchase Plugin for Unity</h1>
+
+<h2 id="overview">Overview</h2>
+<p>To download the latest IAP plugin or for more information, visit our website @ <a href="http://sdkbox.com/unity">sdkbox.com</a></p>
+<h2 id="setting-up-your-unity-project-for-in-app-purchase">Setting up your Unity project for In App Purchase</h2>
+<p>This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation. </p>
+<p>How each store recognizes your app is different for iOS and Android. On iOS, you need the bundle identifier to retrieve products from the store. You can get this bundle identifier from the Apple developer member center where you created your app. This bundle identifier must be specified in the iOS section of Player Settings. You can find more information <a href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727">here</a></p>
+<p>On Android, there is a key that you must specify in the IAP configuration inspector pane. You can get this key from the Google Play Console where you setup your app and create in app purchase products. You can find more information <a href="http://developer.android.com/google/play/billing/billing_overview.html">here</a></p>
+<h2 id="importing-sdkbox-iap">Importing SDKBOX IAP</h2>
+<p>To begin using SDKBOX IAP, import the <code>sdkbox_iap</code> unity package into your project. This will add a directory under Assets called IAP. </p>
+<p><img alt="" src="./iap_dox1.jpg" /></p>
+<p>This directory contains everything you will need in order to make In-App-Purchases.</p>
+<p>To begin, find the IAP prefab in the IAP directory. </p>
+<p><img alt="" src="./iap_dox2.jpg" /></p>
+<p>Create an instance of the IAP prefab in the scene where you want to make in app purchases, such as your store scene.</p>
+<p>Select the IAP game object in the hierarchy and in your inspector pane you can configure the object for In-App-Purchases.</p>
+<h2 id="specifying-a-key-android">Specifying a key (Android)</h2>
+<p><img alt="" src="./iap_dox3.jpg" /></p>
+<p>On Android, you specify an API key which is used to connect to the google play store and retrieve products. Copy and paste this key into the Android Key field.</p>
+<h2 id="adding-products">Adding Products</h2>
+<p>Products are added on either iTunes connect for Apple, or Google Play Portal for Google. Follow directions <insert links> on how to setup products for Apple and Google platforms.</p>
+<p>Each product will have a name, and there are two types of products. Consumable and Non-consumable. Google only supports the latter, but SDKBOX allows you to have Consumable products on Google as well as Apple, and they behave the same way.</p>
+<p>In the <code>Products</code> field for each platform, you can specify how many products you have, and you can enter the name of each product, and whether or not it is consumable. </p>
+<p><img alt="" src="./iap_dox4.jpg" /></p>
+<h2 id="making-purchases">Making Purchases</h2>
+<p>Making a purchase is as simple as invoking the <code>purchase</code> method on the IAP game object. There are several ways to do this, we will do it by adding a button.</p>
+<p>From the menu, choose <strong>Game Object</strong> -&gt; <strong>UI</strong> -&gt; <strong>Button</strong>. This will create a UI canvas (if you didn't have one already) and add a button. </p>
+<p><img alt="" src="./iap_dox5.jpg" /></p>
+<p>Name your button in the hierarchy what you like, and change the text to "Purchase" or something similar.</p>
+<p>Now in the inspector pane, find the <code>On Click()</code> event and from the object drop down, select the IAP game object. Then from the method drop down, select the <code>IAP.purchase</code> method.</p>
+<p>This method takes a string argument that is the name of the product being purchased. You can enter that name under the method name in the space provided.</p>
+<p><img alt="" src="./iap_dox6.jpg" /></p>
+<h2 id="handling-callbacks">Handling Callbacks</h2>
+<p>There are several events that provide feedback about what is happening when you initialize, make purchases, or restore previously purchased items.</p>
+<p>The following is a list of the callbacks and the parameters they provide.</p>
+<ul>
+<li>
+<p><code>onInitialized (bool status)</code> Called after the IAP system initializes. It will pass a boolean value that indicates whether or not the initialization was successful or not. A value of <code>true</code> indicates success. </p>
+</li>
+<li>
+<p><code>onProductRequestSuccess (Product[] products)</code> Called after initialization, and having requested the products from the store using the keys specified for each platform. If the request was successful, then this callback is invoked and passed the array of available products.</p>
+</li>
+<li>
+<p><code>onProductRequestFailure (string error)</code> Called after initialization, and if a product request fails. The string will contain an error message.</p>
+</li>
+<li>
+<p><code>onSuccess (Product product)</code> Called after a successful purchase. The product is supplied as an argument. See <code>Product</code> for more details.</p>
+</li>
+<li>
+<p><code>onFailure (Product product, string error)</code> Called after a failed purchase attempt. The product is supplied as an argument, and a string is passed containing an error message.</p>
+</li>
+<li>
+<p><code>onCanceled (Product product)</code> Called if a In-App-Purchase is canceled. The product is supplied as an argument.</p>
+</li>
+<li>
+<p><code>onRestored (Product product)</code> Called for each product restored from the store. If no products have been purchased, then you will only get the following completed call.</p>
+</li>
+<li>
+<p><code>onRestoreComplete ()</code> Called after all products have been restored. If none were restored, you will still receive this callback.</p>
+</li>
+</ul>
+<h2 id="handling-iap-events">Handling IAP Events</h2>
+<p>Similar to the button On Click() event, you can subscribe to SDKBOX IAP events to get feedback about the IAP process, and to receive products from the IAP store.</p>
+<p>In the <code>Callbacks</code> section of the IAP script inspector pane, you can click <code>+</code> to add a subscriber, and specify the object, and method that you would like to have invoked.</p>
+<p><img alt="" src="./iap_dox7.jpg" /></p>
+<h2 id="product-class">Product Class</h2>
+<pre><code>    public struct Product
+    {
+        public enum Type {CONSUMABLE, NON_CONSUMABLE};
+
+        // The name specified in sdkbox_config.json
+        public string name;
+
+        // The product id of an In App Purchase
+        public string id;
+
+        // Type of iap item
+        public Type type;
+
+        // The title of the IAP item
+        public string title;
+
+        // The description of the IAP item
+        public string description;
+
+        // Price value in float
+        public float priceValue;
+
+        // Localized price
+        public string price;
+
+        // price currency code
+        public string currencyCode;
+    }
+</code></pre>
+
+<p>The product class contains all the information about a product retrieved from the server, as well as the consumable state set in the editor.</p>
+<p>You should not create your own products, but rather allow SDKBOX IAP to create them for you.</p>
+<h2 id="additional-android-instructions">Additional Android Instructions</h2>
+<h2 id="override-unity-activity-android">Override Unity Activity (Android)</h2>
+<p>In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.</p>
+<ol>
+<li>Copy the file <em>CustomActivity.jar</em> from <strong>Assets/IAP/Assets/Plugins/Android</strong> to <strong>Assets/Plugins/Android</strong></li>
+<li>Modify your AndroidManifest.xml to use <em>CustomActivity.jar</em> by replacing the Unity activity as follows. <code>&lt;activity
+            android:name="com.sdkbox.activity.CustomActivity" ...</code></li>
+</ol>
+<h2 id="adding-vendor-billing-android">Adding Vendor Billing (Android)</h2>
+<p>In order for In-App-Purchase to work on Android, it needs the following permission to be added.</p>
+<pre><code>&lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot; /&gt;
+</code></pre>
+
+<p>If you have not specified your own AndroidManifest.xml then when you import the package, one will be copied that already has this permission set.</p>
+<p>If you do have your own already, then you will need to add this permission to it.</p>
+<p>The AndroidManifest.xml is merged with the main manifest that Unity creates when building the APK.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>

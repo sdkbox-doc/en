@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Server-side IAP receipt verification - SDKBOX</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/custom.css" rel="stylesheet">
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../cocos/">Cocos Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../installer/">Installer</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../plugins/achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/soomlagrow/">SOOMLA Grow</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#overview">Overview</a></li>
+	
+    
+        <li class="main "><a href="#remote-verification-flow">Remote verification flow</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#ios">iOS</a></li>
+        
+            <li><a href="#android-iap-flow">Android IAP flow</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#setup">Setup</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#for-android-play">For Android Play</a></li>
+        
+            <li><a href="#for-apple-app-store">For Apple App Store</a></li>
+        
+	</ul>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1>LiveOps - Server-Side Receipt Verification</h1>
+
+<h2 id="overview">Overview</h2>
+<p>In addition to the client-side receipt validation that you can do in the <a href="../../plugins/iap">SDKBOX IAP plugin</a>, you can also optionally enable server-side validation provided by SDKBOX LiveOps. </p>
+<p>If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: <code>onSuccess()</code> and <code>onFailure()</code>. They will be notified with the verification result. </p>
+<p>If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to note that this feature reuires the app using the <a href="../remote-config">Remote Configuration</a> with the IAP plugin. </p>
+</div>
+<h2 id="remote-verification-flow">Remote verification flow</h2>
+<h3 id="ios">iOS</h3>
+<ol>
+<li>Player makes a purchase (pays for an item)</li>
+<li>CompleteTransaction is called, and cyphered receipt info is obtained.</li>
+<li>If developer requested to do receipt validation [App has remote config or not]:<ol>
+<li>onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin’s listener has cyphered payload info so the developer can launch his own purchase verification process.</li>
+<li>The purchase transaction is finished.</li>
+</ol>
+</li>
+<li>If developer did not request to do receipt validation:<ol>
+<li>if Application does not have remote configuration enabled: <ol>
+<li>onPayResult is called with code: PaymentTransactionStatePurchased.</li>
+<li>The transaction is finished.</li>
+</ol>
+</li>
+<li>if Application has remote configuration enabled: remote IAP validation, by calling checkAuthenticity method is started.This method does the remote verification of the purchase cyphered payload.<ol>
+<li>A request to sdkbox.com server is sent for purchase payload verification.</li>
+<li>If timeout or error in request: onPayResult is called with code: kPaySuccessAndValidationError. These are error situations with the validation server.</li>
+<li>If request is aborted by user: onPayResult is called with code: kPaySuccessAndValidationError. (Same as before)</li>
+<li>The verification request processed normally, and a Json response is gotten as a result:<ol>
+<li>Verification is not successful: onPayResult is called with code: kPaySuccessAndValidationNotAuthenticated.</li>
+</ol>
+</li>
+<li>Verification is successful: onPayResult is called with code: kPaySuccessAndValidationAuthenticated.</li>
+<li>The transaction is always finished.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="android-iap-flow">Android IAP flow</h3>
+<ol>
+<li>Player makes a purchase request, and pays for it.</li>
+<li>If the purchase is canceled, onPayResult is called with code PAYRESULT_CANCEL.</li>
+<li>If the purchase is errored, onPayResult is called with code PAYRESULT_FAIL.</li>
+<li>If the purchase is successful<ol>
+<li>Receipt and cyphered payload info is obtained.</li>
+<li>If the developer requested to do receipt validation, onPayResult is called with PAYRESULT_NEEDS_VERIFICATION. The Product passed to the plugin listener has receipt and cyphered payload information, which is sufficient info to verify purchase authenticity.</li>
+<li>else<ol>
+<li>If Application has not remote configuration set: local validation process is executed:</li>
+<li>Application’s private key must be present in the sdkbox_config.json file.</li>
+<li>If verification succeeds: onPayResult is called with code PAYRESULT_SUCCESS.</li>
+<li>if verification fails: onPayResult is called with code PAYRESULT_FAIL.</li>
+</ol>
+</li>
+<li>If Application has remote configuration set: a remote validation request is started.<ol>
+<li>If the validation request is errored or timeout (both situations refer to our server or network status), the verification process falls back to local verification [4.3.1]</li>
+<li>If the validation request is is aborted, onPayResult is called with code PAYRESULT_FAIL.</li>
+<li>If the validation request executes normally:<ol>
+<li>If validation is not successful, the verification process falls back to local verification [4.3.1]</li>
+</ol>
+</li>
+<li>if validation is successful, onPayResult is called with code PAYRESULT_SUCCESS.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>If the purchase is a Consumable item the purchase will always be consumed.</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<h3 id="for-android-play">For Android Play</h3>
+<ul>
+<li>Make sure to enable <a href="../remote-config">Remote Configuration</a> in your app.</li>
+<li>Create or select the configuration for Android, and add <code>Google Play IAP</code> plugin in <strong>Essentials</strong>. You need to fill-in the <strong>Google Play</strong> developer console’s application private key. If the <strong>private key</strong> is not supplied, the local verification will always notify <code>onFail()</code>.</li>
+</ul>
+<h3 id="for-apple-app-store">For Apple App Store</h3>
+<ul>
+<li>TBD</li>
+</ul></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>

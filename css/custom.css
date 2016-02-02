@@ -8,5 +8,26 @@ padding: 0px;
 .navbar-brand img {
 height: 48px;
 maring-top: 2px;
-margin-right: 50px;
+vertical-align: -5px;
+margin-right: 8px;
 }
+.navbar-brand {
+font-size: 2em;
+}
+
+div.platforms a img {
+ display: inline;
+ height: 150px;
+ margin: 10px 10px 30px 10px;
+}
+
+h2 {
+  margin-top: 50px;
+  border-bottom: 1px solid #ccc;
+  color: #E81E1E;
+}
+
+
+
+ 
+
