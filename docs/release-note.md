@@ -1,5 +1,23 @@
 #Release Notes
 ---
+
+2.0.0 Release Notes
+===
+##Highlight
+* SDKBOX LiveOps feature which user can update their SDKBOX config files 
+* Admob plugin
+* Share plugin with twitter support
+* Update Adcolony, Vungle and Appodeal
+* provide a lite version of google play service to avoid android's api limitations, check it out [here](https://github.com/darkdukey/Google-Play-Service-Lite)
+
+##Bug
+* Fix IAP crash when google play service are not initalized correctly
+* Fix installer will change Android.mk format bug
+* Fix compatiblity issue with Reachability project
+* Fix InMobi banner settings
+* Fix conflicts between Tune and other plugins
+
+
 1.5.2 Release Notes
 ===
 ##Highlight
