@@ -1,0 +1,1 @@
+../../shared/manual_integration.md
