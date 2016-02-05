@@ -43,9 +43,11 @@ It is important to call the SDKBOX IAP initialization method early, or at least 
 
 The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the product descriptions in the Blueprint editor and build the string at runtime.
 
+**Important:** on Android, you will need to supply the license key which you will find in the **Services & APIs** section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into **AndroidKey** on the ```Sdkbox IAP JSON String from Product Descriptions``` function. 
+
 ![](img2.png)
 
-To do this, first add a variable ```Products``` of type ```SDKBox IAPProductDescription``` and make it an Array. 
+To add products in the Blueprint editor, first add a variable ```Products``` of type ```SDKBox IAPProductDescription``` and make it an Array. 
 
 Now you can add products in the editor by clicking on Products and adding items to the Default Value in the Details pane.
 
