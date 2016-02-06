@@ -415,9 +415,10 @@
         
             <li><a href="#whitelist-canopenurl-function">Whitelist canOpenURL function</a></li>
         
-            <li><a href="#json-configuration">JSON Configuration</a></li>
-        
 	</ul>
+	
+    
+        <li class="main "><a href="#configuration">Configuration</a></li>
 	
     
         <li class="main "><a href="#usage">Usage</a></li>
@@ -519,7 +520,7 @@
 <p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
-<h3 id="json-configuration">JSON Configuration</h3>
+<h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the IAP configuration, you need to replace <code>&lt;put the product id for ios here&gt;</code> with the product id from your <a href="http://itunesconnect.apple.com">iTunes Connect</a> or  replace <code>&lt;put your googleplay key here&gt;</code> from your <a href="https://play.google.com/apps/publish">Google Play Console</a></p>
 <pre><code class="json">&quot;ios&quot; :
