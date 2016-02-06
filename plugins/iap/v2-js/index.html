@@ -446,9 +446,7 @@
 	
 	<ul class="sub-sidenav">
         
-            <li><a href="#client-side-receipts-verfication">Client-Side Receipts Verfication</a></li>
-        
-            <li><a href="#server-side-receipts-verification">Server-Side Receipts Verification</a></li>
+            <li><a href="#implement-your-own-verification">Implement your own verification</a></li>
         
 	</ul>
 	
@@ -641,17 +639,20 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <h2 id="remote-configuration">Remote Configuration</h2>
 <p>Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin's configuration. <a href="../../../liveops/remote-config">Learn more</a></p>
 <h2 id="iap-receipts-verification">IAP Receipts Verification</h2>
-<p>It's very important to check for the IAP receipts to avoid fraud. There are two options: <strong>client-side verification</strong> and <strong>server-side verification</strong>. You can use either one or both. Using both will have the best result. </p>
-<h3 id="client-side-receipts-verfication">Client-Side Receipts Verfication</h3>
-<ul>
-<li>Client-side purchase receipt validation information is exposed to the developer if the she calls the method IAP::enableUserSideVerification(true). This method makes the plugin to avoid receipt/key validation and delegates this process to the user by a call to the plugin listener’s <code>onPurchaseNeedsValidation( const std::string&amp; json_with_product_and_ciphered_payload )</code> method. </li>
-<li>Currently, the product on Android is auto-consumed, and iOS’ transaction finished by explicit calls to consume and finishTransaction respectively. This will force the developer to do a big chunk of extra work to keep track of transactions that have been unable to contact the validation server.</li>
-<li>Consumtion/finishTransaction should be exposed as explicit calls and allow developers to benefit from the per-platform built-in transaction-queues/non-consumed-products features.</li>
-<li>Making these calls explicit won’t break the current IAP flow since this would happen after user-side remote validation and would hence only affect users that want to have server-side validation on their own.</li>
-<li>In any case, currently, the result to a call to <strong>onPurchaseNeedsValidation</strong> is not being stored in any place.</li>
-</ul>
-<h3 id="server-side-receipts-verification">Server-Side Receipts Verification</h3>
-<p><a href="../../../liveops/receipt-verification">Click here to learn more.</a></p>
+<p>If you're using remote configration for SDKBOX IAP Receipts verification is turn on by default <a href="../../../liveops/receipt-verification">Click here to learn more.</a>.</p>
+<h3 id="implement-your-own-verification">Implement your own verification</h3>
+<p>You can get the receipt data and verify it with your own server by calling following method</p>
+<pre><code>sdkbox::IAP::enableUserSideVerification(true);
+</code></pre>
+
+<p>And then you should be able to access iap receipts using the following fields</p>
+<pre><code>product.receipt;
+product.receiptCipheredPayload;
+</code></pre>
+
+<blockquote>
+<p>Note: iOS don't provide purchase receipt, only ciphered payload</p>
+</blockquote>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="javascript">sdkbox.IAP.init();
