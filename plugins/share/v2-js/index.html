@@ -258,7 +258,7 @@
         
             
 <li >
-    <a href="../">Social Sharing</a>
+    <a href="../">SDKBOX Share</a>
 </li>
 
         
@@ -333,21 +333,6 @@
                             
 <li >
     <a href="../../../unity/iap/">In-App Purchase</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../unreal/iap/">In-App Purchase</a>
 </li>
 
                         
@@ -528,11 +513,15 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Share configuration, you need to replace <code>&lt;consumer_key&gt;</code>, <code>&lt;consumer_secret&gt;</code> item with your specific <a href="http://apps.twitter.com/">Twitter</a> account information.</p>
+<p>Here is an example of the Share configuration, you need to replace <code>&lt;key&gt;</code>, <code>&lt;secret&gt;</code> item with your specific <a href="http://apps.twitter.com/">Twitter</a> account information.</p>
 <pre><code class="json">&quot;Share&quot;:{
-    &quot;Twitter&quot;:{
-        &quot;consumer_key&quot;:&quot;EuovpLL0UhSGB7Jv5eKFJNMqO&quot;,
-        &quot;consumer_secret&quot;:&quot;nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne&quot;
+    &quot;platforms&quot;:{
+        &quot;Twitter&quot;:{
+            &quot;params&quot;: {
+                &quot;key&quot;:&quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;,
+                &quot;secret&quot;:&quot;haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9&quot;
+            }
+        }
     }
 }
 </code></pre>

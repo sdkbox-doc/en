@@ -258,7 +258,7 @@
         
             
 <li >
-    <a href="../../plugins/share/">Social Sharing</a>
+    <a href="../../plugins/share/">SDKBOX Share</a>
 </li>
 
         
@@ -341,21 +341,6 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../unreal/iap/">In-App Purchase</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -415,47 +400,13 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#setup">Setup</a></li>
-	
-    
-        <li class="main "><a href="#remote-config">Remote config</a></li>
-	
-    
-        <li class="main "><a href="#test">Test</a></li>
-	
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1>One-the-Fly Catalog Management</h1>
 
-<p>Both Apple's AppStore and Google's Play store allow mobile developers to create In-App purchase products through their web consoles. Typically these purchasable products will be created with names, types, and prices. SDKBOX LiveOps allows you to decide on-the-fly which of these products should be sold in your app. </p>
-<p>For example, let's say you have a product called "Chest of Coins" in the app which is selling for $3.99. For the coming holiday, you wan to promote it on sale for $0.99. We will use <a href="https://github.com/sdkbox/sdkbox-iap-sample">SDKBOX In-App Purcahse sample project</a> to show you how to do that without releaseing a new build. </p>
-<h2 id="setup">Setup</h2>
-<ul>
-<li>Clone the <a href="https://github.com/sdkbox/sdkbox-iap-sample">SDKBOX In-App Purcahse sample project</a> </li>
-<li>Compile and build. You can choose between C++, Lua or Javascript. We will use C++ in the following steps. </li>
-<li>Notice in the xcode console, there are debug logs showing all the IAP products initialized when app starts. The one called <code>Chest of Coins</code> has a price tag $3.99. We will change it next. </li>
-</ul>
-<h2 id="remote-config">Remote config</h2>
-<ul>
-<li>Open AppDelegate.cpp, you can find the paragraph about <code>sdkbox::init("***", "***")</code>. Those enable the sample app to use a remote configuration. It's currently referenced to our samples. </li>
-<li>Got to <a href="http://sdkbox.com">sdkbox.com</a>, create a application, and upload the <code>sdkbox_config.json</code> from this sample. Remember to publish the config Live. </li>
-<li>Overwrite the token and secret in the AppDelegate.cpp the yours which were generated with the new application on sdkbox.com</li>
-<li><a href="../remote-config">Learn more about Remote Configuration Management</a></li>
-</ul>
-<h2 id="test">Test</h2>
-<ul>
-<li>Now you are ready to test the catalog management</li>
-<li>Got to sdkbox.com -&gt; My Applications -&gt; App -&gt; iOS config -&gt; iOS IAP plugin. You should see the following products which were uploaded from the sample sdkbox_config.json:
-<img alt="" src="../../imgs/IAP_products.png" /></li>
-<li>The item with key name <code>coin_package</code> is mapped to product with id <code>com.cocos2dx.plugintest2</code>, which is setup as price tier 4 ($3.99). </li>
-<li>Click on Edit of this item, and change the product id to <code>com.cocos2dx.sale.1</code>. Now you should see this: 
-<img alt="" src="../../imgs/IAP_products_sale.png" />.</li>
-<li>Save and publish the new config to the cloud. </li>
-<li>Now, restart the test app. You should see the sale item is initialized in the log. Purchase "coin_package" will promote for only $0.99!</li>
-</ul></div>
+<p>Coming soon....</p></div>
             
         </div>
 
