@@ -175,7 +175,7 @@ pages:
                 - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
                 - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
                 - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
-        - 'SDKBOX Share': 'plugins/share/index.md'
+        - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':
                 - 'Share with C++': 'plugins/share/v3-cpp.md'
@@ -237,6 +237,8 @@ pages:
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
 - Unity:
    - 'In-App Purchase': 'unity/iap/index.md'
+- Unreal:
+   - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps:
    - 'Setup': 'liveops/index.md'
    - 'Remote Configuration': 'liveops/remote-config.md'

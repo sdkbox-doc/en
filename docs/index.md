@@ -13,17 +13,17 @@ SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd
 
 
 ##Platforms
-SDKBOX currently support the most popular mobile game engiens. Click to learn more: 
+SDKBOX currently support the most popular mobile game engines. Click to learn more: 
 
 <div class="platforms">
-<a href="/cocos"><img src="/imgs/cocos.png"></a>
-<a href="/unity"><img src="/imgs/unity.png"></a>
-<a href="/unreal"><img src="/imgs/unreal.png"></a>
+<a href="/cocos"><img src="./imgs/cocos.png"></a>
+<a href="/unity"><img src="./imgs/unity.png"></a>
+<a href="/unreal"><img src="./imgs/unreal.png"></a>
 </div>
 
 
 ##Services
-SDKBOX includs lots of useful services which are crutial for your games: 
+SDKBOX includs lots of useful services which are crucial for your games: 
 
 > ![chart](./imgs/iap.png)
 > ![chart](./imgs/review.jpg)
