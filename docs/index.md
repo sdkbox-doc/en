@@ -17,8 +17,8 @@ SDKBOX currently support the most popular mobile game engines. Click to learn mo
 
 <div class="platforms">
 <a href="./cocos"><img src="./imgs/cocos.png"></a>
-<a href="./unity"><img src="./imgs/unity.png"></a>
-<a href="./unreal"><img src="./imgs/unreal.png"></a>
+<a href="./unity/iap"><img src="./imgs/unity.png"></a>
+<a href="./unreal/iap"><img src="./imgs/unreal.png"></a>
 </div>
 
 
