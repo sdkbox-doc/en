@@ -82,13 +82,13 @@ file.
 
 To request a default Ad for the default AdUnit and have a fast integration test:
 ```cpp
-sdkbox::SdkboxAds::play()
+sdkbox::SdkboxAds::playAd()
 ```
 
 To request Ads in the Default AdUnit:
 ```cpp
-sdkbox::SdkboxAds::play( const std::string& zone_place_location );
-sdkbox::SdkboxAds::play( const std::string& zone_place_location, const AdUnitParams& params );
+sdkbox::SdkboxAds::playAd( const std::string& zone_place_location );
+sdkbox::SdkboxAds::playAd( const std::string& zone_place_location, const AdUnitParams& params );
 
 // AdUnitParams is a typedef for std::map<std::string,std::string>
 ```
@@ -96,11 +96,11 @@ sdkbox::SdkboxAds::play( const std::string& zone_place_location, const AdUnitPar
 
 To request Ads for an specific AdUnit:
 ```cpp
-sdkbox::SdkboxAds::play( 
+sdkbox::SdkboxAds::playAd( 
         const std::string& ad_unit_name, 
         const std::string& zone_place_location );
         
-sdkbox::SdkboxAds::play( 
+sdkbox::SdkboxAds::playAd( 
         const std::string& ad_unit_name, 
         const std::string& zone_place_location, 
         const AdUnitParams& params );
