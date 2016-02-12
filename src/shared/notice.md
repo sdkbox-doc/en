@@ -12,7 +12,7 @@ Adding the following entry to the `info.plist` file:
 ```
 It should look something like this:
 
-![](../../../imgs/ATS.png)
+![](../../imgs/ATS.png)
 
 
 #### Disable Bitcode support
