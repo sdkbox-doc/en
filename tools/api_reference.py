@@ -35,14 +35,9 @@ from sets import Set
 
 
 CURR_DIR = os.path.split(os.path.realpath(__file__))[0]
-CSC_ROOT = os.path.realpath(CURR_DIR + "./..")
+OUT_DIR = os.path.realpath(CURR_DIR + "./..")
 
-CSC_DOCUMENTS_DIR = os.path.join(CSC_ROOT, "documentation")
 PLUGIN_PREFIX = "Plugin"
-
-CPP_API_FILE_NAME = "api-reference-cpp.md"
-LUA_API_FILE_NAME = "api-reference-lua.md"
-JS_API_FILE_NAME = "api-reference-js.md"
 
 
 def get_doxygen(comment):
@@ -243,7 +238,7 @@ class Walker(object):
     def run(self):
         join = os.path.join
         ret = ""
-        document_output_dir = self.out_dir or CSC_DOCUMENTS_DIR
+        document_output_dir = self.out_dir or OUT_DIR
         found_special_plugin = not self.plugin
         for d in os.listdir(self.src_dir):
             if d in ["core", "shared"] or not os.path.isdir(join(self.src_dir, d)):
@@ -278,31 +273,22 @@ class Walker(object):
 
                 template = "## API Reference\n\n### Methods\n%s\n### Listeners\n%s\n"
                 data = template % (cpp, cppl)
-                if document_output_dir == CSC_DOCUMENTS_DIR:
-                    open(join(document_output_dir, d, CPP_API_FILE_NAME), 'w').write(data)
-                else:
-                    dirpath = join(document_output_dir, 'src', d, 'v3-cpp')
-                    if not os.path.exists(dirpath):
-                        os.makedirs(dirpath)
-                    open(join(dirpath, 'api-reference.md'), 'w').write(data)
+                doc_path = join(document_output_dir, 'src', d, 'v3-cpp')
+                if not os.path.exists(doc_path):
+                    os.makedirs(doc_path)
+                open(join(doc_path, 'api-reference.md'), 'w').write(data)
 
                 data = template % (lua, lual)
-                if document_output_dir == CSC_DOCUMENTS_DIR:
-                    open(join(document_output_dir, d, LUA_API_FILE_NAME), 'w').write(data)
-                else:
-                    dirpath = join(document_output_dir, 'src', d, 'v3-lua')
-                    if not os.path.exists(dirpath):
-                        os.makedirs(dirpath)
-                    open(join(dirpath, 'api-reference.md'), 'w').write(data)
+                doc_path = join(document_output_dir, 'src', d, 'v3-lua')
+                if not os.path.exists(doc_path):
+                    os.makedirs(doc_path)
+                open(join(doc_path, 'api-reference.md'), 'w').write(data)
 
                 data = template % (js, jsl)
-                if document_output_dir == CSC_DOCUMENTS_DIR:
-                    open(join(document_output_dir, d, JS_API_FILE_NAME), 'w').write(data)
-                else:
-                    dirpath = join(document_output_dir, 'src', d, 'v3-js')
-                    if not os.path.exists(dirpath):
-                        os.makedirs(dirpath)
-                    open(join(dirpath, 'api-reference.md'), 'w').write(data)
+                doc_path = join(document_output_dir, 'src', d, 'v3-js')
+                if not os.path.exists(doc_path):
+                    os.makedirs(doc_path)
+                open(join(doc_path, 'api-reference.md'), 'w').write(data)
 
             else:
                 ret += "%s missing\n" % name
