@@ -32,11 +32,6 @@ sdkbox.PluginKochava:setLimitAdTracking(limitAdTracking)
 > turn on/off ad tracking
 
 ```lua
-sdkbox.PluginKochava:retrieveAttribution()
-```
-> returns the attribution data
-
-```lua
 sdkbox.PluginKochava:sendDeepLink(url, application)
 ```
 > send a referral to where your app was opened from.

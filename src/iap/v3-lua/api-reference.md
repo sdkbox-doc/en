@@ -2,7 +2,7 @@
 
 ### Methods
 ```lua
-sdkbox.IAP:init()
+sdkbox.IAP:init(jsonconfig)
 ```
 > Initialize SDKBox IAP
 
@@ -36,10 +36,14 @@ sdkbox.IAP:removeListener()
 ```
 > Remove listener for IAP
 
+```lua
+sdkbox.IAP:enableUserSideVerification()
+```
+
 
 ### Listeners
 ```lua
-onInitialized(ok)
+onInitialized(success)
 ```
 > Called when IAP initialized
 

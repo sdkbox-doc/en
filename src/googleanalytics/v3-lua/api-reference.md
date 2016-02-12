@@ -34,6 +34,21 @@ sdkbox.PluginGoogleAnalytics:stopPeriodicalDispatch()
 or <code>dispatchHits</code> should be called.
 
 ```lua
+sdkbox.PluginGoogleAnalytics:setUser(userID)
+```
+> Set user ID for this tracking session
+
+```lua
+sdkbox.PluginGoogleAnalytics:setDimension(index, value)
+```
+> Set value to custom dimension
+
+```lua
+sdkbox.PluginGoogleAnalytics:setMetric(index, value)
+```
+> Set value to custom metric
+
+```lua
 sdkbox.PluginGoogleAnalytics:logScreen(title)
 ```
 > Log screen info. title is the title of a screen. Screens are logical units
@@ -68,13 +83,13 @@ sdkbox.PluginGoogleAnalytics:logSocial(socialNetwork,
 > Log a social event.
 
 ```lua
-sdkbox.PluginGoogleAnalytics:setDryRun(dr)
+sdkbox.PluginGoogleAnalytics:setDryRun(enable)
 ```
 > While running on dry run, the tracked events won't be sent to the actual
 analytics account.
 
 ```lua
-sdkbox.PluginGoogleAnalytics:enableAdvertisingTracking(e)
+sdkbox.PluginGoogleAnalytics:enableAdvertisingTracking(enable)
 ```
 > Enable advertising tracking when in google's ad vendors.
 

@@ -155,19 +155,20 @@ void onFetchFriends ( bool ok , const std::string & msg );
 ```
 
 ```cpp
-void onRequestInvitableFriends ( const FBInvitableFriendsInfo & invitable_friends_and_pagination_json_as_string );
+void onRequestInvitableFriends ( const FBInvitableFriendsInfo & friends );
 ```
-> invitable_friends_and_pagination_json_as_string has the following format:
 
 ```cpp
 void onInviteFriendsWithInviteIdsResult ( bool result ,
-                                          const std::string & description );
+                                          const std::string & msg );
 ```
 
 ```cpp
-void onInviteFriendsResult ( bool result , const std::string & description );
+void onInviteFriendsResult ( bool result , const std::string & msg );
 ```
 
 ```cpp
 void onGetUserInfo ( const FBGraphUser & userInfo );
 ```
+
+

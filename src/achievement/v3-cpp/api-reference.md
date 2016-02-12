@@ -2,7 +2,7 @@
 
 ### Methods
 ```cpp
-static void init ( ) ;
+	 static void init ( ) ;
 ```
 
 ```cpp

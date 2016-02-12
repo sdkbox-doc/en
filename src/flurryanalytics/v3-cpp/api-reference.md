@@ -7,7 +7,7 @@ static bool init ( ) ;
 > init plugin, must be first invoke
 
 ```cpp
-static void setAppVersion ( const std::string & version ) ;
+SDKBOX_DEPRECATED ( "setAppVersion" ) static void setAppVersion ( const std::string & version ) ;
 ```
 > Explicitly specifies the App Version that Flurry will use to group Analytics data.
 

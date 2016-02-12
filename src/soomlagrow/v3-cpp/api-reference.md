@@ -2,52 +2,75 @@
 
 ### Methods
 ```cpp
-static bool init();
+static bool init ( ) ;
 ```
->  initialize the plugin instance.
+> initialize the plugin instance.
 
 ```cpp
-static void setListener(SoomlaGrowListener* listener);
+static void setListener ( SoomlaGrowListener * lis ) ;
 ```
 > Set listener to listen for different events (list below)
 
 ```cpp
-static SoomlaGrowListener* getListener();
+static SoomlaGrowListener * getListener ( ) ;
 ```
-> Get the listener
+> get Listener of soomla grow
 
 ```cpp
-static void removeListener();
+static void removeListener ( ) ;
 ```
-> Remove the listener, and can't listen to events anymore
+> remove Listener in soomla grow
 
 ```cpp
-static void refreshInsight();
+static void refreshInsights ( ) ;
 ```
->  Refreshed GROW's Insights information from the server
+> Refreshed GROW's Insights information from the server
 
 ```cpp
-static std::string getUserInsightInfo();
+static int payRank ( EGenre genre ) ;
 ```
->  get user insight info
->  Note: the returned value may be empty
+> get pay rank
+
+```cpp
+static double purchaseLikelihood ( EDayQuarter dayquarter ) ;
+```
+> purchase likelihood time
 
 
 ### Listeners
 ```cpp
-void onHighWayInitialized();
+void onGrowInitialized ( );
 ```
-
->  This event is triggered once the highway initialized.
+> This event is triggered once the highway initialized.
 
 ```cpp
-void onHighWayConnected();
+void onGrowConnected ( );
 ```
-
->  This event is triggered once the highway is connected to server.
+> This event is triggered once the highway is connected to server.
 
 ```cpp
-void onHighWayDisconnected();
+void onGrowDisconnected ( );
 ```
+> This event is triggered once the highway disconnect from the server.
 
->  This event is triggered once the highway disconnect from the server.
+```cpp
+void onGrowInsightsInitialized ( );
+```
+> This event is triggered once the grow insight initialized.
+
+```cpp
+void onInsightsRefreshFailed ( );
+```
+> This event is triggered once the grow insight refresh failed.
+
+```cpp
+void onInsightsRefreshFinished ( );
+```
+> This event is triggered once the grow insight refresh finished.
+
+```cpp
+void onInsightsRefreshStarted ( );
+```
+> This event is triggered once the grow insight refresh started.
+
+

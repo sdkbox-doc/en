@@ -22,8 +22,7 @@ sdkbox.PluginTune.setAllowDuplicateRequests(allow);
 > Set to YES to allow duplicate requests to be registered with the MAT server.
 
 ```javascript
-// use checkForDeferredDeepLink()
-sdkbox.PluginTune.checkForDeferredDeeplinkWithTimeout(timeout);
+sdkbox.PluginTune.SDKBOX_DEPRECATED(checkForDeferredDeeplinkWithTimeout(doubletimeout);
 ```
 > Check for a deferred deeplink entry point upon app installation.
 This is safe to call at every app launch, since the function does nothing
@@ -94,8 +93,7 @@ sdkbox.PluginTune.setShouldAutoGenerateAppleVendorIdentifier(autoGenerate);
 Note that setting to false will clear any previously set value for the property.
 
 ```javascript
-// use setPackageName()
-sdkbox.PluginTune.setSiteId(siteId);
+sdkbox.PluginTune.SDKBOX_DEPRECATED(setSiteId(conststd::string&siteId);
 ```
 > Sets the site ID.
 
@@ -176,8 +174,7 @@ sdkbox.PluginTune.setPreloadData(preloadData);
 > Sets publisher information for attribution.
 
 ```javascript
-// use tuneId()
-sdkbox.PluginTune.matId();
+sdkbox.PluginTune.SDKBOX_DEPRECATED(matId();
 ```
 > Get the MAT ID for this installation (mat_id).
 

@@ -2,24 +2,24 @@
 
 ### Methods
 ```javascript
-sdkbox.PluginFyber.init();
+sdkbox.PluginFyber.init(userID);
 ```
-> initialize the plugin instance.
+> initialize the fyber plugin.
 
 ```javascript
 sdkbox.PluginFyber.showOfferWall(placementId);
 ```
-> Presents the SponsorPay Mobile OfferWall as a child view controller of your own view controller.
+> Presents the Fyber Mobile OfferWall as a child view controller of your own view controller.
 
 ```javascript
 sdkbox.PluginFyber.requestOffers(placementId);
 ```
-> Queries the server for BrandEngage offers availability.
+> Request the server for rewarded video availability.
 
 ```javascript
-sdkbox.PluginFyber.showOffers();
+sdkbox.PluginFyber.showOffers(placementId);
 ```
-> Starts running an available engagement.
+> Show an available rewarded video.
 
 ```javascript
 sdkbox.PluginFyber.requestInterstitial();
@@ -34,7 +34,7 @@ sdkbox.PluginFyber.showInterstitial();
 ```javascript
 sdkbox.PluginFyber.requestDeltaOfCoins(currencyId);
 ```
-> Fetches the amount of a given currency earned since the last time this method was
+> Fetches the amount of a given currency earned since the last time this method was 
 invoked for the current user ID / app ID combination.
 
 

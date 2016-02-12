@@ -32,8 +32,7 @@ static void setAllowDuplicateRequests ( bool allow ) ;
 > Set to YES to allow duplicate requests to be registered with the MAT server.
 
 ```cpp
-// use "checkForDeferredDeepLink"
-static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
+SDKBOX_DEPRECATED ( "checkForDeferredDeepLink" ) static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
 ```
 > Check for a deferred deeplink entry point upon app installation.
 This is safe to call at every app launch, since the function does nothing
@@ -104,8 +103,7 @@ static void setShouldAutoGenerateAppleVendorIdentifier ( bool autoGenerate ) ;
 Note that setting to false will clear any previously set value for the property.
 
 ```cpp
-// use "setPackageName"
-static void setSiteId ( const std::string & siteId ) ;
+SDKBOX_DEPRECATED ( "setPackageName" ) static void setSiteId ( const std::string & siteId ) ;
 ```
 > Sets the site ID.
 
@@ -192,8 +190,7 @@ static void setPreloadDataForScript ( const std::string & jsonString ) ;
 ```
 
 ```cpp
-// use "tuneId"
-static std::string matId ( ) ;
+SDKBOX_DEPRECATED ( "tuneId" ) static std::string matId ( ) ;
 ```
 > Get the MAT ID for this installation (mat_id).
 

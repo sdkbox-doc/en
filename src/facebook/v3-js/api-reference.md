@@ -12,6 +12,10 @@ sdkbox.PluginFacebook.login();
 > log in
 
 ```javascript
+sdkbox.PluginFacebook.login(permissions);
+```
+
+```javascript
 sdkbox.PluginFacebook.requestReadPermissions(permissions);
 ```
 > log in with specific read permissions, conflict with publish permissions
@@ -68,6 +72,16 @@ sdkbox.PluginFacebook.fetchFriends();
 ```
 > fetch friends data from Facebook
 
+```javascript
+sdkbox.PluginFacebook.canPresentWithFBApp(info);
+```
+> check whether can present Facebook App
+
+```javascript
+sdkbox.PluginFacebook.inviteFriends(app_link_url, preview_image_url);
+```
+> Use the default FB dialog to invite friends.
+
 
 ### Listeners
 ```javascript
@@ -96,6 +110,22 @@ onPermission(isLogin, msg);
 
 ```javascript
 onFetchFriends(ok, msg);
+```
+
+```javascript
+onRequestInvitableFriends(friends);
+```
+
+```javascript
+onInviteFriendsWithInviteIdsResult(result, msg);
+```
+
+```javascript
+onInviteFriendsResult(result, msg);
+```
+
+```javascript
+onGetUserInfo(userInfo);
 ```
 
 
