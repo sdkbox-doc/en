@@ -175,6 +175,12 @@ pages:
                 - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
                 - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
                 - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
+        - 'SDKBOX Ads': 'plugins/sdkboxads/index.md'
+        - '_sdkboxAds':
+            - 'Cocos2d-x v3.x':
+                - 'Ads with C++': 'plugins/sdkboxads/v3-cpp.md'
+                - 'Ads with Javascript': 'plugins/sdkboxads/v3-js.md'
+                - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'        
         - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':

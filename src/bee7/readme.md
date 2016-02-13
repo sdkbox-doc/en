@@ -46,7 +46,7 @@ The following step assumes you already registered at [Bee7](http://bee7.com/), c
 	__Target -> Info -> URL Types__:
 
 	1. click "+"
-	2. fill "URL Schemes" with "your bee7 scheme"
+	2. fill "URL Schemes" with "your bee7 scheme". For testing, you can try "bee7orgcocos2dxbee7sample". 
 
 ###Setup Android
 * Open `AndroidManifest.xml` and replace `_replace_with_your_bee7_scheme_` with your `bee7 scheme`
