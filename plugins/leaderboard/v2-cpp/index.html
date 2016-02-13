@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -536,13 +546,13 @@ class MyClass : public sdkbox::LeaderboardListener
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init ( ) ;
+<pre><code class="cpp">         static void init ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Initialize SDKBox Leaderboard</p>
 </blockquote>
-<pre><code class="cpp">static void setListener ( LeaderboardListener * listener ) ;
+<pre><code class="cpp">     static void setListener ( LeaderboardListener * listener ) ;
 </code></pre>
 
 <blockquote>
@@ -560,17 +570,17 @@ class MyClass : public sdkbox::LeaderboardListener
 <blockquote>
 <p>Remove listener for Leaderboard</p>
 </blockquote>
-<pre><code class="cpp">static void submitScore ( const std::string &amp; leaderboardId , int score ) ;
+<pre><code class="cpp">         static void submitScore ( const std::string &amp; leaderboardId , int score ) ;
 </code></pre>
 
 <pre><code class="cpp">static void getLeaderboard ( const std::string &amp; leaderboardId ) ;
 </code></pre>
 
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onComplete ( std::string leaderboard );
+<pre><code class="cpp">         void onComplete ( std::string leaderboard );
 </code></pre>
 
-<pre><code class="cpp">void onFail ( );
+<pre><code class="cpp">         void onFail ( );
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

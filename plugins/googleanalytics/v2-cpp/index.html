@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -618,59 +628,78 @@ Google Analytics SDK for Android every 5 minutes.</p>
 <p>Stop periodically sending info. Then manually the <code>dispatchPeridically</code>
 or <code>dispatchHits</code> should be called.</p>
 </blockquote>
-<pre><code class="cpp">static void logScreen ( string title ) ;
+<pre><code class="cpp">static void setUser ( const std::string &amp; userID ) ;
+</code></pre>
+
+<blockquote>
+<p>Set user ID for this tracking session</p>
+</blockquote>
+<pre><code class="cpp">static void setDimension ( int index , const std::string &amp; value ) ;
+</code></pre>
+
+<blockquote>
+<p>Set value to custom dimension</p>
+</blockquote>
+<pre><code class="cpp">static void setMetric ( int index , const std::string &amp; value ) ;
+</code></pre>
+
+<blockquote>
+<p>Set value to custom metric</p>
+</blockquote>
+<pre><code class="cpp">static void logScreen ( const std::string &amp; title ) ;
 </code></pre>
 
 <blockquote>
 <p>Log screen info. title is the title of a screen. Screens are logical units
 inside your app you'd like to identify at analytics panel.</p>
 </blockquote>
-<pre><code class="cpp">static void logEvent ( string eventCategory ,
-                       string eventAction ,
-                       string eventLabel ,
+<pre><code class="cpp">static void logEvent ( const std::string &amp; eventCategory ,
+                       const std::string &amp; eventAction ,
+                       const std::string &amp; eventLabel ,
                        int value ) ;
 </code></pre>
 
 <blockquote>
 <p>GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);</p>
 </blockquote>
-<pre><code class="cpp">static void logException ( string exceptionDescription , bool isFatal ) ;
+<pre><code class="cpp">static void logException ( const std::string &amp; exceptionDescription ,
+                           bool isFatal ) ;
 </code></pre>
 
 <blockquote>
 <p>Log an exception. It is a basic support for in-app events.</p>
 </blockquote>
-<pre><code class="cpp">static void logTiming ( string timingCategory ,
+<pre><code class="cpp">static void logTiming ( const std::string &amp; timingCategory ,
                         int timingInterval ,
-                        string timingName ,
-                        string timingLabel ) ;
+                        const std::string &amp; timingName ,
+                        const std::string &amp; timingLabel ) ;
 </code></pre>
 
 <blockquote>
 <p>Measure a time inside the application.</p>
 </blockquote>
-<pre><code class="cpp">static void logSocial ( string socialNetwork ,
-                        string socialAction ,
-                        string socialTarget ) ;
+<pre><code class="cpp">static void logSocial ( const std::string &amp; socialNetwork ,
+                        const std::string &amp; socialAction ,
+                        const std::string &amp; socialTarget ) ;
 </code></pre>
 
 <blockquote>
 <p>Log a social event.</p>
 </blockquote>
-<pre><code class="cpp">static void setDryRun ( bool dr ) ;
+<pre><code class="cpp">static void setDryRun ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>While running on dry run, the tracked events won't be sent to the actual
 analytics account.</p>
 </blockquote>
-<pre><code class="cpp">static void enableAdvertisingTracking ( bool e ) ;
+<pre><code class="cpp">static void enableAdvertisingTracking ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>Enable advertising tracking when in google's ad vendors.</p>
 </blockquote>
-<pre><code class="cpp">static void createTracker ( string trackerId ) ;
+<pre><code class="cpp">static void createTracker ( const std::string &amp; trackerId ) ;
 </code></pre>
 
 <blockquote>
@@ -679,7 +708,7 @@ If the tracker already existed, no new tracker will be created. In any case, the
 tracker associated with tracker id will be set as default tracker for  analytics
 operations.</p>
 </blockquote>
-<pre><code class="cpp">static void enableTracker ( string trackerId ) ;
+<pre><code class="cpp">static void enableTracker ( const std::string &amp; trackerId ) ;
 </code></pre>
 
 <blockquote>

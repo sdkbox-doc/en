@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -596,61 +606,90 @@ private:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static bool init();
+<pre><code class="cpp">static bool init ( ) ;
 </code></pre>
 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="cpp">static void setListener(SoomlaGrowListener* listener);
+<pre><code class="cpp">static void setListener ( SoomlaGrowListener * lis ) ;
 </code></pre>
 
 <blockquote>
 <p>Set listener to listen for different events (list below)</p>
 </blockquote>
-<pre><code class="cpp">static SoomlaGrowListener* getListener();
+<pre><code class="cpp">static SoomlaGrowListener * getListener ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Get the listener</p>
+<p>get Listener of soomla grow</p>
 </blockquote>
-<pre><code class="cpp">static void removeListener();
+<pre><code class="cpp">static void removeListener ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Remove the listener, and can't listen to events anymore</p>
+<p>remove Listener in soomla grow</p>
 </blockquote>
-<pre><code class="cpp">static void refreshInsight();
+<pre><code class="cpp">static void refreshInsights ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Refreshed GROW's Insights information from the server</p>
 </blockquote>
-<pre><code class="cpp">static std::string getUserInsightInfo();
+<pre><code class="cpp">static int payRank ( EGenre genre ) ;
 </code></pre>
 
 <blockquote>
-<p>get user insight info
- Note: the returned value may be empty</p>
+<p>get pay rank</p>
+</blockquote>
+<pre><code class="cpp">static double purchaseLikelihood ( EDayQuarter dayquarter ) ;
+</code></pre>
+
+<blockquote>
+<p>purchase likelihood time</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onHighWayInitialized();
+<pre><code class="cpp">void onGrowInitialized ( );
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway initialized.</p>
 </blockquote>
-<pre><code class="cpp">void onHighWayConnected();
+<pre><code class="cpp">void onGrowConnected ( );
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway is connected to server.</p>
 </blockquote>
-<pre><code class="cpp">void onHighWayDisconnected();
+<pre><code class="cpp">void onGrowDisconnected ( );
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway disconnect from the server.</p>
+</blockquote>
+<pre><code class="cpp">void onGrowInsightsInitialized ( );
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight initialized.</p>
+</blockquote>
+<pre><code class="cpp">void onInsightsRefreshFailed ( );
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh failed.</p>
+</blockquote>
+<pre><code class="cpp">void onInsightsRefreshFinished ( );
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh finished.</p>
+</blockquote>
+<pre><code class="cpp">void onInsightsRefreshStarted ( );
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh started.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -786,6 +796,9 @@ end)
 <blockquote>
 <p>log in</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:login(permissions)
+</code></pre>
+
 <pre><code class="lua">sdkbox.PluginFacebook:requestReadPermissions(permissions)
 </code></pre>
 
@@ -854,6 +867,18 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>fetch friends data from Facebook</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:canPresentWithFBApp(info)
+</code></pre>
+
+<blockquote>
+<p>check whether can present Facebook App</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:inviteFriends(app_link_url, preview_image_url)
+</code></pre>
+
+<blockquote>
+<p>Use the default FB dialog to invite friends.</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(isLogin, msg)
 </code></pre>
@@ -874,6 +899,18 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 </code></pre>
 
 <pre><code class="lua">onFetchFriends(ok, msg)
+</code></pre>
+
+<pre><code class="lua">onRequestInvitableFriends(friends)
+</code></pre>
+
+<pre><code class="lua">onInviteFriendsWithInviteIdsResult(result, msg)
+</code></pre>
+
+<pre><code class="lua">onInviteFriendsResult(result, msg)
+</code></pre>
+
+<pre><code class="lua">onGetUserInfo(userInfo)
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

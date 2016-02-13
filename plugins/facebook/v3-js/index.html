@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -788,6 +798,9 @@ sdkbox.PluginFacebook.api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, 
 <blockquote>
 <p>log in</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.login(permissions);
+</code></pre>
+
 <pre><code class="javascript">sdkbox.PluginFacebook.requestReadPermissions(permissions);
 </code></pre>
 
@@ -856,6 +869,18 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>fetch friends data from Facebook</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.canPresentWithFBApp(info);
+</code></pre>
+
+<blockquote>
+<p>check whether can present Facebook App</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.inviteFriends(app_link_url, preview_image_url);
+</code></pre>
+
+<blockquote>
+<p>Use the default FB dialog to invite friends.</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onLogin(isLogin, msg);
 </code></pre>
@@ -876,6 +901,18 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 </code></pre>
 
 <pre><code class="javascript">onFetchFriends(ok, msg);
+</code></pre>
+
+<pre><code class="javascript">onRequestInvitableFriends(friends);
+</code></pre>
+
+<pre><code class="javascript">onInviteFriendsWithInviteIdsResult(result, msg);
+</code></pre>
+
+<pre><code class="javascript">onInviteFriendsResult(result, msg);
+</code></pre>
+
+<pre><code class="javascript">onGetUserInfo(userInfo);
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

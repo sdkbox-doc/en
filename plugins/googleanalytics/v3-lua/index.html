@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -616,6 +626,24 @@ Google Analytics SDK for Android every 5 minutes.</p>
 <p>Stop periodically sending info. Then manually the <code>dispatchPeridically</code>
 or <code>dispatchHits</code> should be called.</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:setUser(userID)
+</code></pre>
+
+<blockquote>
+<p>Set user ID for this tracking session</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:setDimension(index, value)
+</code></pre>
+
+<blockquote>
+<p>Set value to custom dimension</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:setMetric(index, value)
+</code></pre>
+
+<blockquote>
+<p>Set value to custom metric</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginGoogleAnalytics:logScreen(title)
 </code></pre>
 
@@ -655,14 +683,14 @@ inside your app you'd like to identify at analytics panel.</p>
 <blockquote>
 <p>Log a social event.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginGoogleAnalytics:setDryRun(dr)
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:setDryRun(enable)
 </code></pre>
 
 <blockquote>
 <p>While running on dry run, the tracked events won't be sent to the actual
 analytics account.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginGoogleAnalytics:enableAdvertisingTracking(e)
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:enableAdvertisingTracking(enable)
 </code></pre>
 
 <blockquote>

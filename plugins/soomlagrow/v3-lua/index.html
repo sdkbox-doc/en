@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -591,43 +601,72 @@ sdkbox.PluginSoomlaGrow:init()
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginSoomlaGrow:setListener(listener)
+<pre><code class="lua">sdkbox.PluginSoomlaGrow:setListener(lis)
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for GROW events</p>
+<p>Set listener to listen for different events (list below)</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginSoomlaGrow:refreshInsight()
+<pre><code class="lua">sdkbox.PluginSoomlaGrow:refreshInsights()
 </code></pre>
 
 <blockquote>
-<p>Refreshed Insights information from the server</p>
+<p>Refreshed GROW's Insights information from the server</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginSoomlaGrow:getUserInsightInfo()
+<pre><code class="lua">sdkbox.PluginSoomlaGrow:payRank(genre)
 </code></pre>
 
 <blockquote>
-<p>get user insight info
- Note: the returned value may be empty</p>
+<p>get pay rank</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSoomlaGrow:purchaseLikelihood(dayquarter)
+</code></pre>
+
+<blockquote>
+<p>purchase likelihood time</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onHighWayInitialized()
+<pre><code class="lua">onGrowInitialized()
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway initialized.</p>
 </blockquote>
-<pre><code class="lua">onHighWayConnected()
+<pre><code class="lua">onGrowConnected()
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway is connected to server.</p>
 </blockquote>
-<pre><code class="lua">onHighWayDisconnected()
+<pre><code class="lua">onGrowDisconnected()
 </code></pre>
 
 <blockquote>
 <p>This event is triggered once the highway disconnect from the server.</p>
+</blockquote>
+<pre><code class="lua">onGrowInsightsInitialized()
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight initialized.</p>
+</blockquote>
+<pre><code class="lua">onInsightsRefreshFailed()
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh failed.</p>
+</blockquote>
+<pre><code class="lua">onInsightsRefreshFinished()
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh finished.</p>
+</blockquote>
+<pre><code class="lua">onInsightsRefreshStarted()
+</code></pre>
+
+<blockquote>
+<p>This event is triggered once the grow insight refresh started.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

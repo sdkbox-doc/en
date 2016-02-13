@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -656,29 +666,29 @@ invoked for the current user ID / app ID combination.</p>
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginFyber.init();
+<pre><code class="javascript">sdkbox.PluginFyber.init(userID);
 </code></pre>
 
 <blockquote>
-<p>initialize the plugin instance.</p>
+<p>initialize the fyber plugin.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginFyber.showOfferWall(placementId);
 </code></pre>
 
 <blockquote>
-<p>Presents the SponsorPay Mobile OfferWall as a child view controller of your own view controller.</p>
+<p>Presents the Fyber Mobile OfferWall as a child view controller of your own view controller.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginFyber.requestOffers(placementId);
 </code></pre>
 
 <blockquote>
-<p>Queries the server for BrandEngage offers availability.</p>
+<p>Request the server for rewarded video availability.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginFyber.showOffers();
+<pre><code class="javascript">sdkbox.PluginFyber.showOffers(placementId);
 </code></pre>
 
 <blockquote>
-<p>Starts running an available engagement.</p>
+<p>Show an available rewarded video.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginFyber.requestInterstitial();
 </code></pre>
@@ -696,7 +706,7 @@ invoked for the current user ID / app ID combination.</p>
 </code></pre>
 
 <blockquote>
-<p>Fetches the amount of a given currency earned since the last time this method was
+<p>Fetches the amount of a given currency earned since the last time this method was 
 invoked for the current user ID / app ID combination.</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>

@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -604,7 +614,7 @@ public:
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for Appodeal events</p>
+<p>Set listener to listen for appodeal events</p>
 </blockquote>
 <pre><code class="cpp">static AppodealListener * getListener ( ) ;
 </code></pre>
@@ -618,6 +628,22 @@ public:
 <blockquote>
 <p>Remove the listener, and can't listen to events anymore</p>
 </blockquote>
+<pre><code class="cpp">static void disableNetworkForAdType ( AdType adType ,
+                                      const std::string &amp; networkName ) ;
+</code></pre>
+
+<pre><code class="cpp">static void disableLocationPermissionCheck ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setAutocache ( bool autocache , AdType types ) ;
+</code></pre>
+
+<pre><code class="cpp">static bool isAutocacheEnabled ( AdType types ) ;
+</code></pre>
+
+<pre><code class="cpp">static void confirmUsage ( AdType adTypes ) ;
+</code></pre>
+
 <pre><code class="cpp">static void setDebugEnabled ( bool debugEnabled ) ;
 </code></pre>
 
@@ -750,6 +776,36 @@ public:
 
 <blockquote>
 <p>trigger when video finish</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidLoadAd ( );
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video load</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidFailToLoadAd ( );
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video fail to load</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidPresent ( );
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video present</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoWillDismiss ( );
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video dismiss</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidFinish ( int amount , const std::string &amp; name );
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video finish</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -656,7 +666,7 @@ product.receiptCipheredPayload;
 </blockquote>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static void init ( ) ;
+<pre><code class="cpp">static void init ( const char * jsonconfig = 0 ) ;
 </code></pre>
 
 <blockquote>
@@ -667,6 +677,12 @@ product.receiptCipheredPayload;
 
 <blockquote>
 <p>Enable/disable debug logging</p>
+</blockquote>
+<pre><code class="cpp">static std::vector &lt;Product&gt; getProducts ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Get all the products</p>
 </blockquote>
 <pre><code class="cpp">static void purchase ( const std::string &amp; name ) ;
 </code></pre>
@@ -698,8 +714,11 @@ product.receiptCipheredPayload;
 <blockquote>
 <p>Remove listener for IAP</p>
 </blockquote>
+<pre><code class="cpp">static void enableUserSideVerification ( bool ) ;
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onInitialized ( bool ok );
+<pre><code class="cpp">void onInitialized ( bool success );
 </code></pre>
 
 <blockquote>

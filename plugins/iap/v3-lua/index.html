@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -657,7 +667,7 @@ product.receiptCipheredPayload;
 </blockquote>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.IAP:init()
+<pre><code class="lua">sdkbox.IAP:init(jsonconfig)
 </code></pre>
 
 <blockquote>
@@ -699,8 +709,11 @@ product.receiptCipheredPayload;
 <blockquote>
 <p>Remove listener for IAP</p>
 </blockquote>
+<pre><code class="lua">sdkbox.IAP:enableUserSideVerification()
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onInitialized(ok)
+<pre><code class="lua">onInitialized(success)
 </code></pre>
 
 <blockquote>

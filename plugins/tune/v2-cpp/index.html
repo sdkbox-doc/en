@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -638,8 +648,7 @@ AppDelegate::applicationDidFinishLaunching()
 <blockquote>
 <p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
 </blockquote>
-<pre><code class="cpp">// use &quot;checkForDeferredDeepLink&quot;
-static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
+<pre><code class="cpp">SDKBOX_DEPRECATED ( &quot;checkForDeferredDeepLink&quot; ) static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
 </code></pre>
 
 <blockquote>
@@ -722,8 +731,7 @@ Defaults to the Bundle Identifier of the app that is running the sdk.</p>
 <p>Specifies if the sdk should pull the Apple Vendor Identifier from the device.
 Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
-<pre><code class="cpp">// use &quot;setPackageName&quot;
-static void setSiteId ( const std::string &amp; siteId ) ;
+<pre><code class="cpp">SDKBOX_DEPRECATED ( &quot;setPackageName&quot; ) static void setSiteId ( const std::string &amp; siteId ) ;
 </code></pre>
 
 <blockquote>
@@ -825,8 +833,7 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <pre><code class="cpp">static void setPreloadDataForScript ( const std::string &amp; jsonString ) ;
 </code></pre>
 
-<pre><code class="cpp">// use &quot;tuneId&quot;
-static std::string matId ( ) ;
+<pre><code class="cpp">SDKBOX_DEPRECATED ( &quot;tuneId&quot; ) static std::string matId ( ) ;
 </code></pre>
 
 <blockquote>

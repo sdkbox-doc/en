@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -950,17 +960,14 @@ https://developers.facebook.com/docs/ios/graph</p>
 <pre><code class="cpp">void onFetchFriends ( bool ok , const std::string &amp; msg );
 </code></pre>
 
-<pre><code class="cpp">void onRequestInvitableFriends ( const FBInvitableFriendsInfo &amp; invitable_friends_and_pagination_json_as_string );
+<pre><code class="cpp">void onRequestInvitableFriends ( const FBInvitableFriendsInfo &amp; friends );
 </code></pre>
 
-<blockquote>
-<p>invitable_friends_and_pagination_json_as_string has the following format:</p>
-</blockquote>
 <pre><code class="cpp">void onInviteFriendsWithInviteIdsResult ( bool result ,
-                                          const std::string &amp; description );
+                                          const std::string &amp; msg );
 </code></pre>
 
-<pre><code class="cpp">void onInviteFriendsResult ( bool result , const std::string &amp; description );
+<pre><code class="cpp">void onInviteFriendsResult ( bool result , const std::string &amp; msg );
 </code></pre>
 
 <pre><code class="cpp">void onGetUserInfo ( const FBGraphUser &amp; userInfo );

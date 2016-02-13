@@ -258,6 +258,16 @@
         
             
 <li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -603,8 +613,23 @@ plugin.init()
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for Appodeal events</p>
+<p>Set listener to listen for appodeal events</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginAppodeal.disableNetworkForAdType(adType, networkName);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.disableLocationPermissionCheck();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.setAutocache(autocache, types);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.isAutocacheEnabled(types);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.confirmUsage(adTypes);
+</code></pre>
+
 <pre><code class="javascript">sdkbox.PluginAppodeal.setDebugEnabled(debugEnabled);
 </code></pre>
 
@@ -737,6 +762,36 @@ plugin.init()
 
 <blockquote>
 <p>trigger when video finish</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoDidLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video load</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoDidFailToLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video fail to load</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoDidPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video present</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoWillDismiss();
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video dismiss</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoDidFinish(amount, name);
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video finish</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
