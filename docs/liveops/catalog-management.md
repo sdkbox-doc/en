@@ -2,10 +2,10 @@
 
 Both Apple's AppStore and Google's Play store allow mobile developers to create In-App purchase products through their web consoles. Typically these purchasable products will be created with names, types, and prices. SDKBOX LiveOps allows you to decide on-the-fly which of these products should be sold in your app. 
 
-For example, let's say you have a product called "Chest of Coins" in the app which is selling for $3.99. For the coming holiday, you wan to promote it on sale for $0.99. We will use [SDKBOX In-App Purcahse sample project](https://github.com/sdkbox/sdkbox-iap-sample) to show you how to do that without releaseing a new build. 
+For example, let's say you have a product called "Chest of Coins" in the app which is selling for $3.99. For the coming holiday, you wan to promote it on sale for $0.99. We will use [SDKBOX In-App Purchase sample project](https://github.com/sdkbox/sdkbox-iap-sample) to show you how to do that without releasing a new build. 
 
 ## Setup
-* Clone the [SDKBOX In-App Purcahse sample project](https://github.com/sdkbox/sdkbox-iap-sample) 
+* Clone the [SDKBOX In-App Purchase sample project](https://github.com/sdkbox/sdkbox-iap-sample) 
 * Compile and build. You can choose between C++, Lua or Javascript. We will use C++ in the following steps. 
 * Notice in the xcode console, there are debug logs showing all the IAP products initialized when app starts. The one called `Chest of Coins` has a price tag $3.99. We will change it next. 
 

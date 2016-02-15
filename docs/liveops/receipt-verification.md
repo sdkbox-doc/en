@@ -8,7 +8,7 @@ If enabled, whenever a purchase happens it will be automatically (and transparen
 If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps. 
 
 !!!note 
-    It is important to note that this feature reuires the app using the [Remote Configuration](./remote-config) with the IAP plugin. 
+    It is important to note that this feature requires the app using the [Remote Configuration](./remote-config) with the IAP plugin. 
 
 
 ## Remote verification flow

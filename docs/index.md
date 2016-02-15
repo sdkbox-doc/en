@@ -23,7 +23,7 @@ SDKBOX currently support the most popular mobile game engines. Click to learn mo
 
 
 ##Services
-SDKBOX includs lots of useful services which are crucial for your games: 
+SDKBOX includes lots of useful services which are crucial for your games: 
 
 > ![chart](./imgs/iap.png)
 > ![chart](./imgs/review.jpg)
