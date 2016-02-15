@@ -19,20 +19,24 @@ When it's necessary to change the configuratin of a SDKBOX plugin, you will need
 * Each configuration set is defined for a certain platform. However each platform can have multiple sets. If the application will be published to both Apple appstore and Google Play store, you should create at least two configuration sets for both of them. For example: 
 ![chart](/imgs/config_versions.jpg)
 
-## Import Existing App Configs 
-* When you integrate SDKBOX, a local `sdkbox_config.json` will be added in your app. It contains all the settings of SDK plugins. 
-* For moving the local configs to clout, we provice a convinient feature to import them automatically. At your application's page, click on "Import Config" button and upload your local `sdkbox_config.json`. All you current configurations will be loaded into a few new configuration sets, one for each platform. 
-* After importing, you should make the remote config as the __master__ version moving forward. 
+## Import Existing App's Configs 
+* When you integrate SDKBOX plugins, a local `sdkbox_config.json` will be added in your app. It contains the settings of all the SDKs. 
+* For moving the local configs into the cloud, we provice a convinient feature to import them automatically. On your application's page, click on "Import Sets" button and upload your local `sdkbox_config.json`. All you current configurations will be loaded into a few new configuration sets, one for each app store. 
+* After importing, you should make the remote config as the __master__ version moving forward. The local copy in your app is a local default which only used when the network is not available. 
+* The newly created configuration sets by importing are still in __Draft__ state. They are not accessable by the client, until you can edit and publish them to the cloud. 
 
 
-## Setup App using Remote Config 
+## Setup App to use Remote Config 
 * To enable the cloud service in your applications is as easy as calling a single __sdkbox::init()__ function and passing in your __token__ and __secret__ that are provided by the `Configuration Set`. 
 ```
 sdkbox::init( <application token>, <application secret> );
 ```
-* We provide a helper function to make this easy. From your application's page, click on "Export". Then select the one `Configuraton Set` for each platform you will deploy to. Next, you will get two parts of data:  
-    * Code snippets for initlizing SDKBOX with the config token/scret for each platform. You can copy and paste them to your app delegate.
-    * A new version of `sdkbox_config.json` includes the latest configurations saved in the cloud. __Whenever an app is submitted to the app store, please update the local version of `sdkbox_config.json` in the app, in case if remote config is not available. For example when there is no network, a local config will always be used.__ 
+* We provide a convinient function to make it easier. From your application's page, click on "Export Sets". Then select the one `Configuraton Set` for each platform you want to deploy. Then you will be given two instructions:  
+    * A code snippet for initlizing SDKBOX with the token/secret of all platforms. You should copy and paste them to your app delegate.
+    * A new version of `sdkbox_config.json` that includes the latest configuration values in the cloud. __Whenever an app is submitted to the app store, please update the embedded version of `sdkbox_config.json` in the app. In case if network connection is not available. this local config will be used by default.__ 
 
 
-
+## Edit and Publish
+* Once the setup is completed, you can not update the configuration in the clound and push the changes to the live app. 
+* Make sure to set the configuration to __Live__ or __Debug__ in order to be downloaded by the app. 
+* Make sure to edit the correct config in the set which is marked with the same token/secret as in your app. 

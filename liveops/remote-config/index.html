@@ -425,7 +425,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#how-remote-configuraton-works">How Remote Configuraton works?</a></li>
+        <li class="main active"><a href="#how-remote-configuration-works">How Remote Configuration works?</a></li>
 	
     
         <li class="main "><a href="#about-configuration-set-and-versioning">About Configuration Set and Versioning</a></li>
@@ -446,8 +446,8 @@
 
 <h1>LiveOps - Remote Configuration</h1>
 
-<h2 id="how-remote-configuraton-works">How Remote Configuraton works?</h2>
-<p>When it's necessary to change the configuratin of a SDKBOX plugin, you will need to revise the JSON codes in the <code>sdkbox_config.json</code>, rebuild the application, and re-submit it to app stores. To solve this issue, <strong>Remote Configuration</strong> allows for on-the-fly update of its plugin’s configuration. For example, it will allow the change of the Google Analytics tracking code, switch to a new AdColony campaign or add new in-app purchase products without rebuilding and redeploying your apps to the app stores.</p>
+<h2 id="how-remote-configuration-works">How Remote Configuration works?</h2>
+<p>When it's necessary to change the configuration of a SDKBOX plugin, you will need to revise the JSON codes in the <code>sdkbox_config.json</code>, rebuild the application, and re-submit it to app stores. To solve this issue, <strong>Remote Configuration</strong> allows for on-the-fly update of its plugin’s configuration. For example, it will allow the change of the Google Analytics tracking code, switch to a new AdColony campaign or add new in-app purchase products without rebuilding and redeploying your apps to the app stores.</p>
 <p><img alt="chart" src="../../imgs/remote_config.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -461,7 +461,7 @@
 <li>A <code>Configuration Set</code> includes multiple versions of config which are marked with different names. Each version has a state: <ul>
 <li><strong>Live</strong>: only one in a set, will be sent to the app be default</li>
 <li><strong>Debug</strong>: only one in a set, will be sent if app is in the debug mode</li>
-<li><strong>Draft</strong>: multiple, they are not accessable from any applications.  </li>
+<li><strong>Draft</strong>: multiple, they are not accessible from any applications.  </li>
 </ul>
 </li>
 <li>Each <code>Configuration Set</code> has a unique pair of <strong>token</strong> and <strong>secret</strong>. They are used to securely communicate between to the app and SDKBOX LiveOps. They can not be changed. They need to be set in the app. See the "Setup Remote Config in App" below for detail. </li>
@@ -472,9 +472,9 @@
 <h2 id="import-existing-apps-configs">Import Existing App's Configs</h2>
 <ul>
 <li>When you integrate SDKBOX plugins, a local <code>sdkbox_config.json</code> will be added in your app. It contains the settings of all the SDKs. </li>
-<li>For moving the local configs into the cloud, we provice a convinient feature to import them automatically. On your application's page, click on "Import Sets" button and upload your local <code>sdkbox_config.json</code>. All you current configurations will be loaded into a few new configuration sets, one for each app store. </li>
+<li>For moving the local configs into the cloud, we provide a convenient feature to import them automatically. On your application's page, click on "Import Sets" button and upload your local <code>sdkbox_config.json</code>. All you current configurations will be loaded into a few new configuration sets, one for each app store. </li>
 <li>After importing, you should make the remote config as the <strong>master</strong> version moving forward. The local copy in your app is a local default which only used when the network is not available. </li>
-<li>The newly created configuration sets by importing are still in <strong>Draft</strong> state. They are not accessable by the client, until you can edit and publish them to the cloud. </li>
+<li>The newly created configuration sets by importing are still in <strong>Draft</strong> state. They are not accessible by the client, until you can edit and publish them to the cloud. </li>
 </ul>
 <h2 id="setup-app-to-use-remote-config">Setup App to use Remote Config</h2>
 <ul>
@@ -484,15 +484,15 @@
 </code></pre>
 
 <ul>
-<li>We provide a convinient function to make it easier. From your application's page, click on "Export Sets". Then select the one <code>Configuraton Set</code> for each platform you want to deploy. Then you will be given two instructions:  <ul>
-<li>A code snippet for initlizing SDKBOX with the token/secret of all platforms. You should copy and paste them to your app delegate.</li>
+<li>We provide a convenient function to make it easier. From your application's page, click on "Export Sets". Then select the one <code>Configuration Set</code> for each platform you want to deploy. Then you will be given two instructions:  <ul>
+<li>A code snippet for initializing SDKBOX with the token/secret of all platforms. You should copy and paste them to your app delegate.</li>
 <li>A new version of <code>sdkbox_config.json</code> that includes the latest configuration values in the cloud. <strong>Whenever an app is submitted to the app store, please update the embedded version of <code>sdkbox_config.json</code> in the app. In case if network connection is not available. this local config will be used by default.</strong> </li>
 </ul>
 </li>
 </ul>
 <h2 id="edit-and-publish">Edit and Publish</h2>
 <ul>
-<li>Once the setup is completed, you can not update the configuration in the clound and push the changes to the live app. </li>
+<li>Once the setup is completed, you can not update the configuration in the cloud and push the changes to the live app. </li>
 <li>Make sure to set the configuration to <strong>Live</strong> or <strong>Debug</strong> in order to be downloaded by the app. </li>
 <li>Make sure to edit the correct config in the set which is marked with the same token/secret as in your app. </li>
 </ul></div>

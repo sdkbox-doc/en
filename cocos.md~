@@ -3,12 +3,10 @@
 <h1>SDKBOX for Cocos</h1>
 
 ##Overview
----
 SDKBOX support ALL the recent versions (v2.2.6+) for Cocos/Cocos2d-x game engine, including  C++, Javascript and Lua. 
 
 
 ##Integration
----
 You can install SDKBOX plugins using one of these three methods.  
 
 
