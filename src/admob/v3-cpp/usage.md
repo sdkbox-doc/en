@@ -9,6 +9,7 @@ AppDelegate::applicationDidFinishLaunching()
 ```
 
 ### cache ad
+### NOTE : AdMob ads needs to be cached before use, auto-caching is not available with this plugin. It might take couple of minutes to cache ads, once cached you would be able to see the ads. While caching the ads are not available.
 ```cpp
 sdkbox::PluginAdMob::cache("home");
 sdkbox::PluginAdMob::cache("gameover");
