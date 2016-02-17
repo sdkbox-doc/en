@@ -24,7 +24,7 @@ Here is an example adding `Kochava`:
 ```json
 "kochava" :
 {
-    "kochavaAppId" : "<KOCHAVA_APP_ID>",
+    "kochava_app_id" : "<KOCHAVA_APP_ID>",
     "enableLogging" : 1,
     "retrieveAttribution" : 1
 }
