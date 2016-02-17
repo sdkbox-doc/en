@@ -1,11 +1,10 @@
-[&#171; SDKBOX Home](http://sdkbox.com)
+![](SDKBOX_logo.png)
 
-<h1>In-App Purchase Plugin for Unity</h1>
+<h1>In App Purchase Documentation.</h1>
 
-##Overview
-To download the latest IAP plugin or for more information, visit our website @ [sdkbox.com](http://sdkbox.com/unity)
+For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-##Setting up your Unity project for In App Purchase
+<h2>Setting up your Unity project for In App Purchase</h2>
 
 This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation. 
 
@@ -13,7 +12,7 @@ How each store recognizes your app is different for iOS and Android. On iOS, you
 
 On Android, there is a key that you must specify in the IAP configuration inspector pane. You can get this key from the Google Play Console where you setup your app and create in app purchase products. You can find more information [here](http://developer.android.com/google/play/billing/billing_overview.html)
 
-##Importing SDKBOX IAP
+<h2>Importing SDKBOX IAP</h2>
 
 To begin using SDKBOX IAP, import the ```sdkbox_iap``` unity package into your project. This will add a directory under Assets called IAP. 
 
@@ -30,13 +29,13 @@ Create an instance of the IAP prefab in the scene where you want to make in app 
 
 Select the IAP game object in the hierarchy and in your inspector pane you can configure the object for In-App-Purchases.
 
-##Specifying a key (Android)
+<h2>Specifying a key (Android)</h2>
 
 ![](iap_dox3.jpg)
 
-On Android, you specify an API key which is used to connect to the google play store and retrieve products. Copy and paste this key into the Android Key field.
+On Android, need a license key from the ```Services & APIs``` section of the Google Play Developer Console. Copy and paste this key into the Android Key field.
 
-##Adding Products
+<h2>Adding Products</h2>
 
 Products are added on either iTunes connect for Apple, or Google Play Portal for Google. Follow directions <insert links> on how to setup products for Apple and Google platforms.
 
@@ -46,7 +45,7 @@ In the ```Products``` field for each platform, you can specify how many products
 
 ![](iap_dox4.jpg)
 
-##Making Purchases
+<h2>Making Purchases</h2>
 
 Making a purchase is as simple as invoking the ```purchase``` method on the IAP game object. There are several ways to do this, we will do it by adding a button.
 
@@ -62,7 +61,7 @@ This method takes a string argument that is the name of the product being purcha
 
 ![](iap_dox6.jpg)
 
-##Handling Callbacks
+<h2>Handling Callbacks</h2>
 
 There are several events that provide feedback about what is happening when you initialize, make purchases, or restore previously purchased items.
 
@@ -84,7 +83,7 @@ The following is a list of the callbacks and the parameters they provide.
 
 * ```onRestoreComplete ()``` Called after all products have been restored. If none were restored, you will still receive this callback.
 
-##Handling IAP Events
+<h2>Handling IAP Events</h2>
 
 Similar to the button On Click() event, you can subscribe to SDKBOX IAP events to get feedback about the IAP process, and to receive products from the IAP store.
 
@@ -92,7 +91,7 @@ In the ```Callbacks``` section of the IAP script inspector pane, you can click `
 
 ![](iap_dox7.jpg)
 
-##Product Class
+<h2>Product Class</h2>
 
 ```
 	public struct Product
@@ -129,9 +128,9 @@ The product class contains all the information about a product retrieved from th
 
 You should not create your own products, but rather allow SDKBOX IAP to create them for you.
 
-##Additional Android Instructions
+<h2>Additional Android Instructions</h2>
 
-##Override Unity Activity (Android)
+<h3>Override Unity Activity</h3>
 
 In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.
 
@@ -139,7 +138,7 @@ In order for In-App-Purchase to work, we have to be able to forward certain acti
 2. Modify your AndroidManifest.xml to use *CustomActivity.jar* by replacing the Unity activity as follows. ```<activity
             android:name="com.sdkbox.activity.CustomActivity" ...```
 
-##Adding Vendor Billing (Android)
+<h3>Adding Vendor Billing Permission</h3>
 
 In order for In-App-Purchase to work on Android, it needs the following permission to be added.
 
