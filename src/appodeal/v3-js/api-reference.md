@@ -9,7 +9,27 @@ sdkbox.PluginAppodeal.init();
 ```javascript
 sdkbox.PluginAppodeal.setListener(listener);
 ```
-> Set listener to listen for Appodeal events
+> Set listener to listen for appodeal events
+
+```javascript
+sdkbox.PluginAppodeal.disableNetworkForAdType(adType, networkName);
+```
+
+```javascript
+sdkbox.PluginAppodeal.disableLocationPermissionCheck();
+```
+
+```javascript
+sdkbox.PluginAppodeal.setAutocache(autocache, types);
+```
+
+```javascript
+sdkbox.PluginAppodeal.isAutocacheEnabled(types);
+```
+
+```javascript
+sdkbox.PluginAppodeal.confirmUsage(adTypes);
+```
 
 ```javascript
 sdkbox.PluginAppodeal.setDebugEnabled(debugEnabled);
@@ -146,3 +166,30 @@ onVideoWillDismiss();
 onVideoDidFinish();
 ```
 > trigger when video finish
+
+```javascript
+onRewardVideoDidLoadAd();
+```
+> trigger when reward video load
+
+```javascript
+onRewardVideoDidFailToLoadAd();
+```
+> trigger when reward video fail to load
+
+```javascript
+onRewardVideoDidPresent();
+```
+> trigger when reward video present
+
+```javascript
+onRewardVideoWillDismiss();
+```
+> trigger when reward video dismiss
+
+```javascript
+onRewardVideoDidFinish(amount, name);
+```
+> trigger when reward video finish
+
+

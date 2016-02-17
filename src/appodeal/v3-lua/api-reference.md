@@ -9,7 +9,27 @@ sdkbox.PluginAppodeal:init()
 ```lua
 sdkbox.PluginAppodeal:setListener(listener)
 ```
-> Set listener to listen for Appodeal events
+> Set listener to listen for appodeal events
+
+```lua
+sdkbox.PluginAppodeal:disableNetworkForAdType(adType, networkName)
+```
+
+```lua
+sdkbox.PluginAppodeal:disableLocationPermissionCheck()
+```
+
+```lua
+sdkbox.PluginAppodeal:setAutocache(autocache, types)
+```
+
+```lua
+sdkbox.PluginAppodeal:isAutocacheEnabled(types)
+```
+
+```lua
+sdkbox.PluginAppodeal:confirmUsage(adTypes)
+```
 
 ```lua
 sdkbox.PluginAppodeal:setDebugEnabled(debugEnabled)
@@ -146,3 +166,30 @@ onVideoWillDismiss()
 onVideoDidFinish()
 ```
 > trigger when video finish
+
+```lua
+onRewardVideoDidLoadAd()
+```
+> trigger when reward video load
+
+```lua
+onRewardVideoDidFailToLoadAd()
+```
+> trigger when reward video fail to load
+
+```lua
+onRewardVideoDidPresent()
+```
+> trigger when reward video present
+
+```lua
+onRewardVideoWillDismiss()
+```
+> trigger when reward video dismiss
+
+```lua
+onRewardVideoDidFinish(amount, name)
+```
+> trigger when reward video finish
+
+

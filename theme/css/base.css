@@ -283,3 +283,8 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     pointer-events: none;
     cursor: default;
 }
+
+.dropdown-menu .dropdown-menu {
+ max-height: 360px;
+  overflow: auto; 
+}

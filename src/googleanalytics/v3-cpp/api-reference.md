@@ -34,52 +34,68 @@ static void stopPeriodicalDispatch ( ) ;
 or <code>dispatchHits</code> should be called.
 
 ```cpp
-static void logScreen ( string title ) ;
+static void setUser ( const std::string & userID ) ;
+```
+> Set user ID for this tracking session
+
+```cpp
+static void setDimension ( int index , const std::string & value ) ;
+```
+> Set value to custom dimension
+
+```cpp
+static void setMetric ( int index , const std::string & value ) ;
+```
+> Set value to custom metric
+
+```cpp
+static void logScreen ( const std::string & title ) ;
 ```
 > Log screen info. title is the title of a screen. Screens are logical units
 inside your app you'd like to identify at analytics panel.
 
 ```cpp
-static void logEvent ( string eventCategory ,
-                       string eventAction ,
-                       string eventLabel ,
+static void logEvent ( const std::string & eventCategory ,
+                       const std::string & eventAction ,
+                       const std::string & eventLabel ,
                        int value ) ;
 ```
 > GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);
 
 ```cpp
-static void logException ( string exceptionDescription , bool isFatal ) ;
+static void logException ( const std::string & exceptionDescription ,
+                           bool isFatal ) ;
 ```
 > Log an exception. It is a basic support for in-app events.
 
 ```cpp
-static void logTiming ( string timingCategory ,
+static void logTiming ( const std::string & timingCategory ,
                         int timingInterval ,
-                        string timingName ,
-                        string timingLabel ) ;
+                        const std::string & timingName ,
+                        const std::string & timingLabel ) ;
 ```
 > Measure a time inside the application.
 
 ```cpp
-static void logSocial ( string socialNetwork ,
-                        string socialAction ,
-                        string socialTarget ) ;
+static void logSocial ( const std::string & socialNetwork ,
+                        const std::string & socialAction ,
+                        const std::string & socialTarget ) ;
 ```
 > Log a social event.
 
 ```cpp
-static void setDryRun ( bool dr ) ;
+static void setDryRun ( bool enable ) ;
 ```
 > While running on dry run, the tracked events won't be sent to the actual
 analytics account.
 
 ```cpp
-static void enableAdvertisingTracking ( bool e ) ;
+static void enableAdvertisingTracking ( bool enable ) ;
 ```
 > Enable advertising tracking when in google's ad vendors.
 
 ```cpp
-static void createTracker ( string trackerId ) ;
+static void createTracker ( const std::string & trackerId ) ;
 ```
 > Create a tracker identified by the google analytics tracker id XX-YYYYYYYY-Z.
 If the tracker already existed, no new tracker will be created. In any case, the
@@ -87,7 +103,7 @@ tracker associated with tracker id will be set as default tracker for  analytics
 operations.
 
 ```cpp
-static void enableTracker ( string trackerId ) ;
+static void enableTracker ( const std::string & trackerId ) ;
 ```
 > Enable a tracker identified by a trackerId. If the tracker does not exist,
 nothing will happen.

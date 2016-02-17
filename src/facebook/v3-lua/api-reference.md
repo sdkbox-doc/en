@@ -12,6 +12,10 @@ sdkbox.PluginFacebook:login()
 > log in
 
 ```lua
+sdkbox.PluginFacebook:login(permissions)
+```
+
+```lua
 sdkbox.PluginFacebook:requestReadPermissions(permissions)
 ```
 > log in with specific read permissions, conflict with publish permissions
@@ -68,6 +72,16 @@ sdkbox.PluginFacebook:fetchFriends()
 ```
 > fetch friends data from Facebook
 
+```lua
+sdkbox.PluginFacebook:canPresentWithFBApp(info)
+```
+> check whether can present Facebook App
+
+```lua
+sdkbox.PluginFacebook:inviteFriends(app_link_url, preview_image_url)
+```
+> Use the default FB dialog to invite friends.
+
 
 ### Listeners
 ```lua
@@ -96,6 +110,22 @@ onPermission(isLogin, msg)
 
 ```lua
 onFetchFriends(ok, msg)
+```
+
+```lua
+onRequestInvitableFriends(friends)
+```
+
+```lua
+onInviteFriendsWithInviteIdsResult(result, msg)
+```
+
+```lua
+onInviteFriendsResult(result, msg)
+```
+
+```lua
+onGetUserInfo(userInfo)
 ```
 
 

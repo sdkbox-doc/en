@@ -128,7 +128,6 @@ The product class contains all the information about a product retrieved from th
 
 You should not create your own products, but rather allow SDKBOX IAP to create them for you.
 
-
 <h2>Additional Android Instructions</h2>
 
 <h3>Override Unity Activity</h3>

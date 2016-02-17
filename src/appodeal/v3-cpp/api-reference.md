@@ -9,7 +9,7 @@ static bool init ( ) ;
 ```cpp
 static void setListener ( AppodealListener * listener ) ;
 ```
-> Set listener to listen for Appodeal events
+> Set listener to listen for appodeal events
 
 ```cpp
 static AppodealListener * getListener ( ) ;
@@ -20,6 +20,27 @@ static AppodealListener * getListener ( ) ;
 static void removeListener ( ) ;
 ```
 > Remove the listener, and can't listen to events anymore
+
+```cpp
+static void disableNetworkForAdType ( AdType adType ,
+                                      const std::string & networkName ) ;
+```
+
+```cpp
+static void disableLocationPermissionCheck ( ) ;
+```
+
+```cpp
+static void setAutocache ( bool autocache , AdType types ) ;
+```
+
+```cpp
+static bool isAutocacheEnabled ( AdType types ) ;
+```
+
+```cpp
+static void confirmUsage ( AdType adTypes ) ;
+```
 
 ```cpp
 static void setDebugEnabled ( bool debugEnabled ) ;
@@ -156,3 +177,30 @@ void onVideoWillDismiss ( );
 void onVideoDidFinish ( );
 ```
 > trigger when video finish
+
+```cpp
+void onRewardVideoDidLoadAd ( );
+```
+> trigger when reward video load
+
+```cpp
+void onRewardVideoDidFailToLoadAd ( );
+```
+> trigger when reward video fail to load
+
+```cpp
+void onRewardVideoDidPresent ( );
+```
+> trigger when reward video present
+
+```cpp
+void onRewardVideoWillDismiss ( );
+```
+> trigger when reward video dismiss
+
+```cpp
+void onRewardVideoDidFinish ( int amount , const std::string & name );
+```
+> trigger when reward video finish
+
+

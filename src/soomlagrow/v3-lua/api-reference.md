@@ -4,40 +4,63 @@
 ```lua
 sdkbox.PluginSoomlaGrow:init()
 ```
->  initialize the plugin instance.
+> initialize the plugin instance.
 
 ```lua
-sdkbox.PluginSoomlaGrow:setListener(listener)
+sdkbox.PluginSoomlaGrow:setListener(lis)
 ```
-> Set listener to listen for GROW events
+> Set listener to listen for different events (list below)
 
 ```lua
-sdkbox.PluginSoomlaGrow:refreshInsight()
+sdkbox.PluginSoomlaGrow:refreshInsights()
 ```
->  Refreshed Insights information from the server
+> Refreshed GROW's Insights information from the server
 
 ```lua
-sdkbox.PluginSoomlaGrow:getUserInsightInfo()
+sdkbox.PluginSoomlaGrow:payRank(genre)
 ```
->  get user insight info
->  Note: the returned value may be empty
+> get pay rank
+
+```lua
+sdkbox.PluginSoomlaGrow:purchaseLikelihood(dayquarter)
+```
+> purchase likelihood time
 
 
 ### Listeners
 ```lua
-onHighWayInitialized()
+onGrowInitialized()
 ```
-
->  This event is triggered once the highway initialized.
+> This event is triggered once the highway initialized.
 
 ```lua
-onHighWayConnected()
+onGrowConnected()
 ```
-
->  This event is triggered once the highway is connected to server.
+> This event is triggered once the highway is connected to server.
 
 ```lua
-onHighWayDisconnected()
+onGrowDisconnected()
 ```
+> This event is triggered once the highway disconnect from the server.
 
->  This event is triggered once the highway disconnect from the server.
+```lua
+onGrowInsightsInitialized()
+```
+> This event is triggered once the grow insight initialized.
+
+```lua
+onInsightsRefreshFailed()
+```
+> This event is triggered once the grow insight refresh failed.
+
+```lua
+onInsightsRefreshFinished()
+```
+> This event is triggered once the grow insight refresh finished.
+
+```lua
+onInsightsRefreshStarted()
+```
+> This event is triggered once the grow insight refresh started.
+
+

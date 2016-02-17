@@ -55,28 +55,28 @@ static bool isAvailable ( const std::string & name ) ;
 
 ### Listeners
 ```cpp
-void adViewDidReceiveAd ( const std::string & name ) ;
+void adViewDidReceiveAd ( const std::string & name ) {
 ```
 
 ```cpp
 void adViewDidFailToReceiveAdWithError ( const std::string & name ,
-                                         const std::string & msg ) ;
+                                         const std::string & msg ) {
 ```
 
 ```cpp
-void adViewWillPresentScreen ( const std::string & name ) ;
+void adViewWillPresentScreen ( const std::string & name ) {
 ```
 
 ```cpp
-void adViewDidDismissScreen ( const std::string & name ) ;
+void adViewDidDismissScreen ( const std::string & name ) {
 ```
 
 ```cpp
-void adViewWillDismissScreen ( const std::string & name ) ;
+void adViewWillDismissScreen ( const std::string & name ) {
 ```
 
 ```cpp
-void adViewWillLeaveApplication ( const std::string & name ) ;
+void adViewWillLeaveApplication ( const std::string & name ) {
 ```
 
 

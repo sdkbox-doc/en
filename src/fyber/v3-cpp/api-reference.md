@@ -2,9 +2,9 @@
 
 ### Methods
 ```cpp
-static void init ( ) ;
+static void init ( const std::string & userID = "" ) ;
 ```
-> initialize the plugin instance.
+> initialize the fyber plugin.
 
 ```cpp
 static void setListener ( FyberListener * listener ) ;
@@ -19,22 +19,22 @@ static FyberListener * getListener ( ) ;
 ```cpp
 static void removeListener ( ) ;
 ```
-> Remove the listener, and can't listen to events anymore
+> Remove the listener, and can't listen to events anymore.
 
 ```cpp
 static void showOfferWall ( const std::string & placementId = "" ) ;
 ```
-> Presents the SponsorPay Mobile OfferWall as a child view controller of your own view controller.
+> Presents the Fyber Mobile OfferWall as a child view controller of your own view controller.
 
 ```cpp
 static void requestOffers ( const std::string & placementId = "" ) ;
 ```
-> Queries the server for BrandEngage offers availability.
+> Request the server for rewarded video availability.
 
 ```cpp
-static void showOffers ( ) ;
+static void showOffers ( const std::string & placementId = "" ) ;
 ```
-> Starts running an available engagement.
+> Show an available rewarded video.
 
 ```cpp
 static void requestInterstitial ( ) ;
@@ -49,7 +49,7 @@ static void showInterstitial ( ) ;
 ```cpp
 static void requestDeltaOfCoins ( const std::string & currencyId = "" ) ;
 ```
-> Fetches the amount of a given currency earned since the last time this method was
+> Fetches the amount of a given currency earned since the last time this method was 
 invoked for the current user ID / app ID combination.
 
 

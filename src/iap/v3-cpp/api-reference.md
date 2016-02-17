@@ -2,7 +2,7 @@
 
 ### Methods
 ```cpp
-static void init ( ) ;
+static void init ( const char * jsonconfig = 0 ) ;
 ```
 > Initialize SDKBox IAP
 
@@ -10,6 +10,11 @@ static void init ( ) ;
 static void setDebug ( bool debug ) ;
 ```
 > Enable/disable debug logging
+
+```cpp
+static std::vector <Product> getProducts ( ) ;
+```
+> Get all the products
 
 ```cpp
 static void purchase ( const std::string & name ) ;
@@ -36,10 +41,14 @@ static void removeListener ( ) ;
 ```
 > Remove listener for IAP
 
+```cpp
+static void enableUserSideVerification ( bool ) ;
+```
+
 
 ### Listeners
 ```cpp
-void onInitialized ( bool ok );
+void onInitialized ( bool success );
 ```
 > Called when IAP initialized
 

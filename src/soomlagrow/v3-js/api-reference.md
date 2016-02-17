@@ -4,40 +4,63 @@
 ```javascript
 sdkbox.PluginSoomlaGrow.init();
 ```
->  initialize the plugin instance.
+> initialize the plugin instance.
 
 ```javascript
-sdkbox.PluginSoomlaGrow.setListener(listener);
+sdkbox.PluginSoomlaGrow.setListener(lis);
 ```
-> Set listener to listen to GROW events
+> Set listener to listen for different events (list below)
 
 ```javascript
-sdkbox.PluginSoomlaGrow.refreshInsight()
+sdkbox.PluginSoomlaGrow.refreshInsights();
 ```
->  Refreshed Insights information from the server
+> Refreshed GROW's Insights information from the server
 
 ```javascript
-sdkbox.PluginSoomlaGrow.getUserInsightInfo()
+sdkbox.PluginSoomlaGrow.payRank(genre);
 ```
->  get user insights info
->  Note: the returned value may be empty
+> get pay rank
+
+```javascript
+sdkbox.PluginSoomlaGrow.purchaseLikelihood(dayquarter);
+```
+> purchase likelihood time
 
 
 ### Listeners
 ```javascript
-onHighWayInitialized()
+onGrowInitialized();
 ```
-
->  This event is triggered once the highway initialized.
+> This event is triggered once the highway initialized.
 
 ```javascript
-onHighWayConnected()
+onGrowConnected();
 ```
-
->  This event is triggered once the highway is connected to server.
+> This event is triggered once the highway is connected to server.
 
 ```javascript
-onHighWayDisconnected()
+onGrowDisconnected();
 ```
+> This event is triggered once the highway disconnect from the server.
 
->  This event is triggered once the highway disconnect from the server.
+```javascript
+onGrowInsightsInitialized();
+```
+> This event is triggered once the grow insight initialized.
+
+```javascript
+onInsightsRefreshFailed();
+```
+> This event is triggered once the grow insight refresh failed.
+
+```javascript
+onInsightsRefreshFinished();
+```
+> This event is triggered once the grow insight refresh finished.
+
+```javascript
+onInsightsRefreshStarted();
+```
+> This event is triggered once the grow insight refresh started.
+
+

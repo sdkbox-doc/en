@@ -7,7 +7,7 @@ sdkbox.PluginFlurryAnalytics.init();
 > init plugin, must be first invoke
 
 ```javascript
-sdkbox.PluginFlurryAnalytics.setAppVersion(version);
+sdkbox.PluginFlurryAnalytics.SDKBOX_DEPRECATED(setAppVersion(conststd::string&version);
 ```
 > Explicitly specifies the App Version that Flurry will use to group Analytics data.
 

@@ -35,12 +35,6 @@ pages:
                 - 'AdMob with C++': 'plugins/admob/v2-cpp.md'
                 - 'AdMob with Javascript': 'plugins/admob/v2-js.md'
                 - 'AdMob with Lua': 'plugins/admob/v2-lua.md'
-        - 'Ads': 'plugins/ads/index.md'
-        - '_Ads':
-            - 'Cocos2d-x v3.x':
-                - 'Ads with C++': 'plugins/ads/v3-cpp.md'
-                - 'Ads with Javascript': 'plugins/ads/v3-js.md'
-                - 'Ads with Lua': 'plugins/ads/v3-lua.md'
         - 'AgeCheq': 'plugins/agecheq/index.md'
         - '_AgeCheq':
             - 'Cocos2d-x v3.x':
@@ -181,7 +175,13 @@ pages:
                 - 'App Rating & Review with C++': 'plugins/review/v2-cpp.md'
                 - 'App Rating & Review with Javascript': 'plugins/review/v2-js.md'
                 - 'App Rating & Review with Lua': 'plugins/review/v2-lua.md'
-        - 'Share': 'plugins/share/index.md'
+        - 'SDKBOX Ads': 'plugins/sdkboxads/index.md'
+        - '_sdkboxAds':
+            - 'Cocos2d-x v3.x':
+                - 'Ads with C++': 'plugins/sdkboxads/v3-cpp.md'
+                - 'Ads with Javascript': 'plugins/sdkboxads/v3-js.md'
+                - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'        
+        - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':
                 - 'Share with C++': 'plugins/share/v3-cpp.md'
@@ -244,12 +244,10 @@ pages:
 - Unity:
    - 'In-App Purchase': 'unity/iap/index.md'
 - Unreal:
-   - 'Unreal Integration': 'unreal/index.md'
-   - Plugins:
-       - 'In-App Purchase': 'unreal/iap/index.md'
+   - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps:
    - 'Setup': 'liveops/index.md'
-   - 'Remote Config': 'liveops/remote-config.md'
+   - 'Remote Configuration': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
    - 'On-the-fly catalog management': 'liveops/catalog-management.md'
 - About: 'release-note.md'

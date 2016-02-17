@@ -17,7 +17,7 @@ Follow [this link](https://developers.facebook.com/docs/ios/ios9)
 
 ##Extra steps
 The following step assuming you already registered as a Facebook Developer
-And created a new __APP__ on Facebook
+And created a new __APP__ on Facebook, If not please follow up the __Setup Facebook App__ section below.
 
 ###Setup iOS
 * Configure your __APP__ following [iOS Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=ios)
@@ -81,6 +81,10 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
     "debug":true
 }
 ```
+### Setup Facebook App
+In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below - 
+[Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/02/setting-up-facebook-app-for-sdkbox-services/)
+
 
 <!--<<[sdkbox-config-encrypt.md]-->
 

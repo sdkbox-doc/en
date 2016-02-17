@@ -49,6 +49,8 @@ onVungleAdViewed(isComplete);
 > Vungle ad has been viewed.
 
 ```javascript
-onVungleAdReward(adName);
+onVungleAdReward(name);
 ```
-> find out which video is reward
+> Vungle reward ad has benviewed
+
+
