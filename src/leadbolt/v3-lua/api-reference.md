@@ -34,74 +34,69 @@ sdkbox.PluginLeadBolt:sync()
 ```lua
 sdkbox.PluginLeadBolt:event(name)
 ```
+> event
 
 ```lua
 sdkbox.PluginLeadBolt:event(name, floatValue)
 ```
-
-```lua
-sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode)
-```
-
-```lua
-sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode, instant)
-```
-
-```lua
-sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode, ref)
-```
+> event with float value
 
 ```lua
 sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode, ref, instant)
 ```
-
-```lua
-sdkbox.PluginLeadBolt:loadModule(placement)
-```
+> Transaction Events
 
 ```lua
 sdkbox.PluginLeadBolt:loadModule(placement, userData)
 ```
-
-```lua
-sdkbox.PluginLeadBolt:loadModuleToCache(placement)
-```
+> load module
 
 ```lua
 sdkbox.PluginLeadBolt:loadModuleToCache(placement, userData)
 ```
+> load module to cache
 
 ```lua
 sdkbox.PluginLeadBolt:destroyModule()
 ```
+> destroy module
 
 ```lua
 sdkbox.PluginLeadBolt:setCrashHandlerStatus(enable)
 ```
+> Crash Reporting
 
 ```lua
 sdkbox.PluginLeadBolt:crashWithName(crashName, description)
 ```
+> Crash Reporting
 
 ```lua
 sdkbox.PluginLeadBolt:fixAdOrientation(orientation)
 ```
+> force Ad Orientation
 
 ```lua
 sdkbox.PluginLeadBolt:isAdReady(placement)
 ```
+> is ad ready
 
 ```lua
 sdkbox.PluginLeadBolt:setAgeRange(range)
 ```
+> setAgeRange
+accepted values "13-17", "18-25", "26-35", "36-45", "46+"
 
 ```lua
 sdkbox.PluginLeadBolt:setGender(gender)
 ```
+> setGender
+accepted valued "Male", "Female"
 
 ```lua
 sdkbox.PluginLeadBolt:setFramework(f)
 ```
+> setFramework
 
 
 ### Listeners
