@@ -145,6 +145,16 @@ pages:
                 - 'Kochava with C++': 'plugins/kochava/v2-cpp.md'
                 - 'Kochava with Javascript': 'plugins/kochava/v2-js.md'
                 - 'Kochava with Lua': 'plugins/kochava/v2-lua.md'
+        - 'LeadBolt': 'plugins/leadbolt/index.md'
+        - '_LeadBolt':
+            - 'Cocos2d-x v3.x':
+                - 'LeadBolt with C++': 'plugins/leadbolt/v3-cpp.md'
+                - 'LeadBolt with Javascript': 'plugins/leadbolt/v3-js.md'
+                - 'LeadBolt with Lua': 'plugins/leadbolt/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'LeadBolt with C++': 'plugins/leadbolt/v2-cpp.md'
+                - 'LeadBolt with Javascript': 'plugins/leadbolt/v2-js.md'
+                - 'LeadBolt with Lua': 'plugins/leadbolt/v2-lua.md'
         - 'Leaderboard': 'plugins/leaderboard/index.md'
         - '_Leaderboard':
             - 'Cocos2d-x v3.x':
