@@ -228,6 +228,16 @@
         
             
 <li >
+    <a href="../leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../leaderboard/">Leaderboard</a>
 </li>
 
@@ -460,9 +470,9 @@
 <h1>SdkboxAds Plugin</h1>
 
 <h2 id="overview">Overview</h2>
-<p>While Sdkbox includes out-of-the-box support for many ad networks, these can be managed using Sdkbox’s mediation software called SdkboxAds. 
-It includes support for playing ads and rewarded contents, as well as the definition of placements.
-Before digging deeper into its internals, some concepts must be clarified.</p>
+<p>While Sdkbox includes out-of-the-box support for many ad networks, they can be managed in a container plugin called SdkboxAds. It is like a <strong>manager</strong> of a collection of different ad plugins, while each ad plugin connects to its own backend independentely. </p>
+<p><img alt="" src="./../../imgs/sdkbox-ads-1.jpg" /></p>
+<p>SdkboxAds is an alternative method compared to calling any ad networks directly. SdkboxAds includes support for playing ads and rewarded contents, as well as the definition of placements. Before digging deeper into its internals, some concepts must be clarified.</p>
 <h3 id="adunit">AdUnit</h3>
 <p>An AdUnit will be any plugin which can be mediated by SdkboxAds. AdColony, Vungle or Chartboost are examples of AdUnits.
 AdUnits will be responsible for wrapping already existing plugins and exposing all of them through a common exposed interface. Yes, you will be able to manage all AdUnits with the same codebase.
