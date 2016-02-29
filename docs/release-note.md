@@ -1,10 +1,21 @@
 #Release Notes
 ---
 
+2.1.0 Release Notes
+===
+##Highlight
+* LeadBolt plugin
+
+##Bug
+* sdkbox update command will not overwrite sdkbox_config.json
+* Fix tune plugin not sending correct measure event
+* Fix InMobi can't preload ads
+
+
 2.0.0 Release Notes
 ===
 ##Highlight
-* SDKBOX LiveOps feature which user can update their SDKBOX config files 
+* SDKBOX LiveOps feature which user can update their SDKBOX config files
 * Admob plugin
 * Share plugin with twitter support
 * Update Adcolony, Vungle and Appodeal
@@ -21,11 +32,11 @@
 1.5.2 Release Notes
 ===
 ##Highlight
-* Include Google Play Services SDK for needed plugins. No need to install it manually anymore. 
+* Include Google Play Services SDK for needed plugins. No need to install it manually anymore.
 * Support the coming Cocos 3.10 release
 
 ##Bugfix
-* 
+*
 
 1.5.1 Release Notes
 ===
