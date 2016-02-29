@@ -12,4 +12,4 @@ The above frameworks depend upon a large number of other frameworks. You also ne
 
 > AdSupport.framework
 
-> Also, *all* frameworks needed by each AdUnit you will be adding to SdkboxAds.
+Also, *all* frameworks needed by each AdUnit you will be adding to SdkboxAds.
