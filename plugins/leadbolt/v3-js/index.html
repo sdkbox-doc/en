@@ -659,57 +659,83 @@ plugin.init();
 <pre><code class="javascript">sdkbox.PluginLeadBolt.event(name);
 </code></pre>
 
+<blockquote>
+<p>event</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.event(name, floatValue);
 </code></pre>
 
-<pre><code class="javascript">sdkbox.PluginLeadBolt.transaction(name, floatValue, currencyCode);
-</code></pre>
-
-<pre><code class="javascript">sdkbox.PluginLeadBolt.transaction(name, floatValue, currencyCode, instant);
-</code></pre>
-
-<pre><code class="javascript">sdkbox.PluginLeadBolt.transaction(name, floatValue, currencyCode, ref);
-</code></pre>
-
+<blockquote>
+<p>event with float value</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.transaction(name, floatValue, currencyCode, ref, instant);
 </code></pre>
 
-<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModule(placement);
-</code></pre>
-
+<blockquote>
+<p>Transaction Events</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.loadModule(placement, userData);
 </code></pre>
 
-<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModuleToCache(placement);
-</code></pre>
-
+<blockquote>
+<p>load module</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.loadModuleToCache(placement, userData);
 </code></pre>
 
+<blockquote>
+<p>load module to cache</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.destroyModule();
 </code></pre>
 
+<blockquote>
+<p>destroy module</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setCrashHandlerStatus(enable);
 </code></pre>
 
+<blockquote>
+<p>Crash Reporting</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.crashWithName(crashName, description);
 </code></pre>
 
+<blockquote>
+<p>Crash Reporting</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.fixAdOrientation(orientation);
 </code></pre>
 
+<blockquote>
+<p>force Ad Orientation</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.isAdReady(placement);
 </code></pre>
 
+<blockquote>
+<p>is ad ready</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setAgeRange(range);
 </code></pre>
 
+<blockquote>
+<p>setAgeRange
+accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setGender(gender);
 </code></pre>
 
+<blockquote>
+<p>setGender
+accepted valued "Male", "Female"</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setFramework(f);
 </code></pre>
 
+<blockquote>
+<p>setFramework</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onModuleLoaded(placement);
 </code></pre>
