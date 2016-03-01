@@ -549,11 +549,31 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the LeadBolt configuration, you need to replace <code>&lt;api_key&gt;</code>, <code>&lt;name&gt;</code> item with your specific <a href="http://leadbolt.com/">leadbolt</a> account information.</p>
-<pre><code class="json">&quot;LeadBolt&quot;:{
-    &quot;api_key&quot;:&quot;8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c&quot;,
-    &quot;ads&quot;:{
-        &quot;ad1&quot;:{
-            &quot;name&quot;:&quot;inapp&quot;
+<pre><code class="json">{
+    &quot;ios&quot;: {
+        &quot;LeadBolt&quot;: {
+            &quot;api_key&quot;: &quot;8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c&quot;,
+            &quot;ads&quot;: {
+                &quot;directdeal&quot;: {
+                    &quot;name&quot;: &quot;inapp&quot;
+                },
+                &quot;rewardedvideo&quot;: {
+                    &quot;name&quot;: &quot;video&quot;
+                }
+            }
+        }
+    },
+    &quot;android&quot;: {
+        &quot;LeadBolt&quot;: {
+            &quot;api_key&quot;: &quot;is2byYEVjbXiFjVjaYIt6sM4aEIqMWZ3&quot;,
+            &quot;ads&quot;: {
+                &quot;directdeal&quot;: {
+                    &quot;name&quot;: &quot;inapp&quot;
+                },
+                &quot;rewardedvideo&quot;: {
+                    &quot;name&quot;: &quot;video&quot;
+                }
+            }
         }
     }
 }
@@ -632,6 +652,24 @@ plugin.init();
 <blockquote>
 <p>Set listener to listen for leadbolt events</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModuleToCache(placement, userData);
+</code></pre>
+
+<blockquote>
+<p>Cache Ad with name @placement (referenced from your json config file)</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.isAdReady(placement);
+</code></pre>
+
+<blockquote>
+<p>Check if Ad with name @placement (referenced from your json config file) is available for display</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModule(placement, userData);
+</code></pre>
+
+<blockquote>
+<p>Load/Display Ad with name @placement (referenced from your json config file)</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.startSession(apiKey);
 </code></pre>
 
@@ -674,18 +712,6 @@ plugin.init();
 <blockquote>
 <p>Transaction Events</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModule(placement, userData);
-</code></pre>
-
-<blockquote>
-<p>load module</p>
-</blockquote>
-<pre><code class="javascript">sdkbox.PluginLeadBolt.loadModuleToCache(placement, userData);
-</code></pre>
-
-<blockquote>
-<p>load module to cache</p>
-</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.destroyModule();
 </code></pre>
 
@@ -710,17 +736,12 @@ plugin.init();
 <blockquote>
 <p>force Ad Orientation</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginLeadBolt.isAdReady(placement);
-</code></pre>
-
-<blockquote>
-<p>is ad ready</p>
-</blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setAgeRange(range);
 </code></pre>
 
 <blockquote>
 <p>setAgeRange
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setGender(gender);
@@ -728,6 +749,7 @@ accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
 
 <blockquote>
 <p>setGender
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.setFramework(f);
@@ -771,7 +793,7 @@ accepted valued "Male", "Female"</p>
 </code></pre>
 
 <blockquote>
-<p>Notifies the delegate that the module has finished</p>
+<p>Notifies the delegate that the rewarded video has finished playing.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -966,9 +988,6 @@ import com.sdkbox.plugin.SDKBox;
 -keep public class com.sdkbox.** { *; }
 -dontwarn com.sdkbox.**
 
-#twitter
--keep public com.twitter.sdk.android.** { *; }
--keep public io.fabric.sdk.android.** { *; }
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>

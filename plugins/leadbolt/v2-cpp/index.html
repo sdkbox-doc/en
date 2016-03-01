@@ -461,7 +461,11 @@
         
             <li><a href="#initialize-leadbolt">Initialize LeadBolt</a></li>
         
-            <li><a href="#show-ad">show ad</a></li>
+            <li><a href="#cache-ad">Cache Ad</a></li>
+        
+            <li><a href="#loaddisplay-ad">Load/Display Ad</a></li>
+        
+            <li><a href="#check-if-ad-is-available">Check if Ad is available</a></li>
         
             <li><a href="#catch-leadbolt-events-optional">Catch LeadBolt events (optional)</a></li>
         
@@ -547,11 +551,31 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the LeadBolt configuration, you need to replace <code>&lt;api_key&gt;</code>, <code>&lt;name&gt;</code> item with your specific <a href="http://leadbolt.com/">leadbolt</a> account information.</p>
-<pre><code class="json">&quot;LeadBolt&quot;:{
-    &quot;api_key&quot;:&quot;8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c&quot;,
-    &quot;ads&quot;:{
-        &quot;ad1&quot;:{
-            &quot;name&quot;:&quot;inapp&quot;
+<pre><code class="json">{
+    &quot;ios&quot;: {
+        &quot;LeadBolt&quot;: {
+            &quot;api_key&quot;: &quot;8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c&quot;,
+            &quot;ads&quot;: {
+                &quot;directdeal&quot;: {
+                    &quot;name&quot;: &quot;inapp&quot;
+                },
+                &quot;rewardedvideo&quot;: {
+                    &quot;name&quot;: &quot;video&quot;
+                }
+            }
+        }
+    },
+    &quot;android&quot;: {
+        &quot;LeadBolt&quot;: {
+            &quot;api_key&quot;: &quot;is2byYEVjbXiFjVjaYIt6sM4aEIqMWZ3&quot;,
+            &quot;ads&quot;: {
+                &quot;directdeal&quot;: {
+                    &quot;name&quot;: &quot;inapp&quot;
+                },
+                &quot;rewardedvideo&quot;: {
+                    &quot;name&quot;: &quot;video&quot;
+                }
+            }
         }
     }
 }
@@ -569,13 +593,26 @@ AppDelegate::applicationDidFinishLaunching()
 }
 </code></pre>
 
-<h3 id="show-ad">show ad</h3>
-<p>After initialization you can begin to use the LeadBolt functionality:</p>
-<pre><code class="cpp">sdkbox::PluginLeadBolt::loadModule(&quot;adname&quot;);
+<h3 id="cache-ad">Cache Ad</h3>
+<pre><code class="cpp">sdkbox::PluginLeadbolt::loadModuleToCache(&quot;directdeal&quot;);
+sdkbox::PluginLeadbolt::loadModuleToCache(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<blockquote>
+<p>Note: Leadbolt ads are cached before use for better user experience. Please allow time for ads to be cached.  Once an ad is cached, you will be able to see the ad. While caching is in progress, ads are not available for display.</p>
+</blockquote>
+<h3 id="loaddisplay-ad">Load/Display Ad</h3>
+<pre><code class="cpp">sdkbox::PluginLeadbolt::loadModule(&quot;directdeal&quot;);
+sdkbox::PluginLeadbolt::loadModule(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<h3 id="check-if-ad-is-available">Check if Ad is available</h3>
+<pre><code class="cpp">sdkbox::PluginLeadbolt::isAdReady(&quot;directdeal&quot;);
+sdkbox::PluginLeadbolt::isAdReady(&quot;rewardedvideo&quot;);
 </code></pre>
 
 <h3 id="catch-leadbolt-events-optional">Catch LeadBolt events (optional)</h3>
-<p>This allows you to catch the <code>LeadBolt</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
+<p>This allows you to catch the LeadBolt ad events so that you can perform operations based upon responses. With rewarded video, the onMediaFinished event allows you to reward players for watching the video.</p>
 <ul>
 <li>Allow your class to extend <code>sdkbox::LeadBoltListener</code></li>
 </ul>
@@ -584,24 +621,12 @@ AppDelegate::applicationDidFinishLaunching()
 class LBListener : public sdkbox::LeadBoltListener {
 public:
 
-    virtual void onModuleLoaded(const std::string&amp; placement) {
-        CCLOG(&quot;onModuleLoaded placement:%s&quot;, placement.c_str());
-    }
-    virtual void onModuleClosed(const std::string&amp; placement) {
-        CCLOG(&quot;onModuleClosed placement:%s&quot;, placement.c_str());
-    }
-    virtual void onModuleClicked(const std::string&amp; placement) {
-        CCLOG(&quot;onModuleClicked placement:%s&quot;, placement.c_str());
-    }
-    virtual void onModuleCached(const std::string&amp; placement) {
-        CCLOG(&quot;onModuleCached placement:%s&quot;, placement.c_str());
-    }
-    virtual void onModuleFailed(const std::string&amp; placement, const std::string&amp; error, bool iscached) {
-        CCLOG(&quot;onModuleFailed placement:%s, error:%s, cached:%d&quot;, placement.c_str(), error.c_str(), iscached);
-    }
-    virtual void onMediaFinished(bool viewCompleted) {
-        CCLOG(&quot;onMediaFinished viewCompleted:%d&quot;, viewCompleted);
-    }
+    void onModuleLoaded(const std::string&amp; placement);
+    void onModuleClosed(const std::string&amp; placement);
+    void onModuleClicked(const std::string&amp; placement);
+    void onModuleCached(const std::string&amp; placement);
+    void onModuleFailed(const std::string&amp; placement, const std::string&amp; error, bool iscached);
+    void onMediaFinished(bool viewCompleted);
 
 };
 </code></pre>
@@ -637,6 +662,26 @@ public:
 
 <blockquote>
 <p>Remove the listener, and can't listen to events anymore</p>
+</blockquote>
+<pre><code class="cpp">static void loadModuleToCache ( const std::string &amp; placement ,
+                                const std::string &amp; userData = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>Cache Ad with name @placement (referenced from your json config file)</p>
+</blockquote>
+<pre><code class="cpp">static bool isAdReady ( const std::string &amp; placement ) ;
+</code></pre>
+
+<blockquote>
+<p>Check if Ad with name @placement (referenced from your json config file) is available for display</p>
+</blockquote>
+<pre><code class="cpp">static void loadModule ( const std::string &amp; placement ,
+                         const std::string &amp; userData = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>Load/Display Ad with name @placement (referenced from your json config file)</p>
 </blockquote>
 <pre><code class="cpp">static void startSession ( const std::string &amp; apiKey ) ;
 </code></pre>
@@ -684,20 +729,6 @@ public:
 <blockquote>
 <p>Transaction Events</p>
 </blockquote>
-<pre><code class="cpp">static void loadModule ( const std::string &amp; placement ,
-                         const std::string &amp; userData = &quot;&quot; ) ;
-</code></pre>
-
-<blockquote>
-<p>load module</p>
-</blockquote>
-<pre><code class="cpp">static void loadModuleToCache ( const std::string &amp; placement ,
-                                const std::string &amp; userData = &quot;&quot; ) ;
-</code></pre>
-
-<blockquote>
-<p>load module to cache</p>
-</blockquote>
 <pre><code class="cpp">static void destroyModule ( ) ;
 </code></pre>
 
@@ -723,17 +754,12 @@ public:
 <blockquote>
 <p>force Ad Orientation</p>
 </blockquote>
-<pre><code class="cpp">static bool isAdReady ( const std::string &amp; placement ) ;
-</code></pre>
-
-<blockquote>
-<p>is ad ready</p>
-</blockquote>
 <pre><code class="cpp">static void setAgeRange ( const std::string &amp; range ) ;
 </code></pre>
 
 <blockquote>
 <p>setAgeRange
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
 </blockquote>
 <pre><code class="cpp">static void setGender ( const std::string &amp; gender ) ;
@@ -741,6 +767,7 @@ accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
 
 <blockquote>
 <p>setGender
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"</p>
 </blockquote>
 <pre><code class="cpp">static void setFramework ( const std::string &amp; f ) ;
@@ -786,7 +813,7 @@ accepted valued "Male", "Female"</p>
 </code></pre>
 
 <blockquote>
-<p>Notifies the delegate that the module has finished</p>
+<p>Notifies the delegate that the rewarded video has finished playing.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -971,9 +998,6 @@ import com.sdkbox.plugin.SDKBox;
 -keep public class com.sdkbox.** { *; }
 -dontwarn com.sdkbox.**
 
-#twitter
--keep public com.twitter.sdk.android.** { *; }
--keep public io.fabric.sdk.android.** { *; }
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
