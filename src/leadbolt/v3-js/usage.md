@@ -21,14 +21,23 @@ recommend to do this in the `app.js`. Example:
 sdkbox.PluginLeadBolt.init();
 ```
 
-### leadbolt
-After initialization you can begin to use the LeadBolt functionality. Use `leadbolt` wherever you want from your code:
+### Cache Ad
+>Note: Leadbolt ads are cached before use for better user experience. Please allow time for ads to be cached.  Once an ad is cached, you will be able to see the ad. While caching is in progress, ads are not available for display.
 ```javascript
-if (sdkbox.PluginLeadBolt.isAdReady("adname")) {
-    sdkbox.PluginLeadBolt.loadModule("adname");
-} else {
-    console.log("ad is not ready")
-}
+sdkbox.PluginLeadbolt.loadModuleToCache("directdeal");
+sdkbox.PluginLeadbolt.loadModuleToCache("rewardedvideo");
+```
+
+### Load/Display Ad
+```javascript
+sdkbox.PluginLeadbolt.loadModule("directdeal");
+sdkbox.PluginLeadbolt.loadModule("rewardedvideo");
+```
+
+### Check if Ad is available
+```javascript
+sdkbox.PluginLeadbolt.isAdReady("directdeal");
+sdkbox.PluginLeadbolt.isAdReady("rewardedvideo");
 ```
 
 ### Catch LeadBolt events (optional)
@@ -36,24 +45,12 @@ This allows you to catch the `LeadBolt` events so that you can perform operation
 ```javascript
 var plugin = sdkbox.PluginLeadBolt
 plugin.setListener({
-  onModuleLoaded: function(placement) {
-    console.log("onModuleLoaded:" + placement)
-  },
-  onModuleClosed: function(placement) {
-    console.log("onModuleClosed:" + placement)
-  },
-  onModuleClicked: function(placement) {
-    console.log("onModuleClicked:" + placement)
-  },
-  onModuleCached: function(placement) {
-    console.log("onModuleCached:" + placement)
-  },
-  onModuleFailed: function(placement, error, cached) {
-    console.log("onModuleFailed:" + placement + " error:" + error + " cached:" + cached)
-  },
-  onMediaFinished: function(viewCompleted) {
-    console.log("onMediaFinished:" + viewCompleted)
-  }
+  onModuleLoaded: function(placement) {},
+  onModuleClosed: function(placement) {},
+  onModuleClicked: function(placement) {},
+  onModuleCached: function(placement) {},
+  onModuleFailed: function(placement, error, cached) {},
+  onMediaFinished: function(viewCompleted) {}
 })
 plugin.init();
 ```
