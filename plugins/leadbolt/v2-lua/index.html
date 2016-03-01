@@ -461,7 +461,11 @@
         
             <li><a href="#initialize-leadbolt">Initialize LeadBolt</a></li>
         
-            <li><a href="#leadbolt">leadbolt</a></li>
+            <li><a href="#cache-ad">Cache Ad</a></li>
+        
+            <li><a href="#loaddisplay-ad">Load/Display Ad</a></li>
+        
+            <li><a href="#check-if-ad-is-available">Check if Ad is available</a></li>
         
             <li><a href="#catch-leadbolt-events-optional">Catch LeadBolt events (optional)</a></li>
         
@@ -585,23 +589,39 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <pre><code class="lua">sdkbox.PluginLeadBolt:init()
 </code></pre>
 
-<h3 id="leadbolt">leadbolt</h3>
-<p>After initialization you can begin to use the LeadBolt functionality:</p>
-<pre><code class="lua">if plugin:isAdReady('ad1') then
-    plugin:loadModule('ad1')
+<h3 id="cache-ad">Cache Ad</h3>
+<blockquote>
+<p>NOTE: Leadbolt ads are cached before use for better user experience. Please allow time for ads to be cached.  Once an ad is cached, you will be able to see the ad. While caching is in progress, ads are not available for display.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginLeadbolt:loadModuleToCache(&quot;directdeal&quot;);
+sdkbox.PluginLeadbolt:loadModuleToCache(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<h3 id="loaddisplay-ad">Load/Display Ad</h3>
+<pre><code class="lua">sdkbox.PluginLeadbolt:loadModule(&quot;directdeal&quot;);
+sdkbox.PluginLeadbolt:loadModule(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<h3 id="check-if-ad-is-available">Check if Ad is available</h3>
+<pre><code class="lua">if plugin:isAdReady('directdeal') then
+    plugin:loadModule('directdeal')
 else
     print('leadbolt ad is not ready')
 end
 </code></pre>
 
 <h3 id="catch-leadbolt-events-optional">Catch LeadBolt events (optional)</h3>
-<p>This allows you to catch the <code>LeadBolt</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
-<pre><code class="lua">local plugin = sdkbox.PluginLeadBolt
-plugin:setListener(function(args)
+<p>This allows you to catch the LeadBolt ad events so that you can perform operations based upon responses. With rewarded video, the onMediaFinished event allows you to reward players for watching the video.</p>
+<pre><code class="lua">sdkbox.PluginLeadBolt:setListener(function(args)
     local event = args.event
-    dump(args, &quot;leadbolt listener info:&quot;)
+    if &quot;onModuleLoaded&quot; == event then
+    elif &quot;onModuleClosed&quot; == event then
+    elif &quot;onModuleClicked&quot; == event then
+    elif &quot;onModuleCached&quot; == event then
+    elif &quot;onModuleFailed&quot; == event then
+    elif &quot;onMediaFinished&quot; == event then
+    end
 end)
-plugin:init()
 </code></pre>
 
 <h2 id="api-reference">API Reference</h2>

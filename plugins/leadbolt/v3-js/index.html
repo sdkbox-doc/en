@@ -463,7 +463,11 @@
         
             <li><a href="#initialize-leadbolt">Initialize LeadBolt</a></li>
         
-            <li><a href="#leadbolt">leadbolt</a></li>
+            <li><a href="#cache-ad">Cache Ad</a></li>
+        
+            <li><a href="#loaddisplay-ad">Load/Display Ad</a></li>
+        
+            <li><a href="#check-if-ad-is-available">Check if Ad is available</a></li>
         
             <li><a href="#catch-leadbolt-events-optional">Catch LeadBolt events (optional)</a></li>
         
@@ -603,37 +607,34 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <pre><code class="javascript">sdkbox.PluginLeadBolt.init();
 </code></pre>
 
-<h3 id="leadbolt">leadbolt</h3>
-<p>After initialization you can begin to use the LeadBolt functionality. Use <code>leadbolt</code> wherever you want from your code:</p>
-<pre><code class="javascript">if (sdkbox.PluginLeadBolt.isAdReady(&quot;adname&quot;)) {
-    sdkbox.PluginLeadBolt.loadModule(&quot;adname&quot;);
-} else {
-    console.log(&quot;ad is not ready&quot;)
-}
+<h3 id="cache-ad">Cache Ad</h3>
+<blockquote>
+<p>Note: Leadbolt ads are cached before use for better user experience. Please allow time for ads to be cached.  Once an ad is cached, you will be able to see the ad. While caching is in progress, ads are not available for display.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadbolt.loadModuleToCache(&quot;directdeal&quot;);
+sdkbox.PluginLeadbolt.loadModuleToCache(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<h3 id="loaddisplay-ad">Load/Display Ad</h3>
+<pre><code class="javascript">sdkbox.PluginLeadbolt.loadModule(&quot;directdeal&quot;);
+sdkbox.PluginLeadbolt.loadModule(&quot;rewardedvideo&quot;);
+</code></pre>
+
+<h3 id="check-if-ad-is-available">Check if Ad is available</h3>
+<pre><code class="javascript">sdkbox.PluginLeadbolt.isAdReady(&quot;directdeal&quot;);
+sdkbox.PluginLeadbolt.isAdReady(&quot;rewardedvideo&quot;);
 </code></pre>
 
 <h3 id="catch-leadbolt-events-optional">Catch LeadBolt events (optional)</h3>
 <p>This allows you to catch the <code>LeadBolt</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="javascript">var plugin = sdkbox.PluginLeadBolt
 plugin.setListener({
-  onModuleLoaded: function(placement) {
-    console.log(&quot;onModuleLoaded:&quot; + placement)
-  },
-  onModuleClosed: function(placement) {
-    console.log(&quot;onModuleClosed:&quot; + placement)
-  },
-  onModuleClicked: function(placement) {
-    console.log(&quot;onModuleClicked:&quot; + placement)
-  },
-  onModuleCached: function(placement) {
-    console.log(&quot;onModuleCached:&quot; + placement)
-  },
-  onModuleFailed: function(placement, error, cached) {
-    console.log(&quot;onModuleFailed:&quot; + placement + &quot; error:&quot; + error + &quot; cached:&quot; + cached)
-  },
-  onMediaFinished: function(viewCompleted) {
-    console.log(&quot;onMediaFinished:&quot; + viewCompleted)
-  }
+  onModuleLoaded: function(placement) {},
+  onModuleClosed: function(placement) {},
+  onModuleClicked: function(placement) {},
+  onModuleCached: function(placement) {},
+  onModuleFailed: function(placement, error, cached) {},
+  onMediaFinished: function(viewCompleted) {}
 })
 plugin.init();
 </code></pre>
