@@ -42,6 +42,16 @@ sdkbox.PluginAdMob:isAvailable(name)
 ```
 > check whether ad available with @name
 
+```lua
+sdkbox.PluginAdMob:getCurrBannerWidth()
+```
+> get width of current banner
+
+```lua
+sdkbox.PluginAdMob:getCurrBannerHeight()
+```
+> get height of current banner
+
 
 ### Listeners
 ```lua

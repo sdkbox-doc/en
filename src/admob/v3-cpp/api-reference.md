@@ -52,6 +52,16 @@ static bool isAvailable ( const std::string & name ) ;
 ```
 > check whether ad available with @name
 
+```cpp
+static int getCurrBannerWidth ( ) ;
+```
+> get width of current banner
+
+```cpp
+static int getCurrBannerHeight ( ) ;
+```
+> get height of current banner
+
 
 ### Listeners
 ```cpp

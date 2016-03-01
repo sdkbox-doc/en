@@ -12,6 +12,21 @@ sdkbox.PluginLeadBolt:setListener(listener)
 > Set listener to listen for leadbolt events
 
 ```lua
+sdkbox.PluginLeadBolt:loadModuleToCache(placement, userData)
+```
+> Cache Ad with name @placement (referenced from your json config file)
+
+```lua
+sdkbox.PluginLeadBolt:isAdReady(placement)
+```
+> Check if Ad with name @placement (referenced from your json config file) is available for display
+
+```lua
+sdkbox.PluginLeadBolt:loadModule(placement, userData)
+```
+> Load/Display Ad with name @placement (referenced from your json config file)
+
+```lua
 sdkbox.PluginLeadBolt:startSession(apiKey)
 ```
 > start session
@@ -47,16 +62,6 @@ sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode, ref, instant)
 > Transaction Events
 
 ```lua
-sdkbox.PluginLeadBolt:loadModule(placement, userData)
-```
-> load module
-
-```lua
-sdkbox.PluginLeadBolt:loadModuleToCache(placement, userData)
-```
-> load module to cache
-
-```lua
 sdkbox.PluginLeadBolt:destroyModule()
 ```
 > destroy module
@@ -77,20 +82,17 @@ sdkbox.PluginLeadBolt:fixAdOrientation(orientation)
 > force Ad Orientation
 
 ```lua
-sdkbox.PluginLeadBolt:isAdReady(placement)
-```
-> is ad ready
-
-```lua
 sdkbox.PluginLeadBolt:setAgeRange(range)
 ```
 > setAgeRange
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"
 
 ```lua
 sdkbox.PluginLeadBolt:setGender(gender)
 ```
 > setGender
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"
 
 ```lua
@@ -128,6 +130,6 @@ onModuleFailed(placement, error, iscached)
 ```lua
 onMediaFinished(viewCompleted)
 ```
-> Notifies the delegate that the module has finished
+> Notifies the delegate that the rewarded video has finished playing.
 
 

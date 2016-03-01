@@ -20,13 +20,33 @@ SDKBOX Installer will automatically inject a sample configuration to your `res/s
 
 Here is an example of the LeadBolt configuration, you need to replace `<api_key>`, `<name>` item with your specific [leadbolt](http://leadbolt.com/) account information.
 ```json
-"LeadBolt":{
-    "api_key":"8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c",
-    "ads":{
-        "ad1":{
-            "name":"inapp"
-        }
-    }
+{
+	"ios": {
+		"LeadBolt": {
+			"api_key": "8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c",
+			"ads": {
+				"directdeal": {
+					"name": "inapp"
+				},
+				"rewardedvideo": {
+					"name": "video"
+				}
+			}
+		}
+	},
+	"android": {
+		"LeadBolt": {
+			"api_key": "is2byYEVjbXiFjVjaYIt6sM4aEIqMWZ3",
+			"ads": {
+				"directdeal": {
+					"name": "inapp"
+				},
+				"rewardedvideo": {
+					"name": "video"
+				}
+			}
+		}
+	}
 }
 ```
 

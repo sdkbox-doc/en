@@ -22,6 +22,23 @@ static void removeListener ( ) ;
 > Remove the listener, and can't listen to events anymore
 
 ```cpp
+static void loadModuleToCache ( const std::string & placement ,
+                                const std::string & userData = "" ) ;
+```
+> Cache Ad with name @placement (referenced from your json config file)
+
+```cpp
+static bool isAdReady ( const std::string & placement ) ;
+```
+> Check if Ad with name @placement (referenced from your json config file) is available for display
+
+```cpp
+static void loadModule ( const std::string & placement ,
+                         const std::string & userData = "" ) ;
+```
+> Load/Display Ad with name @placement (referenced from your json config file)
+
+```cpp
 static void startSession ( const std::string & apiKey ) ;
 ```
 > start session
@@ -61,18 +78,6 @@ static void transaction ( const std::string & name ,
 > Transaction Events
 
 ```cpp
-static void loadModule ( const std::string & placement ,
-                         const std::string & userData = "" ) ;
-```
-> load module
-
-```cpp
-static void loadModuleToCache ( const std::string & placement ,
-                                const std::string & userData = "" ) ;
-```
-> load module to cache
-
-```cpp
 static void destroyModule ( ) ;
 ```
 > destroy module
@@ -94,20 +99,17 @@ static void fixAdOrientation ( AdOrientation orientation ) ;
 > force Ad Orientation
 
 ```cpp
-static bool isAdReady ( const std::string & placement ) ;
-```
-> is ad ready
-
-```cpp
 static void setAgeRange ( const std::string & range ) ;
 ```
 > setAgeRange
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"
 
 ```cpp
 static void setGender ( const std::string & gender ) ;
 ```
 > setGender
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"
 
 ```cpp
@@ -147,6 +149,6 @@ void onModuleFailed ( const std::string & placement ,
 ```cpp
 void onMediaFinished ( bool viewCompleted ) {
 ```
-> Notifies the delegate that the module has finished
+> Notifies the delegate that the rewarded video has finished playing.
 
 

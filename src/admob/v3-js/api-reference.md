@@ -42,6 +42,16 @@ sdkbox.PluginAdMob.isAvailable(name);
 ```
 > check whether ad available with @name
 
+```javascript
+sdkbox.PluginAdMob.getCurrBannerWidth();
+```
+> get width of current banner
+
+```javascript
+sdkbox.PluginAdMob.getCurrBannerHeight();
+```
+> get height of current banner
+
 
 ### Listeners
 ```javascript
