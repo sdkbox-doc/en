@@ -55,6 +55,16 @@ pages:
                 - 'Appodeal with C++': 'plugins/appodeal/v2-cpp.md'
                 - 'Appodeal with Javascript': 'plugins/appodeal/v2-js.md'
                 - 'Appodeal with Lua': 'plugins/appodeal/v2-lua.md'
+        - 'Amazon': 'plugins/amazon/index.md'
+        - '_Amazon':
+            - 'Cocos2d-x v3.x':
+                - 'Amazon with C++': 'plugins/amazon/v3-cpp.md'
+                - 'Amazon with Javascript': 'plugins/amazon/v3-js.md'
+                - 'Amazon with Lua': 'plugins/amazon/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Amazon with C++': 'plugins/amazon/v2-cpp.md'
+                - 'Amazon with Javascript': 'plugins/amazon/v2-js.md'
+                - 'Amazon with Lua': 'plugins/amazon/v2-lua.md'
         - 'Bee7': 'plugins/bee7/index.md'
         - '_Bee7':
             - 'Cocos2d-x v3.x':
@@ -190,7 +200,7 @@ pages:
             - 'Cocos2d-x v3.x':
                 - 'Ads with C++': 'plugins/sdkboxads/v3-cpp.md'
                 - 'Ads with Javascript': 'plugins/sdkboxads/v3-js.md'
-                - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'        
+                - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'
         - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':
