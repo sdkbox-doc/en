@@ -27,79 +27,13 @@ sdkbox.PluginLeadBolt:loadModule(placement, userData)
 > Load/Display Ad with name @placement (referenced from your json config file)
 
 ```lua
-sdkbox.PluginLeadBolt:startSession(apiKey)
-```
-> start session
-
-```lua
-sdkbox.PluginLeadBolt:closeSession()
-```
-> close session
-
-```lua
-sdkbox.PluginLeadBolt:setSyncDataPeriodInSecond(periodInSecond)
-```
-> sync data second, just valid on ios
-
-```lua
-sdkbox.PluginLeadBolt:sync()
-```
-> sync data
-
-```lua
-sdkbox.PluginLeadBolt:event(name)
-```
-> event
-
-```lua
-sdkbox.PluginLeadBolt:event(name, floatValue)
-```
-> event with float value
-
-```lua
-sdkbox.PluginLeadBolt:transaction(name, floatValue, currencyCode, ref, instant)
-```
-> Transaction Events
-
-```lua
-sdkbox.PluginLeadBolt:destroyModule()
-```
-> destroy module
-
-```lua
-sdkbox.PluginLeadBolt:setCrashHandlerStatus(enable)
-```
-> Crash Reporting
-
-```lua
-sdkbox.PluginLeadBolt:crashWithName(crashName, description)
-```
-> Crash Reporting
-
-```lua
-sdkbox.PluginLeadBolt:fixAdOrientation(orientation)
-```
-> force Ad Orientation
-
-```lua
 sdkbox.PluginLeadBolt:setAgeRange(range)
-```
-> setAgeRange
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
-accepted values "13-17", "18-25", "26-35", "36-45", "46+"
-
-```lua
 sdkbox.PluginLeadBolt:setGender(gender)
 ```
-> setGender
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
-accepted valued "Male", "Female"
-
-```lua
-sdkbox.PluginLeadBolt:setFramework(f)
-```
-> setFramework
-
+>You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+Allowed values:
+- for age range are: "13-17", "18-25", "26-35", "36-45", "46+"
+- for gender are: "Male", "Female"
 
 ### Listeners
 ```lua
@@ -131,5 +65,3 @@ onModuleFailed(placement, error, iscached)
 onMediaFinished(viewCompleted)
 ```
 > Notifies the delegate that the rewarded video has finished playing.
-
-
