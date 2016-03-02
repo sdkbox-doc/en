@@ -651,7 +651,7 @@ public:
 <blockquote>
 <p>Set listener to listen for leadbolt events</p>
 </blockquote>
-<pre><code class="cpp">static LeadBoltListener * getListener ( ) ;
+<pre><code class="cpp">static LeadBoltListener* getListener ( ) ;
 </code></pre>
 
 <blockquote>
@@ -683,98 +683,15 @@ public:
 <blockquote>
 <p>Load/Display Ad with name @placement (referenced from your json config file)</p>
 </blockquote>
-<pre><code class="cpp">static void startSession ( const std::string &amp; apiKey ) ;
-</code></pre>
-
-<blockquote>
-<p>start session</p>
-</blockquote>
-<pre><code class="cpp">static void closeSession ( ) ;
-</code></pre>
-
-<blockquote>
-<p>close session</p>
-</blockquote>
-<pre><code class="cpp">static void setSyncDataPeriodInSecond ( int periodInSecond ) ;
-</code></pre>
-
-<blockquote>
-<p>sync data second, just valid on ios</p>
-</blockquote>
-<pre><code class="cpp">static void sync ( ) ;
-</code></pre>
-
-<blockquote>
-<p>sync data</p>
-</blockquote>
-<pre><code class="cpp">static void event ( const std::string &amp; name ) ;
-</code></pre>
-
-<blockquote>
-<p>event</p>
-</blockquote>
-<pre><code class="cpp">static void event ( const std::string &amp; name , float floatValue ) ;
-</code></pre>
-
-<blockquote>
-<p>event with float value</p>
-</blockquote>
-<pre><code class="cpp">static void transaction ( const std::string &amp; name ,
-                          float floatValue ,
-                          const std::string &amp; currencyCode ,
-                          const std::string &amp; ref = &quot;&quot; ,
-                          bool instant = false ) ;
-</code></pre>
-
-<blockquote>
-<p>Transaction Events</p>
-</blockquote>
-<pre><code class="cpp">static void destroyModule ( ) ;
-</code></pre>
-
-<blockquote>
-<p>destroy module</p>
-</blockquote>
-<pre><code class="cpp">static void setCrashHandlerStatus ( bool enable ) ;
-</code></pre>
-
-<blockquote>
-<p>Crash Reporting</p>
-</blockquote>
-<pre><code class="cpp">static void crashWithName ( const std::string &amp; crashName ,
-                            const std::string &amp; description ) ;
-</code></pre>
-
-<blockquote>
-<p>Crash Reporting</p>
-</blockquote>
-<pre><code class="cpp">static void fixAdOrientation ( AdOrientation orientation ) ;
-</code></pre>
-
-<blockquote>
-<p>force Ad Orientation</p>
-</blockquote>
 <pre><code class="cpp">static void setAgeRange ( const std::string &amp; range ) ;
+static void setGender ( const std::string &amp; gender ) ;
 </code></pre>
 
 <blockquote>
-<p>setAgeRange
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
-accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
-</blockquote>
-<pre><code class="cpp">static void setGender ( const std::string &amp; gender ) ;
-</code></pre>
-
-<blockquote>
-<p>setGender
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
-accepted valued "Male", "Female"</p>
-</blockquote>
-<pre><code class="cpp">static void setFramework ( const std::string &amp; f ) ;
-</code></pre>
-
-<blockquote>
-<p>setFramework</p>
+<p>You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+Allowed values:
+- for age range are: "13-17", "18-25", "26-35", "36-45", "46+"
+- for gender are: "Male", "Female</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onModuleLoaded ( const std::string &amp; placement ) {
