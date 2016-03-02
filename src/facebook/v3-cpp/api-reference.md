@@ -96,6 +96,9 @@ static void fetchFriends ( ) ;
 ```
 > fetch friends data from Facebook
 
+Only friends who has installed the app are returned in API v2.0 and higher of Facebook. The "total_count" in summary represents the total number of friends, including those who haven't installed the app.
+https://developers.facebook.com/docs/apps/changelog#v2_0
+
 ```cpp
 static std::vector <FBGraphUser> getFriends ( ) ;
 ```
