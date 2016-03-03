@@ -32,8 +32,7 @@ static bool isAdReady ( const std::string & placement ) ;
 > Check if Ad with name @placement (referenced from your json config file) is available for display
 
 ```cpp
-static void loadModule ( const std::string & placement ,
-                         const std::string & userData = "" ) ;
+static void loadModule ( const std::string & placement ) ;
 ```
 > Load/Display Ad with name @placement (referenced from your json config file)
 
