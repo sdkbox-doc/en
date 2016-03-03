@@ -73,7 +73,7 @@ Here is an example adding `Amazon`:
 ```
 
 ##How to test
-- Install [Amazon App Tester](http://www.amazon.com/Amazon-App-Tester/dp/B00BN3YZM2/ref=sr_1_1?ie=UTF8&qid=1456971495&sr=8-1&keywords=app+tester) app
+- Install [Amazon App Tester](http://www.amazon.com/Amazon-App-Tester/dp/B00BN3YZM2/) app
 - Upload a JSON Data File to device
 
     ```
