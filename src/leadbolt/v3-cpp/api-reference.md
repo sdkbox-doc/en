@@ -22,8 +22,7 @@ static void removeListener ( ) ;
 > Remove the listener, and can't listen to events anymore
 
 ```cpp
-static void loadModuleToCache ( const std::string & placement ,
-                                const std::string & userData = "" ) ;
+static void loadModuleToCache ( const std::string & placement) ;
 ```
 > Cache Ad with name @placement (referenced from your json config file)
 
