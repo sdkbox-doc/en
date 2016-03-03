@@ -4,7 +4,7 @@
 <<[../../shared/-VERSION-/version.md]
 
 #Prerequisites
-- Currently, `Amazon` is only available for __Android__. Learn more about Amazon at: [https://developer.amazon.com/](https://developer.amazon.com/).
+- Currently, `Amazon` is only available for __Android__. Register as a Amazon Develper follow [https://developer.amazon.com/](https://developer.amazon.com/).
 - Amazon Kindle Fire device
 
 ###NOTE:
@@ -12,6 +12,7 @@ If you are using __Amazon__ plugin then you must install __IAP__ plugin at first
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Amazon plugin. Make sure you setup the SDKBOX installer correctly.
+
 ```bash
 $ sdkbox import amazon
 $ sdkbox set store amazon
@@ -37,6 +38,7 @@ $ sdkbox set store googleplay
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example adding `Amazon`:
+
 ```json
 {
     "ios":
@@ -69,6 +71,16 @@ Here is an example adding `Amazon`:
     }
 }
 ```
+
+##How to test
+- Install [Amazon App Tester](http://www.amazon.com/Amazon-App-Tester/dp/B00BN3YZM2/ref=sr_1_1?ie=UTF8&qid=1456971495&sr=8-1&keywords=app+tester) app
+- Upload a JSON Data File to device
+
+    ```
+    $ adb push [Your_JSON_File_Folder]/amazon.sdktester.json /mnt/sdcard/
+    ```
+
+more info [https://developer.amazon.com/public/apis/earn/in-app-purchasing](https://developer.amazon.com/public/apis/earn/in-app-purchasing)
 
 ##Proguard (optional)
 
@@ -119,7 +131,13 @@ proguard.config=proguard.cfg
 -keep public class com.sdkbox.** { *; }
 -dontwarn com.sdkbox.**
 
+#amazon
+-dontwarn com.amazon.**
+-keep class com.amazon.** {*;}
+-keepattributes *Annotation*
 ```
+
+[https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs/code-obfuscation](https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs/code-obfuscation)
 
  __Note:__ Proguard only works with __Release__ builds (i.e `cocos run -m release`) debug builds do not invoke Proguard rules.
 
