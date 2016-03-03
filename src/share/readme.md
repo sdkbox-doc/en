@@ -40,6 +40,19 @@ you need replace `<api_key>` with your [fabric organization](https://fabric.io/s
             android:value="api_key" />
 ```
 
+### How get fabric organization apikey
+
+- create a organization in [fabric organization](https://fabric.io/settings/organizations)
+
+maybe look like the following
+![](../../imgs/share_twitter_organizations.png)
+
+- and then, get orgranization key
+
+maybe look like the following
+![](../../imgs/share_twitter_organization_info.png)
+
+
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
