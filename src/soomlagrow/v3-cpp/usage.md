@@ -24,9 +24,13 @@ This allows you to catch the `SOOMLA Grow` events so that you can perform operat
 class MyClass : public sdkbox::SoomlaGrowListener
 {
 private:
-    void onHighWayInitialized();
-    void onHighWayConnected();
-    void onHighWayDisconnected();
+    void onGrowInitialized();
+    void onGrowConnected();
+    void onGrowDisconnected();
+    void onGrowInsightsInitialized();
+    void onInsightsRefreshFailed();
+    void onInsightsRefreshFinished();
+    void onInsightsRefreshStarted();
 };
 ```
 
