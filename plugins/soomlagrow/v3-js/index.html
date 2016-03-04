@@ -613,16 +613,51 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 
 <h3 id="using-grows-insights-module">Using GROW's Insights module</h3>
 <p>After initialization you can begin to use the Insights functionality. Use <code>refreshInsight</code>, 'getUserInsightInfo' wherever you want from your code:</p>
-<pre><code class="javascript">sdkbox.PluginSoomlaGrow.refreshInsight()
+<pre><code class="javascript">sdkbox.PluginSoomlaGrow.payRank(sdkbox.PluginSoomlaGrow.EGenre.Word)
+sdkbox.PluginSoomlaGrow.purchaseLikelihood(sdkbox.PluginSoomlaGrow.EDayQuarter._12am_6am)
+
+sdkbox.PluginSoomlaGrow.refreshInsight()
 sdkbox.PluginSoomlaGrow.getUserInsightInfo()
 </code></pre>
 
+<p>all value of <code>sdkbox.PluginSoomlaGrow.EGenre</code></p>
+<ul>
+<li>Action</li>
+<li>Adventure</li>
+<li>Arcade</li>
+<li>Board</li>
+<li>Card</li>
+<li>Casino</li>
+<li>Casual</li>
+<li>Educational</li>
+<li>Family</li>
+<li>Music</li>
+<li>Puzzle</li>
+<li>Racing</li>
+<li>Role_Playing</li>
+<li>Simulation</li>
+<li>Sports</li>
+<li>Strategy</li>
+<li>Trivia</li>
+<li>Word</li>
+</ul>
+<p>all value of <code>sdkbox.PluginSoomlaGrow.EDayQuarter</code></p>
+<ul>
+<li>_12am_6am</li>
+<li>_6am_12pm</li>
+<li>_12pm_6pm</li>
+<li>_6pm_12am</li>
+</ul>
 <h3 id="catch-soomlagrow-events-optional">Catch SoomlaGrow events (optional)</h3>
 <p>This allows you to catch the <code>SOOMLA Grow</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="javascript">sdkbox.PluginSoomlaGrow.setListener({
-            onHighWayInitialized: function(data) {cc.log(&quot;onHighWayInitialized&quot;)},
-            onHighWayConnected: function(data) { cc.log(&quot;onHighWayConnected&quot;) },
-            onHighWayDisconnected: function(data) { cc.log(&quot;onHighWayDisconnected&quot;) }
+            onGrowInitialized: function() { cc.log(&quot;onGrowInitialized&quot;) },
+            onGrowConnected: function() { cc.log(&quot;onGrowConnected&quot;) },
+            onGrowDisconnected: function() { cc.log(&quot;onGrowDisconnected&quot;) },
+            onGrowInsightsInitialized: function() { cc.log(&quot;onGrowInsightsInitialized&quot;) },
+            onInsightsRefreshFailed: function() { cc.log(&quot;onInsightsRefreshFailed&quot;) },
+            onInsightsRefreshFinished: function() { cc.log(&quot;onInsightsRefreshFinished&quot;) },
+            onInsightsRefreshStarted: function() { cc.log(&quot;onInsightsRefreshStarted&quot;) }
             })
 sdkbox.PluginSoomlaGrow.init()
 </code></pre>

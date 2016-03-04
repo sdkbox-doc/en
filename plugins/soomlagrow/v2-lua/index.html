@@ -595,19 +595,58 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="using-grows-insights-module">Using GROW's Insights module</h3>
 <p>After initialization you can begin to use the Insights functionality. Use <code>refreshInsight</code>, <code>getUserInsightInfo</code> wherever you want from your code:</p>
-<pre><code class="lua">sdkbox.PluginSoomlaGrow:refreshInsight()
+<pre><code class="lua">sdkbox.PluginSoomlaGrow:payRank(sdkbox.PluginSoomlaGrow.EGenre.Word)
+sdkbox.PluginSoomlaGrow:purchaseLikelihood(sdkbox.PluginSoomlaGrow.EDayQuarter._12am_6am)
+
+sdkbox.PluginSoomlaGrow:refreshInsight()
 sdkbox.PluginSoomlaGrow:getUserInsightInfo()
 </code></pre>
 
+<p>all value of <code>sdkbox.PluginSoomlaGrow.EGenre</code></p>
+<ul>
+<li>Action</li>
+<li>Adventure</li>
+<li>Arcade</li>
+<li>Board</li>
+<li>Card</li>
+<li>Casino</li>
+<li>Casual</li>
+<li>Educational</li>
+<li>Family</li>
+<li>Music</li>
+<li>Puzzle</li>
+<li>Racing</li>
+<li>Role_Playing</li>
+<li>Simulation</li>
+<li>Sports</li>
+<li>Strategy</li>
+<li>Trivia</li>
+<li>Word</li>
+</ul>
+<p>all value of <code>sdkbox.PluginSoomlaGrow.EDayQuarter</code></p>
+<ul>
+<li>_12am_6am</li>
+<li>_6am_12pm</li>
+<li>_12pm_6pm</li>
+<li>_6pm_12am</li>
+</ul>
 <h3 id="catch-grow-events-optional">Catch GROW events (optional)</h3>
 <p>This allows you to catch the <code>SOOMLA Grow</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="lua">sdkbox.PluginSoomlaGrow:setListener(function(data)
-            if &quot;onHighWayInitialized&quot; == data.event then
+            if &quot;onGrowInitialized&quot; == data.event then
                 //highway initialized
-            elseif &quot;onHighWayConnected&quot; == data.event then
+            elseif &quot;onGrowConnected&quot; == data.event then
                 //highway connected
-            elseif &quot;onHighWayDisconnected&quot; == data.event then
+            elseif &quot;onGrowDisconnected&quot; == data.event then
                 //highway disconnected
+            elseif &quot;onGrowInsightsInitialized&quot; == data.event then
+                //soomla grow insight initialized
+            elseif &quot;onInsightsRefreshFailed&quot; == data.event then
+                //soomla grow insight refresh failed
+            elseif &quot;onInsightsRefreshFinished&quot; == data.event then
+                //soomla grow insight refresh finished
+            elseif &quot;onInsightsRefreshStarted&quot; == data.event then
+                //soomla grow insight refresh started
             end
         end)
 sdkbox.PluginSoomlaGrow:init()

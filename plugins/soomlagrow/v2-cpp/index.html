@@ -612,9 +612,13 @@ std::string jsonStr = sdkbox::PluginSoomlaGrow::getUserInsightInfo();
 class MyClass : public sdkbox::SoomlaGrowListener
 {
 private:
-    void onHighWayInitialized();
-    void onHighWayConnected();
-    void onHighWayDisconnected();
+    void onGrowInitialized();
+    void onGrowConnected();
+    void onGrowDisconnected();
+    void onGrowInsightsInitialized();
+    void onInsightsRefreshFailed();
+    void onInsightsRefreshFinished();
+    void onInsightsRefreshStarted();
 };
 </code></pre>
 

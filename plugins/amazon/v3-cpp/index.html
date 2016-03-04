@@ -455,6 +455,8 @@
         
             <li><a href="#extra-steps">Extra steps</a></li>
         
+            <li><a href="#how-to-test">How to test</a></li>
+        
             <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
 	</ul>
@@ -471,7 +473,7 @@
 
 <h1 id="prerequisites">Prerequisites</h1>
 <ul>
-<li>Currently, <code>Amazon</code> is only available for <strong>Android</strong>. Learn more about Amazon at: <a href="https://developer.amazon.com/">https://developer.amazon.com/</a>.</li>
+<li>Currently, <code>Amazon</code> is only available for <strong>Android</strong>. Register as a Amazon Develper follow <a href="https://developer.amazon.com/">https://developer.amazon.com/</a>.</li>
 <li>Amazon Kindle Fire device</li>
 </ul>
 <h3 id="note">NOTE:</h3>
@@ -530,6 +532,15 @@ $ sdkbox set store amazon
 }
 </code></pre>
 
+<h2 id="how-to-test">How to test</h2>
+<ul>
+<li>Install <a href="http://www.amazon.com/Amazon-App-Tester/dp/B00BN3YZM2/">Amazon App Tester</a> app</li>
+<li>
+<p>Upload a JSON Data File to device</p>
+<p><code>$ adb push [Your_JSON_File_Folder]/amazon.sdktester.json /mnt/sdcard/</code></p>
+</li>
+</ul>
+<p>more info <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing">https://developer.amazon.com/public/apis/earn/in-app-purchasing</a></p>
 <h2 id="proguard-optional">Proguard (optional)</h2>
 <ul>
 <li>Edit <code>project.properties</code> to specify a <code>Proguard</code> configuration file. Example:</li>
@@ -578,8 +589,13 @@ $ sdkbox set store amazon
 -keep public class com.sdkbox.** { *; }
 -dontwarn com.sdkbox.**
 
+#amazon
+-dontwarn com.amazon.**
+-keep class com.amazon.** {*;}
+-keepattributes *Annotation*
 </code></pre>
 
+<p><a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs/code-obfuscation">https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs/code-obfuscation</a></p>
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
             
         </div>
