@@ -1,5 +1,16 @@
 #Release Notes
 ---
+2.1.1 Release Notes
+===
+##Highlight
+* Amazon plugin
+* Upgrade Adcolony Android SDK to 2.3.2
+* Upgrade Appodeal iOS SDK to 0.9.0
+* Upgrade Appodeal Android SDK to 1.14.18
+
+##Bug
+* fix sdkbox update process will stuck in windows shell
+* fix a crash with facebook api call
 
 2.1.0 Release Notes
 ===
