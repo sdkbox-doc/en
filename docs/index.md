@@ -3,7 +3,7 @@
 <h1>SDKBOX Documentation</h1>
 
 ##Overview
-SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage](http://sdkbox.com)
+SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage.](http://sdkbox.com)
 
 
 ##Architecture
@@ -11,6 +11,10 @@ SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd
 
 ![chart](./imgs/sdkbox_sequence.jpg)
 
+##Liveops
+SDKBOX LiveOps enables developers to receive the benefits of cloud based functionalities, such as live-updating [Remote Configuration](./remote-config), server-side [IAP receipts verification](./receipt-verification), and on-the-fly [store catalog management](catalog-management). It helps to boost the mobile applications with extended features.
+
+Learn more about [SDKBOX LiveOps](./liveops), and enjoy it [on SDKBOX's homepage.](http://sdkbox.com)
 
 ##Platforms
 SDKBOX currently support the most popular mobile game engines. Click to learn more:
