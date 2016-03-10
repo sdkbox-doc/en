@@ -29,6 +29,14 @@ SDKBOX currently support the most popular mobile game engines. Click to learn mo
 ##Services
 SDKBOX includes lots of useful services which are crucial for your games:
 
+<style type="text/css">
+blockquote a img {
+    width: 80px;
+    height: 80px;
+}
+
+</style>
+
 > <a href="http://www.sdkbox.com/plugins/iap"><img src="./imgs/iap.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/ratings_reviews"><img src="./imgs/review.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/adcolony"><img src="./imgs/adcolony.jpg" /></a>
