@@ -5,7 +5,7 @@
 ##Overview
 While Sdkbox includes out-of-the-box support for many ad networks, they can be managed in a container plugin called SdkboxAds. It is like a __manager__ of a collection of different ad plugins, while each ad plugin connects to its own backend independentely. 
 
-![](../../imgs/sdkbox-ads-1.jpg)
+![](../../imgs/sdkbox-ads-1.jpg?1)
 
 SdkboxAds is an alternative method compared to calling any ad networks directly. SdkboxAds includes support for playing ads and rewarded contents, as well as the definition of placements. Before digging deeper into its internals, some concepts must be clarified.
 
