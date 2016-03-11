@@ -1,6 +1,6 @@
 [&#171; SDKBOX Home](http://sdkbox.com)
 
-<h1>Amazon Plugin</h1>
+<h1>Amazon Appstore Plugin</h1>
 
 ##Overview
 You can find [more information about this plugin here.](http://www.cocos2d-x.org/sdkbox/amazon)

@@ -1,6 +1,6 @@
 [&#8249; Amazon Doc Home](./)
 
-<h1>Amazon Integration Guide</h1>
+<h1>Amazon Appstore Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
 #Prerequisites
