@@ -29,6 +29,13 @@ SDKBOX currently support the most popular mobile game engines. Click to learn mo
 ##Services
 SDKBOX includes lots of useful services which are crucial for your games:
 
+<style type="text/css">
+blockquote a img {
+    width: 80px;
+    height: 80px;
+}
+
+</style>
 
 > <a href="http://www.sdkbox.com/plugins/adcolony"><img src="./imgs/adcolony.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/admob"><img src="./imgs/admob.jpg" /></a>
@@ -53,7 +60,3 @@ SDKBOX includes lots of useful services which are crucial for your games:
 > <a href="http://www.sdkbox.com/plugins/vungle"><img src="./imgs/vungle.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/youtube"><img src="./imgs/youtube.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/leadbolt"><img src="./imgs/leadbolt.jpg" /></a>
-
-<style>
-blockquote img {width:80px}
-</style>
