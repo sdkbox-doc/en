@@ -28,6 +28,7 @@ And created a new __APP__ on Fyber
 
 ###Setup Mediation
 If you want to setup fyber to use certain mediation network, please follow fyber's official integration guide
+
 * [iOS Supported networks](http://developer.fyber.com/content/current/ios/rewarded-video/adding-networks/)
 * [Android Supported networks](http://developer.fyber.com/content/current/android/rewarded-video/adding-networks/)
 
