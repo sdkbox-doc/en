@@ -24,8 +24,36 @@ sdkbox.PluginShare.init();
 ### share
 After initialization you can begin to use the Share functionality. Use `share` wherever you want from your code:
 ```javascript
-sdkbox.PluginShare.share({text: "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue"})
+var shareInfo = {};
+shareInfo.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue - from js - ";
+shareInfo.title = "sdkbox";
+shareInfo.image = "http://www.sdkbox.com/assets/images/logo.png";
+shareInfo.link = "http://www.sdkbox.com";
+shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
+plugin.share(shareInfo);
 ```
+
+all value of sdkbox.SocialPlatform
+ 
+- Platform_Unknow
+- Platform_Twitter
+- Platform_Facebook
+- Platform_Select
+- Platform_All
+ 
+
+all value of sdkbox.SocialShareState
+
+- SocialShareStateNone
+- SocialShareStateUnkonw
+- SocialShareStateBegin
+- SocialShareStateSuccess
+- SocialShareStateFail
+- SocialShareStateCancelled
+- SocialShareStateSelectShow
+- SocialShareStateSelected
+- SocialShareStateSelectCancelled
+
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:
@@ -33,9 +61,9 @@ This allows you to catch the `Share` events so that you can perform operations b
 var plugin = sdkbox.PluginShare
 plugin.setListener({
     onShareState: function(response) {
-        cc.log("onSharestate:" + response.state + " error:" + response.error)
-        if (response.state == sdkbox.PluginShare.ShareState.ShareStateSuccess) {
-            cc.log("post success")
+        console.log("PluginShare onSharestate:" + response.state + " error:" + response.error)
+        if (response.state == sdkbox.SocialShareState.SocialShareStateSuccess) {
+            console.log("post success")
         }
     }
 })
