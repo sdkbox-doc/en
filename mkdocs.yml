@@ -45,6 +45,16 @@ pages:
                 - 'AgeCheq with C++': 'plugins/agecheq/v2-cpp.md'
                 - 'AgeCheq with Javascript': 'plugins/agecheq/v2-js.md'
                 - 'AgeCheq with Lua': 'plugins/agecheq/v2-lua.md'
+        - 'Appnext': 'plugins/appnext/index.md'
+        - '_Appnext':
+            - 'Cocos2d-x v3.x':
+                - 'Appnext with C++': 'plugins/appnext/v3-cpp.md'
+                - 'Appnext with Javascript': 'plugins/appnext/v3-js.md'
+                - 'Appnext with Lua': 'plugins/appnext/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Appnext with C++': 'plugins/appnext/v2-cpp.md'
+                - 'Appnext with Javascript': 'plugins/appnext/v2-js.md'
+                - 'Appnext with Lua': 'plugins/appnext/v2-lua.md'
         - 'Appodeal': 'plugins/appodeal/index.md'
         - '_Appodeal':
             - 'Cocos2d-x v3.x':
