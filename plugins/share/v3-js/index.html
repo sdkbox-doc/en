@@ -625,17 +625,43 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 
 <h3 id="share">share</h3>
 <p>After initialization you can begin to use the Share functionality. Use <code>share</code> wherever you want from your code:</p>
-<pre><code class="javascript">sdkbox.PluginShare.share({text: &quot;#sdkbox(www.sdkbox.com) - the cure for sdk fatigue&quot;})
+<pre><code class="javascript">var shareInfo = {};
+shareInfo.text = &quot;#sdkbox(www.sdkbox.com) - the cure for sdk fatigue - from js - &quot;;
+shareInfo.title = &quot;sdkbox&quot;;
+shareInfo.image = &quot;http://www.sdkbox.com/assets/images/logo.png&quot;;
+shareInfo.link = &quot;http://www.sdkbox.com&quot;;
+shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
+plugin.share(shareInfo);
 </code></pre>
 
+<p>all value of sdkbox.SocialPlatform</p>
+<ul>
+<li>Platform_Unknow</li>
+<li>Platform_Twitter</li>
+<li>Platform_Facebook</li>
+<li>Platform_Select</li>
+<li>Platform_All</li>
+</ul>
+<p>all value of sdkbox.SocialShareState</p>
+<ul>
+<li>SocialShareStateNone</li>
+<li>SocialShareStateUnkonw</li>
+<li>SocialShareStateBegin</li>
+<li>SocialShareStateSuccess</li>
+<li>SocialShareStateFail</li>
+<li>SocialShareStateCancelled</li>
+<li>SocialShareStateSelectShow</li>
+<li>SocialShareStateSelected</li>
+<li>SocialShareStateSelectCancelled</li>
+</ul>
 <h3 id="catch-share-events-optional">Catch Share events (optional)</h3>
 <p>This allows you to catch the <code>Share</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="javascript">var plugin = sdkbox.PluginShare
 plugin.setListener({
     onShareState: function(response) {
-        cc.log(&quot;onSharestate:&quot; + response.state + &quot; error:&quot; + response.error)
-        if (response.state == sdkbox.PluginShare.ShareState.ShareStateSuccess) {
-            cc.log(&quot;post success&quot;)
+        console.log(&quot;PluginShare onSharestate:&quot; + response.state + &quot; error:&quot; + response.error)
+        if (response.state == sdkbox.SocialShareState.SocialShareStateSuccess) {
+            console.log(&quot;post success&quot;)
         }
     }
 })

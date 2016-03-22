@@ -607,14 +607,46 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="share">share</h3>
 <p>After initialization you can begin to use the Share functionality:</p>
-<pre><code class="lua">sdkbox.PluginShare:share({text=&quot;#sdkbox the end of sdk figue (www.sdkbox.com)&quot;})
+<pre><code class="lua">local shareInfo = {}
+shareInfo.text = '#sdkbox(www.sdkbox.com) - the cure for sdk fatigue - from lua - '
+shareInfo.title = &quot;sdkbox&quot;;
+shareInfo.image = &quot;http://www.sdkbox.com/assets/images/logo.png&quot;;
+shareInfo.link = &quot;http://www.sdkbox.com&quot;;
+shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
+plugin:share(shareInfo)
 </code></pre>
 
+<p>all value of sdkbox.SocialPlatform</p>
+<ul>
+<li>Platform_Unknow</li>
+<li>Platform_Twitter</li>
+<li>Platform_Facebook</li>
+<li>Platform_Select</li>
+<li>Platform_All</li>
+</ul>
+<p>all value of sdkbox.SocialShareState</p>
+<ul>
+<li>SocialShareStateNone</li>
+<li>SocialShareStateUnkonw</li>
+<li>SocialShareStateBegin</li>
+<li>SocialShareStateSuccess</li>
+<li>SocialShareStateFail</li>
+<li>SocialShareStateCancelled</li>
+<li>SocialShareStateSelectShow</li>
+<li>SocialShareStateSelected</li>
+<li>SocialShareStateSelectCancelled</li>
+</ul>
 <h3 id="catch-share-events-optional">Catch Share events (optional)</h3>
 <p>This allows you to catch the <code>Share</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <pre><code class="lua">local plugin = sdkbox.PluginShare
 plugin:setListener(function(responsed)
-    dump(responsed, &quot;share listener info:&quot;)
+    local event = responsed.event
+
+    dump(responsed, &quot;PluginShare share listener info:&quot;)
+    if responsed.response.state == sdkbox.SocialShareState.SocialShareStateSuccess then
+        print('share success')
+    end
+
 end)
 plugin:init()
 </code></pre>
