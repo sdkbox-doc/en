@@ -1,5 +1,17 @@
 #Release Notes
 ---
+2.1.2 Release Notes
+===
+##Highlight
+* Update Appodeal SDK
+* Update Fyber SDK
+
+
+##Bugfix
+* Fix js binding for cocos2d-x v2
+* Fix appodeal callback for iOS
+* Fix playphone been initialized multiple times
+
 2.1.1 Release Notes
 ===
 ##Highlight
