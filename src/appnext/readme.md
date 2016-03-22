@@ -78,7 +78,7 @@ Example:
     "ios": {
         "Appnext":{
             "debug":true,
-            "items": {
+            "ads": {
                 "default": {
                     "cache":true,
                     "id":"6d596bc5-b4c1-48ca-be95-3758fd29a3a5",
@@ -90,7 +90,7 @@ Example:
     "android": {
         "Appnext":{
             "debug":true,
-            "items": {
+            "ads": {
                 "default": {
                     "cache":true,
                     "id":"2f6850dd-190a-499d-aa50-1f4a3dd1ed5f",
