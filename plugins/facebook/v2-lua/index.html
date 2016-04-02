@@ -128,6 +128,16 @@
         
             
 <li >
+    <a href="../../appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../appodeal/">Appodeal</a>
 </li>
 
@@ -904,6 +914,18 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 
 <blockquote>
 <p>Use the default FB dialog to invite friends.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:setAppId(appId)
+</code></pre>
+
+<blockquote>
+<p>Set the Facebook App ID to be used by the FB SDK.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:setAppURLSchemeSuffix(appURLSchemeSuffix)
+</code></pre>
+
+<blockquote>
+<p>Set the app url scheme suffix used by the FB SDK.</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(isLogin, msg)
