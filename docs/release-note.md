@@ -1,5 +1,17 @@
 #Release Notes
 ---
+2.1.3 Release Notes
+===
+##Highlight
+* Developer can enable/disable a plugin using sdkbox.com
+* Share plugin now supports share to facebook as well
+* Facebook Plugin now supports set Facebook App id through config and code
+* Updated Appodeal SDK
+
+##Bugfix
+* Add JS callback function for Kochava plugin
+
+
 2.1.2 Release Notes
 ===
 ##Highlight
