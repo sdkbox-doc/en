@@ -72,7 +72,11 @@ sdkbox.PluginApteligent:updateLocation(39.9042, 116.4074)
 sdkbox.PluginApteligent:setOptOutStatus(true)
 
 -- Changing the verbosity of Crittercism’s Logs
-sdkbox.PluginApteligent:setLoggingLevel(sdkbox.CRLoggingLevelInfo) -- CRLoggingLevelSilent / CRLoggingLevelError / CRLoggingLevelWarning
+-- sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Crittercism log messages
+-- sdkbox.PluginApteligent.LoggingLevel.Error   : Only print errors. An error is an unexpected event that will result not capturing important data
+-- sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Crittercism methods before initializing Crittercism.
+-- sdkbox.PluginApteligent.LoggingLevel.Info    : The most verbose level of logging
+sdkbox.PluginApteligent:setLoggingLevel(sdkbox.PluginApteligent.LoggingLevel.Info)
 
 -- Send App Load Data
 -- You must set `"delay_sending_appload":true` in `sdkbox_config.json` first

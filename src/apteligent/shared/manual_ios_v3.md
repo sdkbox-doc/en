@@ -11,3 +11,5 @@ adding frameworks:
 You also need to add the following system frameworks, if you don't already have them:
 
 > SystemConfiguration.framework
+
+> CoreLocation.framework
