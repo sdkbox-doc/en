@@ -75,6 +75,16 @@ pages:
                 - 'Amazon with C++': 'plugins/amazon/v2-cpp.md'
                 - 'Amazon with Javascript': 'plugins/amazon/v2-js.md'
                 - 'Amazon with Lua': 'plugins/amazon/v2-lua.md'
+        - 'Apteligent': 'plugins/apteligent/index.md'
+        - '_Apteligent':
+            - 'Cocos2d-x v3.x':
+                - 'Apteligent with C++': 'plugins/apteligent/v3-cpp.md'
+                - 'Apteligent with Javascript': 'plugins/apteligent/v3-js.md'
+                - 'Apteligent with Lua': 'plugins/apteligent/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Apteligent with C++': 'plugins/apteligent/v2-cpp.md'
+                - 'Apteligent with Javascript': 'plugins/apteligent/v2-js.md'
+                - 'Apteligent with Lua': 'plugins/apteligent/v2-lua.md'
         - 'Bee7': 'plugins/bee7/index.md'
         - '_Bee7':
             - 'Cocos2d-x v3.x':
