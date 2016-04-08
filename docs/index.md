@@ -12,7 +12,7 @@ SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd
 ![chart](./imgs/sdkbox_sequence.jpg)
 
 ##Liveops
-SDKBOX LiveOps enables developers to receive the benefits of cloud based functionalities, such as live-updating [Remote Configuration](./remote-config), server-side [IAP receipts verification](./receipt-verification), and on-the-fly [store catalog management](catalog-management). It helps to boost the mobile applications with extended features.
+SDKBOX LiveOps enables developers to receive the benefits of cloud based functionalities, such as live-updating [Remote Configuration](./liveops/remote-config), server-side [IAP receipts verification](./liveops/receipt-verification), and on-the-fly [store catalog management](./liveops/catalog-management). It helps to boost the mobile applications with extended features.
 
 Learn more about [SDKBOX LiveOps](./liveops), and enjoy it [on SDKBOX's homepage.](http://sdkbox.com)
 
