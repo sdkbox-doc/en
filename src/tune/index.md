@@ -8,3 +8,7 @@ You can find [more information about this plugin here.](http://www.cocos2d-x.org
 
 <<[../shared/guides.md]
 
+
+##Sample Project
+
+[A demo project on github](https://github.com/sdkbox/sdkbox-sample-tune)
