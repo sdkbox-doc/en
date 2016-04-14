@@ -392,6 +392,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -474,6 +480,9 @@
         <li class="main active"><a href="#overview">Overview</a></li>
 	
     
+        <li class="main "><a href="#facebook-support">Facebook support</a></li>
+	
+    
         <li class="main "><a href="#integration-guides">Integration Guides</a></li>
 	
 	<ul class="sub-sidenav">
@@ -497,6 +506,53 @@
 
 <h2 id="overview">Overview</h2>
 <p>You can find <a href="http://www.cocos2d-x.org/sdkbox/share">more information about this plugin here.</a></p>
+<h2 id="facebook-support">Facebook support</h2>
+<p>if you want to use Facebook share on SocialShare Plugin, please follow these two steps:</p>
+<ol>
+<li>
+<p>run <code>sdkbox import facebook</code> under you project root path.
+    the command will import facebook to you project. Facebook plugin have some extra steps to integrate, please click <a href="http://docs.sdkbox.com/en/plugins/facebook/v3-cpp/#extra-steps">here</a></p>
+</li>
+<li>
+<p>add Facebook to share platforms in <code>/Resources/sdkbox_config.json</code>, look like follow:</p>
+</li>
+</ol>
+<pre><code>
+&quot;android&quot;: {
+        &quot;Facebook&quot;: {
+            &quot;debug&quot;: false
+        },
+        &quot;Share&quot;: {
+            &quot;platforms&quot;: {
+                &quot;Twitter&quot;: {
+                    &quot;params&quot;: {
+                        &quot;secret&quot;: &quot;nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne&quot;,
+                        &quot;key&quot;: &quot;EuovpLL0UhSGB7Jv5eKFJNMqO&quot;
+                    }
+                },
+                &quot;Facebook&quot;: {}    //support facebook share
+            }
+        }
+    },
+    &quot;ios&quot;: {
+        &quot;Facebook&quot;: {
+            &quot;debug&quot;: true
+        },
+        &quot;Share&quot;: {
+            &quot;platforms&quot;: {
+                &quot;Twitter&quot;: {
+                    &quot;params&quot;: {
+                        &quot;secret&quot;: &quot;haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9&quot;,
+                        &quot;key&quot;: &quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;
+                    }
+                },
+                &quot;Facebook&quot;: {}    //support facebook share
+            }
+        }
+    }
+
+</code></pre>
+
 <h2 id="integration-guides">Integration Guides</h2>
 <h4 id="for-games-using-cocos2d-x-v3x">For games using cocos2d-x v3.x</h4>
 <ul>
