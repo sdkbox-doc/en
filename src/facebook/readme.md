@@ -74,6 +74,16 @@ And created a new __APP__ on Facebook, If not please follow up the __Setup Faceb
 ### JSON Configuration
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
+#### options
+
+- app_id [string]:
+
+> The Facebook App ID to be used by the SDK.
+
+- url_scheme_suffix [string]: (iOS only)
+
+> The url scheme suffix to be used by the SDK.
+
 Here is an example of the Facebook configuration you can enable/disable debug mode for Facebook here
 ```json
 "Facebook":
@@ -82,7 +92,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 }
 ```
 ### Setup Facebook App
-In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below - 
+In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
 [Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/02/setting-up-facebook-app-for-sdkbox-services/)
 
 
