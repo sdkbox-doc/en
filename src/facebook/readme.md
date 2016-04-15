@@ -88,7 +88,9 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 ```json
 "Facebook":
 {
-    "debug":true
+    "debug":true,
+    "app_id":"",
+    "url_scheme_suffix":""
 }
 ```
 ### Setup Facebook App
