@@ -8,6 +8,7 @@ In order to keep the API fit to the two models, some tradeoffs have been made, w
 
 Currently, this plugin offers common implementation for Leaderboards and Achievements.
 
+<<[../shared/guides.md]
 
 ##Sample Project
 

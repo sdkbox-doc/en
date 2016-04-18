@@ -221,6 +221,20 @@ pages:
                 - 'Ads with C++': 'plugins/sdkboxads/v3-cpp.md'
                 - 'Ads with Javascript': 'plugins/sdkboxads/v3-js.md'
                 - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Ads with C++': 'plugins/sdkboxads/v2-cpp.md'
+                - 'Ads with Javascript': 'plugins/sdkboxads/v2-js.md'
+                - 'Ads with Lua': 'plugins/sdkboxads/v2-lua.md'
+        - 'SDKBOX Play': 'plugins/sdkboxplay/index.md'
+        - '_sdkboxPlay':
+            - 'Cocos2d-x v3.x':
+                - 'Play with C++': 'plugins/sdkboxplay/v3-cpp.md'
+                - 'Play with Javascript': 'plugins/sdkboxplay/v3-js.md'
+                - 'Play with Lua': 'plugins/sdkboxplay/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Play with C++': 'plugins/sdkboxplay/v2-cpp.md'
+                - 'Play with Javascript': 'plugins/sdkboxplay/v2-js.md'
+                - 'Play with Lua': 'plugins/sdkboxplay/v2-lua.md'
         - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':
