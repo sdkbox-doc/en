@@ -6,6 +6,8 @@
 ##Prerequisites
 Certain SDKBOX plugins do not work together. If you use __Appodeal__, then you cannot also use the __Flurry Analytics__ and __Chartboost__ services, in the same project.
 
+###NOTE: Please note that Appodeal only supports iOS 8.0+
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Appodeal plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash

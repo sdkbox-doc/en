@@ -45,6 +45,16 @@ pages:
                 - 'AgeCheq with C++': 'plugins/agecheq/v2-cpp.md'
                 - 'AgeCheq with Javascript': 'plugins/agecheq/v2-js.md'
                 - 'AgeCheq with Lua': 'plugins/agecheq/v2-lua.md'
+        - 'Appnext': 'plugins/appnext/index.md'
+        - '_Appnext':
+            - 'Cocos2d-x v3.x':
+                - 'Appnext with C++': 'plugins/appnext/v3-cpp.md'
+                - 'Appnext with Javascript': 'plugins/appnext/v3-js.md'
+                - 'Appnext with Lua': 'plugins/appnext/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Appnext with C++': 'plugins/appnext/v2-cpp.md'
+                - 'Appnext with Javascript': 'plugins/appnext/v2-js.md'
+                - 'Appnext with Lua': 'plugins/appnext/v2-lua.md'
         - 'Appodeal': 'plugins/appodeal/index.md'
         - '_Appodeal':
             - 'Cocos2d-x v3.x':
@@ -65,6 +75,16 @@ pages:
                 - 'Amazon with C++': 'plugins/amazon/v2-cpp.md'
                 - 'Amazon with Javascript': 'plugins/amazon/v2-js.md'
                 - 'Amazon with Lua': 'plugins/amazon/v2-lua.md'
+        - 'Apteligent': 'plugins/apteligent/index.md'
+        - '_Apteligent':
+            - 'Cocos2d-x v3.x':
+                - 'Apteligent with C++': 'plugins/apteligent/v3-cpp.md'
+                - 'Apteligent with Javascript': 'plugins/apteligent/v3-js.md'
+                - 'Apteligent with Lua': 'plugins/apteligent/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Apteligent with C++': 'plugins/apteligent/v2-cpp.md'
+                - 'Apteligent with Javascript': 'plugins/apteligent/v2-js.md'
+                - 'Apteligent with Lua': 'plugins/apteligent/v2-lua.md'
         - 'Bee7': 'plugins/bee7/index.md'
         - '_Bee7':
             - 'Cocos2d-x v3.x':
@@ -201,6 +221,20 @@ pages:
                 - 'Ads with C++': 'plugins/sdkboxads/v3-cpp.md'
                 - 'Ads with Javascript': 'plugins/sdkboxads/v3-js.md'
                 - 'Ads with Lua': 'plugins/sdkboxads/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Ads with C++': 'plugins/sdkboxads/v2-cpp.md'
+                - 'Ads with Javascript': 'plugins/sdkboxads/v2-js.md'
+                - 'Ads with Lua': 'plugins/sdkboxads/v2-lua.md'
+        - 'SDKBOX Play': 'plugins/sdkboxplay/index.md'
+        - '_sdkboxPlay':
+            - 'Cocos2d-x v3.x':
+                - 'Play with C++': 'plugins/sdkboxplay/v3-cpp.md'
+                - 'Play with Javascript': 'plugins/sdkboxplay/v3-js.md'
+                - 'Play with Lua': 'plugins/sdkboxplay/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Play with C++': 'plugins/sdkboxplay/v2-cpp.md'
+                - 'Play with Javascript': 'plugins/sdkboxplay/v2-js.md'
+                - 'Play with Lua': 'plugins/sdkboxplay/v2-lua.md'
         - 'Social Sharing': 'plugins/share/index.md'
         - '_Share':
             - 'Cocos2d-x v3.x':
@@ -263,6 +297,8 @@ pages:
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
 - Unity:
    - 'In-App Purchase': 'unity/iap/index.md'
+   - 'Ratings & Reviews': 'unity/review/index.md'
+   - 'SocialShare': 'unity/socialshare/index.md'
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps:

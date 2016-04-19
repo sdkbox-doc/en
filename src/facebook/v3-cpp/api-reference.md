@@ -127,6 +127,15 @@ static void inviteFriends ( const std::string & app_link_url ,
 ```
 > Use the default FB dialog to invite friends.
 
+```cpp
+static void setAppId ( const std::string& appId );
+```
+> Set the Facebook App ID to be used by the FB SDK.
+
+```cpp
+static void setAppURLSchemeSuffix ( const std::string & appURLSchemeSuffix );
+```
+> Set the app url scheme suffix used by the FB SDK.
 
 ### Listeners
 ```cpp

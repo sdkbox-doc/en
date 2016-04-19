@@ -82,6 +82,15 @@ sdkbox.PluginFacebook.inviteFriends(app_link_url, preview_image_url);
 ```
 > Use the default FB dialog to invite friends.
 
+```javascript
+sdkbox.PluginFacebook.setAppId(appId);
+```
+> Set the Facebook App ID to be used by the FB SDK.
+
+```javascript
+sdkbox.PluginFacebook.setAppURLSchemeSuffix(appURLSchemeSuffix);
+```
+> Set the app url scheme suffix used by the FB SDK.
 
 ### Listeners
 ```javascript

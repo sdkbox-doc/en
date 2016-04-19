@@ -1,5 +1,29 @@
 #Release Notes
 ---
+2.1.3 Release Notes
+===
+##Highlight
+* Developer can enable/disable a plugin using sdkbox.com
+* Share plugin now supports share to facebook as well
+* Facebook Plugin now supports set Facebook App id through config and code
+* Updated Appodeal SDK
+
+##Bugfix
+* Add JS callback function for Kochava plugin
+
+
+2.1.2 Release Notes
+===
+##Highlight
+* Update Appodeal SDK
+* Update Fyber SDK
+
+
+##Bugfix
+* Fix js binding for cocos2d-x v2
+* Fix appodeal callback for iOS
+* Fix playphone been initialized multiple times
+
 2.1.1 Release Notes
 ===
 ##Highlight

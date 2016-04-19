@@ -25,7 +25,12 @@ And created a new __APP__ on Fyber
 ###Setup Android
 * Make sure `java -version` >= 1.7
 * Configure your __APP__ on Fyber follow [Android Quick Start Guide](http://developer.fyber.com/content/android/basics/)
-* Open `project.properties` and change target to `target=android-15`
+
+###Setup Mediation
+If you want to setup fyber to use certain mediation network, please follow fyber's official integration guide
+
+* [iOS Supported networks](http://developer.fyber.com/content/current/ios/rewarded-video/adding-networks/)
+* [Android Supported networks](http://developer.fyber.com/content/current/android/rewarded-video/adding-networks/)
 
 <!--## Configuration
 <<[../../shared/sdkbox_cloud.md]

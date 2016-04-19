@@ -11,10 +11,19 @@ AppDelegate::applicationDidFinishLaunching()
 ### share content to twitter
 After initialization you can begin to use the Share functionality:
 ```cpp
-sdkbox::PluginShare::ShareInfo info;
-info.text = "#sdkbox - the cure for sdk fatigue";
+sdkbox::SocialShareInfo info;
+info.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue ";
+info.title = "sdkbox";
+info.image = "http://www.sdkbox.com/assets/images/logo.png";
+info.link = "http://www.sdkbox.com";
+
+//sdkbox::SocialPlatform::Platform_Select will show platforms list, let user select which platform want to share
+//sdkbox::SocialPlatform::Platform_Twitter will share with twitter directly
+//sdkbox::SocialPlatform::Platform_Facebook will share with facebook directly
+info.platform = sdkbox::SocialPlatform::Platform_Select;
 sdkbox::PluginShare::share(info);
 ```
+
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:
@@ -24,30 +33,42 @@ This allows you to catch the `Share` events so that you can perform operations b
 #include "PluginShare/PluginShare.h"
 class SListener : public sdkbox::ShareListener {
 public:
-    virtual void onShareState(const sdkbox::PluginShare::ShareResponse& response) {
+    virtual void onShareState(const sdkbox::SocialShareResponse& response) {
         switch (response.state) {
-            case sdkbox::PluginShare::ShareState::ShareStateNone: {
+            case sdkbox::SocialShareState::SocialShareStateNone: {
                 CCLOG("SharePlugin::onShareState none");
                 break;
             }
-            case sdkbox::PluginShare::ShareState::ShareStateUnkonw: {
+            case sdkbox::SocialShareState::SocialShareStateUnkonw: {
                 CCLOG("SharePlugin::onShareState unkonw");
                 break;
             }
-            case sdkbox::PluginShare::ShareState::ShareStateBegin: {
+            case sdkbox::SocialShareState::SocialShareStateBegin: {
                 CCLOG("SharePlugin::onShareState begin");
                 break;
             }
-            case sdkbox::PluginShare::ShareState::ShareStateSuccess: {
+            case sdkbox::SocialShareState::SocialShareStateSuccess: {
                 CCLOG("SharePlugin::onShareState success");
                 break;
             }
-            case sdkbox::PluginShare::ShareState::ShareStateFail: {
+            case sdkbox::SocialShareState::SocialShareStateFail: {
                 CCLOG("SharePlugin::onShareState fail, error:%s", response.error.c_str());
                 break;
             }
-            case sdkbox::PluginShare::ShareState::ShareStateCancelled: {
+            case sdkbox::SocialShareState::SocialShareStateCancelled: {
                 CCLOG("SharePlugin::onShareState cancelled");
+                break;
+            }
+            case sdkbox::SocialShareStateSelectShow: {
+                CCLOG("SharePlugin::onShareState show pancel %d", response.platform);
+                break;
+            }
+            case sdkbox::SocialShareStateSelectCancelled: {
+                CCLOG("SharePlugin::onShareState show pancel cancelled %d", response.platform);
+                break;
+            }
+            case sdkbox::SocialShareStateSelected: {
+                CCLOG("SharePlugin::onShareState show pancel selected %d", response.platform);
                 break;
             }
             default: {
@@ -55,7 +76,7 @@ public:
                 break;
             }
         }
-     }
+    }
 };
 ```
 

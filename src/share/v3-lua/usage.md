@@ -7,15 +7,53 @@ sdkbox.PluginShare:init()
 ### share
 After initialization you can begin to use the Share functionality:
 ```lua
-sdkbox.PluginShare:share({text="#sdkbox the end of sdk figue (www.sdkbox.com)"})
+local shareInfo = {}
+shareInfo.text = '#sdkbox(www.sdkbox.com) - the cure for sdk fatigue - from lua - '
+shareInfo.title = "sdkbox";
+shareInfo.image = "http://www.sdkbox.com/assets/images/logo.png";
+shareInfo.link = "http://www.sdkbox.com";
+
+//sdkbox.SocialPlatform.Platform_Select will show platforms list, let user select which platform want to share
+//sdkbox.SocialPlatform.Platform_Twitter will share with twitter directly
+//sdkbox.SocialPlatform.Platform_Facebook will share with facebook directly
+shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
+plugin:share(shareInfo)
 ```
+
+all value of sdkbox.SocialPlatform
+
+- Platform_Unknow
+- Platform_Twitter
+- Platform_Facebook
+- Platform_Select
+- Platform_All
+
+
+all value of sdkbox.SocialShareState
+
+- SocialShareStateNone
+- SocialShareStateUnkonw
+- SocialShareStateBegin
+- SocialShareStateSuccess
+- SocialShareStateFail
+- SocialShareStateCancelled
+- SocialShareStateSelectShow
+- SocialShareStateSelected
+- SocialShareStateSelectCancelled
+
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:
 ```lua
 local plugin = sdkbox.PluginShare
 plugin:setListener(function(responsed)
-    dump(responsed, "share listener info:")
+	local event = responsed.event
+
+    dump(responsed, "PluginShare share listener info:")
+    if responsed.response.state == sdkbox.SocialShareState.SocialShareStateSuccess then
+        print('share success')
+    end
+
 end)
 plugin:init()
 ```
