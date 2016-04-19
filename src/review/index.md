@@ -11,4 +11,4 @@ You can find [more information about this plugin here.](http://www.cocos2d-x.org
 
 ##Sample Project
 
-[A demo project on github](https://github.com/sdkbox/sdkbox-review-sample)
+[A demo project on github](https://github.com/sdkbox/sdkbox-sample-review)
