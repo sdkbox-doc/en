@@ -174,7 +174,7 @@ sdkbox.PluginFyber:setConnectionType(connectionType)
 >  Sets the connection type used by the user
 
 ```lua
-// predefine values
+-- predefine values
 -- sdkbox.PluginFyber.UserDevice.Undefined
 -- sdkbox.PluginFyber.UserDevice.IPhone
 -- sdkbox.PluginFyber.UserDevice.IPad
