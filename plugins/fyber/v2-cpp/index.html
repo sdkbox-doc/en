@@ -308,6 +308,16 @@
         
             
 <li >
+    <a href="../../sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../share/">Social Sharing</a>
 </li>
 
@@ -785,8 +795,194 @@ private:
 </code></pre>
 
 <blockquote>
-<p>Fetches the amount of a given currency earned since the last time this method was 
+<p>Fetches the amount of a given currency earned since the last time this method was
 invoked for the current user ID / app ID combination.</p>
+</blockquote>
+<pre><code class="cpp">static void setAge ( int age ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's age</p>
+</blockquote>
+<pre><code class="cpp">// &quot;2000-02-03&quot;
+static void setBirthdate ( const std::string &amp; data ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's date of birth, format (yyyy-MM-dd)</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserGenderUndefined
+// sdkbox::FYB_UserGenderMale
+// sdkbox::FYB_UserGenderFemale
+// sdkbox::FYB_UserGenderOther
+static void setGender ( int gender ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's gender</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserSexualOrientationUndefined
+// sdkbox::FYB_UserSexualOrientationStraight
+// sdkbox::FYB_UserSexualOrientationBisexual
+// sdkbox::FYB_UserSexualOrientationGay
+// sdkbox::FYB_UserSexualOrientationUnknown
+static void setSexualOrientation ( int sexualOrientation ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's sexual orientation</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserEthnicityUndefined
+// sdkbox::FYB_UserEthnicityAsian
+// sdkbox::FYB_UserEthnicityBlack
+// sdkbox::FYB_UserEthnicityHispanic
+// sdkbox::FYB_UserEthnicityIndian
+// sdkbox::FYB_UserEthnicityMiddleEastern
+// sdkbox::FYB_UserEthnicityNativeAmerican
+// sdkbox::FYB_UserEthnicityPacificIslander
+// sdkbox::FYB_UserEthnicityWhite
+// sdkbox::FYB_UserEthnicityOther
+static void setEthnicity ( int ethnicity ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's ethnicity</p>
+</blockquote>
+<pre><code class="cpp">static void setLocation ( double latitude , double longitude ) ;
+</code></pre>
+
+<blockquote>
+<p>Set the user's location</p>
+</blockquote>
+<pre><code class="cpp">static void cleanLocation ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Clean the user's location</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserMaritalStatusUndefined
+// sdkbox::FYB_UserMartialStatusSingle
+// sdkbox::FYB_UserMartialStatusRelationship
+// sdkbox::FYB_UserMartialStatusMarried
+// sdkbox::FYB_UserMartialStatusDivorced
+// sdkbox::FYB_UserMartialStatusEngaged
+static void setMaritalStatus ( int status ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's marital status</p>
+</blockquote>
+<pre><code class="cpp">static void setNumberOfChildren ( int numberOfChildren ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's number of children</p>
+</blockquote>
+<pre><code class="cpp">static void setAnnualHouseholdIncome ( int income ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's annual household income</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserEducationUndefined
+// sdkbox::FYB_UserEducationOther
+// sdkbox::FYB_UserEducationNone
+// sdkbox::FYB_UserEducationHighSchool
+// sdkbox::FYB_UserEducationInCollege
+// sdkbox::FYB_UserEducationSomeCollege
+// sdkbox::FYB_UserEducationAssociates
+// sdkbox::FYB_UserEducationBachelors
+// sdkbox::FYB_UserEducationMasters
+// sdkbox::FYB_UserEducationDoctorate
+static void setEducation ( int education ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's educational background</p>
+</blockquote>
+<pre><code class="cpp">static void setZipcode ( const std::string &amp; zipcode ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the user's zipcode</p>
+</blockquote>
+<pre><code class="cpp">static void setInterests ( const std::vector &lt;std::string&gt; &amp; interests ) ;
+</code></pre>
+
+<blockquote>
+<p>Set the user's list of interests</p>
+</blockquote>
+<pre><code class="cpp">static void setIap ( bool flag ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets if in-app purchases are enabled.</p>
+</blockquote>
+<pre><code class="cpp">static void setIapAmount ( float amount ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the amount that the user has already spent on in-app purchases</p>
+</blockquote>
+<pre><code class="cpp">static void setNumberOfSessions ( int numberOfSessions ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the number of sessions</p>
+</blockquote>
+<pre><code class="cpp">static void setPsTime ( double timestamp ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the time spent on the current session</p>
+</blockquote>
+<pre><code class="cpp">static void setLastSession ( double session ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the duration of the last session</p>
+</blockquote>
+<pre><code class="cpp">// sdkbox::FYB_UserConnectionTypeUndefined
+// sdkbox::FYB_UserConnectionTypeWiFi
+// sdkbox::FYB_UserConnectionType3G
+// sdkbox::FYB_UserConnectionTypeLTE
+// sdkbox::FYB_UserConnectionTypeEdge
+static void setConnectionType ( int connectionType ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the connection type used by the user</p>
+</blockquote>
+<pre><code class="cpp">// predefine values
+// sdkbox::FYB_UserDeviceUndefined
+// sdkbox::FYB_UserDeviceIPhone
+// sdkbox::FYB_UserDeviceIPad
+// sdkbox::FYB_UserDeviceIPod
+// sdkbox::FYB_UserDeviceAndroid
+static void setDevice ( const std::string &amp; device ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the device used by the user</p>
+</blockquote>
+<pre><code class="cpp">static void setVersion ( const std::string &amp; version ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets the app version</p>
+</blockquote>
+<pre><code class="cpp">static void cleanCustomParameters ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Clean custom parameters, iOS only</p>
+</blockquote>
+<pre><code class="cpp">static void addCustomParameters ( const std::string &amp; key ,
+                                  const std::string &amp; value ) ;
+</code></pre>
+
+<blockquote>
+<p>Sets custom parameters to be sent along with the standard parameters</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onVirtualCurrencyConnectorFailed ( int error ,
