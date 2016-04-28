@@ -9,6 +9,8 @@
 * Optimize sample projects makes them take less space
 * Facebook plugin supports setting App ID with config file
 
+##Bugfix
+* Fix IAP crashing issue when user side verification was set.
 
 2.1.3 Release Notes
 ===
