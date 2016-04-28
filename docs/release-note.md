@@ -1,5 +1,15 @@
 #Release Notes
 ---
+
+2.2 Release Notes
+===
+##Highlight
+* SDKBOX play plugin offers cross platform solution for Leaderboard and achievements
+* Apteligent plugin offers crash reporting
+* Optimize sample projects makes them take less space
+* Facebook plugin supports setting App ID with config file
+
+
 2.1.3 Release Notes
 ===
 ##Highlight
