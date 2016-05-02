@@ -509,8 +509,6 @@
         
             <li><a href="#initialize-sdkboxads">Initialize SdkboxAds</a></li>
         
-            <li><a href="#configuration">Configuration</a></li>
-        
             <li><a href="#using-sdkboxplay">Using SdkboxPlay</a></li>
         
             <li><a href="#sdkboxplay-events">SdkboxPlay events</a></li>
@@ -613,11 +611,10 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
       &quot;connect_on_start&quot; : false
     }
 
-As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
-In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.
-
 </code></pre>
 
+<p>As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
+In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.</p>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -626,38 +623,8 @@ In either case, the developer will reference leaderboards and achievements by a 
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:init();
 </code></pre>
 
-<h3 id="configuration">Configuration</h3>
-<p>SdkboxPlay configuration defines the list of leaderboards, and achievements and its types.
-A sample configuration block could be:</p>
-<pre><code class="json">&quot;sdkboxplay&quot; : {
-      &quot;leaderboards&quot; : [
-        {
-          &quot;id&quot; : &quot;CgkI0sux8sMWEAIQAA&quot;,
-          &quot;name&quot; : &quot;ldb1&quot;
-        }
-      ],
-      &quot;achievements&quot; : [
-        {
-          &quot;id&quot; : &quot;CgkI0sux8sMWEAIQAg&quot;,
-          &quot;name&quot; : &quot;ten-games&quot;,
-          &quot;incremental&quot; : false
-        },
-        {
-          &quot;id&quot; : &quot;CgkI0sux8sMWEAIQAw&quot;,
-          &quot;name&quot; : &quot;hunter&quot;,
-          &quot;incremental&quot; : false
-        },
-        ...
-      ],
-      &quot;debug&quot; : true,
-      &quot;connect_on_start&quot; : false
-    }
-</code></pre>
-
-<p>As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
-In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.</p>
 <h3 id="using-sdkboxplay">Using SdkboxPlay</h3>
-<h4 id="configuration_1">Configuration</h4>
+<h4 id="intro">Intro</h4>
 <p>SdkboxPlay is an abstraction for Google Play and Game Center’s social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section</p>
 <h5 id="achievements">Achievements</h5>
