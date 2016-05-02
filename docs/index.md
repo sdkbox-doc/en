@@ -41,7 +41,9 @@ blockquote a img {
 > <a href="http://www.sdkbox.com/plugins/admob"><img src="./imgs/admob.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/agecheq"><img src="./imgs/agecheq.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/amazon"><img src="http://www.sdkbox.com/assets/img/amazon.jpg" /></a>
+> <a href="http://www.sdkbox.com/plugins/appnext"><img src="http://www.sdkbox.com/assets/img/appnext.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/appodeal"><img src="./imgs/appodeal.png" /></a>
+> <a href="http://www.sdkbox.com/plugins/apteligent"><img src="http://www.sdkbox.com/assets/img/apteligent.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/bee7"><img src="./imgs/bee7.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/chartboost"><img src="./imgs/chartboost.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/facebook"><img src="./imgs/facebook.jpg" /></a>
@@ -51,12 +53,12 @@ blockquote a img {
 > <a href="http://www.sdkbox.com/plugins/iap"><img src="./imgs/iap.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/inmobi"><img src="./imgs/inmobi.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/kochava"><img src="./imgs/kochava.jpg" /></a>
+> <a href="http://www.sdkbox.com/plugins/leadbolt"><img src="./imgs/leadbolt.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/playphone"><img src="./imgs/playphone.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/ratings_reviews"><img src="./imgs/review.jpg" /></a>
-> <a href="http://www.sdkbox.com/plugins/soomlagrow"><img src="./imgs/soomla.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/scientificrevenue"><img src="./imgs/sr.png" /></a>
 > <a href="http://www.sdkbox.com/plugins/tune"><img src="./imgs/tune.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/valuepotion"><img src="./imgs/valuepotion.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/vungle"><img src="./imgs/vungle.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/youtube"><img src="./imgs/youtube.png" /></a>
-> <a href="http://www.sdkbox.com/plugins/leadbolt"><img src="./imgs/leadbolt.jpg" /></a>
+

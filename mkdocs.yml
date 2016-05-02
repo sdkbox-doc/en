@@ -245,16 +245,6 @@ pages:
                 - 'Share with C++': 'plugins/share/v2-cpp.md'
                 - 'Share with Javascript': 'plugins/share/v2-js.md'
                 - 'Share with Lua': 'plugins/share/v2-lua.md'
-        - 'SOOMLA Grow': 'plugins/soomlagrow/index.md'
-        - '_SOOMLA Grow':
-            - 'Cocos2d-x v3.x':
-                - 'SOOMLA Grow with C++': 'plugins/soomlagrow/v3-cpp.md'
-                - 'SOOMLA Grow with Javascript': 'plugins/soomlagrow/v3-js.md'
-                - 'SOOMLA Grow with Lua': 'plugins/soomlagrow/v3-lua.md'
-            - 'Cocos2d-x v2.x':
-                - 'SOOMLA Grow with C++': 'plugins/soomlagrow/v2-cpp.md'
-                - 'SOOMLA Grow with Javascript': 'plugins/soomlagrow/v2-js.md'
-                - 'SOOMLA Grow with Lua': 'plugins/soomlagrow/v2-lua.md'
         - 'Tune': 'plugins/tune/index.md'
         - '_Tune':
             - 'Cocos2d-x v3.x':
@@ -299,6 +289,7 @@ pages:
    - 'In-App Purchase': 'unity/iap/index.md'
    - 'Ratings & Reviews': 'unity/review/index.md'
    - 'SocialShare': 'unity/socialshare/index.md'
+   - 'Google Analytics': 'unity/googleanalytics/documentation.md'
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps:
