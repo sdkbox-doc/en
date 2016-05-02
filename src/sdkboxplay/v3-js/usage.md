@@ -23,44 +23,10 @@ recommend to do this in the `app.js`. Example:
 }
 ```
 
-### Configuration
-
-SdkboxPlay configuration defines the list of leaderboards, and achievements and its types.
-A sample configuration block could be:
-
-```json
-"sdkboxplay" : {
-      "leaderboards" : [
-        {
-          "id" : "CgkI0sux8sMWEAIQAA",
-          "name" : "ldb1"
-        }
-      ],
-      "achievements" : [
-        {
-          "id" : "CgkI0sux8sMWEAIQAg",
-          "name" : "ten-games",
-          "incremental" : false
-        },
-        {
-          "id" : "CgkI0sux8sMWEAIQAw",
-          "name" : "hunter",
-          "incremental" : false
-        },
-        ...
-      ],
-      "debug" : true,
-      "connect_on_start" : false
-    }
-```
-
-As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
-In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.
-
 ### Using SdkboxPlay
 
 
-#### Configuration
+#### Intro
 SdkboxPlay is an abstraction for Google Play and Game Center’s social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section
 
