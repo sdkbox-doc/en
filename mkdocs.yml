@@ -195,6 +195,16 @@ pages:
                 - 'Leaderboard with C++': 'plugins/leaderboard/v2-cpp.md'
                 - 'Leaderboard with Javascript': 'plugins/leaderboard/v2-js.md'
                 - 'Leaderboard with Lua': 'plugins/leaderboard/v2-lua.md'
+        - 'OneSignal': 'plugins/onesignal/index.md'
+        - '_OneSignal':
+            - 'Cocos2d-x v3.x':
+                - 'OneSignal with C++': 'plugins/onesignal/v3-cpp.md'
+                - 'OneSignal with Javascript': 'plugins/onesignal/v3-js.md'
+                - 'OneSignal with Lua': 'plugins/onesignal/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'OneSignal with C++': 'plugins/onesignal/v2-cpp.md'
+                - 'OneSignal with Javascript': 'plugins/onesignal/v2-js.md'
+                - 'OneSignal with Lua': 'plugins/onesignal/v2-lua.md'
         - 'Playphone': 'plugins/playphone/index.md'
         - '_Playphone':
             - 'Cocos2d-x v3.x':
