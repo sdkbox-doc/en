@@ -8,7 +8,7 @@ sdkbox.PluginApteligent:init()
 
 ```lua
 -- leave a breadcrumb
-sdkbox.PluginApteligent:addFilter("www.gmail.com")
+sdkbox.PluginApteligent:leaveBreadcrumb("User tapped start button");
 
 -- perform all breadcrumb writes on a background thread
 sdkbox.PluginApteligent:setAsyncBreadcrumbMode(true)
@@ -68,13 +68,13 @@ sdkbox.PluginApteligent:updateLocation(39.9042, 116.4074)
 
 ### Other Tasks
 ```lua
--- Allowing Users to Opt Out of Crittercism
+-- Allowing Users to Opt Out of Apteligent
 sdkbox.PluginApteligent:setOptOutStatus(true)
 
--- Changing the verbosity of Crittercism’s Logs
--- sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Crittercism log messages
+-- Changing the verbosity of Apteligent’s Logs
+-- sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Apteligent log messages
 -- sdkbox.PluginApteligent.LoggingLevel.Error   : Only print errors. An error is an unexpected event that will result not capturing important data
--- sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Crittercism methods before initializing Crittercism.
+-- sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Apteligent methods before initializing Apteligent.
 -- sdkbox.PluginApteligent.LoggingLevel.Info    : The most verbose level of logging
 sdkbox.PluginApteligent:setLoggingLevel(sdkbox.PluginApteligent.LoggingLevel.Info)
 
@@ -83,7 +83,7 @@ sdkbox.PluginApteligent:setLoggingLevel(sdkbox.PluginApteligent.LoggingLevel.Inf
 sdkbox.PluginApteligent:sendAppLoadData()
 ```
 
-### Implement ApteligentListner
+### Implement ApteligentListener
 * You can implement ApteligentListener if you want to receive callbacks like video finish playing.
 ```lua
 

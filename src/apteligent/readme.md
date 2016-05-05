@@ -4,9 +4,9 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-First, you must sign up for [Apteligent](https://www.apteligent.com/) and setup your app.
+Sign up for [Apteligent](https://www.apteligent.com/) and create your app.
 
-Second, Open a terminal and use the following command to install the SDKBOX Apteligent plugin.
+Open a terminal and use the following command to install the SDKBOX Apteligent plugin.
 ```bash
 $ sdkbox import apteligent
 ```
@@ -45,7 +45,7 @@ SDKBOX Installer will automatically inject a sample configuration to your `sdkbo
     - true [default]
     - false
 
-> This flag determines wither Crittercism service monitoring is enabled at all.
+> This flag determines wither Apteligent service monitoring is enabled at all.
 
 - delay_sending_appload [bool]:
 
@@ -58,20 +58,7 @@ SDKBOX Installer will automatically inject a sample configuration to your `sdkbo
 
     - ["http://www.gmail.com", "www.other.com"]
 
-> These filters are used to make it so certain network performance information is not reported to Crittercism.
-
-- version [string]: (Android only)
-
-    - "version:2.0.4 build:4981 codeName:Cactus"
-
-> Customizing the Version Reported to Crittercism.
-
-- version_string_include_version_code [bool]: (Android only)
-
-    - true
-    - false [default]
-
-> Whether versoin string include version code.
+> These filters are used to make it so certain network performance information is not reported to Apteligent.
 
 - logcat_reporting_enabled: (Android only) Include Logcat
 
@@ -80,7 +67,7 @@ SDKBOX Installer will automatically inject a sample configuration to your `sdkbo
 
 > Including system log data (Logcat) can be helpful for debugging crashes and handled exceptions,
 > but it comes at the cost of slightly increasing disk and network usage, which is why this feature
-> must be manually enabled. Crittercism collects the last 100 lines of logcat data.
+> must be manually enabled. Apteligent collects the last 100 lines of logcat data.
 
 more information:
 
