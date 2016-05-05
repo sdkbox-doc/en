@@ -79,11 +79,11 @@ sdkbox.PluginOneSignal.postNotification(JSON.stringify(data));
 ```javascript
 
 sdkbox.PluginOneSignal.setListener({
-    onSendTag :function (bool success, const std::string& key, const std::string& message) { },
-    onGetTags :function (const std::string& jsonString) { },
-    onIdsAvailable :function (const std::string& userId, const std::string& pushToken) { },
-    onPostNotification :function (bool success, const std::string& message) { },
-    onNotification :function (bool isActive, const std::string& message, const std::string& additionalData) {}
+    onSendTag :function (success, key, message) { },
+    onGetTags :function (jsonString) { },
+    onIdsAvailable :function (userId,  pushToken) { },
+    onPostNotification :function (success,  message) { },
+    onNotification :function (isActive,  message, additionalData) { }
 });
 
 ```

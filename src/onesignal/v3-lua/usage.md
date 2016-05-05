@@ -66,14 +66,14 @@ sdkbox.PluginOneSignal.setListener(function(args)
     local event = args.event
     if "onSendTag" == event then
         -- args.success, args.key, args.message
-    elif "onGetTags" == event then
+    elseif "onGetTags" == event then
         -- args.jsonString
         -- cjson.decode(args.jsonString)
-    elif "onIdsAvailable" == event then
+    elseif "onIdsAvailable" == event then
         -- args.userId, args.pushToken
-    elif "onPostNotification" == event then
+    elseif "onPostNotification" == event then
         -- args.success, args.message
-    elif "onNotification" == event then
+    elseif "onNotification" == event then
         -- args.isActive, args.message, args.additionalData
     end
 end)
