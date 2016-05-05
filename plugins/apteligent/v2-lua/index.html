@@ -525,7 +525,7 @@
         
             <li><a href="#other-tasks">Other Tasks</a></li>
         
-            <li><a href="#implement-apteligentlistner">Implement ApteligentListner</a></li>
+            <li><a href="#implement-apteligentlistener">Implement ApteligentListener</a></li>
         
 	</ul>
 	
@@ -577,8 +577,8 @@
 <h4><em><b>For the Lua version of cocos2d-x v2.x</b> - (<a href="./../">all other versions</a>)</em></h4>
 
 <h2 id="integration">Integration</h2>
-<p>First, you must sign up for <a href="https://www.apteligent.com/">Apteligent</a> and setup your app.</p>
-<p>Second, Open a terminal and use the following command to install the SDKBOX Apteligent plugin.</p>
+<p>Sign up for <a href="https://www.apteligent.com/">Apteligent</a> and create your app.</p>
+<p>Open a terminal and use the following command to install the SDKBOX Apteligent plugin.</p>
 <pre><code class="bash">$ sdkbox import apteligent
 </code></pre>
 
@@ -648,7 +648,7 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 </li>
 </ul>
 <blockquote>
-<p>This flag determines wither Crittercism service monitoring is enabled at all.</p>
+<p>This flag determines wither Apteligent service monitoring is enabled at all.</p>
 </blockquote>
 <ul>
 <li>
@@ -671,30 +671,7 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 </li>
 </ul>
 <blockquote>
-<p>These filters are used to make it so certain network performance information is not reported to Crittercism.</p>
-</blockquote>
-<ul>
-<li>
-<p>version [string]: (Android only)</p>
-<ul>
-<li>"version:2.0.4 build:4981 codeName:Cactus"</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Customizing the Version Reported to Crittercism.</p>
-</blockquote>
-<ul>
-<li>
-<p>version_string_include_version_code [bool]: (Android only)</p>
-<ul>
-<li>true</li>
-<li>false [default]</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Whether versoin string include version code.</p>
+<p>These filters are used to make it so certain network performance information is not reported to Apteligent.</p>
 </blockquote>
 <ul>
 <li>
@@ -708,7 +685,7 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <blockquote>
 <p>Including system log data (Logcat) can be helpful for debugging crashes and handled exceptions,
 but it comes at the cost of slightly increasing disk and network usage, which is why this feature
-must be manually enabled. Crittercism collects the last 100 lines of logcat data.</p>
+must be manually enabled. Apteligent collects the last 100 lines of logcat data.</p>
 </blockquote>
 <p>more information:</p>
 <ul>
@@ -760,7 +737,7 @@ must be manually enabled. Crittercism collects the last 100 lines of logcat data
 
 <h3 id="logging-breadcrumbs">Logging Breadcrumbs</h3>
 <pre><code class="lua">-- leave a breadcrumb
-sdkbox.PluginApteligent:addFilter(&quot;www.gmail.com&quot;)
+sdkbox.PluginApteligent:leaveBreadcrumb(&quot;User tapped start button&quot;);
 
 -- perform all breadcrumb writes on a background thread
 sdkbox.PluginApteligent:setAsyncBreadcrumbMode(true)
@@ -809,13 +786,13 @@ sdkbox.PluginApteligent:updateLocation(39.9042, 116.4074)
 </code></pre>
 
 <h3 id="other-tasks">Other Tasks</h3>
-<pre><code class="lua">-- Allowing Users to Opt Out of Crittercism
+<pre><code class="lua">-- Allowing Users to Opt Out of Apteligent
 sdkbox.PluginApteligent:setOptOutStatus(true)
 
--- Changing the verbosity of Crittercism’s Logs
--- sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Crittercism log messages
+-- Changing the verbosity of Apteligent’s Logs
+-- sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Apteligent log messages
 -- sdkbox.PluginApteligent.LoggingLevel.Error   : Only print errors. An error is an unexpected event that will result not capturing important data
--- sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Crittercism methods before initializing Crittercism.
+-- sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Apteligent methods before initializing Apteligent.
 -- sdkbox.PluginApteligent.LoggingLevel.Info    : The most verbose level of logging
 sdkbox.PluginApteligent:setLoggingLevel(sdkbox.PluginApteligent.LoggingLevel.Info)
 
@@ -824,7 +801,7 @@ sdkbox.PluginApteligent:setLoggingLevel(sdkbox.PluginApteligent.LoggingLevel.Inf
 sdkbox.PluginApteligent:sendAppLoadData()
 </code></pre>
 
-<h3 id="implement-apteligentlistner">Implement ApteligentListner</h3>
+<h3 id="implement-apteligentlistener">Implement ApteligentListener</h3>
 <ul>
 <li>You can implement ApteligentListener if you want to receive callbacks like video finish playing.</li>
 </ul>
