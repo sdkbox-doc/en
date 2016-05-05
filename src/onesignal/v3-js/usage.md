@@ -71,7 +71,7 @@ var data = {
     }
 };
 //console.log(JSON.stringify(data));
-sdkbox.PluginOneSignal.postSignal(JSON.stringify(data));
+sdkbox.PluginOneSignal.postNotification(JSON.stringify(data));
 ```
 
 ### Implement OneSignalListner
