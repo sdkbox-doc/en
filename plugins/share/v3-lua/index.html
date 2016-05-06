@@ -483,7 +483,10 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#integration">Integration</a></li>
+        <li class="main active"><a href="#overview">Overview</a></li>
+	
+    
+        <li class="main "><a href="#integration">Integration</a></li>
 	
     
         <li class="main "><a href="#important-notice">Important Notice</a></li>
@@ -499,10 +502,6 @@
             <li><a href="#whitelist-canopenurl-function">Whitelist canOpenURL function</a></li>
         
             <li><a href="#json-configuration">JSON Configuration</a></li>
-        
-            <li><a href="#fabric-key-in-androidmanifest">fabric key in AndroidManifest</a></li>
-        
-            <li><a href="#how-get-fabric-organization-apikey">How get fabric organization apikey</a></li>
         
 	</ul>
 	
@@ -566,11 +565,22 @@
 
 <h4><em><b>For the Lua version of cocos2d-x v3.x</b> - (<a href="./../">all other versions</a>)</em></h4>
 
+<h2 id="overview">Overview</h2>
+<p>SDKBOX Share plugin provide an one stop solution for developers to share to all social platforms.</p>
+<p>Currently SDKBOX Share supports share to twitter and facebook</p>
+<p>Please make sure you create developer account on the following platforms
+<a href="http://developers.facebook.com/">Facebook</a>
+<a href="http://apps.twitter.com/">Twitter</a> (For twitter you'll also need <a href="https://fabric.io">Fabric</a>)</p>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Share plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import share
 </code></pre>
 
+<p>You will also need to import SDKBOX facebook plugin if you want enable facebook share support</p>
+<pre><code class="bash">$ sdkbox import facebook
+</code></pre>
+
+<p>Facebook plugin have some extra integration steps, please click <a href="http://docs.sdkbox.com/en/plugins/facebook/v3-cpp/#extra-steps">here</a></p>
 <h2 id="important-notice">Important Notice</h2>
 <p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
@@ -598,27 +608,16 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the Share configuration, you need to replace <code>&lt;key&gt;</code>, <code>&lt;secret&gt;</code> item with your specific <a href="http://apps.twitter.com/">Twitter</a> account information.</p>
-<pre><code class="json">&quot;Share&quot;:{
-    &quot;platforms&quot;:{
-        &quot;Twitter&quot;:{
-            &quot;params&quot;: {
-                &quot;key&quot;:&quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;,
-                &quot;secret&quot;:&quot;haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9&quot;
-            }
-        }
-    }
-}
-</code></pre>
-
-<h3 id="fabric-key-in-androidmanifest">fabric key in AndroidManifest</h3>
-<p>you need replace <code>&lt;api_key&gt;</code> with your <a href="https://fabric.io/settings/organizations">fabric organization</a> item in AndroidManifest.xml</p>
+<p>Here is an example of the Share configuration</p>
+<p><em>For twitte</em></p>
+<p>you need to replace <code>&lt;key&gt;</code>, <code>&lt;secret&gt;</code> item with your specific <a href="http://apps.twitter.com/">Twitter</a> account.</p>
+<p>you also need replace <code>&lt;api_key&gt;</code> with your <a href="https://fabric.io/settings/organizations">fabric organization</a> item in <code>AndroidManifest.xml</code></p>
 <pre><code class="xml">&lt;meta-data
             android:name=&quot;io.fabric.ApiKey&quot;
             android:value=&quot;api_key&quot; /&gt;
 </code></pre>
 
-<h3 id="how-get-fabric-organization-apikey">How get fabric organization apikey</h3>
+<p>To get fabric organization apikey</p>
 <ul>
 <li>create a organization in <a href="https://fabric.io/settings/organizations">fabric organization</a></li>
 </ul>
@@ -629,6 +628,42 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 </ul>
 <p>maybe look like the following
 <img alt="" src="../../../imgs/share_twitter_organization_info.png" /></p>
+<p><em>For facebook</em></p>
+<p>you need to add a <code>Facebook</code> entry in the config</p>
+<pre><code class="json">    &quot;android&quot;: {
+        &quot;Facebook&quot;: {
+            &quot;debug&quot;: false
+        },
+        &quot;Share&quot;: {
+            &quot;platforms&quot;: {
+                &quot;Twitter&quot;: {
+                    &quot;params&quot;: {
+                        &quot;secret&quot;: &quot;nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne&quot;,
+                        &quot;key&quot;: &quot;EuovpLL0UhSGB7Jv5eKFJNMqO&quot;
+                    }
+                },
+                &quot;Facebook&quot;: {}    //support facebook share
+            }
+        }
+    },
+    &quot;ios&quot;: {
+        &quot;Facebook&quot;: {
+            &quot;debug&quot;: true
+        },
+        &quot;Share&quot;: {
+            &quot;platforms&quot;: {
+                &quot;Twitter&quot;: {
+                    &quot;params&quot;: {
+                        &quot;secret&quot;: &quot;haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9&quot;,
+                        &quot;key&quot;: &quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;
+                    }
+                },
+                &quot;Facebook&quot;: {}    //support facebook share
+            }
+        }
+    }
+</code></pre>
+
 <!---->
 
 <h2 id="usage">Usage</h2>
