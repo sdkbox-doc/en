@@ -9,6 +9,7 @@ SDKBOX Share plugin provide an one stop solution for developers to share to all 
 Currently SDKBOX Share supports share to **twitter** and **facebook**
 
 Please make sure you create developer account on the following platforms
+
 * [Facebook](http://developers.facebook.com/)
 * [Twitter](http://apps.twitter.com/) (For twitter you'll also need [Fabric](https://fabric.io))
 
@@ -80,16 +81,7 @@ you also need replace `<api_key>` with your [fabric organization](https://fabric
             android:value="api_key" />
 ```
 
-To get fabric organization apikey
-
-- create a organization in [fabric organization](https://fabric.io/settings/organizations)
-
-maybe look like the following
-![](../../imgs/share_twitter_organizations.png)
-
-- and then, get orgranization key
-
-maybe look like the following
+You can get fabric organization apikey in the organization screen
 ![](../../imgs/share_twitter_organization_info.png)
 
 **Facebook configuration**
