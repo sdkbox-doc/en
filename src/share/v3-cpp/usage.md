@@ -8,7 +8,7 @@ AppDelegate::applicationDidFinishLaunching()
 }
 ```
 
-### share content to twitter
+### share content
 After initialization you can begin to use the Share functionality:
 ```cpp
 sdkbox::SocialShareInfo info;
