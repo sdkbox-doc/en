@@ -56,10 +56,10 @@ private:
     void onAdClosed() {}
     void onAdClicked() {}
 
-    void onVideoLoaded(const std::string& name) {} // not support on ios
-    void onVideoClicked(const std::string& name) {} // not support on ios
-    void onVideoClosed(const std::string& name) {} // not support on ios
+    void onVideoLoaded(const std::string& name) {}
+    void onVideoClicked(const std::string& name) {}
+    void onVideoClosed(const std::string& name) {}
     void onVideoEnded(const std::string& name) {} // not support on ios
-    void onVideoError(const std::string& name, const std::string& msg) {} // not support on ios
+    void onVideoError(const std::string& name, const std::string& msg) {}
 }
 ```
