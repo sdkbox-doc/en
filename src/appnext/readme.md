@@ -11,6 +11,26 @@ Second, Open a terminal and use the following command to install the SDKBOX Appn
 $ sdkbox import appnext
 ```
 
+##Extra steps
+1. For portrait iOS games:
+
+1.1 Edit `RootViewController.mm` file
+
+```
+// For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
+- (NSUInteger) supportedInterfaceOrientations{
+#ifdef __IPHONE_6_0
+    return UIInterfaceOrientationMaskPortrait; // only portrait here
+#endif
+}
+```
+
+1.2 Add Landscape orientations support
+
+For Full-Screen/Rewarded Ad: Landscape orientations (Landscape left/Landscape Right).
+Click on your project in the 'Project navigator'->'General'->'Device Orientation' and add the
+required orientations for both iPhone/iPad devices.
+
 <<[../../shared/notice.md]
 
 <!--## Configuration
