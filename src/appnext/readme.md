@@ -23,6 +23,9 @@ $ sdkbox import appnext
     return UIInterfaceOrientationMaskPortrait; // only portrait here
 #endif
 }
+- (BOOL) shouldAutorotate {
+    return YES;
+}
 ```
 
 1.2 Add Landscape orientations support
