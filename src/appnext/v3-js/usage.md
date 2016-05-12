@@ -67,11 +67,11 @@ sdkbox.PluginAppnext.setListener({
     onAdClosed : function() { },
     onAdClicked : function() { },
 
-    onVideoLoaded : function(name) { },     // not support on ios
-    onVideoClicked : function(name) { },    // not support on ios
-    onVideoClosed : function(name) { },     // not support on ios
+    onVideoLoaded : function(name) { },
+    onVideoClicked : function(name) { },
+    onVideoClosed : function(name) { },
     onVideoEnded : function(name) { },      // not support on ios
-    onVideoError : function(name, msg) { }  // not support on ios
+    onVideoError : function(name, msg) { }
 });
 
 ```

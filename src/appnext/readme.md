@@ -11,6 +11,29 @@ Second, Open a terminal and use the following command to install the SDKBOX Appn
 $ sdkbox import appnext
 ```
 
+##Extra steps
+1. For portrait iOS games:
+
+1.1 Edit `RootViewController.mm` file
+
+```
+// For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
+- (NSUInteger) supportedInterfaceOrientations{
+#ifdef __IPHONE_6_0
+    return UIInterfaceOrientationMaskPortrait; // only portrait here
+#endif
+}
+- (BOOL) shouldAutorotate {
+    return YES;
+}
+```
+
+1.2 Add Landscape orientations support
+
+For Full-Screen/Rewarded Ad: Landscape orientations (Landscape left/Landscape Right).
+Click on your project in the 'Project navigator'->'General'->'Device Orientation' and add the
+required orientations for both iPhone/iPad devices.
+
 <<[../../shared/notice.md]
 
 <!--## Configuration
@@ -62,8 +85,9 @@ SDKBOX Installer will automatically inject a sample configuration to your `sdkbo
 - mute
 - autoplay
 
-- progress_color
-- show_close_button
+- progress_color: [string]
+- show_close_button: [bool]
+- close_delay: [float]
 
 more information:
 
@@ -82,7 +106,49 @@ Example:
                 "default": {
                     "cache":true,
                     "id":"6d596bc5-b4c1-48ca-be95-3758fd29a3a5",
-                    "type":"interstitial"
+                    "type":"interstitial",
+
+                    "button_text":"Button Text",
+                    "button_color":"#6AB344",
+                    "categories":"Action,Puzzle",
+                    "postback":"postback",
+
+                    "skip_text":"Skip Text",
+                    "mute":false,
+                    "autoplay":true,
+                    "creative_type":"managed"
+                },
+                "fullscreen": {
+                    "cache":true,
+                    "id":"39cd02ce-8607-42f2-8134-069aaa3796e2",
+                    "type":"fullscreen",
+
+                    "button_text":"Button Text",
+                    "button_color":"#6AB344",
+                    "categories":"Action,Puzzle",
+                    "postback":"postback",
+
+                    "progress_type":"clock",
+                    "progress_color":"#ffffff",
+                    "show_close_button":true,
+                    "video_lenght":"short",
+                    "close_delay":5.0
+                },
+                "reward": {
+                    "cache":true,
+                    "id":"1cd50102-0914-4506-8514-3e2bb3787c35",
+                    "type":"reward",
+
+                    "button_text":"Button Text",
+                    "button_color":"#6AB344",
+                    "categories":"Action,Puzzle",
+                    "postback":"postback",
+
+                    "progress_type":"bar",
+                    "progress_color":"#ffff00",
+                    "show_close_button":true,
+                    "video_lenght":"long",
+                    "close_delay":5.0
                 }
             }
         }

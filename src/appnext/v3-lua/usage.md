@@ -51,11 +51,11 @@ sdkbox.PluginAppnext.setListener(function(args)
     elif "onAdClosed" == event then
     elif "onAdClicked" == event then
 
-    elif "onVideoLoaded" == event then  -- not support on ios
-    elif "onVideoClicked" == event then -- not support on ios
-    elif "onVideoClosed" == event then  -- not support on ios
+    elif "onVideoLoaded" == event then
+    elif "onVideoClicked" == event then
+    elif "onVideoClosed" == event then
     elif "onVideoEnded" == event then   -- not support on ios
-    elif "onVideoError" == event then   -- not support on ios
+    elif "onVideoError" == event then
     end
 end)
 
