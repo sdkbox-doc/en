@@ -74,6 +74,8 @@ Here is an example of the Share configuration
 
 you need to replace `<key>`, `<secret>` item with your specific [Twitter](http://apps.twitter.com/) account.
 
+For android only
+
 you also need replace `<api_key>` with your [fabric organization](https://fabric.io/settings/organizations) item in `AndroidManifest.xml`
 ``` xml
 <meta-data
