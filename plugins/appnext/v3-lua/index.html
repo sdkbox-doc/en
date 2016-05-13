@@ -278,6 +278,16 @@
         
             
 <li >
+    <a href="../../onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../playphone/">Playphone</a>
 </li>
 
@@ -486,6 +496,9 @@
         <li class="main active"><a href="#integration">Integration</a></li>
 	
     
+        <li class="main "><a href="#extra-steps">Extra steps</a></li>
+	
+    
         <li class="main "><a href="#important-notice">Important Notice</a></li>
 	
 	<ul class="sub-sidenav">
@@ -576,6 +589,26 @@
 <pre><code class="bash">$ sdkbox import appnext
 </code></pre>
 
+<h2 id="extra-steps">Extra steps</h2>
+<ol>
+<li>For portrait iOS games:</li>
+</ol>
+<p>1.1 Edit <code>RootViewController.mm</code> file</p>
+<pre><code>// For ios6, use supportedInterfaceOrientations &amp; shouldAutorotate instead
+- (NSUInteger) supportedInterfaceOrientations{
+#ifdef __IPHONE_6_0
+    return UIInterfaceOrientationMaskPortrait; // only portrait here
+#endif
+}
+- (BOOL) shouldAutorotate {
+    return YES;
+}
+</code></pre>
+
+<p>1.2 Add Landscape orientations support</p>
+<p>For Full-Screen/Rewarded Ad: Landscape orientations (Landscape left/Landscape Right).
+Click on your project in the 'Project navigator'-&gt;'General'-&gt;'Device Orientation' and add the
+required orientations for both iPhone/iPad devices.</p>
 <h2 id="important-notice">Important Notice</h2>
 <p>If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
@@ -665,9 +698,10 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <p>autoplay</p>
 </li>
 <li>
-<p>progress_color</p>
+<p>progress_color: [string]</p>
 </li>
-<li>show_close_button</li>
+<li>show_close_button: [bool]</li>
+<li>close_delay: [float]</li>
 </ul>
 <p>more information:</p>
 <ul>
@@ -685,7 +719,49 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
                 &quot;default&quot;: {
                     &quot;cache&quot;:true,
                     &quot;id&quot;:&quot;6d596bc5-b4c1-48ca-be95-3758fd29a3a5&quot;,
-                    &quot;type&quot;:&quot;interstitial&quot;
+                    &quot;type&quot;:&quot;interstitial&quot;,
+
+                    &quot;button_text&quot;:&quot;Button Text&quot;,
+                    &quot;button_color&quot;:&quot;#6AB344&quot;,
+                    &quot;categories&quot;:&quot;Action,Puzzle&quot;,
+                    &quot;postback&quot;:&quot;postback&quot;,
+
+                    &quot;skip_text&quot;:&quot;Skip Text&quot;,
+                    &quot;mute&quot;:false,
+                    &quot;autoplay&quot;:true,
+                    &quot;creative_type&quot;:&quot;managed&quot;
+                },
+                &quot;fullscreen&quot;: {
+                    &quot;cache&quot;:true,
+                    &quot;id&quot;:&quot;39cd02ce-8607-42f2-8134-069aaa3796e2&quot;,
+                    &quot;type&quot;:&quot;fullscreen&quot;,
+
+                    &quot;button_text&quot;:&quot;Button Text&quot;,
+                    &quot;button_color&quot;:&quot;#6AB344&quot;,
+                    &quot;categories&quot;:&quot;Action,Puzzle&quot;,
+                    &quot;postback&quot;:&quot;postback&quot;,
+
+                    &quot;progress_type&quot;:&quot;clock&quot;,
+                    &quot;progress_color&quot;:&quot;#ffffff&quot;,
+                    &quot;show_close_button&quot;:true,
+                    &quot;video_lenght&quot;:&quot;short&quot;,
+                    &quot;close_delay&quot;:5.0
+                },
+                &quot;reward&quot;: {
+                    &quot;cache&quot;:true,
+                    &quot;id&quot;:&quot;1cd50102-0914-4506-8514-3e2bb3787c35&quot;,
+                    &quot;type&quot;:&quot;reward&quot;,
+
+                    &quot;button_text&quot;:&quot;Button Text&quot;,
+                    &quot;button_color&quot;:&quot;#6AB344&quot;,
+                    &quot;categories&quot;:&quot;Action,Puzzle&quot;,
+                    &quot;postback&quot;:&quot;postback&quot;,
+
+                    &quot;progress_type&quot;:&quot;bar&quot;,
+                    &quot;progress_color&quot;:&quot;#ffff00&quot;,
+                    &quot;show_close_button&quot;:true,
+                    &quot;video_lenght&quot;:&quot;long&quot;,
+                    &quot;close_delay&quot;:5.0
                 }
             }
         }
@@ -796,11 +872,11 @@ sdkbox.PluginAppnext.setListener(function(args)
     elif &quot;onAdClosed&quot; == event then
     elif &quot;onAdClicked&quot; == event then
 
-    elif &quot;onVideoLoaded&quot; == event then  -- not support on ios
-    elif &quot;onVideoClicked&quot; == event then -- not support on ios
-    elif &quot;onVideoClosed&quot; == event then  -- not support on ios
+    elif &quot;onVideoLoaded&quot; == event then
+    elif &quot;onVideoClicked&quot; == event then
+    elif &quot;onVideoClosed&quot; == event then
     elif &quot;onVideoEnded&quot; == event then   -- not support on ios
-    elif &quot;onVideoError&quot; == event then   -- not support on ios
+    elif &quot;onVideoError&quot; == event then
     end
 end)
 
