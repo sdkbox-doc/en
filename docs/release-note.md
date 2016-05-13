@@ -1,6 +1,25 @@
 #Release Notes
 ---
 
+2.2.1 Release Notes
+===
+##Highlight
+* OneSignal plugin for push notification
+* update AppNext SDK
+* update vungle android SDK
+* update InMobi SDK
+* add new AD displaying strategy
+* Add Text messaging support for share plugin
+* Apteligent plugin now will install a uploading script for your debug symbol files
+* Share plugin now supports share dialog
+
+##Bugfix
+* Fix installer only updates one plugin
+* Fix installer will downgrade android API level
+* Fix SDKBOX ads js crash issue
+* Fix facebook crash issue when no facebook id
+* Fix facebook android sample
+
 2.2 Release Notes
 ===
 ##Highlight
