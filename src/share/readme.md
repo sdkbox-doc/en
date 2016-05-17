@@ -6,7 +6,7 @@
 ##Overview
 SDKBOX Share plugin provide an one stop solution for developers to share to all social platforms.
 
-Currently SDKBOX Share supports share to **twitter** and **facebook**
+Currently SDKBOX Share supports share via **twitter**, **facebook** and **SMS**
 
 Please make sure you create developer account on the following platforms
 
@@ -48,7 +48,8 @@ Here is an example of the Share configuration
                         "key": "EuovpLL0UhSGB7Jv5eKFJNMqO"
                     }
                 },
-                "Facebook": {}    //support facebook share
+                "Facebook": {},     //support facebook share
+                "SMS":{}            //support sms share
             }
         }
     },
@@ -64,7 +65,8 @@ Here is an example of the Share configuration
                         "key": "BUJTV6NEM7BAhhm82B12VbKGy"
                     }
                 },
-                "Facebook": {}    //support facebook share
+                "Facebook": {},     //support facebook share
+                "SMS":{}            //support sms share
             }
         }
     }

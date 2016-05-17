@@ -87,6 +87,7 @@ __dependencies tag__ in file `proj.android-studio/app/build.gradle`
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.SEND_SMS"/>
 ```
 
 * Include the following lines above the __application tag__:

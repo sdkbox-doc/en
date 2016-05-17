@@ -32,6 +32,7 @@ bundle into your project’s __proj.android/libs__ folder.
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.SEND_SMS"/>
 
 ```
 
