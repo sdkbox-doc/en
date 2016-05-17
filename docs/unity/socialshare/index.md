@@ -11,7 +11,7 @@ First import the ```sdkbox_socialshare``` unity package into your project. This 
 
 ![](socialshare_folder.jpg)
 
-To begin using SocialShare, find the SocialShare prefab in the Assets/SDKBOX/socialshare directory. 
+To begin using SocialShare, find the SocialShare prefab in the Assets/SDKBOX/socialshare directory.
 
 ![](socialshare_folder_prelab.png)
 
@@ -58,7 +58,7 @@ This specifies social panel custom cancel button
 
 In the ```Callbacks``` section of the SocialShare script inspector pane, you can click ```+``` to add a subscriber, and specify the object, and method that you would like to have invoked.
 
-![](callbacks.png)
+![](socialshare_callbacks.png)
 
 <h2>SocialShare API</h2>
 
