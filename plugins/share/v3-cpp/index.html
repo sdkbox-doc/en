@@ -577,7 +577,7 @@
 
 <h2 id="overview">Overview</h2>
 <p>SDKBOX Share plugin provide an one stop solution for developers to share to all social platforms.</p>
-<p>Currently SDKBOX Share supports share to <strong>twitter</strong> and <strong>facebook</strong></p>
+<p>Currently SDKBOX Share supports share via <strong>twitter</strong>, <strong>facebook</strong> and <strong>SMS</strong></p>
 <p>Please make sure you create developer account on the following platforms</p>
 <ul>
 <li><a href="http://developers.facebook.com/">Facebook</a></li>
@@ -633,7 +633,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
                         &quot;key&quot;: &quot;EuovpLL0UhSGB7Jv5eKFJNMqO&quot;
                     }
                 },
-                &quot;Facebook&quot;: {}    //support facebook share
+                &quot;Facebook&quot;: {},     //support facebook share
+                &quot;SMS&quot;:{}            //support sms share
             }
         }
     },
@@ -649,7 +650,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
                         &quot;key&quot;: &quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;
                     }
                 },
-                &quot;Facebook&quot;: {}    //support facebook share
+                &quot;Facebook&quot;: {},     //support facebook share
+                &quot;SMS&quot;:{}            //support sms share
             }
         }
     }
@@ -685,8 +687,9 @@ AppDelegate::applicationDidFinishLaunching()
 <pre><code class="cpp">sdkbox::SocialShareInfo info;
 info.text = &quot;#sdkbox(www.sdkbox.com) - the cure for sdk fatigue &quot;;
 info.title = &quot;sdkbox&quot;;
-info.image = &quot;http://www.sdkbox.com/assets/images/logo.png&quot;;
+//info.image = &quot;path/to/image&quot;
 info.link = &quot;http://www.sdkbox.com&quot;;
+info.showDialog = false; //if you want share with dialog，set the value true
 
 //sdkbox::SocialPlatform::Platform_Select will show platforms list, let user select which platform want to share
 //sdkbox::SocialPlatform::Platform_Twitter will share with twitter directly
@@ -816,6 +819,7 @@ public:
 <p>Social.framework</p>
 <p>GameController.framework</p>
 <p>SystemConfiguration.framework</p>
+<p>MessageUI.framework</p>
 </blockquote>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
 <p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
@@ -896,6 +900,7 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 </ul>
 <pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
 &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;
 </code></pre>
 
 <ul>
