@@ -56,17 +56,17 @@ Example:
     "ios": {
         "OneSignal":{
             "debug":false,
-            "id":"b9c7cd2f-4fe7-4808-b170-f6a3bda32232",
+            "id":"9a4c9936-62e8-4473-9456-77c50d551870",
             "auto_register":true
         }
     },
     "android": {
         "OneSignal":{
-            "debug":true,
-            "id":"517386718969",
-            "project_number":"9a4c9936-62e8-4473-9456-77c50d551870",
-            "vibrate":false,
-            "sound":false,
+            "debug":false,
+            "id":"9a4c9936-62e8-4473-9456-77c50d551870",
+            "project_number":"517386718969",
+            "vibrate":true,
+            "sound":true,
             "notifications_when_active":false
         }
     }
