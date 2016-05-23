@@ -19,6 +19,15 @@ $ sdkbox import youtube
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 If you want to display youtube vidoe in your app, you have to register a new youtube API key [here](https://developers.google.com/youtube/android/player/register#Create_API_Keys) and put in `developer_key` section of the `sdkbox_config.json`
+
+#### Option for iOS
+
+- "show_close_button": [bool] display the close button or not
+
+- "close_button_text": [string] set close button text, conflicts with "close_button_image"
+
+- "close_button_image": [string] set button image, conflicts with "close_button_text"
+
 ```json
 {
     "ios" :
