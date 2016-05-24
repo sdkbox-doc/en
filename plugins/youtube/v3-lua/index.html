@@ -615,6 +615,18 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>If you want to display youtube vidoe in your app, you have to register a new youtube API key <a href="https://developers.google.com/youtube/android/player/register#Create_API_Keys">here</a> and put in <code>developer_key</code> section of the <code>sdkbox_config.json</code></p>
+<h4 id="option-for-ios">Option for iOS</h4>
+<ul>
+<li>
+<p>"show_close_button": [bool] display the close button or not</p>
+</li>
+<li>
+<p>"close_button_text": [string] set close button text, conflicts with "close_button_image"</p>
+</li>
+<li>
+<p>"close_button_image": [string] set button image, conflicts with "close_button_text"</p>
+</li>
+</ul>
 <pre><code class="json">{
     &quot;ios&quot; :
     {
