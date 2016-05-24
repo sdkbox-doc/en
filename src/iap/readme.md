@@ -39,7 +39,7 @@ Here is an example of the IAP configuration, you need to replace `<put the produ
 }
 ```
 
-If you have IAP items that are __non-consumable__, it is also necessary to supply this for each item in your `sdkbox_config.json`. Only __Android__ requires this step. Taking the same *json* above your config might now look like this example:
+If you have IAP items that are __non-consumable__ or __subscription__, it is also necessary to supply this for each item in your `sdkbox_config.json`. Only __Android__ requires this step. Taking the same *json* above your config might now look like this example:
 ```json
 "android":
 {
