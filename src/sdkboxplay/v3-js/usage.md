@@ -30,6 +30,35 @@ recommend to do this in the `app.js`. Example:
 SdkboxPlay is an abstraction for Google Play and Game Center’s social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section
 
+##### Logged in user info
+
+Calling the method `sdkbox.SdkboxPlay.getUserId()` to get an id per platform that uniquely identifies the logged-in user.
+Additionally, you can query more information about the user. 
+
+######iOS/Android fields
+
+These fields are common to ios and android:
+* player_id
+* name
+* display_name
+
+making a call to `sdkbox.SdkboxPlay.getPlayerAccountField( field )` will return a string with the field
+contents.
+If the requested field does not exist, empty string will returned in exchange.
+`player_id` will be returned by calling `sdkbox.SdkboxPlay.getUserId()` too.
+
+######Android only fields
+
+For Android platform, there are some other available fields:
+
+* title
+* icon_image_uri
+* hires_image_uri
+* last_play_timestamp
+* retrieved_timestamp
+
+use the same `getPlayerAccountField` to get these values as strings.
+
 #####Achievements
 
 Achievements are defined on the respective platform’s developer console.
