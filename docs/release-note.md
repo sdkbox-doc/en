@@ -1,5 +1,18 @@
 #Release Notes
 ---
+2.2.2 Release Notes
+===
+##Highlight
+* Admob will automatically cache ads
+* New user id related functions in SDKBOX play
+* Youtube plugin supports customize close button
+* Vungle SDK has been updated
+* Appodeal SDK has been updated
+* Share plugin supports composing dialog
+
+##Bugfix
+* Fix a crashing issue with facebook
+* Fix installer issue with cocos2d-x 3.11
 
 2.2.1 Release Notes
 ===
