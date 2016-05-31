@@ -392,6 +392,12 @@
                         
                             
 <li >
+    <a href="../../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../unity/iap/">In-App Purchase</a>
 </li>
 
@@ -410,7 +416,13 @@
                         
                             
 <li >
-    <a href="../../../unity/googleanalytics/documentation/">Google Analytics</a>
+    <a href="../../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/sdkboxplay/">SDKBOX Play</a>
 </li>
 
                         
@@ -642,7 +654,7 @@ AppDelegate::applicationDidFinishLaunching()
 <p>SdkboxPlay is an abstraction for Google Play and Game Center’s social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section</p>
 <h5 id="logged-in-user-info">Logged in user info</h5>
-<p>Calling the method <code>sdkbox::SdkboxPlay::getUserId()</code> to get an id per platform that uniquely identifies the logged-in user.
+<p>Calling the method <code>sdkbox::SdkboxPlay::getPlayerId()</code> to get an id per platform that uniquely identifies the logged-in user.
 Additionally, you can query more information about the user. </p>
 <h6 id="iosandroid-fields">iOS/Android fields</h6>
 <p>These fields are common to ios and android:
@@ -652,7 +664,7 @@ Additionally, you can query more information about the user. </p>
 <p>making a call to <code>sdkbox::SdkboxPlay::getPlayerAccountField( const std::string&amp; field )</code> will return a string with the field
 contents.
 If the requested field does not exist, empty string will returned in exchange.
-<code>player_id</code> will be returned by calling <code>sdkbox::SdkboxPlay::getUserId()</code> too.</p>
+<code>player_id</code> will be returned by calling <code>sdkbox::SdkboxPlay::getPlayerId()</code> too.</p>
 <h6 id="android-only-fields">Android only fields</h6>
 <p>For Android platform, there are some other available fields:</p>
 <ul>
