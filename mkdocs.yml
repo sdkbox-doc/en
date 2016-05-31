@@ -296,10 +296,12 @@ pages:
                 - 'Youtube with Javascript': 'plugins/youtube/v2-js.md'
                 - 'Youtube with Lua': 'plugins/youtube/v2-lua.md'
 - Unity:
+   - 'SDKBOX AllInOne': 'unity/allinone/index.md'
    - 'In-App Purchase': 'unity/iap/index.md'
    - 'Ratings & Reviews': 'unity/review/index.md'
    - 'SocialShare': 'unity/socialshare/index.md'
-   - 'Google Analytics': 'unity/googleanalytics/documentation.md'
+   - 'Google Analytics': 'unity/googleanalytics/index.md'
+   - 'SDKBOX Play': 'unity/sdkboxplay/index.md'
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
 - LiveOps:
