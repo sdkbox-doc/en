@@ -13,7 +13,7 @@ In order to keep the API fit to the two models, some tradeoffs have been made, w
 
 ##### Logged in user info
 
-Calling the method `sdkbox.SdkboxPlay:getUserId()` to get an id per platform that uniquely identifies the logged-in user.
+Calling the method `sdkbox.SdkboxPlay:getPlayerId()` to get an id per platform that uniquely identifies the logged-in user.
 Additionally, you can query more information about the user. 
 
 ######iOS/Android fields
@@ -26,7 +26,7 @@ These fields are common to ios and android:
 making a call to `sdkbox.SdkboxPlay:getPlayerAccountField( field )` will return a string with the field
 contents.
 If the requested field does not exist, empty string will returned in exchange.
-`player_id` will be returned by calling `sdkbox.SdkboxPlay:getUserId()` too.
+`player_id` will be returned by calling `sdkbox.SdkboxPlay:getPlayerId()` too.
 
 ######Android only fields
 
