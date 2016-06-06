@@ -61,11 +61,6 @@ SDKBOX Installer will automatically inject a sample configuration to your `sdkbo
 
 - id
 
-- cache:
-
-    - true  : cache ad when app start, only support cache one ad for a type
-    - false [default]: dont cache ad
-
 - type: [string]
 
     - "interstitial"
@@ -126,7 +121,6 @@ Example:
             "debug":true,
             "ads": {
                 "default": {
-                    "cache":true,
                     "id":"6d596bc5-b4c1-48ca-be95-3758fd29a3a5",
                     "type":"interstitial",
 
@@ -141,7 +135,6 @@ Example:
                     "creative_type":"managed"
                 },
                 "fullscreen": {
-                    "cache":true,
                     "id":"39cd02ce-8607-42f2-8134-069aaa3796e2",
                     "type":"fullscreen",
 
@@ -158,7 +151,6 @@ Example:
                     "orientation":"automatic"
                 },
                 "reward": {
-                    "cache":true,
                     "id":"1cd50102-0914-4506-8514-3e2bb3787c35",
                     "type":"reward",
 
@@ -182,7 +174,6 @@ Example:
             "debug":true,
             "ads": {
                 "default": {
-                    "cache":true,
                     "id":"2f6850dd-190a-499d-aa50-1f4a3dd1ed5f",
                     "type":"interstitial",
 
@@ -198,7 +189,6 @@ Example:
                     "creative_type":"managed"
                 },
                 "fullscreen": {
-                    "cache":true,
                     "id": "17322152-1ef3-4e72-9677-eaf7c09f1054",
                     "type": "fullscreen",
 
@@ -215,7 +205,6 @@ Example:
                     "orientation":"automatic"
                 },
                 "reward": {
-                    "cache":true,
                     "id": "8d653a16-129b-4c14-bd22-fae625f70cf4",
                     "type": "reward",
 
