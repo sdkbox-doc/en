@@ -4,7 +4,10 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-First, you must sign up for [Appnext](https://www.appnext.com/) and setup your app. make sure you have following items before proceeding to SDK integration
+
+### Account Registration
+
+you must sign up for [Appnext](https://www.appnext.com/) and setup your app. make sure you have following items before proceeding to SDK integration
 
 **Appnext Account & ID**
 
@@ -23,7 +26,9 @@ can be found in your account at: Apps -> Settings Icon-> Settings & Placements -
 If you plan to show ads for both iOS and Android users, you will need to add a separate App for Android
 and a separate App for iOS and copy the Placement ID of each app.
 
-Second, Open a terminal and use the following command to install the SDKBOX Appnext plugin.
+### Plugin Integration
+
+Open a terminal and use the following command to install the SDKBOX Appnext plugin.
 ```bash
 $ sdkbox import appnext
 ```
