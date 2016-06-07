@@ -626,11 +626,11 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="json-configuration">JSON Configuration</h3>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>type: </p>
+<p>type:</p>
 <pre><code>- "banner"
 - "interstitial"
 </code></pre>
-<p>alignment: </p>
+<p>alignment:</p>
 <pre><code>- "top"
 - "bottom"
 - "left"
@@ -641,15 +641,23 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 - "bottom_left" or "left_bottom"
 - "bottom_right" or "right_bottom"
 </code></pre>
-<p>width x height: </p>
+<p>width x height:</p>
 <pre><code>- 320x50
 - 468x60
 - 320x100
 - 728x90
 - 300x250
 - 160x600
-- 0x0    # 0x0 means auto size.
+- 0x0    # 0x0 means auto size, smart banner.
 </code></pre>
+<h4 id="smart-banner">Smart banner</h4>
+<pre><code>    &quot;width&quot;:0,
+    &quot;height&quot;:0
+</code></pre>
+
+<h4 id="auto-cache">Auto cache</h4>
+<p>The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial Ad after
+it close.</p>
 <p>Example:</p>
 <pre><code class="json">
 {
