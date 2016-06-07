@@ -11,3 +11,6 @@ SdkBox AllInOne is not a plugin, it's a collection of plugin. it include follow 
 * [Google Analytics](../googleanalytics/index.md)
 * [Social Share](../socialshare/index.md)
 * [In-App Purchase](../iap/index.md)
+
+<h2>Notice</h2>
+you need add `AdSupport.framework` manually when build ios project.
