@@ -22,12 +22,12 @@ Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-s
 ### JSON Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
-type: 
+type:
 
     - "banner"
     - "interstitial"
 
-alignment: 
+alignment:
 
     - "top"
     - "bottom"
@@ -38,8 +38,8 @@ alignment:
     - "top_right" or "right_top"
     - "bottom_left" or "left_bottom"
     - "bottom_right" or "right_bottom"
-    
-width x height: 
+
+width x height:
 
     - 320x50
     - 468x60
@@ -47,7 +47,19 @@ width x height:
     - 728x90
     - 300x250
     - 160x600
-    - 0x0    # 0x0 means auto size.
+    - 0x0    # 0x0 means auto size, smart banner.
+
+#### Smart banner
+
+```
+    "width":0,
+    "height":0
+```
+
+#### Auto cache
+
+The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial Ad after
+it close.
 
 Example:
 ```json
