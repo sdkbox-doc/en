@@ -9,7 +9,7 @@
  + Follow [this instructions](https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console) to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. 
  + Use developer console to configure leaderboards and achievements.
  + Find your app id and you'll need to replace replace it in the AndroidManifest.xml later
-   ![](../../imgs/gps_app_id.png)
+   ![](../../imgs/gps_app_id.jpg)
 
 ###Game Center
  + Enable Game Center on XCode.
