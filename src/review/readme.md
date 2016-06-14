@@ -55,6 +55,32 @@ Here is an example of the configuration.
 ##Usage
 <<[usage.md]
 
+##Custom String
+if you want to use custom string when prompt. there have two ways:
+
+ - modify res in `plugin_review_res_project` project (Recommend)
+
+ - set your custom string in sdkbox_config.json
+
+```json
+{
+    "ios": {
+        "Review":{
+            ...
+            "promptTitle":"cutom tile",
+            "promptMessage":"this is custom message",
+            "promptCancel":"取消",
+            "promptRate":"rate打分",
+            "promptRateLater":"稍后later"
+            ...
+        }
+    }
+}
+```
+
+this way will disable local language, if your app needn't localization, can use this way.
+
+
 <<[api-reference.md]
 
 <<[manual_integration.md]
