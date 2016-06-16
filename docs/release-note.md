@@ -1,5 +1,17 @@
 #Release Notes
 ---
+2.2.3 Release Notes
+===
+##Highlight
+* Admob plugin now auto caches ads
+* Inmobi plugin now can hide banners
+* Upgraded google play services to the latest version
+* SDKBOX supports loading encrypted configration locally
+
+##Bugfix
+* Fix multiple issue regarding sdkbox play login
+* various documentation fixes
+
 2.2.2 Release Notes
 ===
 ##Highlight
