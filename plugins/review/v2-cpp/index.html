@@ -549,6 +549,9 @@
 	</ul>
 	
     
+        <li class="main "><a href="#custom-string">Custom String</a></li>
+	
+    
         <li class="main "><a href="#api-reference">API Reference</a></li>
 	
 	<ul class="sub-sidenav">
@@ -817,6 +820,32 @@ private:
 <pre><code class="cpp">sdkbox::PluginReview::setListener(this);
 </code></pre>
 
+<h2 id="custom-string">Custom String</h2>
+<p>if you want to use custom string when prompt. there have two ways:</p>
+<ul>
+<li>
+<p>modify res in <code>plugin_review_res_project</code> project (Recommend)</p>
+</li>
+<li>
+<p>set your custom string in sdkbox_config.json</p>
+</li>
+</ul>
+<pre><code class="json">{
+    &quot;ios&quot;: {
+        &quot;Review&quot;:{
+            ...
+            &quot;promptTitle&quot;:&quot;cutom tile&quot;,
+            &quot;promptMessage&quot;:&quot;this is custom message&quot;,
+            &quot;promptCancel&quot;:&quot;取消&quot;,
+            &quot;promptRate&quot;:&quot;rate打分&quot;,
+            &quot;promptRateLater&quot;:&quot;稍后later&quot;
+            ...
+        }
+    }
+}
+</code></pre>
+
+<p>this way will disable local language, if your app needn't localization, can use this way.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="cpp">static bool init ( ) ;
