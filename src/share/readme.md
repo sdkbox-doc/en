@@ -116,4 +116,4 @@ you need to add a `Facebook` entry in the config
 
 ##Notice
 
-email share can't test on simulator
+email share is not support on simulator
