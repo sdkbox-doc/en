@@ -49,7 +49,8 @@ Here is an example of the Share configuration
                     }
                 },
                 "Facebook": {},     //support facebook share
-                "SMS":{}            //support sms share
+                "SMS": {},          //support sms share
+                "EMail": {}         //support email share
             }
         }
     },
@@ -66,7 +67,8 @@ Here is an example of the Share configuration
                     }
                 },
                 "Facebook": {},     //support facebook share
-                "SMS":{}            //support sms share
+                "SMS": {},          //support sms share
+                "EMail": {}         //support email share
             }
         }
     }
@@ -111,3 +113,7 @@ you need to add a `Facebook` entry in the config
 <<[extra-step.md]
 
 <<[proguard.md]
+
+##Notice
+
+email share can't test on simulator
