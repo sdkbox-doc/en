@@ -591,7 +591,7 @@
 <ul>
 <li>Follow <a href="https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console">this instructions</a> to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. It's recommended to follow the instruction rigorously to avoid any issues.</li>
 <li>Use developer console to configure leaderboards and achievements.</li>
-<li>Find your app id and you'll need to replace replace it in the AndroidManifest.xml later
+<li>Find your app id and you'll need to replace replace it in the <code>AndroidManifest.xml</code> later
    <img alt="" src="../../../imgs/gps_app_id.jpg" /></li>
 </ul>
 <h3 id="game-center">Game Center</h3>
@@ -611,7 +611,25 @@
 Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin's configuration. [Learn more](/liveops/remote-config)-->
 
 <h3 id="json-configuration">JSON Configuration</h3>
+<h4 id="replace-app-id">Replace App ID</h4>
 <p>You should replace your app_id in <code>AndroidManifest.xml</code></p>
+<ol>
+<li>replace following line</li>
+</ol>
+<pre><code>&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; android:value=&quot;_your_app_id_&quot; /&gt;
+</code></pre>
+
+<p>with</p>
+<pre><code>&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; android:value=&quot;@string/app_id&quot; /&gt;
+</code></pre>
+
+<ol>
+<li>add following line to <code>&lt;Your Project&gt;\proj.android\res\values\strings.xml</code></li>
+</ol>
+<pre><code>&lt;string name=&quot;app_id&quot;&gt;_your_app_id_&lt;/string&gt;
+</code></pre>
+
+<h4 id="update-sdkbox_configjson">Update sdkbox_config.json</h4>
 <p>SDKBOX Installer will automatically create a sample configuration <code>sdkbox_config.json</code> for you</p>
 <p>Here is an example of the SdkboxAds configuration:</p>
 <pre><code class="json">    &quot;sdkboxplay&quot; : {
