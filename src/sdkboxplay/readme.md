@@ -8,7 +8,7 @@
 ###Google play
  + Follow [this instructions](https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console) to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. It's recommended to follow the instruction rigorously to avoid any issues.
  + Use developer console to configure leaderboards and achievements.
- + Find your app id and you'll need to replace replace it in the AndroidManifest.xml later
+ + Find your app id and you'll need to replace replace it in the `AndroidManifest.xml` later
    ![](../../imgs/gps_app_id.jpg)
 
 ###Game Center
@@ -28,8 +28,26 @@ $ sdkbox import sdkboxplay
 
 ### JSON Configuration
 
+#### Replace App ID
 You should replace your app_id in `AndroidManifest.xml`
 
+1. replace following line
+
+```
+<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="_your_app_id_" />
+```
+with
+```
+<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
+```
+
+2. add following line to `<Your Project>\proj.android\res\values\strings.xml`
+
+```
+<string name="app_id">_your_app_id_</string>
+```
+
+#### Update sdkbox_config.json
 SDKBOX Installer will automatically create a sample configuration `sdkbox_config.json` for you
 
 Here is an example of the SdkboxAds configuration:
