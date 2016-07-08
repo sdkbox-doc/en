@@ -1,5 +1,20 @@
 #Release Notes
 ---
+2.2.4 Release Notes
+===
+##Highlight
+* Share plugin support email 
+* add new APIs to sdkboxplay to retrieve player score
+* Update Facebook SDK to the latest version
+* Update Appodeal to the latest version
+* Update Bee7 to the latest version
+* Make sure SDKBOX is compliant with google play and iTune store's privacy policy
+
+##Bugfix
+* Fix sdkboxplay keep asking user to login
+* Fix sdkboxplay crash when there is more than 76 achievements
+* Fix review plugin crash
+
 2.2.3 Release Notes
 ===
 ##Highlight
