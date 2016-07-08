@@ -580,6 +580,9 @@
         <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
 	
     
+        <li class="main "><a href="#notice">Notice</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -648,7 +651,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
                     }
                 },
                 &quot;Facebook&quot;: {},     //support facebook share
-                &quot;SMS&quot;:{}            //support sms share
+                &quot;SMS&quot;: {},          //support sms share
+                &quot;EMail&quot;: {}         //support email share
             }
         }
     },
@@ -665,7 +669,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
                     }
                 },
                 &quot;Facebook&quot;: {},     //support facebook share
-                &quot;SMS&quot;:{}            //support sms share
+                &quot;SMS&quot;: {},          //support sms share
+                &quot;EMail&quot;: {}         //support email share
             }
         }
     }
@@ -994,7 +999,9 @@ import com.sdkbox.plugin.SDKBox;
 -keep public io.fabric.sdk.android.** { *; }
 </code></pre>
 
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="notice">Notice</h2>
+<p>email share is not support on simulator</p></div>
             
         </div>
 
