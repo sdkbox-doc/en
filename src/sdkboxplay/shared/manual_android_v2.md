@@ -9,6 +9,8 @@ Copy the `sdkboxplay_lib` directories from `plugin/android/libs` to your `proj.a
 
 <<[../../shared/copy_jni_lib.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
 ```xml
@@ -30,7 +32,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_LDLIBS += -landroid
 LOCAL_LDLIBS += -llog
 LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxPlay
-LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox 
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:

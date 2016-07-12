@@ -28,6 +28,7 @@ bundle into your project’s __proj.android/libs__ folder.
 
 <<[../../shared/copy_jni_lib.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
 
 Copy the `bee7-android-sdk-gamewall` directories from `plugin/android/libs` to your `proj.android/libs/` directory.
 
