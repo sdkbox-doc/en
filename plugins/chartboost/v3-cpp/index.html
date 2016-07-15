@@ -575,6 +575,9 @@
         <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
 	
     
+        <li class="main "><a href="#notice">Notice</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1106,7 +1109,22 @@ SDKBox.init(this);
 -dontwarn com.sdkbox.**
 </code></pre>
 
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="notice">Notice</h2>
+<p>SDKBox Chartboost v2.2.5.0+ android Required:</p>
+<ol>
+<li>Build SDK Version - 23</li>
+<li>Compile SDK Version - 23</li>
+</ol>
+<p>if you get <code>miss HttpClient</code> error when set build sdk to 23:</p>
+<ol>
+<li>if use eclipse, copy <code>$ANDROID_SDK_ROOT/platforms/android-23/optional/org.apache.http.legacy.jar</code> to your project <code>libs</code> folder</li>
+<li>if use android studio, add this to your gradle:</li>
+</ol>
+<pre><code class="groovy">android {
+    useLibrary 'org.apache.http.legacy'
+}
+</code></pre></div>
             
         </div>
 
