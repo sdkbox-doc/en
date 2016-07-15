@@ -56,3 +56,21 @@ Here is an example of the Chartboost configuration, you need to replace `<CHARTB
 <<[extra-step.md]
 
 <<[proguard.md]
+
+##Notice
+
+SDKBox Chartboost v2.2.5.0+ android Required:
+
+1. Build SDK Version - 23
+2. Compile SDK Version - 23
+
+if you get `miss HttpClient` error when set build sdk to 23:
+
+1. if use eclipse, copy `$ANDROID_SDK_ROOT/platforms/android-23/optional/org.apache.http.legacy.jar` to your project `libs` folder
+2. if use android studio, add this to your gradle:
+
+``` groovy
+android {
+    useLibrary 'org.apache.http.legacy'
+}
+```
