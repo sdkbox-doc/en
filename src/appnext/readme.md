@@ -131,7 +131,7 @@ Example:
             "ads": {
                 "default": {
                     // Please replace this placement id with your own placement id from appnext
-                    // "id":"6d596bc5-b4c1-48ca-be95-3758fd29a3a5",
+                    "id":"please_replace_with_your_placement_id",
                     "type":"interstitial",
 
                     "button_text":"Button Text",
@@ -146,7 +146,7 @@ Example:
                 },
                 "fullscreen": {
                     // Please replace this placement id with your own placement id from appnext
-                    // "id":"39cd02ce-8607-42f2-8134-069aaa3796e2",
+                    "id":"please_replace_with_your_placement_id",
                     "type":"fullscreen",
 
                     "button_text":"Button Text",
@@ -163,7 +163,7 @@ Example:
                 },
                 "reward": {
                     // Please replace this placement id with your own placement id from appnext
-                    // "id":"1cd50102-0914-4506-8514-3e2bb3787c35",
+                    "id":"please_replace_with_your_placement_id",
                     "type":"reward",
 
                     "button_text":"Button Text",
