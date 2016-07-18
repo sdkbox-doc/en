@@ -9,6 +9,7 @@ import hashlib
 import platform
 import zipfile
 import stat
+import random
 
 # install command
 # python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
@@ -326,7 +327,7 @@ def download_installer(path, info):
     response = Utils.curl(info['url'], None, 1024, Utils.progress_bar)
     sha1 = Utils.calculate_sha1(response)
     if sha1 != info['sha1']:
-        raise RuntimeError(_('ERROR! SHA1 of update does not match\nFound  : ') + data_sha1 + _('\nNeeded : ') + new_sha1)
+        raise RuntimeError('ERROR! SHA1 of update does not match\nFound  : {0}\nNeeded : {1}'.format(sha1, info['sha1']))
 
     try:
         Utils.create_dir_if(path)
@@ -334,7 +335,7 @@ def download_installer(path, info):
         f.write(response)
         f.close()
     except:
-        raise RuntimeError(_('ERROR! failed to save updated SDKBOX'))
+        raise RuntimeError('ERROR! failed to save updated SDKBOX')
 
     return path
 
@@ -370,7 +371,7 @@ def get_installer_url():
     if 'bundle' not in manifest or 'sha1' not in manifest:
         raise Exception('ERROR! manifest format error')
 
-    return {'url': 'http://download.sdkbox.com/installer/v1/' + manifest['bundle'], 'bundle':manifest['bundle'] , 'sha1': manifest['sha1']}
+    return {'url': 'http://download.sdkbox.com/installer/v1/{0}?v{1}.{2}'.format(manifest['bundle'], l, random.randint(0, 10000000)), 'bundle':manifest['bundle'], 'sha1': manifest['sha1']}
 
 def main():
     SDKBOX_DIR = os.path.join(os.path.expanduser('~'), '.sdkbox')
