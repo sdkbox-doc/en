@@ -1,5 +1,16 @@
 #Release Notes
 ---
+2.2.5 Release Notes
+===
+##Highlight
+* SDKBOX supports loading encrypted configuration locally
+* SDKBOX partially supports cocos creator project, user will still need to copy sdkbox_config.json manually
+
+##Bugfix
+* Fix chartboost crashing issue
+* Fix sdkboxplay JS binding crash issue
+* Fix sdkboxplay onMyScore callback
+
 2.2.4 Release Notes
 ===
 ##Highlight
