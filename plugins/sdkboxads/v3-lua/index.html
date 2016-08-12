@@ -650,11 +650,11 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="using-sdkboxads">Using SdkboxAds</h3>
 <p>To request a default Ad for the default AdUnit and have a fast integration test:</p>
-<pre><code class="javascript">sdkbox.SdkboxAds:play()
+<pre><code class="javascript">sdkbox.PluginSdkboxAds:play()
 </code></pre>
 
 <p>To request Ads in the Default AdUnit:</p>
-<pre><code class="lua">sdkbox.SdkboxAds:play( zone_place_location, params );
+<pre><code class="lua">sdkbox.PluginSdkboxAds:play( zone_place_location, params );
 
 // params is an object with string keys and values.
 </code></pre>
@@ -663,15 +663,15 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <p>Note: the params are defined per AdUnit, and should be checked in each AdUnit's documentation.</p>
 </blockquote>
 <p>To request Ads for an specific AdUnit:</p>
-<pre><code class="lua">sdkbox.SdkboxAds:play( ad_unit_name, zone_place_location, params );
+<pre><code class="lua">sdkbox.PluginSdkboxAds:play( ad_unit_name, zone_place_location, params );
 </code></pre>
 
 <p>To request ads for a placement defined in the sdkbox_config.json file:</p>
-<pre><code class="lua">sdkbox.SdkboxAds:placement( placement_name );
+<pre><code class="lua">sdkbox.PluginSdkboxAds:placement( placement_name );
 </code></pre>
 
 <p>To have fine grained cache control (for AdUnits that expose it):</p>
-<pre><code class="lua">sdkbox.SdkboxAds:cacheControl( ad_unit, cacheOpts );
+<pre><code class="lua">sdkbox.PluginSdkboxAds:cacheControl( ad_unit, cacheOpts );
 
 // cacheOpts is an object with keys and values as strings. 
 </code></pre>

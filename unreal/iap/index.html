@@ -515,13 +515,13 @@
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
 <h2>Setting up your Unreal Engine 4 project for In App Purchase</h2>
 
-<p>This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation. </p>
+<p>This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation.</p>
 <p>The most important thing is setting the identifier used to identify the application in the Apple and Android store that you are going to buy from.</p>
 <p>For Apple this is the bundle identifier, and for Android it is the android package name. This is configurable in the UE4 editor by visiting Project Settings and clicking on the iOS and Android sections and filling out those two fields with the appropriate values.</p>
 <p>You can find more information for iOS <a href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727">here</a> and for Android <a href="http://developer.android.com/google/play/billing/billing_overview.html">here</a></p>
 <h2>Installing the SDKBOX IAP Plugin for UE4</h2>
 
-<p>Download the SDKBOX IAP Plugin from the SDKBOX UE4 website <a href="http://unreal.sdkbox.com">here</a></p>
+<p>Download the SDKBOX IAP Plugin from the SDKBOX UE4 website <a href="http://www.sdkbox.com/unreal">here</a></p>
 <h3>In Your Engine</h3>
 
 <ol>
@@ -533,7 +533,7 @@
 
 <ol>
 <li>Unpack the files in your <code>[Project Root]/Plugins</code> directory.</li>
-<li>Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor. </li>
+<li>Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor.</li>
 </ol>
 <h2>Enable the Plugin</h2>
 
@@ -544,9 +544,9 @@
 
 <p>It is important to call the SDKBOX IAP initialization method early, or at least before you call any other methods. You can do this by calling it from your Game Instance Init event, or your first scene's Begin Play event.</p>
 <p>The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the product descriptions in the Blueprint editor and build the string at runtime.</p>
-<p><strong>Important:</strong> on Android, you will need to supply the license key which you will find in the <strong>Services &amp; APIs</strong> section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into <strong>AndroidKey</strong> on the <code>Sdkbox IAP JSON String from Product Descriptions</code> function. </p>
+<p><strong>Important:</strong> on Android, you will need to supply the license key which you will find in the <strong>Services &amp; APIs</strong> section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into <strong>AndroidKey</strong> on the <code>Sdkbox IAP JSON String from Product Descriptions</code> function.</p>
 <p><img alt="" src="./img2.png" /></p>
-<p>To add products in the Blueprint editor, first add a variable <code>Products</code> of type <code>SDKBox IAPProductDescription</code> and make it an Array. </p>
+<p>To add products in the Blueprint editor, first add a variable <code>Products</code> of type <code>SDKBox IAPProductDescription</code> and make it an Array.</p>
 <p>Now you can add products in the editor by clicking on Products and adding items to the Default Value in the Details pane.</p>
 <p><img alt="" src="./img3.png" /></p>
 <p>The Name is a string value that you will use to reference the product when purchasing.</p>
@@ -593,8 +593,8 @@
 <h3>SDKBOX IAP Functions</h3>
 
 <pre><code>UCLASS(NotBlueprintable)
-class USdkboxIAPFunctions 
-    : public UObject 
+class USdkboxIAPFunctions
+    : public UObject
 {
     GENERATED_BODY()
 

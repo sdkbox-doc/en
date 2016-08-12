@@ -718,12 +718,12 @@ The configuration could be:
 <p>A call to <code>sdkbox::SdkboxAds::init()</code> will suffice to instantiate and manage all referenced AdUnits in the configuration
 file.</p>
 <p>To request a default Ad for the default AdUnit and have a fast integration test:</p>
-<pre><code class="cpp">sdkbox::SdkboxAds::playAd()
+<pre><code class="cpp">sdkbox::PluginSdkboxAds::playAd()
 </code></pre>
 
 <p>To request Ads in the Default AdUnit:</p>
-<pre><code class="cpp">sdkbox::SdkboxAds::playAd( const std::string&amp; zone_place_location );
-sdkbox::SdkboxAds::playAd( const std::string&amp; zone_place_location, const AdUnitParams&amp; params );
+<pre><code class="cpp">sdkbox::PluginSdkboxAds::playAd( const std::string&amp; zone_place_location );
+sdkbox::PluginSdkboxAds::playAd( const std::string&amp; zone_place_location, const AdUnitParams&amp; params );
 
 // AdUnitParams is a typedef for std::map&lt;std::string,std::string&gt;
 </code></pre>
@@ -732,22 +732,22 @@ sdkbox::SdkboxAds::playAd( const std::string&amp; zone_place_location, const AdU
 <p>Note: the params are defined per AdUnit, and should be checked in each AdUnit's documentation.</p>
 </blockquote>
 <p>To request Ads for an specific AdUnit:</p>
-<pre><code class="cpp">sdkbox::SdkboxAds::playAd( 
+<pre><code class="cpp">sdkbox::PluginSdkboxAds::playAd( 
         const std::string&amp; ad_unit_name, 
         const std::string&amp; zone_place_location );
 
-sdkbox::SdkboxAds::playAd( 
+sdkbox::PluginSdkboxAds::playAd( 
         const std::string&amp; ad_unit_name, 
         const std::string&amp; zone_place_location, 
         const AdUnitParams&amp; params );
 </code></pre>
 
 <p>To request ads for a placement defined in the sdkbox_config.json file:</p>
-<pre><code class="cpp">sdkbox::SdkboxAds::placement( const str::string&amp; placement );
+<pre><code class="cpp">sdkbox::PluginSdkboxAds::placement( const str::string&amp; placement );
 </code></pre>
 
 <p>To have fine grained cache control (for AdUnits that expose it):</p>
-<pre><code class="cpp">sdkbox::SdkboxAds::cacheControl( 
+<pre><code class="cpp">sdkbox::PluginSdkboxAds::cacheControl( 
         const std::string&amp; ad_unit, 
         const std::map&lt;std::string, std::string&gt;&amp; cacheOpts );
 </code></pre>
