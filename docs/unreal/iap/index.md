@@ -6,7 +6,7 @@ For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/
 
 <h2>Setting up your Unreal Engine 4 project for In App Purchase</h2>
 
-This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation. 
+This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation.
 
 The most important thing is setting the identifier used to identify the application in the Apple and Android store that you are going to buy from.
 
@@ -16,7 +16,7 @@ You can find more information for iOS [here](https://developer.apple.com/library
 
 <h2>Installing the SDKBOX IAP Plugin for UE4</h2>
 
-Download the SDKBOX IAP Plugin from the SDKBOX UE4 website [here](http://unreal.sdkbox.com)
+Download the SDKBOX IAP Plugin from the SDKBOX UE4 website [here](http://www.sdkbox.com/unreal)
 
 <h3>In Your Engine</h3>
 
@@ -27,7 +27,7 @@ Download the SDKBOX IAP Plugin from the SDKBOX UE4 website [here](http://unreal.
 <h3>In Your Code Project</h3>
 
 1. Unpack the files in your ```[Project Root]/Plugins``` directory.
-2. Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor. 
+2. Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor.
 
 <h2>Enable the Plugin</h2>
 
@@ -43,11 +43,11 @@ It is important to call the SDKBOX IAP initialization method early, or at least 
 
 The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the product descriptions in the Blueprint editor and build the string at runtime.
 
-**Important:** on Android, you will need to supply the license key which you will find in the **Services & APIs** section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into **AndroidKey** on the ```Sdkbox IAP JSON String from Product Descriptions``` function. 
+**Important:** on Android, you will need to supply the license key which you will find in the **Services & APIs** section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into **AndroidKey** on the ```Sdkbox IAP JSON String from Product Descriptions``` function.
 
 ![](img2.png)
 
-To add products in the Blueprint editor, first add a variable ```Products``` of type ```SDKBox IAPProductDescription``` and make it an Array. 
+To add products in the Blueprint editor, first add a variable ```Products``` of type ```SDKBox IAPProductDescription``` and make it an Array.
 
 Now you can add products in the editor by clicking on Products and adding items to the Default Value in the Details pane.
 
@@ -125,11 +125,11 @@ Note: only Google Play provides receipt data, iOS only provides a ciphered paylo
 
 ```
 UCLASS(NotBlueprintable)
-class USdkboxIAPFunctions 
-    : public UObject 
+class USdkboxIAPFunctions
+    : public UObject
 {
 	GENERATED_BODY()
-	
+
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
@@ -137,19 +137,19 @@ public:
 
     UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
     static void SdkboxIapShutdown();
-    
+
 	UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
 	static void SdkboxIapPurchase(FString product);
-	
+
 	UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
 	static void SdkboxIapRefresh();
 
 	UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
 	static void SdkboxIapRestore();
-    
+
     UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
 	static FString SdkboxIapJsonStringFromProductDescriptions(const TArray<FSdkboxIAPProductDescription>& Descriptions);
-    
+
     UFUNCTION(BlueprintCallable, meta = (Keywords = "SDKBOX iap"), Category = "SDKBOX")
     static void SdkboxIapEnableUserSideVerification(bool enable);
 };
@@ -163,13 +163,13 @@ class USdkboxIAPProduct
     : public UObject
 {
 	GENERATED_BODY()
-    
+
 public:
-  
+
 	USdkboxIAPProduct(const FObjectInitializer& ObjectInitializer);
-        
+
     static USdkboxIAPProduct* ProductFromSdkboxProduct(const sdkbox::Product& product);
-    
+
     // The name of the product
     UPROPERTY(BlueprintReadOnly, Category=General, meta=(DisplayName="Name"))
     FString Name;
@@ -197,7 +197,7 @@ public:
     // Localized price
     UPROPERTY(BlueprintReadOnly, Category=General, meta=(DisplayName="Price"))
     FString Price;
-    
+
     // price currency code
     UPROPERTY(BlueprintReadOnly, Category=General, meta=(DisplayName="CurrencyCode"))
     FString CurrencyCode;
@@ -227,7 +227,7 @@ USTRUCT(BlueprintType)
 struct FSdkboxIAPProductDescription
 {
     GENERATED_USTRUCT_BODY()
-      
+
     // The name of the product
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=General, meta=(DisplayName="Name"))
     FString Name;
@@ -239,7 +239,7 @@ struct FSdkboxIAPProductDescription
     // Type of iap item true if consumable
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=General, meta=(DisplayName="Consumable"))
     bool Consumable;
-    
+
     // Which platform this product description is for
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=General, meta=(DisplayName="Affinity"))
     EProductAffinityEnum Affinity;
