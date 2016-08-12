@@ -82,13 +82,13 @@ file.
 
 To request a default Ad for the default AdUnit and have a fast integration test:
 ```cpp
-sdkbox::SdkboxAds::playAd()
+sdkbox::PluginSdkboxAds::playAd()
 ```
 
 To request Ads in the Default AdUnit:
 ```cpp
-sdkbox::SdkboxAds::playAd( const std::string& zone_place_location );
-sdkbox::SdkboxAds::playAd( const std::string& zone_place_location, const AdUnitParams& params );
+sdkbox::PluginSdkboxAds::playAd( const std::string& zone_place_location );
+sdkbox::PluginSdkboxAds::playAd( const std::string& zone_place_location, const AdUnitParams& params );
 
 // AdUnitParams is a typedef for std::map<std::string,std::string>
 ```
@@ -96,11 +96,11 @@ sdkbox::SdkboxAds::playAd( const std::string& zone_place_location, const AdUnitP
 
 To request Ads for an specific AdUnit:
 ```cpp
-sdkbox::SdkboxAds::playAd( 
+sdkbox::PluginSdkboxAds::playAd( 
         const std::string& ad_unit_name, 
         const std::string& zone_place_location );
         
-sdkbox::SdkboxAds::playAd( 
+sdkbox::PluginSdkboxAds::playAd( 
         const std::string& ad_unit_name, 
         const std::string& zone_place_location, 
         const AdUnitParams& params );
@@ -108,12 +108,12 @@ sdkbox::SdkboxAds::playAd(
 
 To request ads for a placement defined in the sdkbox_config.json file:
 ```cpp
-sdkbox::SdkboxAds::placement( const str::string& placement );
+sdkbox::PluginSdkboxAds::placement( const str::string& placement );
 ```
 
 To have fine grained cache control (for AdUnits that expose it):
 ```cpp
-sdkbox::SdkboxAds::cacheControl( 
+sdkbox::PluginSdkboxAds::cacheControl( 
         const std::string& ad_unit, 
         const std::map<std::string, std::string>& cacheOpts );
 ```

@@ -25,12 +25,12 @@ sdkbox.PluginSdkboxAds.init();
 
 To request a default Ad for the default AdUnit and have a fast integration test:
 ```javascript
-sdkbox.SdkboxAds.play()
+sdkbox.PluginSdkboxAds.play()
 ```
 
 To request Ads in the Default AdUnit:
 ```javascript
-sdkbox.SdkboxAds.play( zone_place_location, params );
+sdkbox.PluginSdkboxAds.play( zone_place_location, params );
 
 // params is an object with string keys and values.
 ```
@@ -38,17 +38,17 @@ sdkbox.SdkboxAds.play( zone_place_location, params );
 
 To request Ads for an specific AdUnit:
 ```javascript
-sdkbox.SdkboxAds.play( ad_unit_name, zone_place_location, params );
+sdkbox.PluginSdkboxAds.play( ad_unit_name, zone_place_location, params );
 ```
 
 To request ads for a placement defined in the sdkbox_config.json file:
 ```javascript
-sdkbox.SdkboxAds.placement( placement_name );
+sdkbox.PluginSdkboxAds.placement( placement_name );
 ```
 
 To have fine grained cache control (for AdUnits that expose it):
 ```javascript
-sdkbox.SdkboxAds.cacheControl( ad_unit, cacheOpts );
+sdkbox.PluginSdkboxAds.cacheControl( ad_unit, cacheOpts );
 
 // cacheOpts is an object with keys and values as strings. 
 ```
