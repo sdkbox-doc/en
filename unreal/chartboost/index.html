@@ -521,13 +521,14 @@
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
 <h2>Setting up your Unreal Engine 4 project for Chartboost</h2>
 
-<p>This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation.</p>
-<p>The most important thing is setting the identifier used to identify the application in the Apple and Android store that you are going to buy from.</p>
-<p>For Apple this is the bundle identifier, and for Android it is the android package name. This is configurable in the UE4 editor by visiting Project Settings and clicking on the iOS and Android sections and filling out those two fields with the appropriate values.</p>
-<p>You can find more information for iOS <a href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727">here</a> and for Android <a href="http://developer.android.com/google/play/billing/billing_overview.html">here</a></p>
+<p>Before you start, make sure you have the following items</p>
+<ul>
+<li>A Chartboost account, sign up <a href="https://www.chartboost.com">here</a></li>
+<li><a href="https://answers.chartboost.com/hc/en-us/articles/200797729-Your-First-App-and-Campaign-">An app in your dashboard</a></li>
+</ul>
 <h2>Installing the SDKBOX Chartboost Plugin for UE4</h2>
 
-<p>Download the SDKBOX IAP Plugin from the SDKBOX UE4 website <a href="http://www.sdkbox.com/unreal">here</a></p>
+<p>Download the SDKBOX Chartboost Plugin from the SDKBOX UE4 website <a href="http://www.sdkbox.com/unreal">here</a></p>
 <h3>In Your Engine</h3>
 
 <ol>
@@ -544,25 +545,25 @@
 <h2>Enable the Plugin</h2>
 
 <p>Goto Settings -&gt; Plugins and scroll down to Project if you have added the plugin to your code project, otherwise it will be part of Built-In.</p>
-<p><img alt="" src="./00.Enable" title="Chartboost Plugin.png" /></p>
+<p><img alt="" src="./00.Enable_Chartboost_Plugin.png" /></p>
 <p>Make sure the the Enabled checkbox is checked. You may have to restart the editor after this step.</p>
 <h2>Initialize the Plugin</h2>
 
 <p>It is important to call the SDKBOX Chartboost initialization method early, or at least before you call any other methods. You can do this by calling it from your Game Instance Init event, or your first scene's Begin Play event.</p>
-<p>The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the product descriptions in the Blueprint editor and build the string at runtime.</p>
-<p><img alt="" src="./01.Set" title="ID and Signature.png" /></p>
+<p>The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the Ad descriptions in the Blueprint editor and build the string at runtime.</p>
+<p><img alt="" src="./01.Set_ID_and_Signature.png" /></p>
 <p>To add products in the Blueprint editor, first add a variable <code>Ads</code> of type <code>Chartboost Json String From Ad Descriptions</code> and make it an Array.</p>
 <p>Now you can add Ads in the editor by clicking on Products and adding items to the Default Value in the Details pane.</p>
-<p><img alt="" src="./02.Add" title="Chartboost Ads.png" /></p>
+<p><img alt="" src="./02.Add_Chartboost_Ads.png" /></p>
 <p>You can now create a function to convert the Ads variable into a JSON string that you can feed into the initialize function (pictured above).</p>
 <h2>Handling Events</h2>
 
 <p>You can handle events from the plugin by adding the Sdkbox Chartboost component to an actor in your scene.</p>
-<p><img alt="" src="./03.Add" title="Chartboost Component.png" />
-<img alt="" src="./04.Add" title="Events Callback.png" /></p>
+<p><img alt="" src="./03.Add_Chartboost_Component.png" />
+<img alt="" src="./04.Add_Events_Callback.png" /></p>
 <h2>Show Chartboost Ad</h2>
 
-<p><img alt="" src="./05.Show" title="Chartboost Ad.png" /></p></div>
+<p><img alt="" src="./05.Show_Chartboost_Ad.png" /></p></div>
             
         </div>
 
