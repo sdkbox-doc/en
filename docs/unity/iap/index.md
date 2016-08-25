@@ -135,14 +135,7 @@ You should not create your own products, but rather allow SDKBOX IAP to create t
 In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.
 
 1. Copy the file *CustomActivity.jar* from **Assets/SDKBOX/Assets/Resources** to **Assets/Plugins/Android**
-2. Modify your AndroidManifest.xml:
-   Locate this line: 
-    
-```
-<action android:name="android.intent.action.MAIN" /> 
-```
-   Change the value of "activity android:name" of the parent node to 
-   "com.sdkbox.activity.CustomActivity" 
+2. Modify your AndroidManifest.xml as following:
 ![](chart-8.png)
 
 <h3>Adding Vendor Billing Permission</h3>
