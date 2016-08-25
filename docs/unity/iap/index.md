@@ -136,14 +136,12 @@ In order for In-App-Purchase to work, we have to be able to forward certain acti
 
 1. Copy the file *CustomActivity.jar* from **Assets/SDKBOX/Assets/Resources** to **Assets/Plugins/Android**
 2. Modify your AndroidManifest.xml:
-
-    2.1 Locate this line: 
+   Locate this line: 
     
 ```
 <action android:name="android.intent.action.MAIN" /> 
 ```
-
-   2.2 Change the value of "activity android:name" of the parent node to 
+   Change the value of "activity android:name" of the parent node to 
    "com.sdkbox.activity.CustomActivity" 
 ![](chart-8.png)
 
