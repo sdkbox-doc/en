@@ -1,5 +1,19 @@
 #Release Notes
 ---
+2.3.0 Release Notes
+===
+##Highlight
+* SDKBOX installer supports projects created with Cocos Creator 1.2
+* SDKBOX play now supports enable/disable achievement popup from GameCenter & Google Play
+* Add isAvailable function to SDKBOX Ads to check ads availablility
+* Fix google security warning for SDKBOX IAP
+* SDKBOX IAP Supports restore subscription for Google Play
+
+##Bugfix
+* Fix a crash issue for Admob
+* Fix SDKBOX installer issue with windows path that contains spaces
+* Fix appodeal create duplicate records issue during update process
+
 2.2.5 Release Notes
 ===
 ##Highlight
