@@ -13,6 +13,7 @@
 * Fix a crash issue for Admob
 * Fix SDKBOX installer issue with windows path that contains spaces
 * Fix appodeal create duplicate records issue during update process
+* Fix chartboost video went black when press home button on android
 
 2.2.5 Release Notes
 ===
