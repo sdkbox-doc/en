@@ -128,3 +128,10 @@ when build android, you need the fllow two modify
 
 <h2>Additional iOS Instructions</h2>
 On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.
+
+<h2>Trouble Shoot</h2>
+
+![](socialshare_conflict_error.png)
+
+if your unity project contains multiple `android-support-v4.jar` files, when you compile android, will get error.
+In this case, under normal circumstances, you can delete the `android-support-v4.jar` file, leaving only one
