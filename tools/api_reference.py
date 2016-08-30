@@ -300,13 +300,13 @@ class Walker(object):
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description="Generate API Reference for SDKBox.")
+    parser = ArgumentParser(description="Generate API Reference for SDKBox. example usage: tools/api_reference.py -s ~/Projects/store/csc/plugins -o . -g sdkboxplay")
     parser.add_argument('-s', dest='src',
                         help='source code directory')
     parser.add_argument('-g', dest='plugin',
                         help='Plugin name.')
     parser.add_argument('-o', '--output', dest='out_dir',
-                        help='Where to save Api Reference documentation. Default repo/documentation/.')
+                        help='Where to save Api Reference documentation. Default to src folder.')
 
     (args, unknown) = parser.parse_known_args()
     if len(unknown) > 0:
