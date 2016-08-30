@@ -891,6 +891,12 @@ If the leaderboard name does not exists, or the id associated is not defined in 
 the call will silently fail.
 If everything's right, it will notify the method <code>onScoreSubmitted</code>.</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.showAllLeaderboards();
+</code></pre>
+
+<blockquote>
+<p>Request to show all leaderboards.</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.showLeaderboard(leaderboard_name);
 </code></pre>
 
@@ -898,6 +904,65 @@ If everything's right, it will notify the method <code>onScoreSubmitted</code>.<
 <p>Request to show the default Leaderboard view.
 In this view you'll be able to interactively select between daily, weekly or all-time leaderboard time frames and the scope
 to global or you google play's friends results.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.getMyScore(leaderboard_name, time_span, collection_type);
+</code></pre>
+
+<blockquote>
+<p>Get The signed-in user score for an specified leaderboard.
+This method notifies its result in a call to SdkboxPlay's listener <code>onMyScore</code> method.
+<code>time_span</code> offers the abbility to filter leaderboard for one of the three time spans each
+leaderboard offers. Values are:
+ + 0 : daily time span
+ + 1 : weekly time span
+ + any other value : all time time span.
+<code>collection_type</code> is to filter the leaderboard between social or global scopes.
+Values are:
+ + 1 : social collection type
+ + any other value : global collection type</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.getPlayerCenteredScores(leaderboard_name,
+                                                 time_span,
+                                                 collection_type,
+                                                 number_of_entries);
+</code></pre>
+
+<blockquote>
+<p>Android Only !!!
+Get leaderboard information.
+This method notifies its result in a call to SdkboxPlay's listener <code>onPlayerCenteredScores</code> method.
+The information supplied is a json array encoded string.
+Each json element contains the following information:</p>
+</blockquote>
+<pre><code class="json">  {
+     &quot;display_rank&quot;          : string,
+     &quot;display_score&quot;         : string,
+     &quot;rank&quot;                  : number,   // long
+     &quot;score&quot;                 : number,   // long,
+     &quot;holder_display_name&quot;   : string,
+     &quot;hires_imageuri&quot;        : string,    // content:// protocol
+     &quot;lowres_imageuri&quot;       : string,
+     &quot;tag&quot;                   : string,
+     &quot;timestamp_millis&quot;      : long
+   }
+</code></pre>
+
+<p><code>time_span</code> offers the abbility to filter leaderboard for one of the three time spans each
+leaderboard offers. Values are:
+ + 0 : daily time span
+ + 1 : weekly time span
+ + any other value : all time time span.
+<code>collection_type</code> is to filter the leaderboard between social or global scopes.
+Values are:
+ + 1 : social collection type
+ + any other value : global collection type</p>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.loadAchievements(force_reload);
+</code></pre>
+
+<blockquote>
+<p>Load achievements metadata.
+A forece reload will force a cloud-side requery of the achievements information.
+See <code>onAchievementsLoaded</code> for a description on the returned information.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.unlockAchievement(achievement_name);
 </code></pre>
@@ -919,7 +984,10 @@ If the achievement type is incorrectly defined in the configuration file, or the
 this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
-  + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.</p>
+  + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
+a percentage value (0..100). In either case, the <code>increment</code> value will be added to the current achievement's
+value.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.showAchievements();
 </code></pre>
@@ -929,6 +997,21 @@ If the call is successful, this method may invoke two different methods:
 In this view, you'll only see public achievements.
 It will show wether or not achievements are unlocked, and the steps towards unlocking it for incremental achievements.
 Total experience count is measured as well.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.reveal(achievement_name);
+</code></pre>
+
+<blockquote>
+<p>Reveal a hidden achievement.
+This method will notify on plugin's listener <code>onReveal</code> or <code>onRevelError</code> methods.</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.setSteps(achievement_name, steps);
+</code></pre>
+
+<blockquote>
+<p>Set an incremental achievement to the given amount of steps.
+If achievement's current steps are already equal or bigger the specified steps, nothing will happen.
+This method will  notify on plugin's listener <code>onSetSteps</code> or <code>onSetStepsError</code> methods.</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.isConnected();
 </code></pre>
@@ -981,7 +1064,7 @@ Android only:</li>
 <hr />
 <ul>
 <li>title</li>
-<li>con_image_uri</li>
+<li>icon_image_uri</li>
 <li>hires_image_uri</li>
 <li>last_play_timestamp</li>
 <li>retrieved_timestamp
@@ -1011,6 +1094,62 @@ It notifies back with the leaderboard_name (not id, see the sdkbox_config.json f
 subbmited score, as well as whether the score is the daily, weekly, or all time best score.
 Since Game center can't determine if submitted score is maximum, it will send the max score flags as false.</p>
 </blockquote>
+<pre><code class="javascript">onMyScore(leaderboard_name, time_span, collection_type, score);
+</code></pre>
+
+<blockquote>
+<p>Callback method invoked from a call to <code>getMyScore</code> method.
+<code>time_span</code> and <code>collection_type</code> are the supplied values to <code>getMyScore</code> method call.</p>
+</blockquote>
+<pre><code class="javascript">onMyScoreError(leaderboard_name,
+                time_span,
+                collection_type,
+                error_code,
+                error_description);
+</code></pre>
+
+<blockquote>
+<p>Callback method invoked from a call to <code>getMyScore</code> method and the method was errored.
+<code>time_span</code> and <code>collection_type</code> are the supplied values to <code>getMyScore</code> method call.
+<code>error_code</code> and <code>error_description</code> give extended info about the error.</p>
+</blockquote>
+<pre><code class="javascript">onPlayerCenteredScores(leaderboard_name,
+                        time_span,
+                        collection_type,
+                        json_with_score_entries);
+</code></pre>
+
+<blockquote>
+<p>Callback method invoked from a call to <code>getPlayerCenteredScores</code> method.
+<code>json_with_score_entries</code> is an json array enconded string, each of which elements is of the form:
+Each json element contains the following information:</p>
+</blockquote>
+<pre><code class="json">  {
+     &quot;display_rank&quot;          : string,
+     &quot;display_score&quot;         : string,
+     &quot;rank&quot;                  : number,   // long
+     &quot;score&quot;                 : number,   // long,
+     &quot;holder_display_name&quot;   : string,
+     &quot;hires_imageuri&quot;        : string,    // content:// protocol
+     &quot;lowres_imageuri&quot;       : string,
+     &quot;tag&quot;                   : string,
+     &quot;timestamp_millis&quot;      : long
+   }
+</code></pre>
+
+<p><code>time_span</code> and <code>collection_type</code> are the values supplied to <code>getPlayerCenteredScores</code> method.</p>
+<pre><code class="javascript">onPlayerCenteredScoresError(leaderboard_name,
+                             time_span,
+                             collection_type,
+                             error_code,
+                             error_description);
+</code></pre>
+
+<blockquote>
+<p>Callback method invoked from a call to <code>getPlayerCenteredScores</code> method was errored.
+<code>time_span</code> and <code>collection_type</code> are the values supplied to <code>getPlayerCenteredScores</code> method.
+<code>error_code</code> and <code>error_description</code> give extended info about the error.</p>
+</blockquote>
 <pre><code class="javascript">onIncrementalAchievementUnlocked(achievement_name);
 </code></pre>
 
@@ -1026,6 +1165,9 @@ Maximum step count for an incremental achievement is defined in the google play 
 <p>Callback method invoked when the request call to increment an achievement is successful.
 If possible (Google play only) it notifies back with the current achievement step count.</p>
 </blockquote>
+<pre><code class="javascript">onIncrementalAchievementStepError(name, steps, error_code, error_description);
+</code></pre>
+
 <pre><code class="javascript">onAchievementUnlocked(achievement_name, newlyUnlocked);
 </code></pre>
 
@@ -1033,6 +1175,72 @@ If possible (Google play only) it notifies back with the current achievement ste
 <p>Call method invoked when the request call to unlock a non-incremental achievement is successful.
 If this is the first time the achievement is unlocked, newUnlocked will be true.</p>
 </blockquote>
+<pre><code class="javascript">onAchievementUnlockError(achievement_name, error_code, error_description);
+</code></pre>
+
+<pre><code class="javascript">onAchievementsLoaded(reload_forced, json_achievements_info);
+</code></pre>
+
+<blockquote>
+<p>Method invoked after calling plugin's <code>loadAchievements</code> method.
+The <code>json_achievements_info</code> parameter is a json array encoded string.</p>
+</blockquote>
+<h4 id="android-fields">Android fields:</h4>
+<p>each array element is of the form:</p>
+<pre><code class="json">  {
+     &quot;id&quot;                        : string,
+     &quot;name&quot;                      : string,
+     &quot;xp_value&quot;                  : string,   // experience value
+     &quot;last_updated_timestamp&quot;    : number,
+     &quot;description&quot;               : string,
+     &quot;type&quot;                      : number,   // 0 = standard, 1 = incremental
+     &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
+     &quot;unlocked_image_uri&quot;        : string,   // content:// protocol
+     &quot;revealed_image_uri&quot;        : string,   // content:// protocol
+  }
+</code></pre>
+
+<p>If the achievement is incremental, these fileds will also be available:</p>
+<pre><code class="json">  {
+     &quot;formatted_current_steps&quot;   : string,
+     &quot;formatted_total_steps&quot;     : string,
+     current_steps&quot;              : number,
+     &quot;total_steps&quot;               : number
+  }
+</code></pre>
+
+<h4 id="ios-fields">IOS fields:</h4>
+<pre><code class="json">  {
+     &quot;id&quot;                        : string,
+     &quot;name&quot;                      : string,
+     &quot;xp_value&quot;                  : number, int
+     &quot;last_updated_timestamp&quot;    : number,
+     &quot;description&quot;               : string,   // maybe empty if no achievemnt submission happened before.
+     &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
+     &quot;type&quot;                      : 1,        // on ios all achievemtns are incremental.
+     &quot;current_steps&quot;             : number,   // double value. percentage 0.0 .. 100.0
+     &quot;total_steps&quot;               : number,   // 100.0
+  }
+ ```
+ iOS only fields:
+```json
+  {
+     &quot;replayable&quot;                : boolean,
+  }
+</code></pre>
+
+<pre><code class="javascript">onSetSteps(name, steps);
+</code></pre>
+
+<pre><code class="javascript">onSetStepsError(name, steps, error_code, error_description);
+</code></pre>
+
+<pre><code class="javascript">onReveal(name);
+</code></pre>
+
+<pre><code class="javascript">onRevealError(name, error_code, error_description);
+</code></pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
