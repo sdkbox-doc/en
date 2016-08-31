@@ -73,14 +73,17 @@ Here is an example of the SdkboxAds configuration:
         ...
       ],
       "debug" : true,
+      "show_achievement_notification": true,
       "connect_on_start" : false
     }
-    
+
 ```
 
 
-As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
+As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly.
 In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.
+
+if you don't want popup show when unlock achievement, you can set 'show_achievement_notification' false.
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
