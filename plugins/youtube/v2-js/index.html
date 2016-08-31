@@ -580,15 +580,13 @@
 	</ul>
 	
     
-        <li class="main "><a href="#installer-google-play-services">Installer Google Play Services</a></li>
+        <li class="main "><a href="#manual-integration-of-google-play-services-sdk">Manual Integration of Google Play Services SDK</a></li>
 	
 	<ul class="sub-sidenav">
         
+            <li><a href="#suggestion">Suggestion</a></li>
+        
             <li><a href="#modify-projectproperties">Modify project.properties</a></li>
-        
-            <li><a href="#new">NEW</a></li>
-        
-            <li><a href="#integration-online">Integration online</a></li>
         
             <li><a href="#integration-manually">Integration manually</a></li>
         
@@ -832,7 +830,12 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 <blockquote>
 <p>Note: sdkbox link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
 </blockquote>
-<h2 id="installer-google-play-services">Installer Google Play Services</h2>
+<h2 id="manual-integration-of-google-play-services-sdk">Manual Integration of Google Play Services SDK</h2>
+<h3 id="suggestion">Suggestion</h3>
+<p>Please try the sdkbox installer first. It will do all the following step for you automatically. </p>
+<pre><code class="bash">$ sdkbox import googleplayservices
+</code></pre>
+
 <h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
 <p>An <strong>Android Library Reference</strong> for <strong>Google Play Services</strong> is required. The
 path will be different depending upon your setup. Also, this is an additional
@@ -845,12 +848,6 @@ google-play-services_lib
 
 <p><strong>Note:</strong> if you already have an <code>android.library.reference.1</code> you can add
 another by incrementing the number as <code>android.library.reference.2</code>, etc.</p>
-<h3 id="new">NEW</h3>
-<h3 id="integration-online">Integration online</h3>
-<p>Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.</p>
-<pre><code class="bash">$ sdkbox import googleplayservices
-</code></pre>
-
 <h3 id="integration-manually">Integration manually</h3>
 <p>We make a lite version of Google Play Services, the project repo is <a href="https://github.com/darkdukey/Google-Play-Service-Lite">https://github.com/darkdukey/Google-Play-Service-Lite</a></p>
 <h4 id="copy-files_1">Copy Files</h4>
