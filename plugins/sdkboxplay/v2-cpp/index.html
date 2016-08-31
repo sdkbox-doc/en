@@ -672,13 +672,15 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
         ...
       ],
       &quot;debug&quot; : true,
+      &quot;show_achievement_notification&quot;: true,
       &quot;connect_on_start&quot; : false
     }
 
 </code></pre>
 
-<p>As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly. 
+<p>As it can be seen, leaderboards and achievements have a human readable name, and a machine generated id. This is on purpose so that the same API can be used between platforms. While Google play generated random ids like the ones shown, iOS Game Center will be more human friendly.
 In either case, the developer will reference leaderboards and achievements by a name of his choice, like in the example shown.</p>
+<p>if you don't want popup show when unlock achievement, you can set 'show_achievement_notification' false.</p>
 <!---->
 
 <h2 id="usage">Usage</h2>

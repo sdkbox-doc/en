@@ -623,7 +623,12 @@ void share(SocialShareInfo info)
 
 <h2>Additional iOS Instructions</h2>
 
-<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.</p></div>
+<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.</p>
+<h2>Trouble Shoot</h2>
+
+<p><img alt="" src="./socialshare_conflict_error.png" /></p>
+<p>if your unity project contains multiple <code>android-support-v4.jar</code> files, when you compile android, will get error.
+In this case, under normal circumstances, you can delete the <code>android-support-v4.jar</code> file, leaving only one</p></div>
             
         </div>
 
