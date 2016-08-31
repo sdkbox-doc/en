@@ -576,19 +576,6 @@
         
             <li><a href="#modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify Application.mk (Cocos2d-x v3.0 to v3.2 only)</a></li>
         
-	</ul>
-	
-    
-        <li class="main "><a href="#manual-integration-for-google-play-services-sdk">Manual Integration for Google Play Services SDK</a></li>
-	
-	<ul class="sub-sidenav">
-        
-            <li><a href="#suggestion">Suggestion</a></li>
-        
-            <li><a href="#modify-projectproperties">Modify project.properties</a></li>
-        
-            <li><a href="#integration-manually">Integration manually</a></li>
-        
             <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
         
 	</ul>
@@ -985,84 +972,6 @@ changed to:</p>
                                     ../../Classes/NewSourceFile.cpp
 </code></pre>
 
-<h2 id="manual-integration-for-google-play-services-sdk">Manual Integration for Google Play Services SDK</h2>
-<h3 id="suggestion">Suggestion</h3>
-<p>Please try the sdkbox installer first. It will do all the following step for you automatically. </p>
-<pre><code class="bash">$ sdkbox import googleplayservices
-</code></pre>
-
-<h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
-<p>An <strong>Android Library Reference</strong> for <strong>Google Play Services</strong> is required. The
-path will be different depending upon your setup. Also, this is an additional
-download that does not come as part of a standard install. To install use the
-<strong>sdk installer</strong> and choose <strong>extras-&gt;google play services</strong>. Here is an example of what this line could look like:</p>
-<pre><code>android.library.reference.1=
-../android/sdk.latest/extras/google/google_play_services/libproject/
-google-play-services_lib
-</code></pre>
-
-<p><strong>Note:</strong> if you already have an <code>android.library.reference.1</code> you can add
-another by incrementing the number as <code>android.library.reference.2</code>, etc.</p>
-<h3 id="integration-manually">Integration manually</h3>
-<p>We make a lite version of Google Play Services, the project repo is <a href="https://github.com/darkdukey/Google-Play-Service-Lite">https://github.com/darkdukey/Google-Play-Service-Lite</a></p>
-<h4 id="copy-files_1">Copy Files</h4>
-<p>Copy the <code>gps</code> folder from <code>plugin</code> folder of this bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
-<ul>
-<li>
-<p>If you're using cocos2d-x from source copy the <code>gps</code> folder to:</p>
-<p>Android command-line:
-<code>cocos2d/cocos/platform/android/java/libs</code></p>
-<p>Android Studio:
-<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
-</li>
-<li>
-<p>If you're using cocos2d-js or lua copy the <code>gps</code> folder to:</p>
-<p>Android command-line:
-<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
-<p>Android Studio:
-<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
-</li>
-<li>
-<p>If you're using prebuilt cocos2d-x copy the <code>gps</code> folder to:</p>
-<p>Android command-line:
-<code>&lt;project_root&gt;/libs</code></p>
-</li>
-</ul>
-<h4 id="modify-files-for-eclipse">Modify files for Eclipse</h4>
-<ol>
-<li>Modify project.properties</li>
-</ol>
-<pre><code># For source project
-android.library.reference.2=../cocos2d/cocos/platform/android/java/libs/gps/
-
-# Or
-# For framework project
-android.library.reference.1=libs/gps/
-</code></pre>
-
-<h4 id="modify-files-for-android-studio">Modify files for Android Studio</h4>
-<h5 id="1-modify-cocos2dcocosplatformandroidlibcocos2dxbuildgradle">1. Modify cocos2d/cocos/platform/android/libcocos2dx/build.gradle</h5>
-<pre><code> dependencies {
-+    compile project(':gps')
-     compile fileTree(dir: '../java/libs', include: ['*.jar'])
- }
-</code></pre>
-
-<h5 id="2-modify-projandroid-studioappprojectproperties">2. Modify proj.android-studio/app/project.properties</h5>
-<pre><code> # Project target.
- target=android-10
-+android.library.reference.1=../cocos2d/cocos/platform/android/java/libs/gps/
-</code></pre>
-
-<h5 id="3-modify-projandroid-studiosettingsgradle">3. Modify proj.android-studio/settings.gradle</h5>
-<pre><code> project(':libcocos2dx').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/libcocos2dx')
- include ':your_project_name'
- project(':your_project_name').projectDir = new File(settingsDir, 'app')
-+
-+include ':gps'
-+project(':gps').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/java/libs/gps')
-</code></pre>
-
 <h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
 <ul>
 <li>
@@ -1142,6 +1051,7 @@ SDKBox.init(this);
     }
 </code></pre>
 
+<p>[../../shared/manual_integration_google_play_step.md]</p>
 <h2 id="proguard-optional">Proguard (optional)</h2>
 <ul>
 <li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
