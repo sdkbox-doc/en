@@ -45,4 +45,6 @@ Here is an example of the ValuePotion configuration, you need to replace `<clien
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

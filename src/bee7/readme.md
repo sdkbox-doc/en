@@ -83,4 +83,6 @@ The following step assumes you already registered at [Bee7](https://dashboard.be
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

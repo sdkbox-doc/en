@@ -1,5 +1,12 @@
-Installer Google Play Services
+Manual Integration for Google Play Services SDK
 ---
+
+### Suggestion
+Please try the sdkbox installer first. It will do all the following step for you automatically. 
+```bash
+$ sdkbox import googleplayservices
+```
+
 
 ### Modify `project.properties`
 An __Android Library Reference__ for __Google Play Services__ is required. The
@@ -14,13 +21,6 @@ google-play-services_lib
 __Note:__ if you already have an `android.library.reference.1` you can add
 another by incrementing the number as `android.library.reference.2`, etc.
 
-### NEW
-
-###Integration online
-Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.
-```bash
-$ sdkbox import googleplayservices
-```
 
 ###Integration manually
 

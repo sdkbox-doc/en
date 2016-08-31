@@ -77,7 +77,7 @@ If you have IAP items that are __non-consumable__ or __subscription__, it is als
 
 <<[extra-step.md]
 
-<<[manual_integration_google_play_step.md]
+<<[../../shared/manual_integration_google_play_step.md]
 
 <<[proguard.md]
 

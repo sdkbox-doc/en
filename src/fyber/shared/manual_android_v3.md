@@ -40,8 +40,6 @@ bundle into your project’s __<project_root>/libs__ folder.
 
 <<[../../shared/copy_jni_lib.md]
 
-<<[../../shared/manual_integration_google_play_step.md]
-
 Copy the `fyber_lib` directories from `plugin/android/libs` to your `<project_root>/libs/` directory.
 
 

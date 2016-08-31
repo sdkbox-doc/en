@@ -23,8 +23,6 @@ frameworks/cocos2d-x/cocos/platform/android/java/libs
 
 <<[../../shared/copy_jni_lib.md]
 
-<<[../../shared/manual_integration_google_play_step.md]
-
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:
 ```xml

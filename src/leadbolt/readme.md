@@ -67,4 +67,6 @@ Here is an example of the LeadBolt configuration, you need to replace `<api_key>
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

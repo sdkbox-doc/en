@@ -47,4 +47,6 @@ Here is an example of the Appodeal configuration, you need to replace `<app_key>
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

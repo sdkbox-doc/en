@@ -66,4 +66,6 @@ Here is an example of the Fyber configuration you can enable/disable debug mode 
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

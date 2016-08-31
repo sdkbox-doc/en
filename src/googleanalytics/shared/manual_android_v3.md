@@ -40,7 +40,6 @@ bundle into your project’s __<project_root>/libs__ folder.
 
 <<[../../shared/copy_jni_lib.md]
 
-<<[../../shared/manual_integration_google_play_step.md]
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:

@@ -45,4 +45,6 @@ Here is an example of the InMobi configuration, you need to replace `<account_id
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

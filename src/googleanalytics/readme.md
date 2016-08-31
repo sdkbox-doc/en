@@ -55,8 +55,8 @@ A __tracker__ is used to aggregate the tracked events. There are some considerat
 
 <<[manual_android.md]
 
-<<[manual_integration_google_play_step.md]
-
 <<[extra-step.md]
+
+<<[../../shared/manual_integration_google_play_step.md]
 
 <<[proguard.md]

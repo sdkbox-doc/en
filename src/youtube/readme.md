@@ -62,4 +62,6 @@ If you want to display youtube vidoe in your app, you have to register a new you
 
 <<[extra-step.md]
 
+<<[../../shared/manual_integration_google_play_step.md]
+
 <<[proguard.md]

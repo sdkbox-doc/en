@@ -9,7 +9,6 @@ Copy the `sdkboxplay_lib` directories from `plugin/android/libs` to your `proj.a
 
 <<[../../shared/copy_jni_lib.md]
 
-<<[../../shared/manual_integration_google_play_step.md]
 
 ### Edit `AndroidManifest.xml`
 Include the following permissions above the __application tag__:

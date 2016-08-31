@@ -1,53 +1,36 @@
 ### Copy Files
-Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your projectâ€™s __<project_root>/libs__ folder.
-
-> AppTracker.jar
-
-> PluginLeadBolt.jar
-
-> sdkbox.jar
+Copy the everything from `plugin/android/libs` folder of this
+bundle into your projectœôòùs __<project_root>/libs__ folder.
 
 
 * If you're using cocos2d-x from source copy the __jar__ files to:
 
-    Android command-line:
-    ```
-    cocos2d/cocos/platform/android/java/libs
-    ```
+```
+cocos2d/cocos/platform/android/java/libs
+```
 
 * If you're using cocos2d-js or lua copy the __jar__ files to:
 
-    Android command-line:
-    ```
-    frameworks/cocos2d-x/cocos/platform/android/java/libs
-    ```
+```
+frameworks/cocos2d-x/cocos/platform/android/java/libs
+```
 
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
 
-    Android command-line:
-    ```
-    proj.android/libs
-    ```
+```
+<project_root>/libs
+```
 
 <<[../../shared/copy_jni_lib.md]
 
-
+y
 ### Edit `AndroidManifest.xml`
-* Include the following permissions above the __application tag__:
-
+Include the following permissions above the __application tag__:
 ```xml
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-```
-
-* Include the following lines above the __application tag__:
-
-```xml
-<activity
-    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-    android:name="com.apptracker.android.module.AppModuleActivity"
-    android:hardwareAccelerated="false">
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 
 ### Edit `Android.mk`
@@ -55,7 +38,7 @@ Edit `<project_root>/jni/Android.mk` to:
 
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginLeadBolt
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginYoutube
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
@@ -68,14 +51,14 @@ before any __import-module__ statements.
 Add additional __import-module__ statements at the end:
 ```
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginleadbolt)
+$(call import-module, ./pluginyoutube)
 ```
 
 This means that your ordering should look similar to this:
 ```
 $(call import-add-path,$(LOCAL_PATH))
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginleadbolt)
+$(call import-module, ./pluginyoutube)
 ```
 
   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
@@ -86,4 +69,20 @@ correctly. If `Application.mk` contains `APP_STL := c++_static`, it should be
 changed to:
 ```
 APP_STL := gnustl_static
+```
+
+### Add "Assets" folder
+Edit `proj.android/build-cfg.json`
+
+```json
+    "copy_resources": [
+        {
+            "from": "../Resources",
+            "to": ""
+        },
+        {
+            "from": "plugin_youtube_res_project/Assets",
+            "to": ""
+        }
+    ]
 ```
