@@ -1,112 +1,145 @@
 ## API Reference
 
-### Methods
-```lua
-sdkbox.PluginGoogleAnalytics:init()
+##Callback result descriptions##
+
+### Events ###
+
+####Event description####
 ```
-> initialize the plugin instance.
-
-```lua
-sdkbox.PluginGoogleAnalytics:startSession()
+{
+    "valid"       : 1 or 0,
+    "id"          : event id,
+    "name"        : event name,
+    "description" : event description text,
+    "visibility"  : whether or not event can be seen,
+    "count"       : current count of events of this type,
+    "imageUrl"    : URL to the event image
+}
 ```
-> The analytics session is being explicitly started at plugin initialization time.
 
-```lua
-sdkbox.PluginGoogleAnalytics:stopSession()
+####Events:FetchAll####
 ```
-> You normally will never stop a session manually.
-
-```lua
-sdkbox.PluginGoogleAnalytics:dispatchHits()
+{
+    "status" : 1 or 0 indication success or failure,
+    "data"   : {
+		event_id : Event,
+		...
+    }
+}
 ```
-> Manually request dispatch of hits. By default, data is dispatched from the
-Google Analytics SDK for Android every 5 minutes.
 
-```lua
-sdkbox.PluginGoogleAnalytics:dispatchPeriodically(seconds)
+####Events:Fetch####
 ```
-> Change the dispatch info time period to the desired amount of seconds.
-
-```lua
-sdkbox.PluginGoogleAnalytics:stopPeriodicalDispatch()
+{
+	"result" : 1 or 0,
+	"event"  : Event
+}
 ```
-> Stop periodically sending info. Then manually the <code>dispatchPeridically</code>
-or <code>dispatchHits</code> should be called.
 
-```lua
-sdkbox.PluginGoogleAnalytics:setUser(userID)
+###Quests###
+
+####Quest description####
 ```
-> Set user ID for this tracking session
-
-```lua
-sdkbox.PluginGoogleAnalytics:setDimension(index, value)
+{
+	"valid"            : 1 or 0,
+	"id"               : quest id,
+	"name"             : name of quest,
+	"description"      : text description of quest,
+	"iconUrl"          : URL to quest icon,
+	"bannerUrl"        : URL to quest banner image,
+	"currentMilestone" : QuestMileStone,
+	"questState"       : quest state, accepted or not,
+	"startTime"        : time the quest starts,
+	"expirationTime"   : time the quest expires,
+	"acceptedTime"     : time that the quest was accepted
+}
 ```
-> Set value to custom dimension
 
-```lua
-sdkbox.PluginGoogleAnalytics:setMetric(index, value)
+####QuestMilestone description####
 ```
-> Set value to custom metric
-
-```lua
-sdkbox.PluginGoogleAnalytics:logScreen(title)
+{
+	"valid"                : 1 or 0,
+	"id"                   : milestone id,
+	"questId"              : quest id for this milestone,
+	"eventId"              : event id,
+	"state"                : milestone state,
+	"currentCount"         : current count,
+	"targetCount"          : count to complete milestone,
+	"completionRewardData" : string containing reward data from console
+}
 ```
-> Log screen info. title is the title of a screen. Screens are logical units
-inside your app you'd like to identify at analytics panel.
 
-```lua
-sdkbox.PluginGoogleAnalytics:logEvent(eventCategory,
-                                       eventAction,
-                                       eventLabel,
-                                       value)
+####Quests:Fetch####
 ```
-> GoogleAnalytics::logEvent("Achievement", "Unlocked", "Slay 10 dragons", 5);
-
-```lua
-sdkbox.PluginGoogleAnalytics:logException(exceptionDescription, isFatal)
+{
+	"result" : 1 or 0,
+	"quest"  : Quest
+}
 ```
-> Log an exception. It is a basic support for in-app events.
 
-```lua
-sdkbox.PluginGoogleAnalytics:logTiming(timingCategory,
-                                        timingInterval,
-                                        timingName,
-                                        timingLabel)
+####Quests:FetchList####
 ```
-> Measure a time inside the application.
-
-```lua
-sdkbox.PluginGoogleAnalytics:logSocial(socialNetwork,
-                                        socialAction,
-                                        socialTarget)
+{
+	"status" : 1 or 0,
+	"data    : 1 based array of Quest
+}
 ```
-> Log a social event.
 
-```lua
-sdkbox.PluginGoogleAnalytics:setDryRun(enable)
+####Quests:Accept####
 ```
-> While running on dry run, the tracked events won't be sent to the actual
-analytics account.
-
-```lua
-sdkbox.PluginGoogleAnalytics:enableAdvertisingTracking(enable)
+{
+	"status" : 1 or 0,
+	"quest"  : Quest
+}
 ```
-> Enable advertising tracking when in google's ad vendors.
 
-```lua
-sdkbox.PluginGoogleAnalytics:createTracker(trackerId)
+####Quests:ClaimMilestone####
 ```
-> Create a tracker identified by the google analytics tracker id XX-YYYYYYYY-Z.
-If the tracker already existed, no new tracker will be created. In any case, the
-tracker associated with tracker id will be set as default tracker for  analytics
-operations.
-
-```lua
-sdkbox.PluginGoogleAnalytics:enableTracker(trackerId)
+{
+	"status"    : 1 or 0,
+	"milestone" : QuestMilestone
+	"quest"     : Quest
+}
 ```
-> Enable a tracker identified by a trackerId. If the tracker does not exist,
-nothing will happen.
 
+####Quests:ShowUI####
+```
+{
+	"status" : 1 or 0,
+	"result" : 1 or 0,
+	"quest"  : Quest
+}
+```
 
-### Listeners
+####Quests:ShowAllUI####
+```
+{
+	"status" : 1 or 0,
+	"result" : 1 or 0,
+	"quest"  : Quest
+}
+```
+
+###PlayerStats###
+
+####PlayerStats description####
+```
+{
+	"valid"                   : 1 or 0,    
+	"hasAverageSessionLength" : 1 if valid,
+	"averageSessionLength"    : length of session in ?,
+	"hasChurnProbability"     : 1 if valid,
+	"churnProbability"        : 0 - 1 likelyhood of retention,
+	"hasDaysSinceLastPlayed"  : 1 if valid,
+	"daysSinceLastPlayed"     : count of days,
+	"hasNumberOfPurchases"    : 1 if valid,
+	"numberOfPurchases"       : total number of purchases,
+	"hasNumberOfSessions"     : 1 if valid,
+	"numberOfSessions"        : number of sessions played,
+	"hasSessionPercentile"    : 1 if valid,
+	"sessionPercentile"       : what percentile they are in,
+	"hasSpendPercentile"      : 1 if valid,
+	"spendPercentile"         : what spend percentile they are in
+}
+```
 
