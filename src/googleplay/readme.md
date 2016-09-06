@@ -9,7 +9,7 @@ Open a terminal and use the following command to install the SDKBOX Google Play 
 $ sdkbox import googleplay 
 ```
 
-<<[../shared/post_installation_steps.md]
+<<[shared/post_installation_steps.md]
 
 <<[../../shared/notice.md]
 
