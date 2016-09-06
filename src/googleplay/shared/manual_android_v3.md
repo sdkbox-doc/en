@@ -57,7 +57,7 @@ There are also a few necessary meta-data tags that also need to be added:
     android:value="@string/google_app_id" />
 ```
 
-Make sure to add an entry to the file `res/valies/string.xml` of the form: `<string name="google_app_id">777734739048</string>`
+Make sure to add an entry to the file `res/values/string.xml` of the form: `<string name="google_app_id">777734739048</string>`
 Change that value for your own generated play games App Id.
 
 ### Edit `Android.mk`

@@ -1,60 +1,19 @@
-## Manual Integration For iOS
-Drag and drop the following frameworks from the __plugins/ios__ folder of
-the`GooglePlay` bundle into your Xcode project, check `Copy items if needed` when adding frameworks:
 
-> sdkbox.framework
+### Android
 
-> PluginSdkboxGooglePlay.framework
+#### AndroidManifest.xml
 
-The above frameworks depend upon other frameworks. You also need to add the
-following system frameworks, if you don't already have them:
+Add this meta to the manifest file:
 
-> AddressBook.framework
+```
+<meta-data android:name="com.google.android.gms.games.APP_ID" 
+    android:value="@string/google_app_id" />
+```
 
-> AssetsLibrary.framework
+Make sure to add an entry to the file `res/values/string.xml` of the form: `<string name="google_app_id">777734739048</string>`
+Change that value for your own generated play games App Id.
 
-> CoreData.framework
-
-> CoreLocation.framework
-
-> CoreMotion.framework
-
-> CoreTelephony.framework
-
-> CoreText.framework
-
-> Foundation.framework
-
-> MediaPlayer.framework
-
-> QuartzCore.framework
-
-> SafariServices
-
-> Security.framework
-
-> StoreKit
-
-> Security.framework
-
-> SystemConfiguration.framework
-
-> libc++.dylib
-
-> libz.dylib
-
-Add a linker flag, if your setup requires it, to:
-__Target -> Build Settings -> Linking -> Other Linker Flags__:
-
-> -ObjC
-
-#### Other frameworks and bundle files
-
-+ Get `gpg.framework` and `gpg.bundle` from Play Games C++ SDK: https://developers.google.com/games/services/downloads/gpg-cpp-sdk.v2.1.zip
-+ Get `GoogleOpenSource.framework` from Google+ iOS SDK: https://developers.google.com/+/mobile/ios/getting-started
-+ get `GoogleSignIn.framework` and `GoogleSignIn.bundle` from Sign iOS SDK: https://developers.google.com/identity/sign-in/ios/sdk
-
-### Code changes
+### iOS
 
 #### Set a rootview controller for GPG UI:
 
