@@ -13,6 +13,17 @@ To do this:
 sc->addRegisterCallback(register_all_PluginSdkboxGooglePlay);
 ```
 
+### Pre-requisites
+
+Your application must be registered on the Google Developer console, and have play services enabled.
+Leaderboards, Achievements, Quests, Events, Realtime Multiplayer and Turn Based multiplayer support must be explicitly enabled and configured in the console.
+
+For more information please refer to:
++ Client Ids: https://developers.google.com/games/services/console/enabling
++ Configure services: https://developers.google.com/games/services/console/configuring
+
+Make sure your applications are **always** signed with your release certificate. 
+
 ### Initialize Google Play Games (GPG)
 Google Play initialization is thorughout a `gpg.Builder` object.
 This is a valid copy-and-paste example for authenticating into the library:

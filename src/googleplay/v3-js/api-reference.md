@@ -1181,9 +1181,7 @@ var gpg;
  * @param response_status {gpg.ResponseStatus|gpg.AuthStatus}
  * @returns {boolean}
  */
-gpg.IsSuccess : function( response_status ) {
-    return response_status === gpg.ResponseStatus.VALID || response_status===gpg.ResponseStatus.VALID_BUT_STALE;
-}
+gpg.IsSuccess = function( response_status );
 
 ```
 
@@ -1204,9 +1202,7 @@ PlatformConfiguration : function() {
      * The client id defined on the google developer console.
      * @param client_id {string}
      */
-    this.SetClientID = function( client_id ) {
-        this._client_id = client_id;
-    };
+    this.SetClientID = function( client_id )
 } 
 ```
 
@@ -1229,12 +1225,12 @@ PlatformConfiguration : function() {
  *
  * @returns {boolean}
  */
-gpg.GameServices.IsAuthorized: function;
+gpg.GameServices.IsAuthorized: function();
 
 /**
  * Brings up a platform-specific user authorization flow.
  */
-gpg.GameServices.StartAuthorizationUI: function;
+gpg.GameServices.StartAuthorizationUI: function();
 
 /**
  * Begins the asynchronous sign-out process.
@@ -1242,7 +1238,7 @@ gpg.GameServices.StartAuthorizationUI: function;
  * until you receive the OnAuthActionFinishedCallback indicating a successful
  * sign-out.
  */
-gpg.GameServices.SignOut: function;
+gpg.GameServices.SignOut: function();
 ```
 
 #### gpg.GameServices.Builder
