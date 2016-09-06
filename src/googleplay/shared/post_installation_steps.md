@@ -70,6 +70,6 @@ add a call to (before return YES):
     URL schemes: com.sdkbox.gpg
     (use this as sample or put your own application’s bundle id)
     
-### Further info
+#### Further info
 
 For further info, have a look at: https://developers.google.com/games/services/cpp/gettingStartedIOS
