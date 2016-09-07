@@ -9,9 +9,13 @@ Open a terminal and use the following command to install the SDKBOX Google Play 
 $ sdkbox import googleplay 
 ```
 
-<<[shared/post_installation_steps.md]
+<<[../shared/post_installation_steps.md]
 
 <<[../../shared/notice.md]
+
+<<[usage.md]
+
+<<[api-reference.md]
 
 <<[manual_integration.md]
 
@@ -27,7 +31,4 @@ $ sdkbox import googleplay
 
 <<[proguard.md]
 
-<<[usage.md]
-
-<<[api-reference.md]
 
