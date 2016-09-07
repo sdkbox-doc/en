@@ -1,10 +1,10 @@
-[&#8249; Google Play Services Doc Home](./)
+[&#8249; Google Play Games Services Doc Home](./)
 
-<h1>Google Play Services Integration Guide</h1>
+<h1>Google Play Games Services Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX Google Play Services plugin. Make sure you setup the SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import googleplay 
 ```

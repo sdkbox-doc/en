@@ -1,17 +1,4 @@
 ##Usage
-### Register Javascript Functions
-You need to register all the Google Play Games JS functions with cocos2d-x before using them.
-
-To do this:
-* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
-```cpp
-#include "PluginSdkboxGooglePlay.hpp"
-```
-
-* Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
-```cpp
-sc->addRegisterCallback(register_all_PluginSdkboxGooglePlay);
-```
 
 ### Pre-requisites
 
