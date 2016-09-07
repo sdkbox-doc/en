@@ -1,4 +1,4 @@
-##Usage##
+
 
 ##Configuring Google Play Services##
 

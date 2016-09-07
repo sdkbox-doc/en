@@ -13,6 +13,18 @@ $ sdkbox import googleplay
 
 <<[../../shared/notice.md]
 
+##Usage
+
+### Pre-requisites
+
+Your must create your app on [Google Play Developer console](https://play.google.com/apps/publish) and have game services enabled.
+
+Leaderboards, Achievements, Quests, Events, Realtime Multiplayer and Turn Based multiplayer support must be explicitly enabled and configured in the console.
+
+Please follow [this guide](https://developers.google.com/games/services/console/enabling) to setup Google Play Games Services for your game. After the setup, you can follow [this guide](https://developers.google.com/games/services/console/configuring) to enable different Games Services for your game.
+
+> Note: Your Games Services will use your release keystore by default, so if you want to test your game in debug settings, please link an additional app with [debug keystore](http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development)
+
 <<[usage.md]
 
 <<[api-reference.md]

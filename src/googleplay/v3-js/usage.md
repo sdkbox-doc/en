@@ -1,4 +1,4 @@
-##Usage
+
 ### Register Javascript Functions
 You need to register all the Google Play Games JS functions with cocos2d-x before using them.
 
@@ -12,17 +12,6 @@ To do this:
 ```cpp
 sc->addRegisterCallback(register_all_PluginSdkboxGooglePlay);
 ```
-
-### Pre-requisites
-
-Your application must be registered on the Google Developer console, and have play services enabled.
-Leaderboards, Achievements, Quests, Events, Realtime Multiplayer and Turn Based multiplayer support must be explicitly enabled and configured in the console.
-
-For more information please refer to:
-+ Client Ids: https://developers.google.com/games/services/console/enabling
-+ Configure services: https://developers.google.com/games/services/console/configuring
-
-Make sure your applications are **always** signed with your release certificate. 
 
 ### Initialize Google Play Games (GPG)
 Google Play initialization is thorughout a `gpg.Builder` object.
