@@ -153,4 +153,88 @@ gpg.Stats:FetchForPlayer(function(result)
 end)
 ```
 
+## Achievements
+
+For the complete documentation, check out [achievements](https://developers.google.com/games/services/common/concepts/achievements)
+
+###State
+
+Achievements can be hidden, revealed, and unlocked. 
+
+Achievements can be designated as standard or incremental. Generally, an incremental achievement involves a player making gradual progress towards earning the achievement over a longer period of time
+
+### Showing the UI
+```
+    gpg.Achievements:ShowAllUI(function(result)
+		-- handle the result here
+    end)
+```
+
+### Fetch Achievements
+```
+	gpg.Achievements:FetchAll(nil, function(result)
+	    log:d(log:to_str(result))
+	end)
+```
+
+### Fetch Achievement
+```
+	gpg.Achievements:Fetch('CgkI6KjppNEWEAIQBQ', nil, function(result)
+	    log:d(log:to_str(result))
+	end)
+```
+
+### Increment Achievement
+```
+   gpg.Achievements:Increment('CgkI6KjppNEWEAIQBQ')
+```
+
+### Unlock Achievement
+```
+   gpg.Achievements:Unlock('CgkI6KjppNEWEAIQBQ')
+```
+
+### Reveal Achievement
+```
+	gpg.Achievements:Reveal('CgkI6KjppNEWEAIQBQ')
+```
+
+### Achievements
+
+####Achievement description
+```
+{
+	"currentSteps"     : Current steps completed of the achievement,
+	"description"      : Description of the achievement.
+	"id"               : String Id,
+	"lastModifiedTime" : Time last modified,
+	"name"             : Name of the achievement,
+	"revealedIconUrl"  : URL for the revealed icon,
+	"state"            : State, hidden, revealed, unlocked,
+	"totalSteps"       : Total number of steps,
+	"type"             : Incremental or standard,
+	"unlockedIconUrl"  : URL for the unlocked icon,
+	"valid"            : 1 or 0 if valid,
+	"xp"               : Amount of XP awarded
+}
+```
+
+#### Achievements:ShowAllUI
+```
+{
+	"result" : result code
+}
+```
+
+#### Achievements:FetchAll
+```
+	"result"            : result code,
+	"achievement_array" : array of Achievements
+```
+
+#### Achievements:Fetch
+```
+	"result"		 : result code,
+	"achievement" : Achievement
+```
 
