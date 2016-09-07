@@ -53,56 +53,40 @@ There are also a few necessary meta-data tags that also need to be added:
 ```xml
 <meta-data android:name="com.google.android.gms.version"
     android:value="@integer/google_play_services_version" />
-<meta-data
-    android:name="com.google.android.gms.analytics.globalConfigResource"
-    android:resource="@xml/global_tracker" />
+<meta-data android:name="com.google.android.gms.games.APP_ID" 
+    android:value="@string/google_app_id" />
 ```
 
-Next, register the __AnalyticsReceiver__:
-```xml
-<receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver"
-    android:enabled="true">
-    <intent-filter>
-        <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
-    </intent-filter>
-</receiver>
-<service android:name="com.google.android.gms.analytics.AnalyticsService"
-    android:enabled="true"
-    android:exported="false"/>
-```
-
-If you want to use optional __Receivers__, specify them next:
-```xml
-<!-- Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable installation campaign reporting -->
-<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="com.android.vending.INSTALL_REFERRER" />
-    </intent-filter>
-</receiver>
-<service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
-```
-
-### Edit the meta-data files
-In the step above a file named `global_tracker.xml` was specified. This file needs to be created and populated with a few required settings. So where does it go? Take a look again at the code tag from above:
-```
-<meta-data
-    android:name="com.google.android.gms.analytics.globalConfigResource"
-    android:resource="@xml/global_tracker" />
-```
-Notice the `android:resource=` attribute. This gives you the path of where to create this file, in this case it would be `<project_root>/res/xml`.
-
-This file needs to contain required settings. The contents of this file could be something like this:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="ga_dispatchPeriod">300</integer>
-    <string name="ga_logLevel">verbose</string>
-</resources>
-```
+Make sure to add an entry to the file `res/values/string.xml` of the form: `<string name="google_app_id">777734739048</string>`
+Change that value for your own generated play games App Id.
 
 ### Edit `Android.mk`
+
 Edit `<project_root>/jni/Android.mk` to:
+
+#### GPG dependency
+
+Install in a folder named `gpg` inside your `proj.android` directory the android part of a file downloaded from: https://developers.google.com/games/services/downloads/gpg-cpp-sdk.v2.1.zip 
+
+Add this to your `android.mk` file
+
+```
+# right after: include $(CLEAR_VARS)
+LOCAL_MODULE := libgpg
+LOCAL_SRC_FILES := ../gpg/lib/gnustl/$(TARGET_ARCH_ABI)/libgpg.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+# in local c includes block
+LOCAL_C_INCLUDES += ../gpg/include/
+
+# in local whole static libs block
+LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
+
+# in imports block
+$(call import-module, ../gpg)
+```
+
+#### Other mk file steps
 
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
@@ -119,14 +103,7 @@ before any __import-module__ statements.
 Add additional __import-module__ statements at the end:
 ```
 $(call import-module, ./sdkbox)
-$(call import-module, ./plugingoogleanalytics)
-```
-
-This means that your ordering should look similar to this:
-```
-$(call import-add-path,$(LOCAL_PATH))
-$(call import-module, ./sdkbox)
-$(call import-module, ./plugingoogleanalytics)
+$(call import-module, ./pluginsdkboxgoogleplay)
 ```
 
   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
