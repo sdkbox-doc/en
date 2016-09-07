@@ -1,4 +1,4 @@
 ## API Reference
 
-You can check Google Play online c++ documentation here: https://developers.google.com/games/services/cpp/api/annotated
+For C++ API reference for Google Play Games Services, please refer to the [official documentation](https://developers.google.com/games/services/cpp/api/annotated)
 

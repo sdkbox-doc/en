@@ -19,7 +19,6 @@ This is a valid copy-and-paste example for authenticating into the library:
 
 ```
 
-// 1
 var config = new gpg.PlatformConfiguration();
 config.SetClientID('777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni.apps.googleusercontent.com');
 
@@ -48,7 +47,7 @@ new gpg.GameServices.Builder()
 
 Let's dive into this process step by step.
 
-#### // 1
+#### Step 1 Initialization
 Create a `gpg.PlatformConfiguration` object. The client id will be specific for your application, and only needed on iOS.
 It is thus an optional call, but won't hurt having it set for Android as well.
 
@@ -56,7 +55,7 @@ This object is needed to create a GameServices object, which is the object that 
 
 The GPG authentication process, either sign-in or sign-out, spans into two phases:
 
-#### // 2 Auth started.
+#### Step 2 Auth started.
 This function needs a callback of the form:
 
 ```
@@ -73,7 +72,7 @@ var AuthActionStartedCallbackParams;
 
 This function is mostly informative. See `gpg.AuthOperation` enum for more details.
 
-#### // 3 Auth finished.
+#### Step 3 Auth finished.
 This function needs a callback of the form:
 
 ```
@@ -92,21 +91,21 @@ The callback be invoked with the operation type `AuthOperation` :sign-in or sign
 This steps, is very important since it will tell whether the user got authenticated `// 4` or not `// 5`.
 The `gpg.IsSuccess(...)` will be the common idiom to verify whether an operation's been succesful or not.
 
-#### // 4
+#### Step 4
 This will be a good point to get local user information, as well as modify the UI to signal authorized.
 
-#### // 5
+#### Step 5
 Things did not work as expected.
 
-#### // 6
+#### Step 6
 This is an optional step, but worth mentioning since this is the only place where GPG loggin capabilities can be controlled from.
 
 This is an optional step.
 
-#### // 7
+#### Step 7
 If your game expects to save games on the cloud, this is step would be mandatory, and optional otherwise.
 
-#### // 8
+#### Step 8
 Until this steps, all previous code is authentication set up.
 This `Create` call is the actual executable code to be authenticated, notified apropriately and agin access to the GPG objects.
 GPG interation will happen by means of a `gpg.GameServices` object. This object will eventually been passed to the `Create` method's callback if everything went ok.
