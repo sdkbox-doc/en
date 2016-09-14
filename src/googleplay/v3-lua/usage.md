@@ -199,42 +199,48 @@ Achievements can be designated as standard or incremental. Generally, an increme
 	gpg.Achievements:Reveal('CgkI6KjppNEWEAIQBQ')
 ```
 
-### Achievements
+## Leaderboards
 
-####Achievement description
+Checkout additional docs for leaderboards [here](https://developers.google.com/games/services/common/concepts/leaderboards)
+
+### Show UI
 ```
-{
-	"currentSteps"     : Current steps completed of the achievement,
-	"description"      : Description of the achievement.
-	"id"               : String Id,
-	"lastModifiedTime" : Time last modified,
-	"name"             : Name of the achievement,
-	"revealedIconUrl"  : URL for the revealed icon,
-	"state"            : State, hidden, revealed, unlocked,
-	"totalSteps"       : Total number of steps,
-	"type"             : Incremental or standard,
-	"unlockedIconUrl"  : URL for the unlocked icon,
-	"valid"            : 1 or 0 if valid,
-	"xp"               : Amount of XP awarded
-}
+    gpg.Leaderboards:ShowUI("achievement id")
 ```
 
-#### Achievements:ShowAllUI
+### ShowAllUI
 ```
-{
-	"result" : result code
-}
+    gpg.Leaderboards:ShowAllUI()
 ```
 
-#### Achievements:FetchAll
+###Submit Score
 ```
-	"result"            : result code,
-	"achievement_array" : array of Achievements
+    gpg.Leaderboards:SubmitScore("achievement id", score, "meta data", function(result)
+    end)
 ```
 
-#### Achievements:Fetch
+###FetchAllScoreSummaries
 ```
-	"result"		 : result code,
-	"achievement" : Achievement
+    gpg.Leaderboards:FetchAllScoreSummaries("achievement id", data source, function(result)
+    end)
 ```
+
+###FetchAll
+```
+    gpg.Leaderboards:FetchAll(datasource, function(result)
+    end)
+```
+
+###FetchScorePage
+```
+    gpg.Leaderboards:FetchScorePage("achievement id", datasource, time, timespan, collection, maxitmes, function(result)
+    end)
+```
+
+###FetchNextScorePage
+```
+    gpg.Leaderboards:FetchNextScorePage(datasource, max items, function(result)
+    end)
+```
+
 

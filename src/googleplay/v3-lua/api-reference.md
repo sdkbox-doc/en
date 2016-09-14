@@ -143,3 +143,42 @@
 }
 ```
 
+### Achievements
+
+####Achievement description
+```
+{
+	"currentSteps"     : Current steps completed of the achievement,
+	"description"      : Description of the achievement.
+	"id"               : String Id,
+	"lastModifiedTime" : Time last modified,
+	"name"             : Name of the achievement,
+	"revealedIconUrl"  : URL for the revealed icon,
+	"state"            : State, hidden, revealed, unlocked,
+	"totalSteps"       : Total number of steps,
+	"type"             : Incremental or standard,
+	"unlockedIconUrl"  : URL for the unlocked icon,
+	"valid"            : 1 or 0 if valid,
+	"xp"               : Amount of XP awarded
+}
+```
+
+#### Achievements:ShowAllUI
+```
+{
+	"result" : result code
+}
+```
+
+#### Achievements:FetchAll
+```
+	"result"            : result code,
+	"achievement_array" : array of Achievements
+```
+
+#### Achievements:Fetch
+```
+	"result"		 : result code,
+	"achievement" : Achievement
+```
+
