@@ -22,7 +22,7 @@ Add this meta-data tag to your `AndroidManifest.xml`
     android:value="@string/google_app_id" />
 ```
 
-#### Update `string.xml`
+#### Update string.xml
 
 Add this entry to `proj.android/res/values/string.xml`
 
@@ -30,7 +30,7 @@ Add this entry to `proj.android/res/values/string.xml`
 <string name="google_app_id">777734739048</string>
 ```
 
-Change that `google_app_id` value with your own App Id.
+Replace `google_app_id` value with your own App Id.
 
 ### iOS
 
@@ -73,23 +73,25 @@ add a call to (before return YES):
     [GIDSignIn sharedInstance].uiDelegate = _viewController;
 ```
 
-#### URL types
+#### Add URL types
+
+Add the following URL types under **your project > Info > URL Types**
 
 + URL 1:
 
-    Identifier: `com.google.ReverseClientId`
-    Url schemes: `com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni`
-    (use this as sample, or put your very own application’s url scheme) 
+    + Identifier: `com.google.ReverseClientId`
+    + Url schemes: `com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni`
+    > (use this as sample, or put your very own application’s url scheme) 
 
 + URL 2:
 
-    Identifier: `com.google.BundleId`
-    URL schemes: `com.sdkbox.gpg`
-    (use this as sample or put your own application’s bundle id)
+    + Identifier: `com.google.BundleId`
+    + URL schemes: `com.sdkbox.gpg`
+    > (use this as sample or put your own application’s bundle id)
     
 #### Further info
 
-For further info, have a look at: https://developers.google.com/games/services/cpp/gettingStartedIOS
+For more information check out the [official documentation](https://developers.google.com/games/services/cpp/gettingStartedIOS)
 
 <<[../../shared/notice.md]
 
