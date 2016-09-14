@@ -35,7 +35,7 @@ Include the following permissions above the __application tag__:
 
 There are also necessary meta-data and activity tags that also need to be added:
 ```xml
-<meta-data android:name="com.appodeal.framework" android:value="android" />
+<meta-data android:name="com.appodeal.framework" android:value="sdkbox" />
 <activity android:name="com.appodeal.ads.InterstitialActivity"
         android:configChanges="orientation|screenSize"
         android:theme="@android:style/Theme.Translucent.NoTitleBar" />
