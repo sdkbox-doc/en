@@ -99,19 +99,21 @@ For more information check out the [official documentation](https://developers.g
 
 ### Pre-requisites
 
-Your must create your app on [Google Play Developer console](https://play.google.com/apps/publish) and have game services enabled.
+Your must create your app on [Google Play Developer console](https://play.google.com/apps/publish) and all the services must be explicitly enabled and configured in the console.
 
-Leaderboards, Achievements, Quests, Events, Realtime Multiplayer and Turn Based multiplayer support must be explicitly enabled and configured in the console.
+Please follow [setup guide](https://developers.google.com/games/services/console/enabling) to setup Google Play Games Services for your game. After the setup, please follow [config guide](https://developers.google.com/games/services/console/configuring) to enable different Games Services for your game.
 
-Please follow [this guide](https://developers.google.com/games/services/console/enabling) to setup Google Play Games Services for your game. After the setup, you can follow [this guide](https://developers.google.com/games/services/console/configuring) to enable different Games Services for your game.
-
-> Note: Your Games Services will use your release keystore by default, so if you want to test your game in debug settings, please link an additional app with [debug keystore](http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development)
+> Note: Google Play Games Services will use your release keystore by default, if you want to test your game in debug settings, please link an additional app with [debug keystore](http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development)
 
 <<[usage.md]
 
 <<[api-reference.md]
 
-<<[manual_integration.md]
+##Manual Integration
+If the *SDKBOX Installer* __fails__ to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please __do not__ complete anymore of this document. It is not necessary.
+
+These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.
+
 
 <<[manual_ios.md]
 
