@@ -4,6 +4,7 @@ pages:
 - Cocos:
     - 'Cocos Integration': 'cocos.md'
     - Installer: 'installer.md'
+    - FAQ: 'faq.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':

@@ -1,5 +1,24 @@
 #Release Notes
 ---
+
+2.3.1 Release Notes
+===
+##Highlight
+* Add achievement notification control to LiveOps
+* Support latest cocos2d-x and Cococs Creator
+
+##Bugfix
+* Fix a crashing issue with sdkboxads
+* Fix setListener on android
+* Restore products nolonger returns consumables
+* Fix sdkboxplay crash if logged out from google play settings menu
+* Fix a crash when finish playing certain Inmobi videos
+* Support latest cocos2d-x and Cococs Creator
+* Fix facebook callback not triggering when using facebook share dialog
+* Fix a sdkboxplay crash on iOS when listener was not set
+* Fix appodeal crash when skip videos
+
+
 2.3.0 Release Notes
 ===
 ##Highlight
