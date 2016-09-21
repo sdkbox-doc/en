@@ -9,4 +9,16 @@ AppDelegate::applicationDidFinishLaunching()
 }
 ```
 
+### Authorization
+
+
+### Achievements
+### Leaderboards
+### Turn-based multiplayer
+### Real-time multiplayer
+### Events and Quests
+### Saved Games
+### Nearby Connections (Android only)
+### Player Statistics
+
 For other Google Play Game Services functionalities please take a look at official google play games services [documentation](https://developers.google.com/games/services/cpp/GettingStartedNativeClient)

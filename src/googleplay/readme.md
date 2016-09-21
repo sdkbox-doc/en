@@ -40,7 +40,7 @@ Update `proj.ios_mac/ios/RootViewController.h`
 Add this:
 
 ```
-import <GoogleSignIn/GoogleSignIn.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 // Change RootViewController class definition to:
 @interface RootViewController : UIViewController<GIDSignInUIDelegate> 
