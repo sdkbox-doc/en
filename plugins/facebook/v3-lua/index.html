@@ -871,20 +871,38 @@ sdkbox.PluginFacebook:api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, 
 <h3 id="facebook-events">Facebook events</h3>
 <p>This allows you to catch <code>Facebook</code> events so that you can perform operations after Facebook events have occurred.</p>
 <pre><code class="lua">sdkbox.PluginFacebook:setListener(function(args)
+    dump(args, &quot;FB listener args:&quot;)
     if &quot;onLogin&quot; == args.name then
-        local isLogin = args.isLogin;
-        local msg = args.msg;
+        local isLogin = args.isLoggedIn;
+        local msg = args.data;
     elseif &quot;onPermission&quot; ==  args.name then
-        local isLogin = args.isLogin;
-        local msg = args.msg;
+        local isLogin = args.ok;
+        local msg = args.data;
     elseif &quot;onAPI&quot; ==  args.name then
         local tag = args.tag;
-        local jsonData = args.jsonData;
+        local jsonData = args.data;
     elseif &quot;onSharedSuccess&quot; ==  args.name then
-        local msg = args.message
+        local msg = args.data
     elseif &quot;onSharedFailed&quot; ==  args.name then
-        local msg = args.message
+        local msg = args.data
     elseif &quot;onSharedCancel&quot; ==  args.name then
+        local msg = args.data
+    elseif &quot;onFetchFriends&quot; == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif &quot;onInviteFriendsResult&quot; == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif &quot;onInviteFriendsWithInviteIdsResult&quot; == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif &quot;onRequestInvitableFriends&quot; == args.name then
+        local users = args.users
+        local urls = args.urls
+    elseif &quot;onGetUserInfo&quot; == args.name then
+        local user = args.data
+    else
+        print(&quot;Unknown event:&quot; .. args.name)
     end
 end)
 </code></pre>
