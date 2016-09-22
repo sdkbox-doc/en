@@ -127,20 +127,38 @@ This allows you to catch `Facebook` events so that you can perform operations af
 
 ```lua
 sdkbox.PluginFacebook:setListener(function(args)
+    dump(args, "FB listener args:")
     if "onLogin" == args.name then
-        local isLogin = args.isLogin;
-        local msg = args.msg;
+        local isLogin = args.isLoggedIn;
+        local msg = args.data;
     elseif "onPermission" ==  args.name then
-        local isLogin = args.isLogin;
-        local msg = args.msg;
+        local isLogin = args.ok;
+        local msg = args.data;
     elseif "onAPI" ==  args.name then
         local tag = args.tag;
-        local jsonData = args.jsonData;
+        local jsonData = args.data;
     elseif "onSharedSuccess" ==  args.name then
-        local msg = args.message
+        local msg = args.data
     elseif "onSharedFailed" ==  args.name then
-        local msg = args.message
+        local msg = args.data
     elseif "onSharedCancel" ==  args.name then
+        local msg = args.data
+    elseif "onFetchFriends" == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif "onInviteFriendsResult" == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif "onInviteFriendsWithInviteIdsResult" == args.name then
+        local ok = args.ok
+        local msg = args.data
+    elseif "onRequestInvitableFriends" == args.name then
+        local users = args.users
+        local urls = args.urls
+    elseif "onGetUserInfo" == args.name then
+        local user = args.data
+    else
+        print("Unknown event:" .. args.name)
     end
 end)
 ```
