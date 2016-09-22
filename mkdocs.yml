@@ -5,6 +5,9 @@ pages:
     - 'Cocos Integration': 'cocos.md'
     - Installer: 'installer.md'
     - FAQ: 'faq.md'
+    - API:
+        - js:
+            - gpg: api/js/gpg/index.md
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':
