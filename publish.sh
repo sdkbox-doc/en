@@ -31,6 +31,7 @@ else
     echo "detects CSC_PATH"
     echo "Generating documentation for gpg"
     jsdoc $CSC_PATH/plugins/sdkboxgoogleplay/js/script/sdkboxgpg.js -d api/js/gpg
+    mkdir -p site/api
     cp -R api/ site/api
     exit 1
 fi
