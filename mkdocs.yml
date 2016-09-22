@@ -7,7 +7,7 @@ pages:
     - FAQ: 'faq.md'
     - API:
         - js:
-            - gpg: api/js/gpg/index.md
+            - gpg: 'api/js/gpg/index.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':
