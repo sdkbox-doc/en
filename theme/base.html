@@ -11,7 +11,7 @@
         {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
 
 	<title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
-
+        {% block css %}
         <link href="{{ base_url }}/css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="{{ base_url }}/css/font-awesome-4.0.3.css" rel="stylesheet">
         <link href="{{ base_url }}/css/base.css?2" rel="stylesheet">
@@ -20,7 +20,7 @@
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
         <link href="{{ base_url }}/css/custom.css" rel="stylesheet">
-
+        {% endblock %}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>

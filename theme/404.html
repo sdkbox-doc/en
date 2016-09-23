@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
+{% block css %}
+        <link href="/en/css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="/en/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="/en/css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="/en/css/highlight.css">
+        {%- for path in extra_css %}
+        <link href="{{ path }}" rel="stylesheet">
+        {%- endfor %}
+        <link href="/en/css/custom.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 
     <div class="row-fluid">
