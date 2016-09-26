@@ -426,9 +426,9 @@ gpg.SnapshotMetadata : {
  * @constructor
  */
 gpg.PlayerLevel : {
-    valid:      boolean, 
-    levelNumber:number, 
-    minimumXP:  number, 
+    valid:      boolean,
+    levelNumber:number,
+    minimumXP:  number,
     maximumXP:  number
 }
 ```
@@ -752,7 +752,7 @@ gpg.ScorePage.prototype = {
     entries :               gpg.ScorePage.Entry[] | null,
     hasNextScorePage :      boolean,
     hasPreviousScorePage :  boolean
-} 
+}
 ```
 
 ### Callbacks
@@ -1164,6 +1164,73 @@ var StatsFetchForPlayerCallbackParams;
  */
 ```
 
+#### NearbyConnections callbacks and types
+
+```
+
+/**
+ * @typedef {{InitializationStatus : boolean}}
+ */
+var NearbyConnectionInitCallbackParams;
+
+/**
+ * @callback NearbyConnectionInitCallback
+ * @param NearbyConnectionInitCallbackParams
+ */
+
+
+/**
+ * @typedef {{client_id: int, result: {status: gpg.NCStartAdvertisingResultStatus, local_endpoint_name: {string}} }}
+ */
+ var StartAdvertisingCallbackParams;
+
+/**
+ * @callback StartAdvertisingCallback
+ * @param StartAdvertisingCallbackParams
+ */
+
+/**
+ * @typedef {{client_id : int, response: {status: gpg.NCConnectionResponseStatus, remote_endpoint_id: string, payload: string}}}
+ */
+var ConnectionRequestCallbackParams;
+
+/**
+ * @callback ConnectionRequestCallback
+ * @param ConnectionRequestCallbackParams
+ */
+
+/**
+ * @typedef {{event:string, client_id: int, remote_endpoint_id: string, payload: string, is_reliable: boolean}}
+ */
+var NCMessageCallbackParams;
+
+/**
+ * @callback NCMessageCallback
+ * @params NCMessageCallbackparams
+ */
+
+/**
+ * @typedef {{event:string, client_id: int, remote_endpoint_id: string, endpoint_details: {endpoint_id: string, device_id: string, name: string, service_id: string}}}
+ */
+var NCDiscoveryCallbackParams;
+
+/**
+ * @callback NCDiscoveryCallback
+ * @params NCDiscoveryCallbackParams
+ */
+
+/**
+ * @typedef {client_id: string, response: {remote_endpoint_id: string, status: gpg.NCConnectionResponseStatus, payload: string}}
+ */
+var NCConnectionRequestCallbackParams;
+
+/**
+ * @callback NCConnectionRequestCallback
+ * @params NCConnectionRequestCallbackParams
+ */
+
+```
+
 ### Objects
 
 #### Global object
@@ -1203,7 +1270,7 @@ PlatformConfiguration : function() {
      * @param client_id {string}
      */
     this.SetClientID = function( client_id )
-} 
+}
 ```
 
 #### gpg.GameServices
@@ -1217,7 +1284,7 @@ PlatformConfiguration : function() {
  * An instance of this object will be supplied to the gpg.GameServices.Builder.Create method's callback upon successful
  * GPG authentication.
  */
- 
+
 /**
  * Allows you to explicitly check the current authorization state.
  * SDK consumers are encouraged to register for AUTH_ACTION_* callbacks to
@@ -1721,3 +1788,132 @@ Stats : {
     FetchForPlayer : function(data_source, callback)
 }
 ```
+
+
+#### gpg.GameServices.NearbyConnection
+
+```
+/**
+ * Enables local multiplayer and screen casting for your game.
+ *
+ * @class
+ * @memberOf gpg.GameServices
+ *
+ */
+NearbyConnections : {
+
+    /**
+     * init nearby connection
+     *
+     * @param str_json "{"LogLevel":1}" {string}
+     * @param callback {NearbyConnectionInitCallback}
+     *
+     */
+    Init : function(str_json, callback),
+
+    /**
+     * get local enddpoint id
+     *
+     */
+    GetLocalEndpointId : function(),
+
+    /**
+     * get local device id
+     *
+     */
+    GetLocalDeviceId : function(),
+
+    /**
+     * start advertising
+     *
+     * @param str_json "{"name":"","duration":0,"app_identifiers":{"identifier":"com.sdkbox.gpg"}}" {string}
+     * @param start_advertising_callback {StartAdvertisingCallback}
+     * @param request_callback {ConnectionRequestCallback}
+     *
+     */
+    StartAdvertising : function(str_json, start_advertising_callback, request_callback),
+
+    /**
+     * stop advertising
+     *
+     */
+    StopAdvertising : function(),
+
+    /**
+     * accept connect request
+     *
+     * @param remote_endpoint_id {string}
+     * @param payload {string}
+     * @param callback {NCMessageCallback}
+     *
+     */
+    AcceptConnectionRequest : function(remote_endpoint_id, payload, callback),
+
+    /**
+     * reject connect request
+     *
+     */
+    RejectConnectionRequest : function(remote_endpoint_id),
+
+    /**
+     * start discovery
+     *
+     * @param service_id {string}
+     * @param duration {int}
+     * @param callback {NCDiscoveryCallback}
+     *
+     */
+    StartDiscovery : function(service_id, duration, callback),
+
+    /**
+     * stop discovery
+     *
+     */
+    StopDiscovery : function( service_id ),
+
+    /**
+     * send connect request
+     *
+     * @param name {string}
+     * @param remote_endpoint_id {string}
+     * @param payload {string}
+     * @param connect_response_callback {}
+     * @param message_callback {NCMessageCallback}
+     *
+     */
+    SendConnectionRequest : function(name, remote_endpoint_id, payload, connect_response_callback, message_callback),
+
+    /**
+     * send reliable message
+     *
+     * @param remote_endpoint_id {string or string array}
+     * @param payload {string}
+     *
+     */
+    SendReliableMessage : function(remote_endpoint_id, payload),
+
+    /**
+     * send unreliable message
+     *
+     * @param remote_endpoint_id {string or string array}
+     * @param payload {string}
+     *
+     */
+    SendUnreliableMessage : function(remote_endpoint_id, payload),
+
+    /**
+     * disconnect
+     *
+     * @param remote_endpoint_id {string}
+     *
+     */
+    Disconnect : function(remote_endpoint_id),
+
+    /**
+     * stop
+     *
+     */
+    Stop : function()
+}
+```
+
