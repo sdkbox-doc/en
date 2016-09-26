@@ -6,8 +6,7 @@ pages:
     - Installer: 'installer.md'
     - FAQ: 'faq.md'
     - API:
-        - 'Google Play Games':
-            - 'Javascript': 'api/js/gpg/index.md'
+        - 'Google Play Games': 'api/gpg/index.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':
