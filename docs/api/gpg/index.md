@@ -1,1 +1,1 @@
-[Java script API reference](/api/gpg/js/index.html)
+[Java script API reference](js/index.html)
