@@ -42,14 +42,8 @@ bundle into your project’s __<project_root>/libs__ folder.
 
 
 ### Edit `AndroidManifest.xml`
-Include the following permissions above the __application tag__:
-```xml
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
-```
 
-There are also a few necessary meta-data tags that also need to be added:
+Add following meta-data tags:
 ```xml
 <meta-data android:name="com.google.android.gms.version"
     android:value="@integer/google_play_services_version" />
@@ -64,33 +58,21 @@ Change that value for your own generated play games App Id.
 
 Edit `<project_root>/jni/Android.mk` to:
 
-#### GPG dependency
-
-Install in a folder named `gpg` inside your `proj.android` directory the android part of a file downloaded from: https://developers.google.com/games/services/downloads/gpg-cpp-sdk.v2.1.zip 
+Install in a folder named `gpg` inside your `proj.android\jni` directory
 
 Add this to your `android.mk` file
 
+#### Add include path
 ```
-# right after: include $(CLEAR_VARS)
-LOCAL_MODULE := libgpg
-LOCAL_SRC_FILES := ../gpg/lib/gnustl/$(TARGET_ARCH_ABI)/libgpg.a
-include $(PREBUILT_STATIC_LIBRARY)
-
-# in local c includes block
-LOCAL_C_INCLUDES += ../gpg/include/
-
-# in local whole static libs block
-LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
-
-# in imports block
-$(call import-module, ../gpg)
+LOCAL_C_INCLUDES += ./gpg/include/
 ```
 
-#### Other mk file steps
+#### Add static libraries
 
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginGoogleAnalytics
+LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
@@ -102,6 +84,7 @@ before any __import-module__ statements.
 
 Add additional __import-module__ statements at the end:
 ```
+$(call import-module, ./gpg)
 $(call import-module, ./sdkbox)
 $(call import-module, ./pluginsdkboxgoogleplay)
 ```
