@@ -125,7 +125,7 @@
 ####PlayerStats description####
 ```
 {
-	"valid"                   : 1 or 0,    
+	"valid"                   : 1 or 0,
 	"hasAverageSessionLength" : 1 if valid,
 	"averageSessionLength"    : length of session in ?,
 	"hasChurnProbability"     : 1 if valid,
@@ -182,3 +182,82 @@
 	"achievement" : Achievement
 ```
 
+### NearbyConnections
+
+#### NearbyConnections:Init
+```
+{
+	"InitializationStatus" : initialization result
+}
+```
+
+#### NearbyConnections:StartAdvertising
+```
+{
+	"client_id"	: client id,
+	"start_advertising_result" :
+	{
+		"status"	: start advertising result,
+		"local_endpoint_name"	: local endpoint name
+	}
+},
+{
+	"client_id"	: client id,
+	"request" :
+	{
+		"remote_endpoint_id" : remote endpoint id,
+		"remote_device_id" : remote device id
+		"remote_endpoint_name": remote endpoint name
+		"payload" : payload message
+	}
+}
+```
+
+#### NearbyConnections:AcceptConnectionRequest
+```
+{
+	"event" : "OnMessageReceived" or "OnDisconnected",
+	"client_id" : client id,
+	"remote_endpoint_id" : remote endpoint id,
+	"payload" : payload message, valid when event is "OnMessageReceived",
+	"is_reliable" : if message is reliable, valid when event is "OnMessageReceived"
+}
+```
+
+#### NearbyConnections:StartDiscovery
+```
+{
+	"event" : "OnEndpointFound" or "",
+	"client_id" : client id,
+	"remote_endpoint_id", remote endpoint id, valid when event is "OnEndpointLost"
+	"endpoint_details" : endpoint info, valid when event is "OnEndpointFound"
+	{
+		"endpoint_id" : endpoint id,
+		"device_id" : device id,
+		"name" : name,
+		"service_id" : service id
+	}
+}
+```
+
+#### NearbyConnections:SendConnectionRequest
+
+second callback function result is same with NearbyConnections:AcceptConnectionRequest
+```
+{
+	"client_id" : client id,
+	"response" : connection response
+	{
+	    "remote_endpoint_id" : remote endpoint id,
+	    "status" : status code;
+	    "payload" : payload message;
+	}
+},
+{
+	"event" : "OnMessageReceived" or "OnDisconnected",
+	"client_id" : client id,
+	"remote_endpoint_id" : remote endpoint id,
+	"payload" : payload message, valid when event is "OnMessageReceived",
+	"is_reliable" : if message is reliable, valid when event is "OnMessageReceived"
+}
+```

@@ -109,7 +109,7 @@ end)
 gpg.Quests:ShowAllUI(function(result)
     -- use result.quest here
 end)
-``` 
+```
 
 ###Handling quest acceptance###
 
@@ -159,7 +159,7 @@ For the complete documentation, check out [achievements](https://developers.goog
 
 ###State
 
-Achievements can be hidden, revealed, and unlocked. 
+Achievements can be hidden, revealed, and unlocked.
 
 Achievements can be designated as standard or incremental. Generally, an incremental achievement involves a player making gradual progress towards earning the achievement over a longer period of time
 
@@ -243,4 +243,193 @@ Checkout additional docs for leaderboards [here](https://developers.google.com/g
     end)
 ```
 
+## NearbyConnections
+
+For the complete documentation, check out [Nearby Connections](https://developers.google.com/games/services/cpp/nearby)
+
+### Init
+
+init nearby connection, if not support current platfrom, will return false
+
+```lua
+local support = gpg.NearbyConnections:Init("{\"LogLevel\":1}",
+    function(result)
+        if result.InitializationStatus then
+            print('GPG Nearby init success')
+        else
+            print('GPG Nearby init failed')
+        end
+    end)
+if not support then
+    print('GPG Nearby is not support ios')
+end
+```
+
+### Get local endpoint id
+
+get local endpoint id when connect success
+
+```lua
+local endpoint = gpg.NearbyConnections:GetLocalEndpointId();
+print('Local Endpoint Id:' .. endpoint)
+```
+
+### Get local device id
+
+```lua
+local deviceid = gpg.NearbyConnections:GetLocalDeviceId();
+print('Local device id:' .. deviceid)
+```
+
+### Advertising
+
+start advertising
+
+```lua
+gpg.NearbyConnections:StartAdvertising(
+    "\"name\":\"\",\"duration\":0,\"app_identifiers\":{\"identifier\":\"com.sdkbox.gpg\"},",
+    function(result)
+        -- start advertising result
+
+        if (1 == result.start_advertising_result.status) then
+            print("GPG start advertising result:" .. result.client_id
+                .. " status:" .. result.start_advertising_result.status
+                .. " local_endpoint_name:" .. result.start_advertising_result.local_endpoint_name)
+        else
+            print('start advertising failed:' .. result.start_advertising_result.status)
+        end
+    end,
+    function(result)
+        --request connect callback
+
+        local remote_endpoint_id = result.request.remote_endpoint_id
+        local payload = result.request.payload
+
+        log:d('GPG receive connect request:' .. remote_endpoint_id)
+
+        -- auto accept or query user
+        -- 1. accept connect request
+        -- invoke AcceptConnectionRequest
+        -- gpg.NearbyConnections:AcceptConnectionRequest(remote_endpoint_id, payload, function (result) end)
+
+        -- 2. reject connect request
+        -- invoke RejectConnectionRequest
+    end)
+```
+
+### Stop advertising
+
+```lua
+gpg.NearbyConnections:StopAdvertising()
+```
+
+### Accept connect request
+
+```lua
+gpg.NearbyConnections:AcceptConnectionRequest(
+    remote_endpoint_id,
+    payload,
+    function (result)
+        print('event:' .. result.event)
+        if 'OnMessageReceived' == result.event then
+            print('OnMessageReceived client_id:' .. tostring(result.client_id)
+                .. ' remote_endpoint_id:' .. tostring(result.remote_endpoint_id)
+                .. ' payload:' .. tostring(result.payload)
+                .. ' is_reliable:' .. tostring(result.is_reliable))
+        elseif 'OnDisconnected' == result.event then
+            print('OnDisconnected client_id:' .. tostring(result.client_id)
+                .. ' remote_endpoint_id:' .. tostring(result.remote_endpoint_id))
+        else
+            print('Unknown event:' .. result.event);
+        end
+    end)
+
+```
+
+### Reject connect request
+
+```lua
+gpg.NearbyConnections:RejectConnectionRequest(remote_endpoint_id)
+```
+
+### Start Discovery
+
+duration in milliseconds
+
+```lua
+gpg.NearbyConnections:StartDiscovery(server_id, duration,
+    function (result)
+        if 'OnEndpointFound' == result.event then
+            print('found client_id:' .. tostring(result.client_id)
+                .. ' endpoint_id:' .. tostring(result.endpoint_details.endpoint_id)
+                .. ' device_id:' .. tostring(result.endpoint_details.device_id)
+                .. ' name:' .. tostring(result.endpoint_details.name)
+                .. ' service_id:' .. tostring(result.endpoint_details.server_id))
+        elseif 'OnEndpointLost' == result.event then
+            print('endpoint lost')
+        else
+            print('unknown event')
+        end
+    end)
+```
+
+### Stop Discovery
+
+```lua
+gpg.NearbyConnections:StopDiscovery()
+```
+
+### Send Connect Request
+```lua
+gpg.NearbyConnections:SendConnectionRequest(
+    name, remote_endpoint_id, payload,
+    function(result)
+        -- connect response callback
+        if (1 == result.response.status) then
+            print('Connect advertising success');
+            local remote_endpoint_id = result.response.remote_endpoint_id;
+        else
+            print('Connect advertising failed');
+        end
+    end,
+    function(result)
+        if 'OnMessageReceived' == result.event then
+            print('OnMessageReceived client_id:' .. tostring(result.client_id)
+                .. ' remote_endpoint_id:' .. tostring(result.remote_endpoint_id)
+                .. ' payload:' .. tostring(result.payload)
+                .. ' is_reliable:' .. tostring(result.is_reliable))
+        elseif 'OnDisconnected' == result.event then
+            print('OnDisconnected client_id:' .. tostring(result.client_id)
+                .. ' remote_endpoint_id:' .. tostring(result.remote_endpoint_id))
+        else
+            print('Unknown event:' .. result.event);
+        end
+    end)
+```
+
+### Send Reliable Message
+
+```lua
+gpg.NearbyConnections:SendReliableMessage(remote_endpoint_id1, message)
+gpg.NearbyConnections:SendReliableMessage([remote_endpoint_id1, remote_endpoint_id2], message);
+```
+
+### Send Unreliable Message
+
+```lua
+gpg.NearbyConnections:SendUnreliableMessage(remote_endpoint_id1, message)
+gpg.NearbyConnections:SendUnreliableMessage([remote_endpoint_id1, remote_endpoint_id2], message);
+```
+
+### Disconnect
+
+```lua
+gpg.NearbyConnections:Disconnect(remote_endpoint_id)
+```
+
+### Stop
+
+```lua
+gpg.NearbyConnections:Stop()
+```
 
