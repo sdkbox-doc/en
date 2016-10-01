@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>Google Play Services with Javascript - SDKBOX</title>
+        
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/custom.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../cocos/">Cocos Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../installer/">Installer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../faq/">FAQ</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">API</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../api/gpg/">Google Play Games</a>
+</li>
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../amazon/">Amazon</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../apteligent/">Apteligent</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../">Google Play Games</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../share/">Social Sharing</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/review/">Ratings & Reviews</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unreal/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unreal/chartboost/">Chartboost</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#integration">Integration</a></li>
+	
+    
+        <li class="main "><a href="#after-installation">After Installation</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#android">Android</a></li>
+        
+            <li><a href="#ios">iOS</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#important-notice">Important Notice</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#disable-app-transport-security">Disable App Transport Security</a></li>
+        
+            <li><a href="#disable-bitcode-support">Disable Bitcode support</a></li>
+        
+            <li><a href="#set-your-game-requires-full-screen">Set your game requires full screen</a></li>
+        
+            <li><a href="#whitelist-canopenurl-function">Whitelist canOpenURL function</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#usage">Usage</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#pre-requisites">Pre-requisites</a></li>
+        
+            <li><a href="#register-javascript-functions">Register Javascript Functions</a></li>
+        
+            <li><a href="#initialize-google-play-games">Initialize Google Play Games</a></li>
+        
+            <li><a href="#initialization-process-breakdown">Initialization Process breakdown</a></li>
+        
+            <li><a href="#authorization">Authorization</a></li>
+        
+            <li><a href="#achievements">Achievements</a></li>
+        
+            <li><a href="#leaderboards">Leaderboards</a></li>
+        
+            <li><a href="#saved-games">Saved Games</a></li>
+        
+            <li><a href="#real-time-multiplayer">Real-time multiplayer</a></li>
+        
+            <li><a href="#turn-based-multiplayer">Turn-based multiplayer</a></li>
+        
+            <li><a href="#player-statistics">Player Statistics</a></li>
+        
+            <li><a href="#events-and-quests">Events and Quests</a></li>
+        
+            <li><a href="#nearby-connections">Nearby Connections</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#api-reference">API Reference</a></li>
+	
+    
+        <li class="main "><a href="#manual-integration">Manual Integration</a></li>
+	
+    
+        <li class="main "><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#code-changes">Code changes</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#manual-integration-for-android">Manual Integration For Android</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#copy-files">Copy Files</a></li>
+        
+            <li><a href="#edit-androidmanifestxml">Edit AndroidManifest.xml</a></li>
+        
+            <li><a href="#edit-androidmk">Edit Android.mk</a></li>
+        
+            <li><a href="#modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify Application.mk (Cocos2d-x v3.0 to v3.2 only)</a></li>
+        
+            <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#manual-integration-for-google-play-services-sdk-dependent-library-only">Manual Integration for Google Play Services SDK (dependent library only)</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#suggestion">Suggestion</a></li>
+        
+            <li><a href="#modify-projectproperties">Modify project.properties</a></li>
+        
+            <li><a href="#integration-manually">Integration manually</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="../">&#8249; Google Play Games Services Doc Home</a></p>
+<h1>Google Play Games Services Integration Guide</h1>
+
+<h4><em><b>For the Javascript version of cocos2d-x v3.x</b> - (<a href="./../">all other versions</a>)</em></h4>
+
+<h2 id="integration">Integration</h2>
+<p>Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.</p>
+<pre><code class="bash">$ sdkbox import googleplay 
+</code></pre>
+
+<h2 id="after-installation">After Installation</h2>
+<h3 id="android">Android</h3>
+<h4 id="update-androidmanifestxml">Update AndroidManifest.xml</h4>
+<p>Add this meta-data tag to your <code>AndroidManifest.xml</code></p>
+<pre><code>&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; 
+    android:value=&quot;@string/google_app_id&quot; /&gt;
+</code></pre>
+
+<h4 id="update-stringxml">Update string.xml</h4>
+<p>Add this entry to <code>proj.android/res/values/string.xml</code></p>
+<pre><code>&lt;string name=&quot;google_app_id&quot;&gt;777734739048&lt;/string&gt;
+</code></pre>
+
+<p>Replace <code>google_app_id</code> value with your own App Id.</p>
+<h3 id="ios">iOS</h3>
+<h4 id="set-a-rootview-controller-for-gpg">Set a rootview controller for GPG:</h4>
+<p>Update <code>proj.ios_mac/ios/RootViewController.h</code>
+Add this:</p>
+<pre><code>#import &lt;GoogleSignIn/GoogleSignIn.h&gt;
+
+// Change RootViewController class definition to:
+@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt; 
+</code></pre>
+
+<h4 id="set-google-play-signin-listeners">Set Google Play signin listeners</h4>
+<p>Update <code>proj.ios_mac/ios/AppController.mm</code></p>
+<ol>
+<li>Add this method:</li>
+</ol>
+<pre><code>- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+</code></pre>
+
+<ol>
+<li>In this method: </li>
+</ol>
+<pre><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+</code></pre>
+
+<p>add a call to (before return YES):</p>
+<pre><code>    // _viewController could also be named 
+    //  viewController, depending of the project type.
+    [GIDSignIn sharedInstance].uiDelegate = _viewController;
+</code></pre>
+
+<h4 id="add-url-types">Add URL types</h4>
+<p>Add the following URL types under <strong>your project &gt; Info &gt; URL Types</strong></p>
+<ul>
+<li>
+<p>URL 1:</p>
+<ul>
+<li>Identifier: <code>com.google.ReverseClientId</code></li>
+<li>Url schemes: <code>com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni</code><blockquote>
+<p>(use this as sample, or put your very own application’s url scheme) </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>URL 2:</p>
+<ul>
+<li>Identifier: <code>com.google.BundleId</code></li>
+<li>URL schemes: <code>com.sdkbox.gpg</code><blockquote>
+<p>(use this as sample or put your own application’s bundle id)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="further-info">Further info</h4>
+<p>For more information check out the <a href="https://developers.google.com/games/services/cpp/gettingStartedIOS">official documentation</a></p>
+<h2 id="important-notice">Important Notice</h2>
+<p>Please make sure the following settings in your project for plugin to function correctly.</p>
+<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
+<p>Adding the following entry to the <code>info.plist</code> file:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<p>It should look something like this:</p>
+<p><img alt="" src="../../../imgs/ATS.png" /></p>
+<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
+<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
+<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
+<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
+<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="pre-requisites">Pre-requisites</h3>
+<p>Your must create your app on <a href="https://play.google.com/apps/publish">Google Play Developer console</a> and all the services must be explicitly enabled and configured in the console.</p>
+<ul>
+<li>Please follow <a href="https://developers.google.com/games/services/console/enabling">setup guide</a> to setup Google Play Games Services for your game. </li>
+<li>After the setup, please follow <a href="https://developers.google.com/games/services/console/configuring">config guide</a> to enable different Games Services for your game.</li>
+</ul>
+<blockquote>
+<p>Note: Google Play Games Services will use your release keystore by default, if you want to test your game in debug settings, please link an additional app with <a href="http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development">debug keystore</a></p>
+</blockquote>
+<h3 id="register-javascript-functions">Register Javascript Functions</h3>
+<p>You need to register all the Google Play Games JS functions with cocos2d-x before using them.</p>
+<p>To do this:
+* Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</p>
+<pre><code class="cpp">#include &quot;PluginSdkboxGooglePlayJS.hpp&quot;
+#include &quot;PluginSdkboxGooglePlayJSHelper.h&quot;
+</code></pre>
+
+<ul>
+<li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
+</ul>
+<pre><code class="cpp">    sc-&gt;addRegisterCallback(register_all_PluginSdkboxGooglePlayJS);
+    sc-&gt;addRegisterCallback(register_all_PluginSdkboxGooglePlayJS_helper);
+</code></pre>
+
+<h3 id="initialize-google-play-games">Initialize Google Play Games</h3>
+<p>Google Play initialization is thorughout a <code>gpg.Builder</code> object.
+This is a valid copy-and-paste example for authenticating into the library:</p>
+<pre><code class="javascript">
+//Initialization
+var config = new gpg.PlatformConfiguration();
+config.SetClientID('777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni.apps.googleusercontent.com');
+
+new gpg.GameServices.Builder()
+            .SetOnAuthActionStarted( function( result ) {
+                // Auth started callback
+            })
+            .SetOnAuthActionFinished( function( result ) {
+                // Auth finished callback
+            })
+            .SetLogging( gpg.LogLevel.INFO )    // Set Logging level
+            .EnableSnapshots()                  // Enable Snapshot (Saved Game) functionailty
+            .Create( config, function( game_services ) {
+                // 8
+            } );
+</code></pre>
+
+<p>Let's dive into this process step by step.</p>
+<h3 id="initialization-process-breakdown">Initialization Process breakdown</h3>
+<p>Create a <code>gpg.PlatformConfiguration</code> object. The client id will be specific for your application, and only needed on iOS.</p>
+<p>The next step is to create a GameServices object, it will provide the access to all Google Play Game Services.</p>
+<h4 id="authorization-callback">Authorization Callback</h4>
+<p>There are two callback for GPG authentication <code>AuthActionStarted</code> and <code>AuthActionFinished</code></p>
+<h4 id="auth-started">Auth started</h4>
+<pre><code class="javascript">//result.AuthOperation indicates if user wants sign in or sign out
+.SetOnAuthActionStarted(
+    function( result ) {
+        cc.log('on auth action started: ' + result.AuthOperation);
+    })
+</code></pre>
+
+<h4 id="auth-finished">Auth finished</h4>
+<pre><code class="javascript">.SetOnAuthActionFinished(
+    function( result ) {
+        cc.log('on auth action finished: ' + result.AuthOperation + ' ' + result.AuthStatus);
+    })
+</code></pre>
+
+<h4 id="set-logging-level">Set Logging Level</h4>
+<p>Set Logging level is an optional step, but worth mentioning since this is the only place where GPG logging capabilities can be controlled from.</p>
+<h4 id="enable-saved-game">Enable Saved Game</h4>
+<p>If your game expects to save games on the cloud, this is step would be mandatory and you have to specify it during initialization.</p>
+<h4 id="step-8">Step 8</h4>
+<p>Until this steps, all previous code is authentication set up.
+This <code>Create</code> call is the actual executable code to be authenticated, notified apropriately and agin access to the GPG objects.
+GPG interation will happen by means of a <code>gpg.GameServices</code> object. This object will eventually been passed to the <code>Create</code> method's callback if everything went ok.</p>
+<h3 id="authorization">Authorization</h3>
+<p>All Google Play Game services require user login. So after GPG has been initialized you should attempt to log user in with following API</p>
+<pre><code class="javascript">    game_services.StartAuthorizationUI();
+</code></pre>
+
+<h3 id="achievements">Achievements</h3>
+<p>Achievements can be a great way to increase your users' engagement within your game. You can implement achievements in your game to encourage players to experiment with features they might not normally use, or to approach your game with entirely different play styles. Achievements can also be a fun way for players to compare their progress with each other and engage in light-hearted competition.</p>
+<p>For example, you could unlock <code>gpg.GameServices.Achievements.Unlock</code>, increment <code>gpg.GameServices.Achievements.Increment</code> or reveal an achievement <code>gpg.GameServices.Achievements.Reveal</code>.</p>
+<p>For more information refer to: <a href="https://developers.google.com/games/services/common/concepts/achievements">Achievements documentation</a></p>
+<h3 id="leaderboards">Leaderboards</h3>
+<p>Leaderboards can be a fun way to drive competition among your players, both for your most hardcore fans (who will be fighting for the top spot in a public leaderboard) and for your more casual players (who will be interested in comparing their progress to their friends').</p>
+<p>For example, it gives access to metadata about a leaderboard <code>gpg.GameServices.Leaderboards.Fetch</code>, pages with user's scores <code>gpg.GameServices.Leaderboards.FetchScorePage</code>, etc.</p>
+<p>For more information refer to: <a href="https://developers.google.com/games/services/common/concepts/leaderboards">Leaderboards documentation</a></p>
+<h3 id="saved-games">Saved Games</h3>
+<p>The Saved Games service gives you a convenient way to save your players' game progression to Google's servers. Your game can retrieve the saved game data to allow returning players to continue a game at their last save point from any device.
+The Saved Games service makes it possible to synchronize a player's game data across multiple devices.</p>
+<p>For more intormation refer to: <a href="https://developers.google.com/games/services/common/concepts/savedgames">Saved Games documentation</a></p>
+<h3 id="real-time-multiplayer">Real-time multiplayer</h3>
+<p>Your game can use the real-time multiplayer API in Google Play games services to connect multiple players together in a single game session and transfer data messages between connected players. Using the real-time multiplayer API can help to simplify your game development effort because the API handles the following tasks on your behalf:</p>
+<ul>
+<li>Manages network connections to create and maintain a real-time multiplayer room (a virtual construct that enables network communication between multiple players in the same game session and lets players send data directly to one another).</li>
+<li>Provides a player selection user interface (UI) to invite players to join a room, look for random players for auto-matching, or a combination of both.</li>
+<li>Stores participant and room state information on the Google Play games services servers during the lifecycle of the real-time multiplayer game.</li>
+<li>Sends room invitations and updates to players. Notifications appear on all devices on which the player is logged in (unless disabled).</li>
+</ul>
+<p>For more information refer to: <a href="https://developers.google.com/games/services/common/concepts/realtimeMultiplayer">Real-time Multiplayer documentation</a></p>
+<h3 id="turn-based-multiplayer">Turn-based multiplayer</h3>
+<p>In a turn-based multiplayer game, a single shared state is passed between multiple players, and only one player has permission to modify the shared state at a time. Players take turns asynchronously according to an order of play determined by the game. Your game can use the turn-based multiplayer API provided by Google Play games services to manage the following tasks:</p>
+<ul>
+<li>Invite players to join a turn-based multiplayer match, look for random players to be automatically matched to your game, or a combination of both. Google Play games services allows you to host up to eight participants in a match.</li>
+<li>Store participant and match state information on Google's servers and share updated match data asynchronously with all participants over the lifecycle of the turn-based match.</li>
+<li>Send match invitation and turn notifications to players. Notifications appear on all devices on which the player is logged in (unless disabled).</li>
+</ul>
+<p>For more information refer to: <a href="https://developers.google.com/games/services/common/concepts/turnbasedMultiplayer">Turn-based Multiplayer documentation</a></p>
+<h3 id="player-statistics">Player Statistics</h3>
+<p>Gets and sets various player-related data.
+For example, gives information about the current logged-in player <code>gpg.GameServices.Players.FetchSelf</code>, or about any player identified by an id <code>gpg.GameServices.Players.Fetch</code>.
+Also, player stats can be obtained with interesting information such as a player's average session length, number of days since last played or the number of purchased he's done on the game. For more information please take a look at <a href="https://developers.google.com/games/services/cpp/stats">Player Stats documentation</a> </p>
+<h3 id="events-and-quests">Events and Quests</h3>
+<p>The Google Play Games events service allows you to collect cumulative data generated by your players during gameplay and store them in Google's servers for game analytics. You can flexibly define what player data your game should collect; this might include metrics such as how often:</p>
+<ul>
+<li>Players use a particular item</li>
+<li>Players reach a certain level</li>
+<li>Players perform some specific game action</li>
+</ul>
+<p>You can use the events data as feedback on how to improve your game. For example, you can adjust the difficulty level of certain levels in your game that players are finding too hard to complete.</p>
+<p>For example you could accept a Quest <code>gpg.GameServices.Quests.Accept</code> or claim milestones on a given quest <code>gpg.GameServices.Quests.AcceptMilestone</code>.</p>
+<p>For more information refer to: <a href="https://developers.google.com/games/services/common/concepts/quests">Events and Quests documentation</a></p>
+<h3 id="nearby-connections">Nearby Connections</h3>
+<p>Nearby Connections enables local multiplayer and screen casting for your game. For more information please take a look at <a href="https://developers.google.com/games/services/cpp/nearby">Nearby documentation</a></p>
+<h2 id="api-reference">API Reference</h2>
+<p>All the javascript code is already annotated and will populate intellisense from all the major Javascript IDEs like IntelliJ, Webstorm, Visual Studio Code, etc.</p>
+<p><a href="../../../api/gpg/js/index.html">Online API Reference for Google Play Games</a></p>
+<h2 id="manual-integration">Manual Integration</h2>
+<p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
+<p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
+<h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of
+the<code>GooglePlay</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
+<blockquote>
+<p>sdkbox.framework</p>
+<p>PluginSdkboxGooglePlay.framework</p>
+<p>GoogleAppUtilities.framework</p>
+<p>GoogleAuthUtilities.framework</p>
+<p>GoogleNetworkingUtilities.framework</p>
+<p>GoogleOpenSource.framework</p>
+<p>GooglePlus.bundle</p>
+<p>GooglePlus.framework</p>
+<p>GoogleSignIn.bundle</p>
+<p>GoogleSignIn.framework</p>
+<p>GoogleSymbolUtilities.framework</p>
+<p>GoogleUtilities.framework</p>
+<p>gpg.bundle</p>
+<p>gpg.framework</p>
+</blockquote>
+<p>The above frameworks depend upon other frameworks. You also need to add the
+following system frameworks, if you don't already have them:</p>
+<blockquote>
+<p>AddressBook.framework</p>
+<p>AssetsLibrary.framework</p>
+<p>CoreData.framework</p>
+<p>CoreLocation.framework</p>
+<p>CoreMotion.framework</p>
+<p>CoreTelephony.framework</p>
+<p>CoreText.framework</p>
+<p>Foundation.framework</p>
+<p>MediaPlayer.framework</p>
+<p>QuartzCore.framework</p>
+<p>SafariServices</p>
+<p>Security.framework</p>
+<p>StoreKit</p>
+<p>Security.framework</p>
+<p>SystemConfiguration.framework</p>
+<p>libc++.dylib</p>
+<p>libz.dylib</p>
+</blockquote>
+<p>Add a linker flag, if your setup requires it, to:
+<strong>Target -&gt; Build Settings -&gt; Linking -&gt; Other Linker Flags</strong>:</p>
+<blockquote>
+<p>-ObjC</p>
+</blockquote>
+<h3 id="code-changes">Code changes</h3>
+<h4 id="set-a-rootview-controller-for-gpg_1">Set a rootview controller for GPG:</h4>
+<p>Update <code>proj.ios_mac/ios/RootViewController.h</code>
+Add this:</p>
+<pre><code>import &lt;GoogleSignIn/GoogleSignIn.h&gt;
+
+// Change RootViewController class definition to:
+@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt; 
+</code></pre>
+
+<h4 id="set-google-play-signin-listeners_1">Set Google Play signin listeners</h4>
+<p>Update <code>proj.ios_mac/ios/AppController.mm</code></p>
+<ol>
+<li>Add this method:</li>
+</ol>
+<pre><code>- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+</code></pre>
+
+<ol>
+<li>In this method: </li>
+</ol>
+<pre><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+</code></pre>
+
+<p>add a call to (before return YES):</p>
+<pre><code>    // _viewController could also be named 
+    //  viewController, depending of the project type.
+    [GIDSignIn sharedInstance].uiDelegate = _viewController;
+</code></pre>
+
+<h4 id="add-url-types_1">Add URL types</h4>
+<p>Add the following URL types under <strong>your project &gt; Info &gt; URL Types</strong></p>
+<ul>
+<li>
+<p>URL 1:</p>
+<ul>
+<li>Identifier: <code>com.google.ReverseClientId</code></li>
+<li>Url schemes: <code>com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni</code><blockquote>
+<p>(use this as sample, or put your very own application’s url scheme) </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>URL 2:</p>
+<ul>
+<li>Identifier: <code>com.google.BundleId</code></li>
+<li>URL schemes: <code>com.sdkbox.gpg</code><blockquote>
+<p>(use this as sample or put your own application’s bundle id)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="further-info_1">Further info</h4>
+<p>For more information check out the <a href="https://developers.google.com/games/services/cpp/gettingStartedIOS">official documentation</a></p>
+<p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
+<h2 id="manual-integration-for-android">Manual Integration For Android</h2>
+<p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
+<ul>
+<li><code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> and <strong>eclipse</strong> project</li>
+<li><code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong> project.</li>
+</ul>
+<h3 id="copy-files">Copy Files</h3>
+<p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
+bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+<blockquote>
+<p>PluginGoogleAnalytics.jar</p>
+<p>sdkbox.jar</p>
+</blockquote>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>&lt;project_root&gt;/libs</code></p>
+</li>
+</ul>
+<h4 id="copy-jni-libs">Copy jni libs</h4>
+<p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
+to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
+<blockquote>
+<p>Note: sdkbox link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
+</blockquote>
+<h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
+<p>Add following meta-data tags:</p>
+<pre><code class="xml">&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
+    android:value=&quot;@integer/google_play_services_version&quot; /&gt;
+&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; 
+    android:value=&quot;@string/google_app_id&quot; /&gt;
+</code></pre>
+
+<p>Make sure to add an entry to the file <code>res/values/string.xml</code> of the form: <code>&lt;string name="google_app_id"&gt;777734739048&lt;/string&gt;</code>
+Change that value for your own generated play games App Id.</p>
+<h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Android.mk</code> to:</p>
+<p>Install in a folder named <code>gpg</code> inside your <code>proj.android\jni</code> directory</p>
+<p>Add this to your <code>android.mk</code> file</p>
+<h4 id="add-include-path">Add include path</h4>
+<pre><code>LOCAL_C_INCLUDES += ./gpg/include/
+</code></pre>
+
+<h4 id="add-static-libraries">Add static libraries</h4>
+<p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
+</code></pre>
+
+<p>Add a call to:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+</code></pre>
+
+<p>before any <strong>import-module</strong> statements.</p>
+<p>Add additional <strong>import-module</strong> statements at the end:</p>
+<pre><code>$(call import-module, ./gpg)
+$(call import-module, ./sdkbox)
+$(call import-module, ./pluginsdkboxgoogleplay)
+</code></pre>
+
+<p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>
+<h3 id="modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify <code>Application.mk</code> (Cocos2d-x v3.0 to v3.2 only)</h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Application.mk</code> to make sure <strong>APP_STL</strong> is defined
+correctly. If <code>Application.mk</code> contains <code>APP_STL := c++_static</code>, it should be
+changed to:</p>
+<pre><code>APP_STL := gnustl_static
+</code></pre>
+
+<p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
+<pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
+                  ../../Classes/AppDelegate.cpp \
+                  ../../Classes/HelloWorldScene.cpp \
+                                    ../../Classes/NewSourceFile.cpp
+</code></pre>
+
+<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
+lib/Cocos2dxActivity.java</code></p>
+</li>
+<li>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
+</li>
+</ul>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
+  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
+<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
+<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
+</code></pre>
+
+<ul>
+<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+</ul>
+<pre><code class="java">onLoadNativeLibraries();
+SDKBox.init(this);
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="manual-integration-for-google-play-services-sdk-dependent-library-only">Manual Integration for Google Play Services SDK (dependent library only)</h2>
+<h3 id="suggestion">Suggestion</h3>
+<p>Please try the sdkbox installer first. It will do all the following step for you automatically. </p>
+<pre><code class="bash">$ sdkbox import googleplayservices
+</code></pre>
+
+<h3 id="modify-projectproperties">Modify <code>project.properties</code></h3>
+<p>An <strong>Android Library Reference</strong> for <strong>Google Play Services</strong> is required. The
+path will be different depending upon your setup. Also, this is an additional
+download that does not come as part of a standard install. To install use the
+<strong>sdk installer</strong> and choose <strong>extras-&gt;google play services</strong>. Here is an example of what this line could look like:</p>
+<pre><code>android.library.reference.1=
+../android/sdk.latest/extras/google/google_play_services/libproject/
+google-play-services_lib
+</code></pre>
+
+<p><strong>Note:</strong> if you already have an <code>android.library.reference.1</code> you can add
+another by incrementing the number as <code>android.library.reference.2</code>, etc.</p>
+<h3 id="integration-manually">Integration manually</h3>
+<p>We make a lite version of Google Play Services, the project repo is <a href="https://github.com/darkdukey/Google-Play-Service-Lite">https://github.com/darkdukey/Google-Play-Service-Lite</a></p>
+<h4 id="copy-files_1">Copy Files</h4>
+<p>Copy the <code>gps</code> folder from <code>plugin</code> folder of this bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source copy the <code>gps</code> folder to:</p>
+<p>Android command-line:
+<code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using cocos2d-js or lua copy the <code>gps</code> folder to:</p>
+<p>Android command-line:
+<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
+</li>
+<li>
+<p>If you're using prebuilt cocos2d-x copy the <code>gps</code> folder to:</p>
+<p>Android command-line:
+<code>&lt;project_root&gt;/libs</code></p>
+</li>
+</ul>
+<h4 id="modify-files-for-eclipse">Modify files for Eclipse</h4>
+<ol>
+<li>Modify project.properties</li>
+</ol>
+<pre><code># For source project
+android.library.reference.2=../cocos2d/cocos/platform/android/java/libs/gps/
+
+# Or
+# For framework project
+android.library.reference.1=libs/gps/
+</code></pre>
+
+<h4 id="modify-files-for-android-studio">Modify files for Android Studio</h4>
+<h5 id="1-modify-cocos2dcocosplatformandroidlibcocos2dxbuildgradle">1. Modify cocos2d/cocos/platform/android/libcocos2dx/build.gradle</h5>
+<pre><code> dependencies {
++    compile project(':gps')
+     compile fileTree(dir: '../java/libs', include: ['*.jar'])
+ }
+</code></pre>
+
+<h5 id="2-modify-projandroid-studioappprojectproperties">2. Modify proj.android-studio/app/project.properties</h5>
+<pre><code> # Project target.
+ target=android-10
++android.library.reference.1=../cocos2d/cocos/platform/android/java/libs/gps/
+</code></pre>
+
+<h5 id="3-modify-projandroid-studiosettingsgradle">3. Modify proj.android-studio/settings.gradle</h5>
+<pre><code> project(':libcocos2dx').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/libcocos2dx')
+ include ':your_project_name'
+ project(':your_project_name').projectDir = new File(settingsDir, 'app')
++
++include ':gps'
++project(':gps').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/java/libs/gps')
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt
+</code></pre>
+
+<ul>
+<li>Edit the file you specified to include the following:</li>
+</ul>
+<pre><code># cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# google play service
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+#sdkbox
+-keep class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script src="../../../js/base.js"></script>
+        
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
