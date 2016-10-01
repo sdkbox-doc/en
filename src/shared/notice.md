@@ -1,5 +1,5 @@
 ## Important Notice
-If you upgraded to Xcode7 you need to perform the following steps to your project for plugin to function correctly.
+Please make sure the following settings in your project for plugin to function correctly.
 
 #### Disable App Transport Security
 Adding the following entry to the `info.plist` file:

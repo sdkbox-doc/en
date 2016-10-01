@@ -1,4 +1,4 @@
-Manual Integration for Google Play Services SDK
+Manual Integration for Google Play Services SDK (dependent library only)
 ---
 
 ### Suggestion

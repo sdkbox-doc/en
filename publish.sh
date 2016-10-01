@@ -23,4 +23,15 @@ for i in ${plugins[@]}; do
     cp docs/plugins/${i}/index.html site/plugins/${i}/.
 done
 
-mkdocs gh-deploy #--clean
+if [ -z "$CSC_PATH" ]
+then
+    echo "Need to set CSC_PATH to generate "
+else
+    echo "detects CSC_PATH"
+    echo "Generating documentation for gpg"
+    jsdoc $CSC_PATH/plugins/sdkboxgoogleplay/js/script/sdkboxgpg.js -d api/gpg/js
+    mkdir -p site/api
+    cp -R api/ site/api
+fi
+
+mkdocs gh-deploy

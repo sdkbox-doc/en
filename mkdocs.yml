@@ -5,6 +5,8 @@ pages:
     - 'Cocos Integration': 'cocos.md'
     - Installer: 'installer.md'
     - FAQ: 'faq.md'
+    - API:
+        - 'Google Play Games': 'api/gpg/index.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':
@@ -146,6 +148,11 @@ pages:
                 - 'Google Analytics with C++': 'plugins/googleanalytics/v2-cpp.md'
                 - 'Google Analytics with Javascript': 'plugins/googleanalytics/v2-js.md'
                 - 'Google Analytics with Lua': 'plugins/googleanalytics/v2-lua.md'
+        - 'Google Play Games': 'plugins/googleplay/index.md'
+        - '_Google Play Games':
+            - 'Google Play Services with C++': 'plugins/googleplay/v3-cpp.md'
+            - 'Google Play Services with Javascript': 'plugins/googleplay/v3-js.md'
+            - 'Google Play Services with Lua': 'plugins/googleplay/v3-lua.md'
         - 'In-App Purchase': 'plugins/iap/index.md'
         - '_IAP':
             - 'Cocos2d-x v3.x':
