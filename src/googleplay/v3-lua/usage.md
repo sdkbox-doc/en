@@ -1,6 +1,6 @@
+##Usage
 
-
-##Configuring Google Play Services##
+##Configuring Google Play Services
 
 Currently the configuration process is done in Lua and passed into Google Play Services when creating the game services object. This object is managed for you, and is available from the ```gpg``` Lua namespace.
 
@@ -13,13 +13,23 @@ To create the game services instance, you need to pass in a table that contains 
 
 Note that the ```ClientID``` used is the forwards version from the Google Play Console. There is also a reversed version that is used in the plist. Make sure that you have the correct version, else the initialization will fail.
 
-##Callbacks##
+The full list of configuration data that can be passed is as follows.
+
+```
+{
+    LogLevel        = 1 or 2,
+    EnableSnapshots = true or false,
+    ClientID        = forwards client id
+}
+```
+
+##Callbacks
 
 Most of the Google Play Services methods take a callback argument to return the results. This is mainly because the methods are performed asynchronously, and the results may only be available in the future.
 
 Two types of callbacks are supported. Class method callbacks, and function callbacks (which includes lambda functions)
 
-###Class method example###
+###Class method example
 
 ```
 ExampleClass:CallbackMethod(result)
@@ -33,7 +43,7 @@ gpg:MethodWithCallback({someClass, ExampleClass.CallbackMethod})
 
 Notice that in the class method example, you must pass in the instance of the class as well as the method.
 
-###Lambda function example###
+###Lambda function example
 
 ```
 gpg:MethodWithCallback(function(result)
@@ -41,7 +51,7 @@ gpg:MethodWithCallback(function(result)
 end)
 ```
 
-##Authorization##
+##Authorization
 
 Before you can do anything with Google Play Services, you must authenticate. If you have previously authenticated, then sdkbox will attempt to log you in automatically. You will still get the same events that you normally would if you are logged in automatically.
 
@@ -56,15 +66,15 @@ end)
 ```
 
 
-##Quests API##
+##Quests API
 
-###Before you begin###
+###Before you begin
 
 Make sure to checkout the Google Play Services Quests [documentation](https://developers.google.com/games/services/common/concepts/quests) in order to better understand how to setup quests using their portal, and for a reference on the API.
 
 Before your game can access events and quests, you must define them first in the [Google Play Developer Console](https://play.google.com/apps/publish/)
 
-###Submitting an event###
+###Submitting an event
 
 You send events to the Events service in order to let it know that something has happened. There is no result to this method, so no callback is needed.
 
@@ -72,13 +82,13 @@ You send events to the Events service in order to let it know that something has
 gpg.Events:Increment("<event id>")
 ```
 
-### Retrieving events###
+### Retrieving events
 
 To retrieve the current count of events, use one of the *Fetch* methods.
 
 ```
 gpg.Events:Fetch("<event id>", function(result)
-	-- use result.count here
+    -- use result.count here
 end)
 
 -- or
@@ -93,7 +103,7 @@ end)
 
 The complete list of members to callback results can be found in the callback result descriptions section at the end of this documentation.
 
-###Displaying quests###
+###Displaying quests
 
 Google Play Services provides a UI to select quests, or you can provide your own using the quest data from callbacks.
 
@@ -111,7 +121,7 @@ gpg.Quests:ShowAllUI(function(result)
 end)
 ```
 
-###Handling quest acceptance###
+###Handling quest acceptance
 
 If your game uses the built-in quest UI, then the callback result will have a valid Quest object, which you can test using ```quest.valid()``` otherwise if you are using your own UI, then you can call accept as follows.
 
@@ -121,7 +131,7 @@ gpg.Quests:Accept("<quest id>", function(result)
 end)
 ```
 
-###Handling quest completion###
+###Handling quest completion
 
 After players accept a quest, you send events to the quest service to inform it of progress on the quest.
 
@@ -137,19 +147,19 @@ gpg.Quests:ClaimMilestone("<milestone id>", function(result)
 end)
 ```
 
-##Player statistics##
+##Player statistics
 
 For a complete description of what player statistics are, and how to use them, please refer to the Google Play Services section on the topic [here](https://developers.google.com/games/services/cpp/stats)
 
-###Getting stats for the currently signed in player###
+###Getting stats for the currently signed in player
 
 You can fetch stats for the current player like this.
 
 ```
 gpg.Stats:FetchForPlayer(function(result)
-	if result.status == gpg.FetchForPlayerResponse.VALID then
-	    -- use PlayerStats here
-	end
+    if result.status == gpg.FetchForPlayerResponse.VALID then
+        -- use PlayerStats here
+    end
 end)
 ```
 
@@ -166,22 +176,22 @@ Achievements can be designated as standard or incremental. Generally, an increme
 ### Showing the UI
 ```
     gpg.Achievements:ShowAllUI(function(result)
-		-- handle the result here
+        -- handle the result here
     end)
 ```
 
 ### Fetch Achievements
 ```
-	gpg.Achievements:FetchAll(nil, function(result)
-	    log:d(log:to_str(result))
-	end)
+    gpg.Achievements:FetchAll(nil, function(result)
+        log:d(log:to_str(result))
+    end)
 ```
 
 ### Fetch Achievement
 ```
-	gpg.Achievements:Fetch('CgkI6KjppNEWEAIQBQ', nil, function(result)
-	    log:d(log:to_str(result))
-	end)
+    gpg.Achievements:Fetch('CgkI6KjppNEWEAIQBQ', nil, function(result)
+        log:d(log:to_str(result))
+    end)
 ```
 
 ### Increment Achievement
@@ -196,7 +206,7 @@ Achievements can be designated as standard or incremental. Generally, an increme
 
 ### Reveal Achievement
 ```
-	gpg.Achievements:Reveal('CgkI6KjppNEWEAIQBQ')
+    gpg.Achievements:Reveal('CgkI6KjppNEWEAIQBQ')
 ```
 
 ## Leaderboards
@@ -241,6 +251,352 @@ Checkout additional docs for leaderboards [here](https://developers.google.com/g
 ```
     gpg.Leaderboards:FetchNextScorePage(datasource, max items, function(result)
     end)
+```
+
+## Realtime Multiplayer
+
+Before you begin, familiarize yourself with the Google Play Games real time multiplayer game concepts [here](https://developers.google.com/games/services/common/concepts/realtimeMultiplayer).
+
+In order to use real time multiplayer, you must [enable](https://developers.google.com/games/services/cpp/realtimeMultiplayer) it in the Google Play Developer Console.
+
+To begin a real time multiplayer game, there are three ways to connect with other players to start a real time multiplayer games.
+
+###Quick game
+
+Lets the player play against randomly selected opponents (via auto-matching).
+
+```
+    gpg.Realtime:CreateRealTimeRoom(
+        {
+            type = "quick_match", -- select automatching
+            quick_match_params = 
+            {
+                maximumAutomatchingPlayers = 1,
+                minimumAutomatchingPlayers = 1
+            }
+        },
+        listener, 
+        function(result)
+            if (gpg:IsSuccess(result.result)) then
+                -- use result.room here
+            end    
+        end
+    )
+```
+
+###Invite players
+
+This lets you choose specific players to invite.
+
+```
+    gpg.Realtime:CreateRealTimeRoom(
+        {
+            type = "ui", -- select invite players UI
+            ui_params = 
+            {
+                maximumPlayers = 1,
+                minimumPlayers = 1
+            }
+        },
+        listener, 
+        function(result)
+            if (gpg:IsSuccess(result.result)) then
+                -- use result.room here
+            end           
+        end
+    )
+```
+
+###Accept an invitation
+
+In the case of choosing specific players, you will receive and invitation that you can either accept or decline.
+
+```
+    -- you can fetch all pending invitations like this
+    -- this will call you back with a result and array of invitations
+    gpg.Realtime:FetchInvitations(function(result)
+        if (gpg:IsSuccess(result.result)) then
+            -- do something with result.invitations
+        end
+    end)
+    
+    -- or you can use the UI to accept or decline an invitation
+    gpg.Realtime:ShowRoomInboxUI(function(result)
+        if (gpg:IsSuccess(result.result)) then
+            -- do something with result.invitation
+        end
+    end)
+```
+
+###The listener
+
+The room creation methods, including accepting an invitation, take a listener object. This is so that when things happen in the room, the listener can be informed.
+
+This is also where you will receive data messages from other players, via the ```onDataReceived``` callback method.
+
+```
+listener = 
+{
+    -- called when something about the room changes
+    onRoomStatusChanged = function(room)
+    end,
+    
+    -- called when something about the connection changes
+    onConnectedSetChanged = function(room)
+    end,
+    
+    -- called when you get connected
+    onP2PConnected = function(room, participant) 
+    end,
+    
+    -- called when you get disconnected
+    onP2PDisconnected = function(room, participant) 
+    end,
+    
+    -- called if the status of one of the room participants changes
+    onParticipantStatusChanged = function(room, participant) 
+    end,
+    
+    -- called whenever someone sends you a message
+    onDataReceived = function(room, from_participant, data, is_reliable) 
+    end
+}
+```
+
+### Sending messages to other players
+
+There are two types of messages you can send, reliable and unreliable. 
+Reliable messages are guaranteed, and will automatically resend if they get lost. 
+There is some overhead to this, so if you don't need reliability, then you can send an unreliable message which is a little more efficient at the cost of reliability.
+
+
+```
+gpg.Realtime:SendReliableMessage(room_id, participant_id, message, function(result)
+    if (gpg:IsSuccess(result.result)) then
+        -- message send was successful
+    end
+end)
+```
+
+Sending an unreliable message takes a json encoded string for the parameters.
+There is no callback, since being unreliable, there is no return status.
+
+```
+gpg.Realtime:SendUnreliableMessage(json.encode({
+    data = message,
+    room_id = room_id
+    participant_ids = {}
+}))
+```
+
+### Leaving a room
+
+```
+gpg.Realtime:LeaveRoom(room_id, function(result)
+end)
+```
+
+### Accepting / declining and dismissing invitations
+
+For accepting invitations, you must provide a listener that will handle all the events for the room you are joining.
+
+```
+gpg.Realtime:AcceptInvitation(invitation_id, listener, function(result)
+end)
+```
+
+Decline and Dismiss do not take callbacks, they just inform the server that you are no longer interested in the invitation.
+Dismissing an invitation is for when the game is over, but the invitation is still in your inbox.
+```
+gpg.Realtime:DeclineInvitation(invitation_id)
+```
+
+```
+gpg.Realtime:DismissInvitation(invitation_id)
+```
+
+
+## Turn Based Multiplayer
+
+Before you begin make sure to checkout Google's documentation [here](https://developers.google.com/games/services/cpp/turnbasedMultiplayer) and also checkout the turn based multiplayer game concepts [here](https://developers.google.com/games/services/common/concepts/turnbasedMultiplayer)
+
+To start a turn based multiplayer game, there are two ways to do so. You can either use a UI to select players (either Google's or your own), or you can start a quick match which will choose players for you.
+
+###Quick Match
+```
+local minimumPlayers = 1
+local maximumPlayers = 2
+local allowAutoMatching = false
+gpg.Turnbased:ShowPlayerSelectUI(minimumPlayers, maximumPlayers, allowAutoMatching, function(result)
+    params = {
+        type = "quick_match",
+        minimumAutomatchingPlayers = result.minimumAutomatchingPlayers,
+        maximumAutomatchingPlayers = result.maximumAutomatchingPlayers,
+        playerIds = result.playerIds
+    }
+    gpg.Turnbased:CreateTurnBasedMatch(params, function(result)
+        if gpg:IsSuccess(result.result) then
+            -- use result.match to start playing
+        end
+    end)
+end)
+```
+
+###Choose Players UI
+```
+params = {
+    type = "ui",
+    minimumAutomatchingPlayers = 1,
+    maximumAutomatchingPlayers = 2
+}
+gpg.Turnbased:CreateTurnBasedMatch(params, function(result)
+	if gpg:IsSuccess(result.result) then
+	    -- use result.match to start playing
+	end
+end)
+```
+
+### Handling match events
+
+There are two events that need to be handled for turn based multiplayer. You can register for two callbacks (see Callbacks) in order to handle these events.
+
+```
+gpg.Turnbased:addMatchEventCallback(
+	gpg.DefaultCallbacks.TURN_BASED_MATCH_EVENT, 
+	function(event) 
+	    gpg.Turnbased:ShowMatchInboxUI(function(result)
+	        if gpg:IsSuccess(result.result) then
+	            -- start using result.match here
+	        end
+	    end)	
+	end
+)
+    
+-- or
+
+gpg.Turnbased:addMatchEventCallback(
+	gpg.DefaultCallbacks.MULTIPLAYER_INVITATION_EVENT, 
+	{instance, method}
+)
+
+function class:method()
+	gpg.Turnbased:ShowMatchInboxUI(function(result)
+		if gpg:IsSuccess(result.result) then
+			local match = result.match
+			if match.matchStatus == gpg.MatchStatus.MY_TURN then
+				-- do something with match, take a turn
+			elseif match.matchStatus == gpg.MatchStatus.THEIR_TURN then
+				-- update for their turn
+			elseif match.matchStatus == gpg.MatchStatus.COMPLETED then
+				-- complete match, dismiss
+			else match.matchStatus == gpg.MatchStatus.EXPIRED then
+				-- dismiss 
+	    	end
+	    end
+	end)
+end
+```
+
+###Taking a turn
+To take a turn, you must update the match data with your turn data, and pass it to the next participant. You can use the id "AUTOMATCHING_PARTICIPANT" if you would like the next participant to be automatched.
+
+```
+local results = match.participantResults
+if winnig then
+    results = gpg.Turnbased:createParticipantResult(match_id, match.pendingParticipant.id, my_rank, win_token)
+elseif losing then
+    results = gpg.Turnbased:createParticipantResult(match.id, match.pendingParticipant.id, my_rank, lose_token)
+end
+    
+local nextParticipant = "AUTOMATCHING_PARTICIPANT"
+if match.suggestedNextParticipant.valid and 
+   match.suggestedNextParticipant.id ~= "" then
+	nextParticipant = match.suggestedNextParticipant.id
+end
+gpg.Turnbased:TakeMyTurn(match_id, match.pendingParticipant.id, nextParticipant, data, function(result)
+end)	
+```
+
+###Creating participant results
+Sometimes you need to pass participant results to a method. In c++ this is done directly using a struct, but in Lua you need to use an id. This id is used to lookup the struct and pass it for you. You can reuse existing participant ids or just create your own. The method will also return the struct as a Lua object.
+
+```
+local results = gpg.Turnbased:CreateParticipantResult(match_id, participant_id, placement, match_result)
+-- use results, or call method and pass participant_id
+```
+
+###Completing a match
+```
+gpg.Turnbased:FinishMatchDuringMyTurn(match_id, participant_results_id, data, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end
+end)
+```
+
+###Leaving a match
+You can leave a match at any time, but you need to call the right method, either of the following.
+
+```
+gpg.Turnbased:LeaveMatchDuringMyTurn(match_id, next_participant_id, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end	
+end)
+
+-- or
+
+gpg.Turnbased:LeaveMatchDuringTheirTurn(match_id, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end
+end)
+```
+
+###Cancelling a match
+
+```
+gpg.Turnbased:CancelMatch(match_id, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end
+end)
+```
+
+###Dismissing a match
+
+```
+gpg.Turnbased:CancelMatch(match_id)
+```
+
+###Starting rematch
+
+```
+gpg.Turnbased:Rematch(match_id, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end
+end)
+```
+
+###Fetching a previous match
+
+```
+gpg.Turnbased:FetchMatch(match_id, function(result)
+	if gpg:IsSuccess(result.result) then
+		-- success
+	end
+end)
+```
+
+### Fetch all matches
+
+```
+gpg.Turnbased:FetchMatches(function(result)
+	if gpg:IsSuccess(result.result) then
+		-- use result.matches here
+	end
+end)
 ```
 
 ## NearbyConnections
@@ -432,4 +788,3 @@ gpg.NearbyConnections:Disconnect(remote_endpoint_id)
 ```lua
 gpg.NearbyConnections:Stop()
 ```
-
