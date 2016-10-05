@@ -1,7 +1,5 @@
-##Usage
 
-##Configuring Google Play Services
-
+##Initialization
 Currently the configuration process is done in Lua and passed into Google Play Services when creating the game services object. This object is managed for you, and is available from the ```gpg``` Lua namespace.
 
 To create the game services instance, you need to pass in a table that contains the ```ClientID``` that represents the game you have created in the Google Play Console.
