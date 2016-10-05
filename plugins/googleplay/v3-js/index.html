@@ -665,7 +665,7 @@
 
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.</p>
-<pre><code class="bash">$ sdkbox import googleplay 
+<pre><code class="bash">$ sdkbox import gpg 
 </code></pre>
 
 <h2 id="after-installation">After Installation</h2>
@@ -775,15 +775,15 @@ Add this:</p>
 <p>You need to register all the Google Play Games JS functions with cocos2d-x before using them.</p>
 <p>To do this:
 * Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> to include the following headers:</p>
-<pre><code class="cpp">#include &quot;PluginSdkboxGooglePlayJS.hpp&quot;
-#include &quot;PluginSdkboxGooglePlayJSHelper.h&quot;
+<pre><code class="cpp">#include &quot;PluginGPGJS.hpp&quot;
+#include &quot;PluginGPGJSHelper.h&quot;
 </code></pre>
 
 <ul>
 <li>Modify <code>./frameworks/runtime-src/Classes/AppDelegate.cpp</code> make sure to call:</li>
 </ul>
-<pre><code class="cpp">    sc-&gt;addRegisterCallback(register_all_PluginSdkboxGooglePlayJS);
-    sc-&gt;addRegisterCallback(register_all_PluginSdkboxGooglePlayJS_helper);
+<pre><code class="cpp">    sc-&gt;addRegisterCallback(register_all_PluginGPGJS);
+    sc-&gt;addRegisterCallback(register_all_PluginGPGJS_helper);
 </code></pre>
 
 <h3 id="initialize-google-play-games">Initialize Google Play Games</h3>
@@ -898,7 +898,7 @@ Also, player stats can be obtained with interesting information such as a player
 the<code>GooglePlay</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
 <blockquote>
 <p>sdkbox.framework</p>
-<p>PluginSdkboxGooglePlay.framework</p>
+<p>PluginGPG.framework</p>
 <p>GoogleAppUtilities.framework</p>
 <p>GoogleAuthUtilities.framework</p>
 <p>GoogleNetworkingUtilities.framework</p>
@@ -1061,7 +1061,7 @@ Change that value for your own generated play games App Id.</p>
 <h4 id="add-static-libraries">Add static libraries</h4>
 <p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
 <pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginGPG
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
@@ -1073,7 +1073,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 <p>Add additional <strong>import-module</strong> statements at the end:</p>
 <pre><code>$(call import-module, ./gpg)
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginsdkboxgoogleplay)
+$(call import-module, ./plugingpg)
 </code></pre>
 
 <p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>

@@ -582,6 +582,9 @@
 	</ul>
 	
     
+        <li class="main "><a href="#usage_1">Usage</a></li>
+	
+    
         <li class="main "><a href="#configuring-google-play-services">Configuring Google Play Services</a></li>
 	
     
@@ -669,6 +672,58 @@
 	</ul>
 	
     
+        <li class="main "><a href="#realtime-multiplayer">Realtime Multiplayer</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#quick-game">Quick game</a></li>
+        
+            <li><a href="#invite-players">Invite players</a></li>
+        
+            <li><a href="#accept-an-invitation">Accept an invitation</a></li>
+        
+            <li><a href="#the-listener">The listener</a></li>
+        
+            <li><a href="#sending-messages-to-other-players">Sending messages to other players</a></li>
+        
+            <li><a href="#leaving-a-room">Leaving a room</a></li>
+        
+            <li><a href="#accepting-declining-and-dismissing-invitations">Accepting / declining and dismissing invitations</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#turn-based-multiplayer">Turn Based Multiplayer</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#quick-match">Quick Match</a></li>
+        
+            <li><a href="#choose-players-ui">Choose Players UI</a></li>
+        
+            <li><a href="#handling-match-events">Handling match events</a></li>
+        
+            <li><a href="#taking-a-turn">Taking a turn</a></li>
+        
+            <li><a href="#creating-participant-results">Creating participant results</a></li>
+        
+            <li><a href="#completing-a-match">Completing a match</a></li>
+        
+            <li><a href="#leaving-a-match">Leaving a match</a></li>
+        
+            <li><a href="#cancelling-a-match">Cancelling a match</a></li>
+        
+            <li><a href="#dismissing-a-match">Dismissing a match</a></li>
+        
+            <li><a href="#starting-rematch">Starting rematch</a></li>
+        
+            <li><a href="#fetching-a-previous-match">Fetching a previous match</a></li>
+        
+            <li><a href="#fetch-all-matches">Fetch all matches</a></li>
+        
+	</ul>
+	
+    
         <li class="main "><a href="#nearbyconnections">NearbyConnections</a></li>
 	
 	<ul class="sub-sidenav">
@@ -711,6 +766,8 @@
 	
 	<ul class="sub-sidenav">
         
+            <li><a href="#result-codes">Result Codes</a></li>
+        
             <li><a href="#events">Events</a></li>
         
             <li><a href="#quests">Quests</a></li>
@@ -718,6 +775,8 @@
             <li><a href="#playerstats">PlayerStats</a></li>
         
             <li><a href="#achievements_1">Achievements</a></li>
+        
+            <li><a href="#multiplayer">Multiplayer</a></li>
         
             <li><a href="#nearbyconnections_1">NearbyConnections</a></li>
         
@@ -780,7 +839,7 @@
 
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.</p>
-<pre><code class="bash">$ sdkbox import googleplay 
+<pre><code class="bash">$ sdkbox import gpg 
 </code></pre>
 
 <h2 id="after-installation">After Installation</h2>
@@ -886,6 +945,7 @@ Add this:</p>
 <blockquote>
 <p>Note: Google Play Games Services will use your release keystore by default, if you want to test your game in debug settings, please link an additional app with <a href="http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development">debug keystore</a></p>
 </blockquote>
+<h2 id="usage_1">Usage</h2>
 <h2 id="configuring-google-play-services">Configuring Google Play Services</h2>
 <p>Currently the configuration process is done in Lua and passed into Google Play Services when creating the game services object. This object is managed for you, and is available from the <code>gpg</code> Lua namespace.</p>
 <p>To create the game services instance, you need to pass in a table that contains the <code>ClientID</code> that represents the game you have created in the Google Play Console.</p>
@@ -894,6 +954,14 @@ Add this:</p>
 </code></pre>
 
 <p>Note that the <code>ClientID</code> used is the forwards version from the Google Play Console. There is also a reversed version that is used in the plist. Make sure that you have the correct version, else the initialization will fail.</p>
+<p>The full list of configuration data that can be passed is as follows.</p>
+<pre><code>{
+    LogLevel        = 1 or 2,
+    EnableSnapshots = true or false,
+    ClientID        = forwards client id
+}
+</code></pre>
+
 <h2 id="callbacks">Callbacks</h2>
 <p>Most of the Google Play Services methods take a callback argument to return the results. This is mainly because the methods are performed asynchronously, and the results may only be available in the future.</p>
 <p>Two types of callbacks are supported. Class method callbacks, and function callbacks (which includes lambda functions)</p>
@@ -1063,6 +1131,296 @@ end)
     end)
 </code></pre>
 
+<h2 id="realtime-multiplayer">Realtime Multiplayer</h2>
+<p>Before you begin, familiarize yourself with the Google Play Games real time multiplayer game concepts <a href="https://developers.google.com/games/services/common/concepts/realtimeMultiplayer">here</a>.</p>
+<p>In order to use real time multiplayer, you must <a href="https://developers.google.com/games/services/cpp/realtimeMultiplayer">enable</a> it in the Google Play Developer Console.</p>
+<p>To begin a real time multiplayer game, there are three ways to connect with other players to start a real time multiplayer games.</p>
+<h3 id="quick-game">Quick game</h3>
+<p>Lets the player play against randomly selected opponents (via auto-matching).</p>
+<pre><code>    gpg.Realtime:CreateRealTimeRoom(
+        {
+            type = &quot;quick_match&quot;, -- select automatching
+            quick_match_params = 
+            {
+                maximumAutomatchingPlayers = 1,
+                minimumAutomatchingPlayers = 1
+            }
+        },
+        listener, 
+        function(result)
+            if (gpg:IsSuccess(result.result)) then
+                -- use result.room here
+            end    
+        end
+    )
+</code></pre>
+
+<h3 id="invite-players">Invite players</h3>
+<p>This lets you choose specific players to invite.</p>
+<pre><code>    gpg.Realtime:CreateRealTimeRoom(
+        {
+            type = &quot;ui&quot;, -- select invite players UI
+            ui_params = 
+            {
+                maximumPlayers = 1,
+                minimumPlayers = 1
+            }
+        },
+        listener, 
+        function(result)
+            if (gpg:IsSuccess(result.result)) then
+                -- use result.room here
+            end           
+        end
+    )
+</code></pre>
+
+<h3 id="accept-an-invitation">Accept an invitation</h3>
+<p>In the case of choosing specific players, you will receive and invitation that you can either accept or decline.</p>
+<pre><code>    -- you can fetch all pending invitations like this
+    -- this will call you back with a result and array of invitations
+    gpg.Realtime:FetchInvitations(function(result)
+        if (gpg:IsSuccess(result.result)) then
+            -- do something with result.invitations
+        end
+    end)
+
+    -- or you can use the UI to accept or decline an invitation
+    gpg.Realtime:ShowRoomInboxUI(function(result)
+        if (gpg:IsSuccess(result.result)) then
+            -- do something with result.invitation
+        end
+    end)
+</code></pre>
+
+<h3 id="the-listener">The listener</h3>
+<p>The room creation methods, including accepting an invitation, take a listener object. This is so that when things happen in the room, the listener can be informed.</p>
+<p>This is also where you will receive data messages from other players, via the <code>onDataReceived</code> callback method.</p>
+<pre><code>listener = 
+{
+    -- called when something about the room changes
+    onRoomStatusChanged = function(room)
+    end,
+
+    -- called when something about the connection changes
+    onConnectedSetChanged = function(room)
+    end,
+
+    -- called when you get connected
+    onP2PConnected = function(room, participant) 
+    end,
+
+    -- called when you get disconnected
+    onP2PDisconnected = function(room, participant) 
+    end,
+
+    -- called if the status of one of the room participants changes
+    onParticipantStatusChanged = function(room, participant) 
+    end,
+
+    -- called whenever someone sends you a message
+    onDataReceived = function(room, from_participant, data, is_reliable) 
+    end
+}
+</code></pre>
+
+<h3 id="sending-messages-to-other-players">Sending messages to other players</h3>
+<p>There are two types of messages you can send, reliable and unreliable. 
+Reliable messages are guaranteed, and will automatically resend if they get lost. 
+There is some overhead to this, so if you don't need reliability, then you can send an unreliable message which is a little more efficient at the cost of reliability.</p>
+<pre><code>gpg.Realtime:SendReliableMessage(room_id, participant_id, message, function(result)
+    if (gpg:IsSuccess(result.result)) then
+        -- message send was successful
+    end
+end)
+</code></pre>
+
+<p>Sending an unreliable message takes a json encoded string for the parameters.
+There is no callback, since being unreliable, there is no return status.</p>
+<pre><code>gpg.Realtime:SendUnreliableMessage(json.encode({
+    data = message,
+    room_id = room_id
+    participant_ids = {}
+}))
+</code></pre>
+
+<h3 id="leaving-a-room">Leaving a room</h3>
+<pre><code>gpg.Realtime:LeaveRoom(room_id, function(result)
+end)
+</code></pre>
+
+<h3 id="accepting-declining-and-dismissing-invitations">Accepting / declining and dismissing invitations</h3>
+<p>For accepting invitations, you must provide a listener that will handle all the events for the room you are joining.</p>
+<pre><code>gpg.Realtime:AcceptInvitation(invitation_id, listener, function(result)
+end)
+</code></pre>
+
+<p>Decline and Dismiss do not take callbacks, they just inform the server that you are no longer interested in the invitation.
+Dismissing an invitation is for when the game is over, but the invitation is still in your inbox.</p>
+<pre><code>gpg.Realtime:DeclineInvitation(invitation_id)
+</code></pre>
+
+<pre><code>gpg.Realtime:DismissInvitation(invitation_id)
+</code></pre>
+
+<h2 id="turn-based-multiplayer">Turn Based Multiplayer</h2>
+<p>Before you begin make sure to checkout Google's documentation <a href="https://developers.google.com/games/services/cpp/turnbasedMultiplayer">here</a> and also checkout the turn based multiplayer game concepts <a href="https://developers.google.com/games/services/common/concepts/turnbasedMultiplayer">here</a></p>
+<p>To start a turn based multiplayer game, there are two ways to do so. You can either use a UI to select players (either Google's or your own), or you can start a quick match which will choose players for you.</p>
+<h3 id="quick-match">Quick Match</h3>
+<pre><code>local minimumPlayers = 1
+local maximumPlayers = 2
+local allowAutoMatching = false
+gpg.Turnbased:ShowPlayerSelectUI(minimumPlayers, maximumPlayers, allowAutoMatching, function(result)
+    params = {
+        type = &quot;quick_match&quot;,
+        minimumAutomatchingPlayers = result.minimumAutomatchingPlayers,
+        maximumAutomatchingPlayers = result.maximumAutomatchingPlayers,
+        playerIds = result.playerIds
+    }
+    gpg.Turnbased:CreateTurnBasedMatch(params, function(result)
+        if gpg:IsSuccess(result.result) then
+            -- use result.match to start playing
+        end
+    end)
+end)
+</code></pre>
+
+<h3 id="choose-players-ui">Choose Players UI</h3>
+<pre><code>params = {
+    type = &quot;ui&quot;,
+    minimumAutomatchingPlayers = 1,
+    maximumAutomatchingPlayers = 2
+}
+gpg.Turnbased:CreateTurnBasedMatch(params, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- use result.match to start playing
+    end
+end)
+</code></pre>
+
+<h3 id="handling-match-events">Handling match events</h3>
+<p>There are two events that need to be handled for turn based multiplayer. You can register for two callbacks (see Callbacks) in order to handle these events.</p>
+<pre><code>gpg.Turnbased:addMatchEventCallback(
+    gpg.DefaultCallbacks.TURN_BASED_MATCH_EVENT, 
+    function(event) 
+        gpg.Turnbased:ShowMatchInboxUI(function(result)
+            if gpg:IsSuccess(result.result) then
+                -- start using result.match here
+            end
+        end)    
+    end
+)
+
+-- or
+
+gpg.Turnbased:addMatchEventCallback(
+    gpg.DefaultCallbacks.MULTIPLAYER_INVITATION_EVENT, 
+    {instance, method}
+)
+
+function class:method()
+    gpg.Turnbased:ShowMatchInboxUI(function(result)
+        if gpg:IsSuccess(result.result) then
+            local match = result.match
+            if match.matchStatus == gpg.MatchStatus.MY_TURN then
+                -- do something with match, take a turn
+            elseif match.matchStatus == gpg.MatchStatus.THEIR_TURN then
+                -- update for their turn
+            elseif match.matchStatus == gpg.MatchStatus.COMPLETED then
+                -- complete match, dismiss
+            else match.matchStatus == gpg.MatchStatus.EXPIRED then
+                -- dismiss 
+            end
+        end
+    end)
+end
+</code></pre>
+
+<h3 id="taking-a-turn">Taking a turn</h3>
+<p>To take a turn, you must update the match data with your turn data, and pass it to the next participant. You can use the id "AUTOMATCHING_PARTICIPANT" if you would like the next participant to be automatched.</p>
+<pre><code>local results = match.participantResults
+if winnig then
+    results = gpg.Turnbased:createParticipantResult(match_id, match.pendingParticipant.id, my_rank, win_token)
+elseif losing then
+    results = gpg.Turnbased:createParticipantResult(match.id, match.pendingParticipant.id, my_rank, lose_token)
+end
+
+local nextParticipant = &quot;AUTOMATCHING_PARTICIPANT&quot;
+if match.suggestedNextParticipant.valid and 
+   match.suggestedNextParticipant.id ~= &quot;&quot; then
+    nextParticipant = match.suggestedNextParticipant.id
+end
+gpg.Turnbased:TakeMyTurn(match_id, match.pendingParticipant.id, nextParticipant, data, function(result)
+end)    
+</code></pre>
+
+<h3 id="creating-participant-results">Creating participant results</h3>
+<p>Sometimes you need to pass participant results to a method. In c++ this is done directly using a struct, but in Lua you need to use an id. This id is used to lookup the struct and pass it for you. You can reuse existing participant ids or just create your own. The method will also return the struct as a Lua object.</p>
+<pre><code>local results = gpg.Turnbased:CreateParticipantResult(match_id, participant_id, placement, match_result)
+-- use results, or call method and pass participant_id
+</code></pre>
+
+<h3 id="completing-a-match">Completing a match</h3>
+<pre><code>gpg.Turnbased:FinishMatchDuringMyTurn(match_id, participant_results_id, data, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end
+end)
+</code></pre>
+
+<h3 id="leaving-a-match">Leaving a match</h3>
+<p>You can leave a match at any time, but you need to call the right method, either of the following.</p>
+<pre><code>gpg.Turnbased:LeaveMatchDuringMyTurn(match_id, next_participant_id, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end 
+end)
+
+-- or
+
+gpg.Turnbased:LeaveMatchDuringTheirTurn(match_id, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end
+end)
+</code></pre>
+
+<h3 id="cancelling-a-match">Cancelling a match</h3>
+<pre><code>gpg.Turnbased:CancelMatch(match_id, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end
+end)
+</code></pre>
+
+<h3 id="dismissing-a-match">Dismissing a match</h3>
+<pre><code>gpg.Turnbased:CancelMatch(match_id)
+</code></pre>
+
+<h3 id="starting-rematch">Starting rematch</h3>
+<pre><code>gpg.Turnbased:Rematch(match_id, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end
+end)
+</code></pre>
+
+<h3 id="fetching-a-previous-match">Fetching a previous match</h3>
+<pre><code>gpg.Turnbased:FetchMatch(match_id, function(result)
+    if gpg:IsSuccess(result.result) then
+        -- success
+    end
+end)
+</code></pre>
+
+<h3 id="fetch-all-matches">Fetch all matches</h3>
+<pre><code>gpg.Turnbased:FetchMatches(function(result)
+    if gpg:IsSuccess(result.result) then
+        -- use result.matches here
+    end
+end)
+</code></pre>
+
 <h2 id="nearbyconnections">NearbyConnections</h2>
 <p>For the complete documentation, check out <a href="https://developers.google.com/games/services/cpp/nearby">Nearby Connections</a></p>
 <h3 id="init">Init</h3>
@@ -1222,10 +1580,37 @@ gpg.NearbyConnections:SendUnreliableMessage([remote_endpoint_id1, remote_endpoin
 
 <h2 id="api-reference">API Reference</h2>
 <h2 id="callback-result-descriptions">Callback result descriptions</h2>
+<h3 id="result-codes">Result Codes</h3>
+<pre><code>{
+    VALID                           = 1,
+    VALID_BUT_STALE                 = 2,
+    VALID_WITH_CONFLICT             = 3,
+    FLUSHED                         = 4,
+    ERROR_LICENSE_CHECK_FAILED      = -1,
+    ERROR_INTERNAL                  = -2,
+    ERROR_NOT_AUTHORIZED            = -3,
+    ERROR_VERSION_UPDATE_REQUIRED   = -4,
+    ERROR_TIMEOUT                   = -5,
+    ERROR_CANCELED                  = -6,
+    ERROR_MATCH_ALREADY_REMATCHED   = -7,
+    ERROR_INACTIVE_MATCH            = -8,
+    ERROR_INVALID_RESULTS           = -9,
+    ERROR_INVALID_MATCH             = -10,
+    ERROR_MATCH_OUT_OF_DATE         = -11,
+    ERROR_UI_BUSY                   = -12,
+    ERROR_QUEST_NO_LONGER_AVAILABLE = -13,
+    ERROR_QUEST_NOT_STARTED         = -14,
+    ERROR_MILESTONE_ALREADY_CLAIMED = -15,
+    ERROR_MILESTONE_CLAIM_FAILED    = -16,
+    ERROR_REAL_TIME_ROOM_NOT_JOINED = -17,
+    ERROR_LEFT_ROOM                 = -18
+}
+</code></pre>
+
 <h3 id="events">Events</h3>
 <h4 id="event-description">Event description</h4>
 <pre><code>{
-    &quot;valid&quot;       : 1 or 0,
+    &quot;valid&quot;       : 1 or 0
     &quot;id&quot;          : event id,
     &quot;name&quot;        : event name,
     &quot;description&quot; : event description text,
@@ -1382,6 +1767,103 @@ gpg.NearbyConnections:SendUnreliableMessage([remote_endpoint_id1, remote_endpoin
     &quot;achievement&quot; : Achievement
 </code></pre>
 
+<h3 id="multiplayer">Multiplayer</h3>
+<h4 id="player">Player</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;id&quot;,
+    &quot;name&quot;,
+    &quot;avatarUrlHiRes&quot;,
+    &quot;avatarUrlIconRes&quot;,
+    &quot;hasLevelInfo&quot;,
+    &quot;currentLevel&quot;,
+    &quot;nextLevel&quot;,
+    &quot;currentXP&quot;,
+    &quot;lastLevelUpTime&quot;,
+    &quot;title&quot;,
+}
+</code></pre>
+
+<h4 id="playerlevel">PlayerLevel</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;levelNumber&quot;,
+    &quot;minimumXP&quot;,
+    &quot;maximumXP&quot;
+}
+</code></pre>
+
+<h4 id="participant">Participant</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;displayName&quot;,
+    &quot;avatarUrl&quot;,
+    &quot;id&quot;,
+    &quot;hasPlayer&quot;,
+    &quot;player&quot;,
+    &quot;participantStatus&quot;,
+    &quot;hasMatchResult&quot;,
+    &quot;matchResult&quot;,
+    &quot;matchRank&quot;,
+    &quot;icConnectedToRoom&quot;
+}
+</code></pre>
+
+<h4 id="room">Room</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;id&quot;,
+    &quot;variant&quot;,
+    &quot;automatchWaitEstimate&quot;,
+    &quot;creatingParticipant&quot;,
+    &quot;creationTime&quot;,
+    &quot;description&quot;,
+    &quot;participants&quot;,
+    &quot;remainingAutomatchingSlots&quot;,
+    &quot;status&quot;
+}
+</code></pre>
+
+<h4 id="multiplayerinvitation">MultiplayerInvitation</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;id&quot;,
+    &quot;variant&quot;,
+    &quot;automatchingSlotsAvailable&quot;,
+    &quot;creationTime&quot;,
+    &quot;invitingParticipant&quot;,
+    &quot;type&quot;,
+    &quot;participants&quot;
+}
+</code></pre>
+
+<h4 id="participantresults">ParticipantResults</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;hasResultsForParticipant&quot;,
+    &quot;placeForParticipant&quot;,
+    &quot;matchResultForParticipant&quot;
+}
+</code></pre>
+
+<h4 id="turnbasedmatch">TurnBasedMatch</h4>
+<pre><code>{
+    &quot;valid&quot;,
+    &quot;id&quot;,
+    &quot;creationTime&quot;,
+    &quot;lastUpdateTime&quot;,
+    &quot;creatingParticipant&quot;,
+    &quot;lastUpdatingParticipant&quot;,
+    &quot;pendingParticipant&quot;,
+    &quot;matchStatus&quot;,
+    &quot;automatchingSlotsAvailable&quot;,
+    &quot;variant&quot;,
+    &quot;description&quot;,
+    &quot;number&quot;,
+    &quot;version&quot;
+}
+</code></pre>
+
 <h3 id="nearbyconnections_1">NearbyConnections</h3>
 <h4 id="nearbyconnectionsinit">NearbyConnections:Init</h4>
 <pre><code>{
@@ -1463,7 +1945,7 @@ gpg.NearbyConnections:SendUnreliableMessage([remote_endpoint_id1, remote_endpoin
 the<code>GooglePlay</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
 <blockquote>
 <p>sdkbox.framework</p>
-<p>PluginSdkboxGooglePlay.framework</p>
+<p>PluginGPG.framework</p>
 <p>GoogleAppUtilities.framework</p>
 <p>GoogleAuthUtilities.framework</p>
 <p>GoogleNetworkingUtilities.framework</p>
@@ -1626,7 +2108,7 @@ Change that value for your own generated play games App Id.</p>
 <h4 id="add-static-libraries">Add static libraries</h4>
 <p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
 <pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginGPG
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
@@ -1638,7 +2120,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 <p>Add additional <strong>import-module</strong> statements at the end:</p>
 <pre><code>$(call import-module, ./gpg)
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginsdkboxgoogleplay)
+$(call import-module, ./plugingpg)
 </code></pre>
 
 <p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>

@@ -661,7 +661,7 @@
 
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.</p>
-<pre><code class="bash">$ sdkbox import googleplay 
+<pre><code class="bash">$ sdkbox import gpg 
 </code></pre>
 
 <h2 id="after-installation">After Installation</h2>
@@ -771,7 +771,7 @@ Add this:</p>
 <p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
 <pre><code class="cpp">AppDelegate::applicationDidFinishLaunching()
 {
-     sdkbox::PluginSdkboxGooglePlay::init();
+     sdkbox::PluginGPG::init();
 }
 </code></pre>
 
@@ -803,7 +803,7 @@ Add this:</p>
 the<code>GooglePlay</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
 <blockquote>
 <p>sdkbox.framework</p>
-<p>PluginSdkboxGooglePlay.framework</p>
+<p>PluginGPG.framework</p>
 <p>GoogleAppUtilities.framework</p>
 <p>GoogleAuthUtilities.framework</p>
 <p>GoogleNetworkingUtilities.framework</p>
@@ -964,7 +964,7 @@ Change that value for your own generated play games App Id.</p>
 <h4 id="add-static-libraries">Add static libraries</h4>
 <p>Add additional requirements to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
 <pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginGPG
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 </code></pre>
 
@@ -976,7 +976,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 <p>Add additional <strong>import-module</strong> statements at the end:</p>
 <pre><code>$(call import-module, ./gpg)
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginsdkboxgoogleplay)
+$(call import-module, ./plugingpg)
 </code></pre>
 
 <p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>
