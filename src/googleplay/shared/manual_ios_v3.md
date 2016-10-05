@@ -4,7 +4,7 @@ the`GooglePlay` bundle into your Xcode project, check `Copy items if needed` whe
 
 > sdkbox.framework
 
-> PluginSdkboxGooglePlay.framework
+> PluginGPG.framework
 
 > GoogleAppUtilities.framework
 

@@ -5,14 +5,14 @@ You need to register all the Google Play Games JS functions with cocos2d-x befor
 To do this:
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` to include the following headers:
 ```cpp
-#include "PluginSdkboxGooglePlayJS.hpp"
-#include "PluginSdkboxGooglePlayJSHelper.h"
+#include "PluginGPGJS.hpp"
+#include "PluginGPGJSHelper.h"
 ```
 
 * Modify `./frameworks/runtime-src/Classes/AppDelegate.cpp` make sure to call:
 ```cpp
-    sc->addRegisterCallback(register_all_PluginSdkboxGooglePlayJS);
-    sc->addRegisterCallback(register_all_PluginSdkboxGooglePlayJS_helper);
+    sc->addRegisterCallback(register_all_PluginGPGJS);
+    sc->addRegisterCallback(register_all_PluginGPGJS_helper);
 ```
 
 ### Initialize Google Play Games

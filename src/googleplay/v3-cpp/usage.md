@@ -5,7 +5,7 @@ Initialize the plugin where appropriate in your code. We recommend to do this in
 ```cpp
 AppDelegate::applicationDidFinishLaunching()
 {
-     sdkbox::PluginSdkboxGooglePlay::init();
+     sdkbox::PluginGPG::init();
 }
 ```
 
