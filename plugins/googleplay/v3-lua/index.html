@@ -582,10 +582,7 @@
 	</ul>
 	
     
-        <li class="main "><a href="#usage_1">Usage</a></li>
-	
-    
-        <li class="main "><a href="#configuring-google-play-services">Configuring Google Play Services</a></li>
+        <li class="main "><a href="#initialization">Initialization</a></li>
 	
     
         <li class="main "><a href="#callbacks">Callbacks</a></li>
@@ -945,8 +942,7 @@ Add this:</p>
 <blockquote>
 <p>Note: Google Play Games Services will use your release keystore by default, if you want to test your game in debug settings, please link an additional app with <a href="http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development">debug keystore</a></p>
 </blockquote>
-<h2 id="usage_1">Usage</h2>
-<h2 id="configuring-google-play-services">Configuring Google Play Services</h2>
+<h2 id="initialization">Initialization</h2>
 <p>Currently the configuration process is done in Lua and passed into Google Play Services when creating the game services object. This object is managed for you, and is available from the <code>gpg</code> Lua namespace.</p>
 <p>To create the game services instance, you need to pass in a table that contains the <code>ClientID</code> that represents the game you have created in the Google Play Console.</p>
 <pre><code>    local config = {ClientID=&quot;...&quot;}
