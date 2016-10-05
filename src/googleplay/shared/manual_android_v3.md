@@ -72,7 +72,7 @@ LOCAL_C_INCLUDES += ./gpg/include/
 Add additional requirements to __LOCAL_WHOLE_STATIC_LIBRARIES__:
 ```
 LOCAL_WHOLE_STATIC_LIBRARIES += gpg-1
-LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxGooglePlay
+LOCAL_WHOLE_STATIC_LIBRARIES += PluginGPG
 LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
@@ -86,7 +86,7 @@ Add additional __import-module__ statements at the end:
 ```
 $(call import-module, ./gpg)
 $(call import-module, ./sdkbox)
-$(call import-module, ./pluginsdkboxgoogleplay)
+$(call import-module, ./plugingpg)
 ```
 
   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
