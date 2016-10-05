@@ -1,5 +1,29 @@
 #Release Notes
 ---
+2.3.2 Release Notes
+===
+##Highlight
+* Goolge Play Game Services plugin enable you to implement a huge array of services with ease in your game.
+ * Authorization
+ * Achievements
+ * Leaderboards
+ * Turn-based multiplayer
+ * Real-time multiplayer
+ * Events and Quests
+ * Saved Games
+ * Nearby Connections (Android only)
+ * Player Statistics
+* Add Hide banner functionality to sdkboxAds
+* Upgrade SDK for Appodeal
+* Upgrade SDK for Fyber
+* Upgrade SDK for admob
+* Upgrade SDK for Flurry
+* Upgrade SDK for Kochava
+* Upgrade SDK for AdColony
+* Upgrade SDK for AppNext
+
+##Bugfix
+* Fix Crashing issue for OneSignal
 
 2.3.1 Release Notes
 ===
