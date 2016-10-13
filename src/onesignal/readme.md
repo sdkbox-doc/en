@@ -19,12 +19,12 @@ For Android, you need more steps:
 Third,
 
 ### iOS precondition
-- [iOS Configuration](https://documentation.onesignal.com/docs/generating-an-ios-push-certificate)
-- [iOS FAQ](https://documentation.onesignal.com/docs/frequently-asked-questions-1)
+- [iOS Configuration](https://documentation.onesignal.com/docs/generate-an-ios-push-certificate)
+- [iOS FAQ](https://documentation.onesignal.com/docs/troubleshooting-ios)
 
 ### Android precondition
-- [Android Configuration](https://documentation.onesignal.com/docs/android-generating-a-gcm-push-notification-key)
-- [Android FAQ](https://documentation.onesignal.com/docs/frequently-asked-questions-2)
+- [Android Configuration](https://documentation.onesignal.com/docs/generate-a-google-server-api-key)
+- [Android FAQ](https://documentation.onesignal.com/docs/troubleshooting-android)
 
 <<[../../shared/notice.md]
 
