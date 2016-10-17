@@ -4,7 +4,7 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-First, you must sign up for [OneSignal](https://www.google.com/onesignal/).
+First, you must sign up for [OneSignal](https://onesignal.com/).
 
 Second, Open a terminal and use the following command to install the SDKBOX OneSignal plugin.
 ```bash
