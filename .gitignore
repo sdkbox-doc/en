@@ -1,6 +1,8 @@
 .idea/
 site/
 
+node_modules/
+
 docs/plugins/
 
 .DS_Store
