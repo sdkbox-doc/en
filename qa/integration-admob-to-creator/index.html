@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>integration admob to creator - SDKBOX</title>
+        
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/custom.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../cocos/">Cocos Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../installer/">Installer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">API</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../api/gpg/">Google Play Games</a>
+</li>
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../plugins/achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/amazon/">Amazon</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/apteligent/">Apteligent</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleplay/">Google Play Games</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/share/">Social Sharing</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/review/">Ratings & Reviews</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../unreal/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unreal/chartboost/">Chartboost</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Q&A <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">integration admob to creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../integration-fyber-to-cocos/">integration fyber to cocos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#how-to-integrate-sdkbox-plugin-to-cocos-creator-project">How to integrate SDKBox Plugin to Cocos Creator project</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#environment">Environment</a></li>
+        
+            <li><a href="#create-new-cocos-creator-project">Create new Cocos Creator Project</a></li>
+        
+            <li><a href="#add-buttons">Add buttons</a></li>
+        
+            <li><a href="#create-javascript-component">Create JavaScript Component</a></li>
+        
+            <li><a href="#attach-admobjs-to-canvas">Attach AdMob.js to Canvas</a></li>
+        
+            <li><a href="#associate-button-click-event-to-admobjs">associate button click event to AdMob.js</a></li>
+        
+            <li><a href="#run-in-simulator">Run In Simulator</a></li>
+        
+            <li><a href="#build-project">Build Project</a></li>
+        
+            <li><a href="#import-admob-to-cocoscreate-project">Import AdMob to CocosCreate project</a></li>
+        
+            <li><a href="#configuration-admob">Configuration AdMob</a></li>
+        
+            <li><a href="#finish-admobjs-empty-function">Finish AdMob.js empty function</a></li>
+        
+            <li><a href="#build-cocos-creator-again">Build Cocos Creator Again</a></li>
+        
+            <li><a href="#build-with-xcode">Build with Xcode</a></li>
+        
+            <li><a href="#important">IMPORTANT</a></li>
+        
+	</ul>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
+<h1>SDKBOX for Cocos Creator</h1>
+
+<h2 id="how-to-integrate-sdkbox-plugin-to-cocos-creator-project">How to integrate SDKBox Plugin to Cocos Creator project</h2>
+<hr />
+<h3 id="environment">Environment</h3>
+<ul>
+<li><code>CocosCreator</code> Ver.1.2.2 <a href="http://www.cocos.com/creator">Install</a></li>
+<li><code>SDKBox Installer</code> 1.0.0.18 <a href="http://docs.sdkbox.com/en/installer/">Install</a></li>
+</ul>
+<h3 id="create-new-cocos-creator-project">Create new Cocos Creator Project</h3>
+<p>Create Project <code>SDKBoxTutorial</code> like follow:
+<img alt="" src="../../imgs/ccc_tutorial_create_project.png" /></p>
+<h3 id="add-buttons">Add buttons</h3>
+<p>add two button to scene, design ui like follow:
+<img alt="" src="../../imgs/ccc_tutorial_ui_design.png" /></p>
+<h3 id="create-javascript-component">Create JavaScript Component</h3>
+<p>create javascript commponent, name it <code>AdMob.js</code>, i will integrate <code>AdMob</code> the this project. add three empty function to <code>AdMob.js</code>. like follow:</p>
+<pre><code class="js">cc.Class({
+
+    ...
+
+    admobInit: function() {
+        //finish it after import admob, let it empty for now
+    },
+
+    cacheInterstitial: function() {
+        //finish it after import admob, let it empty for now
+    },
+
+    showInterstitial: function() {
+        //finish it after import admob, let it empty for now
+    },
+
+    ...
+
+});
+</code></pre>
+
+<h3 id="attach-admobjs-to-canvas">Attach AdMob.js to Canvas</h3>
+<p><img alt="" src="../../imgs/ccc_tutorial_canvas_script.png" /></p>
+<h3 id="associate-button-click-event-to-admobjs">associate button click event to AdMob.js</h3>
+<p><img alt="" src="../../imgs/ccc_tutorial_btn_cache_script.png" />
+<img alt="" src="../../imgs/ccc_tutorial_btn_show_script.png" /></p>
+<h3 id="run-in-simulator">Run In Simulator</h3>
+<p>check if every thing is ok.</p>
+<h3 id="build-project">Build Project</h3>
+<p>open build window
+Menu-&gt;Project-&gt;Build or (Command + Shift + B)
+<img alt="" src="../../imgs/ccc_tutorial_build_win.png" /></p>
+<p>Build-&gt;Compile
+<img alt="" src="../../imgs/ccc_tutorial_console_compile_result.png" /></p>
+<h3 id="import-admob-to-cocoscreate-project">Import AdMob to CocosCreate project</h3>
+<ul>
+<li>open console</li>
+<li>entry CocosCreate project by run <code>cd SDKBoxTutorial</code></li>
+<li>import admob by run <code>sdkbox import admob -p ./build/jsb-default/</code></li>
+</ul>
+<p><img alt="" src="../../imgs/ccc_tutorial_import_admob_result.png" /></p>
+<h3 id="configuration-admob">Configuration AdMob</h3>
+<ul>
+<li>configure <code>./build/jsb-default/res/sdkbox_config.json</code> with your ad id</li>
+</ul>
+<p><code>Important</code>: Make sure backup <code>sdkbox_config.json</code>, <code>./build/jsb-default/res</code> will be removed every time after Build Project in Cocos Creator build windows</p>
+<h3 id="finish-admobjs-empty-function">Finish AdMob.js empty function</h3>
+<pre><code class="js">cc.Class({
+
+    ...
+
+    admobInit: function() {
+        let self = this
+        sdkbox.PluginAdMob.setListener({
+            adViewDidReceiveAd: function(name) {
+                self.showInfo('adViewDidReceiveAd name=' + name);
+            },
+            adViewDidFailToReceiveAdWithError: function(name, msg) {
+                self.showInfo('adViewDidFailToReceiveAdWithError name=' + name + ' msg=' + msg);
+            },
+            adViewWillPresentScreen: function(name) {
+                self.showInfo('adViewWillPresentScreen name=' + name);
+            },
+            adViewDidDismissScreen: function(name) {
+                self.showInfo('adViewDidDismissScreen name=' + name);
+            },
+            adViewWillDismissScreen: function(name) {
+                self.showInfo('adViewWillDismissScreen=' + name);
+            },
+            adViewWillLeaveApplication: function(name) {
+                self.showInfo('adViewWillLeaveApplication=' + name);
+            }
+        });
+        sdkbox.PluginAdMob.init();
+
+        // just for test
+        let plugin = sdkbox.PluginAdMob
+        if (&quot;undefined&quot; != typeof(plugin.deviceid) &amp;&amp; plugin.deviceid.length &gt; 0) {
+            this.showInfo('deviceid=' + plugin.deviceid);
+            // plugin.setTestDevices(plugin.deviceid);
+        }
+    },
+
+    cacheInterstitial: function() {
+        sdkbox.PluginAdMob.cache('gameover');
+    },
+
+    showInterstitial: function() {
+        sdkbox.PluginAdMob.show('gameover');
+    },
+
+    ...
+
+});
+</code></pre>
+
+<h3 id="build-cocos-creator-again">Build Cocos Creator Again</h3>
+<p>Menu-&gt;Project-&gt;Build or (Command + Shift + B)
+Build-&gt;Compile
+make sure AdMob.js will sync to <code>./build/jsb-default</code> project</p>
+<h3 id="build-with-xcode">Build with Xcode</h3>
+<ul>
+<li>open <code>./build/jsb-default/frameworks/runtime-src/proj.ios_mac/SDKBoxTutorial.xcodeproj</code> with Xcode</li>
+<li>Build &amp;&amp; Run</li>
+</ul>
+<p><img alt="" src="../../imgs/ccc_tutorial_admob_intistial_show.png" /></p>
+<h3 id="important">IMPORTANT</h3>
+<p>Make sure backup <code>sdkbox_config.json</code>, <code>./build/jsb-default/res</code> will be removed every time after Build Project in Cocos Creator build windows</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
