@@ -313,6 +313,8 @@ pages:
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
    - 'Chartboost': 'unreal/chartboost/index.md'
+- Creator:
+    - 'Integration': 'qa/integration-admob-to-creator.md'
 - LiveOps:
    - 'Setup': 'liveops/index.md'
    - 'Remote Configuration': 'liveops/remote-config.md'
