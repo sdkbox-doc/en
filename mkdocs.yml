@@ -313,13 +313,14 @@ pages:
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
    - 'Chartboost': 'unreal/chartboost/index.md'
-- Creator:
-   - 'How To': 'ccc/index.md'
 - LiveOps:
    - 'Setup': 'liveops/index.md'
    - 'Remote Configuration': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
    - 'On-the-fly catalog management': 'liveops/catalog-management.md'
+- Q&A:
+   - 'integration admob to creator': 'qa/integration-admob-to-creator.md'
+   - 'integration fyber to cocos': 'qa/integration-fyber-to-cocos.md'
 - About: 'release-note.md'
 
 theme: mkdocs
