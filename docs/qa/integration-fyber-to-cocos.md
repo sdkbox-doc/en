@@ -42,12 +42,46 @@
 * download android adcolony mediation at [here](http://developer.fyber.com/content/current/android/rewarded-video/adding-networks/)
 
 * open integration guide and follow it's steps
+
 ![](../imgs/fyber_mediation_adcolony_android_guide.png)
 
+* unzip adcolony mediation
 * copy `fyber-adcolony-2.3.6-r2.jar` to `proj.android/libs`
 * copy `libs/armeabi/libImmEndpointWarpJ.so` to `proj.android/libs/armeabi`
 * copy `libs/armeabi-v7a/libImmEndpointWarpJ.so` to `proj.android/libs/armeabi-v7a`
+
 ![](../imgs/fyber_mediation_adcolony_android_files.png)
+
+* download [Fyber annotation jar](https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations/1.2.0/fyber-annotations-1.2.0.jar) and add to `proj.android/libs`
+* download [Fyber annotations processor jar](https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations-compiler/1.3.2/fyber-annotations-compiler-1.3.2.jar) and add to `proj.android/libs`
+* create folder `proj.android/annotation_libs`
+* download [fyber-sdk](https://bintray.com/artifact/download/fyber/mobile-sdk/Fyber_Android_SDK_v8.5.3.zip), [fyber-annotation](https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations/1.2.0/fyber-annotations-1.2.0.jar), [fyber-annotations-compiler](https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations-compiler/1.3.2/fyber-annotations-compiler-1.3.2.jar), [guava](http://central.maven.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar), [javapoet](http://central.maven.org/maven2/com/squareup/javapoet/1.5.1/javapoet-1.5.1.jar), [javassist](http://central.maven.org/maven2/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar), [reflections
+](http://central.maven.org/maven2/org/reflections/reflections/0.9.10/reflections-0.9.10.jar) and add to folder `proj.android/annotation_libs`
+
+![](../imgs/fyber_mediation_adcolony_android_extern_jars.png)
+
+* your `proj.android/annotation_libs` folder may include follow files
+
+![](../imgs/fyber_mediation_adcolony_android_annotation_libs_files.png)
+
+
+##### Eclipse Setting
+
+Enable annotations in Eclipse
+
+* Go to `project properties` -> `Java Compiler` -> `Annotation Processing` -> and check the `Enable project specific settings` checkbox
+* Go to `project properties` -> `Java Compiler` -> `Annotation Processing` -> `Factory Path` -> and click on `Add JARs...` button and add all jars on `annotation_libs` folder
+
+![](../imgs/fyber_mediation_adcolony_eclipse_add_annotation_path.png)
+
+* Add `@FyberSDK` annotation to your main Activity and set up annotations on Eclipse.
+
+* make sure `jdk 1.7` has been installed
+* `Preference` -> `Java` -> `Installed JREs`
+![](../imgs/fyber_mediation_adcolony_eclipse_jre.png)
+
+* `project properties` -> `Java Compiler` -> and make sure `compiler compliance level` is `1.7`
+![](../imgs/fyber_mediation_adcolony_java_compiler.png)
 
 * add activity to manifest
 
