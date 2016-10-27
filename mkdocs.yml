@@ -323,6 +323,7 @@ pages:
 - Q&A:
    - 'integration admob to creator': 'qa/integration-admob-to-creator.md'
    - 'integration fyber to cocos': 'qa/integration-fyber-to-cocos.md'
+   - 'facebook share on cocos': 'qa/fb-share-on-cocos.md'
 - About: 'release-note.md'
 
 theme: mkdocs
