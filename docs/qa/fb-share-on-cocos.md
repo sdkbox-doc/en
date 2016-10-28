@@ -212,6 +212,21 @@ if (canPresent) {
 }
 ```
 
+### AppInvite
+
+* create app link at [here](https://developers.facebook.com/quickstarts/?platform=app-links-host)
+* then you will get a link, like follow:
+```
+https://fb.me/450792255091097
+```
+* add follow source code
+```c++
+std::string app_link = "https://fb.me/450792255091097";
+std::string preview_url = "http://cocos2d-x.org/images/logo.png";
+sdkbox::PluginFacebook::inviteFriends(app_link, preview_url);
+```
+* make sure add people you want to invite to tester of your fb app
+
 ## TroubleShooting
 
 if you got follow error on android, please add the key hash to your fb app android setting
