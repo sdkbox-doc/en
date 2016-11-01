@@ -549,6 +549,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../fb-share-on-cocos/">facebook share on cocos</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -649,16 +655,50 @@
 <p>download android adcolony mediation at <a href="http://developer.fyber.com/content/current/android/rewarded-video/adding-networks/">here</a></p>
 </li>
 <li>
-<p>open integration guide and follow it's steps
-<img alt="" src="../../imgs/fyber_mediation_adcolony_android_guide.png" /></p>
+<p>open integration guide and follow it's steps</p>
 </li>
-<li>
-<p>copy <code>fyber-adcolony-2.3.6-r2.jar</code> to <code>proj.android/libs</code></p>
-</li>
+</ul>
+<p><img alt="" src="../../imgs/fyber_mediation_adcolony_android_guide.png" /></p>
+<ul>
+<li>unzip adcolony mediation</li>
+<li>copy <code>fyber-adcolony-2.3.6-r2.jar</code> to <code>proj.android/libs</code></li>
 <li>copy <code>libs/armeabi/libImmEndpointWarpJ.so</code> to <code>proj.android/libs/armeabi</code></li>
+<li>copy <code>libs/armeabi-v7a/libImmEndpointWarpJ.so</code> to <code>proj.android/libs/armeabi-v7a</code></li>
+</ul>
+<p><img alt="" src="../../imgs/fyber_mediation_adcolony_android_files.png" /></p>
+<ul>
+<li>download <a href="https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations/1.2.0/fyber-annotations-1.2.0.jar">Fyber annotation jar</a> and add to <code>proj.android/libs</code></li>
+<li>download <a href="https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations-compiler/1.3.2/fyber-annotations-compiler-1.3.2.jar">Fyber annotations processor jar</a> and add to <code>proj.android/libs</code></li>
+<li>create folder <code>proj.android/annotation_libs</code></li>
+<li>download <a href="https://bintray.com/artifact/download/fyber/mobile-sdk/Fyber_Android_SDK_v8.5.3.zip">fyber-sdk</a>, <a href="https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations/1.2.0/fyber-annotations-1.2.0.jar">fyber-annotation</a>, <a href="https://bintray.com/artifact/download/fyber/maven/com/fyber/fyber-annotations-compiler/1.3.2/fyber-annotations-compiler-1.3.2.jar">fyber-annotations-compiler</a>, <a href="http://central.maven.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar">guava</a>, <a href="http://central.maven.org/maven2/com/squareup/javapoet/1.5.1/javapoet-1.5.1.jar">javapoet</a>, <a href="http://central.maven.org/maven2/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar">javassist</a>, <a href="http://central.maven.org/maven2/org/reflections/reflections/0.9.10/reflections-0.9.10.jar">reflections
+</a> and add to folder <code>proj.android/annotation_libs</code></li>
+</ul>
+<p><img alt="" src="../../imgs/fyber_mediation_adcolony_android_extern_jars.png" /></p>
+<ul>
+<li>your <code>proj.android/annotation_libs</code> folder may include follow files</li>
+</ul>
+<p><img alt="" src="../../imgs/fyber_mediation_adcolony_android_annotation_libs_files.png" /></p>
+<h5 id="eclipse-setting">Eclipse Setting</h5>
+<p>Enable annotations in Eclipse</p>
+<ul>
+<li>Go to <code>project properties</code> -&gt; <code>Java Compiler</code> -&gt; <code>Annotation Processing</code> -&gt; and check the <code>Enable project specific settings</code> checkbox</li>
+<li>Go to <code>project properties</code> -&gt; <code>Java Compiler</code> -&gt; <code>Annotation Processing</code> -&gt; <code>Factory Path</code> -&gt; and click on <code>Add JARs...</code> button and add all jars on <code>annotation_libs</code> folder</li>
+</ul>
+<p><img alt="" src="../../imgs/fyber_mediation_adcolony_eclipse_add_annotation_path.png" /></p>
+<ul>
 <li>
-<p>copy <code>libs/armeabi-v7a/libImmEndpointWarpJ.so</code> to <code>proj.android/libs/armeabi-v7a</code>
-<img alt="" src="../../imgs/fyber_mediation_adcolony_android_files.png" /></p>
+<p>Add <code>@FyberSDK</code> annotation to your main Activity and set up annotations on Eclipse.</p>
+</li>
+<li>
+<p>make sure <code>jdk 1.7</code> has been installed</p>
+</li>
+<li>
+<p><code>Preference</code> -&gt; <code>Java</code> -&gt; <code>Installed JREs</code>
+<img alt="" src="../../imgs/fyber_mediation_adcolony_eclipse_jre.png" /></p>
+</li>
+<li>
+<p><code>project properties</code> -&gt; <code>Java Compiler</code> -&gt; and make sure <code>compiler compliance level</code> is <code>1.7</code>
+<img alt="" src="../../imgs/fyber_mediation_adcolony_java_compiler.png" /></p>
 </li>
 <li>
 <p>add activity to manifest</p>

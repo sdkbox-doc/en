@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>facebook share on cocos - SDKBOX</title>
+        
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/custom.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../cocos/">Cocos Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../installer/">Installer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">API</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../api/gpg/">Google Play Games</a>
+</li>
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../plugins/achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/amazon/">Amazon</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/apteligent/">Apteligent</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/googleplay/">Google Play Games</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/share/">Social Sharing</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../plugins/youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/review/">Ratings & Reviews</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unity/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../unreal/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../unreal/chartboost/">Chartboost</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Creator <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../integration-admob-to-creator/">Integration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Q&A <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../integration-admob-to-creator/">integration admob to creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../integration-fyber-to-cocos/">integration fyber to cocos</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">facebook share on cocos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#how-to-integrate-sdkbox-plugin-to-cocos-creator-project">How to integrate SDKBox Plugin to Cocos Creator project</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#environment">Environment</a></li>
+        
+            <li><a href="#create-cocos2d-x-project">Create cocos2d-x project</a></li>
+        
+            <li><a href="#import-facebook">Import facebook</a></li>
+        
+            <li><a href="#facebook-setting">Facebook setting</a></li>
+        
+            <li><a href="#ios-project-setting">IOS project setting</a></li>
+        
+            <li><a href="#android-project-setting">Android project setting</a></li>
+        
+            <li><a href="#init-facebook-plugin">Init Facebook Plugin</a></li>
+        
+            <li><a href="#share-link">Share Link</a></li>
+        
+            <li><a href="#share-photo">Share photo</a></li>
+        
+            <li><a href="#dialog-link">dialog link</a></li>
+        
+            <li><a href="#dialog-photo">dialog photo</a></li>
+        
+            <li><a href="#appinvite">AppInvite</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#troubleshooting">TroubleShooting</a></li>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
+<h1>FaceBook Share on Cocos</h1>
+
+<h2 id="how-to-integrate-sdkbox-plugin-to-cocos-creator-project">How to integrate SDKBox Plugin to Cocos Creator project</h2>
+<hr />
+<h3 id="environment">Environment</h3>
+<ul>
+<li><code>SDKBox Installer</code> <a href="http://docs.sdkbox.com/en/installer/">Install</a></li>
+<li><code>Cocos2d-x</code> <a href="http://www.cocos.com/download">Install</a></li>
+</ul>
+<h3 id="create-cocos2d-x-project">Create cocos2d-x project</h3>
+<ul>
+<li>create cocos2d-x project by run <code>cocos new -l cpp -p com.sdkbox.sample.facebook.cpp facebook</code></li>
+</ul>
+<h3 id="import-facebook">Import facebook</h3>
+<ul>
+<li>entry cocos2d-x project directory by run <code>cd facebook</code></li>
+<li>import sdkbox facebook plugin by run <code>sdkbox import facebook</code></li>
+</ul>
+<h3 id="facebook-setting">Facebook setting</h3>
+<ul>
+<li>make sure you have been a <a href="https://developers.facebook.com/">facebook developer</a></li>
+<li>make sure you have create a new app on <a href="https://developers.facebook.com/">facebook developer</a></li>
+<li>configure your app</li>
+</ul>
+<h3 id="ios-project-setting">IOS project setting</h3>
+<h4 id="modify-infoplist">Modify Info.plist</h4>
+<p>modify info.plist, your change maybe like follow:</p>
+<pre><code class="xml">&lt;plist&gt;
+&lt;dict&gt;
+
+    ...
+
+    &lt;key&gt;FacebookAppID&lt;/key&gt;
+    &lt;string&gt;280194012150923&lt;/string&gt;
+    &lt;key&gt;FacebookDisplayName&lt;/key&gt;
+    &lt;string&gt;hellworld - cpp&lt;/string&gt;
+    &lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;dict&gt;
+            &lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+            &lt;string&gt;Editor&lt;/string&gt;
+            &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+            &lt;array&gt;
+                &lt;string&gt;fb280194012150923&lt;/string&gt;
+            &lt;/array&gt;
+        &lt;/dict&gt;
+    &lt;/array&gt;
+    &lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;fbapi&lt;/string&gt;
+        &lt;string&gt;fb-messenger-api&lt;/string&gt;
+        &lt;string&gt;fbauth2&lt;/string&gt;
+        &lt;string&gt;fbshareextension&lt;/string&gt;
+    &lt;/array&gt;
+
+    ...
+
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<p><code>FacebookAppID</code>, <code>FacebookDisplayName</code>, <code>CFBundleURLSchemes</code> should use your fb app's info</p>
+<h4 id="enable-keychain-shareing">Enable Keychain Shareing</h4>
+<p><code>Project</code> -&gt; <code>Capablities</code> -&gt; <code>Keychain Sharing</code> -&gt; <code>ON</code></p>
+<h4 id="modify-appcontrollermm">Modify AppController.mm</h4>
+<p>modify AppController.mm, your change maybe like follow:</p>
+<pre><code class="object-c">#import &lt;FBSDKCoreKit/FBSDKCoreKit.h&gt;
+
+...
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    ...
+
+    BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                        didFinishLaunchingWithOptions:launchOptions];
+
+    //app-&gt;run() must be invoked after fb
+    app-&gt;run();
+    return ret;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                        openURL:url
+                                              sourceApplication:sourceApplication
+                                                     annotation:annotation];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
+}
+</code></pre>
+
+<h3 id="android-project-setting">Android project setting</h3>
+<ul>
+<li>make sure use java 1.7+ to compile this project</li>
+<li>open <code>res/values/strings.xml</code> and replace facebook_app_id with your Facebook App ID</li>
+<li>open <code>AndroidManifest.xml</code> and replace <code>_replace_with_your_app_id_</code> with your Facebook App ID</li>
+<li>open project.properties and make sure target is android-15 or newer</li>
+</ul>
+<h3 id="init-facebook-plugin">Init Facebook Plugin</h3>
+<p>you can add follow code when app init</p>
+<pre><code class="c++">sdkbox::PluginFacebook::setListener(this);
+sdkbox::PluginFacebook::init();
+</code></pre>
+
+<h3 id="share-link">Share Link</h3>
+<pre><code class="c++">sdkbox::FBShareInfo info;
+info.type  = sdkbox::FB_LINK;
+info.link  = &quot;http://www.cocos2d-x.org&quot;;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;&quot;; //&quot;Best Game Engine&quot;;
+info.image = &quot;&quot;; //&quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox::PluginFacebook::share(info);
+</code></pre>
+
+<h3 id="share-photo">Share photo</h3>
+<pre><code class="c++">sdkbox::FBShareInfo info;
+info.type  = sdkbox::FB_PHOTO;
+info.title = &quot;capture screen&quot;;
+info.image = _captureImg;
+sdkbox::PluginFacebook::share(info);
+</code></pre>
+
+<h3 id="dialog-link">dialog link</h3>
+<p>the follow code can the app url on apple/google store</p>
+<pre><code class="c++">//http://itunes.apple.com/[country]/app/[App –Name]/id[App-ID]?mt=8
+std::string appUrl;
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    //apple store
+    //http://itunes.apple.com/[country]/app/[App –Name]/id[App-ID]?mt=8
+    appUrl = &quot;http://itunes.apple.com/&quot;;
+    appUrl += &quot;cn&quot;; //country
+    appUrl += &quot;/app/&quot;;
+    appUrl += &quot;tan-chi-she-da-zuo-zhan-deng&quot;; //app name
+    appUrl += &quot;/id&quot;;
+    appUrl += &quot;1120536875&quot;; //app id
+    appUrl += &quot;?mt=8&quot;;
+#else
+    //google play
+    //https://play.google.com/store/apps/details?id=&lt;package_name&gt;
+    appUrl = &quot;https://play.google.com/store/apps/details?id=&quot;;
+    appUrl += &quot;com.impossibleapps.towercrush&quot;; //app package name
+#endif
+
+sdkbox::FBShareInfo info;
+info.type  = sdkbox::FB_LINK;
+info.link  = appUrl;
+info.title = &quot;cocos2d-x&quot;;
+info.text  = &quot;Best Game Engine&quot;;
+info.image = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+
+bool canPresent = sdkbox::PluginFacebook::canPresentWithFBApp(info);
+CCLOG(&quot;##FB can present with facebook app: %s&quot;, canPresent ? &quot;yes&quot; : &quot;no&quot;);
+if (!canPresent)
+{
+    CCLOG(&quot;\n\n##FB ****************************&quot;);
+    CCLOG(&quot;##FB will show web dialog for u, openning web browser...&quot;);
+    CCLOG(&quot;##FB ****************************\n\n&quot;);
+}
+
+sdkbox::PluginFacebook::dialog(info);
+</code></pre>
+
+<h3 id="dialog-photo">dialog photo</h3>
+<p>dialog photo dependency on <code>FB App</code>, so <code>FB App</code> must be installed in device</p>
+<p>dialog photocan share photo, and user can add text by them self.</p>
+<pre><code class="c++">sdkbox::FBShareInfo info;
+info.type  = sdkbox::FB_PHOTO;
+info.title = &quot;capture screen&quot;;
+info.image = _captureImg;
+
+bool canPresent = sdkbox::PluginFacebook::canPresentWithFBApp(info);
+CCLOG(&quot;##FB can present: %s&quot;, canPresent ? &quot;yes&quot; : &quot;no&quot;);
+if (canPresent) {
+    sdkbox::PluginFacebook::dialog(info);
+} else {
+    CCLOG(&quot;\n\n##FB ****************************&quot;);
+    CCLOG(&quot;##FB dialog photo must present with facebook app, thanks!&quot;);
+    CCLOG(&quot;##FB ****************************\n\n&quot;);
+}
+</code></pre>
+
+<h3 id="appinvite">AppInvite</h3>
+<ul>
+<li>create app link at <a href="https://developers.facebook.com/quickstarts/?platform=app-links-host">here</a></li>
+<li>then you will get a link, like follow:</li>
+</ul>
+<pre><code>https://fb.me/450792255091097
+</code></pre>
+
+<ul>
+<li>add follow source code</li>
+</ul>
+<pre><code class="c++">std::string app_link = &quot;https://fb.me/450792255091097&quot;;
+std::string preview_url = &quot;http://cocos2d-x.org/images/logo.png&quot;;
+sdkbox::PluginFacebook::inviteFriends(app_link, preview_url);
+</code></pre>
+
+<ul>
+<li>make sure add people you want to invite to tester of your fb app</li>
+</ul>
+<h2 id="troubleshooting">TroubleShooting</h2>
+<p>if you got follow error on android, please add the key hash to your fb app android setting</p>
+<pre><code>Invalid key hash. The key hash XXXXXXXX does not match any stored key hashes. Configure your app key hashes at http://developers.facebook.com/apps/XXXXX
+</code></pre></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
