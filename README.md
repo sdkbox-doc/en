@@ -16,6 +16,15 @@ cd src
 ./doc.py all
 ```
 
+Some documentations require [jsdoc](https://www.npmjs.com/package/jsdoc)
+
+Make sure you install jsdoc with
+```
+npm install jsdoc -g
+```
+
+Also you need to set `CSC_PATH` that points to SDKBOX repository
+
 ## Build
 
 You can start a local server by
