@@ -10,12 +10,12 @@ SDKBOX support ALL the recent versions (v2.2.6+) for Cocos/Cocos2d-x game engine
 You can install SDKBOX plugins using one of these three methods.  
 
 
-### By Cocos launcher
-Since v3.10, you can select needed SDKs in Cocos launcher using "create a project" or "edit a project". All selected SDKs will be automatically installed in your project. 
-
-
-### By SDKBOX Installer
+### By SDKBOX CLI Installer
 SDKBOX Installer is an optional command line tool for any version of cocos2d-x projects, including both v2.x and v3.x. It lets you integrate SDK plugins by a single line of command. ([Learn more](http://docs.sdkbox.com/en/installer/))
+
+
+### From Cocos Creator
+We are working on a plugin for Creator which will allow you to integrate SDKBOX plugins directly from UI. For now, you can still use SDKBOX installer. ([Learn more](qa/integration-admob-to-creator.md))
 
 
 ### By installing manually

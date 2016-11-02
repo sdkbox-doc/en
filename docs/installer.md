@@ -1,4 +1,4 @@
-<h1>SDKBOX Installer</h1>
+<h1>SDKBOX CLI Installer</h1>
 <h4>Automatically integrate third-party SDKs</h4>
 
 ### Get the Installer
