@@ -588,7 +588,7 @@
         
             <li><a href="#build-cocos-creator-again">Build Cocos Creator Again</a></li>
         
-            <li><a href="#build-with-xcode">Build with Xcode</a></li>
+            <li><a href="#build-run">Build &amp; Run</a></li>
         
             <li><a href="#important">IMPORTANT</a></li>
         
@@ -605,10 +605,9 @@
 <h2 id="how-to-integrate-sdkbox-plugin-to-cocos-creator-project">How to integrate SDKBox Plugin to Cocos Creator project</h2>
 <hr />
 <h3 id="environment">Environment</h3>
-<ul>
-<li><code>CocosCreator</code> Ver.1.2.2 <a href="http://www.cocos.com/creator">Install</a></li>
-<li><code>SDKBox Installer</code> 1.0.0.18 <a href="http://docs.sdkbox.com/en/installer/">Install</a></li>
-</ul>
+<p>Before you start, make sure you have both CocosCreator and SDKBox Installer
+<em> <code>CocosCreator</code> <a href="http://www.cocos.com/creator">Install</a>
+</em> <code>SDKBox Installer</code> <a href="http://docs.sdkbox.com/en/installer/">Install</a></p>
 <h3 id="create-new-cocos-creator-project">Create new Cocos Creator Project</h3>
 <p>Create Project <code>SDKBoxTutorial</code> like follow:
 <img alt="" src="../../imgs/ccc_tutorial_create_project.png" /></p>
@@ -616,8 +615,15 @@
 <p>add two button to scene, design ui like follow:
 <img alt="" src="../../imgs/ccc_tutorial_ui_design.png" /></p>
 <h3 id="create-javascript-component">Create JavaScript Component</h3>
-<p>create javascript commponent, name it <code>AdMob.js</code>, i will integrate <code>AdMob</code> the this project. add three empty function to <code>AdMob.js</code>. like follow:</p>
+<p>create javascript commponent, name it <code>AdMob.js</code>, i will integrate <code>AdMob</code> the this project. add three empty function to <code>AdMob.js</code>, also add admob initialize code in <code>onLoad</code> function like follow:</p>
 <pre><code class="js">cc.Class({
+
+    ...
+
+    onLoad: function () {
+        //Add this line to onLoad
+        this.admobInit();
+    },
 
     ...
 
@@ -647,9 +653,13 @@
 <p>check if every thing is ok.</p>
 <h3 id="build-project">Build Project</h3>
 <p>open build window
-Menu-&gt;Project-&gt;Build or (Command + Shift + B)
+Menu-&gt;Project-&gt;Build or (Command + Shift + B)</p>
+<p>Build iOS
 <img alt="" src="../../imgs/ccc_tutorial_build_win.png" /></p>
-<p>Build-&gt;Compile
+<p>Build Android
+<img alt="" src="../../imgs/ccc_tutorial_build_android.png" /></p>
+<p>Build-&gt;Compile</p>
+<p>Make sure everything is okey
 <img alt="" src="../../imgs/ccc_tutorial_console_compile_result.png" /></p>
 <h3 id="import-admob-to-cocoscreate-project">Import AdMob to CocosCreate project</h3>
 <ul>
@@ -669,43 +679,42 @@ Menu-&gt;Project-&gt;Build or (Command + Shift + B)
     ...
 
     admobInit: function() {
-        let self = this
-        sdkbox.PluginAdMob.setListener({
-            adViewDidReceiveAd: function(name) {
-                self.showInfo('adViewDidReceiveAd name=' + name);
-            },
-            adViewDidFailToReceiveAdWithError: function(name, msg) {
-                self.showInfo('adViewDidFailToReceiveAdWithError name=' + name + ' msg=' + msg);
-            },
-            adViewWillPresentScreen: function(name) {
-                self.showInfo('adViewWillPresentScreen name=' + name);
-            },
-            adViewDidDismissScreen: function(name) {
-                self.showInfo('adViewDidDismissScreen name=' + name);
-            },
-            adViewWillDismissScreen: function(name) {
-                self.showInfo('adViewWillDismissScreen=' + name);
-            },
-            adViewWillLeaveApplication: function(name) {
-                self.showInfo('adViewWillLeaveApplication=' + name);
-            }
-        });
-        sdkbox.PluginAdMob.init();
-
-        // just for test
-        let plugin = sdkbox.PluginAdMob
-        if (&quot;undefined&quot; != typeof(plugin.deviceid) &amp;&amp; plugin.deviceid.length &gt; 0) {
-            this.showInfo('deviceid=' + plugin.deviceid);
-            // plugin.setTestDevices(plugin.deviceid);
+        if(cc.sys.isMobile) {
+            var self = this
+            sdkbox.PluginAdMob.setListener({
+                adViewDidReceiveAd: function(name) {
+                    self.showInfo('adViewDidReceiveAd name=' + name);
+                },
+                adViewDidFailToReceiveAdWithError: function(name, msg) {
+                    self.showInfo('adViewDidFailToReceiveAdWithError name=' + name + ' msg=' + msg);
+                },
+                adViewWillPresentScreen: function(name) {
+                    self.showInfo('adViewWillPresentScreen name=' + name);
+                },
+                adViewDidDismissScreen: function(name) {
+                    self.showInfo('adViewDidDismissScreen name=' + name);
+                },
+                adViewWillDismissScreen: function(name) {
+                    self.showInfo('adViewWillDismissScreen=' + name);
+                },
+                adViewWillLeaveApplication: function(name) {
+                    self.showInfo('adViewWillLeaveApplication=' + name);
+                }
+            });
+            sdkbox.PluginAdMob.init();
         }
     },
 
     cacheInterstitial: function() {
-        sdkbox.PluginAdMob.cache('gameover');
+        if(cc.sys.isMobile) {
+            sdkbox.PluginAdMob.cache('gameover');
+        }
     },
 
     showInterstitial: function() {
-        sdkbox.PluginAdMob.show('gameover');
+        if(cc.sys.isMobile) {
+            sdkbox.PluginAdMob.show('gameover');
+        }
     },
 
     ...
@@ -717,10 +726,10 @@ Menu-&gt;Project-&gt;Build or (Command + Shift + B)
 <p>Menu-&gt;Project-&gt;Build or (Command + Shift + B)
 Build-&gt;Compile
 make sure AdMob.js will sync to <code>./build/jsb-default</code> project</p>
-<h3 id="build-with-xcode">Build with Xcode</h3>
+<h3 id="build-run">Build &amp; Run</h3>
 <ul>
 <li>open <code>./build/jsb-default/frameworks/runtime-src/proj.ios_mac/SDKBoxTutorial.xcodeproj</code> with Xcode</li>
-<li>Build &amp;&amp; Run</li>
+<li>run <code>cocos run -p android</code> at <code>./build/jsb-default</code> to build android</li>
 </ul>
 <p><img alt="" src="../../imgs/ccc_tutorial_admob_intistial_show.png" /></p>
 <h3 id="important">IMPORTANT</h3>
