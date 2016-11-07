@@ -7,8 +7,9 @@
 
 ### Environment
 
-* `CocosCreator` Ver.1.2.2 [Install](http://www.cocos.com/creator)
-* `SDKBox Installer` 1.0.0.18 [Install](http://docs.sdkbox.com/en/installer/)
+Before you start, make sure you have both CocosCreator and SDKBox Installer
+* `CocosCreator` [Install](http://www.cocos.com/creator)
+* `SDKBox Installer` [Install](http://docs.sdkbox.com/en/installer/)
 
 ### Create new Cocos Creator Project
 
@@ -22,10 +23,17 @@ add two button to scene, design ui like follow:
 
 ### Create JavaScript Component
 
-create javascript commponent, name it `AdMob.js`, i will integrate `AdMob` the this project. add three empty function to `AdMob.js`. like follow:
+create javascript commponent, name it `AdMob.js`, i will integrate `AdMob` the this project. add three empty function to `AdMob.js`, also add admob initialize code in `onLoad` function like follow:
 
 ```js
 cc.Class({
+
+    ...
+
+    onLoad: function () {
+        //Add this line to onLoad
+        this.admobInit();
+    },
 
     ...
 
@@ -64,9 +72,16 @@ check if every thing is ok.
 
 open build window
 Menu->Project->Build or (Command + Shift + B)
+
+Build iOS
 ![](../imgs/ccc_tutorial_build_win.png)
 
+Build Android
+![](../imgs/ccc_tutorial_build_android.png)
+
 Build->Compile
+
+Make sure everything is okey
 ![](../imgs/ccc_tutorial_console_compile_result.png)
 
 
@@ -92,43 +107,42 @@ cc.Class({
     ...
 
     admobInit: function() {
-        let self = this
-        sdkbox.PluginAdMob.setListener({
-            adViewDidReceiveAd: function(name) {
-                self.showInfo('adViewDidReceiveAd name=' + name);
-            },
-            adViewDidFailToReceiveAdWithError: function(name, msg) {
-                self.showInfo('adViewDidFailToReceiveAdWithError name=' + name + ' msg=' + msg);
-            },
-            adViewWillPresentScreen: function(name) {
-                self.showInfo('adViewWillPresentScreen name=' + name);
-            },
-            adViewDidDismissScreen: function(name) {
-                self.showInfo('adViewDidDismissScreen name=' + name);
-            },
-            adViewWillDismissScreen: function(name) {
-                self.showInfo('adViewWillDismissScreen=' + name);
-            },
-            adViewWillLeaveApplication: function(name) {
-                self.showInfo('adViewWillLeaveApplication=' + name);
-            }
-        });
-        sdkbox.PluginAdMob.init();
-
-        // just for test
-        let plugin = sdkbox.PluginAdMob
-        if ("undefined" != typeof(plugin.deviceid) && plugin.deviceid.length > 0) {
-            this.showInfo('deviceid=' + plugin.deviceid);
-            // plugin.setTestDevices(plugin.deviceid);
+        if(cc.sys.isMobile) {
+            var self = this
+            sdkbox.PluginAdMob.setListener({
+                adViewDidReceiveAd: function(name) {
+                    self.showInfo('adViewDidReceiveAd name=' + name);
+                },
+                adViewDidFailToReceiveAdWithError: function(name, msg) {
+                    self.showInfo('adViewDidFailToReceiveAdWithError name=' + name + ' msg=' + msg);
+                },
+                adViewWillPresentScreen: function(name) {
+                    self.showInfo('adViewWillPresentScreen name=' + name);
+                },
+                adViewDidDismissScreen: function(name) {
+                    self.showInfo('adViewDidDismissScreen name=' + name);
+                },
+                adViewWillDismissScreen: function(name) {
+                    self.showInfo('adViewWillDismissScreen=' + name);
+                },
+                adViewWillLeaveApplication: function(name) {
+                    self.showInfo('adViewWillLeaveApplication=' + name);
+                }
+            });
+            sdkbox.PluginAdMob.init();
         }
     },
 
     cacheInterstitial: function() {
-        sdkbox.PluginAdMob.cache('gameover');
+        if(cc.sys.isMobile) {
+            sdkbox.PluginAdMob.cache('gameover');
+        }
     },
 
     showInterstitial: function() {
-        sdkbox.PluginAdMob.show('gameover');
+        if(cc.sys.isMobile) {
+            sdkbox.PluginAdMob.show('gameover');
+        }
     },
 
     ...
@@ -142,10 +156,10 @@ Menu->Project->Build or (Command + Shift + B)
 Build->Compile
 make sure AdMob.js will sync to `./build/jsb-default` project
 
-### Build with Xcode
+### Build & Run
 
 * open `./build/jsb-default/frameworks/runtime-src/proj.ios_mac/SDKBoxTutorial.xcodeproj` with Xcode
-* Build && Run
+* run `cocos run -p android ` at `./build/jsb-default` to build android
 
 ![](../imgs/ccc_tutorial_admob_intistial_show.png)
 
