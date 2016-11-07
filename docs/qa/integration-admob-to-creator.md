@@ -74,9 +74,11 @@ open build window
 Menu->Project->Build or (Command + Shift + B)
 
 Build iOS
+
 ![](../imgs/ccc_tutorial_build_win.png)
 
 Build Android
+
 ![](../imgs/ccc_tutorial_build_android.png)
 
 Build->Compile
