@@ -6,6 +6,8 @@
 ##Prerequisites
 Certain SDKBOX plugins do not work together. If you use __AdColony__, then you cannot also use the __Fyber__ and __SOOMLA GROW__ services, in the same project.
 
+Start from AdColony 3.0 it requires you to config your app to support all orientations, please read the details [here](https://github.com/AdColony/AdColony-iOS-SDK-3/wiki/Xcode-Project-Setup#configuring-supported-orientations)
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX AdColony plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
@@ -13,8 +15,6 @@ $ sdkbox import adcolony
 ```
 
 <<[../../shared/notice.md]
-
-Follow [this link](https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl)
 
 <!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
