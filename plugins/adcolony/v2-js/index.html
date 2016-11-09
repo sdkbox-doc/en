@@ -646,6 +646,7 @@
 
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Certain SDKBOX plugins do not work together. If you use <strong>AdColony</strong>, then you cannot also use the <strong>Fyber</strong> and <strong>SOOMLA GROW</strong> services, in the same project.</p>
+<p>Start from AdColony 3.0 it requires you to config your app to support all orientations, please read the details <a href="https://github.com/AdColony/AdColony-iOS-SDK-3/wiki/Xcode-Project-Setup#configuring-supported-orientations">here</a></p>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX AdColony plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import adcolony
@@ -670,7 +671,6 @@
 <p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
-<p>Follow <a href="https://github.com/AdColony/AdColony-iOS-SDK/wiki/iOS-9#using-canopenurl">this link</a></p>
 <!--## Configuration
 
 ## Remote Configuration
