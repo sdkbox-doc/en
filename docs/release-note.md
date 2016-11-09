@@ -1,5 +1,27 @@
 #Release Notes
 ---
+
+2.3.5 Release Notes
+===
+##Highlights
+* AdColony 3.0 update (Note: AdColony)
+
+##Bugfix
+* Trim ARM x64 build to reduce size
+
+2.3.4 Release Notes
+===
+##Highlights
+* Make sure IAP receipts are always available
+* Add `hide()` function to hide banner for SDKBoxAds
+
+##Bugfix
+* [Facebook] Fix get user info callback when user login
+* [GPG] Fix turn based multiplayer sample for JS
+* [LiveOps] Fix a issue happens when user have more than 28 achievements
+* [Appodeal] Fix installer for cheetah mobile error
+
+
 2.3.2 Release Notes
 ===
 ##Highlight
