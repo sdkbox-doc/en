@@ -25,6 +25,28 @@ info.platform = sdkbox::SocialPlatform::Platform_Select;
 sdkbox::PluginShare::share(info);
 ```
 
+### Native Share
+
+you can use ios/andrid system native share:
+```cpp
+sdkbox::SocialShareInfo info;
+info.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue ";
+info.title = "sdkbox";
+//info.image = "path/to/image"
+info.link = "http://www.sdkbox.com";
+sdkbox::PluginShare::nativeShare(info);
+
+// the follow property will be ignored in nativeShare
+//info.showDialog = false;
+//info.platform = sdkbox::SocialPlatform::Platform_Select;
+
+sdkbox::PluginShare::nativeShare(info);
+```
+
+*Note*:
+
+* IOS: when trigger share success event, action name will pass by error in sdkbox::SocialShareResponse
+* Android: share success event will trigger, but this is not real share success, just show share panel success, because can't get real share success event on android
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:

@@ -43,6 +43,9 @@ all value of sdkbox.SocialPlatform
 - Platform_Unknow
 - Platform_Twitter
 - Platform_Facebook
+- Platform_SMS
+- Platform_Mail
+- Platform_Native
 - Platform_Select
 - Platform_All
 
@@ -59,6 +62,28 @@ all value of sdkbox.SocialShareState
 - SocialShareStateSelected
 - SocialShareStateSelectCancelled
 
+### Native Share
+
+you can use ios/andrid system native share:
+```js
+var shareInfo = {};
+shareInfo.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue ";
+shareInfo.title = "sdkbox";
+//shareInfo.image = "path/to/image"
+shareInfo.link = "http://www.sdkbox.com";
+sdkbox::PluginShare::nativeShare(info);
+
+// the follow property will be ignored in nativeShare
+//shareInfo.showDialog = false;
+//shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
+
+sdkbox.PluginShare.nativeShare(shareInfo);
+```
+
+*Note*:
+
+* IOS: when trigger share success event, action name will pass by error in sdkbox::SocialShareResponse
+* Android: share success event will trigger, but this is not real share success, just show share panel success, because can't get real share success event on android
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:
