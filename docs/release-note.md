@@ -1,6 +1,15 @@
 #Release Notes
 ---
 
+2.3.6 Release Notes
+===
+##Highlights
+* Support Google Analytics exceptions
+* Update SDK for InMobi
+* add google access token data to SDKBOX play android
+
+##Bugfix
+
 2.3.5 Release Notes
 ===
 ##Highlights
