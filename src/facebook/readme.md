@@ -60,6 +60,14 @@ And created a new __APP__ on Facebook, If not please follow up the __Setup Faceb
 
 ```
 
+login doesnt work on simulator on iOS 10, Xcode8
+
+~~~
+Go to the Project Target and then Capabilities and switch Keychain Sharing ON.
+~~~
+http://stackoverflow.com/a/39788102/5443510
+
+
 ###Setup Android
 * Make sure `java -version` >= 1.7
 * Configure your __APP__ on Facebook follow [Android Quick Start Guide](https://developers.facebook.com/quickstarts/?platform=android)
