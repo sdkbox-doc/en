@@ -529,6 +529,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../../qa/integration-iap-on-unity/">IAP with Unity</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -590,6 +596,8 @@
             <li><a href="#initialize-share">Initialize Share</a></li>
         
             <li><a href="#share-content">share content</a></li>
+        
+            <li><a href="#native-share">Native Share</a></li>
         
             <li><a href="#catch-share-events-optional">Catch Share events (optional)</a></li>
         
@@ -770,6 +778,27 @@ info.platform = sdkbox::SocialPlatform::Platform_Select;
 sdkbox::PluginShare::share(info);
 </code></pre>
 
+<h3 id="native-share">Native Share</h3>
+<p>you can use ios/andrid system native share:</p>
+<pre><code class="cpp">sdkbox::SocialShareInfo info;
+info.text = &quot;#sdkbox(www.sdkbox.com) - the cure for sdk fatigue &quot;;
+info.title = &quot;sdkbox&quot;;
+//info.image = &quot;path/to/image&quot;
+info.link = &quot;http://www.sdkbox.com&quot;;
+sdkbox::PluginShare::nativeShare(info);
+
+// the follow property will be ignored in nativeShare
+//info.showDialog = false;
+//info.platform = sdkbox::SocialPlatform::Platform_Select;
+
+sdkbox::PluginShare::nativeShare(info);
+</code></pre>
+
+<p><em>Note</em>:</p>
+<ul>
+<li>IOS: when trigger share success event, action name will pass by error in sdkbox::SocialShareResponse</li>
+<li>Android: share success event will trigger, but this is not real share success, just show share panel success, because can't get real share success event on android</li>
+</ul>
 <h3 id="catch-share-events-optional">Catch Share events (optional)</h3>
 <p>This allows you to catch the <code>Share</code> events so that you can perform operations based upon responses. A simple example might look like this:</p>
 <ul>
