@@ -9,34 +9,34 @@ bundle into your project’s __<project_root>/libs__ folder.
 
 * If you're using cocos2d-x from source copy the __jar__ files to:
 
-	Android command-line:
-	```
-	cocos2d/cocos/platform/android/java/libs
-	```
+    Android command-line:
+    ```
+    cocos2d/cocos/platform/android/java/libs
+    ```
 
-	Android Studio:
-	```
-	cocos2d/cocos/platform/android/libcocos2dx/libs
-	```
+    Android Studio:
+    ```
+    cocos2d/cocos/platform/android/libcocos2dx/libs
+    ```
 
 * If you're using cocos2d-js or lua copy the __jar__ files to:
 
-	Android command-line:
-	```
-	frameworks/cocos2d-x/cocos/platform/android/java/libs
-	```
+    Android command-line:
+    ```
+    frameworks/cocos2d-x/cocos/platform/android/java/libs
+    ```
 
-	Android Studio:
-	```
-	frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
-	```
+    Android Studio:
+    ```
+    frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
+    ```
 
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
 
-	Android command-line:
-	```
-	proj.android/libs
-	```
+    Android command-line:
+    ```
+    proj.android/libs
+    ```
 
 Copy the `facebook_lib` directories from `plugin/android/libs` to your `<project_root>/libs/` directory.
 
