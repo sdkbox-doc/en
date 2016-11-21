@@ -316,11 +316,12 @@ pages:
    - 'Remote Configuration': 'liveops/remote-config.md'
    - 'Server-side IAP receipt verification': 'liveops/receipt-verification.md'
    - 'On-the-fly catalog management': 'liveops/catalog-management.md'
-- Tutorials: 
+- Tutorials:
    - 'Admob in Creator': 'qa/integration-admob-to-creator.md'
    - 'Fyber with Cocos2d-x': 'qa/integration-fyber-to-cocos.md'
    - 'Facebook with Cocos2d-x': 'qa/fb-share-on-cocos.md'
    - 'Fix Android 64K methods limit': 'qa/android_64k.md'
+   - 'IAP with Unity': 'qa/integration-iap-on-unity.md'
 - About: 'release-note.md'
 
 theme: mkdocs
