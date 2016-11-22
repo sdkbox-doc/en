@@ -47,6 +47,7 @@ sdkbox::PluginShare::nativeShare(info);
 
 * IOS: when trigger share success event, action name will pass by error in sdkbox::SocialShareResponse
 * Android: share success event will trigger, but this is not real share success, just show share panel success, because can't get real share success event on android
+* please make sure you have permission `NSPhotoLibraryUsageDescription`, if you want to use `native share` to share image.
 
 ### Catch Share events (optional)
 This allows you to catch the `Share` events so that you can perform operations based upon responses. A simple example might look like this:
