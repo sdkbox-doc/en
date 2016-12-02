@@ -1,6 +1,23 @@
 #Release Notes
 ---
 
+2.3.7 Release Notes
+===
+##Highlights
+* [Native share](http://docs.sdkbox.com/en/plugins/share/v3-cpp/#native-share)
+* Sdkbox Ads supports adjust ads with weight on LiveOps
+* Test and verified SDKBOX with NDK 12
+* Remove soomla, vungle plugins
+* Merge achievement leaderboard plugin with SDKBOX Play
+
+##Bugfix
+* Fix [tune plugin crash](http://discuss.cocos2d-x.org/t/tune-plugin-crash-js/32114/4)
+* Fix [facebook share cancel callback](http://discuss.cocos2d-x.org/t/facebook-plugin-share-issues/33136/3)
+* Fix [One signal bug](http://www.sdkbox.com/answers/question/onesignal-notifications_when_activefalse-not-working/)
+* Fix [SdkboxAds shows invalid placement name](http://www.sdkbox.com/answers/question/app-crash-using-sdkbox-and-admob-plugin-on-iphone7/)
+* Fix installer caching issue when updating
+
+
 2.3.6 Release Notes
 ===
 ##Highlights
