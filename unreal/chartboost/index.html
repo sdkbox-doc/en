@@ -611,14 +611,50 @@
 <p>Now you can add Ads in the editor by clicking on Products and adding items to the Default Value in the Details pane.</p>
 <p><img alt="" src="./02.Add_Chartboost_Ads.png" /></p>
 <p>You can now create a function to convert the Ads variable into a JSON string that you can feed into the initialize function (pictured above).</p>
+<h2>Show Chartboost Ad</h2>
+
+<p><img alt="" src="./05.Show_Chartboost_Ad.png" /></p>
 <h2>Handling Events</h2>
 
 <p>You can handle events from the plugin by adding the Sdkbox Chartboost component to an actor in your scene.</p>
 <p><img alt="" src="./03.Add_Chartboost_Component.png" />
 <img alt="" src="./04.Add_Events_Callback.png" /></p>
-<h2>Show Chartboost Ad</h2>
+<pre><code>    // Called after an interstitial has been loaded from the Chartboost API servers and cached locally.
+    void onChartboostCached(const std::string&amp; name);
 
-<p><img alt="" src="./05.Show_Chartboost_Ad.png" /></p></div>
+    // Called before an interstitial will be displayed on the screen.
+    bool onChartboostShouldDisplay(const std::string&amp; name);
+
+    // Called after an interstitial has been loaded from the Chartboost API servers and cached locally.
+    void onChartboostDisplay(const std::string&amp; name);
+
+    // Called after an interstitial has been dismissed.
+    void onChartboostDismiss(const std::string&amp; name);
+
+    // Called after an interstitial has been closed.
+    void onChartboostClose(const std::string&amp; name);
+
+    // Called after an interstitial has been clicked.
+    void onChartboostClick(const std::string&amp; name);
+
+    // Called after a rewarded video has been viewed completely and user is eligible for reward.
+    void onChartboostReward(const std::string&amp; name, int reward);
+
+    // Called after an interstitial has attempted to load from the Chartboost API servers but failed.
+    void onChartboostFailedToLoad(const std::string&amp; name, sdkbox::CB_LoadError e);
+
+    // Called after a click is registered
+    void onChartboostFailToRecordClick(const std::string&amp; name, sdkbox::CB_ClickError e);
+
+    // Called if Chartboost SDK pauses click actions awaiting confirmation from the user.
+    void onChartboostConfirmation();
+
+    // Called after the App Store sheet is dismissed, when displaying the embedded app sheet.
+    void onChartboostCompleteStore();
+</code></pre>
+
+<p>More information:
+- https://answers.chartboost.com/hc/en-us/articles/201220275</p></div>
             
         </div>
 
