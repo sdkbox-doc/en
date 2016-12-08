@@ -16,6 +16,18 @@ $ sdkbox import appodeal
 
 <<[../../shared/notice.md]
 
+Add this key in Info.plist , if you use this function in your app
+```plist
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string>Advertising</string>
+<key>NSCalendarsUsageDescription</key>
+<string>Advertising</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Advertising</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Advertising</string>
+```
+
 <!--## Configuration
 <<[../../shared/sdkbox_cloud.md]
 <<[../../shared/remote_application_config.md]-->
