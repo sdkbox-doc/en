@@ -586,7 +586,7 @@
 	</ul>
 	
     
-        <li class="main "><a href="#tracker">Tracker</a></li>
+        <li class="main "><a href="#notice">Notice</a></li>
 	
     
         <li class="main "><a href="#usage">Usage</a></li>
@@ -697,26 +697,13 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 }
 </code></pre>
 
-<h2 id="tracker">Tracker</h2>
-<p>A <strong>tracker</strong> is used to aggregate the tracked events. There are some considerations that the developer must review:</p>
+<h2 id="notice">Notice</h2>
 <ul>
 <li>
-<p>You must create a mobile tracker or reuse a previously created one.</p>
+<p>If your account is new, it might take up to 24 hours to show tracking data.</p>
 </li>
 <li>
-<p>If the tracker is new, it will take up to 24 hours to show tracking data.</p>
-</li>
-<li>
-<p>Once you see some historical activity on the tracker, you can see realtime data as well, not before.</p>
-</li>
-<li>
-<p>You can create as many trackers as you wish, but the plugin configuration only allows to define one (the base use case).</p>
-</li>
-<li>
-<p>If no tracker is set in the configuration, there will be no tracking session. This means that at a later time, a new (or more) tracker can be created. In this case, a explicit call to <code>startSession()</code> should be performed.</p>
-</li>
-<li>
-<p>Whether the tracker is set in the plugin configuration or manually created, all tracking events will be sent to the server automatically. The implementation buffers tracking events and sends them to the server it batches.</p>
+<p>Once you see some historical activity on the tracker, you can see realtime data as well.</p>
 </li>
 </ul>
 <!---->

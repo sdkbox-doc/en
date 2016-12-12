@@ -696,6 +696,17 @@
 <p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<p>Add this key in Info.plist , if you use this function in your app</p>
+<pre><code class="plist">&lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
+&lt;string&gt;Advertising&lt;/string&gt;
+&lt;key&gt;NSCalendarsUsageDescription&lt;/key&gt;
+&lt;string&gt;Advertising&lt;/string&gt;
+&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+&lt;string&gt;Advertising&lt;/string&gt;
+&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
+&lt;string&gt;Advertising&lt;/string&gt;
+</code></pre>
+
 <!--## Configuration
 
 ## Remote Configuration
