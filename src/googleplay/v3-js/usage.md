@@ -21,10 +21,6 @@ This is a valid copy-and-paste example for authenticating into the library:
 
 ```javascript
 
-//Initialization
-var config = new gpg.PlatformConfiguration();
-config.SetClientID('777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni.apps.googleusercontent.com');
-
 new gpg.GameServices.Builder()
             .SetOnAuthActionStarted( function( result ) {
                 // Auth started callback
@@ -34,7 +30,7 @@ new gpg.GameServices.Builder()
             })
             .SetLogging( gpg.LogLevel.INFO )	// Set Logging level
             .EnableSnapshots()					// Enable Snapshot (Saved Game) functionailty
-            .Create( config, function( game_services ) {
+            .Create( function( game_services ) {
                 // 8
             } );
 ```
