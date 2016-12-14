@@ -1,6 +1,23 @@
 #Release Notes
 ---
 
+2.3.8 Release Notes
+===
+##Highlights
+* IAP plugin will report order id by default
+* AdColony SDK update
+* Apteligent SDK update
+* Appodeal SDK update
+
+##Bugfix
+* Fix [Installer time out issue](http://discuss.cocos2d-x.org/t/sdkbox-download-server-connection-problems/33892)
+* Fix the cookie issue with sdkbox.com
+* Fix [Sdkbox Ads crash](http://www.sdkbox.com/answers/question/app-crash-using-sdkbox-and-admob-plugin-on-iphone7/)
+* Fix [pre/post popup for adcolony](http://discuss.cocos2d-x.org/t/sdkbox-adcolony-and-chartboost-bugs/33702)
+* Add [native share to js/lua](http://discuss.cocos2d-x.org/t/sdkbox-2-3-7-released-native-share-is-here/33695/9?u=nite)
+* Fix [OneSignal missing arm64 for iOS](http://discuss.cocos2d-x.org/t/pluginonesignal-ios-missing-arm64/33811)
+
+
 2.3.7 Release Notes
 ===
 ##Highlights
