@@ -56,6 +56,7 @@ For Android platform, there are some other available fields:
 * hires_image_uri
 * last_play_timestamp
 * retrieved_timestamp
+* server_auth_code
 
 use the same `getPlayerAccountField` to get these values as strings.
 
