@@ -92,11 +92,11 @@ class APIRefGenerator(object):
         self.target_namespace = ini_config.get(section, "target_namespace")
         self.className = ini_config.get(section, "classes")
         self.skipFunction = []
-        if "skip" in ini_config.options(section):
+        if "skip" in ini_config.options(section) and ini_config.get(section, "skip") != '':
             self.skipFunction = ini_config.get(section, "skip").split("::")[1].replace("[", "").replace("]", "").replace("^", "").replace("$", "").split(" ")
 
         self.manual_binding_function = []
-        if "manual_binding_function" in ini_config.options(section):
+        if "manual_binding_function" in ini_config.options(section) and ini_config.get(section, "manual_binding_function") != '':
             self.manual_binding_function = ini_config.get(section, "manual_binding_function").split("::")[1].replace("[", "").replace("]", "").split(",")
 
         self.skipFunction = Set(self.skipFunction) - (Set(self.skipFunction) & Set(self.manual_binding_function))
@@ -187,7 +187,7 @@ class APIRefGenerator(object):
                 if m["debug"][0] == "~":
                     continue
 
-                cpp_l_ref += "```cpp\n%s\n```\n" % format_function(m["debug"].replace("virtual ", "").replace(" = 0 ", ""))
+                cpp_l_ref += "```cpp\n%s;\n```\n" % format_function(m["debug"].replace("virtual ", "").replace(" = 0 ", "").replace("{", ""))
                 doxygen = ""
                 if "doxygen" in m.keys():
                     doxygen = "> " + get_doxygen(m["doxygen"])
