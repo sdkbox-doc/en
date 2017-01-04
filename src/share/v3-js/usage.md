@@ -71,7 +71,7 @@ shareInfo.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue ";
 shareInfo.title = "sdkbox";
 //shareInfo.image = "path/to/image"
 shareInfo.link = "http://www.sdkbox.com";
-sdkbox.PluginShare.nativeShare(info);
+sdkbox.PluginShare.nativeShare(shareInfo);
 
 // the follow property will be ignored in nativeShare
 //shareInfo.showDialog = false;
