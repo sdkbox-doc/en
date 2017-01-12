@@ -708,10 +708,10 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 - "left"
 - "right"
 - "center"
-- "top_left" or "left_top"
-- "top_right" or "right_top"
-- "bottom_left" or "left_bottom"
-- "bottom_right" or "right_bottom"
+- "top_left"
+- "top_right"
+- "bottom_left"
+- "bottom_right"
 </code></pre>
 <p>width x height:</p>
 <pre><code>- 320x50
@@ -727,10 +727,12 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
     &quot;height&quot;:0
 </code></pre>
 
+<h4 id="apps-targeted-for-children">Apps targeted for Children</h4>
+<p>Apps that target for children can specify <code>"is_designed_for_families": true</code></p>
 <h4 id="auto-cache">Auto cache</h4>
 <p>The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial Ad after
 it close.</p>
-<p>Example:</p>
+<h4 id="example">Example:</h4>
 <pre><code class="json">
 {
     &quot;ios&quot;: {
@@ -741,11 +743,13 @@ it close.</p>
                     &quot;type&quot;:&quot;banner&quot;,
                     &quot;alignment&quot;:&quot;bottom&quot;,
                     &quot;width&quot;:300,
-                    &quot;height&quot;:50
+                    &quot;height&quot;:50,
+                    &quot;is_designed_for_families&quot;: false
                 },
                 &quot;gameover&quot;:{
                     &quot;id&quot;:&quot;ca-app-pub-1329374026572143/4185543717&quot;,
-                    &quot;type&quot;:&quot;interstitial&quot;
+                    &quot;type&quot;:&quot;interstitial&quot;,
+                    &quot;is_designed_for_families&quot;: true
                 }
             }
         }
@@ -758,11 +762,13 @@ it close.</p>
                     &quot;type&quot;:&quot;banner&quot;,
                     &quot;alignment&quot;:&quot;bottom&quot;,
                     &quot;width&quot;:300,
-                    &quot;height&quot;:100
+                    &quot;height&quot;:100,
+                    &quot;is_designed_for_families&quot;: false
                 },
                 &quot;gameover&quot;:{
                     &quot;id&quot;:&quot;ca-app-pub-1329374026572143/1092476511&quot;,
-                    &quot;type&quot;:&quot;interstitial&quot;
+                    &quot;type&quot;:&quot;interstitial&quot;,
+                    &quot;is_designed_for_families&quot;: true
                 }
             }
         }
