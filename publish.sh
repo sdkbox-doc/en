@@ -34,4 +34,4 @@ else
     cp -R api/ site/api
 fi
 
-python mkdocs gh-deploy
+mkdocs gh-deploy
