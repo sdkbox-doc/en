@@ -34,10 +34,10 @@ alignment:
     - "left"
     - "right"
     - "center"
-    - "top_left" or "left_top"
-    - "top_right" or "right_top"
-    - "bottom_left" or "left_bottom"
-    - "bottom_right" or "right_bottom"
+    - "top_left"
+    - "top_right"
+    - "bottom_left"
+    - "bottom_right"
 
 width x height:
 
@@ -56,12 +56,15 @@ width x height:
     "height":0
 ```
 
+#### Apps targeted for Children
+Apps that target for children can specify `"is_designed_for_families": true`
+
 #### Auto cache
 
 The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial Ad after
 it close.
 
-Example:
+#### Example:
 ```json
 
 {
@@ -73,11 +76,13 @@ Example:
                     "type":"banner",
                     "alignment":"bottom",
                     "width":300,
-                    "height":50
+                    "height":50,
+                    "is_designed_for_families": false
                 },
                 "gameover":{
                     "id":"ca-app-pub-1329374026572143/4185543717",
-                    "type":"interstitial"
+                    "type":"interstitial",
+                    "is_designed_for_families": true
                 }
             }
         }
@@ -90,11 +95,13 @@ Example:
                     "type":"banner",
                     "alignment":"bottom",
                     "width":300,
-                    "height":100
+                    "height":100,
+                    "is_designed_for_families": false
                 },
                 "gameover":{
                     "id":"ca-app-pub-1329374026572143/1092476511",
-                    "type":"interstitial"
+                    "type":"interstitial",
+                    "is_designed_for_families": true
                 }
             }
         }
