@@ -4,36 +4,32 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Setting up your Unity project for In App Purchase</h2>
+<h2>Setting up App Store accounts</h2>
 
-This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation. 
+The first step of implementing In app purchase will be setting up App Store Accounts.
 
-How each store recognizes your app is different for iOS and Android. On iOS, you need the bundle identifier to retrieve products from the store. You can get this bundle identifier from the Apple developer member center where you created your app. This bundle identifier must be specified in the iOS section of Player Settings. You can find more information [here](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727)
+This guide does not cover creating the account itself, or creating apps in the iTunes or GooglePlay stores. For instructions on how to do that, please visit [iTunes](http://itunesconnect.apple.com/) and [GooglePlay](https://play.google.com/apps/publish) website.
 
-On Android, there is a key that you must specify in the IAP configuration inspector pane. You can get this key from the Google Play Console where you setup your app and create in app purchase products. You can find more information [here](http://developer.android.com/google/play/billing/billing_overview.html)
+> For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the Google Play Console "Services & APIs" section
 
 <h2>Importing SDKBOX IAP</h2>
 
-To begin using SDKBOX IAP, import the ```sdkbox_iap``` unity package into your project. This will add a directory under Assets called IAP. 
+To begin using SDKBOX IAP, import the ```sdkbox_iap``` unity package into your project. This will add a directory under Assets called `SDKBOX`. 
 
-![](iap_dox1.jpg)
+![](iap_dox1.png)
 
-This directory contains everything you will need in order to make In-App-Purchases.
+This directory contains everything you will need in order to make In-App-Purchases. We also provide a sample scene with everything setup, you can use it as a reference
+
+![](sample_scene.png)
 
 
 To begin, find the IAP prefab in the IAP directory. 
 
-![](iap_dox2.jpg)
+![](iap_dox2.png)
 
 Create an instance of the IAP prefab in the scene where you want to make in app purchases, such as your store scene.
 
 Select the IAP game object in the hierarchy and in your inspector pane you can configure the object for In-App-Purchases.
-
-<h2>Specifying a key (Android)</h2>
-
-![](iap_dox3.jpg)
-
-On Android, need a license key from the ```Services & APIs``` section of the Google Play Developer Console. Copy and paste this key into the Android Key field.
 
 <h2>Adding Products</h2>
 
@@ -43,7 +39,15 @@ Each product will have a name, and there are two types of products. Consumable a
 
 In the ```Products``` field for each platform, you can specify how many products you have, and you can enter the name of each product, and whether or not it is consumable. 
 
+> Note: you can use same name accross ios and android to keep your code cross-platform
+
 ![](iap_dox4.jpg)
+
+<h2>Specifying a key (Android)</h2>
+
+![](iap_dox3.jpg)
+
+On Android, need a license key from the ```Services & APIs``` section of the Google Play Developer Console. Copy and paste this key into the Android Key field.
 
 <h2>Making Purchases</h2>
 
