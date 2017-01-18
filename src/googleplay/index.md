@@ -3,7 +3,7 @@
 <h1>Google Play Games Services Plugin</h1>
 
 ##Overview
-You can find [more information about this plugin here.](http://www.cocos2d-x.org/sdkbox/googleplay) (TBD)
+You can find [more information about this plugin here.](http://www.sdkbox.com/plugins/googleplayservices) 
 
 ##Integration Guides
 
