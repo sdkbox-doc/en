@@ -1246,7 +1246,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : string,   // experience value
+     &quot;xp_value&quot;                  : number,
      &quot;last_updated_timestamp&quot;    : number,
      &quot;description&quot;               : string,
      &quot;type&quot;                      : number,   // 0 = standard, 1 = incremental
@@ -1260,7 +1260,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;formatted_current_steps&quot;   : string,
      &quot;formatted_total_steps&quot;     : string,
-     current_steps&quot;              : number,
+     &quot;current_steps&quot;             : number,
      &quot;total_steps&quot;               : number
   }
 </code></pre>
@@ -1269,7 +1269,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : number, int
+     &quot;xp_value&quot;                  : number,
      &quot;last_updated_timestamp&quot;    : number,
      &quot;description&quot;               : string,   // maybe empty if no achievemnt submission happened before.
      &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
@@ -1277,11 +1277,12 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
      &quot;current_steps&quot;             : number,   // double value. percentage 0.0 .. 100.0
      &quot;total_steps&quot;               : number,   // 100.0
   }
- ```
- iOS only fields:
-```json
-  {
+</code></pre>
+
+<p>iOS only fields:</p>
+<pre><code class="json">  {
      &quot;replayable&quot;                : boolean,
+     &quot;unachieved_description&quot;    : string
   }
 </code></pre>
 
