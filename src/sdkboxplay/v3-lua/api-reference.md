@@ -305,13 +305,14 @@ onAchievementsLoaded(reload_forced, json_achievements_info)
 ```
 > Method invoked after calling plugin's `loadAchievements` method.
 The `json_achievements_info` parameter is a json array encoded string.
+
 #### Android fields:
 each array element is of the form:
 ```json
   {
      "id"                        : string,
      "name"                      : string,
-     "xp_value"                  : string,   // experience value
+     "xp_value"                  : number,
      "last_updated_timestamp"    : number,
      "description"               : string,
      "type"                      : number,   // 0 = standard, 1 = incremental
@@ -325,7 +326,7 @@ each array element is of the form:
   {
      "formatted_current_steps"   : string,
      "formatted_total_steps"     : string,
-     current_steps"              : number,
+     "current_steps"             : number,
      "total_steps"               : number
   }
 ```
@@ -334,7 +335,7 @@ each array element is of the form:
   {
      "id"                        : string,
      "name"                      : string,
-     "xp_value"                  : number, int
+     "xp_value"                  : number,
      "last_updated_timestamp"    : number,
      "description"               : string,   // maybe empty if no achievemnt submission happened before.
      "state"                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
@@ -342,11 +343,13 @@ each array element is of the form:
      "current_steps"             : number,   // double value. percentage 0.0 .. 100.0
      "total_steps"               : number,   // 100.0
   }
- ```
- iOS only fields:
+```
+
+iOS only fields:
 ```json
   {
      "replayable"                : boolean,
+     "unachieved_description"    : string
   }
 ```
 

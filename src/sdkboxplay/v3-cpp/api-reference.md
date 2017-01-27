@@ -324,6 +324,7 @@ void onAchievementsLoaded ( bool reload_forced ,
 ```
 > Method invoked after calling plugin's `loadAchievements` method.
 The `json_achievements_info` parameter is a json array encoded string.
+
 #### Android fields:
 each array element is of the form:
 ```json
