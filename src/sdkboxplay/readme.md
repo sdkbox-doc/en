@@ -13,7 +13,8 @@
 
 ###Game Center
  + Enable Game Center on XCode.
- + Use developer console to configure leaderboards and achievements.
+ + Use itunes connect to configure [leaderboards](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Leaderboards/Leaderboards.html#//apple_ref/doc/uid/TP40013726-CH2-SW47) and [achievements](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Achievements/Achievements.html#//apple_ref/doc/uid/TP40013726-CH3-SW3).
+ + Make sure Leaderboard and Achievements are live before testing
 
 
 ##Integration

@@ -337,9 +337,8 @@ each array element is of the form:
      "name"                      : string,
      "xp_value"                  : number,
      "last_updated_timestamp"    : number,
-     "description"               : string,   // maybe empty if no achievemnt submission happened before.
      "state"                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
-     "type"                      : 1,        // on ios all achievemtns are incremental.
+     "type"                      : number,   // always 1 = incremental, on iOS all achievemtns are incremental.
      "current_steps"             : number,   // double value. percentage 0.0 .. 100.0
      "total_steps"               : number,   // 100.0
   }
@@ -348,7 +347,8 @@ each array element is of the form:
 iOS only fields:
 ```json
   {
-     "replayable"                : boolean,
+     "replayable"                : boolean, // whether this achievement can be earned multiple times.
+     "achieved_description"      : string,  // maybe empty if no achievemnt submission happened before.
      "unachieved_description"    : string
   }
 ```
