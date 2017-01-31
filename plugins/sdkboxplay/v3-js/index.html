@@ -671,7 +671,8 @@
 <h3 id="game-center">Game Center</h3>
 <ul>
 <li>Enable Game Center on XCode.</li>
-<li>Use developer console to configure leaderboards and achievements.</li>
+<li>Use itunes connect to configure <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Leaderboards/Leaderboards.html#//apple_ref/doc/uid/TP40013726-CH2-SW47">leaderboards</a> and <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Achievements/Achievements.html#//apple_ref/doc/uid/TP40013726-CH3-SW3">achievements</a>.</li>
+<li>Make sure Leaderboard and Achievements are live before testing</li>
 </ul>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX SdkboxPlay plugin. Make sure you setup the SDKBOX installer correctly.</p>
@@ -1271,9 +1272,8 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
      &quot;name&quot;                      : string,
      &quot;xp_value&quot;                  : number,
      &quot;last_updated_timestamp&quot;    : number,
-     &quot;description&quot;               : string,   // maybe empty if no achievemnt submission happened before.
      &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
-     &quot;type&quot;                      : 1,        // on ios all achievemtns are incremental.
+     &quot;type&quot;                      : number,   // always 1 = incremental, on iOS all achievemtns are incremental.
      &quot;current_steps&quot;             : number,   // double value. percentage 0.0 .. 100.0
      &quot;total_steps&quot;               : number,   // 100.0
   }
@@ -1281,7 +1281,8 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 
 <p>iOS only fields:</p>
 <pre><code class="json">  {
-     &quot;replayable&quot;                : boolean,
+     &quot;replayable&quot;                : boolean, // whether this achievement can be earned multiple times.
+     &quot;achieved_description&quot;      : string,  // maybe empty if no achievemnt submission happened before.
      &quot;unachieved_description&quot;    : string
   }
 </code></pre>
