@@ -221,6 +221,16 @@ pages:
                 - 'Playphone with C++': 'plugins/playphone/v2-cpp.md'
                 - 'Playphone with Javascript': 'plugins/playphone/v2-js.md'
                 - 'Playphone with Lua': 'plugins/playphone/v2-lua.md'
+        - 'Phunware Ads': 'plugins/phunwareads/index.md'
+        - '_Phunware Ads':
+            - 'Cocos2d-x v3.x':
+                - 'Phunware Ads with C++': 'plugins/phunwareads/v3-cpp.md'
+                - 'Phunware Ads with Javascript': 'plugins/phunwareads/v3-js.md'
+                - 'Phunware Ads with Lua': 'plugins/phunwareads/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Phunware Ads with C++': 'plugins/phunwareads/v2-cpp.md'
+                - 'Phunware Ads with Javascript': 'plugins/phunwareads/v2-js.md'
+                - 'Phunware Ads with Lua': 'plugins/phunwareads/v2-lua.md'
         - 'Ratings & Reviews': 'plugins/review/index.md'
         - '_Ratings & Reviews':
             - 'Cocos2d-x v3.x':
