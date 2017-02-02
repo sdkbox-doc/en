@@ -5,9 +5,9 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Importing SDKBOX SocialShare</h2>
+##Importing SDKBOX SocialShare
 
-First import the ```sdkbox_socialshare``` unity package into your project. This will create two directories(PLugins and SDKBOX) in Assets.
+First import the ```sdkbox_socialshare``` unity package into your project. This will create two directories(Plugins and SDKBOX) in Assets.
 
 ![](socialshare_folder.jpg)
 
@@ -19,18 +19,18 @@ Create an instance of the SocialShare prefab in the scene where you want to use 
 
 Select the SocialShare game object in the hierarchy and in your inspector pane you can configure the object to customize the SocialShare dialog.
 
-<h2>Configuring the Review Plugin</h2>
+##Configuring the Review Plugin
 
 ![](socialshare_config.png)
 
-<h3>Description of Fields</h3>
+### Description of Fields
 
 Config
 
-<h5>Twitter Key IOS</h5>
+<h5>Twitter Key iOS</h5>
 This specifies twitter key of ios platform, if none, will not show in share panel on ios.
 
-<h5>Twitter Secret IOS</h5>
+<h5>Twitter Secret iOS</h5>
 
 This specifies twitter secret of ios platfoorm, if none, will not show in share panel on ios.
 
@@ -54,13 +54,13 @@ This specifies social panel custom title
 
 This specifies social panel custom cancel button
 
-<h2>Handling SockalShare Events</h2>
+##Handling SocialShare Events
 
 In the ```Callbacks``` section of the SocialShare script inspector pane, you can click ```+``` to add a subscriber, and specify the object, and method that you would like to have invoked.
 
 ![](socialshare_callbacks.png)
 
-<h2>SocialShare API</h2>
+##SocialShare API
 
 ```
 void setSharePanelTitle(string s)
@@ -69,11 +69,11 @@ void share(SocialShareInfo info)
 
 ```
 
-<h2>Manual Setp</h2>
+##Manual Setup
 
 <h5>IOS Platform</h5>
 
-- when build ios, you need insert fllow code to info.plist, and replace `280194012150923 ` with your facebook app id
+- when build ios, you need insert follow code to info.plist, and replace `280194012150923 ` with your facebook app id
 
 
 ```
@@ -107,7 +107,7 @@ void share(SocialShareInfo info)
 
 <h5>Android Platform</h5>
 
-when build android, you need the fllow two modify
+when build android, you need the follow two modify
 
 - replace string `280194012150923` with your facebook app id in file `Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml`
 
@@ -126,10 +126,10 @@ when build android, you need the fllow two modify
 </resources>
 ```
 
-<h2>Additional iOS Instructions</h2>
-On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.
+##Additional iOS Instructions
+On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.
 
-<h2>Trouble Shoot</h2>
+##Trouble Shoot
 
 ![](socialshare_conflict_error.png)
 
