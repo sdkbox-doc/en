@@ -39,7 +39,7 @@ Each product will have a name, and there are two types of products. Consumable a
 
 In the ```Products``` field for each platform, you can specify how many products you have, and you can enter the name of each product, and whether or not it is consumable. 
 
-> Note: you can use same name accross ios and android to keep your code cross-platform
+> Note: you can use same name across ios and android to keep your code cross-platform
 
 ![](iap_dox4.jpg)
 

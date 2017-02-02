@@ -264,7 +264,7 @@
 ##Bug
 * Fix IAP crash when google play service are not initalized correctly
 * Fix installer will change Android.mk format bug
-* Fix compatiblity issue with Reachability project
+* Fix compatibility issue with Reachability project
 * Fix InMobi banner settings
 * Fix conflicts between Tune and other plugins
 

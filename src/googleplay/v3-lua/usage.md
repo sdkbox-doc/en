@@ -53,7 +53,7 @@ end)
 
 Before you can do anything with Google Play Services, you must authenticate. If you have previously authenticated, then sdkbox will attempt to log you in automatically. You will still get the same events that you normally would if you are logged in automatically.
 
-To begin the authentication process, you call the following, and pass in either a class method or a lambda method (see Callbacks) to recieve the response.
+To begin the authentication process, you call the following, and pass in either a class method or a lambda method (see Callbacks) to receive the response.
 
 ```
 gpg:StartAuthorizationUI(function(result)
@@ -603,7 +603,7 @@ For the complete documentation, check out [Nearby Connections](https://developer
 
 ### Init
 
-init nearby connection, if not support current platfrom, will return false
+init nearby connection, if not support current platform, will return false
 
 ```lua
 local support = gpg.NearbyConnections:Init("{\"LogLevel\":1}",

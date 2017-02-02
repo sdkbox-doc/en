@@ -129,7 +129,7 @@ public class IAPScript : MonoBehaviour {
 * fill `Android Key` with your android key
 * add your android iap items to `android products`
 
-* fill callback with event handler fucntion in `IAPScript`
+* fill callback with event handler function in `IAPScript`
 
 ![](../imgs/unity_tutorial_iap_prefab_detail.png)
 

@@ -42,7 +42,7 @@ sdkbox.PluginValuePotion.userinfo("serverid", "server id")
 sdkbox.PluginValuePotion.userinfo("birth", "birther day")
 sdkbox.PluginValuePotion.userinfo("gender", "M")
 sdkbox.PluginValuePotion.userinfo("level", "9")
-sdkbox.PluginValuePotion.userinfo("firends", "3")
+sdkbox.PluginValuePotion.userinfo("friends", "3")
 sdkbox.PluginValuePotion.userinfo("accounttype", "facebook")
 ```
 

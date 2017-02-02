@@ -39,73 +39,73 @@ sdkbox.PluginInMobi.removeIdType(type);
 ```javascript
 sdkbox.PluginInMobi.setAge(age);
 ```
-> Provide the user's age to the SDK for targetting purposes.
+> Provide the user's age to the SDK for targeting purposes.
 @param age The user's age.
 
 ```javascript
 sdkbox.PluginInMobi.setAreaCode(areaCode);
 ```
-> Provide the user's area code to the SDK for targetting purposes.
+> Provide the user's area code to the SDK for targeting purposes.
 @param areaCode The user's area code.
 
 ```javascript
 sdkbox.PluginInMobi.setAgeGroup(ageGroup);
 ```
-> Provide the user's age group to the SDK for targetting purposes.
+> Provide the user's age group to the SDK for targeting purposes.
 @param ageGroup The user's age group.
 
 ```javascript
 sdkbox.PluginInMobi.setYearOfBirth(yearOfBirth);
 ```
-> Provide a user's date of birth to the SDK for targetting purposes.
+> Provide a user's date of birth to the SDK for targeting purposes.
 @param dateOfBirth The user's date of birth.
 
 ```javascript
 sdkbox.PluginInMobi.setEducation(education);
 ```
-> Provide the user's education status to the SDK for targetting purposes.
+> Provide the user's education status to the SDK for targeting purposes.
 @param education The user's education status.
 
 ```javascript
 sdkbox.PluginInMobi.setEthnicity(ethnicity);
 ```
-> Provide the user's ethnicity to the SDK for targetting purposes.
+> Provide the user's ethnicity to the SDK for targeting purposes.
 @param ethnicity The user's ethnicity.
 
 ```javascript
 sdkbox.PluginInMobi.setGender(gender);
 ```
-> Provide the user's gender to the SDK for targetting purposes.
+> Provide the user's gender to the SDK for targeting purposes.
 @param gender The user's gender.
 
 ```javascript
 sdkbox.PluginInMobi.setHouseholdIncome(income);
 ```
-> Provide the user's household income to the SDK for targetting purposes.
+> Provide the user's household income to the SDK for targeting purposes.
 @param income The user's household income.
 
 ```javascript
 sdkbox.PluginInMobi.setIncome(income);
 ```
-> Provide the user's income to the SDK for targetting purposes.
+> Provide the user's income to the SDK for targeting purposes.
 @param income The user's income.
 
 ```javascript
 sdkbox.PluginInMobi.setInterests(interests);
 ```
-> Provide the user's interests to the SDK for targetting purposes.
+> Provide the user's interests to the SDK for targeting purposes.
 @param interests The user's interests.
 
 ```javascript
 sdkbox.PluginInMobi.setLanguage(language);
 ```
-> Provide the user's preferred language to the SDK for targetting purposes.
+> Provide the user's preferred language to the SDK for targeting purposes.
 @param language The user's language.
 
 ```javascript
 sdkbox.PluginInMobi.setLocation(city, state, country);
 ```
-> Provide the user's location to the SDK for targetting purposes.
+> Provide the user's location to the SDK for targeting purposes.
 @param city The user's city.
 @param state The user's state.
 @param country The user's country.
@@ -113,19 +113,19 @@ sdkbox.PluginInMobi.setLocation(city, state, country);
 ```javascript
 sdkbox.PluginInMobi.setLocation(latitude, longitude);
 ```
-> Provide the user's location to the SDK for targetting purposes.
+> Provide the user's location to the SDK for targeting purposes.
 @param location: The location of the user
 
 ```javascript
 sdkbox.PluginInMobi.setNationality(nationality);
 ```
-> Provide the user's nationality to the SDK for targetting purposes.
+> Provide the user's nationality to the SDK for targeting purposes.
 @param nationality The user's nationality.
 
 ```javascript
 sdkbox.PluginInMobi.setPostalCode(postalcode);
 ```
-> Provide the user's postal code to the SDK for targetting purposes.
+> Provide the user's postal code to the SDK for targeting purposes.
 @param postalcode The user's postalcode.
 
 ```javascript

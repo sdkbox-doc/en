@@ -50,67 +50,67 @@ static void removeIdType ( SBIMSDKIdType type ) ;
 ```cpp
 static void setAge ( int age ) ;
 ```
-> Provide the user's age to the SDK for targetting purposes.
+> Provide the user's age to the SDK for targeting purposes.
 @param age The user's age.
 
 ```cpp
 static void setAreaCode ( const std::string & areaCode ) ;
 ```
-> Provide the user's area code to the SDK for targetting purposes.
+> Provide the user's area code to the SDK for targeting purposes.
 @param areaCode The user's area code.
 
 ```cpp
 static void setAgeGroup ( SBIMSDKAgeGroup ageGroup ) ;
 ```
-> Provide the user's age group to the SDK for targetting purposes.
+> Provide the user's age group to the SDK for targeting purposes.
 @param ageGroup The user's age group.
 
 ```cpp
 static void setYearOfBirth ( int yearOfBirth ) ;
 ```
-> Provide a user's date of birth to the SDK for targetting purposes.
+> Provide a user's date of birth to the SDK for targeting purposes.
 @param dateOfBirth The user's date of birth.
 
 ```cpp
 static void setEducation ( SBIMSDKEducation education ) ;
 ```
-> Provide the user's education status to the SDK for targetting purposes.
+> Provide the user's education status to the SDK for targeting purposes.
 @param education The user's education status.
 
 ```cpp
 static void setEthnicity ( SBIMSDKEthnicity ethnicity ) ;
 ```
-> Provide the user's ethnicity to the SDK for targetting purposes.
+> Provide the user's ethnicity to the SDK for targeting purposes.
 @param ethnicity The user's ethnicity.
 
 ```cpp
 static void setGender ( SBIMSDKGender gender ) ;
 ```
-> Provide the user's gender to the SDK for targetting purposes.
+> Provide the user's gender to the SDK for targeting purposes.
 @param gender The user's gender.
 
 ```cpp
 static void setHouseholdIncome ( SBIMSDKHouseholdIncome income ) ;
 ```
-> Provide the user's household income to the SDK for targetting purposes.
+> Provide the user's household income to the SDK for targeting purposes.
 @param income The user's household income.
 
 ```cpp
 static void setIncome ( unsigned int income ) ;
 ```
-> Provide the user's income to the SDK for targetting purposes.
+> Provide the user's income to the SDK for targeting purposes.
 @param income The user's income.
 
 ```cpp
 static void setInterests ( const std::string & interests ) ;
 ```
-> Provide the user's interests to the SDK for targetting purposes.
+> Provide the user's interests to the SDK for targeting purposes.
 @param interests The user's interests.
 
 ```cpp
 static void setLanguage ( const std::string & language ) ;
 ```
-> Provide the user's preferred language to the SDK for targetting purposes.
+> Provide the user's preferred language to the SDK for targeting purposes.
 @param language The user's language.
 
 ```cpp
@@ -118,7 +118,7 @@ static void setLocation ( const std::string & city ,
                           const std::string & state ,
                           const std::string & country ) ;
 ```
-> Provide the user's location to the SDK for targetting purposes.
+> Provide the user's location to the SDK for targeting purposes.
 @param city The user's city.
 @param state The user's state.
 @param country The user's country.
@@ -126,19 +126,19 @@ static void setLocation ( const std::string & city ,
 ```cpp
 static void setLocation ( double latitude , double longitude ) ;
 ```
-> Provide the user's location to the SDK for targetting purposes.
+> Provide the user's location to the SDK for targeting purposes.
 @param location: The location of the user
 
 ```cpp
 static void setNationality ( const std::string & nationality ) ;
 ```
-> Provide the user's nationality to the SDK for targetting purposes.
+> Provide the user's nationality to the SDK for targeting purposes.
 @param nationality The user's nationality.
 
 ```cpp
 static void setPostalCode ( const std::string & postalcode ) ;
 ```
-> Provide the user's postal code to the SDK for targetting purposes.
+> Provide the user's postal code to the SDK for targeting purposes.
 @param postalcode The user's postalcode.
 
 ```cpp

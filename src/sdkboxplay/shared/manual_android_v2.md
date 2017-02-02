@@ -53,7 +53,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginsdkboxplay)
 ```
 
-### Edit `Aplication.mk`
+### Edit `Application.mk`
 Edit `proj.android/jni/Application.mk` to:
 
 Add __APP_PLATFORM__ version requirements:

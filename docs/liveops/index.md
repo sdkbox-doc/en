@@ -18,7 +18,7 @@ __SDKBOX LiveOps__ enables developers to receive the benefits of cloud based fun
 ![](../imgs/export.png)
 
 !!! note
-    The newly created configuration sets are still in __Draft__ state. They are not accessable by the client, until you can edit and publish them to the cloud. [Learn more about Remote Config](./remote-config). 
+    The newly created configuration sets are still in __Draft__ state. They are not accessible by the client, until you can edit and publish them to the cloud. [Learn more about Remote Config](./remote-config). 
 
 
 
