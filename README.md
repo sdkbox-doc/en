@@ -55,11 +55,19 @@ mkdocs gh-deploy --clean
 
 ##Contributors
 @slackmoehrle
+
 @darkdukey
+
 @yinjimmy
+
 @hugohuang1111
+
 @kaizhao
+
 @pabitrapadhy
+
 @bluetriggerfish
+
 @cheerayhuang
+
 @pineoc
