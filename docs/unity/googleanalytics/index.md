@@ -4,13 +4,14 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Importing SDKBOX GoogleAnalytics</h2>
+##Importing SDKBOX GoogleAnalytics
 
 First import the ```sdkbox_googleanalytics``` unity package into your project. This will create a directory SDKBOX under Assets. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory may also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.
 
-<h2>Using the GoogleAnalytics Plugin</h2>
 
-To begin using GoogleAnalytics plugin, find the GoogleAnalytics prefab in the Assets/SDKBOX/googleanalytics directory. 
+##Using the GoogleAnalytics Plugin
+
+To begin using GoogleAnalytics plugin, find the GoogleAnalytics prefab in the Assets/SDKBOX/googleanalytics directory.
 
 ![](ga1.png)
 
@@ -20,7 +21,8 @@ Drag an instance of this prefab into the scene where you want to start using ana
 
 Select the GoogleAnalytics game object in the hierarchy and in your inspector pane you can configure the object to complete the setup.
 
-<h2>Configuring the GoogleAnalytics Plugin</h2>
+
+##Configuring the GoogleAnalytics Plugin
 
 ![](ga3.png)
 
@@ -32,7 +34,8 @@ This is the tracking code from your Google Analytics account. You can use the sa
 <h5>Android Tracking Code</h5>
 This is the tracking code from your Google Analytics account. You can use the same code for both platforms if you like, or you can have different codes for each. It's up to you.
 
-<h2>GoogleAnalytics API</h2>
+
+##GoogleAnalytics API
 
 <h6>
 The analytics session is being explicitly started at plugin initialization time.
@@ -157,4 +160,3 @@ static void createTracker(string trackerId);
 ```
 static void enableTracker(string trackerId);
 ```
-

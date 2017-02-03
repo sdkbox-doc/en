@@ -4,7 +4,7 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Setting up App Store accounts</h2>
+##Setting up App Store accounts
 
 The first step of implementing In app purchase will be setting up App Store Accounts.
 
@@ -12,9 +12,9 @@ This guide does not cover creating the account itself, or creating apps in the i
 
 > For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the Google Play Console "Services & APIs" section
 
-<h2>Importing SDKBOX IAP</h2>
+##Importing SDKBOX IAP
 
-To begin using SDKBOX IAP, import the ```sdkbox_iap``` unity package into your project. This will add a directory under Assets called `SDKBOX`. 
+To begin using SDKBOX IAP, import the ```sdkbox_iap``` unity package into your project. This will add a directory under Assets called `SDKBOX`.
 
 ![](iap_dox1.png)
 
@@ -23,7 +23,7 @@ This directory contains everything you will need in order to make In-App-Purchas
 ![](sample_scene.png)
 
 
-To begin, find the IAP prefab in the IAP directory. 
+To begin, find the IAP prefab in the IAP directory.
 
 ![](iap_dox2.png)
 
@@ -37,23 +37,23 @@ Products are added on either iTunes connect for Apple, or Google Play Portal for
 
 Each product will have a name, and there are two types of products. Consumable and Non-consumable. Google only supports the latter, but SDKBOX allows you to have Consumable products on Google as well as Apple, and they behave the same way.
 
-In the ```Products``` field for each platform, you can specify how many products you have, and you can enter the name of each product, and whether or not it is consumable. 
+In the ```Products``` field for each platform, you can specify how many products you have, and you can enter the name of each product, and whether or not it is consumable.
 
-> Note: you can use same name accross ios and android to keep your code cross-platform
+> Note: you can use same name across ios and android to keep your code cross-platform
 
 ![](iap_dox4.jpg)
 
-<h2>Specifying a key (Android)</h2>
+##Specifying a key (Android)
 
 ![](iap_dox3.jpg)
 
 On Android, need a license key from the ```Services & APIs``` section of the Google Play Developer Console. Copy and paste this key into the Android Key field.
 
-<h2>Making Purchases</h2>
+##Making Purchases
 
 Making a purchase is as simple as invoking the ```purchase``` method on the IAP game object. There are several ways to do this, we will do it by adding a button.
 
-From the menu, choose **Game Object** -> **UI** -> **Button**. This will create a UI canvas (if you didn't have one already) and add a button. 
+From the menu, choose **Game Object** -> **UI** -> **Button**. This will create a UI canvas (if you didn't have one already) and add a button.
 
 ![](iap_dox5.jpg)
 
@@ -65,13 +65,13 @@ This method takes a string argument that is the name of the product being purcha
 
 ![](iap_dox6.jpg)
 
-<h2>Handling Callbacks</h2>
+##Handling Callbacks
 
 There are several events that provide feedback about what is happening when you initialize, make purchases, or restore previously purchased items.
 
 The following is a list of the callbacks and the parameters they provide.
 
-* ```onInitialized (bool status)``` Called after the IAP system initializes. It will pass a boolean value that indicates whether or not the initialization was successful or not. A value of ```true``` indicates success. 
+* ```onInitialized (bool status)``` Called after the IAP system initializes. It will pass a boolean value that indicates whether or not the initialization was successful or not. A value of ```true``` indicates success.
 
 * ```onProductRequestSuccess (Product[] products)``` Called after initialization, and having requested the products from the store using the keys specified for each platform. If the request was successful, then this callback is invoked and passed the array of available products.
 
@@ -87,7 +87,7 @@ The following is a list of the callbacks and the parameters they provide.
 
 * ```onRestoreComplete ()``` Called after all products have been restored. If none were restored, you will still receive this callback.
 
-<h2>Handling IAP Events</h2>
+##Handling IAP Events
 
 Similar to the button On Click() event, you can subscribe to SDKBOX IAP events to get feedback about the IAP process, and to receive products from the IAP store.
 
@@ -95,7 +95,7 @@ In the ```Callbacks``` section of the IAP script inspector pane, you can click `
 
 ![](iap_dox7.jpg)
 
-<h2>Product Class</h2>
+##Product Class
 
 ```
 	public struct Product
@@ -104,25 +104,25 @@ In the ```Callbacks``` section of the IAP script inspector pane, you can click `
 
 		// The name specified in sdkbox_config.json
 		public string name;
-		
+
 		// The product id of an In App Purchase
 		public string id;
-		
+
 		// Type of iap item
 		public Type type;
-		
+
 		// The title of the IAP item
 		public string title;
-		
+
 		// The description of the IAP item
 		public string description;
-		
+
 		// Price value in float
 		public float priceValue;
-		
+
 		// Localized price
 		public string price;
-		
+
 		// price currency code
 		public string currencyCode;
 	}
@@ -132,9 +132,9 @@ The product class contains all the information about a product retrieved from th
 
 You should not create your own products, but rather allow SDKBOX IAP to create them for you.
 
-<h2>Additional Android Instructions</h2>
+##Additional Android Instructions
 
-<h3>Override Unity Activity</h3>
+### Override Unity Activity
 
 In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.
 
@@ -142,7 +142,7 @@ In order for In-App-Purchase to work, we have to be able to forward certain acti
 2. Modify your AndroidManifest.xml as following:
 ![](chart-8.png)
 
-<h3>Adding Vendor Billing Permission</h3>
+### Adding Vendor Billing Permission
 
 In order for In-App-Purchase to work on Android, it needs the following permission to be added.
 

@@ -86,7 +86,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginshare)
 ```
 
-### Edit `Aplication.mk`
+### Edit `Application.mk`
 Edit `proj.android/jni/Application.mk` to:
 
 Add __APP_PATFORM__ version requirements:

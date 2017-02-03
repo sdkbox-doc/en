@@ -157,7 +157,7 @@
 	"hasAverageSessionLength" : 1 if valid,
 	"averageSessionLength"    : length of session in ?,
 	"hasChurnProbability"     : 1 if valid,
-	"churnProbability"        : 0 - 1 likelyhood of retention,
+	"churnProbability"        : 0 - 1 likelihood of retention,
 	"hasDaysSinceLastPlayed"  : 1 if valid,
 	"daysSinceLastPlayed"     : count of days,
 	"hasNumberOfPurchases"    : 1 if valid,

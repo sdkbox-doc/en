@@ -75,7 +75,7 @@ The SDKBOX Installer has several switches that you can use. You can always see t
 |         | --dryrun        |test install before performing. |
 |         | --forcedownload |force download of package even if it is already downloaded. |
 |         | --noupdate        |ignore available updates. |
-|         | --alwaysupdate    |alwyas update to the latest version |
+|         | --alwaysupdate    |always update to the latest version |
 |         | --jsonapi        |treat commands as API calls and return JSON formatted output |
 |         | --patcherrors        |patch failures are counted as errors instead of warnings. |
 |         | --nopatching        |skip all patching commands when executing package script. |

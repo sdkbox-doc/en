@@ -4,7 +4,7 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Setting up your Unreal Engine 4 project for In App Purchase</h2>
+##Setting up your Unreal Engine 4 project for In App Purchase
 
 This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation.
 
@@ -14,22 +14,22 @@ For Apple this is the bundle identifier, and for Android it is the android packa
 
 You can find more information for iOS [here](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727) and for Android [here](http://developer.android.com/google/play/billing/billing_overview.html)
 
-<h2>Installing the SDKBOX IAP Plugin for UE4</h2>
+##Installing the SDKBOX IAP Plugin for UE4
 
 Download the SDKBOX IAP Plugin from the SDKBOX UE4 website [here](http://www.sdkbox.com/unreal)
 
-<h3>In Your Engine</h3>
+### In Your Engine
 
 1. Unpack the files into ```Engine/Plugins/SDKBOXIAP```
 2. Run the GenerateProjectFiles script in the Engine root.
 3. Open your engine project file and build the editor.
 
-<h3>In Your Code Project</h3>
+### In Your Code Project
 
 1. Unpack the files in your ```[Project Root]/Plugins``` directory.
 2. Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor.
 
-<h2>Enable the Plugin</h2>
+##Enable the Plugin
 
 Goto Settings -> Plugins and scroll down to Project if you have added the plugin to your code project, otherwise it will be part of Built-In.
 
@@ -37,7 +37,7 @@ Goto Settings -> Plugins and scroll down to Project if you have added the plugin
 
 Make sure the the Enabled checkbox is checked. You may have to restart the editor after this step.
 
-<h2>Initialize the Plugin</h2>
+##Initialize the Plugin
 
 It is important to call the SDKBOX IAP initialization method early, or at least before you call any other methods. You can do this by calling it from your Game Instance Init event, or your first scene's Begin Play event.
 
@@ -63,7 +63,7 @@ You can have different Id's for each platform by specifying the Affinity for eit
 
 You can now create a function to convert the Products variable into a JSON string that you can feed into the initialize function (pictured above).
 
-<h2>Handling Events</h2>
+##Handling Events
 
 You can handle events from the plugin by adding the Sdkbox IAP component to an actor in your scene.
 
@@ -79,17 +79,17 @@ You can click the ```+``` to add an event handler that you can use to implement 
 
 You will always receive the ```OnInitialized``` event, and the ```Status``` boolean will indicate whether or not it was successful.
 
-<h2>Receiving Products from the Store</h2>
+##Receiving Products from the Store
 
 ![](img5.png)
 
 If the initialization was successful, you will receive the ```OnProductRequestSuccess``` event and it will provide an array of products (not to be confused with product descriptions, which are similar but have limited information).
 
-<h2>Making a Purchase</h2>
+##Making a Purchase
 
 ![](img8.png)
 
-<h3>Handling Success or Failure</h3>
+### Handling Success or Failure
 
 You can listen to the events for ```OnSuccess, OnFailure, and OnCanceled```. These events will pass you the product that is being processed.
 
@@ -99,7 +99,7 @@ Some events will also pass you a message that can be used for diagnostic purpose
 
 ![](img10.png)
 
-<h3>Restoring Products</h3>
+### Restoring Products
 
 To restore previously purchased products, simply call the restore function.
 
@@ -109,7 +109,7 @@ This will send you a ```OnRestored``` event for each product that has been resto
 
 ![](img12.png)
 
-<h3>Verify In App Purchase Receipt</h3>
+### Verify In App Purchase Receipt
 
 Receipt information is not sent by default, you should enable receipt verification using the following function.
 
@@ -119,9 +119,9 @@ And check product.receipt and product.receiptCipheredPayload for IAP receipt dat
 
 Note: only Google Play provides receipt data, iOS only provides a ciphered payload string for the user to perform IAP verification.
 
-<h1>Code Reference</h1>
+##Code Reference
 
-<h3>SDKBOX IAP Functions</h3>
+### SDKBOX IAP Functions
 
 ```
 UCLASS(NotBlueprintable)
@@ -155,7 +155,7 @@ public:
 };
 ```
 
-<h3>SDKBOX IAP Product</h3>
+### SDKBOX IAP Product
 
 ```
 UCLASS(ClassGroup=SDKBOX, HideCategories=(Activation, "Components|Activation", Collision), meta=(BlueprintSpawnableComponent))
@@ -212,7 +212,7 @@ public:
 };
 ```
 
-<h3>SDKBOX IAP Product Description</h3>
+### SDKBOX IAP Product Description
 
 ```
 UENUM(BlueprintType)
@@ -246,7 +246,7 @@ struct FSdkboxIAPProductDescription
 };
 ```
 
-<h3>JSON Configuration</h3>
+### JSON Configuration
 
 Here is an example of the JSON configuration. You will need to replace <put the product id for ios here> with the product id from your iTunes Connect or replace <put your googleplay key here> from your Google Play Console
 
@@ -290,9 +290,3 @@ If you have products that are non-consumable, it is also necessary to supply thi
     }
 }
 ```
-
-
-
-
-
-

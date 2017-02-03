@@ -60,7 +60,7 @@ And created a new __APP__ on Facebook, If not please follow up the __Setup Faceb
 
 ```
 
-login doesnt work on simulator on iOS 10, Xcode8
+login doesn't work on simulator on iOS 10, Xcode8
 
 ~~~
 Go to the Project Target and then Capabilities and switch Keychain Sharing ON.

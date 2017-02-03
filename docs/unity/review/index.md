@@ -8,13 +8,13 @@ For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/
 
 If you have used and installed SDKBOX IAP v1.3.6 or earlier, you must either update to IAP 1.3.7 or delete the Assets/IAP directory, before adding other SDKBOX plugins.
 
-<h2>Importing SDKBOX Review</h2>
+##Importing SDKBOX Review
 
-First import the ```sdkbox_review``` unity package into your project. This will create two directories in Assets, one for review and one for sdkbox. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.
+First import the ```sdkbox_review``` unity package into your project. This will create two directories in Assets, one for review and one for SDKBOX. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.
 
 ![](iap_dox1.png)
 
-To begin using Review, find the Review prefab in the Assets/SDKBOX/review directory. 
+To begin using Review, find the Review prefab in the Assets/SDKBOX/review directory.
 
 ![](iap_dox2.png)
 
@@ -22,11 +22,11 @@ Create an instance of the Review prefab in the scene where you want to use the R
 
 Select the Review game object in the hierarchy and in your inspector pane you can configure the object to customize the Review dialog.
 
-<h2>Configuring the Review Plugin</h2>
+##Configuring the Review Plugin
 
 ![](settings.png)
 
-<h3>Description of Fields</h3>
+### Description of Fields
 
 IOS App Id
 
@@ -53,19 +53,19 @@ Specifies the number of launches to wait before reminding again, once the user h
 
 If true, will attempt to show the rate dialog when the plugin initializes, i.e. right when the app starts.
 
-<h2>Configuring the Review Dialog</h2>
+##Configuring the Review Dialog
 
 ![](prompt.png)
 
-You can configure all of the text on the Review dialog, either to customize, or to localize the text. 
+You can configure all of the text on the Review dialog, either to customize, or to localize the text.
 
-<h2>Handling Review Events</h2>
+##Handling Review Events
 
 In the ```Callbacks``` section of the Review script inspector pane, you can click ```+``` to add a subscriber, and specify the object, and method that you would like to have invoked.
 
 ![](callbacks.png)
 
-<h2>Review API</h2>
+##Review API
 
 ```
 void show(bool force);
@@ -83,5 +83,5 @@ void setRateButtonTitle(string rateTitle);
 void setRateLaterButtonTitle(string rateLaterTitle);
 ```
 
-<h2>Additional iOS Instructions</h2>
-On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.
+##Additional iOS Instructions
+On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.

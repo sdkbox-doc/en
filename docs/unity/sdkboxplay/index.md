@@ -4,7 +4,7 @@
 
 For more information, visit our website @ [www.sdkbox.com](http://cocos2d-x.org/sdkbox)
 
-<h2>Importing SDKBOX Play</h2>
+##Importing SDKBOX Play
 
 First import the ```SdkboxPlay``` unity package into your project. This will create two directories in Assets, one for sdkboxplay and one for sdkbox. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.
 
@@ -16,13 +16,13 @@ Create an instance of the sdkboxplay prefab in the scene where you want to use t
 
 Select the sdkboxplay game object in the hierarchy and in your inspector pane you can configure the object.
 
-<h2>Configuring the sdkboxplay Plugin</h2>
+##Configuring the sdkboxplay Plugin
 
 ![](sdkbox_play_settings.png)
 
-<h3>Description of Fields</h3>
+### Description of Fields
 
-<h5>Leaderboadrds</h5>
+<h5>Leaderboards</h5>
 
 Leaderboards are defined on the respective platform’s developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:
 
@@ -40,10 +40,10 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 + For Game Center, all achievements are incremental, but Game center does not keep track of its progress. Achievements are expected to be achieved during a game session. Achievements can be set to be unlocked several times.
 + Google Play has the notion of newly unlocked achievement (first time unlocked), and Game Center has the notion of recurrently unlockable achievement. Both concepts are complementary.
 
-To keep things consisten, SdkboxPlay API:
+To keep things consistent, SdkboxPlay API:
 
 + Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.
-+ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. 
++ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.
 + For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
 
 <h5>Debug</h5>
@@ -54,13 +54,13 @@ Specifies debug mode
 
 Specifies if connect when app start
 
-<h2>Handling sdkboxplay Events</h2>
+##Handling SdkboxPlay Events
 
-In the ```Callbacks``` section of the sdkboxplay script inspector pane, you can click ```+``` to add a subscriber, and specify the object, and method that you would like to have invoked.
+In the ```Callbacks``` section of the SdkboxPlay script inspector pane, you can click ```+``` to add a subscriber, and specify the object, and method that you would like to have invoked.
 
 ![](sdkbox_play_callbacks.png)
 
-<h2>sdkboxplay API</h2>
+##SdkboxPlay API
 
 ```
 
@@ -77,8 +77,8 @@ void showAchievements()
 void signin()
 
 void signout()
-		
+
 ```
 
-<h2>Additional iOS Instructions</h2>
-On some older versions of Unity, the static libraries in sdkboxplay/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.
+##Additional iOS Instructions
+On some older versions of Unity, the static libraries in sdkboxplay/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.

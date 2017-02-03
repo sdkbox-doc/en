@@ -126,7 +126,7 @@ this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
   + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievement is set as
 a percentage value (0..100). In either case, the `increment` value will be added to the current achievement's
 value.
 

@@ -46,7 +46,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
 ```
 
-### Edit `Aplication.mk`
+### Edit `Application.mk`
 Edit `proj.android/jni/Application.mk` to:
 
 Add __APP_PATFORM__ version requirements:

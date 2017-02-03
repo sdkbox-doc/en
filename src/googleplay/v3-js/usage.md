@@ -74,7 +74,7 @@ If your game expects to save games on the cloud, this is step would be mandatory
 
 #### Step 8
 Until this steps, all previous code is authentication set up.
-This `Create` call is the actual executable code to be authenticated, notified apropriately and agin access to the GPG objects.
+This `Create` call is the actual executable code to be authenticated, notified appropriately and again access to the GPG objects.
 GPG interation will happen by means of a `gpg.GameServices` object. This object will eventually been passed to the `Create` method's callback if everything went ok.
 
 ### Authorization
