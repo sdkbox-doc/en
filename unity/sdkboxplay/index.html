@@ -576,6 +576,27 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#importing-sdkbox-play">Importing SDKBOX Play</a></li>
+	
+    
+        <li class="main "><a href="#configuring-the-sdkboxplay-plugin">Configuring the sdkboxplay Plugin</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#description-of-fields">Description of Fields</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#handling-sdkboxplay-events">Handling SdkboxPlay Events</a></li>
+	
+    
+        <li class="main "><a href="#sdkboxplay-api">SdkboxPlay API</a></li>
+	
+    
+        <li class="main "><a href="#additional-ios-instructions">Additional iOS Instructions</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -584,19 +605,16 @@
 <h1>SdkboxPlay Documentation.</h1>
 
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
-<h2>Importing SDKBOX Play</h2>
-
+<h2 id="importing-sdkbox-play">Importing SDKBOX Play</h2>
 <p>First import the <code>SdkboxPlay</code> unity package into your project. This will create two directories in Assets, one for sdkboxplay and one for sdkbox. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.</p>
 <p><img alt="" src="./sdkbox_play_folders.png" /></p>
 <p>To begin using sdkboxplay, find the sdkboxplay prefab in the Assets/SDKBOX/sdkboxplay directory.</p>
 <p>Create an instance of the sdkboxplay prefab in the scene where you want to use the sdkboxplay package. You should only have a single instance of this prefab at any time.</p>
 <p>Select the sdkboxplay game object in the hierarchy and in your inspector pane you can configure the object.</p>
-<h2>Configuring the sdkboxplay Plugin</h2>
-
+<h2 id="configuring-the-sdkboxplay-plugin">Configuring the sdkboxplay Plugin</h2>
 <p><img alt="" src="./sdkbox_play_settings.png" /></p>
-<h3>Description of Fields</h3>
-
-<h5>Leaderboadrds</h5>
+<h3 id="description-of-fields">Description of Fields</h3>
+<h5>Leaderboards</h5>
 
 <p>Leaderboards are defined on the respective platform’s developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:</p>
 <ul>
@@ -613,10 +631,10 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <li>For Game Center, all achievements are incremental, but Game center does not keep track of its progress. Achievements are expected to be achieved during a game session. Achievements can be set to be unlocked several times.</li>
 <li>Google Play has the notion of newly unlocked achievement (first time unlocked), and Game Center has the notion of recurrently unlockable achievement. Both concepts are complementary.</li>
 </ul>
-<p>To keep things consisten, SdkboxPlay API:</p>
+<p>To keep things consistent, SdkboxPlay API:</p>
 <ul>
 <li>Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.</li>
-<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. </li>
+<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.</li>
 <li>For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
 </ul>
 <h5>Debug</h5>
@@ -625,12 +643,10 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <h5>Connect_on_start</h5>
 
 <p>Specifies if connect when app start</p>
-<h2>Handling sdkboxplay Events</h2>
-
-<p>In the <code>Callbacks</code> section of the sdkboxplay script inspector pane, you can click <code>+</code> to add a subscriber, and specify the object, and method that you would like to have invoked.</p>
+<h2 id="handling-sdkboxplay-events">Handling SdkboxPlay Events</h2>
+<p>In the <code>Callbacks</code> section of the SdkboxPlay script inspector pane, you can click <code>+</code> to add a subscriber, and specify the object, and method that you would like to have invoked.</p>
 <p><img alt="" src="./sdkbox_play_callbacks.png" /></p>
-<h2>sdkboxplay API</h2>
-
+<h2 id="sdkboxplay-api">SdkboxPlay API</h2>
 <pre><code>
 void submitScore(string name, int score)
 
@@ -648,9 +664,8 @@ void signout()
 
 </code></pre>
 
-<h2>Additional iOS Instructions</h2>
-
-<p>On some older versions of Unity, the static libraries in sdkboxplay/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.</p></div>
+<h2 id="additional-ios-instructions">Additional iOS Instructions</h2>
+<p>On some older versions of Unity, the static libraries in sdkboxplay/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.</p></div>
             
         </div>
 

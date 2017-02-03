@@ -576,6 +576,33 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#importing-sdkbox-socialshare">Importing SDKBOX SocialShare</a></li>
+	
+    
+        <li class="main "><a href="#configuring-the-review-plugin">Configuring the Review Plugin</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#description-of-fields">Description of Fields</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#handling-socialshare-events">Handling SocialShare Events</a></li>
+	
+    
+        <li class="main "><a href="#socialshare-api">SocialShare API</a></li>
+	
+    
+        <li class="main "><a href="#manual-setup">Manual Setup</a></li>
+	
+    
+        <li class="main "><a href="#additional-ios-instructions">Additional iOS Instructions</a></li>
+	
+    
+        <li class="main "><a href="#trouble-shoot">Trouble Shoot</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -584,24 +611,21 @@
 <h1>SocialShare Documentation.</h1>
 
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
-<h2>Importing SDKBOX SocialShare</h2>
-
-<p>First import the <code>sdkbox_socialshare</code> unity package into your project. This will create two directories(PLugins and SDKBOX) in Assets.</p>
+<h2 id="importing-sdkbox-socialshare">Importing SDKBOX SocialShare</h2>
+<p>First import the <code>sdkbox_socialshare</code> unity package into your project. This will create two directories(Plugins and SDKBOX) in Assets.</p>
 <p><img alt="" src="./socialshare_folder.jpg" /></p>
 <p>To begin using SocialShare, find the SocialShare prefab in the Assets/SDKBOX/socialshare directory.</p>
 <p><img alt="" src="./socialshare_folder_prelab.png" /></p>
 <p>Create an instance of the SocialShare prefab in the scene where you want to use the SocialShare package. You should only have a single instance of this prefab at any time.</p>
 <p>Select the SocialShare game object in the hierarchy and in your inspector pane you can configure the object to customize the SocialShare dialog.</p>
-<h2>Configuring the Review Plugin</h2>
-
+<h2 id="configuring-the-review-plugin">Configuring the Review Plugin</h2>
 <p><img alt="" src="./socialshare_config.png" /></p>
-<h3>Description of Fields</h3>
-
+<h3 id="description-of-fields">Description of Fields</h3>
 <p>Config</p>
-<h5>Twitter Key IOS</h5>
+<h5>Twitter Key iOS</h5>
 
 <p>This specifies twitter key of ios platform, if none, will not show in share panel on ios.</p>
-<h5>Twitter Secret IOS</h5>
+<h5>Twitter Secret iOS</h5>
 
 <p>This specifies twitter secret of ios platfoorm, if none, will not show in share panel on ios.</p>
 <h5>Twitter Key Android</h5>
@@ -619,24 +643,21 @@
 <h5>Social Panel Cancel</h5>
 
 <p>This specifies social panel custom cancel button</p>
-<h2>Handling SockalShare Events</h2>
-
+<h2 id="handling-socialshare-events">Handling SocialShare Events</h2>
 <p>In the <code>Callbacks</code> section of the SocialShare script inspector pane, you can click <code>+</code> to add a subscriber, and specify the object, and method that you would like to have invoked.</p>
 <p><img alt="" src="./socialshare_callbacks.png" /></p>
-<h2>SocialShare API</h2>
-
+<h2 id="socialshare-api">SocialShare API</h2>
 <pre><code>void setSharePanelTitle(string s)
 void setSharePanelCancel(string s)
 void share(SocialShareInfo info)
 
 </code></pre>
 
-<h2>Manual Setp</h2>
-
+<h2 id="manual-setup">Manual Setup</h2>
 <h5>IOS Platform</h5>
 
 <ul>
-<li>when build ios, you need insert fllow code to info.plist, and replace <code>280194012150923</code> with your facebook app id</li>
+<li>when build ios, you need insert follow code to info.plist, and replace <code>280194012150923</code> with your facebook app id</li>
 </ul>
 <pre><code>&lt;key&gt;FacebookAppID&lt;/key&gt;
 &lt;string&gt;280194012150923&lt;/string&gt;
@@ -668,7 +689,7 @@ void share(SocialShareInfo info)
 <p><img alt="" src="./socialshare_ios_project_setting.png" /></p>
 <h5>Android Platform</h5>
 
-<p>when build android, you need the fllow two modify</p>
+<p>when build android, you need the follow two modify</p>
 <ul>
 <li>replace string <code>280194012150923</code> with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml</code></li>
 </ul>
@@ -686,11 +707,9 @@ void share(SocialShareInfo info)
 &lt;/resources&gt;
 </code></pre>
 
-<h2>Additional iOS Instructions</h2>
-
-<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.</p>
-<h2>Trouble Shoot</h2>
-
+<h2 id="additional-ios-instructions">Additional iOS Instructions</h2>
+<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.</p>
+<h2 id="trouble-shoot">Trouble Shoot</h2>
 <p><img alt="" src="./socialshare_conflict_error.png" /></p>
 <p>if your unity project contains multiple <code>android-support-v4.jar</code> files, when you compile android, will get error.
 In this case, under normal circumstances, you can delete the <code>android-support-v4.jar</code> file, leaving only one</p></div>

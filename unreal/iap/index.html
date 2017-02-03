@@ -576,6 +576,60 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#setting-up-your-unreal-engine-4-project-for-in-app-purchase">Setting up your Unreal Engine 4 project for In App Purchase</a></li>
+	
+    
+        <li class="main "><a href="#installing-the-sdkbox-iap-plugin-for-ue4">Installing the SDKBOX IAP Plugin for UE4</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#in-your-engine">In Your Engine</a></li>
+        
+            <li><a href="#in-your-code-project">In Your Code Project</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#enable-the-plugin">Enable the Plugin</a></li>
+	
+    
+        <li class="main "><a href="#initialize-the-plugin">Initialize the Plugin</a></li>
+	
+    
+        <li class="main "><a href="#handling-events">Handling Events</a></li>
+	
+    
+        <li class="main "><a href="#receiving-products-from-the-store">Receiving Products from the Store</a></li>
+	
+    
+        <li class="main "><a href="#making-a-purchase">Making a Purchase</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#handling-success-or-failure">Handling Success or Failure</a></li>
+        
+            <li><a href="#restoring-products">Restoring Products</a></li>
+        
+            <li><a href="#verify-in-app-purchase-receipt">Verify In App Purchase Receipt</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#code-reference">Code Reference</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#sdkbox-iap-functions">SDKBOX IAP Functions</a></li>
+        
+            <li><a href="#sdkbox-iap-product">SDKBOX IAP Product</a></li>
+        
+            <li><a href="#sdkbox-iap-product-description">SDKBOX IAP Product Description</a></li>
+        
+            <li><a href="#json-configuration">JSON Configuration</a></li>
+        
+	</ul>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -584,35 +638,29 @@
 <h1>In App Purchase Documentation.</h1>
 
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
-<h2>Setting up your Unreal Engine 4 project for In App Purchase</h2>
-
+<h2 id="setting-up-your-unreal-engine-4-project-for-in-app-purchase">Setting up your Unreal Engine 4 project for In App Purchase</h2>
 <p>This guide does not cover creating the project itself, or creating apps in the iOS or Google app stores. For instructions on how to do that, please visit the iOS and Android documentation.</p>
 <p>The most important thing is setting the identifier used to identify the application in the Apple and Android store that you are going to buy from.</p>
 <p>For Apple this is the bundle identifier, and for Android it is the android package name. This is configurable in the UE4 editor by visiting Project Settings and clicking on the iOS and Android sections and filling out those two fields with the appropriate values.</p>
 <p>You can find more information for iOS <a href="https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html#//apple_ref/doc/uid/TP40013727">here</a> and for Android <a href="http://developer.android.com/google/play/billing/billing_overview.html">here</a></p>
-<h2>Installing the SDKBOX IAP Plugin for UE4</h2>
-
+<h2 id="installing-the-sdkbox-iap-plugin-for-ue4">Installing the SDKBOX IAP Plugin for UE4</h2>
 <p>Download the SDKBOX IAP Plugin from the SDKBOX UE4 website <a href="http://www.sdkbox.com/unreal">here</a></p>
-<h3>In Your Engine</h3>
-
+<h3 id="in-your-engine">In Your Engine</h3>
 <ol>
 <li>Unpack the files into <code>Engine/Plugins/SDKBOXIAP</code></li>
 <li>Run the GenerateProjectFiles script in the Engine root.</li>
 <li>Open your engine project file and build the editor.</li>
 </ol>
-<h3>In Your Code Project</h3>
-
+<h3 id="in-your-code-project">In Your Code Project</h3>
 <ol>
 <li>Unpack the files in your <code>[Project Root]/Plugins</code> directory.</li>
 <li>Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor.</li>
 </ol>
-<h2>Enable the Plugin</h2>
-
+<h2 id="enable-the-plugin">Enable the Plugin</h2>
 <p>Goto Settings -&gt; Plugins and scroll down to Project if you have added the plugin to your code project, otherwise it will be part of Built-In.</p>
 <p><img alt="" src="./img1.png" /></p>
 <p>Make sure the the Enabled checkbox is checked. You may have to restart the editor after this step.</p>
-<h2>Initialize the Plugin</h2>
-
+<h2 id="initialize-the-plugin">Initialize the Plugin</h2>
 <p>It is important to call the SDKBOX IAP initialization method early, or at least before you call any other methods. You can do this by calling it from your Game Instance Init event, or your first scene's Begin Play event.</p>
 <p>The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the product descriptions in the Blueprint editor and build the string at runtime.</p>
 <p><strong>Important:</strong> on Android, you will need to supply the license key which you will find in the <strong>Services &amp; APIs</strong> section for your app in the Google Play Console. This is very important, as IAP will not function correctly without it. This key should be part of the JSON string, or passed into <strong>AndroidKey</strong> on the <code>Sdkbox IAP JSON String from Product Descriptions</code> function.</p>
@@ -625,8 +673,7 @@
 <p>Consumable products can be purchased more than once, whereas Non-Consumable products can only be purchased once. This behavior is supported on all platforms.</p>
 <p>You can have different Id's for each platform by specifying the Affinity for either iOS or Android. Specifying All will use the same details for all platforms.</p>
 <p>You can now create a function to convert the Products variable into a JSON string that you can feed into the initialize function (pictured above).</p>
-<h2>Handling Events</h2>
-
+<h2 id="handling-events">Handling Events</h2>
 <p>You can handle events from the plugin by adding the Sdkbox IAP component to an actor in your scene.</p>
 <p><img alt="" src="./img13.png" /></p>
 <p>There are 8 events that you can listen to.</p>
@@ -634,35 +681,28 @@
 <p>You can click the <code>+</code> to add an event handler that you can use to implement the In App Purchase flow for your application.</p>
 <p><img alt="" src="./img4.png" /></p>
 <p>You will always receive the <code>OnInitialized</code> event, and the <code>Status</code> boolean will indicate whether or not it was successful.</p>
-<h2>Receiving Products from the Store</h2>
-
+<h2 id="receiving-products-from-the-store">Receiving Products from the Store</h2>
 <p><img alt="" src="./img5.png" /></p>
 <p>If the initialization was successful, you will receive the <code>OnProductRequestSuccess</code> event and it will provide an array of products (not to be confused with product descriptions, which are similar but have limited information).</p>
-<h2>Making a Purchase</h2>
-
+<h2 id="making-a-purchase">Making a Purchase</h2>
 <p><img alt="" src="./img8.png" /></p>
-<h3>Handling Success or Failure</h3>
-
+<h3 id="handling-success-or-failure">Handling Success or Failure</h3>
 <p>You can listen to the events for <code>OnSuccess, OnFailure, and OnCanceled</code>. These events will pass you the product that is being processed.</p>
 <p><img alt="" src="./img9.png" /></p>
 <p>Some events will also pass you a message that can be used for diagnostic purposes.</p>
 <p><img alt="" src="./img10.png" /></p>
-<h3>Restoring Products</h3>
-
+<h3 id="restoring-products">Restoring Products</h3>
 <p>To restore previously purchased products, simply call the restore function.</p>
 <p><img alt="" src="./img11.png" /></p>
 <p>This will send you a <code>OnRestored</code> event for each product that has been restored, and finally it will send a <code>OnRestoreComplete</code> event to signal that all products have been restored. Note that it is possible to receive only the complete event in the case where you have no previously purchased products.</p>
 <p><img alt="" src="./img12.png" /></p>
-<h3>Verify In App Purchase Receipt</h3>
-
+<h3 id="verify-in-app-purchase-receipt">Verify In App Purchase Receipt</h3>
 <p>Receipt information is not sent by default, you should enable receipt verification using the following function.</p>
 <p><img alt="" src="./img7.png" /></p>
 <p>And check product.receipt and product.receiptCipheredPayload for IAP receipt data in onSuccess event.</p>
 <p>Note: only Google Play provides receipt data, iOS only provides a ciphered payload string for the user to perform IAP verification.</p>
-<h1>Code Reference</h1>
-
-<h3>SDKBOX IAP Functions</h3>
-
+<h2 id="code-reference">Code Reference</h2>
+<h3 id="sdkbox-iap-functions">SDKBOX IAP Functions</h3>
 <pre><code>UCLASS(NotBlueprintable)
 class USdkboxIAPFunctions
     : public UObject
@@ -694,8 +734,7 @@ public:
 };
 </code></pre>
 
-<h3>SDKBOX IAP Product</h3>
-
+<h3 id="sdkbox-iap-product">SDKBOX IAP Product</h3>
 <pre><code>UCLASS(ClassGroup=SDKBOX, HideCategories=(Activation, &quot;Components|Activation&quot;, Collision), meta=(BlueprintSpawnableComponent))
 class USdkboxIAPProduct
     : public UObject
@@ -750,8 +789,7 @@ public:
 };
 </code></pre>
 
-<h3>SDKBOX IAP Product Description</h3>
-
+<h3 id="sdkbox-iap-product-description">SDKBOX IAP Product Description</h3>
 <pre><code>UENUM(BlueprintType)
 enum class EProductAffinityEnum : uint8
 {
@@ -783,8 +821,7 @@ struct FSdkboxIAPProductDescription
 };
 </code></pre>
 
-<h3>JSON Configuration</h3>
-
+<h3 id="json-configuration">JSON Configuration</h3>
 <p>Here is an example of the JSON configuration. You will need to replace <put the product id for ios here> with the product id from your iTunes Connect or replace <put your googleplay key here> from your Google Play Console</p>
 <pre><code>&quot;ios&quot; :
 {

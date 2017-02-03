@@ -1012,7 +1012,7 @@ end)
 
 <h2 id="authorization">Authorization</h2>
 <p>Before you can do anything with Google Play Services, you must authenticate. If you have previously authenticated, then sdkbox will attempt to log you in automatically. You will still get the same events that you normally would if you are logged in automatically.</p>
-<p>To begin the authentication process, you call the following, and pass in either a class method or a lambda method (see Callbacks) to recieve the response.</p>
+<p>To begin the authentication process, you call the following, and pass in either a class method or a lambda method (see Callbacks) to receive the response.</p>
 <pre><code>gpg:StartAuthorizationUI(function(result)
     if result.authStatus == gpg.AuthStatus.VALID then
         -- successfully authenticated
@@ -1452,7 +1452,7 @@ end)
 <h2 id="nearbyconnections">NearbyConnections</h2>
 <p>For the complete documentation, check out <a href="https://developers.google.com/games/services/cpp/nearby">Nearby Connections</a></p>
 <h3 id="init">Init</h3>
-<p>init nearby connection, if not support current platfrom, will return false</p>
+<p>init nearby connection, if not support current platform, will return false</p>
 <pre><code class="lua">local support = gpg.NearbyConnections:Init(&quot;{\&quot;LogLevel\&quot;:1}&quot;,
     function(result)
         if result.InitializationStatus then
@@ -1747,7 +1747,7 @@ gpg.NearbyConnections:SendUnreliableMessage([remote_endpoint_id1, remote_endpoin
     &quot;hasAverageSessionLength&quot; : 1 if valid,
     &quot;averageSessionLength&quot;    : length of session in ?,
     &quot;hasChurnProbability&quot;     : 1 if valid,
-    &quot;churnProbability&quot;        : 0 - 1 likelyhood of retention,
+    &quot;churnProbability&quot;        : 0 - 1 likelihood of retention,
     &quot;hasDaysSinceLastPlayed&quot;  : 1 if valid,
     &quot;daysSinceLastPlayed&quot;     : count of days,
     &quot;hasNumberOfPurchases&quot;    : 1 if valid,

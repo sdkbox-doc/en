@@ -636,7 +636,7 @@
         
             <li><a href="#edit-androidmk">Edit Android.mk</a></li>
         
-            <li><a href="#edit-aplicationmk">Edit Aplication.mk</a></li>
+            <li><a href="#edit-applicationmk">Edit Application.mk</a></li>
         
             <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
         
@@ -1057,7 +1057,7 @@ this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
   + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievement is set as
 a percentage value (0..100). In either case, the <code>increment</code> value will be added to the current achievement's
 value.</p>
 </blockquote>
@@ -1422,7 +1422,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginsdkboxplay)
 </code></pre>
 
-<h3 id="edit-aplicationmk">Edit <code>Aplication.mk</code></h3>
+<h3 id="edit-applicationmk">Edit <code>Application.mk</code></h3>
 <p>Edit <code>proj.android/jni/Application.mk</code> to:</p>
 <p>Add <strong>APP_PLATFORM</strong> version requirements:</p>
 <pre><code>APP_PLATFORM := android-10

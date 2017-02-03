@@ -576,6 +576,18 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#importing-sdkbox-googleanalytics">Importing SDKBOX GoogleAnalytics</a></li>
+	
+    
+        <li class="main "><a href="#using-the-googleanalytics-plugin">Using the GoogleAnalytics Plugin</a></li>
+	
+    
+        <li class="main "><a href="#configuring-the-googleanalytics-plugin">Configuring the GoogleAnalytics Plugin</a></li>
+	
+    
+        <li class="main "><a href="#googleanalytics-api">GoogleAnalytics API</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -584,18 +596,15 @@
 <h1>Google Analytics Documentation.</h1>
 
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
-<h2>Importing SDKBOX GoogleAnalytics</h2>
-
+<h2 id="importing-sdkbox-googleanalytics">Importing SDKBOX GoogleAnalytics</h2>
 <p>First import the <code>sdkbox_googleanalytics</code> unity package into your project. This will create a directory SDKBOX under Assets. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory may also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.</p>
-<h2>Using the GoogleAnalytics Plugin</h2>
-
-<p>To begin using GoogleAnalytics plugin, find the GoogleAnalytics prefab in the Assets/SDKBOX/googleanalytics directory. </p>
+<h2 id="using-the-googleanalytics-plugin">Using the GoogleAnalytics Plugin</h2>
+<p>To begin using GoogleAnalytics plugin, find the GoogleAnalytics prefab in the Assets/SDKBOX/googleanalytics directory.</p>
 <p><img alt="" src="./ga1.png" /></p>
 <p>Drag an instance of this prefab into the scene where you want to start using analytics. You should only have a single instance of this prefab at any time.</p>
 <p><img alt="" src="./ga2.png" /></p>
 <p>Select the GoogleAnalytics game object in the hierarchy and in your inspector pane you can configure the object to complete the setup.</p>
-<h2>Configuring the GoogleAnalytics Plugin</h2>
-
+<h2 id="configuring-the-googleanalytics-plugin">Configuring the GoogleAnalytics Plugin</h2>
 <p><img alt="" src="./ga3.png" /></p>
 <h3>Description of Fields</h3>
 
@@ -605,8 +614,7 @@
 <h5>Android Tracking Code</h5>
 
 <p>This is the tracking code from your Google Analytics account. You can use the same code for both platforms if you like, or you can have different codes for each. It's up to you.</p>
-<h2>GoogleAnalytics API</h2>
-
+<h2 id="googleanalytics-api">GoogleAnalytics API</h2>
 <h6>
 The analytics session is being explicitly started at plugin initialization time.
 </h6>

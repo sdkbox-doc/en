@@ -576,6 +576,30 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#importing-sdkbox-review">Importing SDKBOX Review</a></li>
+	
+    
+        <li class="main "><a href="#configuring-the-review-plugin">Configuring the Review Plugin</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#description-of-fields">Description of Fields</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#configuring-the-review-dialog">Configuring the Review Dialog</a></li>
+	
+    
+        <li class="main "><a href="#handling-review-events">Handling Review Events</a></li>
+	
+    
+        <li class="main "><a href="#review-api">Review API</a></li>
+	
+    
+        <li class="main "><a href="#additional-ios-instructions">Additional iOS Instructions</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -586,19 +610,16 @@
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
 <p><strong><h2>Important. Users of SDKBOX IAP pre-v1.3.7</h2></strong></p>
 <p>If you have used and installed SDKBOX IAP v1.3.6 or earlier, you must either update to IAP 1.3.7 or delete the Assets/IAP directory, before adding other SDKBOX plugins.</p>
-<h2>Importing SDKBOX Review</h2>
-
-<p>First import the <code>sdkbox_review</code> unity package into your project. This will create two directories in Assets, one for review and one for sdkbox. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.</p>
+<h2 id="importing-sdkbox-review">Importing SDKBOX Review</h2>
+<p>First import the <code>sdkbox_review</code> unity package into your project. This will create two directories in Assets, one for review and one for SDKBOX. If you have other SDKBOX plugins installed, they will appear here too. A plugins directory will also be present if you have other SDKBOX plugins. This directory contains files for iOS and Android.</p>
 <p><img alt="" src="./iap_dox1.png" /></p>
-<p>To begin using Review, find the Review prefab in the Assets/SDKBOX/review directory. </p>
+<p>To begin using Review, find the Review prefab in the Assets/SDKBOX/review directory.</p>
 <p><img alt="" src="./iap_dox2.png" /></p>
 <p>Create an instance of the Review prefab in the scene where you want to use the Review package. You should only have a single instance of this prefab at any time.</p>
 <p>Select the Review game object in the hierarchy and in your inspector pane you can configure the object to customize the Review dialog.</p>
-<h2>Configuring the Review Plugin</h2>
-
+<h2 id="configuring-the-review-plugin">Configuring the Review Plugin</h2>
 <p><img alt="" src="./settings.png" /></p>
-<h3>Description of Fields</h3>
-
+<h3 id="description-of-fields">Description of Fields</h3>
 <p>IOS App Id</p>
 <h5>Day Limit</h5>
 
@@ -618,16 +639,13 @@
 <h5>Try Prompt When Init</h5>
 
 <p>If true, will attempt to show the rate dialog when the plugin initializes, i.e. right when the app starts.</p>
-<h2>Configuring the Review Dialog</h2>
-
+<h2 id="configuring-the-review-dialog">Configuring the Review Dialog</h2>
 <p><img alt="" src="./prompt.png" /></p>
-<p>You can configure all of the text on the Review dialog, either to customize, or to localize the text. </p>
-<h2>Handling Review Events</h2>
-
+<p>You can configure all of the text on the Review dialog, either to customize, or to localize the text.</p>
+<h2 id="handling-review-events">Handling Review Events</h2>
 <p>In the <code>Callbacks</code> section of the Review script inspector pane, you can click <code>+</code> to add a subscriber, and specify the object, and method that you would like to have invoked.</p>
 <p><img alt="" src="./callbacks.png" /></p>
-<h2>Review API</h2>
-
+<h2 id="review-api">Review API</h2>
 <pre><code>void show(bool force);
 
 void userDidSignificantEvent(bool canPromptForRating);
@@ -643,9 +661,8 @@ void setRateButtonTitle(string rateTitle);
 void setRateLaterButtonTitle(string rateLaterTitle);
 </code></pre>
 
-<h2>Additional iOS Instructions</h2>
-
-<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the XCode project. In this case they need to be moved to Assets/Plugins/iOS or added to the XCode project manually.</p></div>
+<h2 id="additional-ios-instructions">Additional iOS Instructions</h2>
+<p>On some older versions of Unity, the static libraries in Review/Assets/Plugins/iOS do not get included in the Xcode project. In this case they need to be moved to Assets/Plugins/iOS or added to the Xcode project manually.</p></div>
             
         </div>
 

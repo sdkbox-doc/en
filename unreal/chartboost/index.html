@@ -576,6 +576,32 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#setting-up-your-unreal-engine-4-project-for-chartboost">Setting up your Unreal Engine 4 project for Chartboost</a></li>
+	
+    
+        <li class="main "><a href="#installing-the-sdkbox-chartboost-plugin-for-ue4">Installing the SDKBOX Chartboost Plugin for UE4</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#in-your-engine">In Your Engine</a></li>
+        
+            <li><a href="#in-your-code-project">In Your Code Project</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#enable-the-plugin">Enable the Plugin</a></li>
+	
+    
+        <li class="main "><a href="#initialize-the-plugin">Initialize the Plugin</a></li>
+	
+    
+        <li class="main "><a href="#show-chartboost-ad">Show Chartboost Ad</a></li>
+	
+    
+        <li class="main "><a href="#handling-events">Handling Events</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -584,36 +610,30 @@
 <h1>Chartboost Documentation.</h1>
 
 <p>For more information, visit our website @ <a href="http://cocos2d-x.org/sdkbox">www.sdkbox.com</a></p>
-<h2>Setting up your Unreal Engine 4 project for Chartboost</h2>
-
+<h2 id="setting-up-your-unreal-engine-4-project-for-chartboost">Setting up your Unreal Engine 4 project for Chartboost</h2>
 <p>Before you start, make sure you have the following items</p>
 <ul>
 <li>A Chartboost account, sign up <a href="https://www.chartboost.com">here</a></li>
 <li><a href="https://answers.chartboost.com/hc/en-us/articles/200797729-Your-First-App-and-Campaign-">An app in your dashboard</a></li>
 </ul>
-<h2>Installing the SDKBOX Chartboost Plugin for UE4</h2>
-
+<h2 id="installing-the-sdkbox-chartboost-plugin-for-ue4">Installing the SDKBOX Chartboost Plugin for UE4</h2>
 <p>Download the SDKBOX Chartboost Plugin from the SDKBOX UE4 website <a href="http://www.sdkbox.com/unreal">here</a></p>
-<h3>In Your Engine</h3>
-
+<h3 id="in-your-engine">In Your Engine</h3>
 <ol>
 <li>Unpack the files into <code>Engine/Plugins/SDKBOX/</code></li>
 <li>Run the GenerateProjectFiles script in the Engine root.</li>
 <li>Open your engine project file and build the editor.</li>
 </ol>
-<h3>In Your Code Project</h3>
-
+<h3 id="in-your-code-project">In Your Code Project</h3>
 <ol>
 <li>Unpack the files in your <code>[Project Root]/Plugins/SDKBOX</code> directory.</li>
 <li>Relaunch the editor. This will prompt you to build the plugin for the editor, go ahead and accept to build the plugin and continue launching the editor.</li>
 </ol>
-<h2>Enable the Plugin</h2>
-
+<h2 id="enable-the-plugin">Enable the Plugin</h2>
 <p>Goto Settings -&gt; Plugins and scroll down to Project if you have added the plugin to your code project, otherwise it will be part of Built-In.</p>
 <p><img alt="" src="./00.Enable_Chartboost_Plugin.png" /></p>
 <p>Make sure the the Enabled checkbox is checked. You may have to restart the editor after this step.</p>
-<h2>Initialize the Plugin</h2>
-
+<h2 id="initialize-the-plugin">Initialize the Plugin</h2>
 <p>It is important to call the SDKBOX Chartboost initialization method early, or at least before you call any other methods. You can do this by calling it from your Game Instance Init event, or your first scene's Begin Play event.</p>
 <p>The init method takes a JSON string as a parameter. You can pass a raw string if you would like, but you can also add the Ad descriptions in the Blueprint editor and build the string at runtime.</p>
 <p><img alt="" src="./01.Set_ID_and_Signature.png" /></p>
@@ -621,11 +641,9 @@
 <p>Now you can add Ads in the editor by clicking on Products and adding items to the Default Value in the Details pane.</p>
 <p><img alt="" src="./02.Add_Chartboost_Ads.png" /></p>
 <p>You can now create a function to convert the Ads variable into a JSON string that you can feed into the initialize function (pictured above).</p>
-<h2>Show Chartboost Ad</h2>
-
+<h2 id="show-chartboost-ad">Show Chartboost Ad</h2>
 <p><img alt="" src="./05.Show_Chartboost_Ad.png" /></p>
-<h2>Handling Events</h2>
-
+<h2 id="handling-events">Handling Events</h2>
 <p>You can handle events from the plugin by adding the Sdkbox Chartboost component to an actor in your scene.</p>
 <p><img alt="" src="./03.Add_Chartboost_Component.png" />
 <img alt="" src="./04.Add_Events_Callback.png" /></p>
