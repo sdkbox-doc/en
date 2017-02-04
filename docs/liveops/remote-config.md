@@ -27,7 +27,7 @@ When it's necessary to change the configuration of a SDKBOX plugin, you will nee
 
 
 ## Setup App to use Remote Config 
-* To enable the cloud service in your applications is as easy as calling a single __sdkbox::init()__ function and pass following parameters from the `Configuration Set`
+To enable the cloud service in your applications is as easy as calling a single __sdkbox::init()__ function and pass following parameters from the `Configuration Set`
 
 * Application token
 * Application secret
