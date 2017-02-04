@@ -629,9 +629,17 @@
 </ul>
 <h2 id="setup-app-to-use-remote-config">Setup App to use Remote Config</h2>
 <ul>
-<li>To enable the cloud service in your applications is as easy as calling a single <strong>sdkbox::init()</strong> function and passing in your <strong>token</strong> and <strong>secret</strong> that are provided by the <code>Configuration Set</code>. You also need to pass store name if your config is tailored for iTunes or GooglePlay and specify debug if you're using debug settings</li>
+<li>
+<p>To enable the cloud service in your applications is as easy as calling a single <strong>sdkbox::init()</strong> function and pass following parameters from the <code>Configuration Set</code></p>
+</li>
+<li>
+<p>Application token</p>
+</li>
+<li>Application secret</li>
+<li>store name (all, apple, googleplay, playphone)</li>
+<li>debug (fetch debug config or live config)</li>
 </ul>
-<pre><code>sdkbox::init( &lt;application token&gt;, &lt;application secret&gt; &lt;store name&gt; &lt;debug environment&gt;);
+<pre><code class="cpp">sdkbox::init( &lt;application_token&gt;, &lt;application_secret&gt; &lt;store_name&gt; &lt;debug_environment&gt;);
 </code></pre>
 
 <ul>
