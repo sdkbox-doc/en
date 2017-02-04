@@ -332,6 +332,7 @@ pages:
    - 'Facebook with Cocos2d-x': 'qa/fb-share-on-cocos.md'
    - 'Fix Android 64K methods limit': 'qa/android_64k.md'
    - 'IAP with Unity': 'qa/integration-iap-on-unity.md'
+   - 'GA with SDKBox GUI in Creator': 'qa/use-gui-integration-ga-to-creator.md'
 - About: 'release-note.md'
 
 theme: mkdocs
