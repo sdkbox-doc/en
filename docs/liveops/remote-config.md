@@ -27,9 +27,9 @@ When it's necessary to change the configuration of a SDKBOX plugin, you will nee
 
 
 ## Setup App to use Remote Config 
-* To enable the cloud service in your applications is as easy as calling a single __sdkbox::init()__ function and passing in your __token__ and __secret__ that are provided by the `Configuration Set`. 
+* To enable the cloud service in your applications is as easy as calling a single __sdkbox::init()__ function and passing in your __token__ and __secret__ that are provided by the `Configuration Set`. You also need to pass store name if your config is tailored for iTunes or GooglePlay and specify debug if you're using debug settings
 ```
-sdkbox::init( <application token>, <application secret> );
+sdkbox::init( <application token>, <application secret> <store name> <debug environment>);
 ```
 * We provide a convenient function to make it easier. From your application's page, click on "Export Sets". Then select the one `Configuration Set` for each platform you want to deploy. Then you will be given two instructions:  
     * A code snippet for initializing SDKBOX with the token/secret of all platforms. You should copy and paste them to your app delegate.
