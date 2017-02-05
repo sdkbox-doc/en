@@ -9,6 +9,8 @@ Open a terminal and use the following command to install the SDKBOX Google Play 
 $ sdkbox import gpg 
 ```
 
+> Warning: Account creation within iOS is no longer supported, please read [this blog post](https://android-developers.googleblog.com/2016/12/games-authentication-adopting-google.html) for details
+
 ##After Installation
 
 ### Android

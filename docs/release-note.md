@@ -1,6 +1,30 @@
 #Release Notes
 ---
 
+2.3.10 Release Notes
+===
+##Highlights
+* SDKBOX for Cocos Creator Plugin
+* Phunware Ads plugin
+* Update SDK for Appnext
+* [Issue tracking for SDKBOX](https://github.com/sdkbox/issues/issues)
+
+##Bugfix
+* Fix Installer error when trying to update multiple plugins
+* Fix SDKBOX Ads error when the weights of different ad units is more than 100
+* Fix [Facebook request have different text between iOS and Android](http://discuss.cocos2d-x.org/t/facebook-invitefriendswithinviteids-wrong-action-type-on-ios/34599/2)
+* Fix [Facebook logout user when offline](http://www.sdkbox.com/answers/question/bug-android-sdkbox-facebook-auto-logout-when-start-game-without-internet/)
+* Fix [AdColony getCustomID not working](http://www.sdkbox.com/answers/question/sdkbox-pluginadcolony-setcustomid-check-for-errors/)
+* Fix [SDKBOX Play Documentation issues](https://github.com/sdkbox/issues/issues/2)
+
+2.3.9 Release Notes
+===
+##Highlights
+* Add "Designed for families" flag for admob
+* Upgrade InMobi SDK
+* SDKBOX LiveOps supports ATS
+
+
 2.3.8 Release Notes
 ===
 ##Highlights
