@@ -588,26 +588,18 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#how-to-use-user-customize-activity">How to use user customize activity</a></li>
-	
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
-<h1>How To Use User Customize Activity</h1>
+<h1>How To Use SDKBOX with Custom Activity in Unity</h1>
 
-<h2 id="how-to-use-user-customize-activity">How to use user customize activity</h2>
-<hr />
-<p>if you already have your customize main activity, please follow this steps:</p>
+<p>if you have to create your own custom activity for your unity project,  please follow this steps:</p>
 <ol>
-<li>
-<p>delete <code>CustomActivity.jar</code> (maybe location at <code>Assets/SDKBOX/sdkbox/Resources/CustomActivity.jar</code> or <code>Assets/Plugin/Android/libs/CustomActivity.jar</code>)</p>
-</li>
-<li>
-<p>modify your self customize activity, maybe like follow:</p>
-</li>
+<li>delete <code>CustomActivity.jar</code> (maybe location at <code>Assets/SDKBOX/sdkbox/Resources/CustomActivity.jar</code> or <code>Assets/Plugin/Android/libs/CustomActivity.jar</code>)</li>
+<li>make sure <code>sdkbox.jar</code> is at this location <code>Assets/SDKBOX/sdkbox/Assets/Plugins/Android/sdkbox.jar</code></li>
+<li>modify your custom activity, maybe like follow:</li>
 </ol>
 <pre><code class="java">import com.sdkbox.plugin.SDKBox;
 
@@ -625,9 +617,7 @@ public class UserMainActivity extends UnityPlayerActivity
     //code
 
 }
-</code></pre>
-
-<p>sdkbox lib file location at <code>Assets/SDKBOX/sdkbox/Assets/Plugins/Android/sdkbox.jar</code></p></div>
+</code></pre></div>
             
         </div>
 
