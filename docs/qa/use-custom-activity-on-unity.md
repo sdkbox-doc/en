@@ -1,6 +1,6 @@
 [&#171; SDKBOX Home](http://sdkbox.com)
 
-<h1>How To Use SDKBOX with Custom Activity in Unity</h1>
+<h1>Use SDKBOX with Custom Activity in Unity</h1>
 
 if you have to create your own custom activity for your unity project,  please follow this steps:
 
