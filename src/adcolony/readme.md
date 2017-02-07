@@ -43,6 +43,28 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 }
 ```
 
+##Extra steps
+
+###Setup Android for AdColony V3
+
+* Apply the code change to `jni/Android.mk` after the line `LOCAL_PATH := $(call my-dir)`
+
+```
+# include adcolony so
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libadcolony
+LOCAL_SRC_FILES := pluginadcolony/libs/armeabi/libadcolony.so
+include $(PREBUILT_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libjs
+LOCAL_SRC_FILES := pluginadcolony/libs/armeabi/libjs.so
+include $(PREBUILT_SHARED_LIBRARY)
+
+# include adcolony end
+```
+
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
