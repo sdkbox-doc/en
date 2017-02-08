@@ -106,3 +106,5 @@ if you don't want popup show when unlock achievement, you can set 'show_achievem
 <<[../../shared/manual_integration_google_play_step.md]
 
 <<[proguard.md]
+
+<<[../shared/qa.md]
