@@ -1,6 +1,6 @@
 [&#8249; PhunwareAds Doc Home](./)
 
-<h1>PhunwareAds Integration Guide</h1>
+<h1>Phunware（Ads）Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration

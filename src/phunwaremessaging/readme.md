@@ -1,6 +1,6 @@
 [&#8249; PhunwareMessaging Doc Home](./)
 
-<h1>PhunwareMessaging Integration Guide</h1>
+<h1>Phunware （Messaging） Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
