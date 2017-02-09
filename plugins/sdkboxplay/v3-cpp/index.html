@@ -671,6 +671,15 @@
         <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
 	
     
+        <li class="main "><a href="#qa">Q&amp;A</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#how-to-submit-float-score">How To Submit Float Score</a></li>
+        
+	</ul>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1624,7 +1633,19 @@ This is default proguard config:</p>
 }
 </code></pre>
 
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="qa">Q&amp;A</h2>
+<h3 id="how-to-submit-float-score">How To Submit Float Score</h3>
+<pre><code class="c++">static void submitScore( const std::string&amp; leaderboard_name, long score );
+</code></pre>
+
+<p>The meaning of the score value depends on the formatting of the leaderboard established in the developer console.</p>
+<p>Fixed-point formats:</p>
+<p>score represents a raw value, and will be formatted based on the number of decimal places configured. A score of 1000 would be formatted as 1000, 100.0, or 10.00 for 0, 1, or 2 decimal places.</p>
+<p>eg. if you want to submit score 3.14, you must set score formats is <code>Fixed Point To 2 Decimal</code> (change score format at apple/google develope website), and invoke like follow:</p>
+<pre><code class="c++">submitScore(&quot;leaderboardName&quot;, 3.14 * 100);
+
+</code></pre></div>
             
         </div>
 
