@@ -1,10 +1,10 @@
 [&#8249; PhunwareMessaging Doc Home](./)
 
-<h1>Phunware （Messaging） Integration Guide</h1>
+<h1>Phunware Integration Guide（Messaging）</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX [PhunwareMessaging](http://maas.phunware.com/) plugin. Make sure you setup the SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX [Phunware Messaging](http://maas.phunware.com/) plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import phunwaremessaging
 ```
