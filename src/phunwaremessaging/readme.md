@@ -9,6 +9,21 @@ Open a terminal and use the following command to install the SDKBOX [Phunware Me
 $ sdkbox import phunwaremessaging
 ```
 
+##Configure your app for push notifications.
+
+1. Go to developer.apple.com and create a push notification certificate.(Push notification tutorial)
+
+2. Once it's created, download the push production certificate and add it to Keychain Access. Then,
+   from Keychain Access, export both the certificate and key. (Right click to view the Export option)
+   as a .p12 and set a password.
+
+3. Now, log on to the Maas Portal, navigate to the app created for your application and update the following.
+
+    - Certificate (.p12): Click the grey ellipses button to upload the Production Push Certificate
+      you created on developer.apple.com.
+    - Password: The password you setup for the push certificate.
+    - Environment: Use Production environment for production apps.
+
 <<[../../shared/notice.md]
 
 <!--## Configuration
@@ -62,7 +77,7 @@ Here is an example of the PhunwareMessaging configuration.
 
 ##Notice
 
-SDKBox PhunwareAds v3.5.1+ android Required:
+SDKBox PhunwareMessaging v3.5.1+ android Required:
 
 1. Build SDK Version - 23
 2. Compile SDK Version - 23
