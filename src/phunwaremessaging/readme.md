@@ -29,15 +29,6 @@ $ sdkbox import phunwaremessaging
 1. Phunware messaging currently only supports Android-Studio
 2. Create a new Android application in MAAS-portal
 3. In strings.xml (under Sample/src/main/res/values), replace the appId, accessKey and signatureKey with values for this application in MAAS portal.
-
-  e.g.Replace the following strings with values from MaaS Portal
-
-  `<string name="appId">1421</string>`
-
-  `<string name="accesKey">b91b116ceafb413bed252a7b274e95a622aee20b</string>`
-
-  `<string name="sigKey">3191eacc0cd0a5f66b445d11fbdf08fad7c596b8</string>`
-
 4. Set up [Google Cloud Messaging](https://developers.google.com/cloud-messaging/android/client)
 5. Create a project on Firebase console
 
