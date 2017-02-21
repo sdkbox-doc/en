@@ -31,10 +31,8 @@ $ sdkbox import phunwaremessaging
 3. In strings.xml (under Sample/src/main/res/values), replace the appId, accessKey and signatureKey with values for this application in MAAS portal.
 4. Set up [Google Cloud Messaging](https://developers.google.com/cloud-messaging/android/client)
 5. Create a project on Firebase console
-
-    -> Choose 'Add Firebase to Android app'
-
-    -> In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) 
+  * Choose 'Add Firebase to Android app'
+  * In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) 
 6. In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)
 7. The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.
 8. Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console
