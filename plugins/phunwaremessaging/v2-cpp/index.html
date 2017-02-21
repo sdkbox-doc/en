@@ -720,23 +720,15 @@
 <li>Phunware messaging currently only supports Android-Studio</li>
 <li>Create a new Android application in MAAS-portal</li>
 <li>In strings.xml (under Sample/src/main/res/values), replace the appId, accessKey and signatureKey with values for this application in MAAS portal.</li>
-</ol>
-<p>e.g.Replace the following strings with values from MaaS Portal</p>
-<p><code>&lt;string name="appId"&gt;1421&lt;/string&gt;</code></p>
-<p><code>&lt;string name="accesKey"&gt;b91b116ceafb413bed252a7b274e95a622aee20b&lt;/string&gt;</code></p>
-<p><code>&lt;string name="sigKey"&gt;3191eacc0cd0a5f66b445d11fbdf08fad7c596b8&lt;/string&gt;</code></p>
-<ol>
 <li>Set up <a href="https://developers.google.com/cloud-messaging/android/client">Google Cloud Messaging</a></li>
-<li>
-<p>Create a project on Firebase console</p>
-<p>-&gt; Choose 'Add Firebase to Android app'</p>
-<p>-&gt; In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) 
-6. In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)
-7. The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.
-8. Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console
-9. Add the google-services gradle plugin to you applications gradle file
-  <code>apply plugin: 'com.google.gms.google-services'</code></p>
-</li>
+<li>Create a project on Firebase console</li>
+<li>Choose 'Add Firebase to Android app'</li>
+<li>In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) </li>
+<li>In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)</li>
+<li>The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.</li>
+<li>Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console</li>
+<li>Add the google-services gradle plugin to you applications gradle file
+  <code>apply plugin: 'com.google.gms.google-services'</code></li>
 </ol>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project for plugin to function correctly.</p>
