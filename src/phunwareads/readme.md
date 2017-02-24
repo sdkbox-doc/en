@@ -1,10 +1,10 @@
 [&#8249; PhunwareAds Doc Home](./)
 
-<h1>PhunwareAds Integration Guide</h1>
+<h1>Phunware Integration Guide（Ads）</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX [PhunwareAds](http://ads.tapit.com/publisher/dashboard) plugin. Make sure you setup the SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX [Phunware Ads](http://ads.tapit.com/publisher/dashboard) plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import phunwareads
 ```

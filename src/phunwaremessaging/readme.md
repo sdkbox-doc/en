@@ -1,17 +1,17 @@
 [&#8249; PhunwareMessaging Doc Home](./)
 
-<h1>PhunwareMessaging Integration Guide</h1>
+<h1>Phunware Integration Guide（Messaging）</h1>
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-Open a terminal and use the following command to install the SDKBOX [PhunwareMessaging](http://maas.phunware.com/) plugin. Make sure you setup the SDKBOX installer correctly.
+Open a terminal and use the following command to install the SDKBOX [Phunware Messaging](http://maas.phunware.com/) plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import phunwaremessaging
 ```
 
 ##Configure your app for push notifications (iOS)
 
-1. Go to developer.apple.com and create a push notification certificate.(Push notification tutorial)
+1. Go to [Apple developer portal](https://developer.apple.com) and create a push notification certificate. (See [Push notification tutorial](https://www.raywenderlich.com/123862/push-notifications-tutorial) for detailed instructions)
 
 2. Once it's created, download the push production certificate and add it to Keychain Access. Then,
    from Keychain Access, export both the certificate and key. (Right click to view the Export option)
@@ -22,7 +22,22 @@ $ sdkbox import phunwaremessaging
     - Certificate (.p12): Click the grey ellipses button to upload the Production Push Certificate
       you created on developer.apple.com.
     - Password: The password you setup for the push certificate.
-    - Environment: Use Production environment for production apps.
+    - Environment: Use Sandbox for debug builds. Use Production environment for production apps and Production Ad-Hoc build.
+
+##Android Configuration
+
+1. Phunware messaging currently only supports Android-Studio
+2. Create a new Android application in MAAS-portal
+3. In strings.xml (under Sample/src/main/res/values), replace the appId, accessKey and signatureKey with values for this application in MAAS portal.
+4. Set up [Google Cloud Messaging](https://developers.google.com/cloud-messaging/android/client)
+5. Create a project on Firebase console
+  * Choose 'Add Firebase to Android app'
+  * In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory)
+6. In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)
+7. The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.
+8. Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console
+9. Add the google-services gradle plugin to you applications gradle file
+  `apply plugin: 'com.google.gms.google-services'`
 
 ##Configure your app for push notifications (Android)
 
