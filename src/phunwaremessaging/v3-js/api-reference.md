@@ -20,10 +20,6 @@ sdkbox.PluginPhunwareMessaging.remove(messageID);
 ```
 
 ```javascript
-sdkbox.PluginPhunwareMessaging.messages();
-```
-
-```javascript
 sdkbox.PluginPhunwareMessaging.deviceId();
 ```
 
@@ -35,6 +31,17 @@ sdkbox.PluginPhunwareMessaging.serviceName();
 sdkbox.PluginPhunwareMessaging.version();
 ```
 
+```javascript
+sdkbox.PluginPhunwareMessaging.stop();
+```
+
+```javascript
+sdkbox.PluginPhunwareMessaging.messages();
+```
+
+```javascript
+sdkbox.PluginPhunwareMessaging.geozones();
+```
 
 ### Listeners
 ```javascript
@@ -44,6 +51,10 @@ init(success, message);
 
 ```javascript
 error(message);
+```
+
+```javascript
+notification(notifi);
 ```
 
 

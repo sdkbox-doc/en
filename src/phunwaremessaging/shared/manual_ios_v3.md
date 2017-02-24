@@ -16,6 +16,19 @@ The above frameworks depend upon other frameworks. You also need to add the
 following system frameworks
 >if you don't already have them:
 
+> CoreLocation.framework
+
+> libz.tbd
+
+> libsqlite3.tbd
+
 > SystemConfiguration.framework
 
+> GameController.framework
+
+> MediaPlayer.framework
+
 > MobileCoreServices.framework
+
+> CoreTelephony.framework
+

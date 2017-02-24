@@ -20,10 +20,6 @@ sdkbox.PluginPhunwareMessaging:remove(messageID)
 ```
 
 ```lua
-sdkbox.PluginPhunwareMessaging:messages()
-```
-
-```lua
 sdkbox.PluginPhunwareMessaging:deviceId()
 ```
 
@@ -35,6 +31,18 @@ sdkbox.PluginPhunwareMessaging:serviceName()
 sdkbox.PluginPhunwareMessaging:version()
 ```
 
+```lua
+sdkbox.PluginPhunwareMessaging:stop()
+```
+
+```lua
+sdkbox.PluginPhunwareMessaging:messages()
+```
+
+```lua
+sdkbox.PluginPhunwareMessaging:geozones()
+```
+
 
 ### Listeners
 ```lua
@@ -44,6 +52,10 @@ init(success, message)
 
 ```lua
 error(message)
+```
+
+```lua
+notification(notifi)
 ```
 
 
