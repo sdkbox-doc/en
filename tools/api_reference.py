@@ -47,17 +47,23 @@ def get_doxygen(comment):
         cs = comment.split('\n')
 
     ret = ""
+    has_more_comment = False
     for line in cs:
-        if line.startswith("/*") or line.endswith("*/"):
+        if line.startswith("/*") or line.endswith("*/") or line.startswith("* @param"):
             continue
         elif line == "*":  # brief end with empty line
-            break
+            if not has_more_comment:
+                ret += '\n<pre>\n'
+            has_more_comment = True
         else:
             if line.startswith("* "):
                 line = line[2:]
             ret += line + '\n'
 
-    ret = ret.replace("@brief ", "")
+    if has_more_comment:
+        ret += '</pre>\n'
+
+    ret = ret.replace("@brief ", "").replace('*', '>').replace('\n<pre>\n</pre>\n', '')
     return ret
 
 
