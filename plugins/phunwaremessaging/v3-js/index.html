@@ -601,10 +601,13 @@
         <li class="main active"><a href="#integration">Integration</a></li>
 	
     
-        <li class="main "><a href="#ios-configuration">iOS Configuration</a></li>
+        <li class="main "><a href="#configure-your-app-for-push-notifications-ios">Configure your app for push notifications (iOS)</a></li>
 	
     
         <li class="main "><a href="#android-configuration">Android Configuration</a></li>
+	
+    
+        <li class="main "><a href="#configure-your-app-for-push-notifications-android">Configure your app for push notifications (Android)</a></li>
 	
     
         <li class="main "><a href="#important-notice">Important Notice</a></li>
@@ -672,6 +675,10 @@
         
             <li><a href="#modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify Application.mk (Cocos2d-x v3.0 to v3.2 only)</a></li>
         
+            <li><a href="#edit-androidmanifestxml_1">Edit AndroidManifest.xml</a></li>
+        
+            <li><a href="#edit-buildgradle">Edit build.gradle</a></li>
+        
             <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
         
 	</ul>
@@ -697,7 +704,7 @@
 <pre><code class="bash">$ sdkbox import phunwaremessaging
 </code></pre>
 
-<h2 id="ios-configuration">iOS Configuration</h2>
+<h2 id="configure-your-app-for-push-notifications-ios">Configure your app for push notifications (iOS)</h2>
 <ol>
 <li>
 <p>Go to <a href="https://developer.apple.com">Apple developer portal</a> and create a push notification certificate. (See <a href="https://www.raywenderlich.com/123862/push-notifications-tutorial">Push notification tutorial</a> for detailed instructions)</p>
@@ -725,12 +732,28 @@
 <li>Set up <a href="https://developers.google.com/cloud-messaging/android/client">Google Cloud Messaging</a></li>
 <li>Create a project on Firebase console</li>
 <li>Choose 'Add Firebase to Android app'</li>
-<li>In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) </li>
+<li>In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory)</li>
 <li>In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)</li>
 <li>The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.</li>
 <li>Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console</li>
 <li>Add the google-services gradle plugin to you applications gradle file
   <code>apply plugin: 'com.google.gms.google-services'</code></li>
+</ol>
+<h2 id="configure-your-app-for-push-notifications-android">Configure your app for push notifications (Android)</h2>
+<p><strong>NOTE</strong>: PhunwareMessaing don't support Eclipse/Ant project</p>
+<ol>
+<li>
+<p>Set up GCM at https://developers.google.com/cloud-messaging/android/client</p>
+</li>
+<li>
+<p>Create a project on Firebase console</p>
+<ul>
+<li>Choose 'Add Firebase to Android app'</li>
+<li>In the Firebase console, the package name should be the same as application id in build.grade</li>
+<li>The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.</li>
+<li>Put the google-services.json file to proj.android-studio/app/ folder</li>
+</ul>
+</li>
 </ol>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project for plugin to function correctly.</p>
@@ -848,9 +871,6 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <pre><code class="javascript">sdkbox.PluginPhunwareMessaging.remove(messageID);
 </code></pre>
 
-<pre><code class="javascript">sdkbox.PluginPhunwareMessaging.messages();
-</code></pre>
-
 <pre><code class="javascript">sdkbox.PluginPhunwareMessaging.deviceId();
 </code></pre>
 
@@ -858,6 +878,15 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 </code></pre>
 
 <pre><code class="javascript">sdkbox.PluginPhunwareMessaging.version();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginPhunwareMessaging.stop();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginPhunwareMessaging.messages();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginPhunwareMessaging.geozones();
 </code></pre>
 
 <h3 id="listeners">Listeners</h3>
@@ -868,6 +897,9 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 <p>Notifies the delegate that the module has finished loading</p>
 </blockquote>
 <pre><code class="javascript">error(message);
+</code></pre>
+
+<pre><code class="javascript">notification(notifi);
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>
@@ -886,8 +918,14 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 following system frameworks</p>
 <blockquote>
 <p>if you don't already have them:</p>
+<p>CoreLocation.framework</p>
+<p>libz.tbd</p>
+<p>libsqlite3.tbd</p>
 <p>SystemConfiguration.framework</p>
+<p>GameController.framework</p>
+<p>MediaPlayer.framework</p>
 <p>MobileCoreServices.framework</p>
+<p>CoreTelephony.framework</p>
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
@@ -897,33 +935,23 @@ following system frameworks</p>
 <li><code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> and <strong>eclipse</strong> project</li>
 <li><code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong> project.</li>
 </ul>
+<p><strong>NOTE</strong>: not support eclipse project right now</p>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 <blockquote>
-<p>phunware-core.jar</p>
-<p>pwmessaging.jar</p>
 <p>sdkbox.jar</p>
 </blockquote>
 <ul>
 <li>
 <p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>
-<p>Android command-line:
-<code>cocos2d/cocos/platform/android/java/libs</code></p>
 <p>Android Studio:
 <code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
 </li>
 <li>
 <p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
-<p>Android command-line:
-<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
 <p>Android Studio:
 <code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
-</li>
-<li>
-<p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
-<p>Android command-line:
-<code>proj.android/libs</code></p>
 </li>
 </ul>
 <h4 id="copy-jni-libs">Copy jni libs</h4>
@@ -973,6 +1001,128 @@ changed to:</p>
 <pre><code>APP_STL := gnustl_static
 </code></pre>
 
+<p>Add <strong>APP_PATFORM</strong> version requirements:</p>
+<pre><code>APP_PLATFORM := android-16
+</code></pre>
+
+<h3 id="edit-androidmanifestxml_1">Edit <code>AndroidManifest.xml</code></h3>
+<p>Edit <code>manifest</code>. Example:</p>
+<pre><code>```
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.cocos2dx.cpp3141"
+          xmlns:ns1="http://schemas.android.com/tools" &lt;!-- ADD THIS LINE --&gt;
+          android:installLocation="auto" android:versionCode="1"
+          android:versionName="1.0"&gt;
+```
+</code></pre>
+<p>Edit <code>application</code>. Example:</p>
+<pre><code>```
+&lt;application android:icon="@drawable/icon"
+             ns1:replace="android:label" &lt;!-- ADD THIS LINE --&gt;
+             android:label="@string/app_name" &gt;
+
+    &lt;!-- ADD START--&gt;
+    &lt;activity android:name=".AppActivity"&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name="android.intent.action.VIEW" /&gt;
+            &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+            &lt;data android:mimeType="locationmessaging/message" /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+    &lt;!-- ADD END--&gt;
+
+&lt;/application&gt;
+```
+</code></pre>
+<h3 id="edit-buildgradle">Edit <code>build.gradle</code></h3>
+<p>Edit <code>cocos2d/cocos/platform/android/libcocos2dx/build.gradle</code>. Example:</p>
+<pre><code>```
+...
+android {
+    compileSdkVersion 23                    # THIS LINE
+    buildToolsVersion "23.0.3"              # THIS LINE
+    useLibrary  'org.apache.http.legacy'    # THIS LINE
+
+
+    defaultConfig {
+        minSdkVersion 16                    # THIS LINE
+        targetSdkVersion 22                 # THIS LINE
+        versionCode 1
+        versionName "1.0"
+    }
+
+    ...
+}
+...
+```
+</code></pre>
+<p>Edit <code>proj.android-studio/app/build.gradle</code></p>
+<pre><code>```
+android {
++    compileSdkVersion 23
++    buildToolsVersion "23.0.3"
++    useLibrary  'org.apache.http.legacy'
+
+     defaultConfig {
+         applicationId "org.cocos2dx.cpp3141"   &lt;!-- MUST SAME WITH google-services.json --&gt;
++        minSdkVersion 16
+         targetSdkVersion 22
+         versionCode 1
+         versionName "1.0"
+
+         ...
+
+     buildTypes {
++        debug {
++            ndk {
++                abiFilters = ["armeabi"]
++            }
++        }
++
+         release {
++            ndk {
++                abiFilters = ["armeabi"]
++            }
++
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+             if (project.hasProperty("RELEASE_STORE_FILE")) {
+
+             ...
+
+ dependencies {
++    compile 'com.google.android.gms:play-services-maps:9.6.1'
++    compile 'com.android.support:appcompat-v7:23.3.0'
++    compile 'com.phunware.messaging:messaging:3.0.4'
+     compile fileTree(dir: 'libs', include: ['*.jar'])
+     compile project(':libcocos2dx')
+ }
+
+ clean.dependsOn cleanAssets
+ preBuild.dependsOn copyAssets
++
++apply plugin: 'com.google.gms.google-services'
+```
+</code></pre>
+<p>Edit <code>proj.android-studio/build.gradle</code></p>
+<pre><code>```
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
++        classpath 'com.google.gms:google-services:3.0.0'
++
+     }
+ }
+
+ allprojects {
+     repositories {
+         jcenter()
++        maven {
++            url "https://nexus.phunware.com/content/groups/public/"
++        }
+     }
+ }
+```
+</code></pre>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
 <p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
 <pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
@@ -1119,7 +1269,6 @@ SDKBox.init(this);
 </ol>
 <p>if you get <code>miss HttpClient</code> error when set build sdk to 23:</p>
 <ol>
-<li>if use eclipse, copy <code>$ANDROID_SDK_ROOT/platforms/android-23/optional/org.apache.http.legacy.jar</code> to your project <code>libs</code> folder</li>
 <li>if use android studio, add this to your gradle:</li>
 </ol>
 <pre><code class="groovy">android {
