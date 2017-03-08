@@ -30,7 +30,11 @@ static void remove ( const std::string & messageID ) ;
 ```
 
 ```cpp
-static std::vector <sdkbox::PWMSGZoneMessage> messages ( ) ;
+static std::vector <sdkbox::PWZoneMessage> messages ( ) ;
+```
+
+```cpp
+static std::vector <sdkbox::PWGeozone> geozones ( ) ;
 ```
 
 ```cpp
@@ -45,15 +49,23 @@ static std::string serviceName ( ) ;
 static std::string version ( ) ;
 ```
 
+```cpp
+static void stop ( ) ;
+```
+
 
 ### Listeners
 ```cpp
-void init ( bool success , const std::string & message ) {
+void init ( bool success , const std::string & message ) ;
 ```
 > Notifies the delegate that the module has finished loading
 
 ```cpp
-void error ( const std::string & message ) {
+void error ( const std::string & message ) ;
+```
+
+```cpp
+void notification ( sdkbox::PWLocalNotification notifi ) ;
 ```
 
 

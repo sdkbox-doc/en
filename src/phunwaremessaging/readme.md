@@ -9,7 +9,7 @@ Open a terminal and use the following command to install the SDKBOX [Phunware Me
 $ sdkbox import phunwaremessaging
 ```
 
-##iOS Configuration
+##Configure your app for push notifications (iOS)
 
 1. Go to [Apple developer portal](https://developer.apple.com) and create a push notification certificate. (See [Push notification tutorial](https://www.raywenderlich.com/123862/push-notifications-tutorial) for detailed instructions)
 
@@ -32,12 +32,25 @@ $ sdkbox import phunwaremessaging
 4. Set up [Google Cloud Messaging](https://developers.google.com/cloud-messaging/android/client)
 5. Create a project on Firebase console
   * Choose 'Add Firebase to Android app'
-  * In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory) 
+  * In the Firebase console, the package name should be the same as application id in build.grade (under Sample directory)
 6. In the MAAS portal, for the newly created Android app, replace the API Key and sender id with the values for ServerKey and SenderId on the Firebase console (under CloudMessaging section)
 7. The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.
 8. Replace the default google-service.json file (under Sample directory) the sample app with the dowloaded google-service.json from Firebase console
 9. Add the google-services gradle plugin to you applications gradle file
   `apply plugin: 'com.google.gms.google-services'`
+
+##Configure your app for push notifications (Android)
+
+**NOTE**: PhunwareMessaing don't support Eclipse/Ant project
+
+1. Set up GCM at https://developers.google.com/cloud-messaging/android/client
+
+2. Create a project on Firebase console
+
+    - Choose 'Add Firebase to Android app'
+    - In the Firebase console, the package name should be the same as application id in build.grade
+3. The Firebase console creates a google-services.json file and downloads it to your default Downloads folder.
+4. Put the google-services.json file to proj.android-studio/app/ folder
 
 <<[../../shared/notice.md]
 
@@ -99,7 +112,6 @@ SDKBox PhunwareMessaging v3.5.1+ android Required:
 
 if you get `miss HttpClient` error when set build sdk to 23:
 
-1. if use eclipse, copy `$ANDROID_SDK_ROOT/platforms/android-23/optional/org.apache.http.legacy.jar` to your project `libs` folder
 2. if use android studio, add this to your gradle:
 
 ``` groovy
