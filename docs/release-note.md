@@ -1,6 +1,18 @@
 #Release Notes
 ---
 
+2.3.11 Release Notes
+===
+##Highlights
+* New Advertising Service [Phunware Ads](http://www.sdkbox.com/plugins/phunwareads)
+* New Pushnotification Service [Phunware Messaging](http://www.sdkbox.com/plugins/phunware_messaging)
+* Cocos Creator Plugin will be in the Cocos Creator plugin store
+* [Issue tracking for SDKBOX](https://github.com/sdkbox/issues/issues)
+
+##Bugfix
+* Fix a bug for AppNext Android
+* Fix a bug with SDKBOX Ads weight more than 100, ads won't play
+
 2.3.10 Release Notes
 ===
 ##Highlights
