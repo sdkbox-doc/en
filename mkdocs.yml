@@ -231,7 +231,7 @@ pages:
                 - 'Phunware Ads with C++': 'plugins/phunwareads/v2-cpp.md'
                 - 'Phunware Ads with Javascript': 'plugins/phunwareads/v2-js.md'
                 - 'Phunware Ads with Lua': 'plugins/phunwareads/v2-lua.md'
-        - 'Phunware Messaging': 'plugins/phunwareads/index.md'
+        - 'Phunware Messaging': 'plugins/phunwaremessaging/index.md'
         - '_Phunware Messaging':
             - 'Cocos2d-x v3.x':
                 - 'Phunware Messaging with C++': 'plugins/phunwaremessaging/v3-cpp.md'
