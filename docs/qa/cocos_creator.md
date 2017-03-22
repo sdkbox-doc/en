@@ -15,6 +15,8 @@ Before integrating SDKBOX plugins make sure you generate the iOS/Android build f
 
 ##After Intergration
 
+Once you finish integrate the SDK, you should be able to use it with javascript code. Here we'll use Admob SDK as an example
+
 ### Add buttons
 
 add two button to scene, design ui like follow:
@@ -22,7 +24,7 @@ add two button to scene, design ui like follow:
 
 ### Create JavaScript Component
 
-create javascript commponent, name it `AdMob.js`, i will integrate `AdMob` the this project. add three empty function to `AdMob.js`, also add admob initialize code in `onLoad` function like follow:
+create javascript commponent, name it `AdMob.js`, add three empty function to `AdMob.js`, also add admob initialize code in `onLoad` function like follow:
 
 ```js
 cc.Class({
