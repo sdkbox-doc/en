@@ -62,38 +62,6 @@ cc.Class({
 ![](../imgs/ccc_tutorial_btn_cache_script.png)
 ![](../imgs/ccc_tutorial_btn_show_script.png)
 
-### Run In Simulator
-
-check if every thing is ok.
-
-
-### Build Project
-
-open build window
-Menu->Project->Build or (Command + Shift + B)
-
-Build iOS
-
-![](../imgs/ccc_tutorial_build_win.png)
-
-Build Android
-
-![](../imgs/ccc_tutorial_build_android.png)
-
-Build->Compile
-
-Make sure everything is okey
-![](../imgs/ccc_tutorial_console_compile_result.png)
-
-
-### Import AdMob to CocosCreate project
-
-* open console
-* entry CocosCreate project by run `cd SDKBoxTutorial`
-* import admob by run `sdkbox import admob -p ./build/jsb-default/`
-
-![](../imgs/ccc_tutorial_import_admob_result.png)
-
 ### Configuration AdMob
 
 * configure `./build/jsb-default/res/sdkbox_config.json` with your ad id
@@ -166,7 +134,7 @@ make sure AdMob.js will sync to `./build/jsb-default` project
 
 ### IMPORTANT
 
-Make sure backup `sdkbox_config.json`, `./build/jsb-default/res` will be removed every time after Build Project in Cocos Creator build windows
+Make sure backup `sdkbox_config.json` if you delete `./build/jsb-default` folder, your sdkbox configuration will be lost
 
 
 
