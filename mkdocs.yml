@@ -4,7 +4,7 @@ pages:
 - Cocos2d-x:
     - 'Overview': 'cocos.md'
     - 'CLI Installer': 'installer.md'
-    - 'For Cocos Creator': 'qa/integration-admob-to-creator.md'
+    - 'For Cocos Creator': 'qa/cocos_creator.md'
     - Plugins:
         - 'Achievements': 'plugins/achievement/index.md'
         - '_Achievements':
