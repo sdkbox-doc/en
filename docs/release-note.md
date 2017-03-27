@@ -1,6 +1,28 @@
 #Release Notes
 ---
 
+2.3.12 Release Notes
+===
+##Highlights
+* Admob reward video support
+* Upgrade Appodeal SDK
+* Upgrade AdColony SDK
+* Upgrade InMobi SDK
+* Upgrade Phunware SDK
+* Upgrade Chartboost SDK
+* SDKBOX Play supports long and float point score
+
+##Bugfix
+* Fix build issue for Tune SDK
+* Fix SDKBOX Play unlocking achievement callback been called twice [issue](https://github.com/sdkbox/issues/issues/5)
+* Fix Appodeal can't play skippable videos [issue](http://sdkbox.com/answers/question/sdkbox-appodeal-skippable-video-is-not-initialized/?show_answer=684#answer_684/%23comment-225)
+* Fix AcColony setCustomID [issue](http://sdkbox.com/answers/question/adcolony-customid-callback-url-error)
+* Fix facebook plugin have different text for iOS and Android [issue](http://discuss.cocos2d-x.org/t/facebook-invitefriendswithinviteids-wrong-action-type-on-ios/34599/2)
+* Facebook will no longer logout when the app is offline [issue](sdkbox.com/answers/question/bug-android-sdkbox-facebook-auto-logout-when-start-game-without-internet)
+
+
+Please report any issues to the [issue tracker](https://github.com/sdkbox/issues/issues)
+
 2.3.11 Release Notes
 ===
 ##Highlights
