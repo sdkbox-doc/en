@@ -101,7 +101,7 @@ void share(SocialShareInfo info)
 </array>
 ```
 
-- if you use < unity 5.0, you need add '-ObjC' to `other linker flag` in ios project build setting
+- you need add '-ObjC' to `other linker flag` in ios project build setting
 
 ![](socialshare_ios_project_setting.png)
 

@@ -35,6 +35,16 @@ This is the tracking code from your Google Analytics account. You can use the sa
 This is the tracking code from your Google Analytics account. You can use the same code for both platforms if you like, or you can have different codes for each. It's up to you.
 
 
+##Manual Setup
+
+<h5>IOS Platform</h5>
+
+if you compile iOS project fail, maybe need add follow framework:
+
+- libsqlite3.tbd
+- libz.tbd
+- CoreData.framework
+
 ##GoogleAnalytics API
 
 <h6>
