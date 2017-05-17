@@ -5,7 +5,9 @@ Starting Cocos Creator 1.4 developer can install SDKBOX plugin from Extension St
 
 <iframe src='https://gfycat.com/ifr/ConsciousSomberGerenuk' frameborder='0' scrolling='no' width='640' height='360' allowfullscreen></iframe>
 
-Once installed successfully, a new menu entry named "SDKBox" will be added to Cocos Creator 
+Once installed successfully, a new menu entry named "SDKBox" will be added to Cocos Creator
+
+![](../imgs/ccc_tutorial_sdkbox_menu.png)
 
 ##Integration
 Before integrating SDKBOX plugins make sure you generate the iOS/Android build for your Cocos Creator projects first
@@ -68,7 +70,6 @@ cc.Class({
 
 * configure `./build/jsb-default/res/sdkbox_config.json` with your ad id
 
-`Important`: Make sure backup `sdkbox_config.json`, `./build/jsb-default/res` will be removed every time after Build Project in Cocos Creator build windows
 
 ### Finish AdMob.js empty function
 
@@ -133,10 +134,5 @@ make sure AdMob.js will sync to `./build/jsb-default` project
 * run `cocos run -p android ` at `./build/jsb-default` to build android
 
 ![](../imgs/ccc_tutorial_admob_intistial_show.png)
-
-### IMPORTANT
-
-Make sure backup `sdkbox_config.json` if you delete `./build/jsb-default` folder, your sdkbox configuration will be lost
-
 
 
