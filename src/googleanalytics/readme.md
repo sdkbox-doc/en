@@ -21,7 +21,8 @@ SDKBOX Installer will automatically inject a sample configuration to your `res/s
 Here is an example of the Google Analytics configuration, you need to replace `<TRACKING_CODE>`  with your specific [__Google Analytics Tracking Code__](https://support.google.com/analytics/answer/1008080?hl=en) account information.
 ```json
 "GoogleAnalytics" : {
-    "trackingCode" : "<TRACKING_CODE>"
+    "trackingCode" : "<TRACKING_CODE>",
+    "anonymizeIp": true
 }
 ```
 
