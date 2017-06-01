@@ -53,7 +53,7 @@ Use the following command to publish document to live
 mkdocs gh-deploy --clean
 ```
 
-##Contributors
+## Contributors
 @slackmoehrle
 
 @darkdukey
