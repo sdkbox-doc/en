@@ -1007,6 +1007,10 @@ end)
 <blockquote>
 <p>log in</p>
 </blockquote>
+<pre>
+This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFacebook:login(permissions)
 </code></pre>
 
@@ -1078,6 +1082,11 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 <blockquote>
 <p>fetch friends data from Facebook</p>
 </blockquote>
+<pre>
+This data only reflects your friends that are using the app.
+The number of friends defaults to 25.
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFacebook:canPresentWithFBApp(info)
 </code></pre>
 
@@ -1101,6 +1110,26 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 
 <blockquote>
 <p>Set the app url scheme suffix used by the FB SDK.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:requestGift(invite_ids,
+                                   object_id,
+                                   message,
+                                   title,
+                                   additional_data)
+</code></pre>
+
+<blockquote>
+<p>Ask friends for a gift</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:sendGift(friend_ids,
+                                object_id,
+                                title,
+                                message,
+                                additional_data)
+</code></pre>
+
+<blockquote>
+<p>Send friend a gift</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(isLogin, msg)
@@ -1134,6 +1163,12 @@ https://developers.facebook.com/docs/facebook-login/permissions</p>
 </code></pre>
 
 <pre><code class="lua">onGetUserInfo(userInfo)
+</code></pre>
+
+<pre><code class="lua">onAskGiftResult(result, msg)
+</code></pre>
+
+<pre><code class="lua">onSendGiftResult(result, msg)
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

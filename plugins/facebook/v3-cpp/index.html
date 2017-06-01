@@ -1017,6 +1017,10 @@ private:
 <blockquote>
 <p>log in</p>
 </blockquote>
+<pre>
+This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+</pre>
+
 <pre><code class="cpp">static void login ( std::vector &lt;std::string&gt; &amp; permissions ) ;
 </code></pre>
 
@@ -1098,8 +1102,11 @@ https://developers.facebook.com/docs/ios/graph</p>
 <blockquote>
 <p>fetch friends data from Facebook</p>
 </blockquote>
-<p>Only friends who has installed the app are returned in API v2.0 and higher of Facebook. The "total_count" in summary represents the total number of friends, including those who haven't installed the app.
-https://developers.facebook.com/docs/apps/changelog#v2_0</p>
+<pre>
+This data only reflects your friends that are using the app.
+The number of friends defaults to 25.
+</pre>
+
 <pre><code class="cpp">static std::vector &lt;FBGraphUser&gt; getFriends ( ) ;
 </code></pre>
 
@@ -1118,6 +1125,14 @@ https://developers.facebook.com/docs/apps/changelog#v2_0</p>
 <blockquote>
 <p>Get a vector of invitable friends info which can be used to build a custom friends invite dialog.</p>
 </blockquote>
+<pre>
+The default set will be limited to 25 friends.
+The order in which FB sorts the friends, and which ones returns vary between calls.
+The returned invitation tokens are not supposed to be long-term stored and may vary between
+calls for the same friends.
+The application must have a canvas configuration for this API call to work.
+</pre>
+
 <pre><code class="cpp">static void inviteFriendsWithInviteIds ( const std::vector &lt;std::string&gt; &amp; invite_ids ,
                                          const std::string &amp; title ,
                                          const std::string &amp; invite_text ) ;
@@ -1133,17 +1148,37 @@ https://developers.facebook.com/docs/apps/changelog#v2_0</p>
 <blockquote>
 <p>Use the default FB dialog to invite friends.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppId ( const std::string&amp; appId );
+<pre><code class="cpp">static void setAppId ( const std::string &amp; appId ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the Facebook App ID to be used by the FB SDK.</p>
 </blockquote>
-<pre><code class="cpp">static void setAppURLSchemeSuffix ( const std::string &amp; appURLSchemeSuffix );
+<pre><code class="cpp">static void setAppURLSchemeSuffix ( const std::string &amp; appURLSchemeSuffix ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the app url scheme suffix used by the FB SDK.</p>
+</blockquote>
+<pre><code class="cpp">static void requestGift ( const std::vector &lt;std::string&gt; &amp; invite_ids ,
+                          const std::string &amp; object_id ,
+                          const std::string &amp; message ,
+                          const std::string &amp; title = &quot;&quot; ,
+                          const std::string &amp; additional_data = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>Ask friends for a gift</p>
+</blockquote>
+<pre><code class="cpp">static void sendGift ( const std::vector &lt;std::string&gt; &amp; friend_ids ,
+                       const std::string &amp; object_id ,
+                       const std::string &amp; title ,
+                       const std::string &amp; message ,
+                       const std::string &amp; additional_data = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>Send friend a gift</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onLogin ( bool isLogin , const std::string &amp; msg );
@@ -1178,6 +1213,12 @@ https://developers.facebook.com/docs/apps/changelog#v2_0</p>
 </code></pre>
 
 <pre><code class="cpp">void onGetUserInfo ( const FBGraphUser &amp; userInfo );
+</code></pre>
+
+<pre><code class="cpp">void onAskGiftResult ( bool result , const std::string &amp; msg ) 
+</code></pre>
+
+<pre><code class="cpp">void onSendGiftResult ( bool result , const std::string &amp; msg ) 
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

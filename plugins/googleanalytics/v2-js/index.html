@@ -629,6 +629,8 @@
         
             <li><a href="#initialize-google-analytics">Initialize Google Analytics</a></li>
         
+            <li><a href="#use-ecommerce-api-sample">Use ECommerce API Sample</a></li>
+        
 	</ul>
 	
     
@@ -727,7 +729,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>res/sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the Google Analytics configuration, you need to replace <code>&lt;TRACKING_CODE&gt;</code>  with your specific <a href="https://support.google.com/analytics/answer/1008080?hl=en"><strong>Google Analytics Tracking Code</strong></a> account information.</p>
 <pre><code class="json">&quot;GoogleAnalytics&quot; : {
-    &quot;trackingCode&quot; : &quot;&lt;TRACKING_CODE&gt;&quot;
+    &quot;trackingCode&quot; : &quot;&lt;TRACKING_CODE&gt;&quot;,
+    &quot;anonymizeIp&quot;: true
 }
 </code></pre>
 
@@ -771,6 +774,84 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 </code></pre>
 
 <p>Logged data usually shows up within one day.</p>
+<h3 id="use-ecommerce-api-sample">Use ECommerce API Sample</h3>
+<ul>
+<li>
+<p>make sure ecommerce tracking is enable <a href="https://support.google.com/analytics/answer/1009612">here</a></p>
+</li>
+<li>
+<p>track purchase</p>
+</li>
+</ul>
+<pre><code class="js">    const ecommerceInfo = {
+        // transaction info
+        action: 'purchase',
+        transaction: 'T12345',
+        affiliation: 'Google Store - Online',
+        transactionCouponCode: 'SUMMER2017',
+        revenue: '37.39',
+        tax: '2.85',
+        shipping: '5.34',
+
+        // product info
+        productID: 'P12345',
+        productName: 'Android Warhol T-Shirt',
+        category: 'Apparel/T-Shirts',
+        brand: 'SDKBox',
+        productVariant: 'black',
+        productCouponCode: 'APPARELSALE',
+        price: '29.20',
+        quantity: '1',
+
+        // currency code
+        // https://support.google.com/analytics/answer/6205902?#supported-currencies
+        currencyCode: 'EUR'
+    };
+
+    sdkbox.PluginGoogleAnalytics.logECommerce(ecommerceInfo);
+</code></pre>
+
+<ul>
+<li>track refund</li>
+</ul>
+<pre><code class="js">    const ecommerceInfo = {
+        // transaction info
+        action: 'refund',
+        transaction: 'T12345',
+    };
+
+    sdkbox.PluginGoogleAnalytics.logECommerce(ecommerceInfo);
+</code></pre>
+
+<ul>
+<li>track partial refund</li>
+</ul>
+<pre><code class="js">    const ecommerceInfo = {
+        // transaction info
+        action: 'refund',
+        transaction: 'T12345',
+
+        // product info
+        productID: 'P12345',
+        quantity: '1',
+    };
+
+    sdkbox.PluginGoogleAnalytics.logECommerce(ecommerceInfo);
+</code></pre>
+
+<p>"action" key value:</p>
+<ul>
+<li>"detail"</li>
+<li>"click"</li>
+<li>"add"</li>
+<li>"remove"</li>
+<li>"checkout"</li>
+<li>"checkout_option"</li>
+<li>"purchase"</li>
+<li>"refund"</li>
+</ul>
+<p>"quantity" key value is <code>int</code> fromat, DO NOT use float format</p>
+<p>more info, take a look at here <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/enhanced-ecommerce">ios</a> and <a href="https://developers.google.com/analytics/devguides/collection/android/v4/enhanced-ecommerce">android</a></p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="javascript">sdkbox.PluginGoogleAnalytics.init();
