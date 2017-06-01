@@ -26,6 +26,10 @@ static void login ( ) ;
 ```
 > log in
 
+<pre>
+This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+</pre>
+
 ```cpp
 static void login ( std::vector <std::string> & permissions ) ;
 ```
@@ -96,8 +100,10 @@ static void fetchFriends ( ) ;
 ```
 > fetch friends data from Facebook
 
-Only friends who has installed the app are returned in API v2.0 and higher of Facebook. The "total_count" in summary represents the total number of friends, including those who haven't installed the app.
-https://developers.facebook.com/docs/apps/changelog#v2_0
+<pre>
+This data only reflects your friends that are using the app.
+The number of friends defaults to 25.
+</pre>
 
 ```cpp
 static std::vector <FBGraphUser> getFriends ( ) ;
@@ -114,6 +120,14 @@ static void requestInvitableFriends ( const FBAPIParam & ) ;
 ```
 > Get a vector of invitable friends info which can be used to build a custom friends invite dialog.
 
+<pre>
+The default set will be limited to 25 friends.
+The order in which FB sorts the friends, and which ones returns vary between calls.
+The returned invitation tokens are not supposed to be long-term stored and may vary between
+calls for the same friends.
+The application must have a canvas configuration for this API call to work.
+</pre>
+
 ```cpp
 static void inviteFriendsWithInviteIds ( const std::vector <std::string> & invite_ids ,
                                          const std::string & title ,
@@ -128,14 +142,33 @@ static void inviteFriends ( const std::string & app_link_url ,
 > Use the default FB dialog to invite friends.
 
 ```cpp
-static void setAppId ( const std::string& appId );
+static void setAppId ( const std::string & appId ) ;
 ```
 > Set the Facebook App ID to be used by the FB SDK.
 
 ```cpp
-static void setAppURLSchemeSuffix ( const std::string & appURLSchemeSuffix );
+static void setAppURLSchemeSuffix ( const std::string & appURLSchemeSuffix ) ;
 ```
 > Set the app url scheme suffix used by the FB SDK.
+
+```cpp
+static void requestGift ( const std::vector <std::string> & invite_ids ,
+                          const std::string & object_id ,
+                          const std::string & message ,
+                          const std::string & title = "" ,
+                          const std::string & additional_data = "" ) ;
+```
+> Ask friends for a gift
+
+```cpp
+static void sendGift ( const std::vector <std::string> & friend_ids ,
+                       const std::string & object_id ,
+                       const std::string & title ,
+                       const std::string & message ,
+                       const std::string & additional_data = "" ) ;
+```
+> Send friend a gift
+
 
 ### Listeners
 ```cpp
@@ -181,6 +214,14 @@ void onInviteFriendsResult ( bool result , const std::string & msg );
 
 ```cpp
 void onGetUserInfo ( const FBGraphUser & userInfo );
+```
+
+```cpp
+void onAskGiftResult ( bool result , const std::string & msg ) 
+```
+
+```cpp
+void onSendGiftResult ( bool result , const std::string & msg ) 
 ```
 
 

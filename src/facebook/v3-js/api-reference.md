@@ -11,6 +11,10 @@ sdkbox.PluginFacebook.login();
 ```
 > log in
 
+<pre>
+This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+</pre>
+
 ```javascript
 sdkbox.PluginFacebook.login(permissions);
 ```
@@ -72,6 +76,11 @@ sdkbox.PluginFacebook.fetchFriends();
 ```
 > fetch friends data from Facebook
 
+<pre>
+This data only reflects your friends that are using the app.
+The number of friends defaults to 25.
+</pre>
+
 ```javascript
 sdkbox.PluginFacebook.canPresentWithFBApp(info);
 ```
@@ -91,6 +100,25 @@ sdkbox.PluginFacebook.setAppId(appId);
 sdkbox.PluginFacebook.setAppURLSchemeSuffix(appURLSchemeSuffix);
 ```
 > Set the app url scheme suffix used by the FB SDK.
+
+```javascript
+sdkbox.PluginFacebook.requestGift(invite_ids,
+                                   object_id,
+                                   message,
+                                   title,
+                                   additional_data);
+```
+> Ask friends for a gift
+
+```javascript
+sdkbox.PluginFacebook.sendGift(friend_ids,
+                                object_id,
+                                title,
+                                message,
+                                additional_data);
+```
+> Send friend a gift
+
 
 ### Listeners
 ```javascript
@@ -135,6 +163,14 @@ onInviteFriendsResult(result, msg);
 
 ```javascript
 onGetUserInfo(userInfo);
+```
+
+```javascript
+onAskGiftResult(result, msg);
+```
+
+```javascript
+onSendGiftResult(result, msg);
 ```
 
 
