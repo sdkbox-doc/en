@@ -690,6 +690,17 @@
 	</ul>
 	
     
+        <li class="main "><a href="#cloud-save">Cloud Save</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#ios-cloud-save">iOS Cloud Save</a></li>
+        
+            <li><a href="#usage_2">Usage</a></li>
+        
+	</ul>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1619,7 +1630,30 @@ This is default proguard config:</p>
 <p>eg. if you want to submit score 3.14, you must set score formats is <code>Fixed Point To 2 Decimal</code> (change score format at apple/google develope website), and invoke like follow:</p>
 <pre><code class="c++">submitScore(&quot;leaderboardName&quot;, 3.14 * 100);
 
-</code></pre></div>
+</code></pre>
+
+<h2 id="cloud-save">Cloud Save</h2>
+<p>SDKBoxPlay support iOS/Google cloud game save, developer can save user's game data in iColud/Google Drive.</p>
+<h3 id="ios-cloud-save">iOS Cloud Save</h3>
+<ul>
+<li>The player must have an iCloud account to save games</li>
+<li>developer must <a href="https://developer.apple.com/library/content/documentation/DataManagement/Conceptual/CloudKitQuickStart/EnablingiCloudandConfiguringCloudKit/EnablingiCloudandConfiguringCloudKit.html#//apple_ref/doc/uid/TP40014987-CH2-SW2">enable iCloud</a> in their App</li>
+</ul>
+<h3 id="usage_2">Usage</h3>
+<h4 id="load-all-saved-game-data">load all saved game data</h4>
+<pre><code class="cpp">sdkbox::PluginSdkboxPlay::loadAllData();
+</code></pre>
+
+<h4 id="load-special-saved-game-data">load special saved game data</h4>
+<pre><code class="cpp">sdkbox::PluginSdkboxPlay::loadGameData(&quot;key2&quot;);
+</code></pre>
+
+<h4 id="save-game-data">save game data</h4>
+<pre><code class="cpp">sdkbox::PluginSdkboxPlay::saveGameData(&quot;key1&quot;, &quot;{\&quot;game_name\&quot;: \&quot;sdkbox go\&quot;, \&quot;stage\&quot;: 3}&quot;);
+</code></pre>
+
+<p>iOS SavedGame <a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/GameKit_Guide/SavedGames/SavedGames.html">Document</a></p>
+<p>Android SavedGame <a href="https://developers.google.com/games/services/common/concepts/savedgames">Document</a></p></div>
             
         </div>
 
