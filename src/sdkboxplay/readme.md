@@ -108,3 +108,5 @@ if you don't want popup show when unlock achievement, you can set 'show_achievem
 <<[proguard.md]
 
 <<[../shared/qa.md]
+
+<<[../shared/cloud_save.md]
