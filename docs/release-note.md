@@ -1,6 +1,36 @@
 #Release Notes
 ---
 
+2.3.14 Release Notes
+===
+##Highlights
+* SDKBOX Play supports cloud save function for iCloud and Google Play
+* SDKBOX Play supports reset function for Achievement and Leaderboard
+* SDKBOX Play leaderboard support float point scores
+* InMobi supports rewarded ADs
+* Support customized build path for CocosCreator project
+
+##Bugfix
+* Fix a crash issue with SDKBOX [issue](http://discuss.cocos2d-x.org/t/sdkbox-crash-after-update/36293)
+* Fix a crash issue with social share
+* Fix google analytics not tracking app version correctly on iOS [issue](http://discuss.cocos2d-x.org/t/google-analytics-using-sdkbox-ios-dosent-tracking-app-version/36152)
+* Add new paramters for Facebook gifting [issue](http://discuss.cocos2d-x.org/t/sdkbox-2-3-12-release-admob-reward-video/35867/20?u=nite)
+* Fix InMobi onAdAction callback not been triggered [issue](http://discuss.cocos2d-x.org/t/problem-with-sdkboxadslistener-and-inmobi/36347?u=nite)
+* Fix crash in IAP [issue](https://github.com/sdkbox/issues/issues/11)
+* Fix IAP onCanceled returns empty in a special case [issue](https://github.com/sdkbox/issues/issues/10)
+* Fix double value support for SDKBOX Play [issue](https://github.com/sdkbox/issues/issues/9)
+* Fix OneSignal setTag crash [issue](http://discuss.cocos2d-x.org/t/pluginonesignal-gettags-bug/36432)
+
+2.3.13 Release Notes
+===
+##Highlights
+* Upgrade Facebook SDK
+* Upgrade GPG Framework
+* Facebook supports sending/receiving gift
+
+##Bugfix
+* load achievement will include achievement names
+
 2.3.12 Release Notes
 ===
 ##Highlights
