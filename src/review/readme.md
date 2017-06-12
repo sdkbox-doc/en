@@ -80,6 +80,22 @@ if you want to use custom string when prompt. there have two ways:
 
 this way will disable local language, if your app needn't localization, can use this way.
 
+## Amazon Market
+
+if your app is availavle in amazon market, please configure like follow:
+
+```
+"Review":{
+    "android": {
+        "Review":{
+
+            ...
+
+            "market": "amazon"
+        }
+    }
+}
+```
 
 <<[api-reference.md]
 
