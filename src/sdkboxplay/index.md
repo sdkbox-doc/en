@@ -12,4 +12,4 @@ Currently, this plugin offers common implementation for Leaderboards and Achieve
 
 ##Sample Project
 
-* [A demo project using cocos2d-x v3.x on github](https://github.com/sdkbox/sdkbox-SdkboxAds-sample)
+* [A demo project using cocos2d-x v3.x on github](https://github.com/sdkbox/sdkbox-sample-sdkboxplay)

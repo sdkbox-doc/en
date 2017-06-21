@@ -14,6 +14,28 @@ The plugin initializes from the sdkbox_config.json file, and reads a configurati
     "enabled"          : boolean
 }
 
+<pre>
+debug:
+   is a common value to all plugins which enables debug info to be sent to the console. Useful when developing.
+enabled:
+   is a common value to all plugins, which enables or disables the plugin. If enabled is false, the plugin methods will do nothing.
+connect_on_start:
+   tells the plugin to make an automatic connection to Google Play Services on application startup.
+leaderboards:
+   a collection of objects of the form:
+   {
+       "id"   : // google play's assigned leaderboard id
+       "name" : // human readable leaderboard name. You'll request leaderboard actions with this name.
+   }
+achievements:
+   a collection of objects of the form:
+   {
+       "id"          : // google play's assigned achievement id.
+       "name"        : // human readable achievement name. You'll request achievement actions with this name.
+       "incremental" : // boolean
+   }
+</pre>
+
 ```javascript
 sdkbox.PluginSdkboxPlay.setListener(listener);
 ```
@@ -51,6 +73,12 @@ sdkbox.PluginSdkboxPlay.showLeaderboard(leaderboard_name);
 In this view you'll be able to interactively select between daily, weekly or all-time leaderboard time frames and the scope
 to global or you google play's friends results.
 
+<pre>
+Android only:
+ if empty string or __ALL__ is used as leaderboard_name, sdkbox play will invoke an activity
+ with all game-defined leader boards.
+</pre>
+
 ```javascript
 sdkbox.PluginSdkboxPlay.getMyScore(leaderboard_name, time_span, collection_type);
 ```
@@ -72,8 +100,7 @@ sdkbox.PluginSdkboxPlay.getPlayerCenteredScores(leaderboard_name,
                                                  collection_type,
                                                  number_of_entries);
 ```
-> Android Only !!!
-Get leaderboard information.
+> Get leaderboard information.
 This method notifies its result in a call to SdkboxPlay's listener `onPlayerCenteredScores` method.
 The information supplied is a json array encoded string.
 Each json element contains the following information:
@@ -126,7 +153,7 @@ this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
   + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievement is set as
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
 a percentage value (0..100). In either case, the `increment` value will be added to the current achievement's
 value.
 
@@ -196,7 +223,37 @@ Android only:
   + hires_image_uri
   + last_play_timestamp
   + retrieved_timestamp
+  + server_auth_code
 If a field not valid is queried an empty string will be returned.
+
+```javascript
+sdkbox.PluginSdkboxPlay.resetAchievements();
+```
+> Calling this class method deletes all progress towards achievements
+previously reported for the local player. Hidden achievements that
+were previously visible are now hidden again.
+
+<pre>
+iOS Only
+</pre>
+
+```javascript
+sdkbox.PluginSdkboxPlay.loadAllData();
+```
+> load all saved user game data in clound
+will trigger onGameData callback
+
+```javascript
+sdkbox.PluginSdkboxPlay.loadGameData(save_name);
+```
+> load one saved user game data in clound
+will trigger onGameData callback
+
+```javascript
+sdkbox.PluginSdkboxPlay.saveGameData(save_name, data);
+```
+> save user game data in cloud
+will trigger onGameData callback
 
 
 ### Listeners
@@ -277,7 +334,7 @@ onPlayerCenteredScoresError(leaderboard_name,
 onIncrementalAchievementUnlocked(achievement_name);
 ```
 > Callback method invoked when the request call to increment an achievement is succeessful and
-that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
 Maximum step count for an incremental achievement is defined in the google play developer console.
 
 ```javascript
@@ -305,14 +362,13 @@ onAchievementsLoaded(reload_forced, json_achievements_info);
 ```
 > Method invoked after calling plugin's `loadAchievements` method.
 The `json_achievements_info` parameter is a json array encoded string.
-
 #### Android fields:
 each array element is of the form:
 ```json
   {
      "id"                        : string,
      "name"                      : string,
-     "xp_value"                  : number,
+     "xp_value"                  : string,   // experience value
      "last_updated_timestamp"    : number,
      "description"               : string,
      "type"                      : number,   // 0 = standard, 1 = incremental
@@ -326,7 +382,7 @@ each array element is of the form:
   {
      "formatted_current_steps"   : string,
      "formatted_total_steps"     : string,
-     "current_steps"             : number,
+     current_steps"              : number,
      "total_steps"               : number
   }
 ```
@@ -335,21 +391,19 @@ each array element is of the form:
   {
      "id"                        : string,
      "name"                      : string,
-     "xp_value"                  : number,
+     "xp_value"                  : number, int
      "last_updated_timestamp"    : number,
+     "description"               : string,   // maybe empty if no achievemnt submission happened before.
      "state"                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
-     "type"                      : number,   // always 1 = incremental, on iOS all achievemtns are incremental.
+     "type"                      : 1,        // on ios all achievemtns are incremental.
      "current_steps"             : number,   // double value. percentage 0.0 .. 100.0
      "total_steps"               : number,   // 100.0
   }
-```
-
-iOS only fields:
+ ```
+ iOS only fields:
 ```json
   {
-     "replayable"                : boolean, // whether this achievement can be earned multiple times.
-     "achieved_description"      : string,  // maybe empty if no achievemnt submission happened before.
-     "unachieved_description"    : string
+     "replayable"                : boolean,
   }
 ```
 
@@ -369,4 +423,8 @@ onReveal(name);
 onRevealError(name, error_code, error_description);
 ```
 
+```javascript
+onGameData(action, name, data, error);
+```
+> 
 
