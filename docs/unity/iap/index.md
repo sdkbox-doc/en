@@ -155,3 +155,12 @@ If you have not specified your own AndroidManifest.xml then when you import the 
 If you do have your own already, then you will need to add this permission to it.
 
 The AndroidManifest.xml is merged with the main manifest that Unity creates when building the APK.
+
+### FAQ
+1. Found plugins with same names and architectures
+Sometimes Unity failed to recognize Android library correctly, when that happens you'll encounter this error message.
+![](error_1_arch.png)
+
+To fix this issue, select the *.so files based on the error message, then check the Inspector, make sure the "Platform Settings" are correct.
+Anything under "x86" folder, should be set to "x86". Anything under "armeabi-v7a" folder should be set to "ARMv7"
+![](error_1_solve.png)
