@@ -645,6 +645,9 @@
         <li class="main "><a href="#custom-string">Custom String</a></li>
 	
     
+        <li class="main "><a href="#amazon-market">Amazon Market</a></li>
+	
+    
         <li class="main "><a href="#api-reference">API Reference</a></li>
 	
 	<ul class="sub-sidenav">
@@ -946,6 +949,20 @@ plugin:init()
 </code></pre>
 
 <p>this way will disable local language, if your app needn't localization, can use this way.</p>
+<h2 id="amazon-market">Amazon Market</h2>
+<p>if your app is availavle in amazon market, please configure like follow:</p>
+<pre><code>&quot;Review&quot;:{
+    &quot;android&quot;: {
+        &quot;Review&quot;:{
+
+            ...
+
+            &quot;market&quot;: &quot;amazon&quot;
+        }
+    }
+}
+</code></pre>
+
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="lua">sdkbox.PluginReview:init()

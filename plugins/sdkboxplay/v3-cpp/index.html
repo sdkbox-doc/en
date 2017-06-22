@@ -805,7 +805,7 @@ AppDelegate::applicationDidFinishLaunching()
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section</p>
 <h5 id="logged-in-user-info">Logged in user info</h5>
 <p>Calling the method <code>sdkbox::SdkboxPlay::getPlayerId()</code> to get an id per platform that uniquely identifies the logged-in user.
-Additionally, you can query more information about the user. </p>
+Additionally, you can query more information about the user.</p>
 <h6 id="iosandroid-fields">iOS/Android fields</h6>
 <p>These fields are common to ios and android:
 <em> player_id
@@ -835,7 +835,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <p>To keep things consisten, SdkboxPlay API:</p>
 <ul>
 <li>Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.</li>
-<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. </li>
+<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.</li>
 <li>For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
 </ul>
 <h5 id="leaderboards">Leaderboards</h5>
@@ -855,18 +855,18 @@ Though both, GooglePlay and GameCenter define leaderboards in the same way, in t
 
 <p>If connection is successful, you'll be able to use the SdkboxPlay services with the following API:</p>
 <h5 id="leaderboards_1">Leaderboards</h5>
-<pre><code class="cpp">void submitScore(   const std::string&amp; leaderboard_name, int score )
+<pre><code class="cpp">void submitScore(   const std::string&amp; leaderboard_name, long score )
 </code></pre>
 
 <p>This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
 Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method: </p>
+This method will invoke plugin’s observer method:</p>
 <pre><code class="cpp">void onScoreSubmitted(
-        const std::string&amp; leaderboard_name, 
-        int score, 
-        bool maxScoreAllTime, 
-        bool maxScoreWeek, 
+        const std::string&amp; leaderboard_name,
+        long score,
+        bool maxScoreAllTime,
+        bool maxScoreWeek,
         bool maxScoreToday )
 </code></pre>
 
@@ -883,15 +883,15 @@ For iOS, there’s no different UI for requesting leaderboards and achievements,
 <p>Unlock a non incremental achievement. In the case of iOS, it will send a request to Game Center of unlock with 100 progress points.
 If the achievement type is incorrectly defined in the configuration file (wrong id), or the play services determines it is of the wrong type (Google play) the method will fail silently.
 Upon successful call, this method will invoke the listener’s method: onAchievementUnlocked( const std::string&amp; achievement_name, bool newlyUnlocked ).</p>
-<pre><code class="cpp">void incrementAchievement( 
-    const std::string&amp; achievement_name, 
+<pre><code class="cpp">void incrementAchievement(
+    const std::string&amp; achievement_name,
     int increment );
 </code></pre>
 
 <p>Increment an incremental achievement.
 The method will silently fail if the achievement type is incorrectly defined in the configuration file (wrong or non existent id), or the play services determines it is of the wrong type (Google Play).
 If the call is successful, this method may invoke two different methods:
-+ <code>onIncrementalAchievementStep( const std::string&amp; achievement_name, int step )</code> if the achievement is not unlocked.
++ <code>onIncrementalAchievementStep( const std::string&amp; achievement_name, double step )</code> if the achievement is not unlocked.
 + <code>onIncrementalAchievementUnlocked( const std::string&amp; achievement_name, bool newlyUnlocked )</code> the first time it's been unlocked.</p>
 <pre><code class="cpp">void showAchievements( );
 </code></pre>
@@ -922,11 +922,11 @@ protected:
      * subbmited score, as well as whether the score is the daily, weekly, or all time best score.
      * Since Game center can't determine if submitted score is maximum, it will send the max score flags as false.
      */
-    void onScoreSubmitted( const std::string&amp; leaderboard_name, int score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday );
+    void onScoreSubmitted( const std::string&amp; leaderboard_name, long score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday );
 
     /**
      * Callback method invoked when the request call to increment an achievement is succeessful and
-     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
      * Maximum step count for an incremental achievement is defined in the google play developer console.
      */
     void onIncrementalAchievementUnlocked( const std::string&amp; achievement_name );
@@ -935,7 +935,7 @@ protected:
      * Callback method invoked when the request call to increment an achievement is successful.
      * If possible (Google play only) it notifies back with the current achievement step count.
      */
-    void onIncrementalAchievementStep( const std::string&amp; achievement_name, int step );
+    void onIncrementalAchievementStep( const std::string&amp; achievement_name, double step );
 
     /**
      * Call method invoked when the request call to unlock a non-incremental achievement is successful.
@@ -967,6 +967,28 @@ The plugin initializes from the sdkbox_config.json file, and reads a configurati
     "enabled"          : boolean
 }</p>
 </blockquote>
+<pre>
+debug:
+   is a common value to all plugins which enables debug info to be sent to the console. Useful when developing.
+enabled:
+   is a common value to all plugins, which enables or disables the plugin. If enabled is false, the plugin methods will do nothing.
+connect_on_start:
+   tells the plugin to make an automatic connection to Google Play Services on application startup.
+leaderboards:
+   a collection of objects of the form:
+   {
+       "id"   : // google play's assigned leaderboard id
+       "name" : // human readable leaderboard name. You'll request leaderboard actions with this name.
+   }
+achievements:
+   a collection of objects of the form:
+   {
+       "id"          : // google play's assigned achievement id.
+       "name"        : // human readable achievement name. You'll request achievement actions with this name.
+       "incremental" : // boolean
+   }
+</pre>
+
 <pre><code class="cpp">static void setListener ( SdkboxPlayListener * listener ) ;
 </code></pre>
 
@@ -993,7 +1015,7 @@ This plugin allows only for one listener which will be disabled after calling th
 <p>Use this to get the version of the SDK.
 @return The version of the SDK.</p>
 </blockquote>
-<pre><code class="cpp">static void submitScore ( const std::string &amp; leaderboard_name , int score ) ;
+<pre><code class="cpp">static void submitScore ( const std::string &amp; leaderboard_name , long score ) ;
 </code></pre>
 
 <blockquote>
@@ -1016,6 +1038,12 @@ If everything's right, it will notify the method <code>onScoreSubmitted</code>.<
 In this view you'll be able to interactively select between daily, weekly or all-time leaderboard time frames and the scope
 to global or you google play's friends results.</p>
 </blockquote>
+<pre>
+Android only:
+ if empty string or __ALL__ is used as leaderboard_name, sdkbox play will invoke an activity
+ with all game-defined leader boards.
+</pre>
+
 <pre><code class="cpp">static void getMyScore ( const std::string &amp; leaderboard_name ,
                          int time_span ,
                          int collection_type ) ;
@@ -1041,8 +1069,7 @@ Values are:
 </code></pre>
 
 <blockquote>
-<p>Android Only !!!
-Get leaderboard information.
+<p>Get leaderboard information.
 This method notifies its result in a call to SdkboxPlay's listener <code>onPlayerCenteredScores</code> method.
 The information supplied is a json array encoded string.
 Each json element contains the following information:</p>
@@ -1088,7 +1115,7 @@ this method will fail silently.
 Otherwise, if everything is right, the method <code>onAchievementUnlocked</code> will be invoked on the plugin listener.</p>
 </blockquote>
 <pre><code class="cpp">static void incrementAchievement ( const std::string &amp; achievement_name ,
-                                   int increment ) ;
+                                   double increment ) ;
 </code></pre>
 
 <blockquote>
@@ -1099,7 +1126,7 @@ this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
   + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievement is set as
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
 a percentage value (0..100). In either case, the <code>increment</code> value will be added to the current achievement's
 value.</p>
 </blockquote>
@@ -1119,7 +1146,7 @@ Total experience count is measured as well.</p>
 <p>Reveal a hidden achievement.
 This method will notify on plugin's listener <code>onReveal</code> or <code>onRevelError</code> methods.</p>
 </blockquote>
-<pre><code class="cpp">static void setSteps ( const std::string &amp; achievement_name , int steps ) ;
+<pre><code class="cpp">static void setSteps ( const std::string &amp; achievement_name , double steps ) ;
 </code></pre>
 
 <blockquote>
@@ -1181,9 +1208,44 @@ Android only:</li>
 <li>icon_image_uri</li>
 <li>hires_image_uri</li>
 <li>last_play_timestamp</li>
-<li>retrieved_timestamp
+<li>retrieved_timestamp</li>
+<li>server_auth_code
 If a field not valid is queried an empty string will be returned.</li>
 </ul>
+<pre><code class="cpp">static void resetAchievements ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Calling this class method deletes all progress towards achievements
+previously reported for the local player. Hidden achievements that
+were previously visible are now hidden again.</p>
+</blockquote>
+<pre>
+iOS Only
+</pre>
+
+<pre><code class="cpp">static void loadAllData ( ) ;
+</code></pre>
+
+<blockquote>
+<p>load all saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+<pre><code class="cpp">static void loadGameData ( const std::string &amp; save_name ) ;
+</code></pre>
+
+<blockquote>
+<p>load one saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+<pre><code class="cpp">static void saveGameData ( const std::string &amp; save_name ,
+                           const std::string &amp; data ) ;
+</code></pre>
+
+<blockquote>
+<p>save user game data in cloud
+will trigger onGameData callback</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onConnectionStatusChanged ( int status );
 </code></pre>
@@ -1196,7 +1258,7 @@ Values are as follows:
   + GPS_CONNECTION_ERROR:error with google play services connection.</p>
 </blockquote>
 <pre><code class="cpp">void onScoreSubmitted ( const std::string &amp; leaderboard_name ,
-                        int score ,
+                        long score ,
                         bool maxScoreAllTime ,
                         bool maxScoreWeek ,
                         bool maxScoreToday );
@@ -1211,7 +1273,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
 <pre><code class="cpp">void onMyScore ( const std::string &amp; leaderboard_name ,
                  int time_span ,
                  int collection_type ,
-                 long score ) {
+                 long score ) 
 </code></pre>
 
 <blockquote>
@@ -1222,7 +1284,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
                       int time_span ,
                       int collection_type ,
                       int error_code ,
-                      const std::string &amp; error_description ) {
+                      const std::string &amp; error_description ) 
 </code></pre>
 
 <blockquote>
@@ -1233,7 +1295,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
 <pre><code class="cpp">void onPlayerCenteredScores ( const std::string &amp; leaderboard_name ,
                               int time_span ,
                               int collection_type ,
-                              const std::string &amp; json_with_score_entries ) {
+                              const std::string &amp; json_with_score_entries ) 
 </code></pre>
 
 <blockquote>
@@ -1259,7 +1321,7 @@ Each json element contains the following information:</p>
                                    int time_span ,
                                    int collection_type ,
                                    int error_code ,
-                                   const std::string &amp; error_description ) {
+                                   const std::string &amp; error_description ) 
 </code></pre>
 
 <blockquote>
@@ -1272,11 +1334,11 @@ Each json element contains the following information:</p>
 
 <blockquote>
 <p>Callback method invoked when the request call to increment an achievement is succeessful and
-that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
 Maximum step count for an incremental achievement is defined in the google play developer console.</p>
 </blockquote>
 <pre><code class="cpp">void onIncrementalAchievementStep ( const std::string &amp; achievement_name ,
-                                    int step );
+                                    double step );
 </code></pre>
 
 <blockquote>
@@ -1284,9 +1346,9 @@ Maximum step count for an incremental achievement is defined in the google play 
 If possible (Google play only) it notifies back with the current achievement step count.</p>
 </blockquote>
 <pre><code class="cpp">void onIncrementalAchievementStepError ( const std::string &amp; name ,
-                                         int steps ,
+                                         double steps ,
                                          int error_code ,
-                                         const std::string &amp; error_description ) {
+                                         const std::string &amp; error_description ) 
 </code></pre>
 
 <pre><code class="cpp">void onAchievementUnlocked ( const std::string &amp; achievement_name ,
@@ -1299,11 +1361,11 @@ If this is the first time the achievement is unlocked, newUnlocked will be true.
 </blockquote>
 <pre><code class="cpp">void onAchievementUnlockError ( const std::string &amp; achievement_name ,
                                 int error_code ,
-                                const std::string &amp; error_description ) {
+                                const std::string &amp; error_description ) 
 </code></pre>
 
 <pre><code class="cpp">void onAchievementsLoaded ( bool reload_forced ,
-                            const std::string &amp; json_achievements_info ) {
+                            const std::string &amp; json_achievements_info ) 
 </code></pre>
 
 <blockquote>
@@ -1315,7 +1377,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : number,
+     &quot;xp_value&quot;                  : string,   // experience value
      &quot;last_updated_timestamp&quot;    : number,
      &quot;description&quot;               : string,
      &quot;type&quot;                      : number,   // 0 = standard, 1 = incremental
@@ -1329,7 +1391,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;formatted_current_steps&quot;   : string,
      &quot;formatted_total_steps&quot;     : string,
-     &quot;current_steps&quot;             : number,
+     current_steps&quot;              : number,
      &quot;total_steps&quot;               : number
   }
 </code></pre>
@@ -1338,40 +1400,46 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : number,
+     &quot;xp_value&quot;                  : number, int
      &quot;last_updated_timestamp&quot;    : number,
+     &quot;description&quot;               : string,   // maybe empty if no achievemnt submission happened before.
      &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
-     &quot;type&quot;                      : number,   // always 1 = incremental, on iOS all achievemtns are incremental.
+     &quot;type&quot;                      : 1,        // on ios all achievemtns are incremental.
      &quot;current_steps&quot;             : number,   // double value. percentage 0.0 .. 100.0
      &quot;total_steps&quot;               : number,   // 100.0
   }
-</code></pre>
-
-<p>iOS only fields:</p>
-<pre><code class="json">  {
-     &quot;replayable&quot;                : boolean, // whether this achievement can be earned multiple times.
-     &quot;achieved_description&quot;      : string,  // maybe empty if no achievemnt submission happened before.
-     &quot;unachieved_description&quot;    : string
+ ```
+ iOS only fields:
+```json
+  {
+     &quot;replayable&quot;                : boolean,
   }
 </code></pre>
 
-<pre><code class="cpp">void onSetSteps ( const std::string &amp; name , int steps ) {
+<pre><code class="cpp">void onSetSteps ( const std::string &amp; name , double steps ) 
 </code></pre>
 
 <pre><code class="cpp">void onSetStepsError ( const std::string &amp; name ,
-                       int steps ,
+                       double steps ,
                        int error_code ,
-                       const std::string &amp; error_description ) {
+                       const std::string &amp; error_description ) 
 </code></pre>
 
-<pre><code class="cpp">void onReveal ( const std::string &amp; name ) {
+<pre><code class="cpp">void onReveal ( const std::string &amp; name ) 
 </code></pre>
 
 <pre><code class="cpp">void onRevealError ( const std::string &amp; name ,
                      int error_code ,
-                     const std::string &amp; error_description ) {
+                     const std::string &amp; error_description ) 
 </code></pre>
 
+<pre><code class="cpp">void onGameData ( const std::string &amp; action ,
+                  const std::string &amp; name ,
+                  const std::string &amp; data ,
+                  const std::string &amp; error ) 
+</code></pre>
+
+<blockquote></blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

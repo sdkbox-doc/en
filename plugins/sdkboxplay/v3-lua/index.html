@@ -936,6 +936,28 @@ The plugin initializes from the sdkbox_config.json file, and reads a configurati
     "enabled"          : boolean
 }</p>
 </blockquote>
+<pre>
+debug:
+   is a common value to all plugins which enables debug info to be sent to the console. Useful when developing.
+enabled:
+   is a common value to all plugins, which enables or disables the plugin. If enabled is false, the plugin methods will do nothing.
+connect_on_start:
+   tells the plugin to make an automatic connection to Google Play Services on application startup.
+leaderboards:
+   a collection of objects of the form:
+   {
+       "id"   : // google play's assigned leaderboard id
+       "name" : // human readable leaderboard name. You'll request leaderboard actions with this name.
+   }
+achievements:
+   a collection of objects of the form:
+   {
+       "id"          : // google play's assigned achievement id.
+       "name"        : // human readable achievement name. You'll request achievement actions with this name.
+       "incremental" : // boolean
+   }
+</pre>
+
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:setListener(listener)
 </code></pre>
 
@@ -979,6 +1001,12 @@ If everything's right, it will notify the method <code>onScoreSubmitted</code>.<
 In this view you'll be able to interactively select between daily, weekly or all-time leaderboard time frames and the scope
 to global or you google play's friends results.</p>
 </blockquote>
+<pre>
+Android only:
+ if empty string or __ALL__ is used as leaderboard_name, sdkbox play will invoke an activity
+ with all game-defined leader boards.
+</pre>
+
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:getMyScore(leaderboard_name, time_span, collection_type)
 </code></pre>
 
@@ -1002,8 +1030,7 @@ Values are:
 </code></pre>
 
 <blockquote>
-<p>Android Only !!!
-Get leaderboard information.
+<p>Get leaderboard information.
 This method notifies its result in a call to SdkboxPlay's listener <code>onPlayerCenteredScores</code> method.
 The information supplied is a json array encoded string.
 Each json element contains the following information:</p>
@@ -1059,7 +1086,7 @@ this method will fail silently.
 If the call is successful, this method may invoke two different methods:
   + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
   + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievement is set as
+On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
 a percentage value (0..100). In either case, the <code>increment</code> value will be added to the current achievement's
 value.</p>
 </blockquote>
@@ -1141,9 +1168,43 @@ Android only:</li>
 <li>icon_image_uri</li>
 <li>hires_image_uri</li>
 <li>last_play_timestamp</li>
-<li>retrieved_timestamp
+<li>retrieved_timestamp</li>
+<li>server_auth_code
 If a field not valid is queried an empty string will be returned.</li>
 </ul>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:resetAchievements()
+</code></pre>
+
+<blockquote>
+<p>Calling this class method deletes all progress towards achievements
+previously reported for the local player. Hidden achievements that
+were previously visible are now hidden again.</p>
+</blockquote>
+<pre>
+iOS Only
+</pre>
+
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllData()
+</code></pre>
+
+<blockquote>
+<p>load all saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:loadGameData(save_name)
+</code></pre>
+
+<blockquote>
+<p>load one saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameData(save_name, data)
+</code></pre>
+
+<blockquote>
+<p>save user game data in cloud
+will trigger onGameData callback</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onConnectionStatusChanged(status)
 </code></pre>
@@ -1229,7 +1290,7 @@ Each json element contains the following information:</p>
 
 <blockquote>
 <p>Callback method invoked when the request call to increment an achievement is succeessful and
-that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
 Maximum step count for an incremental achievement is defined in the google play developer console.</p>
 </blockquote>
 <pre><code class="lua">onIncrementalAchievementStep(achievement_name, step)
@@ -1264,7 +1325,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : number,
+     &quot;xp_value&quot;                  : string,   // experience value
      &quot;last_updated_timestamp&quot;    : number,
      &quot;description&quot;               : string,
      &quot;type&quot;                      : number,   // 0 = standard, 1 = incremental
@@ -1278,7 +1339,7 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;formatted_current_steps&quot;   : string,
      &quot;formatted_total_steps&quot;     : string,
-     &quot;current_steps&quot;             : number,
+     current_steps&quot;              : number,
      &quot;total_steps&quot;               : number
   }
 </code></pre>
@@ -1287,20 +1348,19 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="json">  {
      &quot;id&quot;                        : string,
      &quot;name&quot;                      : string,
-     &quot;xp_value&quot;                  : number,
+     &quot;xp_value&quot;                  : number, int
      &quot;last_updated_timestamp&quot;    : number,
+     &quot;description&quot;               : string,   // maybe empty if no achievemnt submission happened before.
      &quot;state&quot;                     : number,   // 0 = unlocked, 1 = revealed,   2 = hidden
-     &quot;type&quot;                      : number,   // always 1 = incremental, on iOS all achievemtns are incremental.
+     &quot;type&quot;                      : 1,        // on ios all achievemtns are incremental.
      &quot;current_steps&quot;             : number,   // double value. percentage 0.0 .. 100.0
      &quot;total_steps&quot;               : number,   // 100.0
   }
-</code></pre>
-
-<p>iOS only fields:</p>
-<pre><code class="json">  {
-     &quot;replayable&quot;                : boolean, // whether this achievement can be earned multiple times.
-     &quot;achieved_description&quot;      : string,  // maybe empty if no achievemnt submission happened before.
-     &quot;unachieved_description&quot;    : string
+ ```
+ iOS only fields:
+```json
+  {
+     &quot;replayable&quot;                : boolean,
   }
 </code></pre>
 
@@ -1316,6 +1376,10 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="lua">onRevealError(name, error_code, error_description)
 </code></pre>
 
+<pre><code class="lua">onGameData(action, name, data, error)
+</code></pre>
+
+<blockquote></blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
