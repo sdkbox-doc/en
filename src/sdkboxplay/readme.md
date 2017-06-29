@@ -16,6 +16,11 @@
  + Use itunes connect to configure [leaderboards](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Leaderboards/Leaderboards.html#//apple_ref/doc/uid/TP40013726-CH2-SW47) and [achievements](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Achievements/Achievements.html#//apple_ref/doc/uid/TP40013726-CH3-SW3).
  + Make sure Leaderboard and Achievements are live before testing
 
+###Cloud Save
+ + Enable iCloud on Xcode. ![](../../imgs/cloud_save_ios.png)
+ + Enable `Saved Games` on [Google Play Console](https://play.google.com/apps/publish/signup/) ![](../../imgs/cloud_save_android.png)
+
+ **NOTE**: In 2.3.14 cloud save is enable as default, it cause user can't sign-in on android if you do not enable `Save Games` on Google Play Console.
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX SdkboxPlay plugin. Make sure you setup the SDKBOX installer correctly.
