@@ -116,7 +116,6 @@ pages:
                 - 'Facebook with C++': 'plugins/facebook/v2-cpp.md'
                 - 'Facebook with Javascript': 'plugins/facebook/v2-js.md'
                 - 'Facebook with Lua': 'plugins/facebook/v2-lua.md'
-                - 'Facebook': 'plugins/facebook/index.md'
         - 'Firebase': 'plugins/firebase/index.md'
         - '_Firebase':
             - 'Cocos2d-x v3.x':

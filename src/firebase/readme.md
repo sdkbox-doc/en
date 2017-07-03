@@ -32,7 +32,7 @@ You must translate `google-services.json` to xml to use.
  * run
 
 ```python
-python -c 'import urllib; import sys; sys.argv = ["transpy", "-i", "./google-services.json", "-o", "./googleservices.xml"]; s = urllib.urlopen("https://raw.githubusercontent.com/hugohuang1111/sdkbox-doc-en/firebase/tools/generate_xml_from_google_services_json.py").read(); exec(s);'
+python -c 'import urllib; import sys; sys.argv = ["transpy", "-i", "./google-services.json", "-o", "./googleservices.xml"]; s = urllib.urlopen("https://raw.githubusercontent.com/sdkbox-doc/en/master/tools/generate_xml_from_google_services_json.py").read(); exec(s);'
 ```
 
  * `googleservices.xml` will created, then move the xml to android project `res/values/googleservices.xml`
