@@ -116,6 +116,17 @@ pages:
                 - 'Facebook with C++': 'plugins/facebook/v2-cpp.md'
                 - 'Facebook with Javascript': 'plugins/facebook/v2-js.md'
                 - 'Facebook with Lua': 'plugins/facebook/v2-lua.md'
+                - 'Facebook': 'plugins/facebook/index.md'
+        - 'Firebase': 'plugins/firebase/index.md'
+        - '_Firebase':
+            - 'Cocos2d-x v3.x':
+                - 'Firebase with C++': 'plugins/firebase/v3-cpp.md'
+                - 'Firebase with Javascript': 'plugins/firebase/v3-js.md'
+                - 'Firebase with Lua': 'plugins/firebase/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Firebase with C++': 'plugins/firebase/v2-cpp.md'
+                - 'Firebase with Javascript': 'plugins/firebase/v2-js.md'
+                - 'Firebase with Lua': 'plugins/firebase/v2-lua.md'
         - 'Flurry Analytics': 'plugins/flurryanalytics/index.md'
         - '_Flurry Analytics':
             - 'Cocos2d-x v3.x':
