@@ -204,6 +204,16 @@
         
             
 <li >
+    <a href="../../firebase/">Firebase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../flurryanalytics/">Flurry Analytics</a>
 </li>
 
@@ -606,6 +616,8 @@
         
             <li><a href="#game-center">Game Center</a></li>
         
+            <li><a href="#cloud-save">Cloud Save</a></li>
+        
 	</ul>
 	
     
@@ -692,7 +704,7 @@
 	</ul>
 	
     
-        <li class="main "><a href="#cloud-save">Cloud Save</a></li>
+        <li class="main "><a href="#cloud-save_1">Cloud Save</a></li>
 	
 	<ul class="sub-sidenav">
         
@@ -726,6 +738,12 @@
 <li>Use itunes connect to configure <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Leaderboards/Leaderboards.html#//apple_ref/doc/uid/TP40013726-CH2-SW47">leaderboards</a> and <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectGameCenter_Guide/Achievements/Achievements.html#//apple_ref/doc/uid/TP40013726-CH3-SW3">achievements</a>.</li>
 <li>Make sure Leaderboard and Achievements are live before testing</li>
 </ul>
+<h3 id="cloud-save">Cloud Save</h3>
+<ul>
+<li>Enable iCloud on Xcode. <img alt="" src="../../../imgs/cloud_save_ios.png" /></li>
+<li>Enable <code>Saved Games</code> on <a href="https://play.google.com/apps/publish/signup/">Google Play Console</a> <img alt="" src="../../../imgs/cloud_save_android.png" /></li>
+</ul>
+<p><strong>NOTE</strong>: In 2.3.14 cloud save is enable as default, it cause user can't sign-in on android if you do not enable <code>Save Games</code> on Google Play Console.</p>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX SdkboxPlay plugin. Make sure you setup the SDKBOX installer correctly.</p>
 <pre><code class="bash">$ sdkbox import sdkboxplay
@@ -1721,7 +1739,7 @@ This is default proguard config:</p>
 
 </code></pre>
 
-<h2 id="cloud-save">Cloud Save</h2>
+<h2 id="cloud-save_1">Cloud Save</h2>
 <p>SDKBoxPlay support iOS/Google cloud game save, developer can save user's game data in iColud/Google Drive.</p>
 <h3 id="ios-cloud-save">iOS Cloud Save</h3>
 <ul>
