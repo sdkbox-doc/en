@@ -9,6 +9,8 @@
 * Review support amazon platform
 * IAP add user ID and purchase token for the purcase calblack [issue](http://www.sdkbox.com/answers/question/amazon-userid-for-receipt-verification/)
 * SDKBOX Play disable cloud save as default
+* Google Play Services upgrade to 11.0.0
+* gpg cpp sdk upgrade to 2.3
 
 ## Bugfix
 * Fix IAP receipt and receiptCipheredPayload not working for non-consumable on android [issue](http://discuss.cocos2d-x.org/t/sdkbox-2-3-11-release-new-push-notification/35658/15?u=nite)
