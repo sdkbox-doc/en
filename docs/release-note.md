@@ -1,6 +1,23 @@
 # Release Notes
 ---
 
+2.3.15 Release Notes
+===
+## Highlights
+* Support NDK r14b c++_static
+* Support Firebase Analytics module
+* Review support amazon platform
+* IAP add user ID and purchase token for the purcase calblack [issue](http://www.sdkbox.com/answers/question/amazon-userid-for-receipt-verification/)
+* SDKBOX Play disable cloud save as default
+
+## Bugfix
+* Fix IAP receipt and receiptCipheredPayload not working for non-consumable on android [issue](http://discuss.cocos2d-x.org/t/sdkbox-2-3-11-release-new-push-notification/35658/15?u=nite)
+* Fix IAP crash in IabHelper.getPurchases [issue](https://github.com/sdkbox/issues/issues/11)
+* Fix SDKBOX Play fail to connect to Google Play Services [issue](http://discuss.cocos2d-x.org/t/solved-sdboxplay-error-i-sdkboxplay-error-connecting-to-play-services-reason-sign-in-required-4/37639) [issue](http://discuss.cocos2d-x.org/t/solved-sdkboxplay-not-working-after-update/37590)
+* Fix SDKBOX Play local reference table overflow [issue](http://discuss.cocos2d-x.org/t/sdkbox-play-error-local-reference-table-overflow/30118)
+* Fix SDKBOX Play `removeListener` doesn't work on Android [issue](https://github.com/sdkbox/issues/issues/16)
+* Fix fail to patch Cocos2dxActivity.java 3.15.1
+
 2.3.14 Release Notes
 ===
 ## Highlights
