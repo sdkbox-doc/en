@@ -59,3 +59,5 @@ more info, take a look at [this](https://support.google.com/firebase/answer/7015
 <<[../../shared/manual_integration_google_play_step.md]
 
 <<[proguard.md]
+
+<<[../shared/debug.md]
