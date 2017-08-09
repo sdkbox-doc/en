@@ -301,6 +301,16 @@ pages:
                 - 'Tune with C++': 'plugins/tune/v2-cpp.md'
                 - 'Tune with Javascript': 'plugins/tune/v2-js.md'
                 - 'Tune with Lua': 'plugins/tune/v2-lua.md'
+        - 'UnityAds': 'plugins/unityads/index.md'
+        - '_UnityAds':
+            - 'Cocos2d-x v3.x':
+                - 'UnityAds with C++': 'plugins/unityads/v3-cpp.md'
+                - 'UnityAds with Javascript': 'plugins/unityads/v3-js.md'
+                - 'UnityAds with Lua': 'plugins/unityads/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'UnityAds with C++': 'plugins/unityads/v2-cpp.md'
+                - 'UnityAds with Javascript': 'plugins/unityads/v2-js.md'
+                - 'UnityAds with Lua': 'plugins/unityads/v2-lua.md'
         - 'Valuepotion': 'plugins/valuepotion/index.md'
         - '_Valuepotion':
             - 'Cocos2d-x v3.x':
