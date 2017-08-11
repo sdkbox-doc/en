@@ -1,6 +1,22 @@
 # Release Notes
 ---
 
+2.3.16 Release Notes (20170811)
+===
+
+## Highlights
+
+* Support UnityAds
+* Support Facebook app event
+* Support creator 1.6
+
+## Bugfix
+
+* Fix NDK r14b c++_static
+* Fix FlurryAnalytics track wrong app version on iOS
+* Fix Firebase does not work on Android 7
+
+
 2.3.15 Release Notes
 ===
 ## Highlights
