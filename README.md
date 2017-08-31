@@ -35,7 +35,7 @@ Open http://127.0.0.1:8000/ in browser
 
 Or, build a static `site` folder and serve it with a web server
 ```
-mkdocs build 
+mkdocs build
 cd site
 python -m SimpleHTTPServer
 ```
@@ -49,6 +49,12 @@ However use local server is equally efficient.
 
 ## Publish
 Use the following command to publish document to live
+
+```
+brea install jsdoc3
+export CSC_PATH=/path/to/sdkbox_core/
+```
+
 ```
 mkdocs gh-deploy --clean
 ```
