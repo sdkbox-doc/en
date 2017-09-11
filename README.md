@@ -51,7 +51,7 @@ However use local server is equally efficient.
 Use the following command to publish document to live
 
 ```
-brea install jsdoc3
+brew install jsdoc3
 export CSC_PATH=/path/to/sdkbox_core/
 ```
 
