@@ -40,11 +40,12 @@ cd site
 python -m SimpleHTTPServer
 ```
 
-
 ## Editor
 We recommend using [marked2](http://marked2app.com) while editing markdown document, because it supports the way we embed documents.
 
 However use local server is equally efficient.
+
+>   After editing the docs, you can test them with running `publish.sh test`. This command will build and run a server in your local enviornment.
 
 
 ## Publish
@@ -58,6 +59,8 @@ export CSC_PATH=/path/to/sdkbox_core/
 ```
 mkdocs gh-deploy --clean
 ```
+
+>   Executing `publish.sh` is a convenient way to publish the docs.
 
 ## Contributors
 @slackmoehrle
