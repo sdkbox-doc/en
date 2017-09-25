@@ -32,7 +32,7 @@ First, Initialize SDKBOX and set callback listeners via SDKBOX Plugins APIs; Sec
 
 This illumination shows the process clearly(from [http://docs.sdkbox.com/en/](http://docs.sdkbox.com/en/)):
 
-![SDKBOX Plugin Seq Diagrams](../../imgs/gameroom-1.png)
+![SDKBOX Plugin Seq Diagrams](../../imgs/gameroom-2.png)
 
 The original SDKs usually create **another thread** to callback Listeners, in the light of that, SDKBOX don't need to care about how to implement callback APIs, just encapsulate the APIs and offer them to users. it is more different from Facebook Gameroom SDK.
 
@@ -40,13 +40,13 @@ According to Facebook Gameroom SDK docs, though it doesn't demonstrate directly,
 
 For example, with Facebook Gameroom SDK, the implementation of IAP could be like this:
 
-![IAP Seq Diagrams](../../imgs/gameroom-2.png)
+![IAP Seq Diagrams](../../imgs/gameroom-3.png)
 
 As SDKBOX can't make any impacts to Game Engines, ex., Cocos2d-X, in other words, any internal game loop can't be affected by SDKBOX plugins. it is a big headache in encapsulation of Gameroom SDK. SDKBOX Gameroom Plugin should **create a new thread** to handle Gameroom Messages(callbacks).
 
 The SDKBOX Gameroom Plugin should work as below:
 
-![SDKBOX Gameroom Plugin Seq Diagrams](../../imgs/gameroom-3.png)
+![SDKBOX Gameroom Plugin Seq Diagrams](../../imgs/gameroom-1.png)
 
 ## Finished Functions
 
