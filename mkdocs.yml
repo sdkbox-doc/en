@@ -116,6 +116,11 @@ pages:
                 - 'Facebook with C++': 'plugins/facebook/v2-cpp.md'
                 - 'Facebook with Javascript': 'plugins/facebook/v2-js.md'
                 - 'Facebook with Lua': 'plugins/facebook/v2-lua.md'
+        - 'Facebook Gameroom': 'plugins/gameroom/index.md'
+        - '_Facebook Gameroom':
+            - 'Cocos2d-x v3.x':
+                - 'Facebook Gameroom with C++': 'plugins/gameroom/v3-cpp.md'
+                - 'Facebook Gameroom with Javascript': 'plugins/gameroom/v3-js.md'
         - 'Firebase': 'plugins/firebase/index.md'
         - '_Firebase':
             - 'Cocos2d-x v3.x':
@@ -358,7 +363,7 @@ pages:
    - 'On-the-fly catalog management': 'liveops/catalog-management.md'
 - Tutorials:
    - 'From Google to Amazon': 'qa/from-google-to-amazon.md'
-   - 'Admob in Creator': 'qa/integration-admob-to-creator.md'   
+   - 'Admob in Creator': 'qa/integration-admob-to-creator.md'
    - 'Fyber with Cocos2d-x': 'qa/integration-fyber-to-cocos.md'
    - 'Facebook with Cocos2d-x': 'qa/fb-share-on-cocos.md'
    - 'Fix Android 64K methods limit': 'qa/android_64k.md'
@@ -371,6 +376,6 @@ theme: mkdocs
 theme_dir: 'theme'
 
 google_analytics: ['UA-70044300-2', 'auto']
-
+strict: true
 markdown_extensions:
     - admonition
