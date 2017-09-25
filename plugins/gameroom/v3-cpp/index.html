@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>Facebook Gameroom with C++ - SDKBOX</title>
+        
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/custom.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos2d-x <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../cocos/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../installer/">CLI Installer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/cocos_creator/">For Cocos Creator</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../amazon/">Amazon</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../apteligent/">Apteligent</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../">Facebook Gameroom</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../firebase/">Firebase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../googleplay/">Google Play Games</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../phunwareads/">Phunware Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../phunwaremessaging/">Phunware Messaging</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../share/">Social Sharing</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../unityads/">UnityAds</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/review/">Ratings & Reviews</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unreal/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unreal/chartboost/">Chartboost</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../qa/from-google-to-amazon/">From Google to Amazon</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-admob-to-creator/">Admob in Creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-fyber-to-cocos/">Fyber with Cocos2d-x</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/fb-share-on-cocos/">Facebook with Cocos2d-x</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/android_64k/">Fix Android 64K methods limit</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-iap-on-unity/">IAP with Unity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/use-gui-integration-ga-to-creator/">GA with SDKBox GUI in Creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/use-custom-activity-on-unity/">Unity Custom Activity</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#integration-with-cocos-project">Integration with Cocos Project</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#using-sdkbox-installer-recommend">Using SDKBOX Installer (recommend)</a></li>
+        
+            <li><a href="#manual-integration">Manual Integration</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#usage">Usage</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#initialize-plugin-gameroom">Initialize Plugin Gameroom</a></li>
+        
+            <li><a href="#set-listener">Set Listener</a></li>
+        
+            <li><a href="#user-login">User Login</a></li>
+        
+            <li><a href="#feed-share">Feed Share</a></li>
+        
+            <li><a href="#iap">IAP</a></li>
+        
+            <li><a href="#send-app-events">Send App Events</a></li>
+        
+            <li><a href="#send-app-requests">Send App Requests</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#api-reference">API Reference</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#methods">Methods</a></li>
+        
+            <li><a href="#listener-callbacks">Listener Callbacks</a></li>
+        
+            <li><a href="#methods-in-listener-callbacks">Methods in Listener Callbacks</a></li>
+        
+	</ul>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="../">&#8249; Facebook Gameroom Doc Home</a></p>
+<h1>Facebook Gameroom Integration Guide</h1>
+
+<h4><em><b>For the C++ version of cocos2d-x v3.x</b> - (<a href="./../">all other versions</a>)</em></h4>
+
+<h2 id="integration-with-cocos-project">Integration with Cocos Project</h2>
+<h3 id="using-sdkbox-installer-recommend">Using SDKBOX Installer (recommend)</h3>
+<ul>
+<li>
+<p>With SDKBOX Installer, you can install Gameroom Plugin in <strong>Windows</strong> easily. Please access <a href="http://www.sdkbox.com">SDKBOX official website</a> for more information to get SDKBOX Installer.</p>
+</li>
+<li>
+<p>After getting SDKBOX Installer, you can import Gameroom Plugin with it:</p>
+</li>
+</ul>
+<pre><code>sdkbox import gameroom
+</code></pre>
+
+<ul>
+<li>Or, if the gameroom plugin is in local, you can also import it like this:</li>
+</ul>
+<pre><code>sdkbox import -b c:\the_path_to_gameroom_plugin\sdkbox-gameroom_v0.01
+</code></pre>
+
+<h3 id="manual-integration">Manual Integration</h3>
+<p>If you want to install Gameroom Plugin manually, you would modify more configurations step by step. It's a little perplex, we don't recommend you to do this.</p>
+<ol>
+<li>
+<p>Find the Visual Studio Solution file(.sln) and open it. For Cpp project created by <code>cocos</code>, you can find the solution file in "./proj.win32" sub-directory. We name the "proj.win32" <strong>project-dir</strong> for depict conveniently.</p>
+</li>
+<li>
+<p>Unzip the Gameromm Plugin package to get a dir including the plugin files. It's called <strong>plugin-dir</strong>.</p>
+</li>
+<li>
+<p>Copy header files. For CPP project, copy <code>win32/include/*.h</code> in <strong>plugin-dir</strong> to <code>include</code> in your <strong>project-dir</strong>.</p>
+</li>
+<li>
+<p>Copy library files <code>win32/libs/*.lib</code> in <strong>plugin-dir</strong> to <code>libs</code> in your <strong>project-dir</strong>.</p>
+</li>
+<li>
+<p>Deploy Facebook Gameroom SDK files.</p>
+<p>a.  Copy header files <code>sdk/fbg/*.h</code> in <strong>plugin-dir</strong> to <code>include/fbg</code> in your <strong>project-dir</strong>.</p>
+<p>b.  Copy library files <code>sdk/libs/*.lib</code> in <strong>plugin-dir</strong> to <code>libs</code> in your <strong>project-dir</strong>.</p>
+</li>
+<li>
+<p>Modify the configuration of Visual Studio. Follow the steps as below:</p>
+<p>a.  Add an include directory for the compiler, click: project(on top bar) -&gt; properties -&gt; Configuration Properties -&gt; VC++ Directories -&gt; Include Directories (click and edit, add a new entry).</p>
+<p>And then add <code>$(solutiondir)include</code>.</p>
+<p>b.  Add a library directory for *.lib files, click: project(on top bar) -&gt; properties -&gt; Configuration Properties -&gt; VC++ Directories -&gt; Library Directories (click and edit, add a new entry).</p>
+<p>And then add <code>$(solutiondir)libs</code>.</p>
+<p>c.  Link the *.lib files, click: project(on top bar) -&gt; properties -&gt; Configuration Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies (click and edit, add a new entry).</p>
+<p>And then add <code>GameroomPlugin32.lib</code> and <code>LibFBGPlatform32.lib</code>.</p>
+<p><strong>For <code>debug</code> version, Please add <code>GameroomPlugin32.debug.lib</code></strong>.</p>
+</li>
+<li>
+<p>Patch the <code>AppDelegate.cpp</code>. Open the <code>AppDelegate.cpp</code> in <strong>project-dir</strong>/Classes.</p>
+</li>
+<li>
+<p><strong>The following steps can also be fulfilled with <code>patch</code> tool</strong>. The file <code>AppDelegate.cpp3.15.patch</code> in <strong>plugin-dir</strong> is for CPP project.</p>
+</li>
+</ol>
+<pre><code>patch AppDelegate.cpp ./plugin-dir/path/AppDelegate.cpp3.15.patch
+</code></pre>
+
+<ul>
+<li>Before <code>USING_NS_CC</code>, add the sdkbox header files:</li>
+</ul>
+<pre><code>#ifdef SDKBOX_ENABLED
+#include &quot;PluginGameroom.h&quot;
+#endif
+</code></pre>
+
+<ul>
+<li>In the ctor and dtor of <code>AppDelegate</code>. Add redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.</li>
+</ul>
+<pre><code>AppDelegate::AppDelegate()
+{
+    freopen(&quot;fbg.log&quot;, &quot;w&quot;, stdout);
+}
+AppDelegate::~AppDelegate()
+{
+    ...
+    fclose(stdout);
+}
+</code></pre>
+
+<ul>
+<li>At beginning of the function <code>applicationDidFinishLaunching</code>, initialize the SDKBOX Gameroom Plugin:</li>
+</ul>
+<pre><code>#ifdef SDKBOX_ENABLED
+    sdkbox::PluginGameroom::init(&quot;your_app_id&quot;);
+#endif
+</code></pre>
+
+<ul>
+<li>And after the judgement statement <code>if (!glview)</code>, add these codes:</li>
+</ul>
+<pre><code>#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+    const wchar_t title[]{ L&quot;Facebook Gameroom&quot; };
+    auto parentWin = FindWindow(NULL, title);
+
+    // set dpi for app.
+    auto res_dpi = SetProcessDPIAware();
+
+    RECT rect;
+    GetWindowRect(parentWin, &amp;rect);
+    glview = GLViewImpl::createWithRect(&quot;cocos_sample_cpp&quot;, Rect(0, 0, rect.right - rect.left - 20, rect.bottom - rect.top - 100), 1.0f, true);
+    director-&gt;setOpenGLView(glview);
+    auto currentWin = Director::getInstance()-&gt;getOpenGLView()-&gt;getWin32Window();
+    SetParent(currentWin, parentWin);
+#else
+    glview = GLViewImpl::create(&quot;cocos_sample_cpp&quot;);
+    director-&gt;setOpenGLView(glview);
+#endif
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<p>About the details of these methods depicted below, you can access the section <a href="#api_reference">API Reference</a>. And if you wanna know the corresponding functions in Facebook Gameroom SDK, you can refer to <a href="https://developers.facebook.com/docs/games/gameroom/sdk">Facebook Gameroom SDK website</a>.</p>
+<h3 id="initialize-plugin-gameroom">Initialize Plugin Gameroom</h3>
+<p>Before you call other APIs, you should Initialize the plugin. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
+<pre><code>#ifdef SDKBOX_ENABLED
+#include &quot;PluginGameroom.h&quot;
+#endif
+
+
+bool AppDelegate::applicationDidFinishLaunching() {
+#ifdef SDKBOX_ENABLED
+    // fill your Facebook Application ID
+    sdkbox::PluginGameroom::init(&quot;1234567890&quot;);
+#endif
+}
+</code></pre>
+
+<h3 id="set-listener">Set Listener</h3>
+<p>As other SDKBOX plugins, you need to set a listener class to handle events.</p>
+<pre><code>sdkbox::PluginGameroom::setListener(pointer_to_listener_class);
+</code></pre>
+
+<p>The listener class should inherit from <code>sdkbox::GameroomListener</code>.</p>
+<pre><code>class HelloWorldListener : public sdkbox::GameroomListener
+{
+    public:
+        // ...
+
+        virtual void onLoginAccessTokenMsg(sdkbox::AccessTokenHandle);
+        virtual void onFeedShareMsg(sdkbox::FeedShareHandle);
+        virtual void onPurchaseIAPMsg(sdkbox::PurchaseHandle);
+        virtual void onHasLicenseMsg(sdkbox::HasLicenseHandle);
+        virtual void onAppRequestMsg(sdkbox::AppRequestHandle);
+
+};
+</code></pre>
+
+<p>Each callback will be explained below.</p>
+<h3 id="user-login">User Login</h3>
+<p>After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method <code>login()</code> or another method <code>loginWithScopes</code> for it.</p>
+<p>The different between these two methods is that <code>login()</code> method will always apply 3 permissions of the player: <code>user_friends</code>, <code>email</code> and <code>public_profile</code>.</p>
+<pre><code>SDKBOX::PluginGameroom::login();
+</code></pre>
+
+<p>But you can pass some parameters to <code>loginWithScopes()</code> method to designate witch permissions are applied. In this example, <code>user_friends</code> and <code>email</code> will be applied.</p>
+<pre><code>std::vector&lt;std::string&gt; loginScopes{ &quot;user_friends&quot;, &quot;email&quot; };
+sdkbox::PluginGameroom::loginWithScopes(2, loginScopes);
+</code></pre>
+
+<p>You can also check whether the player has logged in:</p>
+<pre><code>auto ret = sdkbox::PluginGameroom::isLoggedIn();
+if (!ret) {
+    // do something
+}
+</code></pre>
+
+<p>The player login action will trigger <code>onLoginAccessTokenMsg</code> callback in your listener class. You can use some methods to retrieve the player's login information via the parameter <code>accessTokenHandle</code>.</p>
+<pre><code>void HelloWorld::onLoginAccessTokenMsg(sdkbox::AccessTokenHandle accessTokenHandle) {
+    auto isValid = sdkbox::PluginGameroom::accessTokenIsValid(accessTokenHandle);
+    if (!isValid) {
+        // user not logged in
+        return;
+    }
+    auto userid = sdkbox::PluginGameroom::accessTokenGetUserID(accessTokenHandle);
+
+    char token_string[512];
+    auto size = sdkbox::PluginGameroom::accessTokenGetTokenString(accessTokenHandle, token_string, 512);
+    auto expiration_timestamp = sdkbox::PluginGameroom::accessTokenGetExpirationTimestamp(accessTokenHandle);
+
+    fbgLoginScope permissions[512];
+    auto permission_size = sdkbox::PluginGameroom::accessTokenGetPermissions(accessTokenHandle, permissions, 512);
+
+    ::CCLOG(
+        &quot;OnLoginAccessTokenMsg, User ID: %lld\nAccess Token: %s\nExpiration Timestamp: %lld, Permission Count: %zu\nPermissions: &quot;,
+        (long long)userid,
+        token_string,
+        (long long)expiration_timestamp,
+        permission_size
+    );
+
+    for (size_t i = 0; i &lt; permission_size; i++) {
+        ::CCLOG(&quot;%s&quot;, sdkbox::PluginGameroom::loginScopeToString(permissions[i]));
+    }
+    ::CCLOG(&quot;\n&quot;);
+}
+</code></pre>
+
+<h3 id="feed-share">Feed Share</h3>
+<p>In your game, you can offer the sharing function to the players:</p>
+<pre><code>sdkbox::PluginGameroom::feedShare(
+    nullptr,
+    &quot;https://www.facebook.com&quot;,
+    &quot;Testing Link Name&quot;,
+    &quot;Testing Link Caption&quot;,
+    &quot;Testing Link Description&quot;,
+    &quot;http://www.pamperedpetz.net/wp-content/uploads/2015/09/Puppy1.jpg&quot;,
+    nullptr
+);
+
+</code></pre>
+
+<p>Above example shares an image to the player's Facebook.</p>
+<p>In your listener class, <code>onFeedShareMsg</code> will be called after sharing with the argument <code>feedShareHandle</code>. <code>Post ID</code> can be returned if you call the method <code>feedShareGetPostID()</code>.</p>
+<pre><code>void HelloWorld::onFeedShareMsg(sdkbox::FeedShareHandle feedShareHandle) {
+    auto postId = sdkbox::PluginGameroom::feedShareGetPostID(feedShareHandle);
+    ::CCLOG(
+        &quot;onFeedShareMsg, Feed Share Post ID: %ld\n&quot;,
+        (long)postId
+    );
+}
+</code></pre>
+
+<h3 id="iap">IAP</h3>
+<p>IAP funciton includes 3 aspects:</p>
+<ul>
+<li>IAP with a product ID configured in your Facebook App.</li>
+</ul>
+<pre><code>sdkbox::PluginGameroom::purchaseIAP(
+    &quot;sdkbox_product_2&quot;,
+    1,
+    1,
+    1,
+    nullptr,
+    nullptr,
+    nullptr
+);
+</code></pre>
+
+<ul>
+<li>IAP with an url link.</li>
+</ul>
+<pre><code>sdkbox::PluginGameroom::purchaseIAPWithProductURL(
+    &quot;https://friendsmash-unity.herokuapp.com/payments/100coins.php&quot;,
+    1,
+    1,
+    1,
+    nullptr,
+    nullptr,
+    nullptr
+);
+</code></pre>
+
+<ul>
+<li>Purchase a premium version or license.</li>
+</ul>
+<pre><code>sdkbox::PluginGameroom::payPremium();
+</code></pre>
+
+<p>These 3 types of IAP will trigger <code>onPurchaseIAPMsg</code> callback. Here is an example to show how to handle the IAP operation.</p>
+<pre><code>void HelloWorld::onPurchaseIAPMsg(sdkbox::PurchaseHandle payHandle) {
+    size_t size;
+    char paymentId[512];
+    size = sdkbox::PluginGameroom::purchaseGetPaymentID(payHandle, paymentId, 512);
+
+    auto amount = sdkbox::PluginGameroom::purchaseGetAmount(payHandle);
+
+    char currency[512];
+    size = sdkbox::PluginGameroom::purchaseGetCurrency(payHandle, currency, 512);
+
+    auto purchaseTime = sdkbox::PluginGameroom::purchaseGetPurchaseTime(payHandle);
+
+    char productId[512];
+    size = sdkbox::PluginGameroom::purchaseGetProductID(payHandle, productId, 512);
+
+    char purchaseToken[512];
+    size = sdkbox::PluginGameroom::purchaseGetPurchaseToken(payHandle, purchaseToken, 512);
+
+    auto quantity = sdkbox::PluginGameroom::purchaseGetQuantity(payHandle);
+
+    char requestId[512];
+    size = sdkbox::PluginGameroom::purchaseGetRequestID(payHandle, requestId, 512);
+
+    char status[512];
+    size = sdkbox::PluginGameroom::purchaseGetStatus(payHandle, status, 512);
+
+    char signedRequest[512];
+    size = sdkbox::PluginGameroom::purchaseGetSignedRequest(payHandle, signedRequest, 512);
+
+    auto errorCode = sdkbox::PluginGameroom::purchaseGetErrorCode(payHandle);
+
+    char errorMessage[512];
+    size = sdkbox::PluginGameroom::purchaseGetErrorMessage(payHandle, errorMessage, 512);
+
+    ::CCLOG(
+        &quot;onPurchaseIAPMsg, Purchase Handle: %s\nAmount: %d\nCurrency: %s\nPurchase Time: %lld\n&quot;
+        &quot;Product Id:%s\nPurchase Token: %s\nQuantity: %d\nRequest Id: %s\n&quot;
+        &quot;Status: %s\nSignedRequest: %s\nError Code: %lld\nErrorMessage: %s\n&quot;,
+        paymentId,
+        (int)amount,
+        currency,
+        (long long)purchaseTime,
+        productId,
+        purchaseToken,
+        (int)quantity,
+        requestId,
+        status,
+        signedRequest,
+        (long long)errorCode,
+        errorMessage
+    );
+}
+</code></pre>
+
+<p>In addtion, you can use <code>hasLicense()</code> method to check whether the player has got the license or premium version.</p>
+<pre><code>sdkbox::PluginGameroom::hasLicense();
+</code></pre>
+
+<p>Please note that this checking operation will trigger a callback named <code>onHasLicenseMsg</code>. Bizarrely, you should get the license ID via the method <code>purchaseGetLicense()</code> in callback(Faceebook Gameroom SDK demands these behaviors).</p>
+<pre><code>void HelloWorld::onHasLicenseMsg(sdkbox::HasLicenseHandle hasLicenseHandle) {
+    auto hasLicense = sdkbox::PluginGameroom::purchaseGetLicense(hasLicenseHandle);
+    ::CCLOG(
+            &quot;onHasLicenseMsg, Has License: %llu&quot;,
+            hasLicense
+    );
+}
+</code></pre>
+
+<h3 id="send-app-events">Send App Events</h3>
+<p>You can log app events for Facebook Analytics via the following functions:</p>
+<pre><code>auto formData = sdkbox::PluginGameroom::formDataCreateNew();
+char key[sdkbox::FBG_BUFFER_SIZE]{&quot;sdkbox_key&quot;};
+char value[sdkbox::FBG_BUFFER_SIZE]{&quot;3.1415&quot;};
+sdkbox::PluginGameroom::formDataSet(formData, key, sdkbox::FBG_BUFFER_SIZE, value, sdkbox::FBG_BUFFER_SIZE);
+sdkbox::PluginGameroom::logAppEvent(&quot;test_event&quot;, formData);
+
+::CCLOG(&quot;Gameroom Send App Event with sum value&quot;);
+sdkbox::PluginGameroom::logAppEventWithValueToSum(&quot;test_event&quot;, formData, 1024.2);
+sdkbox::PluginGameroom::formDataDispose(formData);
+</code></pre>
+
+<p>The key-value pairs are carried in <code>FormData</code> structure. And if you intend to offer an extra value in an event, you should use <code>logAppEventWithValueToSum</code> method.</p>
+<h3 id="send-app-requests">Send App Requests</h3>
+<p>To invoke an app request within your game, you may use the following call to trigger the dialog:</p>
+<pre><code>sdkbox::PluginGameroom::appRequest(
+    &quot;hello world, try this gameroom sdk demo.&quot;,
+    nullptr,
+    nullptr,
+    &quot;faceboo_user_id_1,facebook_user_id_2&quot;,
+    nullptr,
+    nullptr,
+    20,
+    nullptr,
+    &quot;hello&quot;
+);
+</code></pre>
+
+<p>In common, you don't need to set the users' ID in order to let the player choose which friends he want to send the requests.</p>
+<pre><code>sdkbox::PluginGameroom::appRequest(
+    &quot;hello world, try this gameroom sdk demo.&quot;,
+    nullptr,
+    nullptr,
+    nullptr,
+    nullptr,
+    nullptr,
+    20,
+    nullptr,
+    &quot;hello&quot;
+);
+</code></pre>
+
+<p>In the callback of sending app requests,  you can hanedle the result:</p>
+<pre><code>void HelloWorld::onAppRequestMsg(fbgAppRequestHandle appRequestHandle) {
+    char objectID[sdkbox::FBG_BUFFER_SIZE];
+    //auto size = sdkbox::PluginGameroom::appRequestGetRequestObjectID(appRequestHandle, objectID, sdkbox::FBG_BUFFER_SIZE);
+    auto size = fbg_AppRequest_GetRequestObjectId(appRequestHandle, objectID, sdkbox::FBG_BUFFER_SIZE);
+    ::CCLOG(&quot;onAppRequestMsg&quot;);
+    ::CCLOG(&quot;size = %lu\n&quot;, size);  // return 0 here, indicating that appRequestHandle is invalid.
+
+    char toUser[sdkbox::FBG_BUFFER_SIZE];
+    size = sdkbox::PluginGameroom::appRequestGetTo(appRequestHandle, toUser, sdkbox::FBG_BUFFER_SIZE);
+    ::CCLOG(&quot;size = %lu\n&quot;, size);
+
+    ::CCLOG(
+        &quot;object id: %s, to user: %s&quot;,
+        objectID,
+        toUser
+    );
+}
+</code></pre>
+
+<h2 id="api-reference">API Reference</h2>
+<p>Although you can use these methods anywhere, some methods need Gameroom <code>handle</code> object in practice. So this document distinguishes the common <code>Methods</code> and the <code>Methods in Listener Callbacks</code>.</p>
+<h3 id="methods">Methods</h3>
+<pre><code>static int init(const char* appID);
+</code></pre>
+
+<blockquote>
+<p>Initialize the Gameroom Plugin. <code>appID</code> is your Facebook Application ID. The method will return 0 if the plugin is Initialized successfully.</p>
+</blockquote>
+<pre><code>static std::string login();
+</code></pre>
+
+<blockquote>
+<p>Player login. It will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string loginWithScopes(uint32_t scopeCount, const std::vector&lt;std::string&gt;&amp; loginScopes);
+</code></pre>
+
+<blockquote>
+<p>Player login with some permissions. <code>scopeCount</code> is the total of the permissions. <code>loginScopes</code> is a vector which can include these values: <code>public_profile</code>, <code>email</code>, <code>user_friends</code> and <code>publish_actions</code>. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static bool isLoggedIn();
+</code></pre>
+
+<blockquote>
+<p>Check whether the player has logged in.</p>
+</blockquote>
+<pre><code>static std::string feedShare(
+    const char* toId,
+    const char* link,
+    const char* linkName,
+    const char* linkCaption,
+    const char* linkDescription,
+    const char* pictureLink,
+    const char* mediaSource
+);
+</code></pre>
+
+<blockquote>
+<p>Share to Facebook. The meaning of each parameters is as its name. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string purchaseIAP(
+    const char* product,
+    uint32_t quantity,
+    uint32_t quantityMin,
+    uint32_t quantityMax,
+    const char* requestId,
+    const char* pricePointId,
+    const char* testCurrency
+);
+</code></pre>
+
+<blockquote>
+<p>Purchase a product with a prouduct ID. <code>quantity</code> is the number of product, <code>quantityMin</code> is the minimum number of quantity of product, <code>quantityMax</code> is the maximum of quantity of product. For other parameters, you can refer to <a href="https://developers.facebook.com/docs/games/gameroom/sdk">Facebook Gameroom SDK</a> and <a href="https://github.com/sdkbox/sdkbox-sample-gameroom">SDKBOX Gameroom Plugin Sample</a>. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string purchaseIAPWithProductURL(
+    const char* product,
+    uint32_t quantity,
+    uint32_t quantityMin,
+    uint32_t quantityMax,
+    const char* requestId,
+    const char* pricePointId,
+    const char* testCurrency
+);
+</code></pre>
+
+<blockquote>
+<p>Purchase a product with a prouduct url link. <code>quantity</code> is the number of product, <code>quantityMin</code> is the minimum number of quantity of product, <code>quantityMax</code> is the maximum of quantity of product. For other parameters, you can refer to <a href="https://developers.facebook.com/docs/games/gameroom/sdk">Facebook Gameroom SDK</a>. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string payPremium();
+</code></pre>
+
+<blockquote>
+<p>Purchase a premium version or license. It will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string hasLicense();
+</code></pre>
+
+<blockquote>
+<p>Check whether the player has license or premium version. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string logAppEvent(const char* eventName, const FormDataHandle formData);
+</code></pre>
+
+<blockquote>
+<p>Send an event to Facebook Analytics. <code>FormDataHandle</code> is created and set by other APIs. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static std::string logAppEventWithValueToSum(const char* eventName, const FormDataHandle formData, float valueToSum);
+</code></pre>
+
+<blockquote>
+<p>Send an event to Facebook Analytics with an extra value <code>valueToSum</code>. <code>FormDataHandle</code> is created and set by other APIs. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<pre><code>static const FormDataHandle formDataCreateNew();
+</code></pre>
+
+<blockquote>
+<p>Create a <code>FormDataHandle</code> object to store key-value pairs in an app event.</p>
+</blockquote>
+<pre><code>static void formDataSet(
+    const FormDataHandle obj,
+    char *fieldNameBuffer,
+    size_t fieldNameBufferLen,
+    char *valueBuffer,
+    size_t valueBufferLen
+);
+</code></pre>
+
+<blockquote>
+<p>Store a key-value pair into <code>FormDataHandle</code> object.</p>
+</blockquote>
+<pre><code>static size_t formDataGet(
+    const FormDataHandle obj,
+    char *fieldNameBuffer,
+    size_t fieldNameBufferLen,
+    char *valueBuffer,
+    size_t valueBufferLen
+);
+</code></pre>
+
+<blockquote>
+<p>Get a key-value pair from <code>FormDataHandle</code> object.</p>
+</blockquote>
+<pre><code>static void formDataDelete(const FormDataHandle obj, char *fieldNameBuffer, size_t fieldNameBufferLen);
+</code></pre>
+
+<blockquote>
+<p>Delete a key-value pair from <code>FormDataHandle</code> object.</p>
+</blockquote>
+<pre><code>static bool formDataHas(const FormDataHandle obj, char* fieldNameBuffer, size_t fieldNameBufferLen);
+</code></pre>
+
+<blockquote>
+<p>Check whether the <code>FormDataHandle</code> object has a specified key-value pair.</p>
+</blockquote>
+<pre><code>static void formDataDispose(const FormDataHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Destory <code>FormDataHandle</code> object.</p>
+</blockquote>
+<pre><code>static std::string appRequest(
+    const char* message,
+    const char* actionType,
+    const char* objectID,
+    const char* to,
+    const char* filters,
+    const char* excludeIDs,
+    uint32_t maxRecipients,
+    const char* data,
+    const char* title
+);
+</code></pre>
+
+<blockquote>
+<p>Send an app request to some users. if parameter <code>to</code> is <code>nullptr</code>, this method will let player to choose which users he want to send the request. For other parameters, please refer to <a href="https://developers.facebook.com/docs/games/services/gamerequests">Facebook Game Service Requests</a> and <a href="https://github.com/sdkbox/sdkbox-sample-gameroom">SDKBOX Gameroom Plugin Sample</a>. The method will return a string representing <code>GameroomReq</code>.</p>
+</blockquote>
+<h3 id="listener-callbacks">Listener Callbacks</h3>
+<pre><code>virtual void onLoginAccessTokenMsg(sdkbox::AccessTokenHandle);
+</code></pre>
+
+<blockquote>
+<p>Triggered by <code>login()</code> or <code>loginWithScopes()</code>.</p>
+</blockquote>
+<pre><code>virtual void onFeedShareMsg(sdkbox::FeedShareHandle);
+</code></pre>
+
+<blockquote>
+<p>Triggered by <code>feedShare()</code>.</p>
+</blockquote>
+<pre><code>virtual void onPurchaseIAPMsg(sdkbox::PurchaseHandle);
+</code></pre>
+
+<blockquote>
+<p>Triggered by <code>purchaseIAP()</code>, <code>purchaseIAPWithProductURL()</code> or <code>payPremium()</code>.</p>
+</blockquote>
+<pre><code>virtual void onHasLicenseMsg(sdkbox::HasLicenseHandle);
+</code></pre>
+
+<blockquote>
+<p>Triggered by <code>hasLicense()</code>.</p>
+</blockquote>
+<pre><code>virtual void onAppRequestMsg(sdkbox::AppRequestHandle);
+</code></pre>
+
+<blockquote>
+<p>Triggered by <code>appRequest()</code>.</p>
+</blockquote>
+<pre><code>static int setListener(GameroomListener *);
+</code></pre>
+
+<blockquote>
+<p>Set a pointer to listener object.</p>
+</blockquote>
+<pre><code>static GameroomListener* removeListener();
+</code></pre>
+
+<blockquote>
+<p>Delete current listener object, return the pointer to it.</p>
+</blockquote>
+<pre><code>static GameroomListener* listener();
+</code></pre>
+
+<blockquote>
+<p>Return the pointer to current listener object.</p>
+</blockquote>
+<h3 id="methods-in-listener-callbacks">Methods in Listener Callbacks</h3>
+<h4 id="these-methods-can-be-called-in-onloginaccesstokenmsg-to-get-some-information-from-the-accesstokenhandle-object">These methods can be called in <code>onLoginAccessTokenMsg</code> to get some information from the <code>AccessTokenHandle</code> object.</h4>
+<pre><code>static bool accessTokenIsValid(AccessTokenHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Check the access token is valid.</p>
+</blockquote>
+<pre><code>static FacebookID accessTokenGetUserID(AccessTokenHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the Facebook User ID.</p>
+</blockquote>
+<pre><code>static size_t accessTokenGetTokenString(AccessTokenHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the access token string.</p>
+</blockquote>
+<pre><code>static uint64_t accessTokenGetExpirationTimestamp(AccessTokenHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the expired time of access Token.</p>
+</blockquote>
+<pre><code>static size_t accessTokenGetPermissions(AccessTokenHandle obj, LoginScope* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the applied permissions.</p>
+</blockquote>
+<pre><code>static const char* loginScopeToString(LoginScope loginScope);
+</code></pre>
+
+<blockquote>
+<p>Get the string name of applied permission.</p>
+</blockquote>
+<h4 id="this-method-can-be-called-in-onfeedsharemsg-to-get-the-post-id">This method can be called in <code>onFeedShareMsg</code> to get the post ID.</h4>
+<pre><code>static FacebookID feedShareGetPostID(FeedShareHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the post ID.</p>
+</blockquote>
+<h4 id="these-methods-can-be-called-in-onpurchaseiapmsg-to-get-some-information-from-the-purchasehandle-object">These methods can be called in <code>onPurchaseIAPMsg</code> to get some information from the <code>PurchaseHandle</code> object.</h4>
+<pre><code>static size_t purchaseGetPaymentID(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the payment ID.</p>
+</blockquote>
+<pre><code>static uint32_t purchaseGetAmount(PurchaseHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetCurrency(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the currency of purchasing.</p>
+</blockquote>
+<pre><code>static uint64_t purchaseGetPurchaseTime(PurchaseHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the time of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetProductID(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the product ID.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetPurchaseToken(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the token of purchasing.</p>
+</blockquote>
+<pre><code>static uint32_t purchaseGetQuantity(PurchaseHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the quantity of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetRequestID(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the request ID of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetStatus(PurchaseHandle obj, char* buffer, size_t bufferLen);
+
+</code></pre>
+
+<blockquote>
+<p>Get the status of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetSignedRequest(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the signed request.</p>
+</blockquote>
+<pre><code>static uint64_t purchaseGetErrorCode(PurchaseHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the error code of purchasing.</p>
+</blockquote>
+<pre><code>static size_t purchaseGetErrorMessage(PurchaseHandle obj, char* buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the error message of purchasing.</p>
+</blockquote>
+<h4 id="this-method-can-be-called-on-onhaslicensemsg-to-get-license-id">This method can be called on <code>onHasLicenseMsg</code> to get license ID.</h4>
+<pre><code>static FacebookID purchaseGetLicense(HasLicenseHandle obj);
+</code></pre>
+
+<blockquote>
+<p>Get the license ID.</p>
+</blockquote>
+<h4 id="this-methods-can-be-called-on-onapprequestmsg-to-get-some-information-of-app-request">This methods can be called on <code>onAppRequestMsg</code> to get some information of app request.</h4>
+<pre><code>static size_t appRequestGetRequestObjectID(const AppRequestHandle obj, char *buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the request ID of app request.</p>
+</blockquote>
+<pre><code>static size_t appRequestGetTo(const AppRequestHandle obj, char *buffer, size_t bufferLen);
+</code></pre>
+
+<blockquote>
+<p>Get the receivers of app request.</p>
+</blockquote></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script src="../../../js/base.js"></script>
+        
+
+ 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
