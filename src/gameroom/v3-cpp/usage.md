@@ -47,15 +47,15 @@ Each callback will be explained below.
 
 ### User Login
 
-After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method `login()` or another method `LoginWithScopes` for it.
+After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method `login()` or another method `loginWithScopes` for it.
 
-The different between these two methods is that `Login()` method will always apply 3 permissions of the player: `user_friends`, `email` and `public_profile`.
+The different between these two methods is that `login()` method will always apply 3 permissions of the player: `user_friends`, `email` and `public_profile`.
 
 ```
 SDKBOX::PluginGameroom::login();
 ```
 
-But you can pass some parameters to `LoginWithScopes()` method to designate witch permissions are applied. In this example, `user_friends` and `email` will be applied.
+But you can pass some parameters to `loginWithScopes()` method to designate witch permissions are applied. In this example, `user_friends` and `email` will be applied.
 
 ```
 std::vector<std::string> loginScopes{ "user_friends", "email" };
@@ -110,13 +110,13 @@ In your game, you can offer the sharing function to the players:
 
 ```
 sdkbox::PluginGameroom::feedShare(
-        nullptr,
-        "https://www.facebook.com",
-        "Testing Link Name",
-        "Testing Link Caption",
-        "Testing Link Description",
-        "http://www.pamperedpetz.net/wp-content/uploads/2015/09/Puppy1.jpg",
-        nullptr
+    nullptr,
+    "https://www.facebook.com",
+    "Testing Link Name",
+    "Testing Link Caption",
+    "Testing Link Description",
+    "http://www.pamperedpetz.net/wp-content/uploads/2015/09/Puppy1.jpg",
+    nullptr
 );
 
 ```
@@ -143,13 +143,13 @@ IAP funciton includes 3 aspects:
 
 ```
 sdkbox::PluginGameroom::purchaseIAP(
-        "sdkbox_product_2",
-        1,
-        1,
-        1,
-        nullptr,
-        nullptr,
-        nullptr
+    "sdkbox_product_2",
+    1,
+    1,
+    1,
+    nullptr,
+    nullptr,
+    nullptr
 );
 ```
 
@@ -157,13 +157,13 @@ sdkbox::PluginGameroom::purchaseIAP(
 
 ```
 sdkbox::PluginGameroom::purchaseIAPWithProductURL(
-        "https://friendsmash-unity.herokuapp.com/payments/100coins.php",
-        1,
-        1,
-        1,
-        nullptr,
-        nullptr,
-        nullptr
+    "https://friendsmash-unity.herokuapp.com/payments/100coins.php",
+    1,
+    1,
+    1,
+    nullptr,
+    nullptr,
+    nullptr
 );
 ```
 
@@ -272,16 +272,16 @@ To invoke an app request within your game, you may use the following call to tri
 
 ```
 sdkbox::PluginGameroom::appRequest(
-        "hello world, try this gameroom sdk demo.",
-        nullptr,
-        nullptr,
-        "faceboo_user_id_1,facebook_user_id_2",
+    "hello world, try this gameroom sdk demo.",
+    nullptr,
+    nullptr,
+    "faceboo_user_id_1,facebook_user_id_2",
 
-        nullptr,
-        nullptr,
-        20,
-        nullptr,
-        "hello"
+    nullptr,
+    nullptr,
+    20,
+    nullptr,
+    "hello"
 );
 ```
 
@@ -289,15 +289,15 @@ In common, you don't need to set the users' ID in order to let the player choose
 
 ```
 sdkbox::PluginGameroom::appRequest(
-        "hello world, try this gameroom sdk demo.",
-        nullptr,
-        nullptr,
-        nullptr,
-        nullptr,
-        nullptr,
-        20,
-        nullptr,
-        "hello"
+    "hello world, try this gameroom sdk demo.",
+    nullptr,
+    nullptr,
+    nullptr,
+    nullptr,
+    nullptr,
+    20,
+    nullptr,
+    "hello"
 );
 ```
 
@@ -319,6 +319,6 @@ void HelloWorld::onAppRequestMsg(fbgAppRequestHandle appRequestHandle) {
             "object id: %s, to user: %s",
             objectID,
             toUser
-           );
+    );
 }
 ```
