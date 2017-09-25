@@ -23,7 +23,7 @@ As SDKBOX should offer more plugins to serve more users, our team will pack the 
 
 ## Sample Project
 
-[A demo project on github](https://github.com/sdkbox/sdkbox-sample-playphone)
+[A demo project on github](https://github.com/sdkbox/sdkbox-sample-gameroom)
 
 ## Gameroom Plugin Design
 A serial of plugins in SDKBOX have similar architecture:
