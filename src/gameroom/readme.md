@@ -28,5 +28,7 @@ sdkbox import -b c:\the_path_to_gameroom_plugin\sdkbox-gameroom_v0.01
 
 <<[usage.md]
 
+## API Reference
+
 <<[api_reference.md]
 
