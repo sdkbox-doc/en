@@ -3,6 +3,9 @@
 <h1>Facebook Gameroom Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+## Precondition
+
+Please follow [the guide](https://developers.facebook.com/docs/games/gameroom) from Facebook to setup a Facebook application with Gameroom configurations.
 
 ## Integration with Cocos Project
 
