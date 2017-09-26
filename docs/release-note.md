@@ -1,6 +1,27 @@
 # Release Notes
 ---
 
+# 2.3.17 Release Notes (20170926)
+===
+
+## Highlights
+
+* Support Facebook GameRoom
+* Unity Review support Amazon Store
+* SDKBoxPlay support save binary data
+* Upgrade Amazon IAP SDK
+* [IAP support finish transaction functionality](https://github.com/sdkbox/issues/issues/21#issuecomment-318951394)
+* UnityAds Plugin support SDKBoxAds
+* [Chartboost Unreal Plugin support 4.12 - 4.16](https://www.unrealengine.com/marketplace/chartboost-plugin)
+
+## Bugfix
+
+* [Add receipt data when restore products](http://discuss.cocos2d-x.org/t/sdkbox-2-3-11-release-new-push-notification/35658/28)
+* SDKBox UI stuck with 404 [issue1](http://forum.cocos.com/t/cocoscreator-macos-sdkbox/49752), [issue2](http://www.sdkbox.com/answers/question/while-trying-to-open-sdkbox-plugin-extension-sdkbox-launch-plugin-try-to-update-itself-and-received-404-error-whats-wrong/)
+* [SDKBoxPlay JS submit core crash](http://www.sdkbox.com/answers/question/sdkboxplay-crash-2-3-16-1/)
+* [YouTube crash sometimes with nullpointerexception](http://discuss.cocos2d-x.org/t/sdkbox-youtube-crashes-sometimes-with-nullpointerexception-cocos2djs/39091)
+
+
 2.3.16 Release Notes (20170811)
 ===
 
