@@ -14,7 +14,7 @@ In order to keep the API fit to the two models, some tradeoffs have been made, w
 ##### Logged in user info
 
 Calling the method `sdkbox.SdkboxPlay:getPlayerId()` to get an id per platform that uniquely identifies the logged-in user.
-Additionally, you can query more information about the user. 
+Additionally, you can query more information about the user.
 
 ######iOS/Android fields
 
@@ -52,7 +52,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 To keep things consisten, SdkboxPlay API:
 
 + Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.
-+ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. 
++ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.
 + For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
 
 ##### Leaderboards
@@ -87,14 +87,14 @@ sdkbox.PluginSdkboxPlay:submitScore( leaderboard_name, score )
 This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
 Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method: 
+This method will invoke plugin’s observer method:
 
 ```lua
 sdkbox.PluginSdkboxPlay:onScoreSubmitted(
-        leaderboard_name, 
-        score, 
-        maxScoreAllTime, 
-        maxScoreWeek, 
+        leaderboard_name,
+        score,
+        maxScoreAllTime,
+        maxScoreWeek,
         maxScoreToday )
 ```
 
@@ -134,6 +134,19 @@ sdkbox.PluginSdkboxPlay:showAchievements( );
 Request to show the default Achievements view. This view only shows public achievements.
 t will show specific per platform information, like whether it’s been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.
 
+##### CloudSave
+
+```lua
+sdkbox.PluginSdkboxPlay:loadAllGameData();
+```
+
+Load all game data saved in cloud.
+
+```lua
+sdkbox.PluginSdkboxPlay:saveGameDataBinary(name, data, length);
+```
+
+Save lua string.
 
 ### SdkboxPlay events
 This allows you to catch `SdkboxAds` events.

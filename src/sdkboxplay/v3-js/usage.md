@@ -33,7 +33,7 @@ In order to keep the API fit to the two models, some tradeoffs have been made, w
 ##### Logged in user info
 
 Calling the method `sdkbox.SdkboxPlay.getPlayerId()` to get an id per platform that uniquely identifies the logged-in user.
-Additionally, you can query more information about the user. 
+Additionally, you can query more information about the user.
 
 ######iOS/Android fields
 
@@ -71,7 +71,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 To keep things consisten, SdkboxPlay API:
 
 + Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.
-+ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. 
++ Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.
 + For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
 
 ##### Leaderboards
@@ -106,14 +106,14 @@ sdkbox.PluginSdkboxPlay.submitScore( leaderboard_name, score )
 This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
 Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method: 
+This method will invoke plugin’s observer method:
 
 ```js
 sdkbox.PluginSdkboxPlay.onScoreSubmitted(
-        leaderboard_name, 
-        score, 
-        maxScoreAllTime, 
-        maxScoreWeek, 
+        leaderboard_name,
+        score,
+        maxScoreAllTime,
+        maxScoreWeek,
         maxScoreToday )
 ```
 
@@ -167,7 +167,7 @@ sdkbox.PluginSdkboxPlay.setListener({
      *   + GPS_CONNECTION_ERROR:error with google play services connection.
      */
     onConnectionStatusChanged : function( status ) {},
-    
+
     /**
      * Callback method invoked when an score has been successfully submitted to a leaderboard.
      * It notifies back with the leaderboard_name (not id, see the sdkbox_config.json file) and the
@@ -175,20 +175,20 @@ sdkbox.PluginSdkboxPlay.setListener({
      * Since Game center can't determine if submitted score is maximum, it will send the max score flags as false.
      */
     onScoreSubmitted : function( leaderboard_name, score, is_maxScoreAllTime, is_maxScoreWeek, is_maxScoreToday ) {},
-    
+
     /**
      * Callback method invoked when the request call to increment an achievement is succeessful and
-     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
      * Maximum step count for an incremental achievement is defined in the google play developer console.
      */
     onIncrementalAchievementUnlocked : function( achievement_name ) {},
-    
+
     /**
      * Callback method invoked when the request call to increment an achievement is successful.
      * If possible (Google play only) it notifies back with the current achievement step count.
      */
     onIncrementalAchievementStep : function( achievement_name, step ) {},
-    
+
     /**
      * Call method invoked when the request call to unlock a non-incremental achievement is successful.
      * If this is the first time the achievement is unlocked, newUnlocked will be true.

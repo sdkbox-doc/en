@@ -233,27 +233,39 @@ sdkbox.PluginSdkboxPlay:resetAchievements()
 previously reported for the local player. Hidden achievements that
 were previously visible are now hidden again.
 
-<pre>
-iOS Only
-</pre>
-
 ```lua
 sdkbox.PluginSdkboxPlay:loadAllData()
 ```
-> load all saved user game data in clound
-will trigger onGameData callback
+> **DEPRECATED**
+Please use loadAllGameData to replace, load all saved user game data in clound, will trigger onGameData callback
 
 ```lua
 sdkbox.PluginSdkboxPlay:loadGameData(save_name)
 ```
-> load one saved user game data in clound
-will trigger onGameData callback
+> **DEPRECATED**
+Please use loadAllGameData to replace, load one saved user game data in clound, will trigger onGameData callback
 
 ```lua
 sdkbox.PluginSdkboxPlay:saveGameData(save_name, data)
 ```
-> save user game data in cloud
-will trigger onGameData callback
+> **DEPRECATED**
+
+Please use saveGameDataBinary(name, data, length) to replace, save user game data in cloud, will trigger onGameData callback
+
+```lua
+sdkbox.PluginSdkboxPlay:loadAllGameData()
+```
+> load all saved game data
+will trigger onLoadGameData callback
+
+```lua
+sdkbox.PluginSdkboxPlay:saveGameDataBinary(name, data, length)
+```
+> save user game data, will trigger onSaveGameData callback
+
+- @param name: saved data name
+- @param data: data pointer
+- @param length: data length in byte
 
 
 ### Listeners
@@ -426,5 +438,24 @@ onRevealError(name, error_code, error_description)
 ```lua
 onGameData(action, name, data, error)
 ```
-> 
+> **DEPRECATED**
+
+- @param action string save, load
+- @param name string
+- @param data string
+- @param error string if load/save success, error will be empty
+
+```lua
+onSaveGameData(success, error)
+```
+>
+- @param success bool
+- @param error string if success, error will be empty
+
+```lua
+onLoadGameData(savedData, error)
+```
+>
+- @param savedData SavedGameData
+- @param error string if success, error will be empty
 

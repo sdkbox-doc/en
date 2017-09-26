@@ -241,28 +241,45 @@ static void resetAchievements ( ) ;
 previously reported for the local player. Hidden achievements that
 were previously visible are now hidden again.
 
-<pre>
-iOS Only
-</pre>
 
 ```cpp
-static void loadAllData ( ) ;
+static void loadAllData();
 ```
-> load all saved user game data in clound
+> **DEPRECATED** Please use loadAllGameData to replace
+load all saved user game data in clound
 will trigger onGameData callback
 
 ```cpp
-static void loadGameData ( const std::string & save_name ) ;
+static void loadGameData(const std::string & save_name);
 ```
-> load one saved user game data in clound
+> **DEPRECATED** Please use loadAllGameData to replace
+load one saved user game data in clound
 will trigger onGameData callback
 
 ```cpp
-static void saveGameData ( const std::string & save_name ,
-                           const std::string & data ) ;
+static void saveGameData(const std::string & save_name, const std::string & data);
 ```
-> save user game data in cloud
-will trigger onGameData callback
+> **DEPRECATED**
+
+Please use saveGameData(name, data, length) to replace, save user game data in cloud, will trigger onGameData callback
+
+```cpp
+static void loadAllGameData();
+```
+> load all saved game data
+
+will trigger onLoadGameData callback
+
+```cpp
+static void saveGameDataBinary(const std::string& name, const void* data, int length);
+```
+> save user game data, will trigger onSaveGameData callback
+
+- @param name: saved data name
+- @param data: data pointer
+- @param length: data length in byte
+
+Note: if you want to save string, please translate to void*
 
 
 ### Listeners
@@ -291,7 +308,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
 void onMyScore ( const std::string & leaderboard_name ,
                  int time_span ,
                  int collection_type ,
-                 long score ) 
+                 long score )
 ```
 > Callback method invoked from a call to `getMyScore` method.
 `time_span` and `collection_type` are the supplied values to `getMyScore` method call.
@@ -301,7 +318,7 @@ void onMyScoreError ( const std::string & leaderboard_name ,
                       int time_span ,
                       int collection_type ,
                       int error_code ,
-                      const std::string & error_description ) 
+                      const std::string & error_description )
 ```
 > Callback method invoked from a call to `getMyScore` method and the method was errored.
 `time_span` and `collection_type` are the supplied values to `getMyScore` method call.
@@ -311,7 +328,7 @@ void onMyScoreError ( const std::string & leaderboard_name ,
 void onPlayerCenteredScores ( const std::string & leaderboard_name ,
                               int time_span ,
                               int collection_type ,
-                              const std::string & json_with_score_entries ) 
+                              const std::string & json_with_score_entries )
 ```
 > Callback method invoked from a call to `getPlayerCenteredScores` method.
 `json_with_score_entries` is an json array enconded string, each of which elements is of the form:
@@ -336,7 +353,7 @@ void onPlayerCenteredScoresError ( const std::string & leaderboard_name ,
                                    int time_span ,
                                    int collection_type ,
                                    int error_code ,
-                                   const std::string & error_description ) 
+                                   const std::string & error_description )
 ```
 > Callback method invoked from a call to `getPlayerCenteredScores` method was errored.
 `time_span` and `collection_type` are the values supplied to `getPlayerCenteredScores` method.
@@ -360,7 +377,7 @@ If possible (Google play only) it notifies back with the current achievement ste
 void onIncrementalAchievementStepError ( const std::string & name ,
                                          double steps ,
                                          int error_code ,
-                                         const std::string & error_description ) 
+                                         const std::string & error_description )
 ```
 
 ```cpp
@@ -373,12 +390,12 @@ If this is the first time the achievement is unlocked, newUnlocked will be true.
 ```cpp
 void onAchievementUnlockError ( const std::string & achievement_name ,
                                 int error_code ,
-                                const std::string & error_description ) 
+                                const std::string & error_description )
 ```
 
 ```cpp
 void onAchievementsLoaded ( bool reload_forced ,
-                            const std::string & json_achievements_info ) 
+                            const std::string & json_achievements_info )
 ```
 > Method invoked after calling plugin's `loadAchievements` method.
 The `json_achievements_info` parameter is a json array encoded string.
@@ -428,31 +445,50 @@ each array element is of the form:
 ```
 
 ```cpp
-void onSetSteps ( const std::string & name , double steps ) 
+void onSetSteps ( const std::string & name , double steps )
 ```
 
 ```cpp
 void onSetStepsError ( const std::string & name ,
                        double steps ,
                        int error_code ,
-                       const std::string & error_description ) 
+                       const std::string & error_description )
 ```
 
 ```cpp
-void onReveal ( const std::string & name ) 
+void onReveal ( const std::string & name )
 ```
 
 ```cpp
 void onRevealError ( const std::string & name ,
                      int error_code ,
-                     const std::string & error_description ) 
+                     const std::string & error_description )
 ```
 
 ```cpp
-void onGameData ( const std::string & action ,
+void onGameData(const std::string & action ,
                   const std::string & name ,
                   const std::string & data ,
-                  const std::string & error ) 
+                  const std::string & error)
 ```
-> 
+> **DEPRECATED**
+
+- @param action std::string save, load
+- @param name std::string
+- @param data std::string
+- @param error std::string if load/save success, error will be empty
+
+```cpp
+void onSaveGameData(bool success, const std::string& error)
+```
+>
+- @param success bool
+- @param error std::string if success, error will be empty
+
+```cpp
+void onLoadGameData(const SavedGameData* savedData, const std::string& error)
+```
+>
+- @param savedData SavedGameData*
+- @param error std::string if success, error will be empty
 
