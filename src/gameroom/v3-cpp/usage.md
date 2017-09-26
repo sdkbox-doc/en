@@ -71,7 +71,7 @@ if (!ret) {
 }
 ```
 
-The player login action will trigger `onLoginAccessTokenMsg` callback in your listener class. For examle, you can use some methods to retrieve the player's login information via the parameter `accessTokenHandle`.
+The player login action will trigger `onLoginAccessTokenMsg` callback in your listener class. You can use some methods to retrieve the player's login information via the parameter `accessTokenHandle`.
 
 ```
 void HelloWorld::onLoginAccessTokenMsg(sdkbox::AccessTokenHandle accessTokenHandle) {
@@ -90,7 +90,7 @@ void HelloWorld::onLoginAccessTokenMsg(sdkbox::AccessTokenHandle accessTokenHand
     auto permission_size = sdkbox::PluginGameroom::accessTokenGetPermissions(accessTokenHandle, permissions, 512);
 
     ::CCLOG(
-        "OnLoginAccessTokenMsg, User ID: %lld\nAccess Token: %s\nExpiration Timestamp: %lld, Permission Count: %zu\nPermissions: ",
+        "OnLoginAccessTokenMsg, User ID: %lld\\nAccess Token: %s\\nExpiration Timestamp: %lld, Permission Count: %zu\\nPermissions: ",
         (long long)userid,
         token_string,
         (long long)expiration_timestamp,
@@ -100,7 +100,7 @@ void HelloWorld::onLoginAccessTokenMsg(sdkbox::AccessTokenHandle accessTokenHand
     for (size_t i = 0; i < permission_size; i++) {
         ::CCLOG("%s", sdkbox::PluginGameroom::loginScopeToString(permissions[i]));
     }
-    ::CCLOG("\n");
+    ::CCLOG("\\n");
 }
 ```
 
@@ -129,7 +129,7 @@ In your listener class, `onFeedShareMsg` will be called after sharing with the a
 void HelloWorld::onFeedShareMsg(sdkbox::FeedShareHandle feedShareHandle) {
     auto postId = sdkbox::PluginGameroom::feedShareGetPostID(feedShareHandle);
     ::CCLOG(
-        "onFeedShareMsg, Feed Share Post ID: %ld\n",
+        "onFeedShareMsg, Feed Share Post ID: %ld\\n",
         (long)postId
     );
 }
@@ -211,9 +211,9 @@ void HelloWorld::onPurchaseIAPMsg(sdkbox::PurchaseHandle payHandle) {
     size = sdkbox::PluginGameroom::purchaseGetErrorMessage(payHandle, errorMessage, 512);
 
     ::CCLOG(
-        "onPurchaseIAPMsg, Purchase Handle: %s\nAmount: %d\nCurrency: %s\nPurchase Time: %lld\n"
-        "Product Id:%s\nPurchase Token: %s\nQuantity: %d\nRequest Id: %s\n"
-        "Status: %s\nSignedRequest: %s\nError Code: %lld\nErrorMessage: %s\n",
+        "onPurchaseIAPMsg, Purchase Handle: %s\\nAmount: %d\\nCurrency: %s\\nPurchase Time: %lld\\n"
+        "Product Id:%s\\nPurchase Token: %s\\nQuantity: %d\\nRequest Id: %s\\n"
+        "Status: %s\\nSignedRequest: %s\\nError Code: %lld\\nErrorMessage: %s\\n",
         paymentId,
         (int)amount,
         currency,
@@ -276,7 +276,6 @@ sdkbox::PluginGameroom::appRequest(
     nullptr,
     nullptr,
     "faceboo_user_id_1,facebook_user_id_2",
-
     nullptr,
     nullptr,
     20,
@@ -309,16 +308,16 @@ void HelloWorld::onAppRequestMsg(fbgAppRequestHandle appRequestHandle) {
     //auto size = sdkbox::PluginGameroom::appRequestGetRequestObjectID(appRequestHandle, objectID, sdkbox::FBG_BUFFER_SIZE);
     auto size = fbg_AppRequest_GetRequestObjectId(appRequestHandle, objectID, sdkbox::FBG_BUFFER_SIZE);
     ::CCLOG("onAppRequestMsg");
-    ::CCLOG("size = %lu\n", size);  // return 0 here, indicating that appRequestHandle is invalid.
+    ::CCLOG("size = %lu\\n", size);  // return 0 here, indicating that appRequestHandle is invalid.
 
     char toUser[sdkbox::FBG_BUFFER_SIZE];
     size = sdkbox::PluginGameroom::appRequestGetTo(appRequestHandle, toUser, sdkbox::FBG_BUFFER_SIZE);
-    ::CCLOG("size = %lu\n", size);
+    ::CCLOG("size = %lu\\n", size);
 
     ::CCLOG(
-            "object id: %s, to user: %s",
-            objectID,
-            toUser
+        "object id: %s, to user: %s",
+        objectID,
+        toUser
     );
 }
 ```
