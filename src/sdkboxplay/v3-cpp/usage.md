@@ -142,6 +142,21 @@ Request to show the default Achievements view. This view only shows public achie
 t will show specific per platform information, like whether it’s been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.
 
 
+##### CloudSave
+
+```cpp
+void loadAllGameData();
+```
+
+Load all game data saved in cloud.
+
+```cpp
+void saveGameDataBinary(const std::string& name, const void* data, int length);
+```
+
+Save binary data. if you want to save string, translate to char* .
+
+
 ### SdkboxPlay events
 This allows you to catch `SdkboxPlay`' events.
 
