@@ -557,6 +557,12 @@
                         
                             
 <li >
+    <a href="../../../qa/from-google-to-amazon/">From Google to Amazon</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../qa/integration-admob-to-creator/">Admob in Creator</a>
 </li>
 
@@ -839,7 +845,7 @@ In either case, the developer will reference leaderboards and achievements by a 
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section</p>
 <h5 id="logged-in-user-info">Logged in user info</h5>
 <p>Calling the method <code>sdkbox.SdkboxPlay:getPlayerId()</code> to get an id per platform that uniquely identifies the logged-in user.
-Additionally, you can query more information about the user. </p>
+Additionally, you can query more information about the user.</p>
 <h6 id="iosandroid-fields">iOS/Android fields</h6>
 <p>These fields are common to ios and android:
 <em> player_id
@@ -869,7 +875,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <p>To keep things consisten, SdkboxPlay API:</p>
 <ul>
 <li>Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.</li>
-<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. </li>
+<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.</li>
 <li>For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
 </ul>
 <h5 id="leaderboards">Leaderboards</h5>
@@ -895,12 +901,12 @@ Though both, GooglePlay and GameCenter define leaderboards in the same way, in t
 <p>This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
 Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method: </p>
+This method will invoke plugin’s observer method:</p>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:onScoreSubmitted(
-        leaderboard_name, 
-        score, 
-        maxScoreAllTime, 
-        maxScoreWeek, 
+        leaderboard_name,
+        score,
+        maxScoreAllTime,
+        maxScoreWeek,
         maxScoreToday )
 </code></pre>
 
@@ -930,6 +936,15 @@ If the call is successful, this method may invoke two different methods:
 
 <p>Request to show the default Achievements view. This view only shows public achievements.
 t will show specific per platform information, like whether it’s been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.</p>
+<h5 id="cloudsave">CloudSave</h5>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllGameData();
+</code></pre>
+
+<p>Load all game data saved in cloud.</p>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameDataBinary(name, data, length);
+</code></pre>
+
+<p>Save lua string.</p>
 <h3 id="sdkboxplay-events">SdkboxPlay events</h3>
 <p>This allows you to catch <code>SdkboxAds</code> events.</p>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:setListener(function(args)
@@ -1218,31 +1233,45 @@ If a field not valid is queried an empty string will be returned.</li>
 previously reported for the local player. Hidden achievements that
 were previously visible are now hidden again.</p>
 </blockquote>
-<pre>
-iOS Only
-</pre>
-
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllData()
 </code></pre>
 
 <blockquote>
-<p>load all saved user game data in clound
-will trigger onGameData callback</p>
+<p><strong>DEPRECATED</strong>
+Please use loadAllGameData to replace, load all saved user game data in clound, will trigger onGameData callback</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:loadGameData(save_name)
 </code></pre>
 
 <blockquote>
-<p>load one saved user game data in clound
-will trigger onGameData callback</p>
+<p><strong>DEPRECATED</strong>
+Please use loadAllGameData to replace, load one saved user game data in clound, will trigger onGameData callback</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameData(save_name, data)
 </code></pre>
 
 <blockquote>
-<p>save user game data in cloud
-will trigger onGameData callback</p>
+<p><strong>DEPRECATED</strong></p>
 </blockquote>
+<p>Please use saveGameDataBinary(name, data, length) to replace, save user game data in cloud, will trigger onGameData callback</p>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllGameData()
+</code></pre>
+
+<blockquote>
+<p>load all saved game data
+will trigger onLoadGameData callback</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameDataBinary(name, data, length)
+</code></pre>
+
+<blockquote>
+<p>save user game data, will trigger onSaveGameData callback</p>
+</blockquote>
+<ul>
+<li>@param name: saved data name</li>
+<li>@param data: data pointer</li>
+<li>@param length: data length in byte</li>
+</ul>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onConnectionStatusChanged(status)
 </code></pre>
@@ -1417,7 +1446,33 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 <pre><code class="lua">onGameData(action, name, data, error)
 </code></pre>
 
-<blockquote></blockquote>
+<blockquote>
+<p><strong>DEPRECATED</strong></p>
+</blockquote>
+<ul>
+<li>@param action string save, load</li>
+<li>@param name string</li>
+<li>@param data string</li>
+<li>@param error string if load/save success, error will be empty</li>
+</ul>
+<pre><code class="lua">onSaveGameData(success, error)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>@param success bool</li>
+<li>@param error string if success, error will be empty</li>
+</ul>
+</blockquote>
+<pre><code class="lua">onLoadGameData(savedData, error)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>@param savedData SavedGameData</li>
+<li>@param error string if success, error will be empty</li>
+</ul>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

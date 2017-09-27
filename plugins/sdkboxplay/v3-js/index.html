@@ -557,6 +557,12 @@
                         
                             
 <li >
+    <a href="../../../qa/from-google-to-amazon/">From Google to Amazon</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../qa/integration-admob-to-creator/">Admob in Creator</a>
 </li>
 
@@ -858,7 +864,7 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section</p>
 <h5 id="logged-in-user-info">Logged in user info</h5>
 <p>Calling the method <code>sdkbox.SdkboxPlay.getPlayerId()</code> to get an id per platform that uniquely identifies the logged-in user.
-Additionally, you can query more information about the user. </p>
+Additionally, you can query more information about the user.</p>
 <h6 id="iosandroid-fields">iOS/Android fields</h6>
 <p>These fields are common to ios and android:
 <em> player_id
@@ -888,7 +894,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <p>To keep things consisten, SdkboxPlay API:</p>
 <ul>
 <li>Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.</li>
-<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console. </li>
+<li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.</li>
 <li>For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
 </ul>
 <h5 id="leaderboards">Leaderboards</h5>
@@ -914,12 +920,12 @@ Though both, GooglePlay and GameCenter define leaderboards in the same way, in t
 <p>This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
 Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method: </p>
+This method will invoke plugin’s observer method:</p>
 <pre><code class="js">sdkbox.PluginSdkboxPlay.onScoreSubmitted(
-        leaderboard_name, 
-        score, 
-        maxScoreAllTime, 
-        maxScoreWeek, 
+        leaderboard_name,
+        score,
+        maxScoreAllTime,
+        maxScoreWeek,
         maxScoreToday )
 </code></pre>
 
@@ -971,7 +977,7 @@ t will show specific per platform information, like whether it’s been unlocked
 
     /**
      * Callback method invoked when the request call to increment an achievement is succeessful and
-     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value. 
+     * that achievement gets unlocked. This happens when the incremental step count reaches its maximum value.
      * Maximum step count for an incremental achievement is defined in the google play developer console.
      */
     onIncrementalAchievementUnlocked : function( achievement_name ) {},

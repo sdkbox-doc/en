@@ -557,6 +557,12 @@
                         
                             
 <li >
+    <a href="../../../qa/from-google-to-amazon/">From Google to Amazon</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../qa/integration-admob-to-creator/">Admob in Creator</a>
 </li>
 
@@ -936,6 +942,15 @@ If the call is successful, this method may invoke two different methods:
 
 <p>Request to show the default Achievements view. This view only shows public achievements.
 t will show specific per platform information, like whether it’s been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.</p>
+<h5 id="cloudsave">CloudSave</h5>
+<pre><code class="cpp">void loadAllGameData();
+</code></pre>
+
+<p>Load all game data saved in cloud.</p>
+<pre><code class="cpp">void saveGameDataBinary(const std::string&amp; name, const void* data, int length);
+</code></pre>
+
+<p>Save binary data. if you want to save string, translate to char* .</p>
 <h3 id="sdkboxplay-events">SdkboxPlay events</h3>
 <p>This allows you to catch <code>SdkboxPlay</code>' events.</p>
 <ul>
@@ -1258,32 +1273,48 @@ If a field not valid is queried an empty string will be returned.</li>
 previously reported for the local player. Hidden achievements that
 were previously visible are now hidden again.</p>
 </blockquote>
-<pre>
-iOS Only
-</pre>
-
-<pre><code class="cpp">static void loadAllData ( ) ;
+<pre><code class="cpp">static void loadAllData();
 </code></pre>
 
 <blockquote>
-<p>load all saved user game data in clound
+<p><strong>DEPRECATED</strong> Please use loadAllGameData to replace
+load all saved user game data in clound
 will trigger onGameData callback</p>
 </blockquote>
-<pre><code class="cpp">static void loadGameData ( const std::string &amp; save_name ) ;
+<pre><code class="cpp">static void loadGameData(const std::string &amp; save_name);
 </code></pre>
 
 <blockquote>
-<p>load one saved user game data in clound
+<p><strong>DEPRECATED</strong> Please use loadAllGameData to replace
+load one saved user game data in clound
 will trigger onGameData callback</p>
 </blockquote>
-<pre><code class="cpp">static void saveGameData ( const std::string &amp; save_name ,
-                           const std::string &amp; data ) ;
+<pre><code class="cpp">static void saveGameData(const std::string &amp; save_name, const std::string &amp; data);
 </code></pre>
 
 <blockquote>
-<p>save user game data in cloud
-will trigger onGameData callback</p>
+<p><strong>DEPRECATED</strong></p>
 </blockquote>
+<p>Please use saveGameData(name, data, length) to replace, save user game data in cloud, will trigger onGameData callback</p>
+<pre><code class="cpp">static void loadAllGameData();
+</code></pre>
+
+<blockquote>
+<p>load all saved game data</p>
+</blockquote>
+<p>will trigger onLoadGameData callback</p>
+<pre><code class="cpp">static void saveGameDataBinary(const std::string&amp; name, const void* data, int length);
+</code></pre>
+
+<blockquote>
+<p>save user game data, will trigger onSaveGameData callback</p>
+</blockquote>
+<ul>
+<li>@param name: saved data name</li>
+<li>@param data: data pointer</li>
+<li>@param length: data length in byte</li>
+</ul>
+<p>Note: if you want to save string, please translate to void*</p>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onConnectionStatusChanged ( int status );
 </code></pre>
@@ -1311,7 +1342,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
 <pre><code class="cpp">void onMyScore ( const std::string &amp; leaderboard_name ,
                  int time_span ,
                  int collection_type ,
-                 long score ) 
+                 long score )
 </code></pre>
 
 <blockquote>
@@ -1322,7 +1353,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
                       int time_span ,
                       int collection_type ,
                       int error_code ,
-                      const std::string &amp; error_description ) 
+                      const std::string &amp; error_description )
 </code></pre>
 
 <blockquote>
@@ -1333,7 +1364,7 @@ Since Game center can't determine if submitted score is maximum, it will send th
 <pre><code class="cpp">void onPlayerCenteredScores ( const std::string &amp; leaderboard_name ,
                               int time_span ,
                               int collection_type ,
-                              const std::string &amp; json_with_score_entries ) 
+                              const std::string &amp; json_with_score_entries )
 </code></pre>
 
 <blockquote>
@@ -1359,7 +1390,7 @@ Each json element contains the following information:</p>
                                    int time_span ,
                                    int collection_type ,
                                    int error_code ,
-                                   const std::string &amp; error_description ) 
+                                   const std::string &amp; error_description )
 </code></pre>
 
 <blockquote>
@@ -1386,7 +1417,7 @@ If possible (Google play only) it notifies back with the current achievement ste
 <pre><code class="cpp">void onIncrementalAchievementStepError ( const std::string &amp; name ,
                                          double steps ,
                                          int error_code ,
-                                         const std::string &amp; error_description ) 
+                                         const std::string &amp; error_description )
 </code></pre>
 
 <pre><code class="cpp">void onAchievementUnlocked ( const std::string &amp; achievement_name ,
@@ -1399,11 +1430,11 @@ If this is the first time the achievement is unlocked, newUnlocked will be true.
 </blockquote>
 <pre><code class="cpp">void onAchievementUnlockError ( const std::string &amp; achievement_name ,
                                 int error_code ,
-                                const std::string &amp; error_description ) 
+                                const std::string &amp; error_description )
 </code></pre>
 
 <pre><code class="cpp">void onAchievementsLoaded ( bool reload_forced ,
-                            const std::string &amp; json_achievements_info ) 
+                            const std::string &amp; json_achievements_info )
 </code></pre>
 
 <blockquote>
@@ -1454,30 +1485,56 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
   }
 </code></pre>
 
-<pre><code class="cpp">void onSetSteps ( const std::string &amp; name , double steps ) 
+<pre><code class="cpp">void onSetSteps ( const std::string &amp; name , double steps )
 </code></pre>
 
 <pre><code class="cpp">void onSetStepsError ( const std::string &amp; name ,
                        double steps ,
                        int error_code ,
-                       const std::string &amp; error_description ) 
+                       const std::string &amp; error_description )
 </code></pre>
 
-<pre><code class="cpp">void onReveal ( const std::string &amp; name ) 
+<pre><code class="cpp">void onReveal ( const std::string &amp; name )
 </code></pre>
 
 <pre><code class="cpp">void onRevealError ( const std::string &amp; name ,
                      int error_code ,
-                     const std::string &amp; error_description ) 
+                     const std::string &amp; error_description )
 </code></pre>
 
-<pre><code class="cpp">void onGameData ( const std::string &amp; action ,
+<pre><code class="cpp">void onGameData(const std::string &amp; action ,
                   const std::string &amp; name ,
                   const std::string &amp; data ,
-                  const std::string &amp; error ) 
+                  const std::string &amp; error)
 </code></pre>
 
-<blockquote></blockquote>
+<blockquote>
+<p><strong>DEPRECATED</strong></p>
+</blockquote>
+<ul>
+<li>@param action std::string save, load</li>
+<li>@param name std::string</li>
+<li>@param data std::string</li>
+<li>@param error std::string if load/save success, error will be empty</li>
+</ul>
+<pre><code class="cpp">void onSaveGameData(bool success, const std::string&amp; error)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>@param success bool</li>
+<li>@param error std::string if success, error will be empty</li>
+</ul>
+</blockquote>
+<pre><code class="cpp">void onLoadGameData(const SavedGameData* savedData, const std::string&amp; error)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>@param savedData SavedGameData*</li>
+<li>@param error std::string if success, error will be empty</li>
+</ul>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
