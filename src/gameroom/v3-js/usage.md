@@ -138,7 +138,7 @@ sdkbox.PluginGameroom.purchaseIAPWithProductURL(
 sdkbox.PluginGameroom.payPremium();
 ```
 
-These 3 types of IAP will trigger `onPurchaseIAPMsg` callback. Here is an example to show how to handle the IAP operation.
+These 3 types of IAP will trigger `onPurchaseIAPMsg` callback. Here is an example to show how to handle the IAP result.
 
 ```
 onPurchaseIAPMsg: function (handle) {
@@ -188,7 +188,7 @@ sdkbox.PluginGameroom.logAppEvent('test_event_1', { 'key1': 'val1', 'key2': 'val
 sdkbox.PluginGameroom.logAppEventWithValueToSum('test_event_2', { 'key3': 'val3', 'key4': 'val4' }, 10.24);
 ```
 
-The key-value pairs are carried in an JavaScript object. And if you intend to offer an extra value in an event, you should use `logAppEventWithValueToSum` method.
+The key-value pairs are carried in an JavaScript object. And if you intend to offer an extra value in an event, you should use `logAppEventWithValueToSum()` method.
 
 ### Send App Requests
 

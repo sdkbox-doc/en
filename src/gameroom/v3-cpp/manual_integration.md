@@ -40,7 +40,7 @@ If you want to install Gameroom Plugin manually, you would modify more configura
 patch AppDelegate.cpp ./plugin-dir/path/AppDelegate.cpp3.15.patch
 ```
 
--   Before `USING_NS_CC`, add the sdkbox header files:
+-   Before `USING_NS_CC`, add the SDKBOX header files:
 
 ```
 #ifdef SDKBOX_ENABLED
@@ -48,7 +48,7 @@ patch AppDelegate.cpp ./plugin-dir/path/AppDelegate.cpp3.15.patch
 #endif
 ```
 
--   In the ctor and dtor of `AppDelegate`. Add redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.
+-   In the ctor and dtor of `AppDelegate`, redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.
 
 ```
 AppDelegate::AppDelegate()
