@@ -65,6 +65,8 @@ If you have IAP items that are __non-consumable__ or __subscription__, it is als
 
 <<[../shared/receipts_verification.md]
 
+<<[promoting_iap.md]
+
 <<[api-reference.md]
 
 <<[manual_integration.md]
