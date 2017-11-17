@@ -103,7 +103,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 ```
 ### Setup Facebook App
 In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
-[Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/02/setting-up-facebook-app-for-sdkbox-services/)
+[Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/07/setting-up-facebook-app-for-sdkbox-services/)
 
 
 <!--<<[sdkbox-config-encrypt.md]-->
