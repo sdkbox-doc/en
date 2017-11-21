@@ -104,7 +104,63 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 ### Setup Facebook App
 In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
 [Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/07/setting-up-facebook-app-for-sdkbox-services/)
+> With the release of the Facebook SDK version 4.28.0, App Links Hosting is deprecated. It will be supported until February 5, 2018.
+https://developers.facebook.com/docs/applinks/hosting-api/
 
+### Facebook App Links Host
+
+1. Get `APP_ACCESS_TOKEN` (App Token) in https://developers.facebook.com/tools/access_token/
+2. Create links
+
+```
+curl https://graph.facebook.com/app/app_link_hosts \
+-F access_token="APP_ACCESS_TOKEN" \
+-F name="iOS App Link Object Example" \
+-F ios=' [
+    {
+      "url" : "sharesample://story/1234",
+      "app_store_id" : 12345,
+      "app_name" : "ShareSample",
+    },
+  ]' \
+-F web=' {
+    "should_fallback" : false,
+  }'
+```
+
+3. Query link
+
+```
+curl -G https://graph.facebook.com/{YOUR_LINK_ID} \
+-d access_token="APP_ACCESS_TOKEN" \
+-d fields=canonical_url \
+-d pretty=true
+
+# or
+curl -G https://graph.facebook.com \
+-d access_token="APP_ACCESS_TOKEN" \
+-d fields=app_links \
+-d ids=https://fb.me/{YOUR_LINK_ID} \
+-d pretty=true
+```
+
+4. Update link
+
+```
+curl https://graph.facebook.com/{YOUR_LINK_ID} \
+-F access_token="APP_ACCESS_TOKEN" \
+-F name="FB App Link Object Example" \
+-F ios=' [
+    {
+      "url" : "sharesample://story/1234",
+      "app_store_id" : 12345,
+      "app_name" : "ShareSample",
+    },
+  ]' \
+-F web=' {
+    "should_fallback" : false,
+}'
+```
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
