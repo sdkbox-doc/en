@@ -15,6 +15,10 @@ $ sdkbox import iap
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app
 
 Here is an example of the IAP configuration, you need to replace `<put the product id for ios here>` with the product id from your [iTunes Connect](http://itunesconnect.apple.com) or  replace `<put your googleplay key here>` from your [Google Play Console](https://play.google.com/apps/publish)
+
+> For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the Google Play Console "Services & APIs" section
+
+
 ```json
 "ios" :
 {
