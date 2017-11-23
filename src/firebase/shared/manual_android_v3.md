@@ -18,10 +18,11 @@ bundle into your project’s __<project_root>/libs__ folder.
 	cocos2d/cocos/platform/android/java/libs
 	```
 
-	Android Studio:
-	```
-	cocos2d/cocos/platform/android/libcocos2dx/libs
-	```
+    Android Studio:
+    ```
+    cocos2d/cocos/platform/android/java/libs
+    cocos2d/cocos/platform/android/libcocos2dx/libs
+    ```
 
 * If you're using cocos2d-js or lua copy the __jar__ files to:
 
@@ -30,10 +31,11 @@ bundle into your project’s __<project_root>/libs__ folder.
 	frameworks/cocos2d-x/cocos/platform/android/java/libs
 	```
 
-	Android Studio:
-	```
-	frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
-	```
+    Android Studio:
+    ```
+    frameworks/cocos2d-x/cocos/platform/android/java/libs
+    frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
+    ```
 
 * If you're using prebuilt cocos2d-x copy the __jar__ files to:
 
