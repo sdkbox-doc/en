@@ -770,6 +770,9 @@
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
 <p>Here is an example of the IAP configuration, you need to replace <code>&lt;put the product id for ios here&gt;</code> with the product id from your <a href="http://itunesconnect.apple.com">iTunes Connect</a> or  replace <code>&lt;put your googleplay key here&gt;</code> from your <a href="https://play.google.com/apps/publish">Google Play Console</a></p>
+<blockquote>
+<p>For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the Google Play Console "Services &amp; APIs" section</p>
+</blockquote>
 <pre><code class="json">&quot;ios&quot; :
 {
     &quot;iap&quot;:{
@@ -1024,14 +1027,20 @@ bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 <p>Android command-line:
 <code>cocos2d/cocos/platform/android/java/libs</code></p>
 <p>Android Studio:
-<code>cocos2d/cocos/platform/android/libcocos2dx/libs</code></p>
+<pre>
+cocos2d/cocos/platform/android/java/libs
+cocos2d/cocos/platform/android/libcocos2dx/libs
+</pre></p>
 </li>
 <li>
 <p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
 <p>Android command-line:
 <code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
 <p>Android Studio:
-<code>frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs</code></p>
+<pre>
+frameworks/cocos2d-x/cocos/platform/android/java/libs
+frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
+</pre></p>
 </li>
 <li>
 <p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>

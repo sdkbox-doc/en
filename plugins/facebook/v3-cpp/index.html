@@ -667,6 +667,8 @@
         
             <li><a href="#setup-facebook-app">Setup Facebook App</a></li>
         
+            <li><a href="#facebook-app-links-host">Facebook App Links Host</a></li>
+        
 	</ul>
 	
     
@@ -853,7 +855,65 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h3 id="setup-facebook-app">Setup Facebook App</h3>
 <p>In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
-<a href="http://blog.cocos2d-x.org/2016/02/setting-up-facebook-app-for-sdkbox-services/">Setup Facebook App for SDKBOX</a></p>
+<a href="http://blog.cocos2d-x.org/2016/07/setting-up-facebook-app-for-sdkbox-services/">Setup Facebook App for SDKBOX</a></p>
+<blockquote>
+<p>With the release of the Facebook SDK version 4.28.0, App Links Hosting is deprecated. It will be supported until February 5, 2018.
+https://developers.facebook.com/docs/applinks/hosting-api/</p>
+</blockquote>
+<h3 id="facebook-app-links-host">Facebook App Links Host</h3>
+<ol>
+<li>Get <code>APP_ACCESS_TOKEN</code> (App Token) in https://developers.facebook.com/tools/access_token/</li>
+<li>Create links</li>
+</ol>
+<pre><code>curl https://graph.facebook.com/app/app_link_hosts \
+-F access_token=&quot;APP_ACCESS_TOKEN&quot; \
+-F name=&quot;iOS App Link Object Example&quot; \
+-F ios=' [
+    {
+      &quot;url&quot; : &quot;sharesample://story/1234&quot;,
+      &quot;app_store_id&quot; : 12345,
+      &quot;app_name&quot; : &quot;ShareSample&quot;,
+    },
+  ]' \
+-F web=' {
+    &quot;should_fallback&quot; : false,
+  }'
+</code></pre>
+
+<ol>
+<li>Query link</li>
+</ol>
+<pre><code>curl -G https://graph.facebook.com/{YOUR_LINK_ID} \
+-d access_token=&quot;APP_ACCESS_TOKEN&quot; \
+-d fields=canonical_url \
+-d pretty=true
+
+# or
+curl -G https://graph.facebook.com \
+-d access_token=&quot;APP_ACCESS_TOKEN&quot; \
+-d fields=app_links \
+-d ids=https://fb.me/{YOUR_LINK_ID} \
+-d pretty=true
+</code></pre>
+
+<ol>
+<li>Update link</li>
+</ol>
+<pre><code>curl https://graph.facebook.com/{YOUR_LINK_ID} \
+-F access_token=&quot;APP_ACCESS_TOKEN&quot; \
+-F name=&quot;FB App Link Object Example&quot; \
+-F ios=' [
+    {
+      &quot;url&quot; : &quot;sharesample://story/1234&quot;,
+      &quot;app_store_id&quot; : 12345,
+      &quot;app_name&quot; : &quot;ShareSample&quot;,
+    },
+  ]' \
+-F web=' {
+    &quot;should_fallback&quot; : false,
+}'
+</code></pre>
+
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -968,22 +1028,22 @@ sdkbox::PluginFacebook::inviteFriendsWithInviteIds(vec, &quot;Invitation title&q
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th align="left">Flag</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>fields</td>
-<td>a comma separated values of the fields you want to get from your invitable friend’s profiles.</td>
+<td align="left">fields</td>
+<td align="left">a comma separated values of the fields you want to get from your invitable friend’s profiles.</td>
 </tr>
 <tr>
-<td>exclude_ids</td>
-<td>a comma separated FB ids to exclude from the result.</td>
+<td align="left">exclude_ids</td>
+<td align="left">a comma separated FB ids to exclude from the result.</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>number of friends per page.</td>
+<td align="left">limit</td>
+<td align="left">number of friends per page.</td>
 </tr>
 </tbody>
 </table>
