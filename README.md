@@ -18,7 +18,7 @@ cd src
 
 Some documentations require [jsdoc](https://www.npmjs.com/package/jsdoc)
 
-Make sure you install jsdoc with
+Make sure you install [nodejs](https://nodejs.org/en/) and jsdoc with
 ```
 npm install jsdoc -g
 ```
