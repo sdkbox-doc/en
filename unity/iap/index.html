@@ -663,6 +663,8 @@
         
             <li><a href="#adding-vendor-billing-permission">Adding Vendor Billing Permission</a></li>
         
+            <li><a href="#test">Test</a></li>
+        
             <li><a href="#faq">FAQ</a></li>
         
 	</ul>
@@ -780,28 +782,40 @@
 <h2 id="additional-android-instructions">Additional Android Instructions</h2>
 <h3 id="override-unity-activity">Override Unity Activity</h3>
 <p>In order for In-App-Purchase to work, we have to be able to forward certain activity methods to the billing code. To do this on Unity we have to replace the Unity main activity. If you do not have your own custom activity, and also have not provided your own AndroidManifest.xml, then the package will automatically copy the activity and manifest to the correct location. If there is already a manifest present, then it will notify you with a dialog to read this section and perform the following steps.</p>
+<p><strong>NOTE</strong>:
+If you do not have <code>Assets/Plugins/Android</code> folder, create it. Then copy <code>AndroidManifest.xml</code> from <code>/Applications/Unity/PlaybackEngines/AndroidPlayer/Apk</code> to <code>Assets/Plugins/Android</code> folder.</p>
 <ol>
-<li>Copy the file <em>CustomActivity.jar</em> from <strong>Assets/SDKBOX/Assets/Resources</strong> to <strong>Assets/Plugins/Android</strong></li>
+<li><strong>Move</strong> the file <em>CustomActivity.jar</em> from <strong>Assets/SDKBOX/Assets/Resources</strong> to <strong>Assets/Plugins/Android</strong></li>
 <li>Modify your AndroidManifest.xml as following:
-<img alt="" src="./chart-8.png" /></li>
+  <img alt="" src="./chart-8.png" />
+  Replace activity <code>android:name="com.unity3d.player.UnityPlayerActivity"</code> with <code>android:name="com.sdkbox.activity.CustomActivity"</code></li>
 </ol>
 <h3 id="adding-vendor-billing-permission">Adding Vendor Billing Permission</h3>
 <p>In order for In-App-Purchase to work on Android, it needs the following permission to be added.</p>
-<pre><code>&lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot; /&gt;
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot; /&gt;
 </code></pre>
 
 <p>If you have not specified your own AndroidManifest.xml then when you import the package, one will be copied that already has this permission set.</p>
 <p>If you do have your own already, then you will need to add this permission to it.</p>
 <p>The AndroidManifest.xml is merged with the main manifest that Unity creates when building the APK.</p>
+<h3 id="test">Test</h3>
+<ol>
+<li>Add In-app products in <a href="https://play.google.com/apps/publish">https://play.google.com/apps/publish</a></li>
+<li>Release build your apk</li>
+<li>Upload it to <a href="https://play.google.com/apps/publish">https://play.google.com/apps/publish</a></li>
+<li>Alpha/Beta your game in <a href="https://play.google.com/apps/publish">https://play.google.com/apps/publish</a></li>
+</ol>
 <h3 id="faq">FAQ</h3>
 <ol>
 <li>Found plugins with same names and architectures
-Sometimes Unity failed to recognize Android library correctly, when that happens you'll encounter this error message.
-<img alt="" src="./error_1_arch.png" /></li>
+  Sometimes Unity failed to recognize Android library correctly, when that happens you'll encounter this error message.
+  <img alt="" src="./error_1_arch.png" /></li>
 </ol>
 <p>To fix this issue, select the *.so files based on the error message, then check the Inspector, make sure the "Platform Settings" are correct.
 Anything under "x86" folder, should be set to "x86". Anything under "armeabi-v7a" folder should be set to "ARMv7"
-<img alt="" src="./error_1_solve.png" /></p></div>
+<img alt="" src="./error_1_solve.png" /></p>
+<p>Or <strong>Delete</strong> <code>CustomActivity.jar</code> from <strong>Assets/SDKBOX/Assets/Resources</strong>.</p></div>
             
         </div>
 
