@@ -1,8 +1,31 @@
 # Release Notes
 ---
 
+# 2.3.17.5 Release Notes (20171208)
+
+## Highlights
+
+1. Support Cocos Creator 1.7
+2. AdColony supports load all ads again with `requestAllAds` api
+3. Appodeal upgrade iOS SDK to 2.1.7
+
+
+
+# 2.3.17.3 Release Notes (20171124)
+## Highlights
+
+* AdMob upgrade to GoogleMobileAdsSdkiOS-7.26.0, support iPhone X
+* iOS suport Promotion IAP
+* Installer support 3.16 and Cocos Creator 1.6.2
+
+## Bugfix
+* Fix receiptCipheredPayload always null on unity
+* Fix IAP price encoding
+* Fix IAP clean [iOS system clipboard](http://discuss.cocos2d-x.org/t/sdkbox-iap-remove-clipboard/37087)
+* Fix SDKBoxPlay fetch auth code
+
+
 # 2.3.17 Release Notes (20170926)
-===
 
 ## Highlights
 
