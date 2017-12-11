@@ -47,6 +47,5 @@ Edit `proj.android/jni/Application.mk` to:
 
 Add __APP_PATFORM__ version requirements:
 ```
-APP_PLATFORM := android-15
+APP_PLATFORM := android-24
 ```
-

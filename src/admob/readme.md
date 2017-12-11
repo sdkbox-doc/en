@@ -13,6 +13,9 @@ $ sdkbox import admob
 
 Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-start#faq) and [Android FAQ](https://developers.google.com/admob/android/quick-start#faq)
 
+##Notice
+For reward video on Android, you need to set `target=android-24` in project.properties file. 
+
 <<[../../shared/notice.md]
 
 <!--## Configuration
