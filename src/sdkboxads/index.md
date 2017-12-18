@@ -3,7 +3,7 @@
 <h1>SdkboxAds Plugin</h1>
 
 ##Overview
-While Sdkbox includes out-of-the-box support for many ad networks, they can be managed in a container plugin called SdkboxAds. It is like a __manager__ of a collection of different ad plugins, while each ad plugin connects to its own backend independentely. 
+While Sdkbox includes out-of-the-box support for many ad networks, they can be managed in a container plugin called SdkboxAds. It is like a __manager__ of a collection of different ad plugins, while each ad plugin connects to its own backend independentely.
 
 ![](../../imgs/sdkbox-ads-1.jpg?1)
 
@@ -47,6 +47,16 @@ SdkboxAds defines a default AdUnit. It will be the first defined unit in the the
 
 <<[../shared/guides.md]
 
+###Support Ads List
+
+* AdColony
+* AdMob
+* Chartboost
+* InMobi
+* Vungle
+* LeadBolt
+* Appnext
+* UnityAds
 
 ##Sample Project
 
