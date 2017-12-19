@@ -637,6 +637,9 @@
         <li class="main active"><a href="#integration">Integration</a></li>
 	
     
+        <li class="main "><a href="#notice">Notice</a></li>
+	
+    
         <li class="main "><a href="#important-notice">Important Notice</a></li>
 	
 	<ul class="sub-sidenav">
@@ -741,6 +744,8 @@
 </code></pre>
 
 <p>Third, please read the <a href="https://developers.google.com/admob/ios/quick-start#faq">iOS FAQ</a> and <a href="https://developers.google.com/admob/android/quick-start#faq">Android FAQ</a></p>
+<h2 id="notice">Notice</h2>
+<p>For reward video on Android, you need to set <code>target=android-24</code> in project.properties file. </p>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project for plugin to function correctly.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
@@ -1015,6 +1020,7 @@ adding frameworks:</p>
 <p>MediaPlayer.framework</p>
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p><strong>NOTE</strong>: <code>plugin/jsbindings/jsb2</code> for creator 1.7.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
 <p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
@@ -1087,6 +1093,7 @@ changed to:</p>
 </code></pre>
 
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p><strong>NOTE</strong>: <code>plugin/jsbindings/jsb2</code> for creator 1.7.</p>
 <p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
 <pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
                   ../../Classes/AppDelegate.cpp \

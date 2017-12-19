@@ -1015,6 +1015,7 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 <p>-fobjc-arc (this allows AdColony to use ARC even if your project does not)</p>
 </blockquote>
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p><strong>NOTE</strong>: <code>plugin/jsbindings/jsb2</code> for creator 1.7.</p>
 <p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
 <p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
@@ -1121,6 +1122,7 @@ changed to:</p>
 </code></pre>
 
 <p>Copy all source and header files from <code>plugin/jsbindings/</code> to your projects <code>Classes</code> folder.</p>
+<p><strong>NOTE</strong>: <code>plugin/jsbindings/jsb2</code> for creator 1.7.</p>
 <p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
 <pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
                   ../../Classes/AppDelegate.cpp \
