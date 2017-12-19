@@ -1,6 +1,14 @@
 # Release Notes
 ---
 
+# 2.3.17.6 Release Notes (20171218)
+
+## Highlights
+
+1. Fix [IAP payload is empty when restore on](iOS http://www.sdkbox.com/answers/question/iap-restore-receiptcipheredpayload-is-empty-ios/)
+2. Appodeal upgrade Android SDK to 2.1.7
+3. Fix [review no callback when click Android *BACK* button or click outside of review UI](http://discuss.cocos2d-x.org/t/sdkbox-review-ratings-android-callbacks/40429)
+
 # 2.3.17.5 Release Notes (20171208)
 
 ## Highlights
