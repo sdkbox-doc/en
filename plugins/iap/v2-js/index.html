@@ -686,6 +686,17 @@
 	</ul>
 	
     
+        <li class="main "><a href="#promotion-iap">Promotion IAP</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#enable-promotion-iap">Enable Promotion IAP</a></li>
+        
+            <li><a href="#promotion-iap-setting">Promotion IAP Setting</a></li>
+        
+	</ul>
+	
+    
         <li class="main "><a href="#api-reference">API Reference</a></li>
 	
 	<ul class="sub-sidenav">
@@ -904,6 +915,23 @@ product.receiptCipheredPayload;
 <blockquote>
 <p>Note: iOS don't provide purchase receipt, only ciphered payload</p>
 </blockquote>
+<h2 id="promotion-iap">Promotion IAP</h2>
+<h3 id="enable-promotion-iap">Enable Promotion IAP</h3>
+<p>if you want to use iOS promotion iap</p>
+<ol>
+<li>implement <code>onShouldAddStorePayment</code> of <code>IAPListener</code> class.</li>
+<li>configure <code>itunes connect</code></li>
+</ol>
+<p>we return true by default in <code>onShouldAddStorePayment</code>. this will not cancel or defer user's purchase action.</p>
+<h3 id="promotion-iap-setting">Promotion IAP Setting</h3>
+<p>You can also customize which promoted in-app purchases a user sees on a specific device with follow api:</p>
+<ol>
+<li><code>sdkbox.IAP.updateStorePromotionOrder(["remove_ads"])</code>;</li>
+<li><code>sdkbox.IAP.updateStorePromotionVisibility('remove_ads', true)</code>;</li>
+<li><code>sdkbox.IAP.fetchStorePromotionOrder()</code>;</li>
+<li><code>sdkbox.IAP.fetchStorePromotionVisibility('remove_ads')</code>;</li>
+</ol>
+<p>more detail<a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/PromotingIn-AppPurchases/PromotingIn-AppPurchases.html">Promoting IAP official Document</a></p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="javascript">sdkbox.IAP.init(jsonconfig);
