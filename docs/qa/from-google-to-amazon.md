@@ -85,6 +85,6 @@ Now finish the other App information and submit apk to Amazon App Store.
 ## Question? We can help.
 If you run into any problem, please try: 
 
-- [Amazon Plugin API Docs](http://localhost:8000/plugins/amazon/)
+- [Amazon Plugin API Docs](http://docs.sdkbox.com/en/plugins/amazon/)
 - [SDKBOX Question & Answer](http://www.sdkbox.com/answers/)
 - [Cocos2d-x/SDKBOX discussion forum](http://discuss.cocos2d-x.org/c/services)
