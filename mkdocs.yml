@@ -296,6 +296,16 @@ pages:
                 - 'Share with C++': 'plugins/share/v2-cpp.md'
                 - 'Share with Javascript': 'plugins/share/v2-js.md'
                 - 'Share with Lua': 'plugins/share/v2-lua.md'
+        - 'Tapcore': 'plugins/tapcore/index.md'
+        - '_Tapcore':
+            - 'Cocos2d-x v3.x':
+                - 'Share with C++': 'plugins/tapcore/v3-cpp.md'
+                - 'Share with Javascript': 'plugins/tapcore/v3-js.md'
+                - 'Share with Lua': 'plugins/tapcore/v3-lua.md'
+            - 'Cocos2d-x v2.x':
+                - 'Share with C++': 'plugins/tapcore/v2-cpp.md'
+                - 'Share with Javascript': 'plugins/tapcore/v2-js.md'
+                - 'Share with Lua': 'plugins/tapcore/v2-lua.md'
         - 'Tune': 'plugins/tune/index.md'
         - '_Tune':
             - 'Cocos2d-x v3.x':
