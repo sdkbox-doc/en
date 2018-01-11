@@ -29,7 +29,7 @@ shareInfo.text = "#sdkbox(www.sdkbox.com) - the cure for sdk fatigue - from js -
 shareInfo.title = "sdkbox";
 //shareInfo.image = "path/to/image";
 shareInfo.link = "http://www.sdkbox.com";
-info.showDialog = false; //if you want share with dialog，set the value true
+shareInfo.showDialog = false; //if you want share with dialog，set the value true
 
 //sdkbox.SocialPlatform.Platform_Select will show platforms list, let user select which platform want to share
 //sdkbox.SocialPlatform.Platform_Twitter will share with twitter directly
@@ -76,8 +76,6 @@ sdkbox.PluginShare.nativeShare(shareInfo);
 // the follow property will be ignored in nativeShare
 //shareInfo.showDialog = false;
 //shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
-
-sdkbox.PluginShare.nativeShare(shareInfo);
 ```
 
 *Note*:
