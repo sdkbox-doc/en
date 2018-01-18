@@ -47,7 +47,7 @@ Each callback will be explained below.
 
 ### User Login
 
-After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method `login()` or another method `loginWithScopes` for it.
+After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method `login()` or another method `loginWithScopes()` for it.
 
 The different between these two methods is that `login()` method will always apply 3 permissions of the player: `user_friends`, `email` and `public_profile`.
 
@@ -173,7 +173,7 @@ sdkbox::PluginGameroom::purchaseIAPWithProductURL(
 sdkbox::PluginGameroom::payPremium();
 ```
 
-These 3 types of IAP will trigger `onPurchaseIAPMsg` callback. Here is an example to show how to handle the IAP operation.
+These 3 types of IAP will trigger `onPurchaseIAPMsg` callback. Here is an example to show how to handle the IAP result.
 
 ```
 void HelloWorld::onPurchaseIAPMsg(sdkbox::PurchaseHandle payHandle) {
@@ -264,7 +264,7 @@ sdkbox::PluginGameroom::logAppEventWithValueToSum("test_event", formData, 1024.2
 sdkbox::PluginGameroom::formDataDispose(formData);
 ```
 
-The key-value pairs are carried in `FormData` structure. And if you intend to offer an extra value in an event, you should use `logAppEventWithValueToSum` method.
+The key-value pairs are carried in `FormData` structure. And if you intend to offer an extra value in an event, you should use `logAppEventWithValueToSum()` method.
 
 ### Send App Requests
 
