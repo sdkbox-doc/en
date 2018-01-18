@@ -1,6 +1,8 @@
 [&#171; SDKBOX Home](http://sdkbox.com)
 
-<h1>Vungle Plugin</h1>
+<h1>Vungle Plugin [DEPRECATED]</h1>
+
+We suggest [SDKBoxAds plugin](http://docs.sdkbox.com/en/plugins/sdkboxads/) with [AdMob plugin](http://docs.sdkbox.com/en/plugins/admob/) / [UnityAds plugin](http://docs.sdkbox.com/en/plugins/unityads/).
 
 ##Overview
 You can find [more information about this plugin here.](http://www.cocos2d-x.org/sdkbox/vungle)

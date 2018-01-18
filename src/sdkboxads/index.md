@@ -49,14 +49,14 @@ SdkboxAds defines a default AdUnit. It will be the first defined unit in the the
 
 ###Support Ads List
 
-* AdColony
 * AdMob
-* Chartboost
-* InMobi
-* Vungle
-* LeadBolt
-* Appnext
 * UnityAds
+* AdColony
+* Chartboost
+* Appnext
+* InMobi [deprecated]
+* Vungle [deprecated]
+* LeadBolt [deprecated]
 
 ##Sample Project
 

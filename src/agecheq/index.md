@@ -1,6 +1,6 @@
 [&#171; SDKBOX Home](http://sdkbox.com)
 
-<h1>AgeCheq Plugin</h1>
+<h1>AgeCheq Plugin [DEPRECATED]</h1>
 
 ##Overview
 
