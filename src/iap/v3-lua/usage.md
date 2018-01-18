@@ -16,7 +16,7 @@ To retrieve latest IAP data, simply call `sdkbox.IAP:refresh()`.
 ### Make a purchase
 To make a purchase call `sdkbox.IAP:purchase(name)`
 
-__Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store
+__Note:__ __name__ is the name of the IAP item in your config file under `items` tag, not the product id you set in iTunes or GooglePlay Store.
 
 > `onSuccess` will be triggered if purchase is successful.
 
@@ -29,7 +29,7 @@ To restore purchase call `sdkbox.IAP:restore()`.
 
 > `onRestored` will be triggered if restore is successful.
 
-__Note:__ `onRestored` could be triggered multiple times
+__Note:__ `onRestored` could be triggered multiple times.
 
 ### Handling Purchase Events
 This allows you to catch the `IAP` events so that you can perform operations based upon the response from your players and IAP servers.
