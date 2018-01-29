@@ -97,7 +97,7 @@ sdkbox.PluginFacebook:inviteFriends(
 
 Creating a *custom invite dialog* is a two step process, starting with a call to `requestInvitableFriends()` then a call to `inviteFriendsWithInviteIds()` to actually send the invites. Example:
 ```lua
-sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, “title", “invitation text");
+sdkbox.PluginFacebook:inviteFriendsWithInviteIds({}, "title", "invitation text");
 ```
 
 The `requestInvitableFriends()` function has a __Bundle(map<string,string>)__ parameter, where the developer can define a few flags:

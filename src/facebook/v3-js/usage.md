@@ -105,12 +105,12 @@ sdkbox.PluginFacebook.inviteFriends(
 
   > Note: Contrary to what it may seem the __app link url__, it is not an App Store or Google Play application url. You must follow the instructions on this [page](https://developers.facebook.com/quickstarts/?platform=app-links-host)  and use the resulting url as the __app_link_url__ parameter. Facebook hosts this file for the developer, but anyone could host their own file using this [format](https://developers.facebook.com/docs/app-invites/android#app_links)
 
-Creating a *custom invite dialog* is a two step process, starting with a call to `requestInvitableFriends()` then a call to `inviteFriendsWithInviteIds()` to actually send the invites. Example:
+Creating a *custom invite dialog* is a two step process, starting with a call to `requestInvitableFriends({})` then a call to `inviteFriendsWithInviteIds()` to actually send the invites. Example:
 ```js
-sdkbox.PluginFacebook.inviteFriendsWithInviteIds([], “title", “invitation text");
+sdkbox.PluginFacebook.inviteFriendsWithInviteIds([], "title", "invitation text");
 ```
 
-The `requestInvitableFriends()` function has a __Bundle(map<string,string>)__ parameter, where the developer can define a few flags:
+The `requestInvitableFriends({})` function has a __Bundle(map<string,string>)__ parameter, where the developer can define a few flags:
 
 | Flag  | Description  |
 | :---- | :---------------|
@@ -118,7 +118,7 @@ The `requestInvitableFriends()` function has a __Bundle(map<string,string>)__ pa
 | exclude_ids | a comma separated FB ids to exclude from the result. |
 | limit | number of friends per page. |
 
-A call to `requestInvitableFriends()` will return a different collection of friends per call, and it is Facebook's decision which ones to return first.
+A call to `requestInvitableFriends({})` will return a different collection of friends per call, and it is Facebook's decision which ones to return first.
 This function returns a `FBInvitableFriendsInfo` object, which will contain a collection of the friends data and a pagination cursor object which has URLS for requesting the next and previous page of invitable friends.
 
 The *custom invite dialog* is only available for games with a __canvas implementation__ for the Facebook application. The __canvas__ must be defined but doesn't need to how any web content. If the __canvas__ is not defined a *standard invite dialog* is used instead.
