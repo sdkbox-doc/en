@@ -2,7 +2,7 @@ Manual Integration for Google Play Services SDK (dependent library only)
 ---
 
 ### Suggestion
-Please try the sdkbox installer first. It will do all the following step for you automatically. 
+Please try the SDKBOX installer first. It will do all the following step for you automatically.
 ```bash
 $ sdkbox import googleplayservices
 ```
