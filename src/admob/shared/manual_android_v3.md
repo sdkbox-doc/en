@@ -59,7 +59,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginadmob)
 ```
 
-  __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
+>   __Note:__ It is important to make sure these statements are above the existing `$(call import-module,./prebuilt-mk)` statement, if you are using the pre-built libraries.
 
 ### Modify `Application.mk` (Cocos2d-x v3.0 to v3.2 only)
 Edit `<project_root>/jni/Application.mk` to make sure __APP_STL__ is defined
