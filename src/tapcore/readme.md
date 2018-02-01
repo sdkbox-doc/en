@@ -4,7 +4,7 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##Integration
-First, you must sign up for [Tapcore](https://tapcore.com/).
+First, you must sign up for [Tapcore](http://tapcore.com/?refid=Y3DgX).
 
 Second, Open a terminal and use the following command to install the SDKBOX Tapcore plugin.
 ```bash
