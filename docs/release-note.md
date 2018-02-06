@@ -1,5 +1,23 @@
 # Release Notes
----
+
+
+# 2.3.17.7 Release Notes (20170206)
+
+## Highlights
+
+1. Support [Tapcore]()
+2. Upgrade AdColony iOS SDK to 3.3.0 and Android SDK to 3.3.0
+3. Upgrade Firebase iOS SDK to 4.8.0
+4. Upgrade UnityAds iOS SDK to 2.1.2 and Android SDK to 2.1.2
+5. Facebook support [set web login](http://discuss.cocos2d-x.org/t/how-to-set-the-facebook-loginbehavior-fbsdkloginbehaviorweb/40952) with `PluginFacebook::setLoginBehavior(sdkbox::FBSDKLoginBehaviorBrowser);` api
+
+## Bugfix
+1. Fix [`requestAllAds` for AdColony Android](http://discuss.cocos2d-x.org/t/adcolony-force-reload-ads-if-internet-gets-enabled/39957)
+2. Fix Plugin Facebook callback for creator 1.7+, [issue1](http://discuss.cocos2d-x.org/t/solved-crash-sdkbox-pluginfacebook-after-login-successful-creatorv1-7-android/40849/18), [issue2](http://discuss.cocos2d-x.org/t/solved-crash-sdkbox-pluginfacebook-after-login-successful-creatorv1-7-android/40849), [issue3](http://discuss.cocos2d-x.org/t/solved-facebook-login-logout-game-crash/40912)
+3. Fix [SDKBoxPlay apiclient is null](https://github.com/sdkbox/issues/issues/42)
+4. Fix [SDKBox crash when call cc.game.restart](https://github.com/sdkbox/sdkbox-core/issues/2664)
+5. Fix Appodeal `FailToPresent` event
+6. Fix Unity user agreement window
 
 # 2.3.17.6 Release Notes (20171218)
 
