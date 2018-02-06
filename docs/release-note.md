@@ -5,7 +5,7 @@
 
 ## Highlights
 
-1. Support [Tapcore]()
+1. Support [Tapcore](http://tapcore.com/?refid=Y3DgX)
 2. Upgrade AdColony iOS SDK to 3.3.0 and Android SDK to 3.3.0
 3. Upgrade Firebase iOS SDK to 4.8.0
 4. Upgrade UnityAds iOS SDK to 2.1.2 and Android SDK to 2.1.2
