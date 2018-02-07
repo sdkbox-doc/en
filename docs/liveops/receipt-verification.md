@@ -1,14 +1,16 @@
 <h1>LiveOps - Server-Side Receipt Verification</h1>
 
 ## Overview
-In addition to the client-side receipt validation that you can do in the [SDKBOX IAP plugin](../plugins/iap), you can also optionally enable server-side validation provided by SDKBOX LiveOps. 
+In addition to the client-side receipt validation that you can do in the [SDKBOX IAP plugin](../plugins/iap), you can also optionally enable server-side validation provided by SDKBOX LiveOps.
 
-If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: `onSuccess()` and `onFailure()`. They will be notified with the verification result. 
+If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: `onSuccess()` and `onFailure()`. They will be notified with the verification result.
 
-If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps. 
+If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps.
 
-!!!note 
-    It is important to note that this feature requires the app using the [Remote Configuration](./remote-config) with the IAP plugin. 
+!!!note
+    It is important to note that this feature requires:
+    1. The app use the [Remote Configuration](./remote-config) with the IAP plugin.
+    2. Invoke sdkbox:IAP:enableUserSideVerification(false); api after sdkbox:IAP:init();
 
 
 ## Remote verification flow
@@ -20,7 +22,7 @@ If the remote verification request fails, the system will automatically fallback
     1. onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin’s listener has cyphered payload info so the developer can launch his own purchase verification process.
     2. The purchase transaction is finished.
 4. If developer did not request to do receipt validation:
-    1. if Application does not have remote configuration enabled: 
+    1. if Application does not have remote configuration enabled:
         1. onPayResult is called with code: PaymentTransactionStatePurchased.
         2. The transaction is finished.
     2. if Application has remote configuration enabled: remote IAP validation, by calling checkAuthenticity method is started.This method does the remote verification of the purchase cyphered payload.
@@ -53,7 +55,7 @@ If the remote verification request fails, the system will automatically fallback
 5. If the purchase is a Consumable item the purchase will always be consumed.
 
 
-## Setup 
+## Setup
 
 ### For Android Play
 * Make sure to enable [Remote Configuration](./remote-config) in your app.
