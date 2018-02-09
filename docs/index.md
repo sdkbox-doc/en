@@ -5,7 +5,6 @@
 ##Overview
 SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage.](http://sdkbox.com)
 
-
 ##Architecture
 SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd party libraries directly in the app, and talk to the services' backend without any proxy/middle layer. This design provides the best performance, stability, and compatibility.
 
@@ -61,4 +60,8 @@ blockquote a img {
 > <a href="http://www.sdkbox.com/plugins/valuepotion"><img src="./imgs/valuepotion.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/vungle"><img src="./imgs/vungle.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/youtube"><img src="./imgs/youtube.png" /></a>
+
+##Support
+1. [http://discuss.cocos2d-x.org/](http://discuss.cocos2d-x.org/)
+2. QQ group：489182678
 
