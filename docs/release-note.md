@@ -10,6 +10,8 @@
 3. Upgrade Firebase iOS SDK to 4.8.0
 4. Upgrade UnityAds iOS SDK to 2.1.2 and Android SDK to 2.1.2
 5. Facebook support [set web login](http://discuss.cocos2d-x.org/t/how-to-set-the-facebook-loginbehavior-fbsdkloginbehaviorweb/40952) with `PluginFacebook::setLoginBehavior(sdkbox::FBSDKLoginBehaviorBrowser);` api
+6. We recommend Plugin SDKBoxAds to show ads, and other plugin AdMob, UnityAds etc as its mediation.
+   So when you import Plugin AdMob or UnityAds, SDKBoxAds will import too.
 
 ## Bugfix
 1. Fix [`requestAllAds` for AdColony Android](http://discuss.cocos2d-x.org/t/adcolony-force-reload-ads-if-internet-gets-enabled/39957)
