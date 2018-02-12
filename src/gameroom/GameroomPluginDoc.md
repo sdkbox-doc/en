@@ -58,7 +58,7 @@ With SDKBOX installer, you can install SDKBOX Gameroom Plugin in **Windows** eas
 1.  Get SDKBOX Installer
 
     ``` shell
-python -c "import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec s"
+python -c """import urllib; s = urllib.urlopen('https://raw.githubusercontent.com/sdkbox-doc/en/master/install/install.py').read(); exec(s)"""
     ```
 Access [SDKBOX official website](http://www.sdkbox.com) for more information.
 
