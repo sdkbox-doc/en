@@ -763,7 +763,7 @@
 </code></pre>
 
 <ul>
-<li>Before <code>USING_NS_CC</code>, add the sdkbox header files:</li>
+<li>Before <code>USING_NS_CC</code>, add the SDKBOX header files:</li>
 </ul>
 <pre><code>#ifdef SDKBOX_ENABLED
 #include &quot;PluginGameroom.h&quot;
@@ -771,7 +771,7 @@
 </code></pre>
 
 <ul>
-<li>In the ctor and dtor of <code>AppDelegate</code>. Add redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.</li>
+<li>In the ctor and dtor of <code>AppDelegate</code>, redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.</li>
 </ul>
 <pre><code>AppDelegate::AppDelegate()
 {
@@ -853,7 +853,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 <p>Each callback will be explained below.</p>
 <h3 id="user-login">User Login</h3>
-<p>After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method <code>login()</code> or another method <code>loginWithScopes</code> for it.</p>
+<p>After the plugin is initialized, when your game starts, you should make a login call to retrieve player information. You can use a simple method <code>login()</code> or another method <code>loginWithScopes()</code> for it.</p>
 <p>The different between these two methods is that <code>login()</code> method will always apply 3 permissions of the player: <code>user_friends</code>, <code>email</code> and <code>public_profile</code>.</p>
 <pre><code>SDKBOX::PluginGameroom::login();
 </code></pre>
@@ -962,7 +962,7 @@ if (!ret) {
 <pre><code>sdkbox::PluginGameroom::payPremium();
 </code></pre>
 
-<p>These 3 types of IAP will trigger <code>onPurchaseIAPMsg</code> callback. Here is an example to show how to handle the IAP operation.</p>
+<p>These 3 types of IAP will trigger <code>onPurchaseIAPMsg</code> callback. Here is an example to show how to handle the IAP result.</p>
 <pre><code>void HelloWorld::onPurchaseIAPMsg(sdkbox::PurchaseHandle payHandle) {
     size_t size;
     char paymentId[512];
@@ -1044,7 +1044,7 @@ sdkbox::PluginGameroom::logAppEventWithValueToSum(&quot;test_event&quot;, formDa
 sdkbox::PluginGameroom::formDataDispose(formData);
 </code></pre>
 
-<p>The key-value pairs are carried in <code>FormData</code> structure. And if you intend to offer an extra value in an event, you should use <code>logAppEventWithValueToSum</code> method.</p>
+<p>The key-value pairs are carried in <code>FormData</code> structure. And if you intend to offer an extra value in an event, you should use <code>logAppEventWithValueToSum()</code> method.</p>
 <h3 id="send-app-requests">Send App Requests</h3>
 <p>To invoke an app request within your game, you may use the following call to trigger the dialog:</p>
 <pre><code>sdkbox::PluginGameroom::appRequest(

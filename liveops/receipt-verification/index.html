@@ -676,12 +676,14 @@
 <h1>LiveOps - Server-Side Receipt Verification</h1>
 
 <h2 id="overview">Overview</h2>
-<p>In addition to the client-side receipt validation that you can do in the <a href="../../plugins/iap">SDKBOX IAP plugin</a>, you can also optionally enable server-side validation provided by SDKBOX LiveOps. </p>
-<p>If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: <code>onSuccess()</code> and <code>onFailure()</code>. They will be notified with the verification result. </p>
-<p>If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps. </p>
+<p>In addition to the client-side receipt validation that you can do in the <a href="../../plugins/iap">SDKBOX IAP plugin</a>, you can also optionally enable server-side validation provided by SDKBOX LiveOps.</p>
+<p>If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: <code>onSuccess()</code> and <code>onFailure()</code>. They will be notified with the verification result.</p>
+<p>If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is important to note that this feature requires the app using the <a href="../remote-config">Remote Configuration</a> with the IAP plugin. </p>
+<p>It is important to note that this feature requires:
+1. The app use the <a href="../remote-config">Remote Configuration</a> with the IAP plugin.
+2. Invoke sdkbox:IAP:enableUserSideVerification(false); api after sdkbox:IAP:init();</p>
 </div>
 <h2 id="remote-verification-flow">Remote verification flow</h2>
 <h3 id="ios">iOS</h3>
@@ -694,7 +696,7 @@
 </ol>
 </li>
 <li>If developer did not request to do receipt validation:<ol>
-<li>if Application does not have remote configuration enabled: <ol>
+<li>if Application does not have remote configuration enabled:<ol>
 <li>onPayResult is called with code: PaymentTransactionStatePurchased.</li>
 <li>The transaction is finished.</li>
 </ol>

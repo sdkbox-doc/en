@@ -770,7 +770,7 @@
 </code></pre>
 
 <h2 id="important-notice">Important Notice</h2>
-<p>Please make sure the following settings in your project for plugin to function correctly.</p>
+<p>Please make sure the following settings in your project to make the plugin work well.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
 <p>Adding the following entry to the <code>info.plist</code> file:</p>
 <pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
@@ -780,19 +780,19 @@
 &lt;/dict&gt;
 </code></pre>
 
-<p>It should look something like this:</p>
+<p>It should look like this:</p>
 <p><img alt="" src="../../../imgs/ATS.png" /></p>
 <h4 id="disable-bitcode-support">Disable Bitcode support</h4>
-<p>You have to turn off <strong>Bitcode</strong> support. If you don't cocos2d-x will fail to build.</p>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't, cocos2d-x will fail to build.</p>
 <h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
-<p>If your game doesn't support all screen orientations you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
+<p>If your game doesn't support all screen orientations, you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
-<p>This depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<p>This setting depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <h2 id="configuration">Configuration</h2>
-<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app</p>
-<p>Here is an example of the IAP configuration, you need to replace <code>&lt;put the product id for ios here&gt;</code> with the product id from your <a href="http://itunesconnect.apple.com">iTunes Connect</a> or  replace <code>&lt;put your googleplay key here&gt;</code> from your <a href="https://play.google.com/apps/publish">Google Play Console</a></p>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app.</p>
+<p>Here is an example of the IAP configuration, you need to replace <code>&lt;put the product id for ios here&gt;</code> with the product id from your <a href="http://itunesconnect.apple.com">iTunes Connect</a> or  replace <code>&lt;put your googleplay key here&gt;</code> from your <a href="https://play.google.com/apps/publish">Google Play Console</a>.</p>
 <blockquote>
-<p>For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the Google Play Console "Services &amp; APIs" section</p>
+<p>For GooglePlay, you must specify the public key in the IAP configuration inspector panel. You can get it from the section "Services &amp; APIs" of Google Play Console.</p>
 </blockquote>
 <pre><code class="json">&quot;ios&quot; :
 {
@@ -817,7 +817,7 @@
 }
 </code></pre>
 
-<p>If you have IAP items that are <strong>non-consumable</strong> or <strong>subscription</strong>, it is also necessary to supply this for each item in your <code>sdkbox_config.json</code>. Only <strong>Android</strong> requires this step. Taking the same <em>json</em> above your config might now look like this example:</p>
+<p>If you have IAP items,  whose type is <strong>non-consumable</strong> or <strong>subscription</strong>, it is also necessary to supply the type for each item in your <code>sdkbox_config.json</code>. Only <strong>Android</strong> requires this step. Taking the same <em>json</em> above your config might now look like this example:</p>
 <pre><code class="json">&quot;android&quot;:
 {
     &quot;iap&quot;:{
@@ -851,7 +851,7 @@
 </blockquote>
 <h3 id="make-a-purchase">Make a purchase</h3>
 <p>To make a purchase call <code>sdkbox.IAP:purchase(name)</code></p>
-<p><strong>Note:</strong> <strong>name</strong> is the name of the IAP item in your config file under <code>items</code> tag, not the product id you set in iTunes or GooglePlay Store</p>
+<p><strong>Note:</strong> <strong>name</strong> is the name of the IAP item in your config file under <code>items</code> tag, not the product id you set in iTunes or GooglePlay Store.</p>
 <blockquote>
 <p><code>onSuccess</code> will be triggered if purchase is successful.</p>
 <p><code>onFailure</code> will be triggered if purchase fails.</p>
@@ -862,7 +862,7 @@
 <blockquote>
 <p><code>onRestored</code> will be triggered if restore is successful.</p>
 </blockquote>
-<p><strong>Note:</strong> <code>onRestored</code> could be triggered multiple times</p>
+<p><strong>Note:</strong> <code>onRestored</code> could be triggered multiple times.</p>
 <h3 id="handling-purchase-events">Handling Purchase Events</h3>
 <p>This allows you to catch the <code>IAP</code> events so that you can perform operations based upon the response from your players and IAP servers.</p>
 <pre><code class="lua">sdkbox.IAP:setListener(function(args)
@@ -1087,7 +1087,7 @@ frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
 <p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
 to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 <blockquote>
-<p>Note: sdkbox link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
+<p>Note: SDKBOX link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
 </blockquote>
 <h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
 <p>Include the following permissions above the <strong>application tag</strong>:</p>
@@ -1216,7 +1216,7 @@ SDKBox.init(this);
 
 <h2 id="manual-integration-for-google-play-services-sdk-dependent-library-only">Manual Integration for Google Play Services SDK (dependent library only)</h2>
 <h3 id="suggestion">Suggestion</h3>
-<p>Please try the sdkbox installer first. It will do all the following step for you automatically. </p>
+<p>Please try the SDKBOX installer first. It will do all the following step for you automatically.</p>
 <pre><code class="bash">$ sdkbox import googleplayservices
 </code></pre>
 

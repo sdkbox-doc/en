@@ -934,7 +934,7 @@ AppDelegate::~AppDelegate()
 <pre><code>sdkbox.PluginGameroom.payPremium();
 </code></pre>
 
-<p>These 3 types of IAP will trigger <code>onPurchaseIAPMsg</code> callback. Here is an example to show how to handle the IAP operation.</p>
+<p>These 3 types of IAP will trigger <code>onPurchaseIAPMsg</code> callback. Here is an example to show how to handle the IAP result.</p>
 <pre><code>onPurchaseIAPMsg: function (handle) {
     cc.log('============');
     cc.log('onPurchaseIAPMsg');
@@ -975,7 +975,7 @@ AppDelegate::~AppDelegate()
 sdkbox.PluginGameroom.logAppEventWithValueToSum('test_event_2', { 'key3': 'val3', 'key4': 'val4' }, 10.24);
 </code></pre>
 
-<p>The key-value pairs are carried in an JavaScript object. And if you intend to offer an extra value in an event, you should use <code>logAppEventWithValueToSum</code> method.</p>
+<p>The key-value pairs are carried in an JavaScript object. And if you intend to offer an extra value in an event, you should use <code>logAppEventWithValueToSum()</code> method.</p>
 <h3 id="send-app-requests">Send App Requests</h3>
 <p>To invoke an app request within your game, you may use the following call to trigger the dialog:</p>
 <pre><code>sdkbox.PluginGameroom.appRequest('hello, try this js demo.', '', '', 'faceboo_user_id_1, facebook_user_id_2', '', '', 20, '', 'hello');
