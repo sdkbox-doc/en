@@ -60,6 +60,7 @@ blockquote a img {
 > <a href="http://www.sdkbox.com/plugins/valuepotion"><img src="./imgs/valuepotion.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/vungle"><img src="./imgs/vungle.jpg" /></a>
 > <a href="http://www.sdkbox.com/plugins/youtube"><img src="./imgs/youtube.png" /></a>
+> <a href="http://www.sdkbox.com/plugins/tapcore"><img src="http://www.sdkbox.com/assets/img/tapcore.jpg" /></a>
 
 ##Support
 1. [http://discuss.cocos2d-x.org/](http://discuss.cocos2d-x.org/)
