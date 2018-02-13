@@ -19,6 +19,7 @@ Initialize the plugin by calling `init()` where appropriate in your code. We
 recommend to do this in the `app.js`. Example:
 ```javascript
 sdkbox.PluginTune.init();
+sdkbox.PluginTune.measureSession();
 ```
 
 ### Using Tune
