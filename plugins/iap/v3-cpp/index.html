@@ -702,6 +702,8 @@
         
             <li><a href="#promotion-iap-setting">Promotion IAP Setting</a></li>
         
+            <li><a href="#testing-promoted-in-app-purchases">Testing Promoted In-App Purchases</a></li>
+        
 	</ul>
 	
     
@@ -924,7 +926,14 @@ product.receiptCipheredPayload;
 <li><code>static void fetchStorePromotionOrder()</code>;</li>
 <li><code>static void fetchStorePromotionVisibility(const std::string&amp; productName)</code>;</li>
 </ol>
-<p>more detail<a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/PromotingIn-AppPurchases/PromotingIn-AppPurchases.html">Promoting IAP official Document</a></p>
+<p>more detail <a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/PromotingIn-AppPurchases/PromotingIn-AppPurchases.html">Promoting IAP official Document</a></p>
+<h3 id="testing-promoted-in-app-purchases">Testing Promoted In-App Purchases</h3>
+<p>To test your promoted in-app purchases before your app is available in the App Store, you can use follow URL:</p>
+<pre><code>itms-services://?action=purchaseIntent&amp;bundleId=com.Sdkbox.SdkboxIAPSample&amp;productIdentifier=com.cocos2dx.non1
+</code></pre>
+
+<p>replace <code>com.Sdkbox.SdkboxIAPSample</code> and <code>com.cocos2dx.non1</code> with your application info.</p>
+<p>and then send this URL to yourself in an email or iMessage and open it from your device. You will know the test is running when your app opens automatically. You can then test your promoted in-app purchase.</p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
 <pre><code class="cpp">static void init ( const char * jsonconfig = 0 ) ;

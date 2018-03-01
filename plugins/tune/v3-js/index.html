@@ -796,12 +796,6 @@ Here is an example adding <code>Tune</code>:</p>
 </ul>
 <pre><code>#import &lt;MobileAppTracker/MobileAppTracker.h&gt;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // MAT will not function without the measureSession call included
-    [MobileAppTracker measureSession];
-}
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     [MobileAppTracker applicationDidOpenURL:[url absoluteString] sourceApplication:sourceApplication];
@@ -832,6 +826,7 @@ sc-&gt;addRegisterCallback(register_all_PluginTuneJS_helper);
 <p>Initialize the plugin by calling <code>init()</code> where appropriate in your code. We
 recommend to do this in the <code>app.js</code>. Example:</p>
 <pre><code class="javascript">sdkbox.PluginTune.init();
+sdkbox.PluginTune.measureSession();
 </code></pre>
 
 <h3 id="using-tune">Using Tune</h3>

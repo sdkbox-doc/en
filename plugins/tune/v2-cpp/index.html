@@ -792,12 +792,6 @@ Here is an example adding <code>Tune</code>:</p>
 </ul>
 <pre><code>#import &lt;MobileAppTracker/MobileAppTracker.h&gt;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // MAT will not function without the measureSession call included
-    [MobileAppTracker measureSession];
-}
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     [MobileAppTracker applicationDidOpenURL:[url absoluteString] sourceApplication:sourceApplication];
