@@ -151,16 +151,22 @@ this method will fail silently.
 Otherwise, if everything is right, the method <code>onAchievementUnlocked</code> will be invoked on the plugin listener.
 
 ```cpp
-static void incrementAchievement ( const std::string & achievement_name ,
-                                   double increment ) ;
+static void incrementAchievement ( const std::string & achievement_name, double increment ) ;
 ```
 > Request to increment the step count of an incremental achievement by the specified number of steps.
+
+* `achievement_name` is the name definied in the `sdkbox_config.json`
+* `increment` is the percentage of increment towards the goal. The `increment` value will be added to the current achievement’s value 
+
 This method assumes the achievement is incremental.
 If the achievement type is incorrectly defined in the configuration file, or the play services determines it is of the wrong type,
 this method will fail silently.
+
 If the call is successful, this method may invoke two different methods:
-  + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
-  + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
+
+* <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
+* <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
+
 On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
 a percentage value (0..100). In either case, the `increment` value will be added to the current achievement's
 value.
@@ -491,4 +497,3 @@ void onLoadGameData(const SavedGameData* savedData, const std::string& error)
 >
 - @param savedData SavedGameData*
 - @param error std::string if success, error will be empty
-
