@@ -650,6 +650,8 @@
         
             <li><a href="#google-play">Google play</a></li>
         
+            <li><a href="#google-play-check-list">Google Play check list</a></li>
+        
             <li><a href="#game-center">Game Center</a></li>
         
             <li><a href="#cloud-save">Cloud Save</a></li>
@@ -761,11 +763,26 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <h3 id="google-play">Google play</h3>
 <ul>
-<li>Follow <a href="https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console">this instructions</a> to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. It's recommended to follow the instruction rigorously to avoid any issues.</li>
-<li>Use developer console to configure leaderboards and achievements.</li>
-<li>Find your app id and you'll need to replace replace it in the <code>AndroidManifest.xml</code> later
-   <img alt="" src="../../../imgs/gps_app_id.jpg" /></li>
+<li>
+<p>Follow <a href="https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console">this instructions</a> to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. It's recommended to follow the instruction rigorously to avoid any issues.</p>
+</li>
+<li>
+<p>Use developer console to configure leaderboards and achievements.</p>
+</li>
+<li>
+<p>Find your app id and you'll need to replace replace it in the <code>AndroidManifest.xml</code> later
+   <img alt="" src="../../../imgs/gps_app_id.jpg" /></p>
+</li>
 </ul>
+<h3 id="google-play-check-list">Google Play check list</h3>
+<ol>
+<li>Application id (string.xml)</li>
+<li>App Release mode</li>
+<li>Cloud save enalbe</li>
+<li>Publish to Alpha/Bete test</li>
+<li>Add your test account to tester list</li>
+<li>SHA-1 keys</li>
+</ol>
 <h3 id="game-center">Game Center</h3>
 <ul>
 <li>Enable Game Center on XCode.</li>
@@ -1177,22 +1194,27 @@ If the achievement type is incorrectly defined in the configuration file, or the
 this method will fail silently.
 Otherwise, if everything is right, the method <code>onAchievementUnlocked</code> will be invoked on the plugin listener.</p>
 </blockquote>
-<pre><code class="cpp">static void incrementAchievement ( const std::string &amp; achievement_name ,
-                                   double increment ) ;
+<pre><code class="cpp">static void incrementAchievement ( const std::string &amp; achievement_name, double increment ) ;
 </code></pre>
 
 <blockquote>
-<p>Request to increment the step count of an incremental achievement by the specified number of steps.
-This method assumes the achievement is incremental.
+<p>Request to increment the step count of an incremental achievement by the specified number of steps.</p>
+</blockquote>
+<ul>
+<li><code>achievement_name</code> is the name definied in the <code>sdkbox_config.json</code></li>
+<li><code>increment</code> is the percentage of increment towards the goal. The <code>increment</code> value will be added to the current achievement’s value </li>
+</ul>
+<p>This method assumes the achievement is incremental.
 If the achievement type is incorrectly defined in the configuration file, or the play services determines it is of the wrong type,
-this method will fail silently.
-If the call is successful, this method may invoke two different methods:
-  + <code>onIncrementalAchievementStep</code> if the achievement is not unlocked.
-  + <code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.
-On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
+this method will fail silently.</p>
+<p>If the call is successful, this method may invoke two different methods:</p>
+<ul>
+<li><code>onIncrementalAchievementStep</code> if the achievement is not unlocked.</li>
+<li><code>onIncrementalAchievementUnlocked</code> the first time it's been newly unlocked.</li>
+</ul>
+<p>On Android, the achievement is set to a fixed number of incremental steps. On iOS, the achievment is set as
 a percentage value (0..100). In either case, the <code>increment</code> value will be added to the current achievement's
 value.</p>
-</blockquote>
 <pre><code class="cpp">static void showAchievements ( ) ;
 </code></pre>
 

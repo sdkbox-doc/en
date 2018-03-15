@@ -651,7 +651,7 @@
 <p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
 <h1>Use SDKBOX with Custom Activity in Unity</h1>
 
-<p>if you have to create your own custom activity for your unity project,  please follow this steps:</p>
+<p>if you have to create your own custom activity for your unity project, to add your java code or fix SDKBox Unity plugin lanucher activity conflict issue. please follow this steps:</p>
 <ol>
 <li>delete <code>CustomActivity.jar</code> (maybe location at <code>Assets/SDKBOX/sdkbox/Resources/CustomActivity.jar</code> or <code>Assets/Plugin/Android/libs/CustomActivity.jar</code>)</li>
 <li>make sure <code>sdkbox.jar</code> is at this location <code>Assets/SDKBOX/sdkbox/Assets/Plugins/Android/sdkbox.jar</code></li>
@@ -666,8 +666,11 @@ public class UserMainActivity extends UnityPlayerActivity
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (!SDKBox.onActivityResult(requestCode, resultCode, data))
-            super.onActivityResult(requestCode, resultCode, data);
+        SDKBox.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //code
+
     }
 
     //code
