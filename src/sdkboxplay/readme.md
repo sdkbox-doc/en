@@ -7,9 +7,21 @@
 
 ###Google play
  + Follow [this instructions](https://developers.google.com/games/services/console/enabling#step_2_add_your_game_to_the_dev_console) to enable game services for your game and create a linked application. Otherwise, the app won’t be able to make connections to google play. It's recommended to follow the instruction rigorously to avoid any issues.
+
  + Use developer console to configure leaderboards and achievements.
+
  + Find your app id and you'll need to replace replace it in the `AndroidManifest.xml` later
    ![](../../imgs/gps_app_id.jpg)
+
+###Google Play check list
+
+1. Application id (string.xml)
+2. App Release mode
+3. Cloud save enalbe
+4. Publish to Alpha/Bete test
+5. Add your test account to tester list
+6. SHA-1 keys
+
 
 ###Game Center
  + Enable Game Center on XCode.
