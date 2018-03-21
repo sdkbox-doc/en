@@ -39,6 +39,24 @@ python -c """import urllib; import sys; sys.argv = ['transpy', '-i', './google-s
 
 more info, take a look at [this](https://support.google.com/firebase/answer/7015592)
 
+##### google_app_id Conflict
+
+if your porject import `sdkboxplay` and `firebase`, you will find those two plugin all include `google_app_id`. at the time, you should change `google_app_id` in `sdkboxplay` to another word, e.g. `google_app_id_2`.
+
+your modification should be like follow:
+
+- ./res/values/strings.xml
+
+ <del> <`string name="google_app_id">340534096218</string>` <del>
+ 
+`<string name="google_app_id_2">340534096218</string>`
+
+- Andmanifest.xml
+
+<del> `<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/google_app_id"/>` <del>
+
+`<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/google_app_id_2"/>`
+
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
