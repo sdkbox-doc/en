@@ -787,6 +787,19 @@ You must translate <code>google-services.json</code> to xml to use.</p>
 <li><code>googleservices.xml</code> will created, then move the xml to android project <code>res/values/googleservices.xml</code></li>
 </ul>
 <p>more info, take a look at <a href="https://support.google.com/firebase/answer/7015592">this</a></p>
+<h5 id="google_app_id-conflict">google_app_id Conflict</h5>
+<p>if your porject import <code>sdkboxplay</code> and <code>firebase</code>, you will find those two plugin all include <code>google_app_id</code>. at the time, you should change <code>google_app_id</code> in <code>sdkboxplay</code> to another word, e.g. <code>google_app_id_2</code>.</p>
+<p>your modification should be like follow:</p>
+<ul>
+<li>./res/values/strings.xml</li>
+</ul>
+<p><del> &lt;<code>string name="google_app_id"&gt;340534096218&lt;/string&gt;</code> <del></p>
+<p><code>&lt;string name="google_app_id_2"&gt;340534096218&lt;/string&gt;</code></p>
+<ul>
+<li>Andmanifest.xml</li>
+</ul>
+<p><del> <code>&lt;meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/google_app_id"/&gt;</code> <del></p>
+<p><code>&lt;meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/google_app_id_2"/&gt;</code></p>
 <!---->
 
 <h2 id="usage">Usage</h2>
