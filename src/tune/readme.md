@@ -36,12 +36,29 @@ Here is an example adding `Tune`:
 * Apply the code change to `AppController.mm` instead of `AppDelegate.cpp`
 
 ```
-#import <MobileAppTracker/MobileAppTracker.h>
+#import <Tune/Tune.h>
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    [MobileAppTracker applicationDidOpenURL:[url absoluteString] sourceApplication:sourceApplication];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
+    // Pass the deep link URL to Tune
+    [Tune handleOpenURL:url options:options];
+    // Take care of the redirect yourself here
+    ...
+    return YES;
+}
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    // Pass the deep link URL to Tune
+    [Tune handleOpenURL:url sourceApplication:sourceApplication];
+    // Take care of the redirect yourself here
+    ...
+    return YES;
+}
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
+    BOOL handledByTune = [Tune handleContinueUserActivity:userActivity restorationHandler:restorationHandler];
+    // If handledByTune is false, take care of the redirect yourself
+    if (!handledByTune) {
+        ...
+    }
     return YES;
 }
 ```
