@@ -105,7 +105,7 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
 In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
 [Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/07/setting-up-facebook-app-for-sdkbox-services/)
 > With the release of the Facebook SDK version 4.28.0, App Links Hosting is deprecated. It will be supported until February 5, 2018.
-https://developers.facebook.com/docs/applinks/hosting-api/
+> https://developers.facebook.com/docs/applinks/hosting-api/
 
 ### Facebook App Links Host
 
@@ -162,6 +162,18 @@ curl https://graph.facebook.com/{YOUR_LINK_ID} \
 }'
 ```
 
+
+### Invite Friends
+- http://discuss.cocos2d-x.org/t/solved-invite-friends-with-using-cocos2dx-layer/34450
+
+You need a canvas version of your game, but you can submit an empty/placeholder canvas version.
+
+'Dashboard' -> 'Settings' -> 'Basic' -> 'Add Platform'
+
+> Navigate to your app’s [Facebook settings](https://developers.facebook.com/apps/). Go to the ‘Facebook Web Games’ pane in the Basic tab of your app’s ‘Settings’ page and fill in the ‘Facebook Web Games URL (https)’ field with the URL where you are serving your game. Now save your changes.
+
+![preview](https://scontent-lax3-1.xx.fbcdn.net/v/t39.2178-6/16781471_393759444334692_3641607580918218752_n.PNG?_nc_cat=0&oh=2ac23410835c91da267971b1460f2d64&oe=5B74F3CE)
+
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage
@@ -185,7 +197,7 @@ android.library.reference.1=./libs/facebook_lib
 ```
 
 > Note: if you already have an `android.library.reference.1` you can add
-another by incrementing the final digit as `android.library.reference.2`, etc.
+> another by incrementing the final digit as `android.library.reference.2`, etc.
 
 <<[extra-step.md]
 

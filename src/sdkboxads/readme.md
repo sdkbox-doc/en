@@ -9,7 +9,7 @@
 ##Integration
 Open a terminal and use the following command to install the SDKBOX SdkboxAds plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
-$ sdkbox import sdkboxads
+$ sdkbox import sdkboxadsplus
 ```
 
 <!--## Configuration
@@ -61,7 +61,7 @@ Here is an example of the SdkboxAds configuration:
                     }
                 ]
             }
-        ] 
+        ]
     }
 ```
 
