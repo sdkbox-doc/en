@@ -14,7 +14,10 @@ $ sdkbox import admob
 Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-start#faq) and [Android FAQ](https://developers.google.com/admob/android/quick-start#faq)
 
 ##Notice
-For reward video on Android, you need to set `target=android-24` in project.properties file. 
+For reward video on Android, you need to check your project sdk configuation:
+
+* target sdk: set target sdk 24+ in project.properties. e.g. `target=android-24`
+* min sdk: set minSdkVersion 14+ in AndroidManifest.xml, e.g. `<uses-sdk android:minSdkVersion="14" />`
 
 <<[../../shared/notice.md]
 
