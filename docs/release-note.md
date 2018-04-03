@@ -1,5 +1,27 @@
 # Release Notes
 
+# 2.3.17.8 Release Notes (20170403)
+
+## Add
+
+1. Firebase: add WAKE_LOCK permission
+2. Firebase: add SystemConfiguration.framework
+3. SDKBoxPlay: add new event onLoadGameData(nullptr, "") as load finish event
+4. SDKBoxPlay: add `fetchNames` api
+
+## Bugfix
+
+1. Firebase: fix patch
+2. Unity: fix pause and resume event
+3. YouTuBe: fix patch for creator jsb2 (from 1.8 version)
+4. SDKBoxPlay: fix crash when nothing store in cloud on Android
+5. SDKBoxAds: fix `AppDelegate.cpp` patch
+6. sdkbox installer: fix jsb-link projec for cocos creator (from 1.8 version)
+7. IAP won't consume and it will throw error "item already own" on Android
+
+## Upgrade
+
+1. Facebook: upgrade iOS SDK to 4.31.0
 
 # 2.3.17.7 Release Notes (20170206)
 
