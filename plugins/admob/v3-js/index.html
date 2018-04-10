@@ -755,7 +755,11 @@
 
 <p>Third, please read the <a href="https://developers.google.com/admob/ios/quick-start#faq">iOS FAQ</a> and <a href="https://developers.google.com/admob/android/quick-start#faq">Android FAQ</a></p>
 <h2 id="notice">Notice</h2>
-<p>For reward video on Android, you need to set <code>target=android-24</code> in project.properties file. </p>
+<p>For reward video on Android, you need to check your project sdk configuation:</p>
+<ul>
+<li>target sdk: set target sdk 24+ in project.properties. e.g. <code>target=android-24</code></li>
+<li>min sdk: set minSdkVersion 14+ in AndroidManifest.xml, e.g. <code>&lt;uses-sdk android:minSdkVersion="14" /&gt;</code></li>
+</ul>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project to make the plugin work well.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
