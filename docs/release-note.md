@@ -1,5 +1,11 @@
 # Release Notes
 
+# 2.3.17.9 Release Notes (20170403)
+
+## Bugfix
+
+1. Tapcore: fix [intigration](http://discuss.cocos2d-x.org/t/tapcore-intigration-error/42148)
+
 # 2.3.17.8 Release Notes (20170403)
 
 ## Add

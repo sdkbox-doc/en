@@ -163,8 +163,13 @@ curl https://graph.facebook.com/{YOUR_LINK_ID} \
 ```
 
 
-### Invite Friends
+### ~~Invite Friends~~
 - http://discuss.cocos2d-x.org/t/solved-invite-friends-with-using-cocos2dx-layer/34450
+
+https://developers.facebook.com/docs/ios/change-log-4x/
+
+> The App Invites feature has been deprecated. (4.28.0 - November 7, 2017)
+
 
 You need a canvas version of your game, but you can submit an empty/placeholder canvas version.
 
