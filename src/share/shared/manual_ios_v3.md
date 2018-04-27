@@ -5,11 +5,13 @@ Drag and drop the following frameworks from the __plugins/ios__ folder of the `S
 
 > PluginShare.framework
 
-> Fabric.framework
-
 > TwitterCore.framework
 
 > TwitterKit.framework
+
+> TwitterKitResources.bundle -> TwitterKit.framework/TwitterKitResources.bundle
+
+> TwitterShareExtensionUIResources.bundle -> TwitterKit.framework/TwitterShareExtensionUIResources.bundle
 
 add the following system frameworks, if you don't already have them:
 
@@ -27,5 +29,10 @@ add the following system frameworks, if you don't already have them:
 
 > SystemConfiguration.framework
 
+> MediaPlayer.framework
+
 > MessageUI.framework
 
+> CoreMotion.framework
+
+> SafariServices.framework
