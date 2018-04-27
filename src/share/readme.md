@@ -11,7 +11,7 @@ Currently SDKBOX Share supports share via **twitter**, **facebook** and **SMS**
 Please make sure you create developer account on the following platforms
 
 * [Facebook](http://developers.facebook.com/)
-* [Twitter](http://apps.twitter.com/) (For twitter you'll also need [Fabric](https://fabric.io))
+* [Twitter](http://apps.twitter.com/)
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Share plugin. Make sure you setup the SDKBOX installer correctly.
@@ -44,8 +44,8 @@ Here is an example of the Share configuration
             "platforms": {
                 "Twitter": {
                     "params": {
-                        "secret": "nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne",
-                        "key": "EuovpLL0UhSGB7Jv5eKFJNMqO"
+                        "secret": "0mxHbmO8QFHSLnfJVVbGTStjaW6IlcRC6xofSWeFecLcj4jsLn",
+                        "key": "s5xddoPxy4xIbzAhqrecESSlW"
                     }
                 },
                 "Facebook": {},     //support facebook share
@@ -62,8 +62,8 @@ Here is an example of the Share configuration
             "platforms": {
                 "Twitter": {
                     "params": {
-                        "secret": "haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9",
-                        "key": "BUJTV6NEM7BAhhm82B12VbKGy"
+                        "secret": "0mxHbmO8QFHSLnfJVVbGTStjaW6IlcRC6xofSWeFecLcj4jsLn",
+                        "key": "s5xddoPxy4xIbzAhqrecESSlW"
                     }
                 },
                 "Facebook": {},     //support facebook share
@@ -78,22 +78,67 @@ Here is an example of the Share configuration
 
 you need to replace `<key>`, `<secret>` item with your specific [Twitter](http://apps.twitter.com/) account.
 
-For android only
-
-you also need replace `<api_key>` with your [fabric organization](https://fabric.io/settings/organizations) item in `AndroidManifest.xml`
-``` xml
-<meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="api_key" />
-```
-
-You can get fabric organization apikey in the organization screen
-![](../../imgs/share_twitter_organization_info.png)
-
 **Facebook configuration**
 
 you need to add a `Facebook` entry in the config
 
+###Setup iOS
+* `Twitter` support iOS 9.0+
+* Apply the code change to `AppController.mm`
+
+```object-c
+#import <TwitterKit/TWTRKit.h>
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    return [[Twitter sharedInstance] application:app openURL:url options:options];
+}
+```
+
+* Apply follow change to `Info.plist`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    ...
+
+    <key>CFBundleURLTypes</key>
+    <array>
+
+        ...
+
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>twitterkit-(your-appkey)</string>
+            </array>
+        </dict>
+
+        ...
+
+    </array>
+
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+
+        ...
+
+        <string>twitter</string>
+        <string>twitterauth</string>
+
+        ...
+
+    </array>
+
+    ...
+
+</dict>
+</plist>
+
+```
 
 <!--<<[sdkbox-config-encrypt.md]-->
 

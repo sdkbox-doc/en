@@ -2,25 +2,27 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __proj.android/libs__ folder.
 
-> android-support-v4.jar
-
-> fabric.jar
-
-> retrofit-1.8.0.jar
-
-> twitter.jar
+> sdkbox.jar
 
 > PluginShare.jar
 
-> sdkbox.jar
+> converter-gson-2.1.0.jar
 
-> digits
+> gson-2.7.jar
 
-> tweetcomposer
+> okhttp-3.4.2.jar
 
-> tweetui
+> okio-1.9.0.jar
 
-> twittercore
+> picasso-2.5.2.jar
+
+> retrofit-2.1.0.jar
+
+> twitter-text-1.14.3.jar
+
+> tweet-composer
+
+> twitter-core
 
 
 <<[../../shared/copy_jni_lib.md]
@@ -39,10 +41,6 @@ bundle into your project’s __proj.android/libs__ folder.
 * Include the following lines above the __application tag__:
 
 ```xml
-<meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="your fabric id(0673fbd412c9b67c9ac2182659839d92b93f2f65)" />
-
 <activity
     android:name="com.twitter.sdk.android.core.identity.OAuthActivity"
     android:configChanges="orientation|screenSize"

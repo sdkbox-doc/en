@@ -2,25 +2,27 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __<project_root>/libs__ folder.
 
-> android-support-v4.jar
-
-> fabric.jar
-
-> retrofit-1.8.0.jar
-
-> twitter.jar
+> sdkbox.jar
 
 > PluginShare.jar
 
-> sdkbox.jar
+> converter-gson-2.1.0.jar
 
-> digits
+> gson-2.7.jar
 
-> tweetcomposer
+> okhttp-3.4.2.jar
 
-> tweetui
+> okio-1.9.0.jar
 
-> twittercore
+> picasso-2.5.2.jar
+
+> retrofit-2.1.0.jar
+
+> twitter-text-1.14.3.jar
+
+> tweet-composer
+
+> twitter-core
 
 
 * If you're using cocos2d-x from source copy the __jar__ files to:
@@ -46,34 +48,19 @@ bundle into your project’s __<project_root>/libs__ folder.
 
 * If you're using android-studio, edit `proj.android-studio/app/build.gradle`, like fllow:
 
-    head of file `proj.android-studio/app/build.gradle`:
-
-``` gradle
-    buildscript {
-        repositories {
-            maven {
-                url 'https://maven.fabric.io/public'
-            }
-        }
-        dependencies {
-            classpath 'io.fabric.tools:gradle:1.+'
-        }
-    }
-    apply plugin: 'com.android.application'
-    apply plugin: 'io.fabric'
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-```
-
 __dependencies tag__ in file `proj.android-studio/app/build.gradle`
 
 
 ``` gradle
     dependencies {
-        compile('com.twitter.sdk.android:twitter:+@aar') {
-            transitive = true; exclude module: 'support-v4'
-        }
+
+        ...
+
+        implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+        implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
+
+        ...
+
     }
 ```
 
@@ -93,10 +80,6 @@ __dependencies tag__ in file `proj.android-studio/app/build.gradle`
 * Include the following lines above the __application tag__:
 
 ```xml
-<meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="your fabric id(0673fbd412c9b67c9ac2182659839d92b93f2f65)" />
-
 <activity
     android:name="com.twitter.sdk.android.core.identity.OAuthActivity"
     android:configChanges="orientation|screenSize"
