@@ -1,12 +1,33 @@
 # Release Notes
 
-# 2.3.17.9 Release Notes (20170403)
+# 2.4.0.0 Release Notes (20180508)
+
+It's ready for [https://www.eugdpr.org/](https://www.eugdpr.org/)
+
+## Add
+
+1. Ethereum pay (for cocos creator)
+
+## Upgrade
+
+1. AdMob: iOS SDK to 7.30.0
+2. Appnext: iOS SDK to 1.9.0
+3. Facebook: iOS SDK to 4.32.0
+4. UnityAds: iOS SDK to 2.2.0, Android 2.2.1
+5. Tune: iOS SDK to 5.1.0, Android 4.9.0
+6. Firebase: iOS SDK to 4.13.0
+7. Chartboost: iOS SDK to 7.1.2, Android 7.1.0
+8. Twitter: iOS SDK to 3.3.0, Android SDK to 3.3.0
+9. Apteligent: iOS SDK to 5.7.3, Android SDK to 5.8.10
+10. Google Play Service: 12.0.1
+
+# 2.3.17.9 Release Notes (20180410)
 
 ## Bugfix
 
 1. Tapcore: fix [intigration](http://discuss.cocos2d-x.org/t/tapcore-intigration-error/42148)
 
-# 2.3.17.8 Release Notes (20170403)
+# 2.3.17.8 Release Notes (20180403)
 
 ## Add
 
@@ -29,7 +50,7 @@
 
 1. Facebook: upgrade iOS SDK to 4.31.0
 
-# 2.3.17.7 Release Notes (20170206)
+# 2.3.17.7 Release Notes (20180206)
 
 ## Highlights
 
@@ -39,7 +60,7 @@
 4. Upgrade UnityAds iOS SDK to 2.1.2 and Android SDK to 2.1.2
 5. Facebook support [set web login](http://discuss.cocos2d-x.org/t/how-to-set-the-facebook-loginbehavior-fbsdkloginbehaviorweb/40952) with `PluginFacebook::setLoginBehavior(sdkbox::FBSDKLoginBehaviorBrowser);` api
 6. We recommend Plugin SDKBoxAds to show ads, and other plugin AdMob, UnityAds etc as its mediation.
-   So when you import Plugin AdMob or UnityAds, SDKBoxAds will import too.
+   So when you import Plugin AdMob or UnityAds, SDKBoxAds will be import too.
 
 ## Bugfix
 1. Fix [`requestAllAds` for AdColony Android](http://discuss.cocos2d-x.org/t/adcolony-force-reload-ads-if-internet-gets-enabled/39957)
