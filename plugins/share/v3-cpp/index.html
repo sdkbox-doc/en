@@ -664,6 +664,8 @@
         
             <li><a href="#json-configuration">JSON Configuration</a></li>
         
+            <li><a href="#setup-ios">Setup iOS</a></li>
+        
 	</ul>
 	
     
@@ -737,7 +739,7 @@
 <p>Please make sure you create developer account on the following platforms</p>
 <ul>
 <li><a href="http://developers.facebook.com/">Facebook</a></li>
-<li><a href="http://apps.twitter.com/">Twitter</a> (For twitter you'll also need <a href="https://fabric.io">Fabric</a>)</li>
+<li><a href="http://apps.twitter.com/">Twitter</a></li>
 </ul>
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Share plugin. Make sure you setup the SDKBOX installer correctly.</p>
@@ -785,8 +787,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
             &quot;platforms&quot;: {
                 &quot;Twitter&quot;: {
                     &quot;params&quot;: {
-                        &quot;secret&quot;: &quot;nlmUdPNcFGLWhyLu9cD794EDuDrVQnjd0YjTpB6sX8oHIQRrne&quot;,
-                        &quot;key&quot;: &quot;EuovpLL0UhSGB7Jv5eKFJNMqO&quot;
+                        &quot;secret&quot;: &quot;0mxHbmO8QFHSLnfJVVbGTStjaW6IlcRC6xofSWeFecLcj4jsLn&quot;,
+                        &quot;key&quot;: &quot;s5xddoPxy4xIbzAhqrecESSlW&quot;
                     }
                 },
                 &quot;Facebook&quot;: {},     //support facebook share
@@ -803,8 +805,8 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
             &quot;platforms&quot;: {
                 &quot;Twitter&quot;: {
                     &quot;params&quot;: {
-                        &quot;secret&quot;: &quot;haVcKarM96Sr4390XLQoHjyRUSyuHdkMX6letcc38h8TOWyiR9&quot;,
-                        &quot;key&quot;: &quot;BUJTV6NEM7BAhhm82B12VbKGy&quot;
+                        &quot;secret&quot;: &quot;0mxHbmO8QFHSLnfJVVbGTStjaW6IlcRC6xofSWeFecLcj4jsLn&quot;,
+                        &quot;key&quot;: &quot;s5xddoPxy4xIbzAhqrecESSlW&quot;
                     }
                 },
                 &quot;Facebook&quot;: {},     //support facebook share
@@ -817,17 +819,67 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <p><strong>Twitte configuration</strong></p>
 <p>you need to replace <code>&lt;key&gt;</code>, <code>&lt;secret&gt;</code> item with your specific <a href="http://apps.twitter.com/">Twitter</a> account.</p>
-<p>For android only</p>
-<p>you also need replace <code>&lt;api_key&gt;</code> with your <a href="https://fabric.io/settings/organizations">fabric organization</a> item in <code>AndroidManifest.xml</code></p>
-<pre><code class="xml">&lt;meta-data
-            android:name=&quot;io.fabric.ApiKey&quot;
-            android:value=&quot;api_key&quot; /&gt;
-</code></pre>
-
-<p>You can get fabric organization apikey in the organization screen
-<img alt="" src="../../../imgs/share_twitter_organization_info.png" /></p>
 <p><strong>Facebook configuration</strong></p>
 <p>you need to add a <code>Facebook</code> entry in the config</p>
+<h3 id="setup-ios">Setup iOS</h3>
+<ul>
+<li><code>Twitter</code> support iOS 9.0+</li>
+<li>Apply the code change to <code>AppController.mm</code></li>
+</ul>
+<pre><code class="object-c">#import &lt;TwitterKit/TWTRKit.h&gt;
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary&lt;UIApplicationOpenURLOptionsKey, id&gt; *)options {
+    return [[Twitter sharedInstance] application:app openURL:url options:options];
+}
+</code></pre>
+
+<ul>
+<li>Apply follow change to <code>Info.plist</code></li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+
+    ...
+
+    &lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+    &lt;array&gt;
+
+        ...
+
+        &lt;dict&gt;
+            &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+            &lt;array&gt;
+                &lt;string&gt;twitterkit-(your-appkey)&lt;/string&gt;
+            &lt;/array&gt;
+        &lt;/dict&gt;
+
+        ...
+
+    &lt;/array&gt;
+
+    &lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+    &lt;array&gt;
+
+        ...
+
+        &lt;string&gt;twitter&lt;/string&gt;
+        &lt;string&gt;twitterauth&lt;/string&gt;
+
+        ...
+
+    &lt;/array&gt;
+
+    ...
+
+&lt;/dict&gt;
+&lt;/plist&gt;
+
+</code></pre>
+
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -986,9 +1038,10 @@ public:
 <blockquote>
 <p>sdkbox.framework</p>
 <p>PluginShare.framework</p>
-<p>Fabric.framework</p>
 <p>TwitterCore.framework</p>
 <p>TwitterKit.framework</p>
+<p>TwitterKitResources.bundle -&gt; TwitterKit.framework/TwitterKitResources.bundle</p>
+<p>TwitterShareExtensionUIResources.bundle -&gt; TwitterKit.framework/TwitterShareExtensionUIResources.bundle</p>
 </blockquote>
 <p>add the following system frameworks, if you don't already have them:</p>
 <blockquote>
@@ -999,7 +1052,10 @@ public:
 <p>Social.framework</p>
 <p>GameController.framework</p>
 <p>SystemConfiguration.framework</p>
+<p>MediaPlayer.framework</p>
 <p>MessageUI.framework</p>
+<p>CoreMotion.framework</p>
+<p>SafariServices.framework</p>
 </blockquote>
 <h2 id="manual-integration-for-android">Manual Integration For Android</h2>
 <p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
@@ -1011,16 +1067,17 @@ public:
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
 bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 <blockquote>
-<p>android-support-v4.jar</p>
-<p>fabric.jar</p>
-<p>retrofit-1.8.0.jar</p>
-<p>twitter.jar</p>
-<p>PluginShare.jar</p>
 <p>sdkbox.jar</p>
-<p>digits</p>
-<p>tweetcomposer</p>
-<p>tweetui</p>
-<p>twittercore</p>
+<p>PluginShare.jar</p>
+<p>converter-gson-2.1.0.jar</p>
+<p>gson-2.7.jar</p>
+<p>okhttp-3.4.2.jar</p>
+<p>okio-1.9.0.jar</p>
+<p>picasso-2.5.2.jar</p>
+<p>retrofit-2.1.0.jar</p>
+<p>twitter-text-1.14.3.jar</p>
+<p>tweet-composer</p>
+<p>twitter-core</p>
 </blockquote>
 <ul>
 <li>
@@ -1040,31 +1097,18 @@ bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 </li>
 <li>
 <p>If you're using android-studio, edit <code>proj.android-studio/app/build.gradle</code>, like fllow:</p>
-<p>head of file <code>proj.android-studio/app/build.gradle</code>:</p>
 </li>
 </ul>
-<pre><code class="gradle">    buildscript {
-        repositories {
-            maven {
-                url 'https://maven.fabric.io/public'
-            }
-        }
-        dependencies {
-            classpath 'io.fabric.tools:gradle:1.+'
-        }
-    }
-    apply plugin: 'com.android.application'
-    apply plugin: 'io.fabric'
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-</code></pre>
-
 <p><strong>dependencies tag</strong> in file <code>proj.android-studio/app/build.gradle</code></p>
 <pre><code class="gradle">    dependencies {
-        compile('com.twitter.sdk.android:twitter:+@aar') {
-            transitive = true; exclude module: 'support-v4'
-        }
+
+        ...
+
+        implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+        implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
+
+        ...
+
     }
 </code></pre>
 
@@ -1086,11 +1130,7 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 <ul>
 <li>Include the following lines above the <strong>application tag</strong>:</li>
 </ul>
-<pre><code class="xml">&lt;meta-data
-            android:name=&quot;io.fabric.ApiKey&quot;
-            android:value=&quot;your fabric id(0673fbd412c9b67c9ac2182659839d92b93f2f65)&quot; /&gt;
-
-&lt;activity
+<pre><code class="xml">&lt;activity
     android:name=&quot;com.twitter.sdk.android.core.identity.OAuthActivity&quot;
     android:configChanges=&quot;orientation|screenSize&quot;
     android:excludeFromRecents=&quot;true&quot;
@@ -1239,7 +1279,6 @@ SDKBox.init(this);
 
 #twitter
 -keep public com.twitter.sdk.android.** { *; }
--keep public io.fabric.sdk.android.** { *; }
 </code></pre>
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
