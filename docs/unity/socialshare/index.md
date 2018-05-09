@@ -105,11 +105,25 @@ void share(SocialShareInfo info)
 
 ![](socialshare_ios_project_setting.png)
 
+
+- Apply the code change to `AppController.mm`
+
+```object-c
+#import <TwitterKit/TWTRKit.h>
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    return [[Twitter sharedInstance] application:app openURL:url options:options];
+}
+```
+
 <h5>Android Platform</h5>
 
 when build android, you need the follow two modify
 
-- replace string `280194012150923` with your facebook app id in file `Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml`
+- replace string `280194012150923` with your facebook app id in file `Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml` (if your unity version below 2017.3)
+- replace string `280194012150923` with your facebook app id in file `Assets/Plugins/Android/sdkbox_socialshare_lib/AndroidManifest.xml` (if your unity version is 2017.3+)
 
 ```
 <provider android:authorities="com.facebook.app.FacebookContentProvider280194012150923"
@@ -117,7 +131,9 @@ when build android, you need the follow two modify
             android:exported="true" />
 ```
 
-- replace `facebook_app_id`'s value with your facebook app id in file `Assets/Plugins/Android/sdkbox_facebook_lib/res/values/string.xml`
+- replace `facebook_app_id`'s value with your facebook app id in file `Assets/Plugins/Android/sdkbox_facebook_lib/res/values/string.xml` (if your unity version below 2017.3)
+- replace `facebook_app_id`'s value with your facebook app id in file `Assets/Plugins/Android/sdkbox_socialshare_lib/res/values/string.xml` (if your unity version is 2017.3+)
+
 
 ```
 <resources>
