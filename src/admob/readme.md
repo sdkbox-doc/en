@@ -32,6 +32,7 @@ type:
 
     - "banner"
     - "interstitial"
+    - "rewarded_video"
 
 alignment:
 
