@@ -755,11 +755,24 @@ void share(SocialShareInfo info)
 <li>you need add '-ObjC' to <code>other linker flag</code> in ios project build setting</li>
 </ul>
 <p><img alt="" src="./socialshare_ios_project_setting.png" /></p>
+<ul>
+<li>Apply the code change to <code>AppController.mm</code></li>
+</ul>
+<pre><code class="object-c">#import &lt;TwitterKit/TWTRKit.h&gt;
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary&lt;UIApplicationOpenURLOptionsKey, id&gt; *)options {
+    return [[Twitter sharedInstance] application:app openURL:url options:options];
+}
+</code></pre>
+
 <h5>Android Platform</h5>
 
 <p>when build android, you need the follow two modify</p>
 <ul>
-<li>replace string <code>280194012150923</code> with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml</code></li>
+<li>replace string <code>280194012150923</code> with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_facebook_lib/AndroidManifest.xml</code> (if your unity version below 2017.3)</li>
+<li>replace string <code>280194012150923</code> with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_socialshare_lib/AndroidManifest.xml</code> (if your unity version is 2017.3+)</li>
 </ul>
 <pre><code>&lt;provider android:authorities=&quot;com.facebook.app.FacebookContentProvider280194012150923&quot;
             android:name=&quot;com.facebook.FacebookContentProvider&quot;
@@ -767,7 +780,8 @@ void share(SocialShareInfo info)
 </code></pre>
 
 <ul>
-<li>replace <code>facebook_app_id</code>'s value with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_facebook_lib/res/values/string.xml</code></li>
+<li>replace <code>facebook_app_id</code>'s value with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_facebook_lib/res/values/string.xml</code> (if your unity version below 2017.3)</li>
+<li>replace <code>facebook_app_id</code>'s value with your facebook app id in file <code>Assets/Plugins/Android/sdkbox_socialshare_lib/res/values/string.xml</code> (if your unity version is 2017.3+)</li>
 </ul>
 <pre><code>&lt;resources&gt;
     &lt;string name=&quot;facebook_app_id&quot;&gt;280194012150923&lt;/string&gt;
