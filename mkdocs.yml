@@ -106,6 +106,7 @@ pages:
                 - 'Chartboost with C++': 'plugins/chartboost/v2-cpp.md'
                 - 'Chartboost with Javascript': 'plugins/chartboost/v2-js.md'
                 - 'Chartboost with Lua': 'plugins/chartboost/v2-lua.md'
+        - 'EthWallet': 'plugins/ethwallet/index.md'
         - 'Facebook': 'plugins/facebook/index.md'
         - '_Facebook':
             - 'Cocos2d-x v3.x':
