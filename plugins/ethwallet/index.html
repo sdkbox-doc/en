@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Chartboost - SDKBOX</title>
+	<title>EthWallet - SDKBOX</title>
         
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -183,8 +183,8 @@
 
         
             
-<li class="active">
-    <a href="./">Chartboost</a>
+<li >
+    <a href="../chartboost/">Chartboost</a>
 </li>
 
         
@@ -193,8 +193,8 @@
 
         
             
-<li >
-    <a href="../ethwallet/">EthWallet</a>
+<li class="active">
+    <a href="./">EthWallet</a>
 </li>
 
         
@@ -653,18 +653,34 @@
         <li class="main active"><a href="#overview">Overview</a></li>
 	
     
-        <li class="main "><a href="#integration-guides">Integration Guides</a></li>
+        <li class="main "><a href="#sample-project">Sample Project</a></li>
+	
+    
+        <li class="main "><a href="#integration">Integration</a></li>
+	
+    
+        <li class="main "><a href="#usage">Usage</a></li>
 	
 	<ul class="sub-sidenav">
         
-            <li><a href="#for-games-using-cocos2d-x-v3x">For games using Cocos2d-x v3.x</a></li>
+            <li><a href="#import">Import</a></li>
         
-            <li><a href="#for-games-using-cocos2d-x-v2x">For games using Cocos2d-x v2.x</a></li>
+            <li><a href="#initialize">Initialize</a></li>
+        
+            <li><a href="#load-address">Load Address</a></li>
+        
+            <li><a href="#check-balance">Check Balance</a></li>
         
 	</ul>
 	
     
-        <li class="main "><a href="#sample-project">Sample Project</a></li>
+        <li class="main "><a href="#api">API</a></li>
+	
+    
+        <li class="main "><a href="#manual-integration">Manual integration</a></li>
+	
+    
+        <li class="main "><a href="#note">Note</a></li>
 	
     
     </ul>
@@ -672,25 +688,121 @@
                 <div class="col-md-9" role="main">
 
 <p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
-<h1>Chartboost Plugin</h1>
+<h1>ETHWallet Plugin</h1>
 
 <h2 id="overview">Overview</h2>
-<p>You can find <a href="http://www.cocos2d-x.org/sdkbox/chartboost">more information about this plugin here.</a></p>
-<h2 id="integration-guides">Integration Guides</h2>
-<h4 id="for-games-using-cocos2d-x-v3x">For games using Cocos2d-x v3.x</h4>
-<ul>
-<li><a href="./v3-cpp">The C++ version</a></li>
-<li><a href="./v3-js">The Javascript version</a></li>
-<li><a href="./v3-lua">The Lua version</a></li>
-</ul>
-<h4 id="for-games-using-cocos2d-x-v2x">For games using Cocos2d-x v2.x</h4>
-<ul>
-<li><a href="./v2-cpp">The C++ version</a></li>
-<li><a href="./v2-js">The Javascript version</a></li>
-<li><a href="./v2-lua">The Lua version</a></li>
-</ul>
+<p>ETHWallet is a js plugin which implement ether pay function. this plugin can make your app support ether pay.(just support <code>Cocos Creator</code> js for now)</p>
 <h2 id="sample-project">Sample Project</h2>
-<p><a href="https://github.com/sdkbox/sdkbox-sample-chartboost">A demo project on github</a></p></div>
+<p><a href="https://github.com/sdkbox/ETHWallet">A demo project on github</a></p>
+<h2 id="integration">Integration</h2>
+<p>you can run follow cmd to integrate <code>EthWallet</code>, make sure you have installed <code>SDKBox Installer</code></p>
+<pre><code class="bash">$ sdkbox import ethwallet -p `path/to/build/jsb-xxx`
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="import">Import</h3>
+<p>there have two way to import <code>EthWallet</code> to your project:</p>
+<ul>
+<li>import <code>ethwallet.js</code> not as plugin (Default way), so you must invoke <code>ETHWaller</code> like follow:</li>
+</ul>
+<pre><code>const ETHWallet = require('../sdkbox/ethwallet/ethwallet');
+const ethwallet = new ETHWallet();
+</code></pre>
+
+<ul>
+<li>import <code>ethwallet.js</code> as plugin, so you can invoke <code>ETHWallet</code> like follow:</li>
+</ul>
+<pre><code>const ethwallet = new ETHWallet();
+</code></pre>
+
+<h3 id="initialize">Initialize</h3>
+<p>you must set <code>provider</code> to init <code>ETHWallet</code>. <code>provider</code> is a ether node, you can use <a href="https://infura.io/">Infura</a> or <a href="https://etherscan.io/">Etherscan</a> or your own self ether node.</p>
+<pre><code>const PROVIDER_URL = 'https://ropsten.infura.io/L3BRNAgKihyPmcyI1ESe';
+ethwallet.init(PROVIDER_URL);
+</code></pre>
+
+<h3 id="load-address">Load Address</h3>
+<p>create or load a user address.</p>
+<p><code>EthWallet</code> will create a new address at first time or user address not exist.</p>
+<p>Params:</p>
+<ul>
+<li>password to encry user address which will store local</li>
+</ul>
+<p>Return:</p>
+<ul>
+<li>user account, developer should display address to user, so they can send ether to this address. developer can check balance of this address, if &gt; 0, can send user coin or product something. and take care the privete key.</li>
+</ul>
+<pre><code>const pw = 'password';
+const acc = ethwallet.newAccountIf(pw);
+</code></pre>
+
+<h3 id="check-balance">Check Balance</h3>
+<pre><code>ethwallet.getBalance(function(result){
+    self.log(JSON.stringify(result));
+}, this.acc.address);
+</code></pre>
+
+<h2 id="api">API</h2>
+<hr />
+<p><code>ETHWallet</code> Initialize</p>
+<p>Params:</p>
+<ul>
+<li><code>providerURL</code>, ether node <code>URL</code></li>
+</ul>
+<pre><code class="js">ETHWallet.init(providerURL)
+</code></pre>
+
+<hr />
+<p>set <code>ETHWallet</code> trans <code>Gas</code> max limit value, default is <code>21000</code></p>
+<pre><code class="js">ETHWallet.setGasLimit(valueInWei)
+</code></pre>
+
+<hr />
+<p>create or load <code>ETHWallet</code> user pay address</p>
+<p>Param:</p>
+<ul>
+<li><code>password</code>， for store user pay address</li>
+</ul>
+<pre><code class="js">ETHWallet.newAccountIf(password)
+</code></pre>
+
+<hr />
+<p>remit user pay address to developer's address</p>
+<p>Params:</p>
+<ul>
+<li><code>cb</code>, result call back</li>
+<li><code>address</code>, developer's address</li>
+<li><code>valueInWei</code>, translate value, default is all balance</li>
+<li><code>privateKey</code>, private key of address which will send ether, default is user's pay address</li>
+</ul>
+<pre><code class="js">ETHWallet.remit(cb, address, valueInWei, privateKey)
+</code></pre>
+
+<hr />
+<p>check balance of address</p>
+<p>Params:</p>
+<ul>
+<li><code>cb</code>, callback</li>
+<li><code>address</code>, check address</li>
+</ul>
+<pre><code class="js">ETHWallet.getBalance(cb, address)
+</code></pre>
+
+<h2 id="manual-integration">Manual integration</h2>
+<p>cp follow files, which is under pakcage path, to <code>asset/sdkbox/ethwallet</code></p>
+<blockquote>
+<p><code>plugin/lib/a-ethwallet-polyfill-fore-cocos.js</code>,</p>
+<p><code>plugin/lib/a-ethwallet-polyfill-fore-cocos.js.meta</code>,</p>
+<p><code>plugin/lib/ethwallet.js</code>,</p>
+<p><code>plugin/lib/ethwallet.js.meta</code></p>
+</blockquote>
+<p>invoke <code>ETHWallet</code> in your project, like follow:</p>
+<pre><code class="xml">const ETHWallet = require('../sdkbox/ethwallet/ethwallet');
+const ethwallet = new ETHWallet();
+</code></pre>
+
+<h2 id="note">Note</h2>
+<p>you can check your transaction by search it on <code>https://etherscan.io/</code>.</p></div>
             
         </div>
 
