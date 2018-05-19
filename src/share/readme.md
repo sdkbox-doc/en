@@ -161,4 +161,17 @@ you need to add a `Facebook` entry in the config
 
 ##Notice
 
-email share is not support on simulator
+* email share is not support on simulator
+
+
+* `android support v4` conflict
+
+if you got this error:
+
+```
+Unknown source file : UNEXPECTED TOP-LEVEL EXCEPTION:
+Unknown source file : com.android.dex.DexException: Multiple dex files define Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoVersionImpl;
+```
+
+maybe your project have multi `android-support-v4.jar`, you can remove the duplicate one and just keep one.
+
