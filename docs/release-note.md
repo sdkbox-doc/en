@@ -1,5 +1,18 @@
 # Release Notes
 
+# 2.4.0.1 Release Notes (20180522)
+
+# Upgrade
+1. Chartboost SDK to 7.2.0, [issue](https://discuss.cocos2d-x.org/t/sdkbox-2-4-0-0-release-with-gdpr-support/42557/2?u=yinjimmy)
+
+# Bugfix
+1. Unity share
+2. SDKBoxPlay save games
+3. Fix installer for cocos2d-x 3.17, [issue](https://discuss.cocos2d-x.org/t/sdkbox-plugins-failing-import-in-cocos2d-x-3-17-projects/42542)
+4. Fix patch for cocos2d-lua >= 3.10
+5. AdMob patch creator 1.9 failed, [issue](https://discuss.cocos2d-x.org/t/admob-error-in-cocos-creator-1-9-1/42592)
+
+
 # 2.4.0.0 Release Notes (20180508)
 
 It's ready for [https://www.eugdpr.org/](https://www.eugdpr.org/)
