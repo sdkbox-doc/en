@@ -1271,7 +1271,20 @@ SDKBox.init(this);
 
 <p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
 <h2 id="notice">Notice</h2>
-<p>email share is not support on simulator</p></div>
+<ul>
+<li>
+<p>email share is not support on simulator</p>
+</li>
+<li>
+<p><code>android support v4</code> conflict</p>
+</li>
+</ul>
+<p>if you got this error:</p>
+<pre><code>Unknown source file : UNEXPECTED TOP-LEVEL EXCEPTION:
+Unknown source file : com.android.dex.DexException: Multiple dex files define Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoVersionImpl;
+</code></pre>
+
+<p>maybe your project have multi <code>android-support-v4.jar</code>, you can remove the duplicate one and just keep one.</p></div>
             
         </div>
 
