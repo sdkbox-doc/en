@@ -55,7 +55,8 @@ sdkbox.PluginAdMob.setListener({
     adViewWillPresentScreen : function(name) { },
     adViewDidDismissScreen : function(name) { },
     adViewWillDismissScreen : function(name) { },
-    adViewWillLeaveApplication : function(name) { }
+    adViewWillLeaveApplication : function(name) { },
+    reward(name, currency, amount)
 });
 
 ```

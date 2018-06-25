@@ -40,6 +40,7 @@ sdkbox.PluginAdMob.setListener(function(args)
     elif "adViewDidDismissScreen" == event then
     elif "adViewWillDismissScreen" == event then
     elif "adViewWillLeaveApplication" == event then
+    elif "reward" == event then
     end
 end)
 

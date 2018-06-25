@@ -47,5 +47,6 @@ private:
     void adViewDidDismissScreen(const std::string &name) {}
     void adViewWillDismissScreen(const std::string &name) {}
     void adViewWillLeaveApplication(const std::string &name) {}
+    void reward(const std::string &name, const std::string &currency, double amount) {}
 }
 ```
