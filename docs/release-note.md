@@ -1,5 +1,26 @@
 # Release Notes
 
+# 2.4.0.2 Release Notes (20180626)
+
+## Add
+
+1. GDPR api:
+    1. Chartboost `restrictDataCollection`
+    2. UnityAds `setGDPR`
+    3. AdColony `setGDPR`
+    4. Firebase `resetAnalyticsData` and `setAnalyticsCollectionEnabled`
+    5. AdMob `setGDPR`
+
+## Upgrade
+
+1. AdMob: update iOS SDK to 7.31.0
+
+## Bugfix
+
+1. fix installer for cocos2d-lua/Js 3.17
+2. remove all std::stringstream
+
+
 # 2.4.0.1 Release Notes (20180522)
 
 ## Upgrade
