@@ -30,13 +30,20 @@ sdkbox.PluginOneSignal:setLogLevel(logLevel, visualLogLevel)
 ```
 > Enable logging to help debug if you run into an issue setting up OneSignal. This selector
 is static so you can call it before OneSignal init. The following options are available
-with increasingly more information
+with increasingly more information;
+sdkbox::OneSignalLogNone, sdkbox::OneSignalLogFatal, sdkbox::OneSignalLogError,
+sdkbox::OneSignalLogWarn, sdkbox::OneSignalLogInfo, sdkbox::OneSignalLogDebug,
+sdkbox::OneSignalLogVerbose
 
 ```lua
 sdkbox.PluginOneSignal:sendTag(key, value)
 ```
 > Tag a user based on an app event of your choosing so later you can create segments on
 onesignal.com to target these users.
+
+<pre>
+callback: `onSendTag`
+</pre>
 
 ```lua
 sdkbox.PluginOneSignal:setEmail(email)
@@ -48,6 +55,10 @@ sdkbox.PluginOneSignal:getTags()
 ```
 > Retrieve a list of tags that have been set on the user from the OneSignal server.
 
+<pre>
+callback: `onGetTags`
+</pre>
+
 ```lua
 sdkbox.PluginOneSignal:deleteTag(key)
 ```
@@ -58,6 +69,10 @@ sdkbox.PluginOneSignal:idsAvailable()
 ```
 > Lets you retrieve the OneSignal user id and the Google registration id. Your handler is
 called after the device is successfully registered with OneSignal.
+
+<pre>
+callback: `onIdsAvailable`
+</pre>
 
 ```lua
 sdkbox.PluginOneSignal:enableInAppAlertNotification(enable)
@@ -79,11 +94,19 @@ sdkbox.PluginOneSignal:postNotification(jsonString)
 > Allows you to send notifications from user to user or schedule ones in the future to be
 delivered to the current device.
 
+<pre>
+callback: `onPostNotification`
+</pre>
+
 ```lua
 sdkbox.PluginOneSignal:promptLocation()
 ```
 > Prompts the user for location permissions. This allows for geotagging so you can send
 notifications to users based on location.
+
+<pre>
+Note: Make sure you also have the required location permission in your AndroidManifest.xml.
+</pre>
 
 
 ### Listeners
@@ -105,6 +128,14 @@ onPostNotification(success, message)
 
 ```lua
 onNotification(isActive, message, additionalData)
+```
+
+```lua
+onNotificationOpened(message)
+```
+
+```lua
+onNotificationReceived(message)
 ```
 
 

@@ -37,20 +37,55 @@ sdkbox.PluginAdMob:hide(name)
 ```
 > hide ad with @name
 
+<pre>
+interstitial does not support hide
+</pre>
+
 ```lua
 sdkbox.PluginAdMob:isAvailable(name)
 ```
 > check whether ad available with @name
 
 ```lua
-sdkbox.PluginAdMob:getCurrBannerWidth()
+sdkbox.PluginAdMob:getCurrBannerWidth(name)
 ```
 > get width of current banner
 
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
 ```lua
-sdkbox.PluginAdMob:getCurrBannerHeight()
+sdkbox.PluginAdMob:getCurrBannerHeight(name)
 ```
 > get height of current banner
+
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+```lua
+sdkbox.PluginAdMob:getCurrBannerWidthInPixel(name)
+```
+> get width of current banner in pixel
+
+<pre>
+@return -1 means current banner is not available
+</pre>
+
+```lua
+sdkbox.PluginAdMob:getCurrBannerHeightInPixel(name)
+```
+> get height of current banner in pixel
+
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+```lua
+sdkbox.PluginAdMob:setGDPR(enabled)
+```
+> set GDPR
 
 
 ### Listeners
@@ -76,6 +111,10 @@ adViewWillDismissScreen(name)
 
 ```lua
 adViewWillLeaveApplication(name)
+```
+
+```lua
+reward(name, currency, amount)
 ```
 
 

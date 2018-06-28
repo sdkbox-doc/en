@@ -2,7 +2,7 @@
 
 ### Methods
 ```javascript
-sdkbox.PluginAppodeal.init();
+sdkbox.PluginAppodeal.init(adType);
 ```
 >  initialize the plugin instance.
 
@@ -12,8 +12,13 @@ sdkbox.PluginAppodeal.setListener(listener);
 > Set listener to listen for appodeal events
 
 ```javascript
+sdkbox.PluginAppodeal.getSDKVersion();
+```
+
+```javascript
 sdkbox.PluginAppodeal.disableNetworkForAdType(adType, networkName);
 ```
+> deprecated
 
 ```javascript
 sdkbox.PluginAppodeal.disableLocationPermissionCheck();
@@ -49,6 +54,18 @@ sdkbox.PluginAppodeal.hideBanner();
 
 ```javascript
 sdkbox.PluginAppodeal.isReadyForShowWithStyle(showStyle);
+```
+
+```javascript
+sdkbox.PluginAppodeal.setSmartBannersEnabled(smartBannerEnabled);
+```
+
+```javascript
+sdkbox.PluginAppodeal.setBannerBackgroundVisible(bannerBackgroundVisible);
+```
+
+```javascript
+sdkbox.PluginAppodeal.setBannerAnimationEnabled(bannerAnimationEnabled);
 ```
 
 ```javascript
@@ -143,29 +160,39 @@ onInterstitialDidClick();
 > trigger when interstitial ad clicked
 
 ```javascript
+onInterstitialDidFailToPresent();
+```
+> trigger when interstitial ad fail to present
+
+```javascript
 onVideoDidLoadAd();
 ```
 > trigger when video load
+deprecated
 
 ```javascript
 onVideoDidFailToLoadAd();
 ```
 > trigger when video fail to load
+deprecated
 
 ```javascript
 onVideoDidPresent();
 ```
 > trigger when video present
+deprecated
 
 ```javascript
 onVideoWillDismiss();
 ```
 > trigger when video dismiss
+deprecated
 
 ```javascript
 onVideoDidFinish();
 ```
 > trigger when video finish
+deprecated
 
 ```javascript
 onRewardVideoDidLoadAd();
@@ -191,5 +218,75 @@ onRewardVideoWillDismiss();
 onRewardVideoDidFinish(amount, name);
 ```
 > trigger when reward video finish
+
+```javascript
+onRewardVideoDidFailToPresent();
+```
+> trigger when reward video fail to present
+
+```javascript
+onSkippableVideoDidLoadAd();
+```
+> trigger when skippable video load
+
+```javascript
+onSkippableVideoDidFailToLoadAd();
+```
+> trigger when skippable video fial to load
+
+```javascript
+onSkippableVideoDidPresent();
+```
+> trigger when skippable video present
+
+```javascript
+onSkippableVideoWillDismiss();
+```
+> trigger when skippable video dismiss
+
+```javascript
+onSkippableVideoDidFinish();
+```
+> trigger when skippable video finish
+
+```javascript
+onSkippableVideoDidClick();
+```
+> trigger when skippable video click
+
+```javascript
+onNonSkippableVideoDidLoadAd();
+```
+> trigger when nonskippable video load
+
+```javascript
+onNonSkippableVideoDidFailToLoadAd();
+```
+> trigger when nonskippable video fial to load
+
+```javascript
+onNonSkippableVideoDidPresent();
+```
+> trigger when nonskippable video present
+
+```javascript
+onNonSkippableVideoWillDismiss();
+```
+> trigger when nonskippable video dismiss
+
+```javascript
+onNonSkippableVideoDidFinish();
+```
+> trigger when nonskippable video finish
+
+```javascript
+onNonSkippableVideoDidClick();
+```
+> trigger when nonskippable video click
+
+```javascript
+onNonSkippableVideoDidFailToPresent();
+```
+> trigger when nonskippable video fail to present
 
 

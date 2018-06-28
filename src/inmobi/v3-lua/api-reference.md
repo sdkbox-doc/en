@@ -21,112 +21,91 @@ sdkbox.PluginInMobi:getVersion()
 sdkbox.PluginInMobi:setLogLevel(desiredLogLevel)
 ```
 > Set the log level for SDK's logs
-@param desiredLogLevel The desired level of logs.
 
 ```lua
 sdkbox.PluginInMobi:addIdForType(identifier, type)
 ```
 > Register a user specific id with the SDK
-@param identifier The user Id.
-@param type The user Id type.
 
 ```lua
 sdkbox.PluginInMobi:removeIdType(type)
 ```
 > Deregister a particular set of Ids
-@param type The user Id type.
 
 ```lua
 sdkbox.PluginInMobi:setAge(age)
 ```
 > Provide the user's age to the SDK for targeting purposes.
-@param age The user's age.
 
 ```lua
 sdkbox.PluginInMobi:setAreaCode(areaCode)
 ```
 > Provide the user's area code to the SDK for targeting purposes.
-@param areaCode The user's area code.
 
 ```lua
 sdkbox.PluginInMobi:setAgeGroup(ageGroup)
 ```
 > Provide the user's age group to the SDK for targeting purposes.
-@param ageGroup The user's age group.
 
 ```lua
 sdkbox.PluginInMobi:setYearOfBirth(yearOfBirth)
 ```
 > Provide a user's date of birth to the SDK for targeting purposes.
-@param dateOfBirth The user's date of birth.
 
 ```lua
 sdkbox.PluginInMobi:setEducation(education)
 ```
 > Provide the user's education status to the SDK for targeting purposes.
-@param education The user's education status.
 
 ```lua
 sdkbox.PluginInMobi:setEthnicity(ethnicity)
 ```
 > Provide the user's ethnicity to the SDK for targeting purposes.
-@param ethnicity The user's ethnicity.
 
 ```lua
 sdkbox.PluginInMobi:setGender(gender)
 ```
 > Provide the user's gender to the SDK for targeting purposes.
-@param gender The user's gender.
 
 ```lua
 sdkbox.PluginInMobi:setHouseholdIncome(income)
 ```
 > Provide the user's household income to the SDK for targeting purposes.
-@param income The user's household income.
 
 ```lua
 sdkbox.PluginInMobi:setIncome(income)
 ```
 > Provide the user's income to the SDK for targeting purposes.
-@param income The user's income.
 
 ```lua
 sdkbox.PluginInMobi:setInterests(interests)
 ```
 > Provide the user's interests to the SDK for targeting purposes.
-@param interests The user's interests.
 
 ```lua
 sdkbox.PluginInMobi:setLanguage(language)
 ```
 > Provide the user's preferred language to the SDK for targeting purposes.
-@param language The user's language.
 
 ```lua
 sdkbox.PluginInMobi:setLocation(city, state, country)
 ```
 > Provide the user's location to the SDK for targeting purposes.
-@param city The user's city.
-@param state The user's state.
-@param country The user's country.
 
 ```lua
 sdkbox.PluginInMobi:setLocation(latitude, longitude)
 ```
 > Provide the user's location to the SDK for targeting purposes.
-@param location: The location of the user
 
 ```lua
 sdkbox.PluginInMobi:setNationality(nationality)
 ```
 > Provide the user's nationality to the SDK for targeting purposes.
-@param nationality The user's nationality.
 
 ```lua
 sdkbox.PluginInMobi:setPostalCode(postalcode)
 ```
 > Provide the user's postal code to the SDK for targeting purposes.
-@param postalcode The user's postalcode.
 
 ```lua
 sdkbox.PluginInMobi:shouldAutoRefresh(refresh)
@@ -160,41 +139,47 @@ sdkbox.PluginInMobi:setBannerKeywords(keywords)
 > Set comma delimited keywords for targeting purpose
 
 ```lua
-sdkbox.PluginInMobi:loadInterstitial()
+sdkbox.PluginInMobi:hideBanner()
+```
+> Hide Banner
+
+```lua
+sdkbox.PluginInMobi:loadInterstitial(ad)
 ```
 > Submit a request to load interstitial ad content.
 
 ```lua
-sdkbox.PluginInMobi:isInterstitialReady()
+sdkbox.PluginInMobi:isInterstitialReady(ad)
 ```
 > Returns true if the interstitial was loaded successfully and in ready to be shown.
 
 ```lua
-sdkbox.PluginInMobi:showInterstitial()
+sdkbox.PluginInMobi:showInterstitial(ad)
 ```
 > Displays the interstitial on the screen
 
 ```lua
-sdkbox.PluginInMobi:showInterstitial(type)
+sdkbox.PluginInMobi:showInterstitial(type, ad)
 ```
 > Displays the interstitial on the screen
 valid on ios
 
 ```lua
 sdkbox.PluginInMobi:showInterstitial(enterAnimationResourcedId,
-                                      exitAnimationResourceId)
+                                      exitAnimationResourceId,
+                                      ad)
 ```
 > Displays the interstitial on the screen
 valid on android
 
 ```lua
-sdkbox.PluginInMobi:disableHardwareAccelerationForInterstitial()
+sdkbox.PluginInMobi:disableHardwareAccelerationForInterstitial(ad)
 ```
 > Disable hardware acceleration on the underlying views.
 valid on android
 
 ```lua
-sdkbox.PluginInMobi:setInterstitialKeywords(keywords)
+sdkbox.PluginInMobi:setInterstitialKeywords(keywords, ad)
 ```
 > Set comma delimited keywords for targeting purpose
 

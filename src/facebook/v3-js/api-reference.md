@@ -7,6 +7,11 @@ sdkbox.PluginFacebook.init();
 > initialize the plugin instance.
 
 ```javascript
+sdkbox.PluginFacebook.setLoginBehavior(loginBehavior);
+```
+> login
+
+```javascript
 sdkbox.PluginFacebook.login();
 ```
 > log in
@@ -119,6 +124,21 @@ sdkbox.PluginFacebook.sendGift(friend_ids,
 ```
 > Send friend a gift
 
+```javascript
+sdkbox.PluginFacebook.logEvent(eventName);
+```
+> Log event
+
+```javascript
+sdkbox.PluginFacebook.logEvent(eventName, valueToSum);
+```
+> Log event with value
+
+```javascript
+sdkbox.PluginFacebook.logPurchase(mount, currency);
+```
+> Log purchase event
+
 
 ### Listeners
 ```javascript
@@ -166,7 +186,7 @@ onGetUserInfo(userInfo);
 ```
 
 ```javascript
-onAskGiftResult(result, msg);
+onRequestGiftResult(result, msg);
 ```
 
 ```javascript

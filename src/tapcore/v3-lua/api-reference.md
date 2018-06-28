@@ -5,3 +5,7 @@
 sdkbox.PluginTapcore:init()
 ```
 >  initialize the plugin instance.
+
+
+### Listeners
+

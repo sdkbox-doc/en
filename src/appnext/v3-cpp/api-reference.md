@@ -94,43 +94,43 @@ static void setRewardsCustomParameter ( const std::string & parameter ) ;
 
 ### Listeners
 ```cpp
-void onAdError ( const std::string & msg )
+void onAdError ( const std::string & msg ) 
 ```
 
 ```cpp
-void onAdLoaded ( )
+void onAdLoaded ( ) 
 ```
 
 ```cpp
-void onAdOpened ( )
+void onAdOpened ( ) 
 ```
 
 ```cpp
-void onAdClosed ( )
+void onAdClosed ( ) 
 ```
 
 ```cpp
-void onAdClicked ( )
+void onAdClicked ( ) 
 ```
 
 ```cpp
-void onVideoLoaded ( const std::string & name )
+void onVideoLoaded ( const std::string & name ) 
 ```
 
 ```cpp
-void onVideoClicked ( const std::string & name )
+void onVideoClicked ( const std::string & name ) 
 ```
 
 ```cpp
-void onVideoClosed ( const std::string & name )
+void onVideoClosed ( const std::string & name ) 
 ```
 
 ```cpp
-void onVideoEnded ( const std::string & name )
+void onVideoEnded ( const std::string & name ) 
 ```
 
 ```cpp
-void onVideoError ( const std::string & name , const std::string & msg )
+void onVideoError ( const std::string & name , const std::string & msg ) 
 ```
 
 

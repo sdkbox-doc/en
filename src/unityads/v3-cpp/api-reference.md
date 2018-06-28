@@ -9,7 +9,7 @@ static bool init ( ) ;
 ```cpp
 static void setListener ( UnityAdsListener * listener ) ;
 ```
-> Set listener to listen for unityads events
+> Set listener to listen for inmobi events
 
 ```cpp
 static UnityAdsListener * getListener ( ) ;
@@ -22,56 +22,58 @@ static void removeListener ( ) ;
 > Remove the listener, and can't listen to events anymore
 
 ```cpp
-static bool isSupported();
+static bool isSupported ( ) ;
 ```
-> is unityads support current platform
 
 ```cpp
-static bool isReady(const std::string& placementId);
+static bool isReady ( const std::string & placementId ) ;
 ```
-> is unityads ready to show
 
 ```cpp
-static void show(const std::string& placementId);
+static void show ( const std::string & placementId ) ;
 ```
-> show unityads
 
 ```cpp
-static SBUnityAdsPlacementState getPlacementState(const std::string& placementId);
+static SBUnityAdsPlacementState getPlacementState ( const std::string & placementId ) ;
 ```
-> unityads placement state
+
+```cpp
+static void setGDPR ( bool enabled ) ;
+```
+> Enable GDPR
+
+```cpp
+static void setServerId ( const std::string & sid ) ;
+```
 
 
 ### Listeners
+```cpp
+void unityAdsDidClick ( const std::string & placementId ) 
+```
 
 ```cpp
-void unityAdsDidClick(const std::string& placementId);
+void unityAdsPlacementStateChanged ( const std::string & placementId ,
+                                     PluginUnityAds::SBUnityAdsPlacementState oldState ,
+                                     PluginUnityAds::SBUnityAdsPlacementState newState ) 
 ```
-> unityads clicked
 
 ```cpp
-void unityAdsPlacementStateChanged(const std::string& placementId,
-                                PluginUnityAds::SBUnityAdsPlacementState oldState,
-                                PluginUnityAds::SBUnityAdsPlacementState newState);
+void unityAdsReady ( const std::string & placementId ) 
 ```
-> unityads placement state changed
 
 ```cpp
-void unityAdsReady(const std::string& placementId);
+void unityAdsDidError ( PluginUnityAds::SBUnityAdsError error ,
+                        const std::string & message ) 
 ```
-> unityads ready
 
 ```cpp
-void unityAdsDidError(PluginUnityAds::SBUnityAdsError error, const std::string& message);
+void unityAdsDidStart ( const std::string & placementId ) 
 ```
-> unityads error
 
 ```cpp
-void unityAdsDidStart(const std::string& placementId);
+void unityAdsDidFinish ( const std::string & placementId ,
+                         PluginUnityAds::SBUnityAdsFinishState state ) 
 ```
-> unityads start
 
-```cpp
-void unityAdsDidFinish(const std::string& placementId, PluginUnityAds::SBUnityAdsFinishState state);
-```
-> unityads finish
+

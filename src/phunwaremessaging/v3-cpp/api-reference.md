@@ -56,16 +56,16 @@ static void stop ( ) ;
 
 ### Listeners
 ```cpp
-void init ( bool success , const std::string & message ) ;
+void init ( bool success , const std::string & message ) 
 ```
 > Notifies the delegate that the module has finished loading
 
 ```cpp
-void error ( const std::string & message ) ;
+void error ( const std::string & message ) 
 ```
 
 ```cpp
-void notification ( sdkbox::PWLocalNotification notifi ) ;
+void notification ( sdkbox::PWLocalNotification notifi ) 
 ```
 
 

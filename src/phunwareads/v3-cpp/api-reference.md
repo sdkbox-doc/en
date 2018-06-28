@@ -51,49 +51,58 @@ static int getRemainingViews ( const std::string & name ) ;
 ```
 > get remaining views of rewarded video.
 
+```cpp
+static void setCustomData ( const std::string & name ,
+                            const std::map <std::string ,
+                            std::string> & data ) ;
+```
+> set custom data of rewarded video
+
 
 ### Listeners
 ```cpp
-void adLoaded ( const std::string & name ) ;
+void adLoaded ( const std::string & name ) 
 ```
 > there is cached content
 
 ```cpp
 void adFailed ( const std::string & name ,
                 int errorCode ,
-                const std::string & msg ) ;
+                const std::string & msg ) 
 ```
 > there is error when cache content
 
 ```cpp
-void adWillPresent ( const std::string & name ) ;
+void adWillPresent ( const std::string & name ) 
 ```
 > ad will present
 
 ```cpp
-void adDidPresent ( const std::string & name ) ;
+void adDidPresent ( const std::string & name ) 
 ```
 > ad did present
 
 ```cpp
-void adWillDissmiss ( const std::string & name ) ;
+void adWillDissmiss ( const std::string & name ) 
 ```
 > ad will dissmiss
 
 ```cpp
-void adDidDismiss ( const std::string & name ) ;
+void adDidDismiss ( const std::string & name ) 
 ```
 > ad did dismiss
 
 ```cpp
-void willLeaveApp ( const std::string & name ) ;
+void willLeaveApp ( const std::string & name ) 
 ```
 > will leave application
 
 ```cpp
 void reward ( const std::string & name ,
               float amount ,
-              const std::string & currency ) ;
+              const std::string & currency ,
+              const std::map <std::string ,
+              std::string> & customData ) 
 ```
 > reward user with specifying ad name
 

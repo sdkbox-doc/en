@@ -41,6 +41,11 @@ sdkbox.PluginPhunwareAds:getRemainingViews(name)
 ```
 > get remaining views of rewarded video.
 
+```lua
+sdkbox.PluginPhunwareAds:setCustomData(name, data)
+```
+> set custom data of rewarded video
+
 
 ### Listeners
 ```lua
@@ -79,7 +84,7 @@ willLeaveApp(name)
 > will leave application
 
 ```lua
-reward(name, amount, currency)
+reward(name, amount, currency, customData)
 ```
 > reward user with specifying ad name
 

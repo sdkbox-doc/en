@@ -47,46 +47,87 @@ static void hide ( const std::string & name ) ;
 ```
 > hide ad with @name
 
+<pre>
+interstitial does not support hide
+</pre>
+
 ```cpp
 static bool isAvailable ( const std::string & name ) ;
 ```
 > check whether ad available with @name
 
 ```cpp
-static int getCurrBannerWidth ( ) ;
+static int getCurrBannerWidth ( const std::string & name = "" ) ;
 ```
 > get width of current banner
 
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
 ```cpp
-static int getCurrBannerHeight ( ) ;
+static int getCurrBannerHeight ( const std::string & name = "" ) ;
 ```
 > get height of current banner
+
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+```cpp
+static int getCurrBannerWidthInPixel ( const std::string & name = "" ) ;
+```
+> get width of current banner in pixel
+
+<pre>
+@return -1 means current banner is not available
+</pre>
+
+```cpp
+static int getCurrBannerHeightInPixel ( const std::string & name = "" ) ;
+```
+> get height of current banner in pixel
+
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+```cpp
+static void setGDPR ( bool enabled ) ;
+```
+> set GDPR
 
 
 ### Listeners
 ```cpp
-void adViewDidReceiveAd ( const std::string & name ) {
+void adViewDidReceiveAd ( const std::string & name ) 
 ```
 
 ```cpp
 void adViewDidFailToReceiveAdWithError ( const std::string & name ,
-                                         const std::string & msg ) {
+                                         const std::string & msg ) 
 ```
 
 ```cpp
-void adViewWillPresentScreen ( const std::string & name ) {
+void adViewWillPresentScreen ( const std::string & name ) 
 ```
 
 ```cpp
-void adViewDidDismissScreen ( const std::string & name ) {
+void adViewDidDismissScreen ( const std::string & name ) 
 ```
 
 ```cpp
-void adViewWillDismissScreen ( const std::string & name ) {
+void adViewWillDismissScreen ( const std::string & name ) 
 ```
 
 ```cpp
-void adViewWillLeaveApplication ( const std::string & name ) {
+void adViewWillLeaveApplication ( const std::string & name ) 
+```
+
+```cpp
+void reward ( const std::string & name ,
+              const std::string & currency ,
+              double amount ) 
 ```
 
 

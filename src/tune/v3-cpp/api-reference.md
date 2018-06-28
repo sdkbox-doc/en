@@ -26,10 +26,18 @@ static void setDebugMode ( bool enable ) ;
 ```
 > Specifies that the server responses should include debug information.
 
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
+
 ```cpp
 static void setAllowDuplicateRequests ( bool allow ) ;
 ```
 > Set to YES to allow duplicate requests to be registered with the MAT server.
+
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
 
 ```cpp
 SDKBOX_DEPRECATED ( "checkForDeferredDeepLink" ) static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
@@ -37,6 +45,11 @@ SDKBOX_DEPRECATED ( "checkForDeferredDeepLink" ) static void checkForDeferredDee
 > Check for a deferred deeplink entry point upon app installation.
 This is safe to call at every app launch, since the function does nothing
 unless this is the first launch.
+
+<pre>
+The timeout parameter should be set in keeping with the normal first-launch
+time and user experience of your app.
+</pre>
 
 ```cpp
 static void checkForDeferredDeepLink ( ) ;
@@ -51,11 +64,20 @@ static void automateIapEventMeasurement ( bool automate ) ;
 > Enable automatic measurement of app store in-app-purchase events. When enabled, your code
 should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.
 
+<pre>
+@platform iOS
+</pre>
+
 ```cpp
 static void setFacebookEventLogging ( bool logging , bool limit ) ;
 ```
 > Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
 if the Facebook SDK is not present.
+
+<pre>
+should be restricted from being used for other than analytics and conversions.  Defaults to false.
+This value is stored on the device and persists across app launches.
+</pre>
 
 ```cpp
 static void setExistingUser ( bool existingUser ) ;
@@ -64,26 +86,46 @@ static void setExistingUser ( bool existingUser ) ;
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.
 
+<pre>
+See http://support.mobileapptracking.com/entries/22621001-Handling-Installs-prior-to-SDK-implementation
+</pre>
+
 ```cpp
 static void setAppleAdvertisingIdentifier ( const std::string & appleAdvertisingIdentifier ,
                                             bool adTrackingEnabled ) ;
 ```
 > Set the Apple Advertising Identifier available in iOS 6.
 
+<pre>
+@platform iOS
+</pre>
+
 ```cpp
 static void setAppleVendorIdentifier ( const std::string & appleVendorIdentifier ) ;
 ```
 > Set the Apple Vendor Identifier available in iOS 6.
+
+<pre>
+@platform iOS
+</pre>
 
 ```cpp
 static void setCurrencyCode ( const std::string & currencyCode ) ;
 ```
 > Sets the currency code.
 
+<pre>
+Default: USD
+</pre>
+
 ```cpp
 static void setJailbroken ( bool jailbroken ) ;
 ```
 > Sets the jailbroken device flag.
+
+<pre>
+@platform iOS
+</pre>
 
 ```cpp
 static void setPackageName ( const std::string & packageName ) ;
@@ -101,6 +143,10 @@ static void setShouldAutoGenerateAppleVendorIdentifier ( bool autoGenerate ) ;
 ```
 > Specifies if the sdk should pull the Apple Vendor Identifier from the device.
 Note that setting to false will clear any previously set value for the property.
+
+<pre>
+@platform iOS
+</pre>
 
 ```cpp
 SDKBOX_DEPRECATED ( "setPackageName" ) static void setSiteId ( const std::string & siteId ) ;
@@ -185,6 +231,11 @@ static void setPreloadData ( const TunePreloadData & preloadData ) ;
 ```
 > Sets publisher information for attribution.
 
+<pre>
+@function setPreloadDataForScript for Js / Lua
+@function setPreloadData for cpp
+</pre>
+
 ```cpp
 static void setPreloadDataForScript ( const std::string & jsonString ) ;
 ```
@@ -194,20 +245,36 @@ SDKBOX_DEPRECATED ( "tuneId" ) static std::string matId ( ) ;
 ```
 > Get the MAT ID for this installation (mat_id).
 
+<pre>
+@return MAT ID
+</pre>
+
 ```cpp
 static std::string tuneId ( ) ;
 ```
 > Get the Tune ID for this installation.
+
+<pre>
+@return Tune ID
+</pre>
 
 ```cpp
 static std::string openLogId ( ) ;
 ```
 > Get the MAT log ID for the first app open (open_log_id).
 
+<pre>
+@return open log ID
+</pre>
+
 ```cpp
 static bool isPayingUser ( ) ;
 ```
 > Get whether the user is revenue-generating.
+
+<pre>
+@return YES if the user has produced revenue, NO if not
+</pre>
 
 ```cpp
 static void measureSession ( ) ;
@@ -228,6 +295,11 @@ static void measureEventId ( int eventId ) ;
 static void measureEvent ( const TuneEvent & event ) ;
 ```
 > Record an event with a MATEvent.
+
+<pre>
+@function measureEventForScript for Js / Lua
+@function measureEvent for cpp
+</pre>
 
 ```cpp
 static void measureEventForScript ( const std::string & jsonString ) ;
@@ -253,6 +325,10 @@ static void startAppToAppTracking ( const std::string & targetAppPackageName ,
                                     bool shouldRedirect ) ;
 ```
 > Start an app-to-app tracking session on the MAT server.
+
+<pre>
+successfully created. See setRedirectUrl:.
+</pre>
 
 ```cpp
 static void applicationDidOpenURL ( const std::string & urlString ,

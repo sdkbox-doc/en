@@ -16,6 +16,10 @@ sdkbox.IAP.purchase(name);
 ```
 > Make a purchase request
 
+<pre>
+@Param name is the name of the item specified in sdkbox_config.json
+</pre>
+
 ```javascript
 sdkbox.IAP.refresh();
 ```
@@ -38,6 +42,37 @@ sdkbox.IAP.removeListener();
 
 ```javascript
 sdkbox.IAP.enableUserSideVerification();
+```
+
+```javascript
+sdkbox.IAP.isAutoFinishTransaction();
+```
+> get auto invoke finishTransaction flag
+
+```javascript
+sdkbox.IAP.setAutoFinishTransaction(b);
+```
+> set auto invoke finishTransaction flag
+
+```javascript
+sdkbox.IAP.finishTransaction(productid);
+```
+> to invoke ios finishTransaction api
+
+```javascript
+sdkbox.IAP.fetchStorePromotionOrder();
+```
+
+```javascript
+sdkbox.IAP.updateStorePromotionOrder(productNames);
+```
+
+```javascript
+sdkbox.IAP.fetchStorePromotionVisibility(productName);
+```
+
+```javascript
+sdkbox.IAP.updateStorePromotionVisibility(productName, visibility);
 ```
 
 
@@ -82,5 +117,25 @@ onProductRequestFailure(msg);
 onRestoreComplete(ok, msg);
 ```
 > Called when the restore completed
+
+```javascript
+onShouldAddStorePayment(productName);
+```
+
+```javascript
+onFetchStorePromotionOrder(productNames, error);
+```
+
+```javascript
+onFetchStorePromotionVisibility(productName, visibility, error);
+```
+
+```javascript
+onUpdateStorePromotionOrder(error);
+```
+
+```javascript
+onUpdateStorePromotionVisibility(error);
+```
 
 

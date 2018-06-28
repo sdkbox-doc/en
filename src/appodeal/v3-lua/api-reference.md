@@ -2,7 +2,7 @@
 
 ### Methods
 ```lua
-sdkbox.PluginAppodeal:init()
+sdkbox.PluginAppodeal:init(adType)
 ```
 >  initialize the plugin instance.
 
@@ -12,8 +12,13 @@ sdkbox.PluginAppodeal:setListener(listener)
 > Set listener to listen for appodeal events
 
 ```lua
+sdkbox.PluginAppodeal:getSDKVersion()
+```
+
+```lua
 sdkbox.PluginAppodeal:disableNetworkForAdType(adType, networkName)
 ```
+> deprecated
 
 ```lua
 sdkbox.PluginAppodeal:disableLocationPermissionCheck()
@@ -49,6 +54,18 @@ sdkbox.PluginAppodeal:hideBanner()
 
 ```lua
 sdkbox.PluginAppodeal:isReadyForShowWithStyle(showStyle)
+```
+
+```lua
+sdkbox.PluginAppodeal:setSmartBannersEnabled(smartBannerEnabled)
+```
+
+```lua
+sdkbox.PluginAppodeal:setBannerBackgroundVisible(bannerBackgroundVisible)
+```
+
+```lua
+sdkbox.PluginAppodeal:setBannerAnimationEnabled(bannerAnimationEnabled)
 ```
 
 ```lua
@@ -143,29 +160,39 @@ onInterstitialDidClick()
 > trigger when interstitial ad clicked
 
 ```lua
+onInterstitialDidFailToPresent()
+```
+> trigger when interstitial ad fail to present
+
+```lua
 onVideoDidLoadAd()
 ```
 > trigger when video load
+deprecated
 
 ```lua
 onVideoDidFailToLoadAd()
 ```
 > trigger when video fail to load
+deprecated
 
 ```lua
 onVideoDidPresent()
 ```
 > trigger when video present
+deprecated
 
 ```lua
 onVideoWillDismiss()
 ```
 > trigger when video dismiss
+deprecated
 
 ```lua
 onVideoDidFinish()
 ```
 > trigger when video finish
+deprecated
 
 ```lua
 onRewardVideoDidLoadAd()
@@ -191,5 +218,75 @@ onRewardVideoWillDismiss()
 onRewardVideoDidFinish(amount, name)
 ```
 > trigger when reward video finish
+
+```lua
+onRewardVideoDidFailToPresent()
+```
+> trigger when reward video fail to present
+
+```lua
+onSkippableVideoDidLoadAd()
+```
+> trigger when skippable video load
+
+```lua
+onSkippableVideoDidFailToLoadAd()
+```
+> trigger when skippable video fial to load
+
+```lua
+onSkippableVideoDidPresent()
+```
+> trigger when skippable video present
+
+```lua
+onSkippableVideoWillDismiss()
+```
+> trigger when skippable video dismiss
+
+```lua
+onSkippableVideoDidFinish()
+```
+> trigger when skippable video finish
+
+```lua
+onSkippableVideoDidClick()
+```
+> trigger when skippable video click
+
+```lua
+onNonSkippableVideoDidLoadAd()
+```
+> trigger when nonskippable video load
+
+```lua
+onNonSkippableVideoDidFailToLoadAd()
+```
+> trigger when nonskippable video fial to load
+
+```lua
+onNonSkippableVideoDidPresent()
+```
+> trigger when nonskippable video present
+
+```lua
+onNonSkippableVideoWillDismiss()
+```
+> trigger when nonskippable video dismiss
+
+```lua
+onNonSkippableVideoDidFinish()
+```
+> trigger when nonskippable video finish
+
+```lua
+onNonSkippableVideoDidClick()
+```
+> trigger when nonskippable video click
+
+```lua
+onNonSkippableVideoDidFailToPresent()
+```
+> trigger when nonskippable video fail to present
 
 

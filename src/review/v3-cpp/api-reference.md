@@ -2,7 +2,7 @@
 
 ### Methods
 ```cpp
-static bool init ( ) ;
+static bool init ( const char * jsonconfig = 0 ) ;
 ```
 >  initialize the plugin instance.
 
@@ -37,27 +37,32 @@ but instead of jumping to the review directly, an intermediary prompt is display
 another case is for debug
 
 ```cpp
+static void rate ( ) ;
+```
+> goto rating page directly
+
+```cpp
 static void userDidSignificantEvent ( bool canPromptForRating ) ;
 ```
 
 ```cpp
-static void setTitle ( const std::string & title ) ;
+SDKBOX_DEPRECATED ( "setTitle" ) static void setTitle ( const std::string & title ) ;
 ```
 
 ```cpp
-static void setMessage ( const std::string & message ) ;
+SDKBOX_DEPRECATED ( "setMessage" ) static void setMessage ( const std::string & message ) ;
 ```
 
 ```cpp
-static void setCancelButtonTitle ( const std::string & cancelTitle ) ;
+SDKBOX_DEPRECATED ( "setCancelButtonTitle" ) static void setCancelButtonTitle ( const std::string & cancelTitle ) ;
 ```
 
 ```cpp
-static void setRateButtonTitle ( const std::string & rateTitle ) ;
+SDKBOX_DEPRECATED ( "setRateButtonTitle" ) static void setRateButtonTitle ( const std::string & rateTitle ) ;
 ```
 
 ```cpp
-static void setRateLaterButtonTitle ( const std::string & rateLaterTitle ) ;
+SDKBOX_DEPRECATED ( "setRateLaterButtonTitle" ) static void setRateLaterButtonTitle ( const std::string & rateLaterTitle ) ;
 ```
 
 

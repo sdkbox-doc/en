@@ -2,7 +2,7 @@
 
 ### Methods
 ```lua
-sdkbox.PluginShare:init()
+sdkbox.PluginShare:init(jsonConfig)
 ```
 >  initialize the plugin instance.
 
@@ -10,6 +10,16 @@ sdkbox.PluginShare:init()
 sdkbox.PluginShare:setListener(listener)
 ```
 > Set listener to listen for share events
+
+```lua
+sdkbox.PluginShare:setSharePanelTitle(s)
+```
+> set custome share platform choose panel title, default is "Share to"
+
+```lua
+sdkbox.PluginShare:setSharePanelCancel(s)
+```
+> set custome share platform choose panel cancel button, default is "Cancel"
 
 
 ### Listeners

@@ -7,6 +7,11 @@ sdkbox.PluginFacebook:init()
 > initialize the plugin instance.
 
 ```lua
+sdkbox.PluginFacebook:setLoginBehavior(loginBehavior)
+```
+> login
+
+```lua
 sdkbox.PluginFacebook:login()
 ```
 > log in
@@ -119,6 +124,21 @@ sdkbox.PluginFacebook:sendGift(friend_ids,
 ```
 > Send friend a gift
 
+```lua
+sdkbox.PluginFacebook:logEvent(eventName)
+```
+> Log event
+
+```lua
+sdkbox.PluginFacebook:logEvent(eventName, valueToSum)
+```
+> Log event with value
+
+```lua
+sdkbox.PluginFacebook:logPurchase(mount, currency)
+```
+> Log purchase event
+
 
 ### Listeners
 ```lua
@@ -166,7 +186,7 @@ onGetUserInfo(userInfo)
 ```
 
 ```lua
-onAskGiftResult(result, msg)
+onRequestGiftResult(result, msg)
 ```
 
 ```lua

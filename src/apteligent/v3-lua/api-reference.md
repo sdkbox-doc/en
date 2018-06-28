@@ -21,12 +21,29 @@ sdkbox.PluginApteligent:leaveBreadcrumb(breadcrumb)
 ```
 > Breadcrumbs provide the ability to track activity within your app.
 
+<pre>
+A breadcrumb is a free form string you supply, which will be timestamped,
+and stored in case a crash occurs. Crash reports will contain the breadcrumb
+trail from the run of your app that crashed, as well as that of the prior
+run.
+Breadcrumbs are limited to 140 characters, and only the most recent 100 are
+kept. Apteligent will automatically insert a breadcrumb marked
+  "session_start"
+on each initial launch, or foreground of your app.
+Note - Breadcrumbs are an Enterprise level feature.
+</pre>
+
 ```lua
 sdkbox.PluginApteligent:setAsyncBreadcrumbMode(writeAsync)
 ```
 > By default, breadcrumbs are flushed to disk immediately when written.
 This is by design - in order to provide an accurate record of everything
 that happened up until the point your app crashed.
+
+<pre>
+If you are concerned about the performance costs of writing the file, you can
+instruct the library to perform all breadcrumb writes on a background thread.
+</pre>
 
 ```lua
 sdkbox.PluginApteligent:updateLocation(latitude, longitude)
@@ -69,6 +86,10 @@ any offline crash reports. Unsent crash reports will be kept until they are
 successfully transmitted to Apteligent, hence there may be more than
 |maxOfflineCrashReports| stored on the device for a short period of time.
 
+<pre>
+The default value is 3, and there is an upper bound of 10.
+</pre>
+
 ```lua
 sdkbox.PluginApteligent:maxOfflineCrashReports()
 ```
@@ -79,6 +100,15 @@ the local device if the device does not have internet connectivity.
 sdkbox.PluginApteligent:getUserUUID()
 ```
 > Get the Apteligent generated unique identifier for this device.
+
+<pre>
+!! This is NOT the device's UDID.
+If called before enabling the library, this will return an empty string.
+All Apteligent enabled apps on a device will share the UUID created by the
+first installed Apteligent enabled app.
+If all Apteligent enabled applications are removed from a device, a new
+UUID will be generated when the next one is installed.
+</pre>
 
 ```lua
 sdkbox.PluginApteligent:setUsername(username)

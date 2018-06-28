@@ -2,7 +2,7 @@
 
 ### Methods
 ```javascript
-sdkbox.PluginReview.init();
+sdkbox.PluginReview.init(jsonconfig);
 ```
 >  initialize the plugin instance.
 
@@ -27,27 +27,32 @@ but instead of jumping to the review directly, an intermediary prompt is display
 another case is for debug
 
 ```javascript
+sdkbox.PluginReview.rate();
+```
+> goto rating page directly
+
+```javascript
 sdkbox.PluginReview.userDidSignificantEvent(canPromptForRating);
 ```
 
 ```javascript
-sdkbox.PluginReview.setTitle(title);
+sdkbox.PluginReview.SDKBOX_DEPRECATED(setTitle(conststd::string&title);
 ```
 
 ```javascript
-sdkbox.PluginReview.setMessage(message);
+sdkbox.PluginReview.SDKBOX_DEPRECATED(setMessage(conststd::string&message);
 ```
 
 ```javascript
-sdkbox.PluginReview.setCancelButtonTitle(cancelTitle);
+sdkbox.PluginReview.SDKBOX_DEPRECATED(setCancelButtonTitle(conststd::string&cancelTitle);
 ```
 
 ```javascript
-sdkbox.PluginReview.setRateButtonTitle(rateTitle);
+sdkbox.PluginReview.SDKBOX_DEPRECATED(setRateButtonTitle(conststd::string&rateTitle);
 ```
 
 ```javascript
-sdkbox.PluginReview.setRateLaterButtonTitle(rateLaterTitle);
+sdkbox.PluginReview.SDKBOX_DEPRECATED(setRateLaterButtonTitle(conststd::string&rateLaterTitle);
 ```
 
 

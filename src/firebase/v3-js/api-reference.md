@@ -2,31 +2,44 @@
 
 ### Methods
 ```javascript
-sdkbox.firebase.Analytics.init ( ) ;
+sdkbox.firebase.Analytics.init();
 ```
 >  initialize the plugin instance.
 
 ```javascript
-sdkbox.firebase.Analytics.getVersion ( ) ;
+sdkbox.firebase.Analytics.getVersion();
 ```
->  firebase version.
+> Use this to get the version of the SDK.
+@return The version of the SDK.
 
 ```javascript
 sdkbox.firebase.Analytics.setUserProperty(name, value);
 ```
-> set user property
 
 ```javascript
 sdkbox.firebase.Analytics.setUserID(userID);
 ```
-> set user id
 
 ```javascript
 sdkbox.firebase.Analytics.setScreenName(screen, screenClass);
 ```
-> set current screen
 
 ```javascript
 sdkbox.firebase.Analytics.logEvent(event, params);
 ```
-> log event
+
+```javascript
+sdkbox.firebase.Analytics.resetAnalyticsData();
+```
+> Clears all analytics data for this instance from the device and resets the app instance ID.
+FIRAnalyticsConfiguration values will be reset to the default values.
+
+```javascript
+sdkbox.firebase.Analytics.setAnalyticsCollectionEnabled(enabled);
+```
+> Sets whether analytics collection is enabled for this app on this device.
+This setting is persisted across app sessions. By default it is enabled. (Only for Android)
+
+
+### Listeners
+

@@ -16,6 +16,10 @@ sdkbox.IAP:purchase(name)
 ```
 > Make a purchase request
 
+<pre>
+@Param name is the name of the item specified in sdkbox_config.json
+</pre>
+
 ```lua
 sdkbox.IAP:refresh()
 ```
@@ -38,6 +42,37 @@ sdkbox.IAP:removeListener()
 
 ```lua
 sdkbox.IAP:enableUserSideVerification()
+```
+
+```lua
+sdkbox.IAP:isAutoFinishTransaction()
+```
+> get auto invoke finishTransaction flag
+
+```lua
+sdkbox.IAP:setAutoFinishTransaction(b)
+```
+> set auto invoke finishTransaction flag
+
+```lua
+sdkbox.IAP:finishTransaction(productid)
+```
+> to invoke ios finishTransaction api
+
+```lua
+sdkbox.IAP:fetchStorePromotionOrder()
+```
+
+```lua
+sdkbox.IAP:updateStorePromotionOrder(productNames)
+```
+
+```lua
+sdkbox.IAP:fetchStorePromotionVisibility(productName)
+```
+
+```lua
+sdkbox.IAP:updateStorePromotionVisibility(productName, visibility)
 ```
 
 
@@ -82,5 +117,25 @@ onProductRequestFailure(msg)
 onRestoreComplete(ok, msg)
 ```
 > Called when the restore completed
+
+```lua
+onShouldAddStorePayment(productName)
+```
+
+```lua
+onFetchStorePromotionOrder(productNames, error)
+```
+
+```lua
+onFetchStorePromotionVisibility(productName, visibility, error)
+```
+
+```lua
+onUpdateStorePromotionOrder(error)
+```
+
+```lua
+onUpdateStorePromotionVisibility(error)
+```
 
 

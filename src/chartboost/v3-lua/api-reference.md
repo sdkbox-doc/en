@@ -2,7 +2,14 @@
 
 ### Methods
 ```lua
-sdkbox.PluginChartboost:init()
+sdkbox.PluginChartboost:restrictDataCollection(shouldRestrict)
+```
+> Set to restrict Chartboost's ability to collect personal data from the device.
+When this is set to YES. IDFA and ip address will not be collected by the SDK or the server.
+This method should be called before init
+
+```lua
+sdkbox.PluginChartboost:init(jsonconfig)
 ```
 > initialize the plugin instance.
 
@@ -45,6 +52,10 @@ sdkbox.PluginChartboost:closeImpression()
 ```
 > close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).
+
+<pre>
+deprecated >= 2.3.x
+</pre>
 
 ```lua
 sdkbox.PluginChartboost:setStatusBarBehavior(behavior)

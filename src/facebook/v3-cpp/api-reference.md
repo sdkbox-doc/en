@@ -22,6 +22,11 @@ static void removeListener ( ) ;
 > Remove the listener, and can't listen to events anymore
 
 ```cpp
+static void setLoginBehavior ( int loginBehavior ) ;
+```
+> login
+
+```cpp
 static void login ( ) ;
 ```
 > log in
@@ -169,6 +174,21 @@ static void sendGift ( const std::vector <std::string> & friend_ids ,
 ```
 > Send friend a gift
 
+```cpp
+static void logEvent ( const std::string & eventName ) ;
+```
+> Log event
+
+```cpp
+static void logEvent ( const std::string & eventName , float valueToSum ) ;
+```
+> Log event with value
+
+```cpp
+static void logPurchase ( float mount , const std::string & currency ) ;
+```
+> Log purchase event
+
 
 ### Listeners
 ```cpp
@@ -217,7 +237,7 @@ void onGetUserInfo ( const FBGraphUser & userInfo );
 ```
 
 ```cpp
-void onAskGiftResult ( bool result , const std::string & msg ) 
+void onRequestGiftResult ( bool result , const std::string & msg ) 
 ```
 
 ```cpp

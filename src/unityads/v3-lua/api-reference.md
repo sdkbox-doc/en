@@ -9,57 +9,57 @@ sdkbox.PluginUnityAds:init()
 ```lua
 sdkbox.PluginUnityAds:setListener(listener)
 ```
-> Set listener to listen for unityads events
+> Set listener to listen for inmobi events
 
 ```lua
-sdkbox.PluginUnityAds:isSupported();
+sdkbox.PluginUnityAds:isSupported()
 ```
-> is unityads support current platform
 
 ```lua
-sdkbox.PluginUnityAds:isReady(placementId);
+sdkbox.PluginUnityAds:isReady(placementId)
 ```
-> is unityads ready to show
 
 ```lua
-sdkbox.PluginUnityAds:show(placementId);
+sdkbox.PluginUnityAds:show(placementId)
 ```
-> show unityads
 
 ```lua
-sdkbox.PluginUnityAds:getPlacementState(placementId);
+sdkbox.PluginUnityAds:getPlacementState(placementId)
 ```
-> unityads placement state
+
+```lua
+sdkbox.PluginUnityAds:setGDPR(enabled)
+```
+> Enable GDPR
+
+```lua
+sdkbox.PluginUnityAds:setServerId(sid)
+```
 
 
 ### Listeners
 ```lua
-unityAdsDidClick(const std::string& placementId);
+unityAdsDidClick(placementId)
 ```
-> unityads clicked
 
 ```lua
-unityAdsPlacementStateChanged(placementId, oldState, newState);
+unityAdsPlacementStateChanged(placementId, oldState, newState)
 ```
-> unityads placement state changed
 
 ```lua
-unityAdsReady(placementId);
+unityAdsReady(placementId)
 ```
-> unityads ready
 
 ```lua
-unityAdsDidError(error, message);
+unityAdsDidError(error, message)
 ```
-> unityads error
 
 ```lua
-unityAdsDidStart(placementId);
+unityAdsDidStart(placementId)
 ```
-> unityads start
 
 ```lua
-unityAdsDidFinish(placementId, state);
+unityAdsDidFinish(placementId, state)
 ```
-> unityads finish
+
 

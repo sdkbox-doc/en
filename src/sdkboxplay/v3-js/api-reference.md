@@ -190,7 +190,7 @@ sdkbox.PluginSdkboxPlay.isSignedIn();
 > Same as isConnected (deprecated) but more consistent with naming.
 
 ```javascript
-sdkbox.PluginSdkboxPlay.signin();
+sdkbox.PluginSdkboxPlay.signin(showLoginUI);
 ```
 > Request connection to the platform-specific services backend.
 This method will invoke plugin's listener <code>onConnectionStatusChanged</code> method.
@@ -240,20 +240,41 @@ iOS Only
 ```javascript
 sdkbox.PluginSdkboxPlay.loadAllData();
 ```
-> load all saved user game data in clound
+> >>>>>> DEPRECATED >>>>>> Please use loadAllGameData to replace
+load all saved user game data in clound
 will trigger onGameData callback
 
 ```javascript
 sdkbox.PluginSdkboxPlay.loadGameData(save_name);
 ```
-> load one saved user game data in clound
+> >>>>>> DEPRECATED >>>>>> Please use loadAllGameData to replace
+load one saved user game data in clound
 will trigger onGameData callback
 
 ```javascript
 sdkbox.PluginSdkboxPlay.saveGameData(save_name, data);
 ```
-> save user game data in cloud
+> >>>>>> DEPRECATED >>>>>> Please use saveGameDataBinary(name, data, length) to replace
+save user game data in cloud
 will trigger onGameData callback
+
+```javascript
+sdkbox.PluginSdkboxPlay.fetchGameDataNames();
+```
+> fetch game data names
+will trigger onGameDataNames
+
+```javascript
+sdkbox.PluginSdkboxPlay.loadOneGameData(name);
+```
+> load game data item
+will trigger onLoadGameData
+
+```javascript
+sdkbox.PluginSdkboxPlay.loadAllGameData();
+```
+> load all saved game data
+will trigger onLoadGameData callback
 
 
 ### Listeners
@@ -425,6 +446,19 @@ onRevealError(name, error_code, error_description);
 
 ```javascript
 onGameData(action, name, data, error);
+```
+> >>>>>> DEPRECATED >>>>>>
+
+```javascript
+onSaveGameData(success, error);
+```
+> 
+```javascript
+onLoadGameData(savedData, error);
+```
+> 
+```javascript
+onGameDataNames(names, error);
 ```
 > 
 

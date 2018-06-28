@@ -2,7 +2,7 @@
 
 ### Methods
 ```cpp
-static void init ( ) ;
+static void init ( const char * jsonconfig = 0 ) ;
 ```
 > initialize the plugin instance.
 
@@ -84,6 +84,46 @@ static void logSocial ( const std::string & socialNetwork ,
 > Log a social event.
 
 ```cpp
+static void logECommerce ( std::map <std::string , std::string> info ) ;
+```
+> Log ecommerce event
+
+<pre>
+            // 1. track purchase
+            std::map<std::string, std::string> info;
+            // transaction info
+            info["action"] = "purchase";
+            info["transaction"] = "T12345";
+            info["affiliation"] = "Google Store - Online";
+            info["transactionCouponCode"] = "SUMMER2017";
+            info["revenue"] = "37.39";
+            info["tax"] = "2.85";
+            info["shipping"] = "5.34";
+            // product info
+            info["productID"] = "P12345";
+            info["productName"] = "Android Warhol T-Shirt";
+            info["category"] = "Apparel/T-Shirts";
+            info["brand"] = "SDKBox";
+            info["productVariant"] = "black";
+            info["productCouponCode"] = "APPARELSALE";
+            info["price"] = "29.20";
+            info["quantity"] = "1"; // int
+            // currency code
+            // https://support.google.com/analytics/answer/6205902?#supported-currencies
+            info["currencyCode"] = "EUR";
+            sdkbox::PluginGoogleAnalytics::logECommerce(info);
+
+            // 2. track refund
+            // transaction info
+            info["action"] = "refund";
+            info["transaction"] = "T12345";
+            // product info
+            info["productID"] = "P12345";
+            info["quantity"] = "1";
+            sdkbox::PluginGoogleAnalytics::logECommerce(info);
+</pre>
+
+```cpp
 static void setDryRun ( bool enable ) ;
 ```
 > While running on dry run, the tracked events won't be sent to the actual
@@ -107,6 +147,11 @@ static void enableTracker ( const std::string & trackerId ) ;
 ```
 > Enable a tracker identified by a trackerId. If the tracker does not exist,
 nothing will happen.
+
+```cpp
+static void enableExceptionReporting ( bool enable ) ;
+```
+> Enables or disables uncaught exception reporting for a given tracker.
 
 
 ### Listeners

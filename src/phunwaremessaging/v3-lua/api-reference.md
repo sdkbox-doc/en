@@ -35,14 +35,6 @@ sdkbox.PluginPhunwareMessaging:version()
 sdkbox.PluginPhunwareMessaging:stop()
 ```
 
-```lua
-sdkbox.PluginPhunwareMessaging:messages()
-```
-
-```lua
-sdkbox.PluginPhunwareMessaging:geozones()
-```
-
 
 ### Listeners
 ```lua

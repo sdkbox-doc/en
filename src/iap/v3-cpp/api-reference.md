@@ -21,6 +21,10 @@ static void purchase ( const std::string & name ) ;
 ```
 > Make a purchase request
 
+<pre>
+@Param name is the name of the item specified in sdkbox_config.json
+</pre>
+
 ```cpp
 static void refresh ( ) ;
 ```
@@ -43,6 +47,38 @@ static void removeListener ( ) ;
 
 ```cpp
 static void enableUserSideVerification ( bool ) ;
+```
+
+```cpp
+static bool isAutoFinishTransaction ( ) ;
+```
+> get auto invoke finishTransaction flag
+
+```cpp
+static void setAutoFinishTransaction ( bool b ) ;
+```
+> set auto invoke finishTransaction flag
+
+```cpp
+static void finishTransaction ( const std::string productid ) ;
+```
+> to invoke ios finishTransaction api
+
+```cpp
+static void fetchStorePromotionOrder ( ) ;
+```
+
+```cpp
+static void updateStorePromotionOrder ( const std::vector <std::string> & productNames ) ;
+```
+
+```cpp
+static void fetchStorePromotionVisibility ( const std::string & productName ) ;
+```
+
+```cpp
+static void updateStorePromotionVisibility ( const std::string & productName ,
+                                             bool visibility ) ;
 ```
 
 
@@ -87,5 +123,28 @@ void onProductRequestFailure ( const std::string & msg );
 void onRestoreComplete ( bool ok , const std::string & msg );
 ```
 > Called when the restore completed
+
+```cpp
+bool onShouldAddStorePayment ( const std::string & productName ) 
+```
+
+```cpp
+void onFetchStorePromotionOrder ( const std::vector <std::string> & productNames ,
+                                  const std::string & error ) 
+```
+
+```cpp
+void onFetchStorePromotionVisibility ( const std::string productName ,
+                                       bool visibility ,
+                                       const std::string & error ) 
+```
+
+```cpp
+void onUpdateStorePromotionOrder ( const std::string & error ) 
+```
+
+```cpp
+void onUpdateStorePromotionVisibility ( const std::string & error ) 
+```
 
 

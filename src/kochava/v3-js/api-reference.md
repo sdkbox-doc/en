@@ -21,25 +21,33 @@ sdkbox.PluginKochava.trackEvent(event, value);
 ```
 > track a single event
 
+<pre>
+http://support.kochava.com/support/solutions/articles/1000059874-ios-sdk-documentation#caleve
+</pre>
+
 ```javascript
 sdkbox.PluginKochava.spatialEvent(title, x, y, z);
 ```
 > spatial event to help visualize data
+
+<pre>
+http://support.kochava.com/support/solutions/articles/1000059874-ios-sdk-documentation#senspa
+just support on ios
+</pre>
 
 ```javascript
 sdkbox.PluginKochava.setLimitAdTracking(limitAdTracking);
 ```
 > turn on/off ad tracking
 
+<pre>
+http://support.kochava.com/support/solutions/articles/1000059874-ios-sdk-documentation#toglim
+</pre>
+
 ```javascript
 sdkbox.PluginKochava.sendDeepLink(url, application);
 ```
 > send a referral to where your app was opened from.
-
-```javascript
-sdkbox.PluginKochava.setBeaconCallback(callback);
-```
-> specify beacon transition callback
 
 
 ### Listeners

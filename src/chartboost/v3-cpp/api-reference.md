@@ -2,7 +2,14 @@
 
 ### Methods
 ```cpp
-static void init ( ) ;
+static void restrictDataCollection ( bool shouldRestrict ) ;
+```
+> Set to restrict Chartboost's ability to collect personal data from the device.
+When this is set to YES. IDFA and ip address will not be collected by the SDK or the server.
+This method should be called before init
+
+```cpp
+static void init ( const char * jsonconfig = 0 ) ;
 ```
 > initialize the plugin instance.
 
@@ -54,6 +61,10 @@ static void closeImpression ( ) ;
 ```
 > close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).
+
+<pre>
+deprecated >= 2.3.x
+</pre>
 
 ```cpp
 static void setStatusBarBehavior ( CB_StatusBarBehavior behavior ) ;
