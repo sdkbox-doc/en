@@ -831,7 +831,7 @@ plugin:init()
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginAppodeal:init()
+<pre><code class="lua">sdkbox.PluginAppodeal:init(adType)
 </code></pre>
 
 <blockquote>
@@ -843,9 +843,15 @@ plugin:init()
 <blockquote>
 <p>Set listener to listen for appodeal events</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginAppodeal:getSDKVersion()
+</code></pre>
+
 <pre><code class="lua">sdkbox.PluginAppodeal:disableNetworkForAdType(adType, networkName)
 </code></pre>
 
+<blockquote>
+<p>deprecated</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginAppodeal:disableLocationPermissionCheck()
 </code></pre>
 
@@ -871,6 +877,15 @@ plugin:init()
 </code></pre>
 
 <pre><code class="lua">sdkbox.PluginAppodeal:isReadyForShowWithStyle(showStyle)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginAppodeal:setSmartBannersEnabled(smartBannerEnabled)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginAppodeal:setBannerBackgroundVisible(bannerBackgroundVisible)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginAppodeal:setBannerAnimationEnabled(bannerAnimationEnabled)
 </code></pre>
 
 <pre><code class="lua">sdkbox.PluginAppodeal:setUserVkId(vkId)
@@ -961,35 +976,46 @@ plugin:init()
 <blockquote>
 <p>trigger when interstitial ad clicked</p>
 </blockquote>
+<pre><code class="lua">onInterstitialDidFailToPresent()
+</code></pre>
+
+<blockquote>
+<p>trigger when interstitial ad fail to present</p>
+</blockquote>
 <pre><code class="lua">onVideoDidLoadAd()
 </code></pre>
 
 <blockquote>
-<p>trigger when video load</p>
+<p>trigger when video load
+deprecated</p>
 </blockquote>
 <pre><code class="lua">onVideoDidFailToLoadAd()
 </code></pre>
 
 <blockquote>
-<p>trigger when video fail to load</p>
+<p>trigger when video fail to load
+deprecated</p>
 </blockquote>
 <pre><code class="lua">onVideoDidPresent()
 </code></pre>
 
 <blockquote>
-<p>trigger when video present</p>
+<p>trigger when video present
+deprecated</p>
 </blockquote>
 <pre><code class="lua">onVideoWillDismiss()
 </code></pre>
 
 <blockquote>
-<p>trigger when video dismiss</p>
+<p>trigger when video dismiss
+deprecated</p>
 </blockquote>
 <pre><code class="lua">onVideoDidFinish()
 </code></pre>
 
 <blockquote>
-<p>trigger when video finish</p>
+<p>trigger when video finish
+deprecated</p>
 </blockquote>
 <pre><code class="lua">onRewardVideoDidLoadAd()
 </code></pre>
@@ -1020,6 +1046,90 @@ plugin:init()
 
 <blockquote>
 <p>trigger when reward video finish</p>
+</blockquote>
+<pre><code class="lua">onRewardVideoDidFailToPresent()
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video fail to present</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoDidLoadAd()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video load</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoDidFailToLoadAd()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video fial to load</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoDidPresent()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video present</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoWillDismiss()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video dismiss</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoDidFinish()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video finish</p>
+</blockquote>
+<pre><code class="lua">onSkippableVideoDidClick()
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video click</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidLoadAd()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video load</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidFailToLoadAd()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fial to load</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidPresent()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video present</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoWillDismiss()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video dismiss</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidFinish()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video finish</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidClick()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video click</p>
+</blockquote>
+<pre><code class="lua">onNonSkippableVideoDidFailToPresent()
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fail to present</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

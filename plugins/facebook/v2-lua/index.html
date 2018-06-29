@@ -1129,6 +1129,12 @@ end)
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:setLoginBehavior(loginBehavior)
+</code></pre>
+
+<blockquote>
+<p>login</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginFacebook:login()
 </code></pre>
 
@@ -1259,6 +1265,24 @@ The number of friends defaults to 25.
 <blockquote>
 <p>Send friend a gift</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:logEvent(eventName)
+</code></pre>
+
+<blockquote>
+<p>Log event</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:logEvent(eventName, valueToSum)
+</code></pre>
+
+<blockquote>
+<p>Log event with value</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginFacebook:logPurchase(mount, currency)
+</code></pre>
+
+<blockquote>
+<p>Log purchase event</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(isLogin, msg)
 </code></pre>
@@ -1293,7 +1317,7 @@ The number of friends defaults to 25.
 <pre><code class="lua">onGetUserInfo(userInfo)
 </code></pre>
 
-<pre><code class="lua">onAskGiftResult(result, msg)
+<pre><code class="lua">onRequestGiftResult(result, msg)
 </code></pre>
 
 <pre><code class="lua">onSendGiftResult(result, msg)

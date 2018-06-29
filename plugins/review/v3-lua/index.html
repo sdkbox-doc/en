@@ -1017,7 +1017,7 @@ plugin:init()
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginReview:init()
+<pre><code class="lua">sdkbox.PluginReview:init(jsonconfig)
 </code></pre>
 
 <blockquote>
@@ -1045,22 +1045,28 @@ explicit "Rate this app" command somewhere. This is similar to rateApp,
 but instead of jumping to the review directly, an intermediary prompt is displayed.
 another case is for debug</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginReview:rate()
+</code></pre>
+
+<blockquote>
+<p>goto rating page directly</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginReview:userDidSignificantEvent(canPromptForRating)
 </code></pre>
 
-<pre><code class="lua">sdkbox.PluginReview:setTitle(title)
+<pre><code class="lua">sdkbox.PluginReview:SDKBOX_DEPRECATED(setTitle(conststd::string&amp;title)
 </code></pre>
 
-<pre><code class="lua">sdkbox.PluginReview:setMessage(message)
+<pre><code class="lua">sdkbox.PluginReview:SDKBOX_DEPRECATED(setMessage(conststd::string&amp;message)
 </code></pre>
 
-<pre><code class="lua">sdkbox.PluginReview:setCancelButtonTitle(cancelTitle)
+<pre><code class="lua">sdkbox.PluginReview:SDKBOX_DEPRECATED(setCancelButtonTitle(conststd::string&amp;cancelTitle)
 </code></pre>
 
-<pre><code class="lua">sdkbox.PluginReview:setRateButtonTitle(rateTitle)
+<pre><code class="lua">sdkbox.PluginReview:SDKBOX_DEPRECATED(setRateButtonTitle(conststd::string&amp;rateTitle)
 </code></pre>
 
-<pre><code class="lua">sdkbox.PluginReview:setRateLaterButtonTitle(rateLaterTitle)
+<pre><code class="lua">sdkbox.PluginReview:SDKBOX_DEPRECATED(setRateLaterButtonTitle(conststd::string&amp;rateLaterTitle)
 </code></pre>
 
 <h3 id="listeners">Listeners</h3>

@@ -834,6 +834,16 @@ private:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
+<pre><code class="cpp">static void setGDPR ( bool enabled ) ;
+</code></pre>
+
+<blockquote>
+<p>Set GDPR</p>
+</blockquote>
+<pre>
+>>NOTE>>: please call before 'init' function
+</pre>
+
 <pre><code class="cpp">static void init ( ) ;
 </code></pre>
 
@@ -870,6 +880,10 @@ private:
 <blockquote>
 <p>Returns the zone status for the specified zone.</p>
 </blockquote>
+<pre>
+@deprecated please use getStatus(name) instead
+</pre>
+
 <pre><code class="cpp">static AdColonyAdStatus getStatus ( const std::string &amp; name ) ;
 </code></pre>
 
@@ -882,60 +896,120 @@ private:
 <blockquote>
 <p>Assigns your own custom identifier to the current app user.</p>
 </blockquote>
+<pre>
+Once you've provided an identifier, AdColony will persist it across app
+restarts (stored on disk only) until you update it. If using this method,
+call it before `+ configureWithAppID:zoneIDs:delegate:logging:` so that the
+identifier is used consistently across all server communications. The
+identifier will also pass through to server-side V4VC callbacks.
+@see getCustomID
+</pre>
+
 <pre><code class="cpp">static std::string getCustomID ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns the device's current custom identifier.</p>
 </blockquote>
+<pre>
+@return The custom identifier string most recently set using `+ setCustomID:`.
+@see setCustomID:
+</pre>
+
 <pre><code class="cpp">static std::string getUniqueDeviceID ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns an AdColony-defined device identifier.</p>
 </blockquote>
+<pre>
+This identifier should remain constant across the lifetime of an iOS device.
+The identifier is a SHA-1 hash of the lowercase colon-separated MAC address of the device's WiFi interface.
+We do not recommend using this
+identifier for new integrations. This method is provided for backwards compatibility.
+@return The string representation of the device's AdColony identifier.
+</pre>
+
 <pre><code class="cpp">static std::string getAdvertisingIdentifier ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns the device's advertising identifier.</p>
 </blockquote>
+<pre>
+This value can change if the user restores their device or resets ad tracking.
+@return The string representation of the device's advertising identifier, introduced in iOS 6. Returns `nil` on iOS 5 or below.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static std::string getVendorIdentifier ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns the device's vendor identifier.</p>
 </blockquote>
+<pre>
+@return As of version 2.3 of our iOS SDK, AdColony no longer collects the vendor identifier and this method will return `nil`. This method is provided for backwards compatibility.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static int getVideosPerReward ( const std::string &amp; currencyName ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns the number of ads that the user must play to earn the designated reward.</p>
 </blockquote>
+<pre>
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static int getVideoCreditBalance ( const std::string &amp; currencyName ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns the number of ads that the user has seen towards their next reward.</p>
 </blockquote>
+<pre>
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static void cancelAd ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Cancels any full-screen ad that is currently playing and returns control to the app.</p>
 </blockquote>
+<pre>
+No earnings or V4VC rewards will occur if an ad is canceled programmatically by the app.
+This should only be used by apps that must immediately respond to non-standard incoming events,
+like a VoIP phone call. This should not be used for standard app interruptions such as
+multitasking or regular phone calls.
+</pre>
+
 <pre><code class="cpp">static bool videoAdCurrentlyRunning ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Whether a full-screen AdColony ad is currently being played.</p>
 </blockquote>
+<pre>
+@return A boolean indicating if AdColony is currently playing an ad.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static void turnAllAdsOff ( ) ;
 </code></pre>
 
 <blockquote>
 <p>This method permanently turns off all AdColony ads for this app on the current device.</p>
 </blockquote>
+<pre>
+After this method is called, no ads will be played unless the app is deleted and reinstalled.
+This method could be used in the implementation of an In-App Purchase to disable ads;
+make sure to allow In-App Purchases to be restored by the user in the case of deleting and reinstalling the app.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static void setUserMetadata ( const std::string &amp; metadataType ,
                               const std::string &amp; value ) ;
 </code></pre>
@@ -943,12 +1017,27 @@ private:
 <blockquote>
 <p>Provide AdColony with per-user non personally-identifiable information for ad targeting purposes.</p>
 </blockquote>
+<pre>
+Providing non personally-identifiable information using this API will improve targeting and unlock
+improved earnings for your app. [This support article](http://support.adcolony.com/customer/portal/articles/700183-sdk-user-metadata-pass-through) contains usage guidelines.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static void userInterestedIn ( const std::string &amp; topic ) ;
 </code></pre>
 
 <blockquote>
 <p>Provide AdColony with real-time feedback about what a user is interested in.</p>
 </blockquote>
+<pre>
+Providing non personally-identifiable information using this API will improve targeting and unlock
+improved earnings for your app. [This support article](http://support.adcolony.com/customer/portal/articles/700183-sdk-user-metadata-pass-through) contains usage guidelines.
+You can call this as often as you want with various topics that the user has engaged in
+within your app or as the user engages in them. For example, if the user has started browsing
+the finance section of a news app, a developer should call: `[AdColony userInterestedIn:@"finance"]`.
+@note this function only available on ios
+</pre>
+
 <pre><code class="cpp">static void notifyIAPComplete ( const std::string &amp; transactionID ,
                                 const std::string &amp; productID ,
                                 int quantity ,
@@ -959,6 +1048,16 @@ private:
 <blockquote>
 <p>Call this method to report IAPs within your application. Note that this API can be leveraged to report standard IAPs
 as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and will improve overall ad targeting.</p>
+</blockquote>
+<pre>
+@see onAdColonyIAPRequest:quantity
+</pre>
+
+<pre><code class="cpp">static void requestAllAds ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Request all ads</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onAdColonyChange ( const AdColonyAdInfo &amp; info , bool available );

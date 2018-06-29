@@ -912,6 +912,7 @@ sdkbox.PluginAdMob.setListener(function(args)
     elif &quot;adViewDidDismissScreen&quot; == event then
     elif &quot;adViewWillDismissScreen&quot; == event then
     elif &quot;adViewWillLeaveApplication&quot; == event then
+    elif &quot;reward&quot; == event then
     end
 end)
 
@@ -962,23 +963,61 @@ end)
 <blockquote>
 <p>hide ad with @name</p>
 </blockquote>
+<pre>
+interstitial does not support hide
+</pre>
+
 <pre><code class="lua">sdkbox.PluginAdMob:isAvailable(name)
 </code></pre>
 
 <blockquote>
 <p>check whether ad available with @name</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerWidth()
+<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerWidth(name)
 </code></pre>
 
 <blockquote>
 <p>get width of current banner</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerHeight()
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerHeight(name)
 </code></pre>
 
 <blockquote>
 <p>get height of current banner</p>
+</blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerWidthInPixel(name)
+</code></pre>
+
+<blockquote>
+<p>get width of current banner in pixel</p>
+</blockquote>
+<pre>
+@return -1 means current banner is not available
+</pre>
+
+<pre><code class="lua">sdkbox.PluginAdMob:getCurrBannerHeightInPixel(name)
+</code></pre>
+
+<blockquote>
+<p>get height of current banner in pixel</p>
+</blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="lua">sdkbox.PluginAdMob:setGDPR(enabled)
+</code></pre>
+
+<blockquote>
+<p>set GDPR</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">adViewDidReceiveAd(name)
@@ -997,6 +1036,9 @@ end)
 </code></pre>
 
 <pre><code class="lua">adViewWillLeaveApplication(name)
+</code></pre>
+
+<pre><code class="lua">reward(name, currency, amount)
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

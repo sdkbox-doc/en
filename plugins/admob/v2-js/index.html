@@ -926,7 +926,8 @@ sdkbox.PluginAdMob.setListener({
     adViewWillPresentScreen : function(name) { },
     adViewDidDismissScreen : function(name) { },
     adViewWillDismissScreen : function(name) { },
-    adViewWillLeaveApplication : function(name) { }
+    adViewWillLeaveApplication : function(name) { },
+    reward(name, currency, amount)
 });
 
 </code></pre>
@@ -976,23 +977,61 @@ sdkbox.PluginAdMob.setListener({
 <blockquote>
 <p>hide ad with @name</p>
 </blockquote>
+<pre>
+interstitial does not support hide
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginAdMob.isAvailable(name);
 </code></pre>
 
 <blockquote>
 <p>check whether ad available with @name</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerWidth();
+<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerWidth(name);
 </code></pre>
 
 <blockquote>
 <p>get width of current banner</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerHeight();
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerHeight(name);
 </code></pre>
 
 <blockquote>
 <p>get height of current banner</p>
+</blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerWidthInPixel(name);
+</code></pre>
+
+<blockquote>
+<p>get width of current banner in pixel</p>
+</blockquote>
+<pre>
+@return -1 means current banner is not available
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginAdMob.getCurrBannerHeightInPixel(name);
+</code></pre>
+
+<blockquote>
+<p>get height of current banner in pixel</p>
+</blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginAdMob.setGDPR(enabled);
+</code></pre>
+
+<blockquote>
+<p>set GDPR</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">adViewDidReceiveAd(name);
@@ -1011,6 +1050,9 @@ sdkbox.PluginAdMob.setListener({
 </code></pre>
 
 <pre><code class="javascript">adViewWillLeaveApplication(name);
+</code></pre>
+
+<pre><code class="javascript">reward(name, currency, amount);
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

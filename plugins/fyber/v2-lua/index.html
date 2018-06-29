@@ -895,7 +895,7 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginFyber:init(userID)
+<pre><code class="lua">sdkbox.PluginFyber:init(userID, jsonconfig)
 </code></pre>
 
 <blockquote>
@@ -907,6 +907,10 @@ end)
 <blockquote>
 <p>Presents the Fyber Mobile OfferWall as a child view controller of your own view controller.</p>
 </blockquote>
+<pre>
+@placementId (deprecated)
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:requestOffers(placementId)
 </code></pre>
 
@@ -919,6 +923,10 @@ end)
 <blockquote>
 <p>Show an available rewarded video.</p>
 </blockquote>
+<pre>
+@placementId (deprecated)
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:requestInterstitial()
 </code></pre>
 
@@ -944,50 +952,50 @@ invoked for the current user ID / app ID combination.</p>
 <blockquote>
 <p>Sets the user's age</p>
 </blockquote>
-<pre><code class="lua">-- &quot;2000-02-03&quot;
-sdkbox.PluginFyber:setBirthdate(data)
+<pre>
+ @param age Age of the user. Pass `FYBEntryIgnore` if value needs to be ignored or to be removed, if already exists
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setBirthdate(data)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's date of birth, format (yyyy-MM-dd)</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserGender.Undefined
--- sdkbox.PluginFyber.UserGender.Male
--- sdkbox.PluginFyber.UserGender.Female
--- sdkbox.PluginFyber.UserGender.Other
-sdkbox.PluginFyber:setGender(gender)
+<pre>
+ @param date Date of birth of the user. Pass `""` if value needs to be ignored or to be removed, if already exists
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setGender(gender)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's gender</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserSexualOrientation.Undefined
--- sdkbox.PluginFyber.UserSexualOrientation.Straight
--- sdkbox.PluginFyber.UserSexualOrientation.Bisexual
--- sdkbox.PluginFyber.UserSexualOrientation.Gay
--- sdkbox.PluginFyber.UserSexualOrientation.Unknown
-sdkbox.PluginFyber:setSexualOrientation(sexualOrientation)
+<pre>
+ @param gender Gender of the user. Pass FYB_UserGenderUndefined if value needs to be ignored or to be removed, if already exists
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setSexualOrientation(sexualOrientation)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's sexual orientation</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserEthnicity.Undefined
--- sdkbox.PluginFyber.UserEthnicity.Asian
--- sdkbox.PluginFyber.UserEthnicity.Black
--- sdkbox.PluginFyber.UserEthnicity.Hispanic
--- sdkbox.PluginFyber.UserEthnicity.Indian
--- sdkbox.PluginFyber.UserEthnicity.MiddleEastern
--- sdkbox.PluginFyber.UserEthnicity.NativeAmerican
--- sdkbox.PluginFyber.UserEthnicity.PacificIslander
--- sdkbox.PluginFyber.UserEthnicity.White
--- sdkbox.PluginFyber.UserEthnicity.Other
-sdkbox.PluginFyber:setEthnicity(ethnicity)
+<pre>
+ @param sexualOrientation Sexual orientation of the user. Pass FYB_UserSexualOrientationUndefined if value needs to be ignored or to be removed, if already exists.
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setEthnicity(ethnicity)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's ethnicity</p>
 </blockquote>
+<pre>
+ @param ethnicity Ethnicity of the user. Pass FYB_UserEthnicityUndefined if value needs to be ignored or to be removed, if already exists
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setLocation(latitude, longitude)
 </code></pre>
 
@@ -1000,117 +1008,146 @@ sdkbox.PluginFyber:setEthnicity(ethnicity)
 <blockquote>
 <p>Clean the user's location</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserMaritalStatus.Undefined
--- sdkbox.PluginFyber.UserMartialStatus.Single
--- sdkbox.PluginFyber.UserMartialStatus.Relationship
--- sdkbox.PluginFyber.UserMartialStatus.Married
--- sdkbox.PluginFyber.UserMartialStatus.Divorced
--- sdkbox.PluginFyber.UserMartialStatus.Engaged
-sdkbox.PluginFyber:setMaritalStatus(status)
+<pre><code class="lua">sdkbox.PluginFyber:setMaritalStatus(status)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's marital status</p>
 </blockquote>
+<pre>
+ @param status Marital status of the user. Pass FYB_UserMaritalStatusUndefined if value needs to be ignored or to be removed if already exists
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setNumberOfChildren(numberOfChildren)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's number of children</p>
 </blockquote>
+<pre>
+ @param numberOfChildren The number of children
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setAnnualHouseholdIncome(income)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's annual household income</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserEducation.Undefined
--- sdkbox.PluginFyber.UserEducation.Other
--- sdkbox.PluginFyber.UserEducation.None
--- sdkbox.PluginFyber.UserEducation.HighSchool
--- sdkbox.PluginFyber.UserEducation.InCollege
--- sdkbox.PluginFyber.UserEducation.SomeCollege
--- sdkbox.PluginFyber.UserEducation.Associates
--- sdkbox.PluginFyber.UserEducation.Bachelors
--- sdkbox.PluginFyber.UserEducation.Masters
--- sdkbox.PluginFyber.UserEducation.Doctorate
-sdkbox.PluginFyber:setEducation(education)
+<pre>
+ @param income Annual household income of the user. Pass `FYB_EntryIgnore` if value needs to be ignored or to be removed, if already exists
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setEducation(education)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's educational background</p>
 </blockquote>
+<pre>
+ @param education Education of the user. Pass FYB_UserEducationUndefined if value needs to be ignored or to be removed, if already exists
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setZipcode(zipcode)
 </code></pre>
 
 <blockquote>
 <p>Sets the user's zipcode</p>
 </blockquote>
+<pre>
+ @param zipcode Zipcode of the current living place of the user. Pass `""` if value needs to be ignored or to be removed, if already exists
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setInterests(interests)
 </code></pre>
 
 <blockquote>
 <p>Set the user's list of interests</p>
 </blockquote>
+<pre>
+ @param interests List of interests of the user. Pass `{}` if value needs to be ignored or to be removed, if already exists
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setIap(flag)
 </code></pre>
 
 <blockquote>
 <p>Sets if in-app purchases are enabled.</p>
 </blockquote>
+<pre>
+ @param flag Sets if in-app purchases are enabled
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setIapAmount(amount)
 </code></pre>
 
 <blockquote>
 <p>Sets the amount that the user has already spent on in-app purchases</p>
 </blockquote>
+<pre>
+ @param amount The amount of money that the user has spent
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setNumberOfSessions(numberOfSessions)
 </code></pre>
 
 <blockquote>
 <p>Sets the number of sessions</p>
 </blockquote>
+<pre>
+ @param numberOfSessions The number of sessions that has already been started
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setPsTime(timestamp)
 </code></pre>
 
 <blockquote>
 <p>Sets the time spent on the current session</p>
 </blockquote>
+<pre>
+ @param timestamp The time spent on the current session
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setLastSession(session)
 </code></pre>
 
 <blockquote>
 <p>Sets the duration of the last session</p>
 </blockquote>
-<pre><code class="lua">-- sdkbox.PluginFyber.UserConnectionType.Undefined
--- sdkbox.PluginFyber.UserConnectionType.WiFi
--- sdkbox.PluginFyber.UserConnectionType.3G
--- sdkbox.PluginFyber.UserConnectionType.LTE
--- sdkbox.PluginFyber.UserConnectionType.Edge
-sdkbox.PluginFyber:setConnectionType(connectionType)
+<pre>
+ @param session The duration of the last session
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setConnectionType(connectionType)
 </code></pre>
 
 <blockquote>
 <p>Sets the connection type used by the user</p>
 </blockquote>
-<pre><code class="lua">-- predefine values
--- sdkbox.PluginFyber.UserDevice.Undefined
--- sdkbox.PluginFyber.UserDevice.IPhone
--- sdkbox.PluginFyber.UserDevice.IPad
--- sdkbox.PluginFyber.UserDevice.IPod
--- sdkbox.PluginFyber.UserDevice.Android
-sdkbox.PluginFyber:setDevice(device)
+<pre>
+ @param connectionType The connection type used by the user
+</pre>
+
+<pre><code class="lua">sdkbox.PluginFyber:setDevice(device)
 </code></pre>
 
 <blockquote>
 <p>Sets the device used by the user</p>
 </blockquote>
+<pre>
+ @param device The device used by the user
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:setVersion(version)
 </code></pre>
 
 <blockquote>
 <p>Sets the app version</p>
 </blockquote>
+<pre>
+ @param version The version of the app currently executed
+</pre>
+
 <pre><code class="lua">sdkbox.PluginFyber:cleanCustomParameters()
 </code></pre>
 
@@ -1123,6 +1160,10 @@ sdkbox.PluginFyber:setDevice(device)
 <blockquote>
 <p>Sets custom parameters to be sent along with the standard parameters</p>
 </blockquote>
+<pre>
+ @param parameters The custom parameters that must be set
+</pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onVirtualCurrencyConnectorFailed(error, errorCode, errorMsg)
 </code></pre>

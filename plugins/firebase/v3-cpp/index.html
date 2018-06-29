@@ -689,6 +689,8 @@
         
             <li><a href="#methods">Methods</a></li>
         
+            <li><a href="#listeners">Listeners</a></li>
+        
 	</ul>
 	
     
@@ -848,32 +850,40 @@ AppDelegate::applicationDidFinishLaunching()
 </code></pre>
 
 <blockquote>
-<p>firebase version.</p>
+<p>Use this to get the version of the SDK.
+@return The version of the SDK.</p>
 </blockquote>
-<pre><code class="cpp">static void setUserProperty(const std::string&amp; name, const std::string&amp; value);
+<pre><code class="cpp">static void setUserProperty ( const std::string &amp; name ,
+                              const std::string &amp; value ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setUserID ( const std::string &amp; userID ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setScreenName ( const std::string &amp; screen ,
+                            const std::string &amp; screenClass ) ;
+</code></pre>
+
+<pre><code class="cpp">static void logEvent ( const std::string &amp; event ,
+                       const std::map &lt;std::string ,
+                       std::string&gt; &amp; params ) ;
+</code></pre>
+
+<pre><code class="cpp">static void resetAnalyticsData ( ) ;
 </code></pre>
 
 <blockquote>
-<p>set user property</p>
+<p>Clears all analytics data for this instance from the device and resets the app instance ID.
+FIRAnalyticsConfiguration values will be reset to the default values.</p>
 </blockquote>
-<pre><code class="cpp">static void setUserID(const std::string&amp; userID);
+<pre><code class="cpp">static void setAnalyticsCollectionEnabled ( bool enabled ) ;
 </code></pre>
 
 <blockquote>
-<p>set user id</p>
+<p>Sets whether analytics collection is enabled for this app on this device.
+This setting is persisted across app sessions. By default it is enabled. (Only for Android)</p>
 </blockquote>
-<pre><code class="cpp">static void setScreenName(const std::string&amp; screen, const std::string&amp; screenClass);
-</code></pre>
-
-<blockquote>
-<p>set current screen</p>
-</blockquote>
-<pre><code class="cpp">static void logEvent(const std::string&amp; event, const std::map&lt;std::string, std::string&gt;&amp; params);
-</code></pre>
-
-<blockquote>
-<p>log event</p>
-</blockquote>
+<h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

@@ -959,108 +959,154 @@ private:
 </code></pre>
 
 <blockquote>
-<p>initialize the plugin instance.</p>
+<p>Initialize the plugin instance. 
+The plugin initializes from the sdkbox_config.json file and reads configuration of the form:</p>
 </blockquote>
-<pre><code class="cpp">static void setListener ( SdkboxAdsListener * listener ) ;
+<pre>
+ <code>
+   "SdkboxAds": {
+       "units": [ "AdColony", "Fyber" ],
+       "placements": [ {} ]
+   }
+ </code>
+The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
+and/or simplifies interaction with them.
+The "placements" block will be of the form:
+ <code>
+    {
+         “id” : “placement_id”,
+         "strategy" : "round-robin", // only value by now.
+         “units” : [
+             <UnitDefinition>
+         ]
+     }
+ </code>
+and each UnitDefinition as:
+ <code>
+     {
+         “Unit” : result_of_AdUnit.getId(),
+         “name” : <a zone, place, location, existing in a Plugin's config>,
+         “params” : json_object
+     }
+ </code>
+For a sample Sdkboxads config, check the example at Sdkbox github public repository.
+The "params" configuration block will allow to pass in specific information to play ads
+like location, position, etc.
+Check each AdUnit's documentation to find specifics on its configuration.
+</pre>
+
+<pre><code class="cpp">static void setListener ( sdkbox::PluginSdkboxAdsListener * listener ) ;
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for SdkboxAds events</p>
+<p>Set Sdkboxads' plugin listener.
+This listener will expose for each registered AdUnits, events related to Ads and Rewards.
+In SdkboxAds, an Ad refers generally to VIDEO, INTERSTITIAL and BANNER.
+Note that some ad units may have only Ads.</p>
 </blockquote>
-<pre><code class="cpp">static void playAd()
+<pre><code class="cpp">static PluginSdkboxAdsListener * getListener ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Each unit knows how to play an ad by default.  So this method will play a default Ad for the default AdUnit.</p>
+<p>Retrieve plugin's listener.</p>
 </blockquote>
-<pre><code class="cpp">static void playAd(const std::string&amp; );
+<pre><code class="cpp">static void playAd ( const std::string &amp; ad_unit ,
+                     const std::string &amp; zone_place_location ,
+                     const AdUnitParams &amp; params ) ;
 </code></pre>
 
 <blockquote>
-<p>Play an identified by name on the Default AdUnit</p>
+<p>Play an Ad identified by its zone/location/place with optional parameters.
+AdUnits like Fyber which don't have zones, will use common placeholders like "INTERSTITIAL" or "REWARDED".
+Some AdUnits may require extra information to play an Ad, and should use the params for that purpose.
+You should refer to the documentation of each specific AdUnit about what parameters will accept.</p>
 </blockquote>
-<pre><code class="cpp">static void playAd(const std::string&amp;, const AdUnitParams&amp; params );
+<p>The ad will be played for a specific AdUnit based on its identifier. The identifiers are the
+values in the "units" node of the sdkbox_config.json file.
+For example: "AdColony" or "Fyber".</p>
+<pre><code class="cpp">static void playAd ( const std::string &amp; ad_unit ,
+                     const std::string &amp; zone_place_location ) ;
+</code></pre>
+
+<pre><code class="cpp">static void playAd ( const std::string &amp; , const AdUnitParams &amp; params ) ;
 </code></pre>
 
 <blockquote>
-<p>Eventually, an AdUnit may need some extra hints to play an ad, like position on screen, transparency, etc. Each AdUnit will document what extra hints can be passed to play an Ad. Currently none of the AdUnits need this parameter.</p>
+<p>Like the 3 parameter playAd method, this one plays an Ad for the default AdUnit.
+Currently the default AdUnit is the first defined one in the sdkbox_config.json file.</p>
 </blockquote>
-<pre><code class="cpp">static void playAd(
-        const std::string&amp; ad_unit, 
-        const std::string&amp; zone_place_location );
+<pre><code class="cpp">static void playAd ( const std::string &amp; ) ;
+</code></pre>
+
+<pre><code class="cpp">static void playAd ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Play an ad name, for a given AdUnit. AdUnits are idenfitied by name. So a valid example call would be: 
-<code>sdkbox::SdkboxAds::playAd(“AdColony”, “video”);</code>.</p>
+<p>Play a default Ad with the default AdUnit.
+Each AdUnit knows how to play an Ad by default.
+For example, AdColony will play the first video zone, or the first Reward if there's no one.</p>
 </blockquote>
-<pre><code class="cpp">static void playAd(
-        const std::string&amp; ad_unit, 
-        const std::string&amp; zone_place_location, 
-        const AdUnitParams&amp; params );
+<pre><code class="cpp">static void placement ( const std::string &amp; placement ) ;
 </code></pre>
 
 <blockquote>
-<p>Again, should an AdUnit need extra parameters, use this method. If you pass values to an AdUnit that does need need, they will simply be ignored.</p>
+<p>A placement is a collection of mediated AdUnits.
+When you want to invoke a placement, just call this method.
+If the placement does not exist, the call will just be ignored.
+A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
+cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
 </blockquote>
-<pre><code class="cpp">static void placement(const std::string&amp; placement);
+<pre>
+The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
+In the short term, new placement strategies will be added.
+</pre>
+
+<pre><code class="cpp">static void cacheControl ( const std::string &amp; ad_unit ,
+                           const std::map &lt;std::string ,
+                           std::string&gt; &amp; cacheOpts ) ;
 </code></pre>
 
 <blockquote>
-<p>When you want to invoke a placement, just call this method. If the placement does not exist, the call will just be ignored. A placement will take care of AdUnit’s cache control, so if the current AdUnit has no cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
+<p>Manage cache control policies.
+Not all AdUnits expose cache control while some others expose fine-grained cache control.
+For example Chartboost offers specific cache control for each location, as well as
+general Ads cache control.</p>
 </blockquote>
-<pre><code class="cpp">static void cacheControl( 
-        const std::string&amp; ad_unit, 
-        const std::map&lt;std::string, std::string&gt;&amp; cacheOpts );
+<pre>
+This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed
+for a given AdUnit, the call will silently be ignored.
+Each AdUnit will document what valid values to pass to the cacheOpts parameter.
+E.g. for Chartboost, these are valid values:
+cacheOpts for Chartboost:
+     element : bool
+         Element corresponds to an identifiable CBLocation (ChartBoost)
+     e.g:
+ <code>
+     {
+         "Default": true, // a configuration location
+         "Level Complete": true, // a configuration location
+         "ADS": true // a general placeholder chartboost specific
+     }
+ </code>
+</pre>
+
+<pre><code class="cpp">static bool isAvailable ( const std::string &amp; placement ) ;
 </code></pre>
 
 <blockquote>
-<p>Some Ad units expose fine-grained cache control. For example Chartboost offers specific cache control for each location, as well as general Ads cache control. This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed for a given AdUnit, the call will silently be ignored. Each AdUnit will document what valid values to pass to the cacheOpts parameter. E.g. for Chartboost, these are valid values:</p>
-<p>"Default": true,     // a configuration location
- "Level Complete": true,  // a configuration location
- "<strong>ADS</strong>": true      // a general placeholder chartboost specific </p>
+<p>check if placement available</p>
 </blockquote>
+<pre><code class="cpp">static void hide ( const std::string &amp; placement ) ;
+</code></pre>
+
+<blockquote>
+<p>hide placement</p>
+</blockquote>
+<pre><code class="cpp">static void hideAd ( const std::string &amp; ad_unit ,
+                     const std::string &amp; zone_place_location ) ;
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onAdAction( 
-        const std::string&amp; ad_unit_id, 
-        const std::string&amp; zone_location_place_you_name_it, 
-        sdkbox::AdActionType action_type);
-</code></pre>
-
-<blockquote>
-<p>This method notifies back with the AdUnit identifier, the Ad name it tried to play, and an enum type of the action it is communicating about.
-The Action type is the following enum:</p>
-</blockquote>
-<pre><code class="cpp">    enum AdActionType {
-
-        LOADED=0,               // content loaded
-        LOAD_FAILED,            // content failed to load
-
-        CLICKED,                // clicked on content
-
-        REWARD_STARTED,     // reward started
-        REWARD_ENDED,           // reward achieved
-        REWARD_CANCELED,        // reward aborted
-
-        AD_STARTED,             // start showing.
-        AD_CANCELED,            // start showing.
-        AD_ENDED,               // content shown
-
-        ADACTIONTYPE_UNKNOWN    // mostly on error situations.
-
-    };
-</code></pre>
-
-<blockquote>
-<p>Not all AdUnits will expose all types of events. For example, Chartboost notifies CLICKED action, but AdColony does not. Each AdUnit’s documentation will reflect what events will notify.</p>
-</blockquote>
-<pre><code class="cpp">void onRewardAction( 
-        const std::string&amp; ad_unit_id, 
-        const std::string&amp; zone_id, 
-        float reward_amount, 
-        bool reward_succeed);
-</code></pre>
-
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

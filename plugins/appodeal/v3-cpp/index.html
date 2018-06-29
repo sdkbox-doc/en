@@ -860,7 +860,7 @@ public:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static bool init ( ) ;
+<pre><code class="cpp">static bool init ( AdType adType = AdType::AppodealAdTypeAll ) ;
 </code></pre>
 
 <blockquote>
@@ -884,10 +884,16 @@ public:
 <blockquote>
 <p>Remove the listener, and can't listen to events anymore</p>
 </blockquote>
+<pre><code class="cpp">static std::string getSDKVersion ( ) ;
+</code></pre>
+
 <pre><code class="cpp">static void disableNetworkForAdType ( AdType adType ,
                                       const std::string &amp; networkName ) ;
 </code></pre>
 
+<blockquote>
+<p>deprecated</p>
+</blockquote>
 <pre><code class="cpp">static void disableLocationPermissionCheck ( ) ;
 </code></pre>
 
@@ -913,6 +919,15 @@ public:
 </code></pre>
 
 <pre><code class="cpp">static bool isReadyForShowWithStyle ( ShowStyle showStyle ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setSmartBannersEnabled ( bool smartBannerEnabled ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setBannerBackgroundVisible ( bool bannerBackgroundVisible ) ;
+</code></pre>
+
+<pre><code class="cpp">static void setBannerAnimationEnabled ( bool bannerAnimationEnabled ) ;
 </code></pre>
 
 <pre><code class="cpp">static void setUserVkId ( const std::string &amp; vkId ) ;
@@ -949,119 +964,214 @@ public:
 </code></pre>
 
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onBannerDidLoadAd ( );
+<pre><code class="cpp">void onBannerDidLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when banner ad load</p>
 </blockquote>
-<pre><code class="cpp">void onBannerDidFailToLoadAd ( );
+<pre><code class="cpp">void onBannerDidFailToLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when banner ad fail to load</p>
 </blockquote>
-<pre><code class="cpp">void onBannerDidClick ( );
+<pre><code class="cpp">void onBannerDidClick ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when banner ad clicked</p>
 </blockquote>
-<pre><code class="cpp">void onBannerPresent ( );
+<pre><code class="cpp">void onBannerPresent ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when banner ad present</p>
 </blockquote>
-<pre><code class="cpp">void onInterstitialDidLoadAd ( );
+<pre><code class="cpp">void onInterstitialDidLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when interstitial ad load</p>
 </blockquote>
-<pre><code class="cpp">void onInterstitialDidFailToLoadAd ( );
+<pre><code class="cpp">void onInterstitialDidFailToLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when interstitial ad fail to load</p>
 </blockquote>
-<pre><code class="cpp">void onInterstitialWillPresent ( );
+<pre><code class="cpp">void onInterstitialWillPresent ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when interstitial ad present</p>
 </blockquote>
-<pre><code class="cpp">void onInterstitialDidDismiss ( );
+<pre><code class="cpp">void onInterstitialDidDismiss ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when interstitial dismiss</p>
 </blockquote>
-<pre><code class="cpp">void onInterstitialDidClick ( );
+<pre><code class="cpp">void onInterstitialDidClick ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when interstitial ad clicked</p>
 </blockquote>
-<pre><code class="cpp">void onVideoDidLoadAd ( );
+<pre><code class="cpp">void onInterstitialDidFailToPresent ( ) 
 </code></pre>
 
 <blockquote>
-<p>trigger when video load</p>
+<p>trigger when interstitial ad fail to present</p>
 </blockquote>
-<pre><code class="cpp">void onVideoDidFailToLoadAd ( );
+<pre><code class="cpp">void onVideoDidLoadAd ( ) 
 </code></pre>
 
 <blockquote>
-<p>trigger when video fail to load</p>
+<p>trigger when video load
+deprecated</p>
 </blockquote>
-<pre><code class="cpp">void onVideoDidPresent ( );
+<pre><code class="cpp">void onVideoDidFailToLoadAd ( ) 
 </code></pre>
 
 <blockquote>
-<p>trigger when video present</p>
+<p>trigger when video fail to load
+deprecated</p>
 </blockquote>
-<pre><code class="cpp">void onVideoWillDismiss ( );
+<pre><code class="cpp">void onVideoDidPresent ( ) 
 </code></pre>
 
 <blockquote>
-<p>trigger when video dismiss</p>
+<p>trigger when video present
+deprecated</p>
 </blockquote>
-<pre><code class="cpp">void onVideoDidFinish ( );
+<pre><code class="cpp">void onVideoWillDismiss ( ) 
 </code></pre>
 
 <blockquote>
-<p>trigger when video finish</p>
+<p>trigger when video dismiss
+deprecated</p>
 </blockquote>
-<pre><code class="cpp">void onRewardVideoDidLoadAd ( );
+<pre><code class="cpp">void onVideoDidFinish ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when video finish
+deprecated</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when reward video load</p>
 </blockquote>
-<pre><code class="cpp">void onRewardVideoDidFailToLoadAd ( );
+<pre><code class="cpp">void onRewardVideoDidFailToLoadAd ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when reward video fail to load</p>
 </blockquote>
-<pre><code class="cpp">void onRewardVideoDidPresent ( );
+<pre><code class="cpp">void onRewardVideoDidPresent ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when reward video present</p>
 </blockquote>
-<pre><code class="cpp">void onRewardVideoWillDismiss ( );
+<pre><code class="cpp">void onRewardVideoWillDismiss ( ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when reward video dismiss</p>
 </blockquote>
-<pre><code class="cpp">void onRewardVideoDidFinish ( int amount , const std::string &amp; name );
+<pre><code class="cpp">void onRewardVideoDidFinish ( int amount , const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
 <p>trigger when reward video finish</p>
+</blockquote>
+<pre><code class="cpp">void onRewardVideoDidFailToPresent ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video fail to present</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoDidLoadAd ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video load</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoDidFailToLoadAd ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video fial to load</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoDidPresent ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video present</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoWillDismiss ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video dismiss</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoDidFinish ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video finish</p>
+</blockquote>
+<pre><code class="cpp">void onSkippableVideoDidClick ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video click</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidLoadAd ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video load</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidFailToLoadAd ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fial to load</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidPresent ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video present</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoWillDismiss ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video dismiss</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidFinish ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video finish</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidClick ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video click</p>
+</blockquote>
+<pre><code class="cpp">void onNonSkippableVideoDidFailToPresent ( ) 
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fail to present</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

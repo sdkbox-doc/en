@@ -1213,7 +1213,7 @@ This method will  notify on plugin's listener <code>onSetSteps</code> or <code>o
 <blockquote>
 <p>Same as isConnected (deprecated) but more consistent with naming.</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginSdkboxPlay:signin()
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:signin(showLoginUI)
 </code></pre>
 
 <blockquote>
@@ -1266,27 +1266,84 @@ If a field not valid is queried an empty string will be returned.</li>
 previously reported for the local player. Hidden achievements that
 were previously visible are now hidden again.</p>
 </blockquote>
+<pre>
+iOS Only
+</pre>
+
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllData()
 </code></pre>
 
 <blockquote>
-<p><strong>DEPRECATED</strong>
-Please use loadAllGameData to replace, load all saved user game data in clound, will trigger onGameData callback</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use loadAllGameData to replace
+load all saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:loadGameData(save_name)
 </code></pre>
 
 <blockquote>
-<p><strong>DEPRECATED</strong>
-Please use loadAllGameData to replace, load one saved user game data in clound, will trigger onGameData callback</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use loadAllGameData to replace
+load one saved user game data in clound
+will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameData(save_name, data)
 </code></pre>
 
 <blockquote>
-<p><strong>DEPRECATED</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use saveGameDataBinary(name, data, length) to replace
+save user game data in cloud
+will trigger onGameData callback</p>
 </blockquote>
-<p>Please use saveGameDataBinary(name, data, length) to replace, save user game data in cloud, will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:fetchGameDataNames()
+</code></pre>
+
+<blockquote>
+<p>fetch game data names
+will trigger onGameDataNames</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginSdkboxPlay:loadOneGameData(name)
+</code></pre>
+
+<blockquote>
+<p>load game data item
+will trigger onLoadGameData</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxPlay:loadAllGameData()
 </code></pre>
 
@@ -1294,17 +1351,6 @@ Please use loadAllGameData to replace, load one saved user game data in clound, 
 <p>load all saved game data
 will trigger onLoadGameData callback</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginSdkboxPlay:saveGameDataBinary(name, data, length)
-</code></pre>
-
-<blockquote>
-<p>save user game data, will trigger onSaveGameData callback</p>
-</blockquote>
-<ul>
-<li>@param name: saved data name</li>
-<li>@param data: data pointer</li>
-<li>@param length: data length in byte</li>
-</ul>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onConnectionStatusChanged(status)
 </code></pre>
@@ -1480,32 +1526,32 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 </code></pre>
 
 <blockquote>
-<p><strong>DEPRECATED</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt;</p>
 </blockquote>
-<ul>
-<li>@param action string save, load</li>
-<li>@param name string</li>
-<li>@param data string</li>
-<li>@param error string if load/save success, error will be empty</li>
-</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <pre><code class="lua">onSaveGameData(success, error)
 </code></pre>
 
-<blockquote>
-<ul>
-<li>@param success bool</li>
-<li>@param error string if success, error will be empty</li>
-</ul>
-</blockquote>
+<blockquote></blockquote>
 <pre><code class="lua">onLoadGameData(savedData, error)
 </code></pre>
 
-<blockquote>
-<ul>
-<li>@param savedData SavedGameData</li>
-<li>@param error string if success, error will be empty</li>
-</ul>
-</blockquote>
+<blockquote></blockquote>
+<pre><code class="lua">onGameDataNames(names, error)
+</code></pre>
+
+<blockquote></blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

@@ -1239,7 +1239,7 @@ This method will  notify on plugin's listener <code>onSetSteps</code> or <code>o
 <blockquote>
 <p>Same as isConnected (deprecated) but more consistent with naming.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxPlay.signin();
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.signin(showLoginUI);
 </code></pre>
 
 <blockquote>
@@ -1300,22 +1300,82 @@ iOS Only
 </code></pre>
 
 <blockquote>
-<p>load all saved user game data in clound
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use loadAllGameData to replace
+load all saved user game data in clound
 will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.loadGameData(save_name);
 </code></pre>
 
 <blockquote>
-<p>load one saved user game data in clound
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use loadAllGameData to replace
+load one saved user game data in clound
 will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginSdkboxPlay.saveGameData(save_name, data);
 </code></pre>
 
 <blockquote>
-<p>save user game data in cloud
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt; Please use saveGameDataBinary(name, data, length) to replace
+save user game data in cloud
 will trigger onGameData callback</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.fetchGameDataNames();
+</code></pre>
+
+<blockquote>
+<p>fetch game data names
+will trigger onGameDataNames</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.loadOneGameData(name);
+</code></pre>
+
+<blockquote>
+<p>load game data item
+will trigger onLoadGameData</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxPlay.loadAllGameData();
+</code></pre>
+
+<blockquote>
+<p>load all saved game data
+will trigger onLoadGameData callback</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onConnectionStatusChanged(status);
@@ -1489,6 +1549,32 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 </code></pre>
 
 <pre><code class="javascript">onGameData(action, name, data, error);
+</code></pre>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DEPRECATED &gt;&gt;&gt;&gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="javascript">onSaveGameData(success, error);
+</code></pre>
+
+<blockquote></blockquote>
+<pre><code class="javascript">onLoadGameData(savedData, error);
+</code></pre>
+
+<blockquote></blockquote>
+<pre><code class="javascript">onGameDataNames(names, error);
 </code></pre>
 
 <blockquote></blockquote>

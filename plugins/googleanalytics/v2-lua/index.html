@@ -892,7 +892,7 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <p>more info, take a look at here <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/enhanced-ecommerce">ios</a> and <a href="https://developers.google.com/analytics/devguides/collection/android/v4/enhanced-ecommerce">android</a></p>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginGoogleAnalytics:init()
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:init(jsonconfig)
 </code></pre>
 
 <blockquote>
@@ -987,6 +987,47 @@ inside your app you'd like to identify at analytics panel.</p>
 <blockquote>
 <p>Log a social event.</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:logECommerce(info)
+</code></pre>
+
+<blockquote>
+<p>Log ecommerce event</p>
+</blockquote>
+<pre>
+            // 1. track purchase
+            std::map<std::string, std::string> info;
+            // transaction info
+            info["action"] = "purchase";
+            info["transaction"] = "T12345";
+            info["affiliation"] = "Google Store - Online";
+            info["transactionCouponCode"] = "SUMMER2017";
+            info["revenue"] = "37.39";
+            info["tax"] = "2.85";
+            info["shipping"] = "5.34";
+            // product info
+            info["productID"] = "P12345";
+            info["productName"] = "Android Warhol T-Shirt";
+            info["category"] = "Apparel/T-Shirts";
+            info["brand"] = "SDKBox";
+            info["productVariant"] = "black";
+            info["productCouponCode"] = "APPARELSALE";
+            info["price"] = "29.20";
+            info["quantity"] = "1"; // int
+            // currency code
+            // https://support.google.com/analytics/answer/6205902?#supported-currencies
+            info["currencyCode"] = "EUR";
+            sdkbox::PluginGoogleAnalytics::logECommerce(info);
+
+            // 2. track refund
+            // transaction info
+            info["action"] = "refund";
+            info["transaction"] = "T12345";
+            // product info
+            info["productID"] = "P12345";
+            info["quantity"] = "1";
+            sdkbox::PluginGoogleAnalytics::logECommerce(info);
+</pre>
+
 <pre><code class="lua">sdkbox.PluginGoogleAnalytics:setDryRun(enable)
 </code></pre>
 
@@ -1015,6 +1056,12 @@ operations.</p>
 <blockquote>
 <p>Enable a tracker identified by a trackerId. If the tracker does not exist,
 nothing will happen.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginGoogleAnalytics:enableExceptionReporting(enable)
+</code></pre>
+
+<blockquote>
+<p>Enables or disables uncaught exception reporting for a given tracker.</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>

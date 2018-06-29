@@ -897,7 +897,10 @@ sdkbox.PluginOneSignal:setLogLevel(logLevel, visualLogLevel)
 <blockquote>
 <p>Enable logging to help debug if you run into an issue setting up OneSignal. This selector
 is static so you can call it before OneSignal init. The following options are available
-with increasingly more information</p>
+with increasingly more information;
+sdkbox::OneSignalLogNone, sdkbox::OneSignalLogFatal, sdkbox::OneSignalLogError,
+sdkbox::OneSignalLogWarn, sdkbox::OneSignalLogInfo, sdkbox::OneSignalLogDebug,
+sdkbox::OneSignalLogVerbose</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginOneSignal:sendTag(key, value)
 </code></pre>
@@ -906,6 +909,10 @@ with increasingly more information</p>
 <p>Tag a user based on an app event of your choosing so later you can create segments on
 onesignal.com to target these users.</p>
 </blockquote>
+<pre>
+callback: `onSendTag`
+</pre>
+
 <pre><code class="lua">sdkbox.PluginOneSignal:setEmail(email)
 </code></pre>
 
@@ -918,6 +925,10 @@ onesignal.com to target these users.</p>
 <blockquote>
 <p>Retrieve a list of tags that have been set on the user from the OneSignal server.</p>
 </blockquote>
+<pre>
+callback: `onGetTags`
+</pre>
+
 <pre><code class="lua">sdkbox.PluginOneSignal:deleteTag(key)
 </code></pre>
 
@@ -931,6 +942,10 @@ onesignal.com to target these users.</p>
 <p>Lets you retrieve the OneSignal user id and the Google registration id. Your handler is
 called after the device is successfully registered with OneSignal.</p>
 </blockquote>
+<pre>
+callback: `onIdsAvailable`
+</pre>
+
 <pre><code class="lua">sdkbox.PluginOneSignal:enableInAppAlertNotification(enable)
 </code></pre>
 
@@ -954,6 +969,10 @@ OneSignal. You can pass true later to opt users back into notifications.</p>
 <p>Allows you to send notifications from user to user or schedule ones in the future to be
 delivered to the current device.</p>
 </blockquote>
+<pre>
+callback: `onPostNotification`
+</pre>
+
 <pre><code class="lua">sdkbox.PluginOneSignal:promptLocation()
 </code></pre>
 
@@ -961,6 +980,10 @@ delivered to the current device.</p>
 <p>Prompts the user for location permissions. This allows for geotagging so you can send
 notifications to users based on location.</p>
 </blockquote>
+<pre>
+Note: Make sure you also have the required location permission in your AndroidManifest.xml.
+</pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onSendTag(success, key, message)
 </code></pre>
@@ -975,6 +998,12 @@ notifications to users based on location.</p>
 </code></pre>
 
 <pre><code class="lua">onNotification(isActive, message, additionalData)
+</code></pre>
+
+<pre><code class="lua">onNotificationOpened(message)
+</code></pre>
+
+<pre><code class="lua">onNotificationReceived(message)
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

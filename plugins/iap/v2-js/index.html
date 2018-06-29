@@ -968,6 +968,10 @@ product.receiptCipheredPayload;
 <blockquote>
 <p>Make a purchase request</p>
 </blockquote>
+<pre>
+@Param name is the name of the item specified in sdkbox_config.json
+</pre>
+
 <pre><code class="javascript">sdkbox.IAP.refresh();
 </code></pre>
 
@@ -993,6 +997,36 @@ product.receiptCipheredPayload;
 <p>Remove listener for IAP</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.IAP.enableUserSideVerification();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.IAP.isAutoFinishTransaction();
+</code></pre>
+
+<blockquote>
+<p>get auto invoke finishTransaction flag</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.IAP.setAutoFinishTransaction(b);
+</code></pre>
+
+<blockquote>
+<p>set auto invoke finishTransaction flag</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.IAP.finishTransaction(productid);
+</code></pre>
+
+<blockquote>
+<p>to invoke ios finishTransaction api</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.IAP.fetchStorePromotionOrder();
+</code></pre>
+
+<pre><code class="javascript">sdkbox.IAP.updateStorePromotionOrder(productNames);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.IAP.fetchStorePromotionVisibility(productName);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.IAP.updateStorePromotionVisibility(productName, visibility);
 </code></pre>
 
 <h3 id="listeners">Listeners</h3>
@@ -1045,6 +1079,21 @@ product.receiptCipheredPayload;
 <blockquote>
 <p>Called when the restore completed</p>
 </blockquote>
+<pre><code class="javascript">onShouldAddStorePayment(productName);
+</code></pre>
+
+<pre><code class="javascript">onFetchStorePromotionOrder(productNames, error);
+</code></pre>
+
+<pre><code class="javascript">onFetchStorePromotionVisibility(productName, visibility, error);
+</code></pre>
+
+<pre><code class="javascript">onUpdateStorePromotionOrder(error);
+</code></pre>
+
+<pre><code class="javascript">onUpdateStorePromotionVisibility(error);
+</code></pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

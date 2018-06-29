@@ -966,101 +966,86 @@ public:
 </code></pre>
 
 <blockquote>
-<p>Set the log level for SDK's logs
-@param desiredLogLevel The desired level of logs.</p>
+<p>Set the log level for SDK's logs</p>
 </blockquote>
 <pre><code class="cpp">static void addIdForType ( const std::string &amp; identifier ,
                            SBIMSDKIdType type ) ;
 </code></pre>
 
 <blockquote>
-<p>Register a user specific id with the SDK
-@param identifier The user Id.
-@param type The user Id type.</p>
+<p>Register a user specific id with the SDK</p>
 </blockquote>
 <pre><code class="cpp">static void removeIdType ( SBIMSDKIdType type ) ;
 </code></pre>
 
 <blockquote>
-<p>Deregister a particular set of Ids
-@param type The user Id type.</p>
+<p>Deregister a particular set of Ids</p>
 </blockquote>
 <pre><code class="cpp">static void setAge ( int age ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's age to the SDK for targeting purposes.
-@param age The user's age.</p>
+<p>Provide the user's age to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setAreaCode ( const std::string &amp; areaCode ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's area code to the SDK for targeting purposes.
-@param areaCode The user's area code.</p>
+<p>Provide the user's area code to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setAgeGroup ( SBIMSDKAgeGroup ageGroup ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's age group to the SDK for targeting purposes.
-@param ageGroup The user's age group.</p>
+<p>Provide the user's age group to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setYearOfBirth ( int yearOfBirth ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide a user's date of birth to the SDK for targeting purposes.
-@param dateOfBirth The user's date of birth.</p>
+<p>Provide a user's date of birth to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setEducation ( SBIMSDKEducation education ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's education status to the SDK for targeting purposes.
-@param education The user's education status.</p>
+<p>Provide the user's education status to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setEthnicity ( SBIMSDKEthnicity ethnicity ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's ethnicity to the SDK for targeting purposes.
-@param ethnicity The user's ethnicity.</p>
+<p>Provide the user's ethnicity to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setGender ( SBIMSDKGender gender ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's gender to the SDK for targeting purposes.
-@param gender The user's gender.</p>
+<p>Provide the user's gender to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setHouseholdIncome ( SBIMSDKHouseholdIncome income ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's household income to the SDK for targeting purposes.
-@param income The user's household income.</p>
+<p>Provide the user's household income to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setIncome ( unsigned int income ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's income to the SDK for targeting purposes.
-@param income The user's income.</p>
+<p>Provide the user's income to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setInterests ( const std::string &amp; interests ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's interests to the SDK for targeting purposes.
-@param interests The user's interests.</p>
+<p>Provide the user's interests to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setLanguage ( const std::string &amp; language ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's preferred language to the SDK for targeting purposes.
-@param language The user's language.</p>
+<p>Provide the user's preferred language to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setLocation ( const std::string &amp; city ,
                           const std::string &amp; state ,
@@ -1068,31 +1053,25 @@ public:
 </code></pre>
 
 <blockquote>
-<p>Provide the user's location to the SDK for targeting purposes.
-@param city The user's city.
-@param state The user's state.
-@param country The user's country.</p>
+<p>Provide the user's location to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setLocation ( double latitude , double longitude ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's location to the SDK for targeting purposes.
-@param location: The location of the user</p>
+<p>Provide the user's location to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setNationality ( const std::string &amp; nationality ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's nationality to the SDK for targeting purposes.
-@param nationality The user's nationality.</p>
+<p>Provide the user's nationality to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void setPostalCode ( const std::string &amp; postalcode ) ;
 </code></pre>
 
 <blockquote>
-<p>Provide the user's postal code to the SDK for targeting purposes.
-@param postalcode The user's postalcode.</p>
+<p>Provide the user's postal code to the SDK for targeting purposes.</p>
 </blockquote>
 <pre><code class="cpp">static void shouldAutoRefresh ( bool refresh ) ;
 </code></pre>
@@ -1138,25 +1117,32 @@ vaild on android</p>
 <blockquote>
 <p>Set comma delimited keywords for targeting purpose</p>
 </blockquote>
-<pre><code class="cpp">static void loadInterstitial ( ) ;
+<pre><code class="cpp">static void hideBanner ( ) ;
+</code></pre>
+
+<blockquote>
+<p>Hide Banner</p>
+</blockquote>
+<pre><code class="cpp">static void loadInterstitial ( std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Submit a request to load interstitial ad content.</p>
 </blockquote>
-<pre><code class="cpp">static bool isInterstitialReady ( ) ;
+<pre><code class="cpp">static bool isInterstitialReady ( std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Returns true if the interstitial was loaded successfully and in ready to be shown.</p>
 </blockquote>
-<pre><code class="cpp">static void showInterstitial ( ) ;
+<pre><code class="cpp">static void showInterstitial ( std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Displays the interstitial on the screen</p>
 </blockquote>
-<pre><code class="cpp">static void showInterstitial ( SBIMInterstitialAnimationType type ) ;
+<pre><code class="cpp">static void showInterstitial ( SBIMInterstitialAnimationType type ,
+                               std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
@@ -1164,14 +1150,15 @@ vaild on android</p>
 valid on ios</p>
 </blockquote>
 <pre><code class="cpp">static void showInterstitial ( int enterAnimationResourcedId ,
-                               int exitAnimationResourceId ) ;
+                               int exitAnimationResourceId ,
+                               std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Displays the interstitial on the screen
 valid on android</p>
 </blockquote>
-<pre><code class="cpp">static void disableHardwareAccelerationForInterstitial ( ) ;
+<pre><code class="cpp">static void disableHardwareAccelerationForInterstitial ( std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
@@ -1179,64 +1166,66 @@ valid on android</p>
 valid on android</p>
 </blockquote>
 <pre><code class="cpp">static void setInterstitialExtras ( const std::map &lt;std::string ,
-                                    std::string&gt; &amp; extras ) ;
+                                    std::string&gt; &amp; extras ,
+                                    std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Set any additional custom parameters that will be sent in the ad request.</p>
 </blockquote>
-<pre><code class="cpp">static void setInterstitialKeywords ( const std::string &amp; keywords ) ;
+<pre><code class="cpp">static void setInterstitialKeywords ( const std::string &amp; keywords ,
+                                      std::string ad = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>Set comma delimited keywords for targeting purpose</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void bannerDidFinishLoading ( ) {
+<pre><code class="cpp">void bannerDidFinishLoading ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner has finished loading</p>
 </blockquote>
 <pre><code class="cpp">void bannerDidFailToLoadWithError ( PluginInMobi::SBIMStatusCode code ,
-                                    const std::string &amp; description ) {
+                                    const std::string &amp; description ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner has failed to load with some error.</p>
 </blockquote>
 <pre><code class="cpp">void bannerDidInteractWithParams ( const std::map &lt;std::string ,
-                                   std::string&gt; &amp; params ) {
+                                   std::string&gt; &amp; params ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner was interacted with.</p>
 </blockquote>
-<pre><code class="cpp">void userWillLeaveApplicationFromBanner ( ) {
+<pre><code class="cpp">void userWillLeaveApplicationFromBanner ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the user would be taken out of the application context.</p>
 </blockquote>
-<pre><code class="cpp">void bannerWillPresentScreen ( ) {
+<pre><code class="cpp">void bannerWillPresentScreen ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner would be presenting a full screen content.</p>
 </blockquote>
-<pre><code class="cpp">void bannerDidPresentScreen ( ) {
+<pre><code class="cpp">void bannerDidPresentScreen ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner has finished presenting screen.</p>
 </blockquote>
-<pre><code class="cpp">void bannerWillDismissScreen ( ) {
+<pre><code class="cpp">void bannerWillDismissScreen ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the banner will start dismissing the presented screen.</p>
 </blockquote>
-<pre><code class="cpp">void bannerDidDismissScreen ( ) {
+<pre><code class="cpp">void bannerDidDismissScreen ( ) 
 </code></pre>
 
 <blockquote>
@@ -1249,52 +1238,52 @@ valid on android</p>
 <blockquote>
 <p>Notifies the delegate that the user has completed the action to be incentivised with.</p>
 </blockquote>
-<pre><code class="cpp">void interstitialDidFinishLoading ( ) {
+<pre><code class="cpp">void interstitialDidFinishLoading ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial has finished loading</p>
 </blockquote>
 <pre><code class="cpp">void interstitialDidFailToLoadWithError ( PluginInMobi::SBIMStatusCode code ,
-                                          const std::string &amp; description ) {
+                                          const std::string &amp; description ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial has failed to load with some error.</p>
 </blockquote>
-<pre><code class="cpp">void interstitialWillPresent ( ) {
+<pre><code class="cpp">void interstitialWillPresent ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial would be presented.</p>
 </blockquote>
-<pre><code class="cpp">void interstitialDidPresent ( ) {
+<pre><code class="cpp">void interstitialDidPresent ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial has been presented.</p>
 </blockquote>
 <pre><code class="cpp">void interstitialDidFailToPresentWithError ( PluginInMobi::SBIMStatusCode code ,
-                                             const std::string &amp; description ) {
+                                             const std::string &amp; description ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial has failed to present with some error.</p>
 </blockquote>
-<pre><code class="cpp">void interstitialWillDismiss ( ) {
+<pre><code class="cpp">void interstitialWillDismiss ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial will be dismissed.</p>
 </blockquote>
-<pre><code class="cpp">void interstitialDidDismiss ( ) {
+<pre><code class="cpp">void interstitialDidDismiss ( ) 
 </code></pre>
 
 <blockquote>
 <p>Notifies the delegate that the interstitial has been dismissed.</p>
 </blockquote>
 <pre><code class="cpp">void interstitialDidInteractWithParams ( const std::map &lt;std::string ,
-                                         std::string&gt; &amp; params ) {
+                                         std::string&gt; &amp; params ) 
 </code></pre>
 
 <blockquote>
@@ -1307,7 +1296,7 @@ valid on android</p>
 <blockquote>
 <p>Notifies the delegate that the user has performed the action to be incentivised with.</p>
 </blockquote>
-<pre><code class="cpp">void userWillLeaveApplicationFromInterstitial ( ) {
+<pre><code class="cpp">void userWillLeaveApplicationFromInterstitial ( ) 
 </code></pre>
 
 <blockquote>

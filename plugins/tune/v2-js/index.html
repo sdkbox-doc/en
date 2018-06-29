@@ -898,12 +898,20 @@ sdkbox.PluginTune.measureEvent(JSON.stringify(event));
 <blockquote>
 <p>Specifies that the server responses should include debug information.</p>
 </blockquote>
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setAllowDuplicateRequests(allow);
 </code></pre>
 
 <blockquote>
 <p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
 </blockquote>
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.SDKBOX_DEPRECATED(checkForDeferredDeeplinkWithTimeout(doubletimeout);
 </code></pre>
 
@@ -912,6 +920,11 @@ sdkbox.PluginTune.measureEvent(JSON.stringify(event));
 This is safe to call at every app launch, since the function does nothing
 unless this is the first launch.</p>
 </blockquote>
+<pre>
+The timeout parameter should be set in keeping with the normal first-launch
+time and user experience of your app.
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.checkForDeferredDeepLink();
 </code></pre>
 
@@ -927,6 +940,10 @@ unless this is the first launch.</p>
 <p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code
 should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setFacebookEventLogging(logging, limit);
 </code></pre>
 
@@ -934,6 +951,11 @@ should not explicitly measure events for successful purchases related to StoreKi
 <p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
 if the Facebook SDK is not present.</p>
 </blockquote>
+<pre>
+should be restricted from being used for other than analytics and conversions.  Defaults to false.
+This value is stored on the device and persists across app launches.
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setExistingUser(existingUser);
 </code></pre>
 
@@ -942,6 +964,10 @@ if the Facebook SDK is not present.</p>
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.</p>
 </blockquote>
+<pre>
+See http://support.mobileapptracking.com/entries/22621001-Handling-Installs-prior-to-SDK-implementation
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setAppleAdvertisingIdentifier(appleAdvertisingIdentifier,
                                                  adTrackingEnabled);
 </code></pre>
@@ -949,24 +975,40 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 <blockquote>
 <p>Set the Apple Advertising Identifier available in iOS 6.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setAppleVendorIdentifier(appleVendorIdentifier);
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Vendor Identifier available in iOS 6.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setCurrencyCode(currencyCode);
 </code></pre>
 
 <blockquote>
 <p>Sets the currency code.</p>
 </blockquote>
+<pre>
+Default: USD
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setJailbroken(jailbroken);
 </code></pre>
 
 <blockquote>
 <p>Sets the jailbroken device flag.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setPackageName(packageName);
 </code></pre>
 
@@ -987,6 +1029,10 @@ Defaults to the Bundle Identifier of the app that is running the sdk.</p>
 <p>Specifies if the sdk should pull the Apple Vendor Identifier from the device.
 Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.SDKBOX_DEPRECATED(setSiteId(conststd::string&amp;siteId);
 </code></pre>
 
@@ -1084,30 +1130,51 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <blockquote>
 <p>Sets publisher information for attribution.</p>
 </blockquote>
+<pre>
+@function setPreloadDataForScript for Js / Lua
+@function setPreloadData for cpp
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.SDKBOX_DEPRECATED(matId();
 </code></pre>
 
 <blockquote>
 <p>Get the MAT ID for this installation (mat_id).</p>
 </blockquote>
+<pre>
+@return MAT ID
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.tuneId();
 </code></pre>
 
 <blockquote>
 <p>Get the Tune ID for this installation.</p>
 </blockquote>
+<pre>
+@return Tune ID
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.openLogId();
 </code></pre>
 
 <blockquote>
 <p>Get the MAT log ID for the first app open (open_log_id).</p>
 </blockquote>
+<pre>
+@return open log ID
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.isPayingUser();
 </code></pre>
 
 <blockquote>
 <p>Get whether the user is revenue-generating.</p>
 </blockquote>
+<pre>
+@return YES if the user has produced revenue, NO if not
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.measureSession();
 </code></pre>
 
@@ -1132,6 +1199,11 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <blockquote>
 <p>Record an event with a MATEvent.</p>
 </blockquote>
+<pre>
+@function measureEventForScript for Js / Lua
+@function measureEvent for cpp
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.setUseCookieTracking(enable);
 </code></pre>
 
@@ -1156,6 +1228,10 @@ used in conjunction with the setTracking:advertiserId:offerId:publisherId:redire
 <blockquote>
 <p>Start an app-to-app tracking session on the MAT server.</p>
 </blockquote>
+<pre>
+successfully created. See setRedirectUrl:.
+</pre>
+
 <pre><code class="javascript">sdkbox.PluginTune.applicationDidOpenURL(urlString, sourceApplication);
 </code></pre>
 

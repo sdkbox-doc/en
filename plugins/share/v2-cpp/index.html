@@ -999,7 +999,7 @@ public:
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="cpp">static bool init ( ) ;
+<pre><code class="cpp">static bool init ( const char * jsonConfig = 0 ) ;
 </code></pre>
 
 <blockquote>
@@ -1023,14 +1023,40 @@ public:
 <blockquote>
 <p>Remove the listener, and can't listen to events anymore</p>
 </blockquote>
-<pre><code class="cpp">static void share ( const ShareInfo &amp; info ) ;
+<pre><code class="cpp">static void setSharePanelTitle ( const std::string &amp; s ) ;
+</code></pre>
+
+<blockquote>
+<p>set custome share platform choose panel title, default is "Share to"</p>
+</blockquote>
+<pre><code class="cpp">static void setSharePanelCancel ( const std::string &amp; s ) ;
+</code></pre>
+
+<blockquote>
+<p>set custome share platform choose panel cancel button, default is "Cancel"</p>
+</blockquote>
+<pre><code class="cpp">static void share ( const sdkbox::SocialShareInfo &amp; info ) ;
 </code></pre>
 
 <blockquote>
 <p>Share content</p>
 </blockquote>
+<pre><code class="cpp">static void nativeShare ( const sdkbox::SocialShareInfo &amp; info ) ;
+</code></pre>
+
+<blockquote>
+<p>will use ios/android system share panel</p>
+</blockquote>
+<pre>
+IOS:
+when trigger share success event, action name will pass by error in sdkbox::SocialShareResponse
+Android:
+share success event will trigger, but this is not real share success, just show share panel success
+can't get real share success event on android
+</pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onShareState ( const PluginShare::ShareResponse &amp; response ) {
+<pre><code class="cpp">void onShareState ( const sdkbox::SocialShareResponse &amp; response ) 
 </code></pre>
 
 <blockquote>

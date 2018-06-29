@@ -899,21 +899,93 @@ plugin.init();
 <blockquote>
 <p>Load/Display Ad with name @placement (referenced from your json config file)</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginLeadBolt.setAgeRange(range);
-sdkbox.PluginLeadBolt.setGender(gender);
+<pre><code class="javascript">sdkbox.PluginLeadBolt.startSession(apiKey);
 </code></pre>
 
 <blockquote>
-<p>You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.</p>
-<p>Allowed values:</p>
-<ul>
-<li>
-<p>for age range are: "13-17", "18-25", "26-35", "36-45", "46+"</p>
-</li>
-<li>
-<p>for gender are: "Male", "Female"</p>
-</li>
-</ul>
+<p>start session</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.closeSession();
+</code></pre>
+
+<blockquote>
+<p>close session</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.setSyncDataPeriodInSecond(periodInSecond);
+</code></pre>
+
+<blockquote>
+<p>sync data second, just valid on ios</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.sync();
+</code></pre>
+
+<blockquote>
+<p>sync data</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.event(name);
+</code></pre>
+
+<blockquote>
+<p>event</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.event(name, floatValue);
+</code></pre>
+
+<blockquote>
+<p>event with float value</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.transaction(name, floatValue, currencyCode, ref, instant);
+</code></pre>
+
+<blockquote>
+<p>Transaction Events</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.destroyModule();
+</code></pre>
+
+<blockquote>
+<p>destroy module</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.setCrashHandlerStatus(enable);
+</code></pre>
+
+<blockquote>
+<p>Crash Reporting</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.crashWithName(crashName, description);
+</code></pre>
+
+<blockquote>
+<p>Crash Reporting</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.fixAdOrientation(orientation);
+</code></pre>
+
+<blockquote>
+<p>force Ad Orientation</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.setAgeRange(range);
+</code></pre>
+
+<blockquote>
+<p>setAgeRange
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+accepted values "13-17", "18-25", "26-35", "36-45", "46+"</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.setGender(gender);
+</code></pre>
+
+<blockquote>
+<p>setGender
+You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+accepted valued "Male", "Female"</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginLeadBolt.setFramework(f);
+</code></pre>
+
+<blockquote>
+<p>setFramework</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onModuleLoaded(placement);

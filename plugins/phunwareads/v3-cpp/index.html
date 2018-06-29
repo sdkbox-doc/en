@@ -914,8 +914,16 @@ public:
 <blockquote>
 <p>get remaining views of rewarded video.</p>
 </blockquote>
+<pre><code class="cpp">static void setCustomData ( const std::string &amp; name ,
+                            const std::map &lt;std::string ,
+                            std::string&gt; &amp; data ) ;
+</code></pre>
+
+<blockquote>
+<p>set custom data of rewarded video</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void adLoaded ( const std::string &amp; name ) ;
+<pre><code class="cpp">void adLoaded ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
@@ -923,37 +931,37 @@ public:
 </blockquote>
 <pre><code class="cpp">void adFailed ( const std::string &amp; name ,
                 int errorCode ,
-                const std::string &amp; msg ) ;
+                const std::string &amp; msg ) 
 </code></pre>
 
 <blockquote>
 <p>there is error when cache content</p>
 </blockquote>
-<pre><code class="cpp">void adWillPresent ( const std::string &amp; name ) ;
+<pre><code class="cpp">void adWillPresent ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
 <p>ad will present</p>
 </blockquote>
-<pre><code class="cpp">void adDidPresent ( const std::string &amp; name ) ;
+<pre><code class="cpp">void adDidPresent ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
 <p>ad did present</p>
 </blockquote>
-<pre><code class="cpp">void adWillDissmiss ( const std::string &amp; name ) ;
+<pre><code class="cpp">void adWillDissmiss ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
 <p>ad will dissmiss</p>
 </blockquote>
-<pre><code class="cpp">void adDidDismiss ( const std::string &amp; name ) ;
+<pre><code class="cpp">void adDidDismiss ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
 <p>ad did dismiss</p>
 </blockquote>
-<pre><code class="cpp">void willLeaveApp ( const std::string &amp; name ) ;
+<pre><code class="cpp">void willLeaveApp ( const std::string &amp; name ) 
 </code></pre>
 
 <blockquote>
@@ -961,7 +969,9 @@ public:
 </blockquote>
 <pre><code class="cpp">void reward ( const std::string &amp; name ,
               float amount ,
-              const std::string &amp; currency ) ;
+              const std::string &amp; currency ,
+              const std::map &lt;std::string ,
+              std::string&gt; &amp; customData ) 
 </code></pre>
 
 <blockquote>

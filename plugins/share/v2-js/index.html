@@ -987,7 +987,7 @@ plugin.init();
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginShare.init();
+<pre><code class="javascript">sdkbox.PluginShare.init(jsonConfig);
 </code></pre>
 
 <blockquote>
@@ -998,6 +998,18 @@ plugin.init();
 
 <blockquote>
 <p>Set listener to listen for share events</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginShare.setSharePanelTitle(s);
+</code></pre>
+
+<blockquote>
+<p>set custome share platform choose panel title, default is "Share to"</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginShare.setSharePanelCancel(s);
+</code></pre>
+
+<blockquote>
+<p>set custome share platform choose panel cancel button, default is "Cancel"</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onShareState(response);

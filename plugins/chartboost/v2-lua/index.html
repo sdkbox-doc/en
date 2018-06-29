@@ -861,7 +861,15 @@ end)
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="lua">sdkbox.PluginChartboost:init()
+<pre><code class="lua">sdkbox.PluginChartboost:restrictDataCollection(shouldRestrict)
+</code></pre>
+
+<blockquote>
+<p>Set to restrict Chartboost's ability to collect personal data from the device.
+When this is set to YES. IDFA and ip address will not be collected by the SDK or the server.
+This method should be called before init</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginChartboost:init(jsonconfig)
 </code></pre>
 
 <blockquote>
@@ -913,6 +921,10 @@ end)
 <p>close any visible Chartboost impressions (interstitials, more apps, rewarded
 video, etc..) and the loading view (if visible).</p>
 </blockquote>
+<pre>
+deprecated >= 2.3.x
+</pre>
+
 <pre><code class="lua">sdkbox.PluginChartboost:setStatusBarBehavior(behavior)
 </code></pre>
 

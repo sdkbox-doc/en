@@ -859,7 +859,7 @@ plugin.init()
 
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginAppodeal.init();
+<pre><code class="javascript">sdkbox.PluginAppodeal.init(adType);
 </code></pre>
 
 <blockquote>
@@ -871,9 +871,15 @@ plugin.init()
 <blockquote>
 <p>Set listener to listen for appodeal events</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginAppodeal.getSDKVersion();
+</code></pre>
+
 <pre><code class="javascript">sdkbox.PluginAppodeal.disableNetworkForAdType(adType, networkName);
 </code></pre>
 
+<blockquote>
+<p>deprecated</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginAppodeal.disableLocationPermissionCheck();
 </code></pre>
 
@@ -899,6 +905,15 @@ plugin.init()
 </code></pre>
 
 <pre><code class="javascript">sdkbox.PluginAppodeal.isReadyForShowWithStyle(showStyle);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.setSmartBannersEnabled(smartBannerEnabled);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.setBannerBackgroundVisible(bannerBackgroundVisible);
+</code></pre>
+
+<pre><code class="javascript">sdkbox.PluginAppodeal.setBannerAnimationEnabled(bannerAnimationEnabled);
 </code></pre>
 
 <pre><code class="javascript">sdkbox.PluginAppodeal.setUserVkId(vkId);
@@ -989,35 +1004,46 @@ plugin.init()
 <blockquote>
 <p>trigger when interstitial ad clicked</p>
 </blockquote>
+<pre><code class="javascript">onInterstitialDidFailToPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when interstitial ad fail to present</p>
+</blockquote>
 <pre><code class="javascript">onVideoDidLoadAd();
 </code></pre>
 
 <blockquote>
-<p>trigger when video load</p>
+<p>trigger when video load
+deprecated</p>
 </blockquote>
 <pre><code class="javascript">onVideoDidFailToLoadAd();
 </code></pre>
 
 <blockquote>
-<p>trigger when video fail to load</p>
+<p>trigger when video fail to load
+deprecated</p>
 </blockquote>
 <pre><code class="javascript">onVideoDidPresent();
 </code></pre>
 
 <blockquote>
-<p>trigger when video present</p>
+<p>trigger when video present
+deprecated</p>
 </blockquote>
 <pre><code class="javascript">onVideoWillDismiss();
 </code></pre>
 
 <blockquote>
-<p>trigger when video dismiss</p>
+<p>trigger when video dismiss
+deprecated</p>
 </blockquote>
 <pre><code class="javascript">onVideoDidFinish();
 </code></pre>
 
 <blockquote>
-<p>trigger when video finish</p>
+<p>trigger when video finish
+deprecated</p>
 </blockquote>
 <pre><code class="javascript">onRewardVideoDidLoadAd();
 </code></pre>
@@ -1048,6 +1074,90 @@ plugin.init()
 
 <blockquote>
 <p>trigger when reward video finish</p>
+</blockquote>
+<pre><code class="javascript">onRewardVideoDidFailToPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when reward video fail to present</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoDidLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video load</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoDidFailToLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video fial to load</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoDidPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video present</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoWillDismiss();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video dismiss</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoDidFinish();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video finish</p>
+</blockquote>
+<pre><code class="javascript">onSkippableVideoDidClick();
+</code></pre>
+
+<blockquote>
+<p>trigger when skippable video click</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video load</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidFailToLoadAd();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fial to load</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video present</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoWillDismiss();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video dismiss</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidFinish();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video finish</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidClick();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video click</p>
+</blockquote>
+<pre><code class="javascript">onNonSkippableVideoDidFailToPresent();
+</code></pre>
+
+<blockquote>
+<p>trigger when nonskippable video fail to present</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>

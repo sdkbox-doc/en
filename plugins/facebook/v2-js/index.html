@@ -1113,6 +1113,12 @@ sdkbox.PluginFacebook.api(&quot;/me/friendlists&quot;, &quot;GET&quot;, params, 
 <blockquote>
 <p>initialize the plugin instance.</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.setLoginBehavior(loginBehavior);
+</code></pre>
+
+<blockquote>
+<p>login</p>
+</blockquote>
 <pre><code class="javascript">sdkbox.PluginFacebook.login();
 </code></pre>
 
@@ -1243,6 +1249,24 @@ The number of friends defaults to 25.
 <blockquote>
 <p>Send friend a gift</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.logEvent(eventName);
+</code></pre>
+
+<blockquote>
+<p>Log event</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.logEvent(eventName, valueToSum);
+</code></pre>
+
+<blockquote>
+<p>Log event with value</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginFacebook.logPurchase(mount, currency);
+</code></pre>
+
+<blockquote>
+<p>Log purchase event</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onLogin(isLogin, msg);
 </code></pre>
@@ -1277,7 +1301,7 @@ The number of friends defaults to 25.
 <pre><code class="javascript">onGetUserInfo(userInfo);
 </code></pre>
 
-<pre><code class="javascript">onAskGiftResult(result, msg);
+<pre><code class="javascript">onRequestGiftResult(result, msg);
 </code></pre>
 
 <pre><code class="javascript">onSendGiftResult(result, msg);

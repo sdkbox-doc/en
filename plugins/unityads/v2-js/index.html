@@ -842,69 +842,48 @@ plugin.init();
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for unityads events</p>
+<p>Set listener to listen for inmobi events</p>
 </blockquote>
 <pre><code class="javascript">sdkbox.PluginUnityAds.isSupported();
 </code></pre>
 
-<blockquote>
-<p>is unityads support current platform</p>
-</blockquote>
 <pre><code class="javascript">sdkbox.PluginUnityAds.isReady(placementId);
 </code></pre>
 
-<blockquote>
-<p>is unityads ready to show</p>
-</blockquote>
 <pre><code class="javascript">sdkbox.PluginUnityAds.show(placementId);
 </code></pre>
 
-<blockquote>
-<p>show unityads</p>
-</blockquote>
 <pre><code class="javascript">sdkbox.PluginUnityAds.getPlacementState(placementId);
 </code></pre>
 
-<blockquote>
-<p>unityads placement state</p>
-</blockquote>
-<h3 id="listeners">Listeners</h3>
-<pre><code class="javascript">unityAdsDidClick(const std::string&amp; placementId);
+<pre><code class="javascript">sdkbox.PluginUnityAds.setGDPR(enabled);
 </code></pre>
 
 <blockquote>
-<p>unityads clicked</p>
+<p>Enable GDPR</p>
 </blockquote>
+<pre><code class="javascript">sdkbox.PluginUnityAds.setServerId(sid);
+</code></pre>
+
+<h3 id="listeners">Listeners</h3>
+<pre><code class="javascript">unityAdsDidClick(placementId);
+</code></pre>
+
 <pre><code class="javascript">unityAdsPlacementStateChanged(placementId, oldState, newState);
 </code></pre>
 
-<blockquote>
-<p>unityads placement state changed</p>
-</blockquote>
 <pre><code class="javascript">unityAdsReady(placementId);
 </code></pre>
 
-<blockquote>
-<p>unityads ready</p>
-</blockquote>
 <pre><code class="javascript">unityAdsDidError(error, message);
 </code></pre>
 
-<blockquote>
-<p>unityads error</p>
-</blockquote>
 <pre><code class="javascript">unityAdsDidStart(placementId);
 </code></pre>
 
-<blockquote>
-<p>unityads start</p>
-</blockquote>
 <pre><code class="javascript">unityAdsDidFinish(placementId, state);
 </code></pre>
 
-<blockquote>
-<p>unityads finish</p>
-</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

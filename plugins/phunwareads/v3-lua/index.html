@@ -901,6 +901,12 @@ end)
 <blockquote>
 <p>get remaining views of rewarded video.</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginPhunwareAds:setCustomData(name, data)
+</code></pre>
+
+<blockquote>
+<p>set custom data of rewarded video</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">adLoaded(name)
 </code></pre>
@@ -944,7 +950,7 @@ end)
 <blockquote>
 <p>will leave application</p>
 </blockquote>
-<pre><code class="lua">reward(name, amount, currency)
+<pre><code class="lua">reward(name, amount, currency, customData)
 </code></pre>
 
 <blockquote>

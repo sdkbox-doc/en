@@ -855,85 +855,86 @@ recommend to do this in the <code>app.js</code>. Example:</p>
 </blockquote>
 <h2 id="api-reference">API Reference</h2>
 <h3 id="methods">Methods</h3>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.init ( ) ;
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.init();
 </code></pre>
 
 <blockquote>
-<p>initialize the plugin instance.</p>
+<p>Initialize the plugin instance. 
+The plugin initializes from the sdkbox_config.json file and reads configuration of the form:</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.setListener ( listener ) ;
+<pre>
+ <code>
+   "SdkboxAds": {
+       "units": [ "AdColony", "Fyber" ],
+       "placements": [ {} ]
+   }
+ </code>
+The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
+and/or simplifies interaction with them.
+The "placements" block will be of the form:
+ <code>
+    {
+         “id” : “placement_id”,
+         "strategy" : "round-robin", // only value by now.
+         “units” : [
+             <UnitDefinition>
+         ]
+     }
+ </code>
+and each UnitDefinition as:
+ <code>
+     {
+         “Unit” : result_of_AdUnit.getId(),
+         “name” : <a zone, place, location, existing in a Plugin's config>,
+         “params” : json_object
+     }
+ </code>
+For a sample Sdkboxads config, check the example at Sdkbox github public repository.
+The "params" configuration block will allow to pass in specific information to play ads
+like location, position, etc.
+Check each AdUnit's documentation to find specifics on its configuration.
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.setListener(listener);
 </code></pre>
 
 <blockquote>
-<p>Set listener to listen for SdkboxAds events</p>
+<p>Set Sdkboxads' plugin listener.
+This listener will expose for each registered AdUnits, events related to Ads and Rewards.
+In SdkboxAds, an Ad refers generally to VIDEO, INTERSTITIAL and BANNER.
+Note that some ad units may have only Ads.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.playAd()
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.placement(placement);
 </code></pre>
 
 <blockquote>
-<p>Each unit knows how to play an ad by default.  So this method will play a default Ad for the default AdUnit.</p>
+<p>A placement is a collection of mediated AdUnits.
+When you want to invoke a placement, just call this method.
+If the placement does not exist, the call will just be ignored.
+A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
+cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.playAd( ad_name, params );
+<pre>
+The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
+In the short term, new placement strategies will be added.
+</pre>
+
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.isAvailable(placement);
 </code></pre>
 
 <blockquote>
-<p>Play An Ad in the default AdUnit with extra hints. These hints are i.e. position on screen, transparency, etc. Each AdUnit will document what extra hints can be passed to play an Ad. Currently none of the AdUnits need this parameter.</p>
+<p>check if placement available</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.playAd( ad_unit, ad_name, params );
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.hide(placement);
 </code></pre>
 
 <blockquote>
-<p>Play an Ad in an specific AdUnit with extra hint parameters. If you pass values to an AdUnit that does need need, they will simply be ignored.</p>
+<p>hide placement</p>
 </blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.placement(placement_name);
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.hideAd(ad_unit, zone_place_location);
 </code></pre>
 
-<blockquote>
-<p>When you want to invoke a placement, just call this method. If the placement does not exist, the call will just be ignored. A placement will take care of AdUnit’s cache control, so if the current AdUnit has no cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
-</blockquote>
-<pre><code class="javascript">sdkbox.PluginSdkboxAds.cacheControl( ad_unit, cacheOpts );
-</code></pre>
-
-<blockquote>
-<p>Some Ad units expose fine-grained cache control. For example Chartboost offers specific cache control for each location, as well as general Ads cache control. This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed for a given AdUnit, the call will silently be ignored. Each AdUnit will document what valid values to pass to the cacheOpts parameter. E.g. for Chartboost, these are valid values:</p>
-<p>"Default": true,     // a configuration location
- "Level Complete": true,  // a configuration location
- "<strong>ADS</strong>": true      // a general placeholder chartboost specific </p>
-</blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="javascript">onAdAction( ad_unit_id, ad_name, action_type);
-</code></pre>
-
-<blockquote>
-<p>This method notifies back with the AdUnit identifier, the Ad name it tried to play, and an enum type of the action it is communicating about.
-The Action type is the following enum:</p>
-</blockquote>
-<pre><code class="javascript">    enum AdActionType {
-
-        LOADED=0,               // content loaded
-        LOAD_FAILED,            // content failed to load
-
-        CLICKED,                // clicked on content
-
-        REWARD_STARTED,     // reward started
-        REWARD_ENDED,           // reward achieved
-        REWARD_CANCELED,        // reward aborted
-
-        AD_STARTED,             // start showing.
-        AD_CANCELED,            // start showing.
-        AD_ENDED,               // content shown
-
-        ADACTIONTYPE_UNKNOWN    // mostly on error situations.
-
-    };
-</code></pre>
-
-<blockquote>
-<p>Not all AdUnits will expose all types of events. For example, Chartboost notifies CLICKED action, but AdColony does not. Each AdUnit’s documentation will reflect what events will notify.</p>
-</blockquote>
-<pre><code class="javascript">onRewardAction( ad_unit_id, ad_name, reward_amount, reward_succeed);
-</code></pre>
-
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

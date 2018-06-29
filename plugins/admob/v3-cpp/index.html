@@ -918,6 +918,7 @@ private:
     void adViewDidDismissScreen(const std::string &amp;name) {}
     void adViewWillDismissScreen(const std::string &amp;name) {}
     void adViewWillLeaveApplication(const std::string &amp;name) {}
+    void reward(const std::string &amp;name, const std::string &amp;currency, double amount) {}
 }
 </code></pre>
 
@@ -978,42 +979,85 @@ private:
 <blockquote>
 <p>hide ad with @name</p>
 </blockquote>
+<pre>
+interstitial does not support hide
+</pre>
+
 <pre><code class="cpp">static bool isAvailable ( const std::string &amp; name ) ;
 </code></pre>
 
 <blockquote>
 <p>check whether ad available with @name</p>
 </blockquote>
-<pre><code class="cpp">static int getCurrBannerWidth ( ) ;
+<pre><code class="cpp">static int getCurrBannerWidth ( const std::string &amp; name = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>get width of current banner</p>
 </blockquote>
-<pre><code class="cpp">static int getCurrBannerHeight ( ) ;
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="cpp">static int getCurrBannerHeight ( const std::string &amp; name = &quot;&quot; ) ;
 </code></pre>
 
 <blockquote>
 <p>get height of current banner</p>
 </blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="cpp">static int getCurrBannerWidthInPixel ( const std::string &amp; name = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>get width of current banner in pixel</p>
+</blockquote>
+<pre>
+@return -1 means current banner is not available
+</pre>
+
+<pre><code class="cpp">static int getCurrBannerHeightInPixel ( const std::string &amp; name = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>get height of current banner in pixel</p>
+</blockquote>
+<pre>
+@return: -1 means current banner is not available
+</pre>
+
+<pre><code class="cpp">static void setGDPR ( bool enabled ) ;
+</code></pre>
+
+<blockquote>
+<p>set GDPR</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void adViewDidReceiveAd ( const std::string &amp; name ) {
+<pre><code class="cpp">void adViewDidReceiveAd ( const std::string &amp; name ) 
 </code></pre>
 
 <pre><code class="cpp">void adViewDidFailToReceiveAdWithError ( const std::string &amp; name ,
-                                         const std::string &amp; msg ) {
+                                         const std::string &amp; msg ) 
 </code></pre>
 
-<pre><code class="cpp">void adViewWillPresentScreen ( const std::string &amp; name ) {
+<pre><code class="cpp">void adViewWillPresentScreen ( const std::string &amp; name ) 
 </code></pre>
 
-<pre><code class="cpp">void adViewDidDismissScreen ( const std::string &amp; name ) {
+<pre><code class="cpp">void adViewDidDismissScreen ( const std::string &amp; name ) 
 </code></pre>
 
-<pre><code class="cpp">void adViewWillDismissScreen ( const std::string &amp; name ) {
+<pre><code class="cpp">void adViewWillDismissScreen ( const std::string &amp; name ) 
 </code></pre>
 
-<pre><code class="cpp">void adViewWillLeaveApplication ( const std::string &amp; name ) {
+<pre><code class="cpp">void adViewWillLeaveApplication ( const std::string &amp; name ) 
+</code></pre>
+
+<pre><code class="cpp">void reward ( const std::string &amp; name ,
+              const std::string &amp; currency ,
+              double amount ) 
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

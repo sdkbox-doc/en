@@ -901,20 +901,24 @@ private:
 </code></pre>
 
 <blockquote>
-<p>Enable logging to help debug if you run into an issue setting up OneSignal. This selector 
-is static so you can call it before OneSignal init. The following options are available 
+<p>Enable logging to help debug if you run into an issue setting up OneSignal. This selector
+is static so you can call it before OneSignal init. The following options are available
 with increasingly more information;
-sdkbox::OneSignalLogNone, sdkbox::OneSignalLogFatal, sdkbox::OneSignalLogError, 
-sdkbox::OneSignalLogWarn, sdkbox::OneSignalLogInfo, sdkbox::OneSignalLogDebug, 
+sdkbox::OneSignalLogNone, sdkbox::OneSignalLogFatal, sdkbox::OneSignalLogError,
+sdkbox::OneSignalLogWarn, sdkbox::OneSignalLogInfo, sdkbox::OneSignalLogDebug,
 sdkbox::OneSignalLogVerbose</p>
 </blockquote>
 <pre><code class="cpp">static void sendTag ( const std::string &amp; key , const std::string &amp; value ) ;
 </code></pre>
 
 <blockquote>
-<p>Tag a user based on an app event of your choosing so later you can create segments on 
+<p>Tag a user based on an app event of your choosing so later you can create segments on
 onesignal.com to target these users.</p>
 </blockquote>
+<pre>
+callback: `onSendTag`
+</pre>
+
 <pre><code class="cpp">static void setEmail ( const std::string &amp; email ) ;
 </code></pre>
 
@@ -927,6 +931,10 @@ onesignal.com to target these users.</p>
 <blockquote>
 <p>Retrieve a list of tags that have been set on the user from the OneSignal server.</p>
 </blockquote>
+<pre>
+callback: `onGetTags`
+</pre>
+
 <pre><code class="cpp">static void deleteTag ( const std::string &amp; key ) ;
 </code></pre>
 
@@ -937,58 +945,76 @@ onesignal.com to target these users.</p>
 </code></pre>
 
 <blockquote>
-<p>Lets you retrieve the OneSignal user id and the Google registration id. Your handler is 
+<p>Lets you retrieve the OneSignal user id and the Google registration id. Your handler is
 called after the device is successfully registered with OneSignal.</p>
 </blockquote>
+<pre>
+callback: `onIdsAvailable`
+</pre>
+
 <pre><code class="cpp">static void enableInAppAlertNotification ( bool enable ) ;
 </code></pre>
 
 <blockquote>
 <p>By default this is false and notifications will not be shown when the user is in your app,
 instead the NotificationOpenedHandler is fired. If set to true notifications will be shown
-as native alert boxes if a notification is received when the user is in your app. The 
+as native alert boxes if a notification is received when the user is in your app. The
 NotificationOpenedHandler is then fired after the alert box is closed.</p>
 </blockquote>
 <pre><code class="cpp">static void setSubscription ( bool enable ) ;
 </code></pre>
 
 <blockquote>
-<p>You can call this method with false to opt users out of receiving all notifications through 
+<p>You can call this method with false to opt users out of receiving all notifications through
 OneSignal. You can pass true later to opt users back into notifications.</p>
 </blockquote>
 <pre><code class="cpp">static void postNotification ( const std::string &amp; jsonString ) ;
 </code></pre>
 
 <blockquote>
-<p>Allows you to send notifications from user to user or schedule ones in the future to be 
+<p>Allows you to send notifications from user to user or schedule ones in the future to be
 delivered to the current device.</p>
 </blockquote>
+<pre>
+callback: `onPostNotification`
+</pre>
+
 <pre><code class="cpp">static void promptLocation ( ) ;
 </code></pre>
 
 <blockquote>
-<p>Prompts the user for location permissions. This allows for geotagging so you can send 
+<p>Prompts the user for location permissions. This allows for geotagging so you can send
 notifications to users based on location.</p>
 </blockquote>
+<pre>
+Note: Make sure you also have the required location permission in your AndroidManifest.xml.
+</pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onSendTag ( bool success ,
                  const std::string &amp; key ,
-                 const std::string &amp; message ) {
+                 const std::string &amp; message ) 
 </code></pre>
 
-<pre><code class="cpp">void onGetTags ( const std::string &amp; jsonString ) {
+<pre><code class="cpp">void onGetTags ( const std::string &amp; jsonString ) 
 </code></pre>
 
 <pre><code class="cpp">void onIdsAvailable ( const std::string &amp; userId ,
-                      const std::string &amp; pushToken ) {
+                      const std::string &amp; pushToken ) 
 </code></pre>
 
-<pre><code class="cpp">void onPostNotification ( bool success , const std::string &amp; message ) {
+<pre><code class="cpp">void onPostNotification ( bool success , const std::string &amp; message ) 
 </code></pre>
 
 <pre><code class="cpp">void onNotification ( bool isActive ,
                       const std::string &amp; message ,
-                      const std::string &amp; additionalData ) {
+                      const std::string &amp; additionalData ) 
+</code></pre>
+
+<pre><code class="cpp">void onNotificationOpened ( const std::string &amp; message ) 
+</code></pre>
+
+<pre><code class="cpp">void onNotificationReceived ( const std::string &amp; message ) 
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>

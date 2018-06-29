@@ -885,12 +885,20 @@ AppDelegate::applicationDidFinishLaunching()
 <blockquote>
 <p>Specifies that the server responses should include debug information.</p>
 </blockquote>
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
+
 <pre><code class="cpp">static void setAllowDuplicateRequests ( bool allow ) ;
 </code></pre>
 
 <blockquote>
 <p>Set to YES to allow duplicate requests to be registered with the MAT server.</p>
 </blockquote>
+<pre>
+@warning This is only for testing. You must turn this off for release builds.
+</pre>
+
 <pre><code class="cpp">SDKBOX_DEPRECATED ( &quot;checkForDeferredDeepLink&quot; ) static void checkForDeferredDeeplinkWithTimeout ( double timeout ) ;
 </code></pre>
 
@@ -899,6 +907,11 @@ AppDelegate::applicationDidFinishLaunching()
 This is safe to call at every app launch, since the function does nothing
 unless this is the first launch.</p>
 </blockquote>
+<pre>
+The timeout parameter should be set in keeping with the normal first-launch
+time and user experience of your app.
+</pre>
+
 <pre><code class="cpp">static void checkForDeferredDeepLink ( ) ;
 </code></pre>
 
@@ -914,6 +927,10 @@ unless this is the first launch.</p>
 <p>Enable automatic measurement of app store in-app-purchase events. When enabled, your code
 should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="cpp">static void setFacebookEventLogging ( bool logging , bool limit ) ;
 </code></pre>
 
@@ -921,6 +938,11 @@ should not explicitly measure events for successful purchases related to StoreKi
 <p>Set whether the MAT events should also be logged to the Facebook SDK. This flag is ignored
 if the Facebook SDK is not present.</p>
 </blockquote>
+<pre>
+should be restricted from being used for other than analytics and conversions.  Defaults to false.
+This value is stored on the device and persists across app launches.
+</pre>
+
 <pre><code class="cpp">static void setExistingUser ( bool existingUser ) ;
 </code></pre>
 
@@ -929,6 +951,10 @@ if the Facebook SDK is not present.</p>
 distinguish users who were using previous versions of the app, prior to
 integration of the MAT SDK. The default is to assume a new user.</p>
 </blockquote>
+<pre>
+See http://support.mobileapptracking.com/entries/22621001-Handling-Installs-prior-to-SDK-implementation
+</pre>
+
 <pre><code class="cpp">static void setAppleAdvertisingIdentifier ( const std::string &amp; appleAdvertisingIdentifier ,
                                             bool adTrackingEnabled ) ;
 </code></pre>
@@ -936,24 +962,40 @@ integration of the MAT SDK. The default is to assume a new user.</p>
 <blockquote>
 <p>Set the Apple Advertising Identifier available in iOS 6.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="cpp">static void setAppleVendorIdentifier ( const std::string &amp; appleVendorIdentifier ) ;
 </code></pre>
 
 <blockquote>
 <p>Set the Apple Vendor Identifier available in iOS 6.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="cpp">static void setCurrencyCode ( const std::string &amp; currencyCode ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the currency code.</p>
 </blockquote>
+<pre>
+Default: USD
+</pre>
+
 <pre><code class="cpp">static void setJailbroken ( bool jailbroken ) ;
 </code></pre>
 
 <blockquote>
 <p>Sets the jailbroken device flag.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="cpp">static void setPackageName ( const std::string &amp; packageName ) ;
 </code></pre>
 
@@ -974,6 +1016,10 @@ Defaults to the Bundle Identifier of the app that is running the sdk.</p>
 <p>Specifies if the sdk should pull the Apple Vendor Identifier from the device.
 Note that setting to false will clear any previously set value for the property.</p>
 </blockquote>
+<pre>
+@platform iOS
+</pre>
+
 <pre><code class="cpp">SDKBOX_DEPRECATED ( &quot;setPackageName&quot; ) static void setSiteId ( const std::string &amp; siteId ) ;
 </code></pre>
 
@@ -1073,6 +1119,11 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <blockquote>
 <p>Sets publisher information for attribution.</p>
 </blockquote>
+<pre>
+@function setPreloadDataForScript for Js / Lua
+@function setPreloadData for cpp
+</pre>
+
 <pre><code class="cpp">static void setPreloadDataForScript ( const std::string &amp; jsonString ) ;
 </code></pre>
 
@@ -1082,24 +1133,40 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <blockquote>
 <p>Get the MAT ID for this installation (mat_id).</p>
 </blockquote>
+<pre>
+@return MAT ID
+</pre>
+
 <pre><code class="cpp">static std::string tuneId ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get the Tune ID for this installation.</p>
 </blockquote>
+<pre>
+@return Tune ID
+</pre>
+
 <pre><code class="cpp">static std::string openLogId ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get the MAT log ID for the first app open (open_log_id).</p>
 </blockquote>
+<pre>
+@return open log ID
+</pre>
+
 <pre><code class="cpp">static bool isPayingUser ( ) ;
 </code></pre>
 
 <blockquote>
 <p>Get whether the user is revenue-generating.</p>
 </blockquote>
+<pre>
+@return YES if the user has produced revenue, NO if not
+</pre>
+
 <pre><code class="cpp">static void measureSession ( ) ;
 </code></pre>
 
@@ -1124,6 +1191,11 @@ If measureEvent is called with a non-zero revenue, this is automatically set to 
 <blockquote>
 <p>Record an event with a MATEvent.</p>
 </blockquote>
+<pre>
+@function measureEventForScript for Js / Lua
+@function measureEvent for cpp
+</pre>
+
 <pre><code class="cpp">static void measureEventForScript ( const std::string &amp; jsonString ) ;
 </code></pre>
 
@@ -1151,6 +1223,10 @@ used in conjunction with the setTracking:advertiserId:offerId:publisherId:redire
 <blockquote>
 <p>Start an app-to-app tracking session on the MAT server.</p>
 </blockquote>
+<pre>
+successfully created. See setRedirectUrl:.
+</pre>
+
 <pre><code class="cpp">static void applicationDidOpenURL ( const std::string &amp; urlString ,
                                     const std::string &amp; sourceApplication ) ;
 </code></pre>
