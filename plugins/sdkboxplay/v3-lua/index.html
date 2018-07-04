@@ -1832,7 +1832,11 @@ android.library.reference.1=libs/gps/
 
 <p>Use any Google Play proguard configuration that fitst your needs.
 This is default proguard config:</p>
-<pre><code>-keep class * extends java.util.ListResourceBundle {
+<pre><code>
+-keep class com.google.protobuf.** { *; }
+-dontwarn com.google.protobuf.**
+
+-keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }
 
