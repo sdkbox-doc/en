@@ -20,6 +20,9 @@ proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.
     protected Object[][] getContents();
 }
 
+-keep class com.google.protobuf.** { *; }
+-dontwarn com.google.protobuf.**
+
 -keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
     public static final *** NULL;
 }

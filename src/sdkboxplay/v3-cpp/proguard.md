@@ -8,6 +8,10 @@ Use any Google Play proguard configuration that fitst your needs.
 This is default proguard config:
 
 ```
+
+-keep class com.google.protobuf.** { *; }
+-dontwarn com.google.protobuf.**
+
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }

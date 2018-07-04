@@ -17,6 +17,9 @@ proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.
 -keep class com.google.android.gms.** { *; }
 -dontwarn com.google.android.gms.**
 
+-keep class com.google.protobuf.** { *; }
+-dontwarn com.google.protobuf.**
+
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }

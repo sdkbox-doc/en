@@ -23,6 +23,9 @@ proguard.config=proguard.cfg
 -keep public class com.google.android.gms.** { public *; }
 -dontwarn com.google.android.gms.**
 
+-keep class com.google.protobuf.** { *; }
+-dontwarn com.google.protobuf.**
+
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }
