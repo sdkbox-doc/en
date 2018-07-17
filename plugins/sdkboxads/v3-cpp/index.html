@@ -681,8 +681,6 @@
         
             <li><a href="#methods">Methods</a></li>
         
-            <li><a href="#listeners">Listeners</a></li>
-        
 	</ul>
 	
     
@@ -789,7 +787,7 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 
 <h2 id="usage">Usage</h2>
 <h3 id="initialize-sdkboxads">Initialize SdkboxAds</h3>
-<p>Initialize the plugin where appropriate in your code. We recommend to do this in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
+<p>Initialize the plugin in your code. We recommend to do it in the <code>AppDelegate::applicationDidFinishLaunching()</code> or <code>AppController:didFinishLaunchingWithOptions()</code>. Make sure to include the appropriate headers:</p>
 <pre><code class="cpp">#include &quot;PluginSdkboxAds/PluginSdkboxAds.h&quot;
 AppDelegate::applicationDidFinishLaunching()
 {
@@ -799,68 +797,15 @@ AppDelegate::applicationDidFinishLaunching()
 
 <h3 id="using-sdkboxads">Using SdkboxAds</h3>
 <h4 id="configuration">Configuration</h4>
-<p>SdkboxAds is an ad mediation service. This means it will manage at runtime a set of predefined AdUnits.
-The configuration spans in two different parts: AdUnits, and Placements. Each AdUnit will reference to an Sdkbox plugin
-that can be managed as an AdUnit.
-The configuration could be:
-<pre>
-    "SdkboxAds": {
-        "units": [
-            "AdColony",
-            "Fyber",
-            "Chartboost",
-            "Vungle"
-        ]
-    }
-</pre></p>
-<p>Placements are references to specific ads in a given AdUnit. A whole SdkboxAds config file could be:</p>
-<pre>
-    "SdkboxAds": {
-        "units": [
-                "AdColony",
-                "Fyber",
-                "Chartboost",
-                "Vungle"
-            ],
-        "placements": [
-            {
-                "id" : "placement-1",
-                "strategy" : "round-robin",
-                "units" : [
-                    {
-                      "unit": "AdColony",
-                      "name": "video"
-                    },
-                    {
-                      "unit": "Chartboost",
-                      "name": "Default"
-                    }
-                ]
-            },
-            {
-                "id" : "placement-2",
-                "strategy" : "round-robin",
-                "units" : [
-                    {
-                      "unit": "Vungle",
-                      "name": "reward"
-                    },
-                    {
-                      "unit": "AdColony",
-                      "name": "v4vc"
-                    },
-                    {
-                      "unit": "Chartboost",
-                      "name": "Next Level"
-                    }
-                ]
-            }
-        ] 
-    }
-</pre>
-
+<p>SdkboxAds is an ad mediation service. It manages a set of predefined AdUnits at runtime.
+The configuration includes two parts: AdUnits, and Placements. </p>
+<ul>
+<li>Each AdUnit entry references to a Sdkbox plugin that can be managed as an AdUnit.</li>
+<li>A Placement is a collection of pairs of AdUnit and ad name ordered by a strategy. </li>
+</ul>
+<p>Please read the (<a href="./../">SdkboxAds Configuration Overview</a>) for more details. </p>
 <h4 id="usage_1">Usage</h4>
-<p>A call to <code>sdkbox::SdkboxAds::init()</code> will suffice to instantiate and manage all referenced AdUnits in the configuration
+<p>A call to <code>sdkbox::SdkboxAds::init()</code> will load and instantiate all referenced AdUnits in the configuration
 file.</p>
 <p>To request a default Ad for the default AdUnit and have a fast integration test:</p>
 <pre><code class="cpp">sdkbox::PluginSdkboxAds::playAd()
@@ -959,42 +904,41 @@ private:
 </code></pre>
 
 <blockquote>
-<p>Initialize the plugin instance. 
-The plugin initializes from the sdkbox_config.json file and reads configuration of the form:</p>
-</blockquote>
+<p>The plugin initializes from the sdkbox_config.json file and reads configuration.
 <pre>
  <code>
    "SdkboxAds": {
-       "units": [ "AdColony", "Fyber" ],
+       "units": [ "AdColony", "AdMob" ],
        "placements": [ {} ]
    }
  </code>
-The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
-and/or simplifies interaction with them.
-The "placements" block will be of the form:
+</pre></p>
+<p>The "placements" block will be of the form:
+<pre>
  <code>
     {
-         “id” : “placement_id”,
+         "id": string, // placement's id
          "strategy" : "round-robin", // only value by now.
-         “units” : [
+         "units": [
              <UnitDefinition>
          ]
      }
  </code>
-and each UnitDefinition as:
+</pre></p>
+<p>Each UnitDefinition as:
+<pre>
  <code>
      {
-         “Unit” : result_of_AdUnit.getId(),
-         “name” : <a zone, place, location, existing in a Plugin's config>,
-         “params” : json_object
+         "Unit": string, // result_of_AdUnit.getId(),
+         "name": string, // a zone, place, or location name from AdUnit's plugin config,
+         "params": json_object
      }
  </code>
-For a sample Sdkboxads config, check the example at Sdkbox github public repository.
+</pre></p>
+<p>For a sample Sdkboxads config, check the example at Sdkbox github public repository.
 The "params" configuration block will allow to pass in specific information to play ads
-like location, position, etc.
-Check each AdUnit's documentation to find specifics on its configuration.
-</pre>
-
+like location, position, etc. Check each AdUnit's documentation to find specifics on its configuration.</p>
+</blockquote>
 <pre><code class="cpp">static void setListener ( sdkbox::PluginSdkboxAdsListener * listener ) ;
 </code></pre>
 
@@ -1020,10 +964,10 @@ Note that some ad units may have only Ads.</p>
 AdUnits like Fyber which don't have zones, will use common placeholders like "INTERSTITIAL" or "REWARDED".
 Some AdUnits may require extra information to play an Ad, and should use the params for that purpose.
 You should refer to the documentation of each specific AdUnit about what parameters will accept.</p>
-</blockquote>
 <p>The ad will be played for a specific AdUnit based on its identifier. The identifiers are the
 values in the "units" node of the sdkbox_config.json file.
 For example: "AdColony" or "Fyber".</p>
+</blockquote>
 <pre><code class="cpp">static void playAd ( const std::string &amp; ad_unit ,
                      const std::string &amp; zone_place_location ) ;
 </code></pre>
@@ -1055,12 +999,9 @@ When you want to invoke a placement, just call this method.
 If the placement does not exist, the call will just be ignored.
 A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
 cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
+<p>The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
+In the short term, new placement strategies will be added.</p>
 </blockquote>
-<pre>
-The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
-In the short term, new placement strategies will be added.
-</pre>
-
 <pre><code class="cpp">static void cacheControl ( const std::string &amp; ad_unit ,
                            const std::map &lt;std::string ,
                            std::string&gt; &amp; cacheOpts ) ;
@@ -1071,9 +1012,7 @@ In the short term, new placement strategies will be added.
 Not all AdUnits expose cache control while some others expose fine-grained cache control.
 For example Chartboost offers specific cache control for each location, as well as
 general Ads cache control.</p>
-</blockquote>
-<pre>
-This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed
+<p>This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed
 for a given AdUnit, the call will silently be ignored.
 Each AdUnit will document what valid values to pass to the cacheOpts parameter.
 E.g. for Chartboost, these are valid values:
@@ -1081,6 +1020,7 @@ cacheOpts for Chartboost:
      element : bool
          Element corresponds to an identifiable CBLocation (ChartBoost)
      e.g:
+<pre>
  <code>
      {
          "Default": true, // a configuration location
@@ -1088,8 +1028,8 @@ cacheOpts for Chartboost:
          "ADS": true // a general placeholder chartboost specific
      }
  </code>
-</pre>
-
+</pre></p>
+</blockquote>
 <pre><code class="cpp">static bool isAvailable ( const std::string &amp; placement ) ;
 </code></pre>
 
@@ -1106,7 +1046,6 @@ cacheOpts for Chartboost:
                      const std::string &amp; zone_place_location ) ;
 </code></pre>
 
-<h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>

@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,25 +12,25 @@
     
         
     <url>
-     <loc>/cocos/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/cocos/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/installer/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/installer/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/cocos_creator/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/qa/cocos_creator/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -40,54 +40,38 @@
     
         
     <url>
-     <loc>/unity/allinone/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/allinone/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/iap/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/iap/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/review/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/review/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/socialshare/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/socialshare/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/googleanalytics/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/googleanalytics/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/sdkboxplay/</loc>
-     <lastmod>2018-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/unreal/iap/</loc>
-     <lastmod>2018-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/unreal/chartboost/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unity/sdkboxplay/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -96,26 +80,14 @@
     
         
     <url>
-     <loc>/liveops/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unreal/iap/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/liveops/remote-config/</loc>
-     <lastmod>2018-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/liveops/receipt-verification/</loc>
-     <lastmod>2018-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/liveops/catalog-management/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/unreal/chartboost/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -124,50 +96,78 @@
     
         
     <url>
-     <loc>/qa/from-google-to-amazon/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/liveops/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-admob-to-creator/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/liveops/remote-config/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-fyber-to-cocos/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/liveops/receipt-verification/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/fb-share-on-cocos/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/liveops/catalog-management/</loc>
+     <lastmod>2018-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/qa/from-google-to-amazon/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/android_64k/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/qa/integration-admob-to-creator/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-iap-on-unity/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/qa/integration-fyber-to-cocos/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/use-gui-integration-ga-to-creator/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/qa/fb-share-on-cocos/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/use-custom-activity-on-unity/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/qa/android_64k/</loc>
+     <lastmod>2018-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/integration-iap-on-unity/</loc>
+     <lastmod>2018-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/use-gui-integration-ga-to-creator/</loc>
+     <lastmod>2018-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/use-custom-activity-on-unity/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -175,8 +175,8 @@
 
     
     <url>
-     <loc>/release-note/</loc>
-     <lastmod>2018-07-04</lastmod>
+     <loc>None/release-note/</loc>
+     <lastmod>2018-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
