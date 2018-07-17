@@ -39,7 +39,7 @@ For example, a placement could be:
 </pre>
 
 Each time this placement is invoked, it round-robin for each AdUnit it has defined. If by any circumstance, at invocation time any AdUnit has no Ads data ready to be played, the next AdUnit will be requested. If no AdUnit has ads ready, nothing will happen.
-The only available placement strategy is currently “round-robin”, but expect it to have more available values anytime soon.
+The only available placement strategy is currently "round-robin", but expect it to have more available values anytime soon.
 Certain AdUnits don’t handle the concept of a zone, location or place (e.g Fyber). For these, Sdkbox plugin will use `INTERSTITIAL`, `REWARDED`, `VIDEO` or `BANNER` to refer to the expected ad type to be played by the AdUnit.
 
 ###Default AdUnit

@@ -19,9 +19,9 @@ and/or simplifies interaction with them.
 The "placements" block will be of the form:
  <code>
     {
-         “id” : “placement_id”,
+         "id" : "placement_id",
          "strategy" : "round-robin", // only value by now.
-         “units” : [
+         "units" : [
              <UnitDefinition>
          ]
      }
@@ -29,9 +29,9 @@ The "placements" block will be of the form:
 and each UnitDefinition as:
  <code>
      {
-         “Unit” : result_of_AdUnit.getId(),
-         “name” : <a zone, place, location, existing in a Plugin's config>,
-         “params” : json_object
+         "Unit" : result_of_AdUnit.getId(),
+         "name" : <a zone, place, location, existing in a Plugin's config>,
+         "params" : json_object
      }
  </code>
 For a sample Sdkboxads config, check the example at Sdkbox github public repository.

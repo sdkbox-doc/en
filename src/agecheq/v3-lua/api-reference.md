@@ -53,8 +53,8 @@ checkResponse(rtn,
  status variables that you can check against.
 
 <pre>
- @param rtn If the method made a good round-trip to the server and back, this value will be “OK”.
- If the method failed for some reason, this value will read “FAIL”.
+ @param rtn If the method made a good round-trip to the server and back, this value will be "OK".
+ If the method failed for some reason, this value will read "FAIL".
  @param rtnmsg If the method failed for some reason, this value will hold a brief explanation of
  why it happened. If the method made a good round-trip to the server and back, this value will be
  empty.
@@ -62,7 +62,7 @@ checkResponse(rtn,
  @param checktype The values will correspond to the following types:
          0 = Normal check call
          1 = Normal check as a result of a throttled call
-         2 = All data forced to “allow” as a result of a throttled call
+         2 = All data forced to "allow" as a result of a throttled call
  @param appauthorized If the game or app is authorized by an adult for use by a child under 13,
  the value will be true. If the game or app is not authorized by a parent, or if the device is not
  yet registered this value will be false.
@@ -96,8 +96,8 @@ associateDataResponse(rtn, rtnmsg)
 >  The delegate named associateDataResponse is triggered once the associateData command executes.
 
 <pre>
- @param rtn If the method made a good round-trip to the server and back, this value will be “OK”.
- If the method failed for some reason, this value will read “FAIL”.
+ @param rtn If the method made a good round-trip to the server and back, this value will be "OK".
+ If the method failed for some reason, this value will read "FAIL".
  @param rtnmsg If the method failed for some reason, this value will hold a brief explanation
  of why it happened. If the method made a good round-trip to the server and back, this value
  will be empty.

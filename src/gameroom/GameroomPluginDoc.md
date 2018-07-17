@@ -75,23 +75,23 @@ sdkbox import -b c:\the_path_to_gameroom_plugin\sdkbox-gameroom_v0.01
 
 If you want to install Gameroom Plugin manually, you would modify more configurations step by step. It’s a little perplex, we don’t recommend you to do this.
 
-1.  Find the Visual Studio Solution file(.sln) and open it. For Cpp project created by “cocos”, you can find the solution file in "./proj.win32" sub-directory; As for JS project, you can find it in "./framework/runtime_src/proj.win32". We name the "proj.win32" **project-dir** for depict conveniently.
+1.  Find the Visual Studio Solution file(.sln) and open it. For Cpp project created by "cocos", you can find the solution file in "./proj.win32" sub-directory; As for JS project, you can find it in "./framework/runtime_src/proj.win32". We name the "proj.win32" **project-dir** for depict conveniently.
 
 2.  Unzip the Gameromm Plugin package to get a dir including the plugin files. It’s called **plugin-dir**.
 
 3.  Copy header files.
-    a.  For cpp project, copy “win32/include/*.h” in **plugin-dir** to “include” in your **project-dir**.
+    a.  For cpp project, copy "win32/include/*.h" in **plugin-dir** to "include" in your **project-dir**.
 
-    b.  If your project is in JS, copy “win32/include/*.h” in **plugin-dir** to “include/plugingameroom” in your **project-dir**.
+    b.  If your project is in JS, copy "win32/include/*.h" in **plugin-dir** to "include/plugingameroom" in your **project-dir**.
 
-4.  Copy library files “win32/libs/*.lib” in **plugin-dir** to “libs” in your **project-dir**.
+4.  Copy library files "win32/libs/*.lib" in **plugin-dir** to "libs" in your **project-dir**.
 
 5.  Deploy Facebook Gameroom SDK files.
-    a.  Copy header files “sdk/fbg/*.h” in **plugin-dir** to “include/fbg“ in your **project-dir**.
+    a.  Copy header files "sdk/fbg/*.h" in **plugin-dir** to "include/fbg" in your **project-dir**.
 
-    b.  Copy library files “sdk/libs/*.lib” in **plugin-dir** to “libs” in your **project-dir**.
+    b.  Copy library files "sdk/libs/*.lib" in **plugin-dir** to "libs" in your **project-dir**.
 
-6.  **OPTIONAL: ** For JS project, you should add some js-binding source. Copy them in “jsbindings” in **plugin-dir** to the dir “/Classes” in **project-dir**, which is located in the upper of your **project-dir**.
+6.  **OPTIONAL: ** For JS project, you should add some js-binding source. Copy them in "jsbindings" in **plugin-dir** to the dir "/Classes" in **project-dir**, which is located in the upper of your **project-dir**.
 
 7.  Modify the configuration of Visual Studio. Follow the steps as below:
     a.  Add an include directory for the compiler, click: project(on top bar) -> properties -> Configuration Properties -> VC++ Directories -> Include Directories (click and edit, add a new entry).
@@ -100,27 +100,27 @@ If you want to install Gameroom Plugin manually, you would modify more configura
 
     b.  Add a library directory for *.lib files, click: project(on top bar) -> properties -> Configuration Properties -> VC++ Directories -> Library Directories (click and edit, add a new entry).
 
-    And then add “$(solutiondir)libs”.
+    And then add "$(solutiondir)libs".
 
     c.  Link the *.lib files, click: project(on top bar) -> properties -> Configuration Properties -> Linker -> Input -> Additional Dependencies (click and edit, add a new entry).
 
-    And then add “GameroomPlugin32.lib” and “LibFBGPlatform32.lib”.
+    And then add "GameroomPlugin32.lib" and "LibFBGPlatform32.lib".
 
-    For “debug” version, Please add “GameroomPlugin32.debug.lib”.
+    For "debug" version, Please add "GameroomPlugin32.debug.lib".
 
-8.  Patch the “AppDelegate.cpp”. The following steps can be also fulfilled with “patch” tool.
+8.  Patch the "AppDelegate.cpp". The following steps can be also fulfilled with "patch" tool.
 
-    For Cpp project, please use “AppDelegate.cpp3.15.patch” in plugin-dir. Open the “AppDelegate.cpp” in project-dir/Classes.
+    For Cpp project, please use "AppDelegate.cpp3.15.patch" in plugin-dir. Open the "AppDelegate.cpp" in project-dir/Classes.
 
-    a.  Before “USING_NS_CC”, add the sdkbox header files:
+    a.  Before "USING_NS_CC", add the sdkbox header files:
 
     ```cpp
     #ifdef SDKBOX_ENABLED
-    #include “PluginGameroom.h”
+    #include "PluginGameroom.h"
     #endif
     ```
 
-    b.  In the ctor and dtor of “AppDelegate”. Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
+    b.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
 
     ```cpp
     AppDelegate::AppDelegate()
@@ -134,15 +134,15 @@ If you want to install Gameroom Plugin manually, you would modify more configura
     }
     ```
 
-    c.  At beginning of the function “applicationDidFinishLaunching”, initialize the SDKBOX Gameroom Plugin:
+    c.  At beginning of the function "applicationDidFinishLaunching", initialize the SDKBOX Gameroom Plugin:
 
     ```cpp
     #ifdef SDKBOX_ENABLED
-    sdkbox::PluginGameroom::init(“your_app_id”);
+    sdkbox::PluginGameroom::init("your_app_id");
     #endif
     ```
 
-    d.  And after the judgement statement “if (!glview)”, add these codes:
+    d.  And after the judgement statement "if (!glview)", add these codes:
 
     ```cpp
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
@@ -164,20 +164,20 @@ If you want to install Gameroom Plugin manually, you would modify more configura
     #endif
     ```
 
-    Another patch file “AppDelegate.js3.15.patch” is for JS project.
+    Another patch file "AppDelegate.js3.15.patch" is for JS project.
 
-    a.  Open the “AppDelegate.cpp” in project-dir/Classes.
+    a.  Open the "AppDelegate.cpp" in project-dir/Classes.
 
-    b.  Before “USING_NS_CC”, add the sdkbox header files:
+    b.  Before "USING_NS_CC", add the sdkbox header files:
 
     ```cpp
     #ifdef SDKBOX_ENABLED
-    #include “PluginGameroomJS.hpp”
-    #include “PluginGameroomJSHelper.h
+    #include "PluginGameroomJS.hpp"
+    #include "PluginGameroomJSHelper.h
     #endif
     ```
 
-    c.  In the ctor and dtor of “AppDelegate”. Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
+    c.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
 
     ```cpp
     AppDelegate::AppDelegate()
@@ -193,7 +193,7 @@ If you want to install Gameroom Plugin manually, you would modify more configura
 
     ```
 
-    d.  And after the judgement statement “if (!glview)”, add these codes:
+    d.  And after the judgement statement "if (!glview)", add these codes:
 
 
     ```cpp
@@ -216,7 +216,7 @@ If you want to install Gameroom Plugin manually, you would modify more configura
     #endif
     ```
 
-    e.  And register js-binding functions after statement “sc->addRegisterCallback(register_all_cocos2dx_3d_extension);”
+    e.  And register js-binding functions after statement "sc->addRegisterCallback(register_all_cocos2dx_3d_extension);"
 
     ```cpp
     #ifdef SDKBOX_ENABLED

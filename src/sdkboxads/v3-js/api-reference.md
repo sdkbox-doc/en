@@ -20,9 +20,9 @@ The "placements" block will be of the form:
 > <pre>
  <code>
     {
-         "id” : "placement_id”,
+         "id" : "placement_id",
          "strategy" : "round-robin", // only value by now.
-         "units” : [
+         "units" : [
              <UnitDefinition>
          ]
      }
