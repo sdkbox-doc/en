@@ -1,5 +1,5 @@
 ### Initialize SdkboxAds
-Initialize the plugin where appropriate in your code. We recommend to do this in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
+Initialize the plugin in your code. We recommend to do it in the `AppDelegate::applicationDidFinishLaunching()` or `AppController:didFinishLaunchingWithOptions()`. Make sure to include the appropriate headers:
 
 ```cpp
 #include "PluginSdkboxAds/PluginSdkboxAds.h"
@@ -13,71 +13,18 @@ AppDelegate::applicationDidFinishLaunching()
 
 
 #### Configuration
-SdkboxAds is an ad mediation service. This means it will manage at runtime a set of predefined AdUnits.
-The configuration spans in two different parts: AdUnits, and Placements. Each AdUnit will reference to an Sdkbox plugin
-that can be managed as an AdUnit.
-The configuration could be:
-<pre>
-    "SdkboxAds": {
-        "units": [
-            "AdColony",
-            "Fyber",
-            "Chartboost",
-            "Vungle"
-        ]
-    }
-</pre>
+SdkboxAds is an ad mediation service. It manages a set of predefined AdUnits at runtime.
+The configuration includes two parts: AdUnits, and Placements. 
 
-Placements are references to specific ads in a given AdUnit. A whole SdkboxAds config file could be:
+- Each AdUnit entry references to a Sdkbox plugin that can be managed as an AdUnit.
+- A Placement is a collection of pairs of AdUnit and ad name ordered by a strategy. 
 
-<pre>
-    "SdkboxAds": {
-        "units": [
-                "AdColony",
-                "Fyber",
-                "Chartboost",
-                "Vungle"
-            ],
-        "placements": [
-            {
-                "id" : "placement-1",
-                "strategy" : "round-robin",
-                "units" : [
-                    {
-                      "unit": "AdColony",
-                      "name": "video"
-                    },
-                    {
-                      "unit": "Chartboost",
-                      "name": "Default"
-                    }
-                ]
-            },
-            {
-                "id" : "placement-2",
-                "strategy" : "round-robin",
-                "units" : [
-                    {
-                      "unit": "Vungle",
-                      "name": "reward"
-                    },
-                    {
-                      "unit": "AdColony",
-                      "name": "v4vc"
-                    },
-                    {
-                      "unit": "Chartboost",
-                      "name": "Next Level"
-                    }
-                ]
-            }
-        ] 
-    }
-</pre>
+Please read the (<a href="./../">SdkboxAds Configuration Overview</a>) for more details. 
+
 
 #### Usage
 
-A call to `sdkbox::SdkboxAds::init()` will suffice to instantiate and manage all referenced AdUnits in the configuration
+A call to `sdkbox::SdkboxAds::init()` will load and instantiate all referenced AdUnits in the configuration
 file.
 
 To request a default Ad for the default AdUnit and have a fast integration test:
