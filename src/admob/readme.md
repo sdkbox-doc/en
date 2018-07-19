@@ -120,6 +120,8 @@ it close.
 ##Usage
 <<[usage.md]
 
+<<[sdkboxads.md]
+
 <<[api-reference.md]
 
 <<[manual_integration.md]

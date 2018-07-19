@@ -31,6 +31,8 @@ Here is an example of the UnityAds configuration, you need to replace `<gameId>`
 ##Usage
 <<[usage.md]
 
+<<[sdkboxads.md]
+
 <<[api-reference.md]
 
 <<[manual_integration.md]
