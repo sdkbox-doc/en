@@ -685,41 +685,23 @@
 	</ul>
 	
     
-        <li class="main "><a href="#api-reference">API Reference</a></li>
+        <li class="main "><a href="#sdkboxads">SDKBoxAds</a></li>
 	
 	<ul class="sub-sidenav">
         
-            <li><a href="#methods">Methods</a></li>
+            <li><a href="#sdkboxads-core-api">SDKBoxAds Core API</a></li>
         
-            <li><a href="#listeners">Listeners</a></li>
+            <li><a href="#api-reference">API Reference</a></li>
         
-	</ul>
-	
-    
-        <li class="main "><a href="#manual-integration">Manual Integration</a></li>
-	
-    
-        <li class="main "><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
-	
-    
-        <li class="main "><a href="#manual-integration-for-android">Manual Integration For Android</a></li>
-	
-	<ul class="sub-sidenav">
+            <li><a href="#manual-integration">Manual Integration</a></li>
         
-            <li><a href="#copy-files">Copy Files</a></li>
+            <li><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
         
-            <li><a href="#edit-androidmanifestxml">Edit AndroidManifest.xml</a></li>
+            <li><a href="#manual-integration-for-android">Manual Integration For Android</a></li>
         
-            <li><a href="#edit-androidmk">Edit Android.mk</a></li>
-        
-            <li><a href="#modify-applicationmk-cocos2d-x-v30-to-v32-only">Modify Application.mk (Cocos2d-x v3.0 to v3.2 only)</a></li>
-        
-            <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
+            <li><a href="#proguard-optional">Proguard (optional)</a></li>
         
 	</ul>
-	
-    
-        <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
 	
     
     </ul>
@@ -828,6 +810,66 @@ plugin.setListener({
     }
 })
 plugin.init();
+</code></pre>
+
+<h1 id="sdkboxads">SDKBoxAds</h1>
+<p>You can use <code>SDKBoxAds</code> api to display AdMob ads. Also need to update your <code>sdkbox_config.json</code>:</p>
+<pre><code>    {
+        &quot;android&quot;: {
+            &quot;SdkboxAds&quot;: {
+                &quot;units&quot;: [
+                    &quot;UnityAds&quot; // Add Ad mediations, [&quot;AdColony&quot;, &quot;AdMob&quot;, &quot;Chartboost&quot;, &quot;Appnext&quot;, &quot;UnityAds&quot;]
+                ],
+                &quot;placements&quot;: [
+                    {
+                        &quot;id&quot;: &quot;placement-admob&quot;, // ad group name
+                        &quot;strategy&quot;: &quot;round-robin&quot;, // [&quot;round-robin&quot;, &quot;weight&quot;]
+                        &quot;units&quot;: [
+                            {
+                                &quot;unit&quot;: &quot;UnityAds&quot;, // Mediation name
+                                &quot;name&quot;: &quot;video&quot; // Ad name, comes from &quot;AdMob&quot; ads section
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        &quot;ios&quot;: {
+            &quot;SdkboxAds&quot;: {
+                &quot;debug&quot;: true,
+                &quot;units&quot;: [
+                    &quot;UnityAds&quot;
+                ],
+                &quot;placements&quot;: [
+                    {
+                        &quot;id&quot;: &quot;ads1&quot;,
+                        &quot;strategy&quot;: &quot;round-robin&quot;,
+                        &quot;units&quot;: [
+                            {
+                                &quot;unit&quot;: &quot;UnityAds&quot;,
+                                &quot;name&quot;: &quot;video&quot;
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+</code></pre>
+
+<h2 id="sdkboxads-core-api">SDKBoxAds Core API</h2>
+<blockquote>
+<p>check ads available</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.isAvailable(placementName)
+// sdkbox.PluginSdkboxAds.isAvailable(&quot;ads1&quot;)
+</code></pre>
+
+<blockquote>
+<p>show the ads</p>
+</blockquote>
+<pre><code class="javascript">sdkbox.PluginSdkboxAds.placement(placementName)
+// sdkbox.PluginSdkboxAds.placement(&quot;ads1&quot;);
 </code></pre>
 
 <h2 id="api-reference">API Reference</h2>
