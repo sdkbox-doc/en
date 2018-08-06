@@ -9,6 +9,8 @@ Open a terminal and use the following command to install the SDKBOX IAP plugin. 
 $ sdkbox import iap
 ```
 
+**NOTE**: For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/
+
 <<[../../shared/notice.md]
 
 ## Configuration
