@@ -64,5 +64,6 @@ blockquote a img {
 
 ##Support
 1. [http://discuss.cocos2d-x.org/](http://discuss.cocos2d-x.org/)
-2. QQ group：489182678
+2. QQ group：489182678 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c8f426d3d6abef28609a09687e1e5054e2bbc39f6ba095d7a53a4d494d13bee"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="SDKBOX用户讨论群" title="SDKBOX用户讨论群"></a>
+
 
