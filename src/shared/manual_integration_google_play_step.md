@@ -88,7 +88,7 @@ android.library.reference.1=libs/gps/
 
 ```
  # Project target.
- target=android-10
+ target=android-14
 +android.library.reference.1=../cocos2d/cocos/platform/android/java/libs/gps/
 ```
 
