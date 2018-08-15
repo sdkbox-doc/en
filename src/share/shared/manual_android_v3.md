@@ -25,26 +25,7 @@ bundle into your project’s __<project_root>/libs__ folder.
 > twitter-core
 
 
-* If you're using cocos2d-x from source copy the __jar__ files to:
-
-    Android command-line:
-    ```
-    cocos2d/cocos/platform/android/java/libs
-    ```
-
-* If you're using cocos2d-js or lua copy the __jar__ files to:
-
-    Android command-line:
-    ```
-    frameworks/cocos2d-x/cocos/platform/android/java/libs
-    ```
-
-* If you're using prebuilt cocos2d-x copy the __jar__ files to:
-
-    Android command-line:
-    ```
-    proj.android/libs
-    ```
+<<[../../shared/copy_jars.md]
 
 * If you're using android-studio, edit `proj.android-studio/app/build.gradle`, like fllow:
 

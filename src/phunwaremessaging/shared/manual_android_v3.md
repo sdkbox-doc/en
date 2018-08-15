@@ -4,22 +4,7 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __<project_root>/libs__ folder.
 
-> sdkbox.jar
-
-
-* If you're using cocos2d-x from source copy the __jar__ files to:
-
-    Android Studio:
-    ```
-    cocos2d/cocos/platform/android/libcocos2dx/libs
-    ```
-
-* If you're using cocos2d-js or lua copy the __jar__ files to:
-
-    Android Studio:
-    ```
-    frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
-    ```
+<<[../../shared/copy_jars.md]
 
 <<[../../shared/copy_jni_lib.md]
 
