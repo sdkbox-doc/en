@@ -1,4 +1,36 @@
-### Modify __Cocos2dxActivity.java__
+### Modify __AppActivity.java__
+
+#### Plugin >= 2.4.0.3
+
+1. Find the __AppActivity.java__
+```bash
+find . -name "AppActivity.java"
+```
+
+2. Replace `extends Cocos2dxActivity` with `extends com.sdkbox.plugin.SDKBoxActivity`
+
+
+Example of the directory where the __AppActivity.java__ file is located:
+
+```
+cpp
+  - proj.android/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android-studio/app/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android/app/src/org/cocos2dx/cpp/AppActivity.java ( from cocos2d-x 3.17)
+
+lua
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/lua/AppActivity.java (from cocos2d-x 3.17)
+
+js
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/javascript/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/javascript/AppActivity.java ( from cocos2d-x 3.17)
+```
+
+
+#### Plugin < 2.4.0.3
+
 * If you're using cocos2d-x from source, assuming you are in the __proj.android__ directory, __Cocos2dxActivity.java__ is located:
 
     ```
