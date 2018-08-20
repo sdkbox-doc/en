@@ -33,6 +33,24 @@ Displaying the Offer Wall with custom placementId
 sdkbox.PluginFyber.showOfferWall("coins");
 ```
 
+Request Coin
+```javascript
+sdkbox.PluginFyber.requestDeltaOfCoins();
+// sdkbox.PluginFyber.requestDeltaOfCoins("coins");
+
+//
+// **Best Practice Check**
+//
+// Some Offer Wall requests can take a few moments longer to load, so ensure that you've configured
+// for a potential 5 second delay.
+
+// Although we recommend you call the VCS when returning from the Offer Wall (after a short delay;
+// recommended 5 seconds), you can also call when you're loading the screen that shows currency or
+// after the user comes back from the Offer Wall.
+```
+
+[Fyber iOS](https://ios.fyber.com/docs/sdk-rewards#VCS%20Hosting), [Fyber Android](https://android.fyber.com/docs/learning-rewarding)
+
 #### Rewarded Video
 - iOS configure follow [rewarded-video-iOS](http://developer.fyber.com/content/ios/rewarded-video/introduction/existing-integration/)
 - Android configure follow [rewarded-video-android](http://developer.fyber.com/content/android/rewarded-video/)
