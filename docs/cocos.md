@@ -3,15 +3,15 @@
 <h1>SDKBOX for Cocos</h1>
 
 ##Overview
-SDKBOX support ALL the recent versions (v2.2.6+) for Cocos/Cocos2d-x game engine, including  C++, Javascript and Lua. 
+SDKBOX support ALL the recent versions (v3.0 +) for Cocos/Cocos2d-x game engine, including  C++, Javascript and Lua.
 
 
 ##Integration
-You can install SDKBOX plugins using one of these three methods.  
+You can install SDKBOX plugins using one of these three methods.
 
 
 ### By SDKBOX CLI Installer
-SDKBOX Installer is an optional command line tool for any version of cocos2d-x projects, including both v2.x and v3.x. It lets you integrate SDK plugins by a single line of command. ([Learn more](http://docs.sdkbox.com/en/installer/))
+SDKBOX Installer is an optional command line tool for any version of cocos2d-x projects, including v3.x. It lets you integrate SDK plugins by a single line of command. ([Learn more](http://docs.sdkbox.com/en/installer/))
 
 
 ### From Cocos Creator
@@ -19,7 +19,7 @@ We are working on a plugin for Creator which will allow you to integrate SDKBOX 
 
 
 ### By installing manually
-If you prefer to see exactly which libraries and assets are needed for a integration, you can download the plugin bundle file. A bundle packages everything including SDK libs, instructions, and sample codes. You can download the bundle files from [the SDKBOX Plugins page](http://sdkbox.com). 
+If you prefer to see exactly which libraries and assets are needed for a integration, you can download the plugin bundle file. A bundle packages everything including SDK libs, instructions, and sample codes. You can download the bundle files from [the SDKBOX Plugins page](http://sdkbox.com).
 
 
 !!! note
