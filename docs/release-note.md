@@ -1,5 +1,85 @@
 # Release Notes
 
+# 2.4.1.1 Release Notes (20180920)
+
+## Add
+
+1. Android case sensitive folder, `#include "PluginIAP/PluginIAP.h" warning with folder pluginiap/Plugin.h path.`
+2. SDKBoxAds: use `cache` instead of `cacheControl`:
+    ```
+    static void cache(const std::string& ad_unit, const std::string& ad_name);
+    static void cacheControl( const std::string& ad_unit, const std::map<std::string, std::string>& cacheOpts );
+    ```
+3. support creator >= 2.0
+
+## Upgrade
+
+## Bugfix
+
+1.  Amazon:
+    1. fix `receipt` and `receiptCipheredPayload`, now `receipt` is json string and  `receiptCipheredPayload` is empty string.
+2. Appodeal:
+    2. fix package installer for cocos2d-x 3.17
+3. IAP:
+    1. fix [crash issue](https://discuss.cocos2d-x.org/t/sdkbox-iap-problem/43513)
+4. SDKBoxAds:
+    1. fix AdMob send load event to SDKBoxAds
+5. Facebook:
+    1. fix package installer for cocos2d-x 3.17 and cocos creator 2.0
+6. Google Play Services (GPS):
+    1. fix failed on jsb-link creator 2.0, [1](https://discuss.cocos2d-x.org/t/cocos-creator-v2-0-released/43287/48?u=yinjimmy), [2](https://discuss.cocos2d-x.org/t/unable-to-compile-cocoscreator-2-project-android-with-sdkbox-admob/43417)
+7. Fyber:
+    1. update [doc](https://discuss.cocos2d-x.org/t/solved-sdkbox-fyber-plugin-issue/43361)
+8. IAP:
+    1. android "item already owned"
+    2. [android price value](https://discuss.cocos2d-x.org/t/iap-v2-4-0-3-price-value-problem/43319?u=yinjimmy)
+9. Chartboost:
+    1. fix cache ad which's not in sdkbox_config.json
+
+## Remove
+
+1. cocos2d-x v2 support
+
+# 2.4.0.3 Release Notes (20180806)
+
+## Add
+
+1. auto add proguard code
+2. use gradle when cocos2d-x >= 3.17
+3. add `sdkbox::getConfig` and `sdkbox::setConfig`  for [this](http://www.sdkbox.com/answers/question/how-to-get-content-sdkbox_config-is-using/)
+4. store sdkbox-gui standalone with [repo](https://github.com/sdkbox/misc), fix [issue1](https://discuss.cocos2d-x.org/t/sdkbox-network-failure-fatal-error/42885/3?u=yinjimmy) [issue2](https://discuss.cocos2d-x.org/t/sdkbox-network-failure-fatal-error/42885/17?u=yinjimmy)
+5. unity: add [`setserverid` api](http://www.sdkbox.com/answers/question/unityads-how-to-set-serverid/)
+
+## Upgrade
+
+1. GPG: update android c++ lib to v3.0.1
+2. Appodeal: [update to iOS 2.4.4.2-Beta](https://discuss.cocos2d-x.org/t/app-store-rejected-app-because-of-old-yandex-sdk-in-appodeal-plugin/43072)
+3. Facebook: [Android 4.34.0](https://discuss.cocos2d-x.org/t/android-facebook-2-4-0-2-dialog-share-error/43003)
+
+## Bugfix
+
+1. IAP:
+    1. send init event on Android
+    2. fixed [JNI crash](https://discuss.cocos2d-x.org/t/sdkbox-iap-jni-error/37570/15?u=yinjimmy)
+    3. fix [purchase subscription on Android](http://www.sdkbox.com/answers/question/error-when-purchasing-recurrent-subscription-android/)
+
+2. Google Play Services (GPS):
+    1. fix [multidex](https://discuss.cocos2d-x.org/t/sdkbox-issue-with-gps-services-multidex/42644)
+
+3. SDKBoxPlay:
+    1. fix [login error](https://discuss.cocos2d-x.org/t/sdkbox-login-error/42978)
+    2. export [`saveGameDataBinary` api to javascript/Lua](https://discuss.cocos2d-x.org/t/sdkboxplay-savegamedatabinary-is-not-a-function/43045)
+
+4. Facebook:
+    1. fix [dialog share error](https://discuss.cocos2d-x.org/t/android-facebook-2-4-0-2-dialog-share-error/43003)
+
+5. sdkbox installer:
+    1. fix [`update` command generate folder n/a with cocos2d-x 3.17](https://discuss.cocos2d-x.org/t/command-sdkbox-update-generates-folder-n-a-for-cocos2dx-v3-17/42965)
+
+6. GPG:
+    1. fix [gpg.d.ts](https://discuss.cocos2d-x.org/t/question-about-gpg-d-ts/42886)
+
+
 # 2.4.0.2 Release Notes (20180626)
 
 ## Add
