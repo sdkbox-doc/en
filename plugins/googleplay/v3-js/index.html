@@ -1140,9 +1140,6 @@ bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
 <h4 id="copy-jni-libs">Copy jni libs</h4>
 <p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
 to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
-<blockquote>
-<p>Note: SDKBOX link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
-</blockquote>
 <h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
 <p>Add following meta-data tags:</p>
 <pre><code class="xml">&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
@@ -1331,7 +1328,7 @@ android.library.reference.1=libs/gps/
 
 <h5 id="2-modify-projandroid-studioappprojectproperties">2. Modify proj.android-studio/app/project.properties</h5>
 <pre><code> # Project target.
- target=android-10
+ target=android-14
 +android.library.reference.1=../cocos2d/cocos/platform/android/java/libs/gps/
 </code></pre>
 

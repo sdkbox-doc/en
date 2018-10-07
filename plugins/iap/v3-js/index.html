@@ -742,7 +742,7 @@
         
             <li><a href="#modify-applicationmk-cocos2d-x-v30-v32-only">Modify Application.mk (Cocos2d-x v3.0 - v3.2 only)</a></li>
         
-            <li><a href="#modify-cocos2dxactivityjava">Modify Cocos2dxActivity.java</a></li>
+            <li><a href="#modify-appactivityjava">Modify AppActivity.java</a></li>
         
 	</ul>
 	
@@ -777,6 +777,7 @@
 <pre><code class="bash">$ sdkbox import iap
 </code></pre>
 
+<p><strong>NOTE</strong>: For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/</p>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project to make the plugin work well.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
@@ -1152,15 +1153,12 @@ frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
 <li>
 <p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
 <p>Android command-line:
-<code>&lt;project_root&gt;/libs</code></p>
+<code>proj.android/libs</code></p>
 </li>
 </ul>
 <h4 id="copy-jni-libs">Copy jni libs</h4>
 <p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
 to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
-<blockquote>
-<p>Note: SDKBOX link with <code>gnustl</code> by default, if your project link with <code>c++static</code> please replace the files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs</code> with files in <code>&lt;project_root&gt;/jni/&lt;plugin_name&gt;/libs_c++_static</code> folder</p>
-</blockquote>
 <h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
 <p>Include the following permissions above the <strong>application tag</strong>:</p>
 <pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
@@ -1208,7 +1206,34 @@ changed to:</p>
                                     ../../Classes/NewSourceFile.cpp
 </code></pre>
 
-<h3 id="modify-cocos2dxactivityjava">Modify <strong>Cocos2dxActivity.java</strong></h3>
+<h3 id="modify-appactivityjava">Modify <strong>AppActivity.java</strong></h3>
+<h4 id="plugin-2403">Plugin &gt;= 2.4.0.3</h4>
+<ol>
+<li>Find the <strong>AppActivity.java</strong></li>
+</ol>
+<pre><code class="bash">find . -name &quot;AppActivity.java&quot;
+</code></pre>
+
+<ol>
+<li>Replace <code>extends Cocos2dxActivity</code> with <code>extends com.sdkbox.plugin.SDKBoxActivity</code></li>
+</ol>
+<p>Example of the directory where the <strong>AppActivity.java</strong> file is located:</p>
+<pre><code>cpp
+  - proj.android/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android-studio/app/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android/app/src/org/cocos2dx/cpp/AppActivity.java ( from cocos2d-x 3.17)
+
+lua
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/lua/AppActivity.java (from cocos2d-x 3.17)
+
+js
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/javascript/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/javascript/AppActivity.java ( from cocos2d-x 3.17)
+</code></pre>
+
+<h4 id="plugin-2403_1">Plugin &lt; 2.4.0.3</h4>
 <ul>
 <li>
 <p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
@@ -1352,7 +1377,7 @@ android.library.reference.1=libs/gps/
 
 <h5 id="2-modify-projandroid-studioappprojectproperties">2. Modify proj.android-studio/app/project.properties</h5>
 <pre><code> # Project target.
- target=android-10
+ target=android-14
 +android.library.reference.1=../cocos2d/cocos/platform/android/java/libs/gps/
 </code></pre>
 
