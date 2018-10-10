@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Server-side IAP receipt verification - SDKBOX</title>
+	<title>Encrypt Decrypt sdkbox_config.json - SDKBOX</title>
         
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -82,7 +82,7 @@
                         
                             
 <li >
-    <a href="../../qa/cocos_creator/">For Cocos Creator</a>
+    <a href="../cocos_creator/">For Cocos Creator</a>
 </li>
 
                         
@@ -534,31 +534,31 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../">Setup</a>
+    <a href="../../liveops/">Setup</a>
 </li>
 
                         
                             
 <li >
-    <a href="../remote-config/">Remote Configuration</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Server-side IAP receipt verification</a>
+    <a href="../../liveops/remote-config/">Remote Configuration</a>
 </li>
 
                         
                             
 <li >
-    <a href="../catalog-management/">On-the-fly catalog management</a>
+    <a href="../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../liveops/catalog-management/">On-the-fly catalog management</a>
 </li>
 
                         
@@ -567,61 +567,61 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../qa/from-google-to-amazon/">From Google to Amazon</a>
+    <a href="../from-google-to-amazon/">From Google to Amazon</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/integration-admob-to-creator/">Admob in Creator</a>
+    <a href="../integration-admob-to-creator/">Admob in Creator</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/integration-fyber-to-cocos/">Fyber with Cocos2d-x</a>
+    <a href="../integration-fyber-to-cocos/">Fyber with Cocos2d-x</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/fb-share-on-cocos/">Facebook with Cocos2d-x</a>
+    <a href="../fb-share-on-cocos/">Facebook with Cocos2d-x</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/android_64k/">Fix Android 64K methods limit</a>
+    <a href="../android_64k/">Fix Android 64K methods limit</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/integration-iap-on-unity/">IAP with Unity</a>
+    <a href="../integration-iap-on-unity/">IAP with Unity</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/use-gui-integration-ga-to-creator/">GA with SDKBox GUI in Creator</a>
+    <a href="../use-gui-integration-ga-to-creator/">GA with SDKBox GUI in Creator</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../qa/use-custom-activity-on-unity/">Unity Custom Activity</a>
+    <a href="../use-custom-activity-on-unity/">Unity Custom Activity</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../qa/crypt-sdkbox-config/">Encrypt Decrypt sdkbox_config.json</a>
+<li class="active">
+    <a href="./">Encrypt Decrypt sdkbox_config.json</a>
 </li>
 
                         
@@ -656,27 +656,15 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#overview">Overview</a></li>
-	
-    
-        <li class="main "><a href="#remote-verification-flow">Remote verification flow</a></li>
+        <li class="main active"><a href="#encrypt-and-decrypt-sdkbox_configjson">Encrypt and decrypt sdkbox_config.json</a></li>
 	
 	<ul class="sub-sidenav">
         
-            <li><a href="#ios">iOS</a></li>
+            <li><a href="#precondition">Precondition</a></li>
         
-            <li><a href="#android-iap-flow">Android IAP flow</a></li>
+            <li><a href="#solution-of-sdkbox">Solution of SDKBox</a></li>
         
-	</ul>
-	
-    
-        <li class="main "><a href="#setup">Setup</a></li>
-	
-	<ul class="sub-sidenav">
-        
-            <li><a href="#for-android-play">For Android Play</a></li>
-        
-            <li><a href="#for-apple-app-store">For Apple App Store</a></li>
+            <li><a href="#solution-of-yours">Solution of yours</a></li>
         
 	</ul>
 	
@@ -685,88 +673,41 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1>LiveOps - Server-Side Receipt Verification</h1>
-
-<h2 id="overview">Overview</h2>
-<p>In addition to the client-side receipt validation that you can do in the <a href="../../plugins/iap">SDKBOX IAP plugin</a>, you can also optionally enable server-side validation provided by SDKBOX LiveOps.</p>
-<p>If enabled, whenever a purchase happens it will be automatically (and transparently) checked against Google or Apple servers for authenticity. Without any code change on the developers side, the purchase receipts will be safely authenticated. Same as the local validation, there are two public plugins interface methods: <code>onSuccess()</code> and <code>onFailure()</code>. They will be notified with the verification result.</p>
-<p>If the remote verification request fails, the system will automatically fallback to local receipt verification, for example, when timeout or networking errors when communicating with SDKBOX LiveOps.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is important to note that this feature requires:
-1. The app use the <a href="../remote-config">Remote Configuration</a> with the IAP plugin.
-2. Invoke sdkbox:IAP:enableUserSideVerification(false); api after sdkbox:IAP:init();</p>
-</div>
-<h2 id="remote-verification-flow">Remote verification flow</h2>
-<h3 id="ios">iOS</h3>
-<ol>
-<li>Player makes a purchase (pays for an item)</li>
-<li>CompleteTransaction is called, and cyphered receipt info is obtained.</li>
-<li>If developer requested to do receipt validation [App has remote config or not]:<ol>
-<li>onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin’s listener has cyphered payload info so the developer can launch his own purchase verification process.</li>
-<li>The purchase transaction is finished.</li>
-</ol>
-</li>
-<li>If developer did not request to do receipt validation:<ol>
-<li>if Application does not have remote configuration enabled:<ol>
-<li>onPayResult is called with code: PaymentTransactionStatePurchased.</li>
-<li>The transaction is finished.</li>
-</ol>
-</li>
-<li>if Application has remote configuration enabled: remote IAP validation, by calling checkAuthenticity method is started.This method does the remote verification of the purchase cyphered payload.<ol>
-<li>A request to sdkbox.com server is sent for purchase payload verification.</li>
-<li>If timeout or error in request: onPayResult is called with code: kPaySuccessAndValidationError. These are error situations with the validation server.</li>
-<li>If request is aborted by user: onPayResult is called with code: kPaySuccessAndValidationError. (Same as before)</li>
-<li>The verification request processed normally, and a Json response is gotten as a result:<ol>
-<li>Verification is not successful: onPayResult is called with code: kPaySuccessAndValidationNotAuthenticated.</li>
-</ol>
-</li>
-<li>Verification is successful: onPayResult is called with code: kPaySuccessAndValidationAuthenticated.</li>
-<li>The transaction is always finished.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="android-iap-flow">Android IAP flow</h3>
-<ol>
-<li>Player makes a purchase request, and pays for it.</li>
-<li>If the purchase is canceled, onPayResult is called with code PAYRESULT_CANCEL.</li>
-<li>If the purchase is errored, onPayResult is called with code PAYRESULT_FAIL.</li>
-<li>If the purchase is successful<ol>
-<li>Receipt and cyphered payload info is obtained.</li>
-<li>If the developer requested to do receipt validation, onPayResult is called with PAYRESULT_NEEDS_VERIFICATION. The Product passed to the plugin listener has receipt and cyphered payload information, which is sufficient info to verify purchase authenticity.</li>
-<li>else<ol>
-<li>If Application has not remote configuration set: local validation process is executed:</li>
-<li>Application’s private key must be present in the sdkbox_config.json file.</li>
-<li>If verification succeeds: onPayResult is called with code PAYRESULT_SUCCESS.</li>
-<li>if verification fails: onPayResult is called with code PAYRESULT_FAIL.</li>
-</ol>
-</li>
-<li>If Application has remote configuration set: a remote validation request is started.<ol>
-<li>If the validation request is errored or timeout (both situations refer to our server or network status), the verification process falls back to local verification [4.3.1]</li>
-<li>If the validation request is is aborted, onPayResult is called with code PAYRESULT_FAIL.</li>
-<li>If the validation request executes normally:<ol>
-<li>If validation is not successful, the verification process falls back to local verification [4.3.1]</li>
-</ol>
-</li>
-<li>if validation is successful, onPayResult is called with code PAYRESULT_SUCCESS.</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>If the purchase is a Consumable item the purchase will always be consumed.</li>
-</ol>
-<h2 id="setup">Setup</h2>
-<h3 id="for-android-play">For Android Play</h3>
+<h1 id="encrypt-and-decrypt-sdkbox_configjson">Encrypt and decrypt sdkbox_config.json</h1>
+<h2 id="precondition">Precondition</h2>
 <ul>
-<li>Make sure to enable <a href="../remote-config">Remote Configuration</a> in your app.</li>
-<li>Create or select the configuration for Android, and add <code>Google Play IAP</code> plugin in <strong>Essentials</strong>. You need to fill-in the <strong>Google Play</strong> developer console’s application private key. If the <strong>private key</strong> is not supplied, the local verification will always notify <code>onFail()</code>.</li>
+<li>plugin's version &gt;= 2.4.1.1</li>
+<li>sdkbox command &gt;= 1.0.2.2</li>
 </ul>
-<h3 id="for-apple-app-store">For Apple App Store</h3>
-<ul>
-<li>TBD</li>
-</ul></div>
+<h2 id="solution-of-sdkbox">Solution of SDKBox</h2>
+<h3 id="1-encrypt-sdkbox_configjson">1. encrypt sdkbox_config.json</h3>
+<pre><code class="bash"># encrypt
+sdkbox encrypt -i sdkbox_config.json -o sdkbox_config.json --key your_key
+
+# decrypt
+sdkbox decrypt -i sdkbox_config.json -o sdkbox_config.json --key your_key
+</code></pre>
+
+<h3 id="2-set-decrypt-key">2. set decrypt key</h3>
+<pre><code class="c++">// AppDelegate.cpp
+#include &lt;sdkbox/Sdkbox.h&gt;
+
+
+sdkbox::init(&quot;&quot;, &quot;your_key&quot;); // the first argument must set &quot;&quot;,
+                              // if you don't need remote config
+sdkbox::IAP::init();
+sdkbox::PluginAdMob::init();
+</code></pre>
+
+<h2 id="solution-of-yours">Solution of yours</h2>
+<pre><code class="c++">// AppDelegate.cpp
+#include &lt;sdkbox/Sdkbox.h&gt;
+
+std::string content = __decrypt__(&quot;your_encrypt_content&quot;);
+sdkbox::setConfig(content); // the content of 'sdkbox_config.json'
+sdkbox::IAP::init();
+sdkbox::PluginAdMob::init();
+</code></pre></div>
             
         </div>
 
