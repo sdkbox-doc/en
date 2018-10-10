@@ -1149,6 +1149,10 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 &lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot;/&gt;
 </code></pre>
 
+<p>Include the following activity in the <strong>application tag</strong>:</p>
+<pre><code class="xml">&lt;activity android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot; android:name=&quot;com.android.billingclient.api.ProxyBillingActivity&quot; android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;
+</code></pre>
+
 <h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
 <p>Edit <code>&lt;project_root&gt;/jni/Android.mk</code> to:</p>
 <p>Add additional dependencies to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
