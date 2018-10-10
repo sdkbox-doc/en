@@ -22,6 +22,11 @@ Include the following permissions above the __application tag__:
 <uses-permission android:name="com.android.vending.BILLING"/>
 ```
 
+Include the following activity in the __application tag__:
+```xml
+<activity android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+```
+
 ### Edit `Android.mk`
 Edit `<project_root>/jni/Android.mk` to:
 
