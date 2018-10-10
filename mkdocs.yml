@@ -245,6 +245,7 @@ pages:
    - 'IAP with Unity': 'qa/integration-iap-on-unity.md'
    - 'GA with SDKBox GUI in Creator': 'qa/use-gui-integration-ga-to-creator.md'
    - 'Unity Custom Activity': 'qa/use-custom-activity-on-unity.md'
+   - 'Encrypt Decrypt sdkbox_config.json': 'qa/crypt-sdkbox-config.md'
 - About: 'release-note.md'
 
 theme: mkdocs
