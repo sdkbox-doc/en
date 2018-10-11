@@ -175,3 +175,27 @@ Unknown source file : com.android.dex.DexException: Multiple dex files define La
 
 maybe your project have multi `android-support-v4.jar`, you can remove the duplicate one and just keep one.
 
+
+* Share Image on Android N+
+
+```
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="com.sdkbox.test.app.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" />
+</provider>
+```
+
+1. check AndroidManifest.xml, replace `com.sdkbox.test.app.fileprovider` with your self authorities, usualy use `your.app.bundleid.customstring`
+
+2. pass your self authorities to sdkbox social share, e.g.
+
+```cpp
+   sdkbox::PluginShare::setFileProviderAuthorities("your.app.bundleid.customstring");
+```
+
+
+
