@@ -17,10 +17,13 @@
 
 1. Application id (string.xml)
 2. App Release mode
-3. Cloud save enalbe
+3. `cloud_save` is optional, enalbe and fill `true` if you will use Saved Game else fill `false`
 4. Publish to Alpha/Bete test
 5. Add your test account to tester list
 6. SHA-1 keys
+7. `web_client_id` is optional, fill it when you need google signin authcode else remove it
+
+SDKBoxPlay [Troubleshoot](../../qa/sdkboxplay_troubleshoot.md)
 
 
 ###Game Center

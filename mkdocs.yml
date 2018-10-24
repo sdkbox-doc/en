@@ -246,6 +246,7 @@ pages:
    - 'GA with SDKBox GUI in Creator': 'qa/use-gui-integration-ga-to-creator.md'
    - 'Unity Custom Activity': 'qa/use-custom-activity-on-unity.md'
    - 'Encrypt Decrypt sdkbox_config.json': 'qa/crypt-sdkbox-config.md'
+   - 'SDKBoxPlay Troubleshoot': 'qa/sdkboxplay_troubleshoot.md'
 - About: 'release-note.md'
 
 theme: mkdocs
