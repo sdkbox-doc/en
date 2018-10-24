@@ -3,7 +3,7 @@
 Copy the following __jar__ files from `plugin/android/libs` folder of this
 bundle into your project’s __<project_root>/libs__ folder.
 
-> PluginGooglePlay.jar
+> billing-1.0.jar
 
 > PluginIAP.jar
 
