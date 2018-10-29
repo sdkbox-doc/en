@@ -137,6 +137,12 @@ pages:
                 - 'Leaderboard with C++': 'plugins/leaderboard/v3-cpp.md'
                 - 'Leaderboard with Javascript': 'plugins/leaderboard/v3-js.md'
                 - 'Leaderboard with Lua': 'plugins/leaderboard/v3-lua.md'
+        - 'Misc': 'plugins/misc/index.md'
+        - '_Misc':
+            - 'Cocos2d-x v3.x':
+                - 'Misc with C++': 'plugins/misc/v3-cpp.md'
+                - 'Misc with Javascript': 'plugins/misc/v3-js.md'
+                - 'Misc with Lua': 'plugins/misc/v3-lua.md'
         - 'OneSignal': 'plugins/onesignal/index.md'
         - '_OneSignal':
             - 'Cocos2d-x v3.x':
