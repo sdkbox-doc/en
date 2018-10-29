@@ -12,7 +12,7 @@ cc.log('Local Notification ID:' .. nid);
 ```
 
 ### Implement MiscListner
-* You can implement MiscListener if you want to receive callbacks like video finish playing.
+* You can implement MiscListener if you want to receive local notification event.
 ```lua
 
 sdkbox.PluginMisc.setListener(function(data)
