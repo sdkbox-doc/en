@@ -1,5 +1,10 @@
 # Release Notes
 
+# 2.4.2.0 (not release)
+
+## Upgrade
+1. AdMob: iOS 7.35.1 SDK
+
 # 2.4.1.1 Release Notes (20180920)
 
 ## Add
