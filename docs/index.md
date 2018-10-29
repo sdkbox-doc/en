@@ -3,7 +3,7 @@
 <h1>SDKBOX Documentation</h1>
 
 ##Overview
-SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won’t have to. All services are tested and certified. Check out more information [on SDKBOX's homepage.](http://sdkbox.com)
+SDKBOX makes it super EASY and FREE mobile game developers to integrate 3rd party SDKs. We do all the hard, tedious and tricky work so that developers won't have to. All services are tested and certified. Check out more information [on SDKBOX's homepage.](http://sdkbox.com)
 
 ##Architecture
 SDKBOX supports free, easy-to-use, and certified plugins. They integrate the 3rd party libraries directly in the app, and talk to the services' backend without any proxy/middle layer. This design provides the best performance, stability, and compatibility.
@@ -64,6 +64,6 @@ blockquote a img {
 
 ##Support
 1. [http://discuss.cocos2d-x.org/](http://discuss.cocos2d-x.org/)
-2. QQ group：489182678 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c8f426d3d6abef28609a09687e1e5054e2bbc39f6ba095d7a53a4d494d13bee"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="SDKBOX用户讨论群" title="SDKBOX用户讨论群"></a>
+2. QQ group: 489182678 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c8f426d3d6abef28609a09687e1e5054e2bbc39f6ba095d7a53a4d494d13bee"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="SDKBOX用户讨论群" title="SDKBOX用户讨论群"></a>
 
 

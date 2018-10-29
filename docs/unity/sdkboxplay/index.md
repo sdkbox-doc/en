@@ -24,7 +24,7 @@ Select the sdkboxplay game object in the hierarchy and in your inspector pane yo
 
 <h5>Leaderboards</h5>
 
-Leaderboards are defined on the respective platform’s developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:
+Leaderboards are defined on the respective platform's developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:
 
 + Google Play creates automatically 3 time frames for each leaderboard: daily, weekly and all time best scores.
 + Game Center creates just one timeframe.
@@ -33,8 +33,8 @@ This will be resembled on the observer methods for leaderboard operations as des
 
 <h5>Achievements</h5>
 
-Achievements are defined on the respective platform’s developer console.
-There are differences in concept between GooglePlay and GameCenter’s achievements:
+Achievements are defined on the respective platform's developer console.
+There are differences in concept between GooglePlay and GameCenter's achievements:
 
 + Google Play differentiates between achievements, and incremental achievements. Google keeps track of incremental achievements progress. Achievements are achieved only once.
 + For Game Center, all achievements are incremental, but Game center does not keep track of its progress. Achievements are expected to be achieved during a game session. Achievements can be set to be unlocked several times.
@@ -44,7 +44,7 @@ To keep things consistent, SdkboxPlay API:
 
 + Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.
 + Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.
-+ For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
++ For consistency, it is recommended to define Google Play's achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
 
 <h5>Debug</h5>
 

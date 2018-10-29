@@ -1,7 +1,7 @@
 ### Copy Files
 #### Copy jar files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __proj.android/libs__ folder.
+bundle into your project's __proj.android/libs__ folder.
 
 > billing-1.0.jar
 

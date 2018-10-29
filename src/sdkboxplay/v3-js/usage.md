@@ -27,7 +27,7 @@ recommend to do this in the `app.js`. Example:
 
 
 #### Intro
-SdkboxPlay is an abstraction for Google Play and Game Center’s social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
+SdkboxPlay is an abstraction for Google Play and Game Center's social services. Under a common API exposes access to Leaderboards and Achievements for each platform.
 In order to keep the API fit to the two models, some tradeoffs have been made, which will be detailed in each section
 
 ##### Logged in user info
@@ -62,8 +62,8 @@ use the same `getPlayerAccountField` to get these values as strings.
 
 #####Achievements
 
-Achievements are defined on the respective platform’s developer console.
-There are differences in concept between GooglePlay and GameCenter’s achievements:
+Achievements are defined on the respective platform's developer console.
+There are differences in concept between GooglePlay and GameCenter's achievements:
 + Google Play differentiates between achievements, and incremental achievements. Google keeps track of incremental achievements progress. Achievements are achieved only once.
 + For Game Center, all achievements are incremental, but Game center does not keep track of its progress. Achievements are expected to be achieved during a game session. Achievements can be set to be unlocked several times.
 + Google Play has the notion of newly unlocked achievement (first time unlocked), and Game Center has the notion of recurrently unlockable achievement. Both concepts are complementary.
@@ -72,11 +72,11 @@ To keep things consisten, SdkboxPlay API:
 
 + Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.
 + Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.
-+ For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
++ For consistency, it is recommended to define Google Play's achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.
 
 ##### Leaderboards
 
-Leaderboards are defined on the respective platform’s developer console.
+Leaderboards are defined on the respective platform's developer console.
 To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined.
 Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:
 
@@ -105,8 +105,8 @@ sdkbox.PluginSdkboxPlay.submitScore( leaderboard_name, score )
 
 This method submits a update request to the given leaderboard. The leaderboard name must match any of the leaderboard names defined in the configuration block.
 If a request is sent to a non existent leaderboard, nothing will happen.
-Whether to store the new score or not, can be defined in the developer’s console (store always latest score, only maximum, etc.)
-This method will invoke plugin’s observer method:
+Whether to store the new score or not, can be defined in the developer's console (store always latest score, only maximum, etc.)
+This method will invoke plugin's observer method:
 
 ```js
 sdkbox.PluginSdkboxPlay.onScoreSubmitted(
@@ -124,7 +124,7 @@ sdkbox.PluginSdkboxPlay.showLeaderboard( leaderboard_name );
 ```
 
 Request to show the leaderboard information. This will invoke a platform specific UI.
-For iOS, there’s no different UI for requesting leaderboards and achievements, so this method will invoke the UI with the leaderboards view enabled.
+For iOS, there's no different UI for requesting leaderboards and achievements, so this method will invoke the UI with the leaderboards view enabled.
 
 ##### Achievements
 
@@ -134,7 +134,7 @@ sdkbox.PluginSdkboxPlay.unlockAchievement( achievement_name );
 
 Unlock a non incremental achievement. In the case of iOS, it will send a request to Game Center of unlock with 100 progress points.
 If the achievement type is incorrectly defined in the configuration file (wrong id), or the play services determines it is of the wrong type (Google play) the method will fail silently.
-Upon successful call, this method will invoke the listener’s method: onAchievementUnlocked( const std::string& achievement_name, bool newlyUnlocked ).
+Upon successful call, this method will invoke the listener's method: onAchievementUnlocked( const std::string& achievement_name, bool newlyUnlocked ).
 
 ```js
 sdkbox.PluginSdkboxPlay.incrementAchievement( achievement_name, increment );
@@ -151,7 +151,7 @@ sdkbox.PluginSdkboxPlay.showAchievements( );
 ```
 
 Request to show the default Achievements view. This view only shows public achievements.
-t will show specific per platform information, like whether it’s been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.
+t will show specific per platform information, like whether it's been unlocked, remaining unlocking steps (Google Play only), total experience count, etc.
 
 
 ### SdkboxAds events

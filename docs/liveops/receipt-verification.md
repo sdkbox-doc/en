@@ -19,7 +19,7 @@ If the remote verification request fails, the system will automatically fallback
 1. Player makes a purchase (pays for an item)
 2. CompleteTransaction is called, and cyphered receipt info is obtained.
 3. If developer requested to do receipt validation [App has remote config or not]:
-    1. onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin’s listener has cyphered payload info so the developer can launch his own purchase verification process.
+    1. onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin's listener has cyphered payload info so the developer can launch his own purchase verification process.
     2. The purchase transaction is finished.
 4. If developer did not request to do receipt validation:
     1. if Application does not have remote configuration enabled:
@@ -43,7 +43,7 @@ If the remote verification request fails, the system will automatically fallback
     2. If the developer requested to do receipt validation, onPayResult is called with PAYRESULT_NEEDS_VERIFICATION. The Product passed to the plugin listener has receipt and cyphered payload information, which is sufficient info to verify purchase authenticity.
     3. else
         1. If Application has not remote configuration set: local validation process is executed:
-	    1. Application’s private key must be present in the sdkbox_config.json file.
+	    1. Application's private key must be present in the sdkbox_config.json file.
 	    2. If verification succeeds: onPayResult is called with code PAYRESULT_SUCCESS.
 	    3. if verification fails: onPayResult is called with code PAYRESULT_FAIL.
 	2. If Application has remote configuration set: a remote validation request is started.
@@ -59,7 +59,7 @@ If the remote verification request fails, the system will automatically fallback
 
 ### For Android Play
 * Make sure to enable [Remote Configuration](./remote-config) in your app.
-* Create or select the configuration for Android, and add `Google Play IAP` plugin in __Essentials__. You need to fill-in the __Google Play__ developer console’s application private key. If the __private key__ is not supplied, the local verification will always notify `onFail()`.
+* Create or select the configuration for Android, and add `Google Play IAP` plugin in __Essentials__. You need to fill-in the __Google Play__ developer console's application private key. If the __private key__ is not supplied, the local verification will always notify `onFail()`.
 
 ### For Apple App Store
 * TBD

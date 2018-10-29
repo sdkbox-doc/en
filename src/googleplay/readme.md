@@ -6,7 +6,7 @@
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
-$ sdkbox import gpg 
+$ sdkbox import gpg
 ```
 
 > Warning: Account creation within iOS is no longer supported, please read [this blog post](https://android-developers.googleblog.com/2016/12/games-authentication-adopting-google.html) for details
@@ -20,7 +20,7 @@ $ sdkbox import gpg
 Add this meta-data tag to your `AndroidManifest.xml`
 
 ```
-<meta-data android:name="com.google.android.gms.games.APP_ID" 
+<meta-data android:name="com.google.android.gms.games.APP_ID"
     android:value="@string/google_app_id" />
 ```
 
@@ -45,7 +45,7 @@ Add this:
 #import <GoogleSignIn/GoogleSignIn.h>
 
 // Change RootViewController class definition to:
-@interface RootViewController : UIViewController<GIDSignInUIDelegate> 
+@interface RootViewController : UIViewController<GIDSignInUIDelegate>
 ```
 
 #### Set Google Play signin listeners
@@ -62,7 +62,7 @@ Update `proj.ios_mac/ios/AppController.mm`
 }
 ```
 
-2. In this method: 
+2. In this method:
 ```
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 ```
@@ -70,7 +70,7 @@ Update `proj.ios_mac/ios/AppController.mm`
 add a call to (before return YES):
 
 ```
-    // _viewController could also be named 
+    // _viewController could also be named
     //  viewController, depending of the project type.
     [GIDSignIn sharedInstance].uiDelegate = _viewController;
 ```
@@ -83,14 +83,14 @@ Add the following URL types under **your project > Info > URL Types**
 
     + Identifier: `com.google.ReverseClientId`
     + Url schemes: `com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni`
-    > (use this as sample, or put your very own application’s url scheme) 
+    > (use this as sample, or put your very own application's url scheme)
 
 + URL 2:
 
     + Identifier: `com.google.BundleId`
     + URL schemes: `com.sdkbox.gpg`
-    > (use this as sample or put your own application’s bundle id)
-    
+    > (use this as sample or put your own application's bundle id)
+
 #### Further info
 
 For more information check out the [official documentation](https://developers.google.com/games/services/cpp/gettingStartedIOS)
@@ -103,7 +103,7 @@ For more information check out the [official documentation](https://developers.g
 
 Your must create your app on [Google Play Developer console](https://play.google.com/apps/publish) and all the services must be explicitly enabled and configured in the console.
 
-* Please follow [setup guide](https://developers.google.com/games/services/console/enabling) to setup Google Play Games Services for your game. 
+* Please follow [setup guide](https://developers.google.com/games/services/console/enabling) to setup Google Play Games Services for your game.
 * After the setup, please follow [config guide](https://developers.google.com/games/services/console/configuring) to enable different Games Services for your game.
 
 > Note: Google Play Games Services will use your release keystore by default, if you want to test your game in debug settings, please link an additional app with [debug keystore](http://stackoverflow.com/questions/17612928/should-i-use-debug-keystore-with-google-play-game-services-during-development)
@@ -204,7 +204,7 @@ Add this:
 #import <GoogleSignIn/GoogleSignIn.h>
 
 // Change RootViewController class definition to:
-@interface RootViewController : UIViewController<GIDSignInUIDelegate> 
+@interface RootViewController : UIViewController<GIDSignInUIDelegate>
 ```
 
 #### Set Google Play signin listeners
@@ -221,7 +221,7 @@ Update `proj.ios_mac/ios/AppController.mm`
 }
 ```
 
-2. In this method: 
+2. In this method:
 ```
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 ```
@@ -229,7 +229,7 @@ Update `proj.ios_mac/ios/AppController.mm`
 add a call to (before return YES):
 
 ```
-    // _viewController could also be named 
+    // _viewController could also be named
     //  viewController, depending of the project type.
     [GIDSignIn sharedInstance].uiDelegate = _viewController;
 ```
@@ -242,14 +242,14 @@ Add the following URL types under **your project > Info > URL Types**
 
     + Identifier: `com.google.ReverseClientId`
     + Url schemes: `com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni`
-    > (use this as sample, or put your very own application’s url scheme) 
+    > (use this as sample, or put your very own application's url scheme)
 
 + URL 2:
 
     + Identifier: `com.google.BundleId`
     + URL schemes: `com.sdkbox.gpg`
-    > (use this as sample or put your own application’s bundle id)
-    
+    > (use this as sample or put your own application's bundle id)
+
 #### Further info
 
 For more information check out the [official documentation](https://developers.google.com/games/services/cpp/gettingStartedIOS)
@@ -258,7 +258,7 @@ For more information check out the [official documentation](https://developers.g
 
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __<project_root>/libs__ folder.
+bundle into your project's __<project_root>/libs__ folder.
 
 > Plugingpg.jar
 
@@ -305,7 +305,7 @@ Add following meta-data tags:
 ```xml
 <meta-data android:name="com.google.android.gms.version"
     android:value="@integer/google_play_services_version" />
-<meta-data android:name="com.google.android.gms.games.APP_ID" 
+<meta-data android:name="com.google.android.gms.games.APP_ID"
     android:value="@string/google_app_id" />
 ```
 

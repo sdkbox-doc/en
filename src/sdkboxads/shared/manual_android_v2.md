@@ -1,6 +1,6 @@
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __proj.android/libs__ folder.
+bundle into your project's __proj.android/libs__ folder.
 
 > PluginSdkboxAds.jar
 > sdkbox.jar
@@ -30,7 +30,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_LDLIBS += -landroid
 LOCAL_LDLIBS += -llog
 LOCAL_WHOLE_STATIC_LIBRARIES += PluginSdkboxAds
-LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox 
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
 ```
 
 Add a call to:
@@ -77,7 +77,7 @@ __jar__:
 Jar files necessary for included AdUnits. Basically all jar files present in the Plugin's lib folder.
 
 
- 
+
 __LOCAL_WHOLE_STATIC_LIBRARIES__ the module references for each of them, e.g.:
 
 ```

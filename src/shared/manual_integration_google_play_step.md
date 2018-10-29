@@ -27,7 +27,7 @@ another by incrementing the number as `android.library.reference.2`, etc.
 We make a lite version of Google Play Services, the project repo is [https://github.com/darkdukey/Google-Play-Service-Lite](https://github.com/darkdukey/Google-Play-Service-Lite)
 
 #### Copy Files
-Copy the `gps` folder from `plugin` folder of this bundle into your project’s __<project_root>/libs__ folder.
+Copy the `gps` folder from `plugin` folder of this bundle into your project's __<project_root>/libs__ folder.
 
 * If you're using cocos2d-x from source copy the `gps` folder to:
 

@@ -16,15 +16,15 @@ This illumination shows the process clearly(from [http://docs.sdkbox.com/en/](ht
 
 ![SDKBOX Plugin](http://docs.sdkbox.com/en/imgs/sdkbox_sequence.jpg)
 
-The original SDKs usually create **another thread** to callback Listeners, in the light of that, SDKBOX don’t need to care about how to implement callback APIs, just encapsulate the APIs and offer them to users. it is more different from Facebook Gameroom SDK.
+The original SDKs usually create **another thread** to callback Listeners, in the light of that, SDKBOX don't need to care about how to implement callback APIs, just encapsulate the APIs and offer them to users. it is more different from Facebook Gameroom SDK.
 
-According to Facebook Gameroom SDK docs, though it doesn’t demonstrate directly, the SDK can’t handle the result and events in an individual thread but in game loop.
+According to Facebook Gameroom SDK docs, though it doesn't demonstrate directly, the SDK can't handle the result and events in an individual thread but in game loop.
 
 For example, with Facebook Gameroom SDK, the implementation of IAP could be like this:
 
 ![](iap sequence diagram.png)
 
-As SDKBOX can’t make any impacts to Game Engines, ex., Cocos2d-X, in other words, any internal game loop can’t be affected by SDKBOX plugins. it is a big headache in encapsulation of Gameroom SDK. SDKBOX Gameroom Plugin should **create a new thread** to handle Gameroom Messages(callbacks).
+As SDKBOX can't make any impacts to Game Engines, ex., Cocos2d-X, in other words, any internal game loop can't be affected by SDKBOX plugins. it is a big headache in encapsulation of Gameroom SDK. SDKBOX Gameroom Plugin should **create a new thread** to handle Gameroom Messages(callbacks).
 
 The SDKBOX Gameroom Plugin should work as below:
 
@@ -73,11 +73,11 @@ sdkbox import -b c:\the_path_to_gameroom_plugin\sdkbox-gameroom_v0.01
 
 ### Manual Integration
 
-If you want to install Gameroom Plugin manually, you would modify more configurations step by step. It’s a little perplex, we don’t recommend you to do this.
+If you want to install Gameroom Plugin manually, you would modify more configurations step by step. It's a little perplex, we don't recommend you to do this.
 
 1.  Find the Visual Studio Solution file(.sln) and open it. For Cpp project created by "cocos", you can find the solution file in "./proj.win32" sub-directory; As for JS project, you can find it in "./framework/runtime_src/proj.win32". We name the "proj.win32" **project-dir** for depict conveniently.
 
-2.  Unzip the Gameromm Plugin package to get a dir including the plugin files. It’s called **plugin-dir**.
+2.  Unzip the Gameromm Plugin package to get a dir including the plugin files. It's called **plugin-dir**.
 
 3.  Copy header files.
     a.  For cpp project, copy "win32/include/*.h" in **plugin-dir** to "include" in your **project-dir**.
@@ -120,7 +120,7 @@ If you want to install Gameroom Plugin manually, you would modify more configura
     #endif
     ```
 
-    b.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
+    b.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.
 
     ```cpp
     AppDelegate::AppDelegate()
@@ -177,7 +177,7 @@ If you want to install Gameroom Plugin manually, you would modify more configura
     #endif
     ```
 
-    c.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don’t offer any logging APIs.
+    c.  In the ctor and dtor of "AppDelegate". Add redirect the STDOUT to a file since Facebook SDK don't offer any logging APIs.
 
     ```cpp
     AppDelegate::AppDelegate()

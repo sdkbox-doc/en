@@ -38,12 +38,28 @@ For example, a placement could be:
 ]
 </pre>
 
+The strategy:
+- "round-robin"
+- "weight"
+
+#### strategy -> "round-robin"
 Each time this placement is invoked, it round-robin for each AdUnit it has defined. If by any circumstance, at invocation time any AdUnit has no Ads data ready to be played, the next AdUnit will be requested. If no AdUnit has ads ready, nothing will happen.
-The only available placement strategy is currently "round-robin", but expect it to have more available values anytime soon.
-Certain AdUnits don’t handle the concept of a zone, location or place (e.g Fyber). For these, Sdkbox plugin will use `INTERSTITIAL`, `REWARDED`, `VIDEO` or `BANNER` to refer to the expected ad type to be played by the AdUnit.
+
+#### strategy -> "weight"
+Steps:
+
+1. call placement
+2. collect all available units
+3. Normalize the weight to 100
+4. dice [0,100]
+5. pick the unit
+
+The code look like [this](https://github.com/sdkbox/sdkbox-tests/issues/21).
+
+Certain AdUnits don't handle the concept of a zone, location or place (e.g Fyber). For these, Sdkbox plugin will use `INTERSTITIAL`, `REWARDED`, `VIDEO` or `BANNER` to refer to the expected ad type to be played by the AdUnit.
 
 ###Default AdUnit
-SdkboxAds defines a default AdUnit. It will be the first defined unit in the the plugin’s units list.
+SdkboxAds defines a default AdUnit. It will be the first defined unit in the the plugin's units list.
 
 <<[../shared/guides.md]
 

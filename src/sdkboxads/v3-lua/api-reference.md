@@ -4,7 +4,7 @@
 ```lua
 sdkbox.PluginSdkboxAds:init()
 ```
-> Initialize the plugin instance. 
+> Initialize the plugin instance.
 The plugin initializes from the sdkbox_config.json file and reads configuration of the form:
 > <pre>
  <code>
@@ -61,7 +61,7 @@ sdkbox.PluginSdkboxAds:placement(placement)
 > A placement is a collection of mediated AdUnits.
 When you want to invoke a placement, just call this method.
 If the placement does not exist, the call will just be ignored.
-A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
+A placement will take care of AdUnit's cache control, so if the current AdUnit has no
 cached content, or the AdUnit fails to load an ad, the next adUnit will be used.
 >
 > The placement will cycle throughout all the AdUnits it references, in a round robin fashion.

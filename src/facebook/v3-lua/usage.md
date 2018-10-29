@@ -104,7 +104,7 @@ The `requestInvitableFriends()` function has a __Bundle(map<string,string>)__ pa
 
 | Flag  | Description  |
 | :---- | :---------------|
-| fields | a comma separated values of the fields you want to get from your invitable friend’s profiles. |
+| fields | a comma separated values of the fields you want to get from your invitable friend's profiles. |
 | exclude_ids | a comma separated FB ids to exclude from the result. |
 | limit | number of friends per page. |
 

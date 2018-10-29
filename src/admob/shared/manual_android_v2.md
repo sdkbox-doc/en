@@ -1,6 +1,6 @@
 ### Copy Files
 Copy the everything from `plugin/android/libs` folder of this
-bundle into your project’s __proj.android/libs__ folder.
+bundle into your project's __proj.android/libs__ folder.
 
 <<[../../shared/copy_jni_lib.md]
 

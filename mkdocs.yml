@@ -253,6 +253,6 @@ theme: mkdocs
 theme_dir: 'theme'
 
 google_analytics: ['UA-70044300-2', 'auto']
-strict: true
+# strict: true
 markdown_extensions:
     - admonition

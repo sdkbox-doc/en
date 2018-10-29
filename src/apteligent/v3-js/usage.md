@@ -81,7 +81,7 @@ sdkbox.PluginApteligent.updateLocation(39.9042, 116.4074);
 // Allowing Users to Opt Out of Apteligent
 sdkbox.PluginApteligent.setOptOutStatus(true);
 
-// Changing the verbosity of Apteligent’s Logs
+// Changing the verbosity of Apteligent's Logs
 // sdkbox.PluginApteligent.LoggingLevel.Silent  : Turns off all Apteligent log messages
 // sdkbox.PluginApteligent.LoggingLevel.Error   : Only print errors. An error is an unexpected event that will result not capturing important data
 // sdkbox.PluginApteligent.LoggingLevel.Warning : (Default) Only print warnings. Currently warning messages are printed when calling Apteligent methods before initializing Apteligent.

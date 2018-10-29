@@ -85,14 +85,14 @@ sdkbox.PluginLeadBolt.fixAdOrientation(orientation);
 sdkbox.PluginLeadBolt.setAgeRange(range);
 ```
 > setAgeRange
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+You can increase your App's performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"
 
 ```javascript
 sdkbox.PluginLeadBolt.setGender(gender);
 ```
 > setGender
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+You can increase your App's performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"
 
 ```javascript

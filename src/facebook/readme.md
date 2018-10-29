@@ -175,7 +175,7 @@ You need a canvas version of your game, but you can submit an empty/placeholder 
 
 'Dashboard' -> 'Settings' -> 'Basic' -> 'Add Platform'
 
-> Navigate to your app’s [Facebook settings](https://developers.facebook.com/apps/). Go to the ‘Facebook Web Games’ pane in the Basic tab of your app’s ‘Settings’ page and fill in the ‘Facebook Web Games URL (https)’ field with the URL where you are serving your game. Now save your changes.
+> Navigate to your app's [Facebook settings](https://developers.facebook.com/apps/). Go to the ‘Facebook Web Games' pane in the Basic tab of your app's ‘Settings' page and fill in the ‘Facebook Web Games URL (https)' field with the URL where you are serving your game. Now save your changes.
 
 ![preview](https://scontent-lax3-1.xx.fbcdn.net/v/t39.2178-6/16781471_393759444334692_3641607580918218752_n.PNG?_nc_cat=0&oh=2ac23410835c91da267971b1460f2d64&oe=5B74F3CE)
 

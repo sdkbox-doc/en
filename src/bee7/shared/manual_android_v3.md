@@ -1,6 +1,6 @@
 ### Copy Files
 Copy the following __jar__ files from `plugin/android/libs` folder of this
-bundle into your project’s __<project_root>/libs__ folder.
+bundle into your project's __<project_root>/libs__ folder.
 
 > PluginBee7.jar
 
@@ -21,7 +21,7 @@ Include the following permissions above the __application tag__:
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-Make sure that you have one of the two settings below, for proper function of the game wall’s video component:
+Make sure that you have one of the two settings below, for proper function of the game wall's video component:
 
   - `<uses-sdk>` with targetSdkVersion set to the latest Android SDK version available, for example:
 

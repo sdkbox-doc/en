@@ -14,8 +14,8 @@ sdkbox.PluginAgeCheq.setListener(listener);
 ```javascript
 sdkbox.PluginAgeCheq.check(ACPin);
 ```
->  The AgeCheq check method is used to determine the status of a child’s relationship with a particular
- online service. It requires the developer’s unique identifier, the child’s AgeCheq PIN as set up by
+>  The AgeCheq check method is used to determine the status of a child's relationship with a particular
+ online service. It requires the developer's unique identifier, the child's AgeCheq PIN as set up by
  their parent, and the unique identifier of the game or application.
 
 <pre>
@@ -26,7 +26,7 @@ sdkbox.PluginAgeCheq.check(ACPin);
 sdkbox.PluginAgeCheq.associateData(ACPin, Data);
 ```
 >  The associateData method allows you to save a string of information linking it to a particular
- AgeCheqPIN for a specific game or app. You’ll want to use that data later if a parent should
+ AgeCheqPIN for a specific game or app. You'll want to use that data later if a parent should
  unauthorize your online service.
 
 <pre>

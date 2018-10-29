@@ -5,7 +5,7 @@
 ```cpp
 static void init ( ) ;
 ```
- 
+
 > The plugin initializes from the sdkbox_config.json file and reads configuration.
 > <pre>
  <code>
@@ -67,7 +67,7 @@ static void playAd ( const std::string & ad_unit ,
 AdUnits like Fyber which don't have zones, will use common placeholders like "INTERSTITIAL" or "REWARDED".
 Some AdUnits may require extra information to play an Ad, and should use the params for that purpose.
 You should refer to the documentation of each specific AdUnit about what parameters will accept.
-> 
+>
 > The ad will be played for a specific AdUnit based on its identifier. The identifiers are the
 values in the "units" node of the sdkbox_config.json file.
 For example: "AdColony" or "Fyber".
@@ -100,9 +100,9 @@ static void placement ( const std::string & placement ) ;
 > A placement is a collection of mediated AdUnits.
 When you want to invoke a placement, just call this method.
 If the placement does not exist, the call will just be ignored.
-A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
+A placement will take care of AdUnit's cache control, so if the current AdUnit has no
 cached content, or the AdUnit fails to load an ad, the next adUnit will be used.
-> 
+>
 > The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
 In the short term, new placement strategies will be added.
 
@@ -117,7 +117,7 @@ Not all AdUnits expose cache control while some others expose fine-grained cache
 For example Chartboost offers specific cache control for each location, as well as
 general Ads cache control.
 >
-> This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed
+> This method interfaces with the AdUnit's cache mechanism. If no cache control is exposed
 for a given AdUnit, the call will silently be ignored.
 Each AdUnit will document what valid values to pass to the cacheOpts parameter.
 E.g. for Chartboost, these are valid values:

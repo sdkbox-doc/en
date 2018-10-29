@@ -68,8 +68,7 @@ Apps that target for children can specify `"is_designed_for_families": true`
 
 #### Auto cache
 
-The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial Ad after
-it close.
+The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial/Reward Ad after it close.
 
 #### Example:
 ```json

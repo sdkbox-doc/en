@@ -193,7 +193,7 @@ static void notifyIAPComplete ( const std::string & transactionID ,
                                 const std::string & currencyCode ) ;
 ```
 > Call this method to report IAPs within your application. Note that this API can be leveraged to report standard IAPs
-as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and will improve overall ad targeting.
+as well as those triggered by AdColony's IAP Promo (IAPP) advertisements and will improve overall ad targeting.
 
 <pre>
 @see onAdColonyIAPRequest:quantity

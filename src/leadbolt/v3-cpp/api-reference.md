@@ -102,14 +102,14 @@ static void fixAdOrientation ( AdOrientation orientation ) ;
 static void setAgeRange ( const std::string & range ) ;
 ```
 > setAgeRange
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+You can increase your App's performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted values "13-17", "18-25", "26-35", "36-45", "46+"
 
 ```cpp
 static void setGender ( const std::string & gender ) ;
 ```
 > setGender
-You can increase your App’s performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
+You can increase your App's performance by optionally including the additional information above. This allows selected premium advertisers to display their Ads to your users. To pass this additional information, use the following methods BEFORE calling loadModuleToCache.
 accepted valued "Male", "Female"
 
 ```cpp
@@ -120,34 +120,34 @@ static void setFramework ( const std::string & f ) ;
 
 ### Listeners
 ```cpp
-void onModuleLoaded ( const std::string & placement ) 
+void onModuleLoaded ( const std::string & placement )
 ```
 > Notifies the delegate that the module has finished loading
 
 ```cpp
-void onModuleClosed ( const std::string & placement ) 
+void onModuleClosed ( const std::string & placement )
 ```
 > Notifies the delegate that the module has closed
 
 ```cpp
-void onModuleClicked ( const std::string & placement ) 
+void onModuleClicked ( const std::string & placement )
 ```
 > Notifies the delegate that the module has clicked
 
 ```cpp
-void onModuleCached ( const std::string & placement ) 
+void onModuleCached ( const std::string & placement )
 ```
 > Notifies the delegate that the module has cached
 
 ```cpp
 void onModuleFailed ( const std::string & placement ,
                       const std::string & error ,
-                      bool iscached ) 
+                      bool iscached )
 ```
 > Notifies the delegate that the module has fail
 
 ```cpp
-void onMediaFinished ( bool viewCompleted ) 
+void onMediaFinished ( bool viewCompleted )
 ```
 > Notifies the delegate that the rewarded video has finished playing.
 

@@ -11,12 +11,6 @@ $ sdkbox import scientificrevenue
 
 <<[../../shared/notice.md]
 
-<!--## Configuration
-Contact ScientificRevenue on how to set up Pricing Console—>
-
-
-<!--<<[sdkbox-config-encrypt.md]-->
-
 ##Usage
 <<[usage.md]
 

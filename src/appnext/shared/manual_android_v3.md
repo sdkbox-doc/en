@@ -1,6 +1,6 @@
 ### Copy Files
 Copy the everything from `plugin/android/libs` folder of this
-bundle into your project’s __<project_root>/libs__ folder.
+bundle into your project's __<project_root>/libs__ folder.
 
 
 <<[../../shared/copy_jars.md]
