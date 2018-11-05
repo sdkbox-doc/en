@@ -52,10 +52,17 @@ If you have IAP items,  whose type is __non-consumable__ or __subscription__, it
     "iap":{
         "key":"<put your googleplay key here>",
         "items":{
-          "remove_ads":{
-              "id":"<put the product id for android here>",
-              "type":"non_consumable"
-          }
+            "coins":{ //this is consumable item
+                "id":"<put the product id for android here>"
+            },
+            "remove_ads":{
+                "id":"<put the product id for android here>",
+                "type":"non_consumable" //this is non-consumable item
+            },
+            "subscription":{
+                "id":"<put the product id for android here>",
+                "type":"subs" //this is subscription item
+            }
         }
     }
 }
