@@ -13,7 +13,18 @@ $ sdkbox import admob
 
 Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-start#faq) and [Android FAQ](https://developers.google.com/admob/android/quick-start#faq)
 
+
+##FAQ
+1. webthread JSC::executableAllocator::allocate , Javascript crash
+
+   ```c++
+   #To solve this you can set the following environment variable to disable the buggy JIT in iOS 11:
+   setenv("JSC_useJIT", "false", 0);
+   // https://forums.developer.apple.com/thread/90411
+   ```
+
 ##Notice
+
 For reward video on Android, you need to check your project sdk configuation:
 
 * target sdk: set target sdk 24+ in project.properties. e.g. `target=android-24`
