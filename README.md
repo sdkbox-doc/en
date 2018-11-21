@@ -4,10 +4,8 @@ SDKBOX doc site uses [mkdocs](http://www.mkdocs.org) to generate static pages fr
 ## Install
 To view the site locally, you have to install mkdocs first
 ```
-sudo pip install mkdocs
+sudo pip install mkdocs==0.14.0
 ```
-
-tested with 0.14 version
 
 ## Documents generator
 * We use generator to generate cocos plugins' documents, so don't edit files in `docs/plugins/` manually.
