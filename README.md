@@ -7,6 +7,8 @@ To view the site locally, you have to install mkdocs first
 sudo pip install mkdocs
 ```
 
+tested with 0.14 version
+
 ## Documents generator
 * We use generator to generate cocos plugins' documents, so don't edit files in `docs/plugins/` manually.
 Instead, use the following command to generate documents
