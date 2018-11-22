@@ -81,6 +81,26 @@ Apps that target for children can specify `"is_designed_for_families": true`
 
 The plugin will auto cache the first Ad of one Ad type. It also will cache the interstitial/Reward Ad after it close.
 
+#### Test ID (Google)
+
+[Android](https://developers.google.com/admob/ios/test-ads)
+
+| type               | id                                     |
+| ------------------ | -------------------------------------- |
+| Banner             | ca-app-pub-3940256099942544/6300978111 |
+| Interstitial       | ca-app-pub-3940256099942544/1033173712 |
+| Interstitial Video | ca-app-pub-3940256099942544/8691691433 |
+| Rewarded Video     | ca-app-pub-3940256099942544/5224354917 |
+
+[iOS](https://developers.google.com/admob/android/test-ads)
+
+| type               | id                                     |
+| ------------------ | -------------------------------------- |
+| Banner             | ca-app-pub-3940256099942544/2934735716 |
+| Interstitial       | ca-app-pub-3940256099942544/4411468910 |
+| Interstitial Video | ca-app-pub-3940256099942544/5135589807 |
+| Rewarded Video     | ca-app-pub-3940256099942544/1712485313 |
+
 #### Example:
 ```json
 
