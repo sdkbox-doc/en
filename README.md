@@ -7,6 +7,13 @@ To view the site locally, you have to install mkdocs first
 sudo pip install mkdocs==0.14.0
 ```
 
+Or use pipenv
+```
+sudo -H pip install pipenv
+pipenv install mkdocs==0.14.0
+pipenv run python ./publish.sh #test
+```
+
 ## Documents generator
 * We use generator to generate cocos plugins' documents, so don't edit files in `docs/plugins/` manually.
 Instead, use the following command to generate documents
