@@ -2,8 +2,57 @@
 
 # 2.4.2.0 (not release)
 
+## Add
+1. Misc Plugin (sdkbox import misc #--staging)
+    1. LocalNotify
+2. Review:
+    1. `rateInAppstore` api:
+        ```
+        use SKStoreReviewController to review, this is default behavior
+
+        disable will use SKStoreProductViewController to review
+        if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
+        `onRemindLater` will not trigger
+        ```
+3. Share:
+    1. `logoutTwitter` api for [this](https://discuss.cocos2d-x.org/t/need-help-twitter-share-why-onsharestate-socialsharestatecancelled-called-right-after-socialsharestatebegin/43754)
+
 ## Upgrade
 1. AdMob: iOS 7.35.1 SDK
+2. Documentation:
+    1. IAP
+    2. SDKBoxPlay
+    3. encrypt and decrypt sdkbox_config.json
+
+## Bugfix
+1. AdMob:
+    1. fix [`adViewDidDismissScreen` is called twice](https://discuss.cocos2d-x.org/t/admob-android-bug/44621)
+2. IAP-Amazone:
+    1. fix add
+
+      ```
+      <receiver android:name="com.amazon.device.iap.ResponseReceiver">
+          <intent-filter>
+              <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+          </intent-filter>
+      </receiver>
+      ```
+
+      to AndroidManifest.xml again when update plugin.
+
+    2. fix `enableUserSideVerification`, `isAutoConsume`, `setAutoConsume`,
+       `consumeProduct` crash
+3. Review:
+    1. Amazon, try market first, then webview
+4. SDKBox-core:
+    1. fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
+       contains armeabi-v7a files, armeabi-v7a folder contains armeabi
+5. Facebook:
+    1. fix [share callback for iOS](https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347). Follow Facebook's development
+    documentation and no longer use postId to determine if sharing is successful.
+6. Appodeal:
+    1. fix installer `'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
+       should be `'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
 
 # 2.4.1.1 Release Notes (20180920)
 
@@ -23,22 +72,22 @@
 
 1.  Amazon:
     1. fix `receipt` and `receiptCipheredPayload`, now `receipt` is json string and  `receiptCipheredPayload` is empty string.
-2. Appodeal:
-    2. fix package installer for cocos2d-x 3.17
-3. IAP:
+2.  Appodeal:
+    1. fix package installer for cocos2d-x 3.17
+3.  IAP:
     1. fix [crash issue](https://discuss.cocos2d-x.org/t/sdkbox-iap-problem/43513)
-4. SDKBoxAds:
+4.  SDKBoxAds:
     1. fix AdMob send load event to SDKBoxAds
-5. Facebook:
+5.  Facebook:
     1. fix package installer for cocos2d-x 3.17 and cocos creator 2.0
-6. Google Play Services (GPS):
+6.  Google Play Services (GPS):
     1. fix failed on jsb-link creator 2.0, [1](https://discuss.cocos2d-x.org/t/cocos-creator-v2-0-released/43287/48?u=yinjimmy), [2](https://discuss.cocos2d-x.org/t/unable-to-compile-cocoscreator-2-project-android-with-sdkbox-admob/43417)
-7. Fyber:
+7.  Fyber:
     1. update [doc](https://discuss.cocos2d-x.org/t/solved-sdkbox-fyber-plugin-issue/43361)
-8. IAP:
+8.  IAP:
     1. android "item already owned"
     2. [android price value](https://discuss.cocos2d-x.org/t/iap-v2-4-0-3-price-value-problem/43319?u=yinjimmy)
-9. Chartboost:
+9.  Chartboost:
     1. fix cache ad which's not in sdkbox_config.json
 
 ## Remove
