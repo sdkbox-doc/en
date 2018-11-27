@@ -52,8 +52,29 @@ function publish()
     mkdocs gh-deploy
 }
 
+function checkenv()
+{
+    if command -v jsdoc >/dev/null 2>&1; then
+        echo "jsdoc exists."
+    else
+        echo "> Please install jsdoc"
+        echo "npm install jsdoc -g"
+        exit 0
+    fi
+
+    if [ -z "$CSC_PATH" ]; then
+        echo "> Need to set CSC_PATH to generate"
+        exit 0
+    fi
+
+    which jsdoc
+    echo "$CSC_PATH"
+}
+
+checkenv;
 # main
 if [ $# -eq 0 ]; then
+
     publish;
 elif [ $# -eq 1 ] && [ $1 = 'test' ]; then
     publishTest;
