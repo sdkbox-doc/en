@@ -320,6 +320,16 @@
         
             
 <li >
+    <a href="../../misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../onesignal/">OneSignal</a>
 </li>
 
@@ -622,6 +632,12 @@
                             
 <li >
     <a href="../../../qa/crypt-sdkbox-config/">Encrypt Decrypt sdkbox_config.json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
 </li>
 
                         
@@ -1062,7 +1078,7 @@ plugin.init();
 </ul>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
-bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+bundle into your project's <strong><project_root>/libs</strong> folder.</p>
 <blockquote>
 <p>sdkbox.jar</p>
 <p>PluginShare.jar</p>
@@ -1336,14 +1352,37 @@ SDKBox.init(this);
 Unknown source file : com.android.dex.DexException: Multiple dex files define Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoVersionImpl;
 </code></pre>
 
-<p>maybe your project have multi <code>android-support-v4.jar</code>, you can remove the duplicate one and just keep one.</p></div>
+<p>maybe your project have multi <code>android-support-v4.jar</code>, you can remove the duplicate one and just keep one.</p>
+<ul>
+<li>Share Image on Android N+</li>
+</ul>
+<pre><code>&lt;provider
+    android:name=&quot;android.support.v4.content.FileProvider&quot;
+    android:authorities=&quot;com.sdkbox.test.app.fileprovider&quot;
+    android:exported=&quot;false&quot;
+    android:grantUriPermissions=&quot;true&quot;&gt;
+    &lt;meta-data android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;
+        android:resource=&quot;@xml/file_paths&quot; /&gt;
+&lt;/provider&gt;
+</code></pre>
+
+<ol>
+<li>
+<p>check AndroidManifest.xml, replace <code>com.sdkbox.test.app.fileprovider</code> with your self authorities, usualy use <code>your.app.bundleid.customstring</code></p>
+</li>
+<li>
+<p>pass your self authorities to sdkbox social share, e.g.</p>
+</li>
+</ol>
+<pre><code class="cpp">   sdkbox::PluginShare::setFileProviderAuthorities(&quot;your.app.bundleid.customstring&quot;);
+</code></pre></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-10-10 02:29:07, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-27 05:27:58.048911, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

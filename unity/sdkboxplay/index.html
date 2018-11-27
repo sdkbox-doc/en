@@ -320,6 +320,16 @@
         
             
 <li >
+    <a href="../../plugins/misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../plugins/onesignal/">OneSignal</a>
 </li>
 
@@ -625,6 +635,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -696,7 +712,7 @@
 <h3 id="description-of-fields">Description of Fields</h3>
 <h5>Leaderboards</h5>
 
-<p>Leaderboards are defined on the respective platform’s developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:</p>
+<p>Leaderboards are defined on the respective platform's developer console. To keep things simple, the current SdkboxPlay implementation does not allow to define group leaderboards from iOS. For both platforms, an arbitrary number of leaderboards can be defined. Though both, GooglePlay and GameCenter define leaderboards in the same way, in the runtime there are some differences:</p>
 <ul>
 <li>Google Play creates automatically 3 time frames for each leaderboard: daily, weekly and all time best scores.</li>
 <li>Game Center creates just one timeframe.</li>
@@ -704,8 +720,8 @@
 <p>This will be resembled on the observer methods for leaderboard operations as described below.</p>
 <h5>Achievements</h5>
 
-<p>Achievements are defined on the respective platform’s developer console.
-There are differences in concept between GooglePlay and GameCenter’s achievements:</p>
+<p>Achievements are defined on the respective platform's developer console.
+There are differences in concept between GooglePlay and GameCenter's achievements:</p>
 <ul>
 <li>Google Play differentiates between achievements, and incremental achievements. Google keeps track of incremental achievements progress. Achievements are achieved only once.</li>
 <li>For Game Center, all achievements are incremental, but Game center does not keep track of its progress. Achievements are expected to be achieved during a game session. Achievements can be set to be unlocked several times.</li>
@@ -715,7 +731,7 @@ There are differences in concept between GooglePlay and GameCenter’s achieveme
 <ul>
 <li>Allows you to define non-incremental achievements. For ios, are submitted with an incremental value of 100, which means it will be unlocked.</li>
 <li>Allows you to define Incremental achievements. In Google play, incremental achievements have defined their unlocking value on the application console.</li>
-<li>For consistency, it is recommended to define Google Play’s achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
+<li>For consistency, it is recommended to define Google Play's achievements with a count of 100. This is the value Game Center expects to be reached to unlock an achievement.</li>
 </ul>
 <h5>Debug</h5>
 
@@ -752,7 +768,7 @@ void signout()
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-10-10 02:29:08, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-27 05:27:59.551904, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

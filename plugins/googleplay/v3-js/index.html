@@ -320,6 +320,16 @@
         
             
 <li >
+    <a href="../../misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../onesignal/">OneSignal</a>
 </li>
 
@@ -625,6 +635,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -777,7 +793,7 @@
 
 <h2 id="integration">Integration</h2>
 <p>Open a terminal and use the following command to install the SDKBOX Google Play Games Services plugin. Make sure you setup the SDKBOX installer correctly.</p>
-<pre><code class="bash">$ sdkbox import gpg 
+<pre><code class="bash">$ sdkbox import gpg
 </code></pre>
 
 <blockquote>
@@ -787,7 +803,7 @@
 <h3 id="android">Android</h3>
 <h4 id="update-androidmanifestxml">Update AndroidManifest.xml</h4>
 <p>Add this meta-data tag to your <code>AndroidManifest.xml</code></p>
-<pre><code>&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; 
+<pre><code>&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot;
     android:value=&quot;@string/google_app_id&quot; /&gt;
 </code></pre>
 
@@ -804,7 +820,7 @@ Add this:</p>
 <pre><code>#import &lt;GoogleSignIn/GoogleSignIn.h&gt;
 
 // Change RootViewController class definition to:
-@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt; 
+@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt;
 </code></pre>
 
 <h4 id="set-google-play-signin-listeners">Set Google Play signin listeners</h4>
@@ -820,13 +836,13 @@ Add this:</p>
 </code></pre>
 
 <ol>
-<li>In this method: </li>
+<li>In this method:</li>
 </ol>
 <pre><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 </code></pre>
 
 <p>add a call to (before return YES):</p>
-<pre><code>    // _viewController could also be named 
+<pre><code>    // _viewController could also be named
     //  viewController, depending of the project type.
     [GIDSignIn sharedInstance].uiDelegate = _viewController;
 </code></pre>
@@ -839,7 +855,7 @@ Add this:</p>
 <ul>
 <li>Identifier: <code>com.google.ReverseClientId</code></li>
 <li>Url schemes: <code>com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni</code><blockquote>
-<p>(use this as sample, or put your very own application’s url scheme) </p>
+<p>(use this as sample, or put your very own application's url scheme)</p>
 </blockquote>
 </li>
 </ul>
@@ -849,7 +865,7 @@ Add this:</p>
 <ul>
 <li>Identifier: <code>com.google.BundleId</code></li>
 <li>URL schemes: <code>com.sdkbox.gpg</code><blockquote>
-<p>(use this as sample or put your own application’s bundle id)</p>
+<p>(use this as sample or put your own application's bundle id)</p>
 </blockquote>
 </li>
 </ul>
@@ -880,7 +896,7 @@ Add this:</p>
 <h3 id="pre-requisites">Pre-requisites</h3>
 <p>Your must create your app on <a href="https://play.google.com/apps/publish">Google Play Developer console</a> and all the services must be explicitly enabled and configured in the console.</p>
 <ul>
-<li>Please follow <a href="https://developers.google.com/games/services/console/enabling">setup guide</a> to setup Google Play Games Services for your game. </li>
+<li>Please follow <a href="https://developers.google.com/games/services/console/enabling">setup guide</a> to setup Google Play Games Services for your game.</li>
 <li>After the setup, please follow <a href="https://developers.google.com/games/services/console/configuring">config guide</a> to enable different Games Services for your game.</li>
 </ul>
 <blockquote>
@@ -1056,7 +1072,7 @@ Add this:</p>
 <pre><code>#import &lt;GoogleSignIn/GoogleSignIn.h&gt;
 
 // Change RootViewController class definition to:
-@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt; 
+@interface RootViewController : UIViewController&lt;GIDSignInUIDelegate&gt;
 </code></pre>
 
 <h4 id="set-google-play-signin-listeners_1">Set Google Play signin listeners</h4>
@@ -1072,13 +1088,13 @@ Add this:</p>
 </code></pre>
 
 <ol>
-<li>In this method: </li>
+<li>In this method:</li>
 </ol>
 <pre><code>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 </code></pre>
 
 <p>add a call to (before return YES):</p>
-<pre><code>    // _viewController could also be named 
+<pre><code>    // _viewController could also be named
     //  viewController, depending of the project type.
     [GIDSignIn sharedInstance].uiDelegate = _viewController;
 </code></pre>
@@ -1091,7 +1107,7 @@ Add this:</p>
 <ul>
 <li>Identifier: <code>com.google.ReverseClientId</code></li>
 <li>Url schemes: <code>com.googleusercontent.apps.777734739048-cdkbeieil19d6pfkavddrri5o19gk4ni</code><blockquote>
-<p>(use this as sample, or put your very own application’s url scheme) </p>
+<p>(use this as sample, or put your very own application's url scheme)</p>
 </blockquote>
 </li>
 </ul>
@@ -1101,7 +1117,7 @@ Add this:</p>
 <ul>
 <li>Identifier: <code>com.google.BundleId</code></li>
 <li>URL schemes: <code>com.sdkbox.gpg</code><blockquote>
-<p>(use this as sample or put your own application’s bundle id)</p>
+<p>(use this as sample or put your own application's bundle id)</p>
 </blockquote>
 </li>
 </ul>
@@ -1117,7 +1133,7 @@ Add this:</p>
 </ul>
 <h3 id="copy-files">Copy Files</h3>
 <p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
-bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+bundle into your project's <strong><project_root>/libs</strong> folder.</p>
 <blockquote>
 <p>Plugingpg.jar</p>
 <p>sdkbox.jar</p>
@@ -1150,7 +1166,7 @@ to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
 <p>Add following meta-data tags:</p>
 <pre><code class="xml">&lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
     android:value=&quot;@integer/google_play_services_version&quot; /&gt;
-&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot; 
+&lt;meta-data android:name=&quot;com.google.android.gms.games.APP_ID&quot;
     android:value=&quot;@string/google_app_id&quot; /&gt;
 </code></pre>
 
@@ -1290,7 +1306,7 @@ another by incrementing the number as <code>android.library.reference.2</code>, 
 <h3 id="integration-manually">Integration manually</h3>
 <p>We make a lite version of Google Play Services, the project repo is <a href="https://github.com/darkdukey/Google-Play-Service-Lite">https://github.com/darkdukey/Google-Play-Service-Lite</a></p>
 <h4 id="copy-files_1">Copy Files</h4>
-<p>Copy the <code>gps</code> folder from <code>plugin</code> folder of this bundle into your project’s <strong><project_root>/libs</strong> folder.</p>
+<p>Copy the <code>gps</code> folder from <code>plugin</code> folder of this bundle into your project's <strong><project_root>/libs</strong> folder.</p>
 <ul>
 <li>
 <p>If you're using cocos2d-x from source copy the <code>gps</code> folder to:</p>
@@ -1396,7 +1412,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-10-10 02:29:04, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-27 05:27:54.831505, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

@@ -320,6 +320,16 @@
         
             
 <li >
+    <a href="../../plugins/misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../../plugins/onesignal/">OneSignal</a>
 </li>
 
@@ -625,6 +635,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -703,7 +719,7 @@
 <li>Player makes a purchase (pays for an item)</li>
 <li>CompleteTransaction is called, and cyphered receipt info is obtained.</li>
 <li>If developer requested to do receipt validation [App has remote config or not]:<ol>
-<li>onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin’s listener has cyphered payload info so the developer can launch his own purchase verification process.</li>
+<li>onPayResult is called with PaymentTransactionNeedsVerification set as code. The Product notified on plugin's listener has cyphered payload info so the developer can launch his own purchase verification process.</li>
 <li>The purchase transaction is finished.</li>
 </ol>
 </li>
@@ -738,7 +754,7 @@
 <li>If the developer requested to do receipt validation, onPayResult is called with PAYRESULT_NEEDS_VERIFICATION. The Product passed to the plugin listener has receipt and cyphered payload information, which is sufficient info to verify purchase authenticity.</li>
 <li>else<ol>
 <li>If Application has not remote configuration set: local validation process is executed:</li>
-<li>Application’s private key must be present in the sdkbox_config.json file.</li>
+<li>Application's private key must be present in the sdkbox_config.json file.</li>
 <li>If verification succeeds: onPayResult is called with code PAYRESULT_SUCCESS.</li>
 <li>if verification fails: onPayResult is called with code PAYRESULT_FAIL.</li>
 </ol>
@@ -761,7 +777,7 @@
 <h3 id="for-android-play">For Android Play</h3>
 <ul>
 <li>Make sure to enable <a href="../remote-config">Remote Configuration</a> in your app.</li>
-<li>Create or select the configuration for Android, and add <code>Google Play IAP</code> plugin in <strong>Essentials</strong>. You need to fill-in the <strong>Google Play</strong> developer console’s application private key. If the <strong>private key</strong> is not supplied, the local verification will always notify <code>onFail()</code>.</li>
+<li>Create or select the configuration for Android, and add <code>Google Play IAP</code> plugin in <strong>Essentials</strong>. You need to fill-in the <strong>Google Play</strong> developer console's application private key. If the <strong>private key</strong> is not supplied, the local verification will always notify <code>onFail()</code>.</li>
 </ul>
 <h3 id="for-apple-app-store">For Apple App Store</h3>
 <ul>
@@ -773,7 +789,7 @@
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-10-10 02:29:08, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-27 05:27:59.646869, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

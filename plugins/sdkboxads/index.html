@@ -320,6 +320,16 @@
         
             
 <li >
+    <a href="../misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
     <a href="../onesignal/">OneSignal</a>
 </li>
 
@@ -625,6 +635,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -721,11 +737,24 @@ For example, a placement could be:</p>
 ]
 </pre>
 
-<p>Each time this placement is invoked, it round-robin for each AdUnit it has defined. If by any circumstance, at invocation time any AdUnit has no Ads data ready to be played, the next AdUnit will be requested. If no AdUnit has ads ready, nothing will happen.
-The only available placement strategy is currently "round-robin", but expect it to have more available values anytime soon.
-Certain AdUnits don’t handle the concept of a zone, location or place (e.g Fyber). For these, Sdkbox plugin will use <code>INTERSTITIAL</code>, <code>REWARDED</code>, <code>VIDEO</code> or <code>BANNER</code> to refer to the expected ad type to be played by the AdUnit.</p>
+<p>The strategy:
+- "round-robin"
+- "weight"</p>
+<h4 id="strategy-round-robin">strategy -&gt; "round-robin"</h4>
+<p>Each time this placement is invoked, it round-robin for each AdUnit it has defined. If by any circumstance, at invocation time any AdUnit has no Ads data ready to be played, the next AdUnit will be requested. If no AdUnit has ads ready, nothing will happen.</p>
+<h4 id="strategy-weight">strategy -&gt; "weight"</h4>
+<p>Steps:</p>
+<ol>
+<li>call placement</li>
+<li>collect all available units</li>
+<li>Normalize the weight to 100</li>
+<li>dice [0,100]</li>
+<li>pick the unit</li>
+</ol>
+<p>The code look like <a href="https://github.com/sdkbox/sdkbox-tests/issues/21">this</a>.</p>
+<p>Certain AdUnits don't handle the concept of a zone, location or place (e.g Fyber). For these, Sdkbox plugin will use <code>INTERSTITIAL</code>, <code>REWARDED</code>, <code>VIDEO</code> or <code>BANNER</code> to refer to the expected ad type to be played by the AdUnit.</p>
 <h3 id="default-adunit">Default AdUnit</h3>
-<p>SdkboxAds defines a default AdUnit. It will be the first defined unit in the the plugin’s units list.</p>
+<p>SdkboxAds defines a default AdUnit. It will be the first defined unit in the the plugin's units list.</p>
 <h2 id="integration-guides">Integration Guides</h2>
 <h4 id="for-games-using-cocos2d-x-v3x">For games using Cocos2d-x v3.x</h4>
 <ul>
@@ -754,7 +783,7 @@ Certain AdUnits don’t handle the concept of a zone, location or place (e.g Fyb
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-10-10 02:29:06, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-27 05:27:57.219112, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
