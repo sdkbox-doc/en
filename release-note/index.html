@@ -675,7 +675,7 @@
         <li class="main active"><a href="#release-notes">Release Notes</a></li>
 	
     
-        <li class="main "><a href="#2420-not-release">2.4.2.0 (not release)</a></li>
+        <li class="main "><a href="#2420-20181129">2.4.2.0 (20181129)</a></li>
 	
 	<ul class="sub-sidenav">
         
@@ -1265,25 +1265,31 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="release-notes">Release Notes</h1>
-<h1 id="2420-not-release">2.4.2.0 (not release)</h1>
+<h1 id="2420-20181129">2.4.2.0 (20181129)</h1>
 <h2 id="add">Add</h2>
 <ol>
-<li>Misc Plugin (sdkbox import misc #--staging)<ol>
-<li>LocalNotify</li>
+<li>Misc Plugin<ol>
+<li>LocalNotify， <a href="http://docs.sdkbox.com/en/plugins/misc/v3-cpp/">docs here</a></li>
 </ol>
 </li>
-<li>Review:<ol>
 <li>
-<p><code>rateInAppstore</code> api:
-    ```
-    use SKStoreReviewController to review, this is default behavior</p>
+<p>Review:</p>
+<ol>
+<li>
+<p><code>rateInAppstore</code> api:</p>
+<blockquote>
+<p>use SKStoreReviewController to review, this is default behavior</p>
 <p>disable will use SKStoreProductViewController to review
 if use SKStoreReviewController, <code>onDeclineToRate</code>, <code>onRate</code>,
-<code>onRemindLater</code> will not trigger
-<code>``
-3. Share:
-    1.</code>logoutTwitter` api for <a href="https://discuss.cocos2d-x.org/t/need-help-twitter-share-why-onsharestate-socialsharestatecancelled-called-right-after-socialsharestatebegin/43754">this</a></p>
+<code>onRemindLater</code> will not trigger</p>
+</blockquote>
 </li>
+</ol>
+</li>
+<li>
+<p>Share:</p>
+<ol>
+<li><code>logoutTwitter</code> api for <a href="https://discuss.cocos2d-x.org/t/need-help-twitter-share-why-onsharestate-socialsharestatecancelled-called-right-after-socialsharestatebegin/43754">this</a></li>
 </ol>
 </li>
 </ol>
@@ -1293,7 +1299,7 @@ if use SKStoreReviewController, <code>onDeclineToRate</code>, <code>onRate</code
 <li>Documentation:<ol>
 <li>IAP</li>
 <li>SDKBoxPlay</li>
-<li>encrypt and decrypt sdkbox_config.json</li>
+<li><a href="http://docs.sdkbox.com/en/qa/crypt-sdkbox-config/">encrypt and decrypt sdkbox_config.json</a></li>
 </ol>
 </li>
 </ol>
@@ -1303,29 +1309,33 @@ if use SKStoreReviewController, <code>onDeclineToRate</code>, <code>onRate</code
 <li>fix <a href="https://discuss.cocos2d-x.org/t/admob-android-bug/44621"><code>adViewDidDismissScreen</code> is called twice</a></li>
 </ol>
 </li>
-<li>
-<p>IAP-Amazone:</p>
-<ol>
-<li>fix add</li>
-</ol>
-<p><code>&lt;receiver android:name="com.amazon.device.iap.ResponseReceiver"&gt;
-      &lt;intent-filter&gt;
-          &lt;action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" /&gt;
-      &lt;/intent-filter&gt;
-  &lt;/receiver&gt;</code></p>
-<p>to AndroidManifest.xml again when update plugin.</p>
-<ol>
+<li>IAP-Amazone:<ol>
+<li>fix add
+    <code>&lt;receiver android:name="com.amazon.device.iap.ResponseReceiver"&gt;
+       &lt;intent-filter&gt;
+           &lt;action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" /&gt;
+       &lt;/intent-filter&gt;
+    &lt;/receiver&gt;</code>
+    to AndroidManifest.xml again when update plugin.</li>
 <li>fix <code>enableUserSideVerification</code>, <code>isAutoConsume</code>, <code>setAutoConsume</code>,
    <code>consumeProduct</code> crash</li>
-<li>Review:</li>
+</ol>
+</li>
+<li>Review:<ol>
 <li>Amazon, try market first, then webview</li>
-<li>SDKBox-core:</li>
+</ol>
+</li>
+<li>SDKBox-core:<ol>
 <li>fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
-   contains armeabi-v7a files, armeabi-v7a folder contains armeabi</li>
-<li>Facebook:</li>
+   contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix <a href="https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190">UnsatisfiedLinkError on Released Game</a></li>
+</ol>
+</li>
+<li>Facebook:<ol>
 <li>fix <a href="https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347">share callback for iOS</a>. Follow Facebook's development
-documentation and no longer use postId to determine if sharing is successful.</li>
-<li>Appodeal:</li>
+  documentation and no longer use postId to determine if sharing is successful.</li>
+</ol>
+</li>
+<li>Appodeal:<ol>
 <li>fix installer <code>'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code>
    should be <code>'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code></li>
 </ol>
@@ -2198,7 +2208,7 @@ Upgrade Vugnle SDK to new version
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-11-27 05:27:59.968979, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-11-29 02:27:06.564442, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
