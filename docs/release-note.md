@@ -1,56 +1,53 @@
 # Release Notes
 
-# 2.4.2.0 (not release)
+# 2.4.2.0 (20181129)
 
 ## Add
-1. Misc Plugin (sdkbox import misc #--staging)
-    1. LocalNotify
-2. Review:
+1.  Misc Plugin
+    1. LocalNotify， [docs here](http://docs.sdkbox.com/en/plugins/misc/v3-cpp/)
+2.  Review:
     1. `rateInAppstore` api:
-        ```
-        use SKStoreReviewController to review, this is default behavior
 
-        disable will use SKStoreProductViewController to review
-        if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
-        `onRemindLater` will not trigger
-        ```
+        >use SKStoreReviewController to review, this is default behavior
+        >
+        >disable will use SKStoreProductViewController to review
+        >if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
+        >`onRemindLater` will not trigger
+
 3. Share:
     1. `logoutTwitter` api for [this](https://discuss.cocos2d-x.org/t/need-help-twitter-share-why-onsharestate-socialsharestatecancelled-called-right-after-socialsharestatebegin/43754)
 
 ## Upgrade
-1. AdMob: iOS 7.35.1 SDK
-2. Documentation:
+1.  AdMob: iOS 7.35.1 SDK
+2.  Documentation:
     1. IAP
     2. SDKBoxPlay
-    3. encrypt and decrypt sdkbox_config.json
+    3. [encrypt and decrypt sdkbox_config.json](http://docs.sdkbox.com/en/qa/crypt-sdkbox-config/)
 
 ## Bugfix
-1. AdMob:
+1.  AdMob:
     1. fix [`adViewDidDismissScreen` is called twice](https://discuss.cocos2d-x.org/t/admob-android-bug/44621)
-2. IAP-Amazone:
-    1. fix add
-
-      ```
-      <receiver android:name="com.amazon.device.iap.ResponseReceiver">
-          <intent-filter>
-              <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
-          </intent-filter>
-      </receiver>
-      ```
-
-      to AndroidManifest.xml again when update plugin.
-
-    2. fix `enableUserSideVerification`, `isAutoConsume`, `setAutoConsume`,
+2.  IAP-Amazone:
+    1.  fix add
+        ```
+        <receiver android:name="com.amazon.device.iap.ResponseReceiver">
+           <intent-filter>
+               <action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+           </intent-filter>
+        </receiver>
+        ```
+        to AndroidManifest.xml again when update plugin.
+    2.  fix `enableUserSideVerification`, `isAutoConsume`, `setAutoConsume`,
        `consumeProduct` crash
-3. Review:
+3.  Review:
     1. Amazon, try market first, then webview
-4. SDKBox-core:
+4.  SDKBox-core:
     1. fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
-       contains armeabi-v7a files, armeabi-v7a folder contains armeabi
-5. Facebook:
+       contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix [UnsatisfiedLinkError on Released Game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190)
+5.  Facebook:
     1. fix [share callback for iOS](https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347). Follow Facebook's development
-    documentation and no longer use postId to determine if sharing is successful.
-6. Appodeal:
+      documentation and no longer use postId to determine if sharing is successful.
+6.  Appodeal:
     1. fix installer `'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
        should be `'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
 
