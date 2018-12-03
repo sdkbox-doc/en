@@ -1,5 +1,14 @@
 # Release Notes
 
+# 2.4.3.0 (?)
+
+## Add
+## Upgrade
+## Bugfix
+
+1. Review [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
+
+
 # 2.4.2.0 (20181129)
 
 ## Add
