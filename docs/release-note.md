@@ -6,7 +6,14 @@
 ## Upgrade
 ## Bugfix
 
-1. Review [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
+1. Review: [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
+2. JSB2: JSListenerBase::invokeJSFun crash
+3. SDKBoxPlay:
+   -   [sign in crash](https://discuss.cocos2d-x.org/t/too-many-crash-on-sdkboxplay-sign-in-flow/44801)
+   -   [no onIncrementalAchievementUnlocked callback](https://discuss.cocos2d-x.org/t/incremental-achievement-unlock-callback-not-called/44675)
+   -   [IllegalStateException: Must include Drive.SCOPE_APPFOLDER to use snapshots!](https://discuss.cocos2d-x.org/t/too-many-crash-on-sdkboxplay-sign-in-flow/44801)
+4. Facebook: [logpurcase crash on Android](https://discuss.cocos2d-x.org/t/sdkbox-facebook-sigabrt-after-logpurchase-on-android/44763/2?u=yinjimmy)
+5. IAP: [recover restore a subscription on Android](https://discuss.cocos2d-x.org/t/sdkbox-iap-google-play-recover-restore-a-subscription/44742)
 
 
 # 2.4.2.0 (20181129)
