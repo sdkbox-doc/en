@@ -688,7 +688,9 @@
         
             <li><a href="#versions">Versions</a></li>
         
-            <li><a href="#tested-unity-version">Tested Unity Version</a></li>
+            <li><a href="#test">Test</a></li>
+        
+            <li><a href="#issues">Issues</a></li>
         
 	</ul>
 	
@@ -698,23 +700,34 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="addeals-for-unity">AdDeals For Unity</h1>
-<p>this is a AdDeals Unity plugin. now this plugin support Unity 5.5.4p5+.</p>
-<p>Note: if you are use Unity 5.x, please upgrade use Unity 5.x patch version.</p>
+<p>This is a AdDeals Unity plugin, bases on <a href="https://www.addealsnetwork.com/">AdDeals</a> iOS/Android/UWP Native SDK.</p>
+<p>Tools Needed:</p>
+<ul>
+<li>Unity 5.5.4.p5 or later</li>
+<li>Vistual Studio 2017 or later</li>
+<li>Xcode 10</li>
+<li>Android Studio 3.2.1</li>
+</ul>
+<p><strong>Note</strong>: if you are use Unity 5.x, please upgrade use Unity 5.x patch version.</p>
 <h2 id="integrate">Integrate</h2>
 <ul>
-<li>drag <code>Assets/AdDeals/AdDeals.prefab</code> to your game scene</li>
-<li>Invoke AdDeals SDK API. take a look at sample code file <code>Assets/AdDeals/Sample/Test.cs</code></li>
+<li>drag <code>Assets\AdDeals\AdDeals.prefab</code> to your game scene</li>
+<li>Invoke AdDeals SDK API. take a look at sample code file <code>Assets\AdDeals\Sample\Test.cs</code></li>
 </ul>
-<pre><code class="csharp">AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppSecert&quot;);
+<pre><code class="C#">AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppSecert&quot;);
 
 int adType = 1; // 1:interstitial 2: reward
 AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 </code></pre>
 
 <h3 id="ios">iOS</h3>
-<p>min support iOS: 8</p>
+<ul>
+<li>support iOS 8+</li>
+</ul>
 <h3 id="android">Android</h3>
-<p>min support android sdk: 15</p>
+<ul>
+<li>support android sdk 15+</li>
+</ul>
 <p>this plugin is not support build APK directly in Unity.</p>
 <p>please export Gradle Project, and build&amp;run with Android Studio.</p>
 <p><img alt="" src="./unity_android_export.png" /></p>
@@ -753,32 +766,66 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 </li>
 </ul>
 <h2 id="api">API</h2>
-<p>// Init AdDeals</p>
-<ul>
-<li>void AdDeals.AdDealsWrapper.Init(String appID, String appKey);</li>
-</ul>
-<p>// set privacy policy consent</p>
-<ul>
-<li>void AdDeals.AdDealsWrapper.SetConsent(int consent);</li>
-</ul>
-<p>// check is ad available
-// params uiOrientation is invalid on UWP, send 0</p>
-<ul>
-<li>void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);</li>
-</ul>
-<p>// cache ad
-// params placement is invalid on UWP, send ""
-// params uiOrientation is invalid on UWP, send 0</p>
-<ul>
-<li>void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);</li>
-</ul>
-<p>// show ad
-// params placement is invalid on UWP, send ""
-// params uiOrientation is invalid on UWP, send 0</p>
-<ul>
-<li>void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);</li>
-</ul>
+<h3 id="methods">Methods</h3>
+<blockquote>
+<p>Init AdDeals</p>
+</blockquote>
+<pre><code class="c#">void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
+</code></pre>
+
+<blockquote>
+<p>set privacy policy consent</p>
+</blockquote>
+<pre><code class="c#">void AdDeals.AdDealsWrapper.SetConsent(int consent);
+</code></pre>
+
+<blockquote>
+<p>check if ad available</p>
+<p>params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown</p>
+</blockquote>
+<pre><code class="c#">void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+</code></pre>
+
+<blockquote>
+<p>cache ad</p>
+<p>params placement is invalid on UWP, send ""</p>
+<p>params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown</p>
+</blockquote>
+<pre><code class="c#">void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
+</code></pre>
+
+<blockquote>
+<p>show ad</p>
+<p>params placement is invalid on UWP, send ""</p>
+<p>params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown</p>
+</blockquote>
+<pre><code class="c#">void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
+</code></pre>
+
+<h3 id="constants">Constants</h3>
+<blockquote>
+<p>UI Orientation</p>
+</blockquote>
+<pre><code class="C#">AdDealsWrapper.UIOrientationUnknown = 0;
+AdDealsWrapper.UIOrientationPortrait = 1;
+AdDealsWrapper.UIOrientationPortraitUpsideDown = 2;
+AdDealsWrapper.UIOrientationLandscapeRight = 3;
+AdDealsWrapper.UIOrientationLandscapeLeft = 4;
+</code></pre>
+
+<blockquote>
+<p>Ad type</p>
+</blockquote>
+<pre><code class="C#">AdDealsWrapper.AdTypeInterstitial = 1;
+AdDealsWrapper.AdTypeRewardVideo = 2;
+</code></pre>
+
 <h2 id="versions">Versions</h2>
+<ul>
+<li>Version 0.0.5</li>
+</ul>
+<p>Release Date: 2018.12.11</p>
+<p>add WrapperBase class</p>
 <ul>
 <li>Version 0.0.4</li>
 </ul>
@@ -799,22 +846,25 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 </ul>
 <p>Release Date: 2018.11.23</p>
 <p>first version, support Unity 2017+ with UWP</p>
-<h2 id="tested-unity-version">Tested Unity Version</h2>
-<p>Haved Tested With Follow Unity Version:</p>
+<h2 id="test">Test</h2>
+<p>Haved Test With Follow Unity Version:</p>
 <ul>
 <li>Unity 2018.2.16f</li>
 <li>Unity 2018.1.0f2</li>
 <li>Unity 2017.1.2f1</li>
 <li>Unity 2017.1.0p5</li>
 <li>Unity 5.5.4p5</li>
-</ul></div>
+</ul>
+<h2 id="issues">Issues</h2>
+<p>if you got follow error when import this unitypackage, it's ok, you can ignore it.</p>
+<p><img alt="" src="./unity_addeals_framework_import_error.png" /></p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-11 04:12:12.537692, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-11 08:34:58.065980, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
