@@ -234,6 +234,7 @@ pages:
    - 'SocialShare': 'unity/socialshare/index.md'
    - 'Google Analytics': 'unity/googleanalytics/index.md'
    - 'SDKBOX Play': 'unity/sdkboxplay/index.md'
+   - 'AdDeals': 'unity/addeals/index.md'
 - Unreal:
    - 'In-App Purchase': 'unreal/iap/index.md'
    - 'Chartboost': 'unreal/chartboost/index.md'

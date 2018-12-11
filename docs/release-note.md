@@ -3,6 +3,9 @@
 # 2.4.3.0 (?)
 
 ## Add
+
+1. IAP: `getPurchaseHistory` api for Android, `onPurchaseHistory(const std::string& purchasesJson)` for result.
+
 ## Upgrade
 ## Bugfix
 
