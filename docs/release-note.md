@@ -9,6 +9,7 @@
 ## Upgrade
 ## Bugfix
 
+0. Core: fix Android crash bug, [unsatisfiedlinkerror-on-released-game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190), [issue2](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/34?u=yinjimmy), [issue3](https://discuss.cocos2d-x.org/t/no-implementation-found-for-void-com-sdkbox-plugin-sdkbox-nativeinit/34272/30?u=yinjimmy)
 1. Review: [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
 2. JSB2: JSListenerBase::invokeJSFun crash
 3. SDKBoxPlay:
