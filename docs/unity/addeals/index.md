@@ -1,15 +1,22 @@
 # AdDeals For Unity
 
-this is a AdDeals Unity plugin. now this plugin support Unity 5.5.4p5+.
+This is a AdDeals Unity plugin, bases on [AdDeals](https://www.addealsnetwork.com/) iOS/Android/UWP Native SDK.
 
-Note: if you are use Unity 5.x, please upgrade use Unity 5.x patch version.
+Tools Needed:
+
+* Unity 5.5.4.p5 or later
+* Vistual Studio 2017 or later
+* Xcode 10
+* Android Studio 3.2.1
+
+__Note__: if you are use Unity 5.x, please upgrade use Unity 5.x patch version.
 
 ## Integrate
 
-* drag `Assets/AdDeals/AdDeals.prefab` to your game scene
-* Invoke AdDeals SDK API. take a look at sample code file `Assets/AdDeals/Sample/Test.cs`
+* drag `Assets\AdDeals\AdDeals.prefab` to your game scene
+* Invoke AdDeals SDK API. take a look at sample code file `Assets\AdDeals\Sample\Test.cs`
 
-```csharp
+```C#
 AdDeals.AdDealsWrapper.Init("AppID", "AppSecert");
 
 int adType = 1; // 1:interstitial 2: reward
@@ -19,12 +26,12 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 
 ### iOS
 
-min support iOS: 8
+* support iOS 8+
 
 
 ### Android
 
-min support android sdk: 15
+* support android sdk 15+
 
 this plugin is not support build APK directly in Unity.
 
@@ -53,8 +60,6 @@ if you use Unity 5.x, please check `YOUR_EXPORTS_PROTECT_ROOT/build.gradle`, mak
 ```
 
 
-
-
 ### Windows UWP
 
 * the plugin is base on [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
@@ -72,34 +77,71 @@ if you use Unity 5.x, please check `YOUR_EXPORTS_PROTECT_ROOT/build.gradle`, mak
 
 ## API
 
-// Init AdDeals
+### Methods
 
-* void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
+> Init AdDeals
+```c#
+void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
+```
 
-// set privacy policy consent
+> set privacy policy consent
+```c#
+void AdDeals.AdDealsWrapper.SetConsent(int consent);
+```
 
-* void AdDeals.AdDealsWrapper.SetConsent(int consent);
+> check if ad available
 
-// check is ad available
-// params uiOrientation is invalid on UWP, send 0
+> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
+```c#
+void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+```
 
-* void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+> cache ad
 
-// cache ad
-// params placement is invalid on UWP, send ""
-// params uiOrientation is invalid on UWP, send 0
+> params placement is invalid on UWP, send ""
 
-* void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
+> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
 
-// show ad
-// params placement is invalid on UWP, send ""
-// params uiOrientation is invalid on UWP, send 0
+```c#
+void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
+```
 
-* void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
+> show ad
 
+> params placement is invalid on UWP, send ""
+
+> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
+
+```c#
+void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
+```
+
+### Constants
+
+> UI Orientation
+```C#
+AdDealsWrapper.UIOrientationUnknown = 0;
+AdDealsWrapper.UIOrientationPortrait = 1;
+AdDealsWrapper.UIOrientationPortraitUpsideDown = 2;
+AdDealsWrapper.UIOrientationLandscapeRight = 3;
+AdDealsWrapper.UIOrientationLandscapeLeft = 4;
+```
+
+> Ad type
+```C#
+AdDealsWrapper.AdTypeInterstitial = 1;
+AdDealsWrapper.AdTypeRewardVideo = 2;
+```
 
 
 ## Versions
+
+* Version 0.0.5
+
+Release Date: 2018.12.11
+
+add WrapperBase class
+
 
 * Version 0.0.4
 
@@ -128,12 +170,19 @@ Release Date: 2018.11.23
 
 first version, support Unity 2017+ with UWP
 
-## Tested Unity Version
+## Test
 
-Haved Tested With Follow Unity Version:
+Haved Test With Follow Unity Version:
 
 * Unity 2018.2.16f
 * Unity 2018.1.0f2
 * Unity 2017.1.2f1
 * Unity 2017.1.0p5
 * Unity 5.5.4p5
+
+## Issues
+
+if you got follow error when import this unitypackage, it's ok, you can ignore it.
+
+![](./unity_addeals_framework_import_error.png)
+
