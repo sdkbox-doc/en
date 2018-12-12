@@ -1,22 +1,22 @@
-# AdDeals For Unity
+# Unity plugin for AdDeals
 
-This is a AdDeals Unity plugin, bases on [AdDeals](https://www.addealsnetwork.com/) iOS/Android/UWP Native SDK.
+This is a cross-platform Unity plugin for [AdDeals](https://www.addealsnetwork.com/)'s SDKs. It combines and supports three platforms together: Windows(UWP), iOS, and Android.
 
-Tools Needed:
+System requirements:
 
-* Unity 5.5.4.p5 or later
+* Unity v5.5.4.p5 or later
 * Vistual Studio 2017 or later
 * Xcode 10
 * Android Studio 3.2.1
 
-__Note__: if you are use Unity 5.x, please upgrade use Unity 5.x patch version.
+
 
 ## Integrate
 
-* drag `Assets\AdDeals\AdDeals.prefab` to your game scene
-* Invoke AdDeals SDK API. take a look at sample code file `Assets\AdDeals\Sample\Test.cs`
-
-```C#
+* Downlonad the AdDeals plugin from either Unity's marketplace, or sdkbox.com. 
+* Drag `Assets\AdDeals\AdDeals.prefab` onto your game scene.
+* Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`: 
+```
 AdDeals.AdDealsWrapper.Init("AppID", "AppSecert");
 
 int adType = 1; // 1:interstitial 2: reward
@@ -24,25 +24,35 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 ```
 
 
-### iOS
+### Windows UWP build
 
-* support iOS 8+
+* Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
+* Using .Net ScriptBackend, please export the UWP proejct in Unity with the following settings: 
+
+    ![Unity UWP project config](./unity_project_config.png)
+
+* Please enable `InternetClient` setting for UWP under `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`
+
+    ![Unity UWP capabilities setting](./uwp_capabilities.png)
+
+* For Unity 5.x: because Vistual Studio 2017 is required for UWP application to target aginest the lastest UWP SDK, please make sure to install the [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases) with UWP support.
 
 
-### Android
 
-* support android sdk 15+
+### iOS build
 
-this plugin is not support build APK directly in Unity.
+* From Unity, first export to an iOS project. Next build and run it using xCode. 
+* Support iOS 8+. 
 
-please export Gradle Project, and build&run with Android Studio.
 
-![](./unity_android_export.png)
+### Android build
 
-#### For Unity 5.x
+* From Unity, first export the application to a Gradle project. Next build and run it using Android Studio. __Do NOT build APK directly in Unity.__
 
-if you use Unity 5.x, please check `YOUR_EXPORTS_PROTECT_ROOT/build.gradle`, make it look like follow:
+       ![](./unity_android_export.png)
 
+* Support Android SDK v15+.
+* For Unity 5.x: please edit `YOUR_EXPORTS_PROTECT_ROOT/build.gradle` with the following configurations:
 ```gradle
     ...
     android {
@@ -60,66 +70,47 @@ if you use Unity 5.x, please check `YOUR_EXPORTS_PROTECT_ROOT/build.gradle`, mak
 ```
 
 
-### Windows UWP
-
-* the plugin is base on [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
-
-* we support Windows UWP with C# Project with .Net ScriptBackend. please make sure your export UWP proejct setting like follow.
-
-    ![Unity UWP project config](./unity_project_config.png)
-
-* enable InternetClient on UWP, you can find it with follow path `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`
-
-    ![Unity UWP capabilities setting](./uwp_capabilities.png)
-
-* UWP application target aginest the lastest UWP SDK must use `Vistual Studio 2017`, so if you use Unity 5.x, please make sure use [Unity patch version](https://unity3d.com/unity/qa/patch-releases).
-
 
 ## API
 
 ### Methods
 
-> Init AdDeals
-```c#
+
+```
 void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
 ```
+* Initialize the AdDeals SDK.
 
-> set privacy policy consent
-```c#
+```
 void AdDeals.AdDealsWrapper.SetConsent(int consent);
 ```
+* Set privacy policy consent.
 
-> check if ad available
-
-> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
-```c#
+```
 void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
 ```
+* Check availability.
+* `uiOrientation` is invalid on UWP. Set to `AdDealsWrapper.UIOrientationUnknown`. 
 
-> cache ad
-
-> params placement is invalid on UWP, send ""
-
-> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
-
-```c#
+```
 void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
 ```
+* Cache Ad.
+* `placement` is invalid on UWP, set to "".
+* `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`. 
 
-> show ad
-
-> params placement is invalid on UWP, send ""
-
-> params uiOrientation is invalid on UWP, send AdDealsWrapper.UIOrientationUnknown
-
-```c#
+```
 void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
 ```
+* Show Ad. 
+* `placement` is invalid on UWP, set to "".
+* `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`.
+
 
 ### Constants
 
-> UI Orientation
-```C#
+#### UI Orientation
+```
 AdDealsWrapper.UIOrientationUnknown = 0;
 AdDealsWrapper.UIOrientationPortrait = 1;
 AdDealsWrapper.UIOrientationPortraitUpsideDown = 2;
@@ -127,65 +118,33 @@ AdDealsWrapper.UIOrientationLandscapeRight = 3;
 AdDealsWrapper.UIOrientationLandscapeLeft = 4;
 ```
 
-> Ad type
-```C#
+#### Ad type
+```
 AdDealsWrapper.AdTypeInterstitial = 1;
 AdDealsWrapper.AdTypeRewardVideo = 2;
 ```
 
 
-## Versions
+## Verification
 
-* Version 0.0.5
+Tested on the follow Unity versions:
 
-Release Date: 2018.12.11
-
-add WrapperBase class
-
-
-* Version 0.0.4
-
-Release Date: 2018.12.10
-
-fix xcode project issue on unity 5.5
+* Unity v2018.2.16f
+* Unity v2018.1.0f2
+* Unity v2017.1.2f1
+* Unity v2017.1.0p5
+* Unity v5.5.4p5
 
 
-* Version 0.0.3
+## Sample Project
 
-Release Date: 2018.12.10
+[https://github.com/sdkbox/AdDeals-Unity-Sample](https://github.com/sdkbox/AdDeals-Unity-Sample)
 
-support iOS & Android
-
-
-* Version 0.0.2
-
-Release Date: 2018.11.30
-
-support Unity 5.5.4+ patch release version
-
-
-* Version 0.0.1
-
-Release Date: 2018.11.23
-
-first version, support Unity 2017+ with UWP
-
-## Test
-
-Haved Test With Follow Unity Version:
-
-* Unity 2018.2.16f
-* Unity 2018.1.0f2
-* Unity 2017.1.2f1
-* Unity 2017.1.0p5
-* Unity 5.5.4p5
 
 ## Issues
 
-if you got follow error when import this unitypackage, it's ok, you can ignore it.
+* if you got follow error when import this unitypackage, it's ok, you can ignore it.
 
 ![](./unity_addeals_framework_import_error.png)
 
-## Sample
 
-[https://github.com/sdkbox/AdDeals-Unity-Sample](https://github.com/sdkbox/AdDeals-Unity-Sample)
