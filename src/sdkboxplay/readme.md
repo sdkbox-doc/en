@@ -3,6 +3,23 @@
 <h1>SdkboxPlay Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##FAQ
+
+1.  `submitScore`: java.lang.IllegalStateException: Score tags must be no more than 64 URI safe characters. Input was *****.
+
+    [The characters generally considered unsafe are](https://stackoverflow.com/questions/695438/safe-characters-for-friendly-url):
+
+    * space (" ")
+    * less than and greater than ("<>")
+    * open and close brackets ("[]")
+    * open and close braces ("{}")
+    * pipe ("|")
+    * backslash ("\")
+    * caret ("^")
+    * percent ("%")
+
+
+
 ##Prerequisites
 
 ###Google play
