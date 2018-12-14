@@ -6,6 +6,9 @@
 ##Prerequisites
 * __For Android__, Facebook requires a minimum version of __API 15: Android 4.0.3__. This version is newer than what the other SDKBOX plugins require.
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Facebook plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash

@@ -3,6 +3,9 @@
 <h1>Firebase Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Firebase plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
@@ -48,7 +51,7 @@ your modification should be like follow:
 - ./res/values/strings.xml
 
  <del> <`string name="google_app_id">340534096218</string>` <del>
- 
+
 `<string name="google_app_id_2">340534096218</string>`
 
 - Andmanifest.xml

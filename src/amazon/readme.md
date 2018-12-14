@@ -10,6 +10,9 @@
 ###NOTE:
 If you are using __Amazon__ plugin then you must install __IAP__ plugin at first to make it to work.
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Amazon plugin. Make sure you setup the SDKBOX installer correctly.
 

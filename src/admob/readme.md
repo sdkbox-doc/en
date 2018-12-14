@@ -3,6 +3,9 @@
 <h1>AdMob Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version.md]
+
 ##Integration
 First, you must sign up for [AdMob](https://www.google.com/admob/).
 
@@ -12,7 +15,6 @@ $ sdkbox import admob
 ```
 
 Third, please read the [iOS FAQ](https://developers.google.com/admob/ios/quick-start#faq) and [Android FAQ](https://developers.google.com/admob/android/quick-start#faq)
-
 
 ##FAQ
 1. webthread JSC::executableAllocator::allocate , Javascript crash

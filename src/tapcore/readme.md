@@ -3,6 +3,9 @@
 <h1>Tapcore Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 First, you must sign up for [Tapcore](http://tapcore.com/?refid=Y3DgX).
 

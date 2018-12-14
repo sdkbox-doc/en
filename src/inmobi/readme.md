@@ -3,6 +3,9 @@
 <h1>InMobi Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX InMobi plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
@@ -22,7 +25,7 @@ Here is an example of the InMobi configuration, you need to replace `<account_id
 ```json
 "InMobi":{
 	"interstitial_placement_id": "1449919424310", 		//interstitial id
-    "account_id": "922cc696d9fa475097651b5cad78567d", 
+    "account_id": "922cc696d9fa475097651b5cad78567d",
     "banner_h": 50, 									//banner height
     "banner_placement_id": "1447081423897" 				//remove if needn't
 }

@@ -14,7 +14,7 @@
 
   ![](../../imgs/bee7_Dashboard_My_Apps_adding_new_apps.png)
 
-2.The API key and Scheme name values that you will bee needing in the code can be found in the dashboard, under your app's details. 
+2.The API key and Scheme name values that you will bee needing in the code can be found in the dashboard, under your app's details.
 
 ![](../../imgs/bee7_API_key_and_Scheme_name.png)
 
@@ -24,6 +24,9 @@
 * __For Android, Bee7 requires a minimum version of 4.0.3. This version is newer than what the other SDKBOX plugins require.__
 
 * __For iOS, Bee7's game wall currently supports only portrait orientation.__
+
+##SDK Version
+<<[../version]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Bee7 plugin. Make sure you setup the SDKBOX installer correctly.
@@ -63,7 +66,7 @@ The following step assumes you already registered at [Bee7](https://dashboard.be
 	__Target -> Info -> URL Types__:
 
 	1. click "+"
-	2. fill "URL Schemes" with "your bee7 scheme". For testing, you can try "bee7orgcocos2dxbee7sample". 
+	2. fill "URL Schemes" with "your bee7 scheme". For testing, you can try "bee7orgcocos2dxbee7sample".
 
 ###Setup Android
 * Open `AndroidManifest.xml` and replace `_replace_with_your_bee7_scheme_` with your `bee7 scheme`

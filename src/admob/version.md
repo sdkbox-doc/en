@@ -1,0 +1,2 @@
+- ios: 7.35.1
+- android: com.google.android.gms:play-services-ads:15.0.1

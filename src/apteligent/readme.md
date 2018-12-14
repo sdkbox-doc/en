@@ -3,6 +3,9 @@
 <h1>Apteligent Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Sign up for [Apteligent](https://www.apteligent.com/) and create your app.
 

@@ -52,12 +52,12 @@ class DocGen:
                 self.folders.append(f)
             #print "====> found " + f
 
-    def generate_data(self, f, origin_data): 
+    def generate_data(self, f, origin_data):
         out_data = origin_data
         match = re.search(self.pre, out_data)
 
         while match:
-            section_path = match.group(1).replace("-VERSION-", f)                    
+            section_path = match.group(1).replace("-VERSION-", f)
             section_path = os.path.join(self.base_path, f, section_path)
 
             section_file = read_file(section_path)
@@ -70,7 +70,7 @@ class DocGen:
 
     def generate(self):
         if os.path.isfile(self.main_file):
-            
+
             print '===> generate ' + self.name
             mkdir(self.out_path)
             origin_data = read_file(self.main_file)
@@ -82,13 +82,13 @@ class DocGen:
                 write_file(out_file, out_data)
                 # print 'Write file: ' + out_file
 
-            if os.path.isfile(os.path.join(self.base_path, 'index.md')):            
-                print '===> copy index ' + self.name            
-                
+            if os.path.isfile(os.path.join(self.base_path, 'index.md')):
+                print '===> copy index ' + self.name
+
                 origin_data = read_file(os.path.join(self.base_path, 'index.md'))
                 out_data = self.generate_data('', origin_data)
                 write_file(os.path.join(self.out_path, 'index.md'), out_data)
-                
+
         else:
             print '===> skip ' + self.name
 
@@ -102,9 +102,21 @@ class DocManager:
         self.out_path = os.path.abspath(out_path)
         self.plugins = []
         self.search_plugin()
+        self.sync_version()
+
+    def sync_version(self):
+        csc_path = os.environ['CSC_PATH']
+        curr_path = get_curr_path()
+        for f in sorted(os.listdir(os.path.join(csc_path, 'plugins'))):
+            src = os.path.join(csc_path, 'plugins', f, 'version')
+            if os.path.isfile(src):
+                if f == 'gpg': f = 'googleplay'
+                dst = os.path.join(curr_path, f, 'version')
+                shutil.copy2(src, dst)
+
 
     def search_plugin(self):
-        for f in os.listdir(self.base_path):
+        for f in sorted(os.listdir(self.base_path)):
             bp = os.path.join(self.base_path, f)
             if os.path.isdir(bp) and f not in ['.git', '.idea']:
                 op = os.path.join(self.out_path, f)

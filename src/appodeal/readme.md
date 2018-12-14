@@ -3,6 +3,9 @@
 <h1>Appodeal Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Prerequisites
 Certain SDKBOX plugins do not work together. If you use __Appodeal__, then you cannot also use the __Flurry Analytics__ and __Chartboost__ services, in the same project.
 

@@ -8,6 +8,9 @@ Certain SDKBOX plugins do not work together. If you use __AdColony__, then you c
 
 Start from AdColony 3.0 it requires you to config your app to support all orientations, please read the details [here](https://github.com/AdColony/AdColony-iOS-SDK-3/wiki/Xcode-Project-Setup#configuring-supported-orientations)
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX AdColony plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash

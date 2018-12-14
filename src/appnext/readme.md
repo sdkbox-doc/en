@@ -3,6 +3,9 @@
 <h1>Appnext Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 
 ### Account Registration

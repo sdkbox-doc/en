@@ -3,6 +3,9 @@
 <h1>OneSignal Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
+
 ##Integration
 First, you must sign up for [OneSignal](https://onesignal.com/).
 

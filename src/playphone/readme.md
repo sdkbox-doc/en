@@ -6,8 +6,11 @@
 #Prerequisites
 Currently, `Playphone` is only available for __Android__.  Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.
 
-###NOTE: 
+###NOTE:
 If you are using __Playphone__ plugin then you must install __IAP__ plugin at first to make it to work.
+
+##SDK Version
+<<[../version]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Playphone plugin. Make sure you setup the SDKBOX installer correctly.
@@ -132,4 +135,4 @@ proguard.config=proguard.cfg
 ```
 
  __Note:__ Proguard only works with __Release__ builds (i.e `cocos run -m release`) debug builds do not invoke Proguard rules.
- 
+

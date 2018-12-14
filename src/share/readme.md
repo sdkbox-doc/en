@@ -13,6 +13,9 @@ Please make sure you create developer account on the following platforms
 * [Facebook](http://developers.facebook.com/)
 * [Twitter](http://apps.twitter.com/)
 
+##SDK Version
+<<[../version]
+
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Share plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash

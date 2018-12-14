@@ -3,6 +3,8 @@
 <h1>TUNE Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
+##SDK Version
+<<[../version]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Tune plugin. Make sure you setup the SDKBOX installer correctly.
