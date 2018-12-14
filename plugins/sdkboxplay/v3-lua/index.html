@@ -678,7 +678,10 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#prerequisites">Prerequisites</a></li>
+        <li class="main active"><a href="#faq">FAQ</a></li>
+	
+    
+        <li class="main "><a href="#prerequisites">Prerequisites</a></li>
 	
 	<ul class="sub-sidenav">
         
@@ -794,6 +797,23 @@
 
 <h4><em><b>For the Lua version of cocos2d-x v3.x</b> - (<a href="./../">all other versions</a>)</em></h4>
 
+<h2 id="faq">FAQ</h2>
+<ol>
+<li>
+<p><code>submitScore</code>: java.lang.IllegalStateException: Score tags must be no more than 64 URI safe characters. Input was <strong>*</strong>.</p>
+<p><a href="https://stackoverflow.com/questions/695438/safe-characters-for-friendly-url">The characters generally considered unsafe are</a>:</p>
+<ul>
+<li>space (" ")</li>
+<li>less than and greater than ("&lt;&gt;")</li>
+<li>open and close brackets ("[]")</li>
+<li>open and close braces ("{}")</li>
+<li>pipe ("|")</li>
+<li>backslash ("\")</li>
+<li>caret ("^")</li>
+<li>percent ("%")</li>
+</ul>
+</li>
+</ol>
 <h2 id="prerequisites">Prerequisites</h2>
 <h3 id="google-play">Google play</h3>
 <ul>
@@ -1950,7 +1970,7 @@ This is default proguard config:</p>
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-12 00:20:13.854486, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-14 08:12:59.454748, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
