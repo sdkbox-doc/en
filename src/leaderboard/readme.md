@@ -6,9 +6,6 @@
 ##Prerequisites
 Currently, `Leaderboard` is only available for __Android__ and only supports __Playphone__ as a backend. Playphone is the leading games-only platform in emerging markets. Learn more about Playphone at: http://playphone.com.
 
-##SDK Version
-<<[../version]
-
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Leaderboard plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
