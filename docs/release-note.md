@@ -1,6 +1,14 @@
 # Release Notes
 
-# 2.4.3.0 (?)
+
+# 2.4.3.1 (?)
+
+## Add
+## Upgrade
+## Bugfix
+
+
+# 2.4.3.0 (20181214)
 
 ## Add
 
@@ -9,7 +17,7 @@
 ## Upgrade
 ## Bugfix
 
-0. Core: fix Android crash bug, [unsatisfiedlinkerror-on-released-game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190), [issue2](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/34?u=yinjimmy), [issue3](https://discuss.cocos2d-x.org/t/no-implementation-found-for-void-com-sdkbox-plugin-sdkbox-nativeinit/34272/30?u=yinjimmy)
+0. **Core: fix Android crash bug**, [unsatisfiedlinkerror-on-released-game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190), [issue2](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/34?u=yinjimmy), [issue3](https://discuss.cocos2d-x.org/t/no-implementation-found-for-void-com-sdkbox-plugin-sdkbox-nativeinit/34272/30?u=yinjimmy)
 1. Review: [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
 2. JSB2: JSListenerBase::invokeJSFun crash
 3. SDKBoxPlay:
@@ -18,7 +26,8 @@
    -   [IllegalStateException: Must include Drive.SCOPE_APPFOLDER to use snapshots!](https://discuss.cocos2d-x.org/t/too-many-crash-on-sdkboxplay-sign-in-flow/44801)
 4. Facebook: [logpurcase crash on Android](https://discuss.cocos2d-x.org/t/sdkbox-facebook-sigabrt-after-logpurchase-on-android/44763/2?u=yinjimmy)
 5. IAP: [recover restore a subscription on Android](https://discuss.cocos2d-x.org/t/sdkbox-iap-google-play-recover-restore-a-subscription/44742)
-
+6. IAP: fixed [java.util.concurrentmodificationexception](https://discuss.cocos2d-x.org/t/sdkbox-facebook-sigabrt-after-logpurchase-on-android/44763/12?u=yinjimmy)
+7. IAP Unreal: [compile error with unreal 4.20](http://www.sdkbox.com/answers/question/problem-with-packaging-the-project-on-ios/) with [commit](https://github.com/yinjimmy/sdkbox_iap_unreal4_sample/commit/1f0a1f02eb3d2dfa732dd199f35d89be2d5d6c7a#diff-a2146cd689db5f88fee48f04e5e4580fR84)
 
 # 2.4.2.0 (20181129)
 
