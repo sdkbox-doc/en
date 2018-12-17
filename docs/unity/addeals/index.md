@@ -13,21 +13,23 @@ System requirements:
 
 ## Integrate
 
-* Downlonad the AdDeals plugin from either Unity's marketplace, or sdkbox.com. 
+* In order to get your AppID  & AppKey you must first create an account on http://www.addealsnetwork.com
+* Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version. 
+* <font color=#FF0000>Download</font> the AdDeals plugin from either Unity's marketplace(Coming soon), or [sdkbox github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-0.0.5.unitypackage). 
 * Drag `Assets\AdDeals\AdDeals.prefab` onto your game scene.
 * Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`: 
 ```
-AdDeals.AdDealsWrapper.Init("AppID", "AppSecert");
+AdDeals.AdDealsWrapper.Init("AppID", "AppKey");
 
 int adType = 1; // 1:interstitial 2: reward
-AdDeals.AdDealsWrapper.ShowPopupAd(adType);
+AdDeals.AdDealsWrapper.ShowAd(adType);
 ```
 
 
 ### Windows UWP build
 
 * Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
-* Using .Net ScriptBackend, please export the UWP proejct in Unity with the following settings: 
+* Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings: 
 
     ![Unity UWP project config](./unity_project_config.png)
 
@@ -93,19 +95,21 @@ void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
 * `uiOrientation` is invalid on UWP. Set to `AdDealsWrapper.UIOrientationUnknown`. 
 
 ```
-void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
+void AdDeals.AdDealsWrapper.CacheAd(int adType, string placementID, int uiOrientation);
 ```
 * Cache Ad.
-* `placement` is invalid on UWP, set to "".
+* `placementID` in most cases just leave it "".
 * `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`. 
 
 ```
-void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
+void AdDeals.AdDealsWrapper.ShowAd(int adType, string placementID, int uiOrientation);
 ```
 * Show Ad. 
-* `placement` is invalid on UWP, set to "".
+* `placementID` in most cases just leave it "".
 * `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`.
 
+
+__Note__: placementID is an advanced feature and in most cases you can just leave it “”. In case you want to use placementIDs you should contact addeals@ahead-solutions.com
 
 ### Constants
 
