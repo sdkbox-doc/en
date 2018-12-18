@@ -14,10 +14,10 @@ System requirements:
 ## Integrate
 
 * In order to get your AppID  & AppKey you must first create an account on http://www.addealsnetwork.com
-* Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version. 
-* <font color=#FF0000>Download</font> the AdDeals plugin from either Unity's marketplace(Coming soon), or [sdkbox github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-0.0.6.unitypackage). 
+* Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.
+* <font color=#FF0000>Download</font> the AdDeals plugin from either Unity's marketplace(Coming soon), or [sdkbox github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-0.0.6.unitypackage).
 * Drag `Assets\AdDeals\AdDeals.prefab` onto your game scene.
-* Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`: 
+* Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`:
 ```
 AdDeals.AdDealsWrapper.Init("AppID", "AppKey");
 
@@ -29,7 +29,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 ### Windows UWP build
 
 * Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
-* Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings: 
+* Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:
 
     ![Unity UWP project config](./unity_project_config.png)
 
@@ -43,8 +43,8 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 
 ### iOS build
 
-* From Unity, first export to an iOS project. Next build and run it using xCode. 
-* Support iOS 8+. 
+* From Unity, first export to an iOS project. Next build and run it using Xcode.
+* Support iOS 8+.
 
 
 ### Android build
@@ -92,24 +92,24 @@ void AdDeals.AdDealsWrapper.SetConsent(int consent);
 void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
 ```
 * Check availability.
-* `uiOrientation` is invalid on UWP. Set to `AdDealsWrapper.UIOrientationUnknown`. 
+* `uiOrientation` is invalid on UWP. Set to `AdDealsWrapper.UIOrientationUnknown`.
 
 ```
 void AdDeals.AdDealsWrapper.CacheAd(int adType, string placementID, int uiOrientation);
 ```
 * Cache Ad.
 * `placementID` in most cases just leave it "".
-* `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`. 
+* `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`.
 
 ```
 void AdDeals.AdDealsWrapper.ShowAd(int adType, string placementID, int uiOrientation);
 ```
-* Show Ad. 
+* Show Ad.
 * `placementID` in most cases just leave it "".
 * `uiOrientation` is invalid on UWP, set to `AdDealsWrapper.UIOrientationUnknown`.
 
 
-__Note__: placementID is an advanced feature and in most cases you can just leave it “”. In case you want to use placementIDs you should contact addeals@ahead-solutions.com
+__Note__: placementID is an advanced feature and in most cases you can just leave it "". In case you want to use placementIDs you should contact addeals@ahead-solutions.com
 
 ### Constants
 
