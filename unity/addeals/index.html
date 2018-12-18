@@ -710,21 +710,23 @@
 </ul>
 <h2 id="integrate">Integrate</h2>
 <ul>
-<li>Downlonad the AdDeals plugin from either Unity's marketplace, or sdkbox.com. </li>
+<li>In order to get your AppID  &amp; AppKey you must first create an account on http://www.addealsnetwork.com</li>
+<li>Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.</li>
+<li><font color=#FF0000>Download</font> the AdDeals plugin from either Unity's marketplace(Coming soon), or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-0.0.6.unitypackage">sdkbox github repo</a>.</li>
 <li>Drag <code>Assets\AdDeals\AdDeals.prefab</code> onto your game scene.</li>
-<li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>: </li>
+<li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>:</li>
 </ul>
-<pre><code>AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppSecert&quot;);
+<pre><code>AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppKey&quot;);
 
 int adType = 1; // 1:interstitial 2: reward
-AdDeals.AdDealsWrapper.ShowPopupAd(adType);
+AdDeals.AdDealsWrapper.ShowAd(adType);
 </code></pre>
 
 <h3 id="windows-uwp-build">Windows UWP build</h3>
 <ul>
 <li>Support the lastest AdDeals SDK for Windows:  <a href="https://www.nuget.org/packages/AdDealsUniversalSDKW81">AdDealsUniversalSDKW81</a>.</li>
 <li>
-<p>Using .Net ScriptBackend, please export the UWP proejct in Unity with the following settings: </p>
+<p>Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:</p>
 <p><img alt="Unity UWP project config" src="./unity_project_config.png" /></p>
 </li>
 <li>
@@ -737,8 +739,8 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 </ul>
 <h3 id="ios-build">iOS build</h3>
 <ul>
-<li>From Unity, first export to an iOS project. Next build and run it using xCode. </li>
-<li>Support iOS 8+. </li>
+<li>From Unity, first export to an iOS project. Next build and run it using Xcode.</li>
+<li>Support iOS 8+.</li>
 </ul>
 <h3 id="android-build">Android build</h3>
 <ul>
@@ -785,24 +787,25 @@ AdDeals.AdDealsWrapper.ShowPopupAd(adType);
 
 <ul>
 <li>Check availability.</li>
-<li><code>uiOrientation</code> is invalid on UWP. Set to <code>AdDealsWrapper.UIOrientationUnknown</code>. </li>
+<li><code>uiOrientation</code> is invalid on UWP. Set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
 </ul>
-<pre><code>void AdDeals.AdDealsWrapper.CacheAdByType(int adType, string placement, int uiOrientation);
+<pre><code>void AdDeals.AdDealsWrapper.CacheAd(int adType, string placementID, int uiOrientation);
 </code></pre>
 
 <ul>
 <li>Cache Ad.</li>
-<li><code>placement</code> is invalid on UWP, set to "".</li>
-<li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>. </li>
+<li><code>placementID</code> in most cases just leave it "".</li>
+<li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
 </ul>
-<pre><code>void AdDeals.AdDealsWrapper.ShowPopupAd(int adType, string placement, int uiOrientation);
+<pre><code>void AdDeals.AdDealsWrapper.ShowAd(int adType, string placementID, int uiOrientation);
 </code></pre>
 
 <ul>
-<li>Show Ad. </li>
-<li><code>placement</code> is invalid on UWP, set to "".</li>
+<li>Show Ad.</li>
+<li><code>placementID</code> in most cases just leave it "".</li>
 <li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
 </ul>
+<p><strong>Note</strong>: placementID is an advanced feature and in most cases you can just leave it "". In case you want to use placementIDs you should contact addeals@ahead-solutions.com</p>
 <h3 id="constants">Constants</h3>
 <h4 id="ui-orientation">UI Orientation</h4>
 <pre><code>AdDealsWrapper.UIOrientationUnknown = 0;
@@ -839,7 +842,7 @@ AdDealsWrapper.AdTypeRewardVideo = 2;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-14 08:55:50.066921, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-18 01:40:21.746916, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
