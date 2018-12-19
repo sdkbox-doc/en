@@ -111,22 +111,67 @@ void AdDeals.AdDealsWrapper.ShowAd(int adType, string placementID, int uiOrienta
 
 __Note__: placementID is an advanced feature and in most cases you can just leave it "". In case you want to use placementIDs you should contact addeals@ahead-solutions.com
 
+### Callback
+
+follow is all AdDeals callbacks define
+```
+public static event AdAvailableHandler AdAvailableEvent;
+public static event AdEventHandler SDKNotInitializedEvent;
+public static event AdEventHandler ShowAdVideoRewardGrantedEvent;
+public static event AdEventHandler ShowAdSucessEvent;
+public static event AdEventStringHandler ShowAdFailedEvent;
+public static event AdEventHandler CacheAdSuccessEvent;
+public static event AdEventStringHandler CacheAdFailedEvent;
+public static event AdEventHandler MinDelayBtwAdsNotReachedEvent;
+public static event AdEventHandler AdClosedTap;
+public static event AdEventHandler AdClickedTap;
+public static event AdEventHandler AdManagerInitSDKSuccess;
+public static event AdEventStringHandler AdManagerInitSDKFailed;
+public static event AdEventHandler AdManagerConsentSuccess;
+public static event AdEventStringHandler AdManagerConsentFailed;
+public static event AdEventHandler AdManagerAppDownloadSourceDetected;
+public static event AdEventHandler AdManagerAppSessionSourceDetected;
+```
+
+here is a sample to subscribe SDK init success:
+
+* define a function
+```
+void AdManagerInitSDKSuccess() {
+    //addeals init success
+}
+```
+
+* let the upper function subscribe SDK init success event
+```
+AdDeals.AdDealsWrapper.AdManagerInitSDKSuccess += AdManagerInitSDKSuccess;
+```
+
+* when sdk init success, AdManagerInitSDKSuccess will be called.
+
 ### Constants
 
 #### UI Orientation
 ```
-AdDealsWrapper.UIOrientationUnknown = 0;
-AdDealsWrapper.UIOrientationPortrait = 1;
-AdDealsWrapper.UIOrientationPortraitUpsideDown = 2;
-AdDealsWrapper.UIOrientationLandscapeRight = 3;
-AdDealsWrapper.UIOrientationLandscapeLeft = 4;
+AdDealsWrapper.UIOrientationUnknown;
+AdDealsWrapper.UIOrientationPortrait;
+AdDealsWrapper.UIOrientationLandscape;
 ```
 
 #### Ad type
 ```
-AdDealsWrapper.AdTypeInterstitial = 1;
-AdDealsWrapper.AdTypeRewardVideo = 2;
+AdDealsWrapper.AdTypeInterstitial;
+AdDealsWrapper.AdTypeRewardVideo;
 ```
+
+#### Consent
+```
+public const int UserConsentNotApplicable;     // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_ELIGIBLE:2
+public const int UserConsentRevoke;             // iOS:AdDealsUserConsentRevoke:0 Android:DISAGREE:1
+public const int UserConsentGrant;              // iOS:AdDealsUserConsentGrant:1 Android:APPROVE:0
+public const int UserConsentNotSet;             // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_SET:3
+```
+
 
 
 ## Verification
