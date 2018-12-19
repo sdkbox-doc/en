@@ -712,7 +712,7 @@
 <ul>
 <li>In order to get your AppID  &amp; AppKey you must first create an account on http://www.addealsnetwork.com</li>
 <li>Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.</li>
-<li><font color=#FF0000>Download</font> the AdDeals plugin from either Unity's marketplace(Coming soon), or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-0.0.6.unitypackage">sdkbox github repo</a>.</li>
+<li><font color=#FF0000>Download</font> the AdDeals plugin from either <a href="http://u3d.as/1p2y">Unity Asset Store</a>, or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
 <li>Drag <code>Assets\AdDeals\AdDeals.prefab</code> onto your game scene.</li>
 <li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>:</li>
 </ul>
@@ -806,18 +806,61 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
 </ul>
 <p><strong>Note</strong>: placementID is an advanced feature and in most cases you can just leave it "". In case you want to use placementIDs you should contact addeals@ahead-solutions.com</p>
+<h3 id="callback">Callback</h3>
+<p>follow is all AdDeals callbacks define</p>
+<pre><code>public static event AdAvailableHandler AdAvailableEvent;
+public static event AdEventHandler SDKNotInitializedEvent;
+public static event AdEventHandler ShowAdVideoRewardGrantedEvent;
+public static event AdEventHandler ShowAdSucessEvent;
+public static event AdEventStringHandler ShowAdFailedEvent;
+public static event AdEventHandler CacheAdSuccessEvent;
+public static event AdEventStringHandler CacheAdFailedEvent;
+public static event AdEventHandler MinDelayBtwAdsNotReachedEvent;
+public static event AdEventHandler AdClosedTap;
+public static event AdEventHandler AdClickedTap;
+public static event AdEventHandler AdManagerInitSDKSuccess;
+public static event AdEventStringHandler AdManagerInitSDKFailed;
+public static event AdEventHandler AdManagerConsentSuccess;
+public static event AdEventStringHandler AdManagerConsentFailed;
+public static event AdEventHandler AdManagerAppDownloadSourceDetected;
+public static event AdEventHandler AdManagerAppSessionSourceDetected;
+</code></pre>
+
+<p>here is a sample to subscribe SDK init success:</p>
+<ul>
+<li>define a function</li>
+</ul>
+<pre><code>void AdManagerInitSDKSuccess() {
+    //addeals init success
+}
+</code></pre>
+
+<ul>
+<li>let the upper function subscribe SDK init success event</li>
+</ul>
+<pre><code>AdDeals.AdDealsWrapper.AdManagerInitSDKSuccess += AdManagerInitSDKSuccess;
+</code></pre>
+
+<ul>
+<li>when sdk init success, AdManagerInitSDKSuccess will be called.</li>
+</ul>
 <h3 id="constants">Constants</h3>
 <h4 id="ui-orientation">UI Orientation</h4>
-<pre><code>AdDealsWrapper.UIOrientationUnknown = 0;
-AdDealsWrapper.UIOrientationPortrait = 1;
-AdDealsWrapper.UIOrientationPortraitUpsideDown = 2;
-AdDealsWrapper.UIOrientationLandscapeRight = 3;
-AdDealsWrapper.UIOrientationLandscapeLeft = 4;
+<pre><code>AdDealsWrapper.UIOrientationUnknown;
+AdDealsWrapper.UIOrientationPortrait;
+AdDealsWrapper.UIOrientationLandscape;
 </code></pre>
 
 <h4 id="ad-type">Ad type</h4>
-<pre><code>AdDealsWrapper.AdTypeInterstitial = 1;
-AdDealsWrapper.AdTypeRewardVideo = 2;
+<pre><code>AdDealsWrapper.AdTypeInterstitial;
+AdDealsWrapper.AdTypeRewardVideo;
+</code></pre>
+
+<h4 id="consent">Consent</h4>
+<pre><code>public const int UserConsentNotApplicable;     // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_ELIGIBLE:2
+public const int UserConsentRevoke;             // iOS:AdDealsUserConsentRevoke:0 Android:DISAGREE:1
+public const int UserConsentGrant;              // iOS:AdDealsUserConsentGrant:1 Android:APPROVE:0
+public const int UserConsentNotSet;             // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_SET:3
 </code></pre>
 
 <h2 id="verification">Verification</h2>
@@ -842,7 +885,7 @@ AdDealsWrapper.AdTypeRewardVideo = 2;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-18 01:40:21.746916, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-19 19:32:01.212000, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
