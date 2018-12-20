@@ -681,7 +681,7 @@
         <li class="main active"><a href="#release-notes">Release Notes</a></li>
 	
     
-        <li class="main "><a href="#2431">2.4.3.1 (?)</a></li>
+        <li class="main "><a href="#2431">2.4.3.1 ( ? )</a></li>
 	
 	<ul class="sub-sidenav">
         
@@ -1297,10 +1297,14 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="release-notes">Release Notes</h1>
-<h1 id="2431">2.4.3.1 (?)</h1>
+<h1 id="2431">2.4.3.1 ( ? )</h1>
 <h2 id="add">Add</h2>
 <h2 id="upgrade">Upgrade</h2>
 <h2 id="bugfix">Bugfix</h2>
+<ol>
+<li>JSB2: fix JSListenerBase::invokeJSFun crash for all plugins</li>
+<li>IAP:    add <code>getInitializedErrMsg</code> api for <a href="https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy">this issue</a></li>
+</ol>
 <h1 id="2430-20181214">2.4.3.0 (20181214)</h1>
 <h2 id="add_1">Add</h2>
 <ol>
@@ -1337,14 +1341,11 @@
 <li>
 <p>Review:</p>
 <ol>
-<li>
-<p><code>rateInAppstore</code> api:</p>
-<blockquote>
-<p>use SKStoreReviewController to review, this is default behavior</p>
-<p>disable will use SKStoreProductViewController to review
-if use SKStoreReviewController, <code>onDeclineToRate</code>, <code>onRate</code>,
-<code>onRemindLater</code> will not trigger</p>
-</blockquote>
+<li><code>rateInAppstore</code> api:<pre><code>use SKStoreReviewController to review, this is default behavior
+disable will use SKStoreProductViewController to review
+if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
+`onRemindLater` will not trigger
+</code></pre>
 </li>
 </ol>
 </li>
@@ -1367,50 +1368,48 @@ if use SKStoreReviewController, <code>onDeclineToRate</code>, <code>onRate</code
 </ol>
 <h2 id="bugfix_2">Bugfix</h2>
 <ol>
-<li>AdMob:<ol>
-<li>fix <a href="https://discuss.cocos2d-x.org/t/admob-android-bug/44621"><code>adViewDidDismissScreen</code> is called twice</a></li>
+<li>AdMob: fix <a href="https://discuss.cocos2d-x.org/t/admob-android-bug/44621"><code>adViewDidDismissScreen</code> is called twice</a></li>
+<li>
+<p>IAP-Amazone:</p>
+<ol>
+<li>
+<p>fix add</p>
+<pre><code>&lt;receiver android:name="com.amazon.device.iap.ResponseReceiver"&gt;
+   &lt;intent-filter&gt;
+       &lt;action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" /&gt;
+   &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre>
+<p>to AndroidManifest.xml again when update plugin.</p>
+</li>
+<li>
+<p>fix <code>enableUserSideVerification</code>, <code>isAutoConsume</code>, <code>setAutoConsume</code>,
+    <code>consumeProduct</code> crash</p>
+</li>
 </ol>
 </li>
-<li>IAP-Amazone:<ol>
-<li>fix add
-    <code>&lt;receiver android:name="com.amazon.device.iap.ResponseReceiver"&gt;
-       &lt;intent-filter&gt;
-           &lt;action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" /&gt;
-       &lt;/intent-filter&gt;
-    &lt;/receiver&gt;</code>
-    to AndroidManifest.xml again when update plugin.</li>
-<li>fix <code>enableUserSideVerification</code>, <code>isAutoConsume</code>, <code>setAutoConsume</code>,
-   <code>consumeProduct</code> crash</li>
-</ol>
+<li>
+<p>Review: Amazon, try market first, then webview</p>
 </li>
-<li>Review:<ol>
-<li>Amazon, try market first, then webview</li>
-</ol>
-</li>
-<li>SDKBox-core:<ol>
-<li>fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
-   contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix <a href="https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190">UnsatisfiedLinkError on Released Game</a></li>
-</ol>
-</li>
-<li>Facebook:<ol>
-<li>fix <a href="https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347">share callback for iOS</a>. Follow Facebook's development
-  documentation and no longer use postId to determine if sharing is successful.</li>
-</ol>
-</li>
-<li>Appodeal:<ol>
-<li>fix installer <code>'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code>
-   should be <code>'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code></li>
-</ol>
-</li>
+<li>SDKBox-core: fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
+       contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix <a href="https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190">UnsatisfiedLinkError on Released Game</a></li>
+<li>Facebook: fix <a href="https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347">share callback for iOS</a>. Follow Facebook's development documentation and no longer use postId to determine if sharing is successful.</li>
+<li>Appodeal: fix installer <code>'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code>
+       should be <code>'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])</code></li>
 </ol>
 <h1 id="2411-release-notes-20180920">2.4.1.1 Release Notes (20180920)</h1>
 <h2 id="add_3">Add</h2>
 <ol>
 <li>Android case sensitive folder, <code>#include "PluginIAP/PluginIAP.h" warning with folder pluginiap/Plugin.h path.</code></li>
-<li>SDKBoxAds: use <code>cache</code> instead of <code>cacheControl</code>:
-    <code>static void cache(const std::string&amp; ad_unit, const std::string&amp; ad_name);
-    static void cacheControl( const std::string&amp; ad_unit, const std::map&lt;std::string, std::string&gt;&amp; cacheOpts );</code></li>
-<li>support creator &gt;= 2.0</li>
+<li>
+<p>SDKBoxAds: use <code>cache</code> instead of <code>cacheControl</code>:</p>
+<pre><code>static void cache(const std::string&amp; ad_unit, const std::string&amp; ad_name);
+static void cacheControl( const std::string&amp; ad_unit, const std::map&lt;std::string, std::string&gt;&amp; cacheOpts );
+</code></pre>
+</li>
+<li>
+<p>support creator &gt;= 2.0</p>
+</li>
 </ol>
 <h2 id="upgrade_3">Upgrade</h2>
 <h2 id="bugfix_3">Bugfix</h2>
@@ -2270,7 +2269,7 @@ Upgrade Vugnle SDK to new version
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-19 19:32:01.569307, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-20 07:54:33.926047, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
