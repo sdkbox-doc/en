@@ -1,12 +1,14 @@
 # Release Notes
 
 
-# 2.4.3.1 (?)
+# 2.4.3.1 ( ? )
 
 ## Add
 ## Upgrade
 ## Bugfix
 
+1.  JSB2: fix JSListenerBase::invokeJSFun crash for all plugins
+2.  IAP:    add `getInitializedErrMsg` api for [this issue](https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy)
 
 # 2.4.3.0 (20181214)
 
@@ -36,13 +38,12 @@
 1.  Misc Plugin
     1. LocalNotify， [docs here](http://docs.sdkbox.com/en/plugins/misc/v3-cpp/)
 2.  Review:
-    1. `rateInAppstore` api:
+    1.  `rateInAppstore` api:
 
-        >use SKStoreReviewController to review, this is default behavior
-        >
-        >disable will use SKStoreProductViewController to review
-        >if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
-        >`onRemindLater` will not trigger
+            use SKStoreReviewController to review, this is default behavior
+            disable will use SKStoreProductViewController to review
+            if use SKStoreReviewController, `onDeclineToRate`, `onRate`,
+            `onRemindLater` will not trigger
 
 3. Share:
     1. `logoutTwitter` api for [this](https://discuss.cocos2d-x.org/t/need-help-twitter-share-why-onsharestate-socialsharestatecancelled-called-right-after-socialsharestatebegin/43754)
@@ -55,43 +56,39 @@
     3. [encrypt and decrypt sdkbox_config.json](http://docs.sdkbox.com/en/qa/crypt-sdkbox-config/)
 
 ## Bugfix
-1.  AdMob:
-    1. fix [`adViewDidDismissScreen` is called twice](https://discuss.cocos2d-x.org/t/admob-android-bug/44621)
+1.  AdMob: fix [`adViewDidDismissScreen` is called twice](https://discuss.cocos2d-x.org/t/admob-android-bug/44621)
 2.  IAP-Amazone:
     1.  fix add
-        ```
-        <receiver android:name="com.amazon.device.iap.ResponseReceiver">
-           <intent-filter>
-               <action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
-           </intent-filter>
-        </receiver>
-        ```
+
+            <receiver android:name="com.amazon.device.iap.ResponseReceiver">
+               <intent-filter>
+                   <action android:name="com.amazon.inapp.purchasing.NOTIFY"  android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+               </intent-filter>
+            </receiver>
+
         to AndroidManifest.xml again when update plugin.
+
     2.  fix `enableUserSideVerification`, `isAutoConsume`, `setAutoConsume`,
-       `consumeProduct` crash
-3.  Review:
-    1. Amazon, try market first, then webview
-4.  SDKBox-core:
-    1. fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
+        `consumeProduct` crash
+
+3.  Review: Amazon, try market first, then webview
+4.  SDKBox-core: fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
        contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix [UnsatisfiedLinkError on Released Game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190)
-5.  Facebook:
-    1. fix [share callback for iOS](https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347). Follow Facebook's development
-      documentation and no longer use postId to determine if sharing is successful.
-6.  Appodeal:
-    1. fix installer `'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
+5.  Facebook: fix [share callback for iOS](https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347). Follow Facebook's development documentation and no longer use postId to determine if sharing is successful.
+6.  Appodeal: fix installer `'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
        should be `'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
 
 # 2.4.1.1 Release Notes (20180920)
 
 ## Add
 
-1. Android case sensitive folder, `#include "PluginIAP/PluginIAP.h" warning with folder pluginiap/Plugin.h path.`
-2. SDKBoxAds: use `cache` instead of `cacheControl`:
-    ```
-    static void cache(const std::string& ad_unit, const std::string& ad_name);
-    static void cacheControl( const std::string& ad_unit, const std::map<std::string, std::string>& cacheOpts );
-    ```
-3. support creator >= 2.0
+1.  Android case sensitive folder, `#include "PluginIAP/PluginIAP.h" warning with folder pluginiap/Plugin.h path.`
+2.  SDKBoxAds: use `cache` instead of `cacheControl`:
+
+        static void cache(const std::string& ad_unit, const std::string& ad_name);
+        static void cacheControl( const std::string& ad_unit, const std::map<std::string, std::string>& cacheOpts );
+
+3.  support creator >= 2.0
 
 ## Upgrade
 

@@ -54,8 +54,6 @@ SDKBoxPlay [Troubleshoot](../../qa/sdkboxplay_troubleshoot.md)
 
  **NOTE**: In 2.3.14 cloud save is enable as default, it cause user can't sign-in on android if you do not enable `Save Games` on Google Play Console.
 
-##SDK Version
-<<[../version]
 
 ##Integration
 Open a terminal and use the following command to install the SDKBOX SdkboxPlay plugin. Make sure you setup the SDKBOX installer correctly.

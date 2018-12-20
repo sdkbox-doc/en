@@ -3,9 +3,6 @@
 <h1>YouTube Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
-##SDK Version
-<<[../version]
-
 ##Integration
 Open a terminal and use the following command to install the SDKBOX Youtube plugin.
 ```bash
