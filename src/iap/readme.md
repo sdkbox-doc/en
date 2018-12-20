@@ -9,7 +9,21 @@ Open a terminal and use the following command to install the SDKBOX IAP plugin. 
 $ sdkbox import iap
 ```
 
-**NOTE**: For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/
+**NOTE**:
+1. For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/
+
+2. For iOS, [Auto-Renewables subscription, in sandbox the validity time differs from live environment!!!](https://dev-ios.blogspot.com/2011/05/validity-time-auto-renewables-in.html)
+
+    | Durations | Sandbox Duration | Incentive Durations (optional) |
+    | --------- | ---------------- | ------------------------------ |
+    | 7 days    | 3 minutes        | 7 days                         |
+    | 1 month   | 5 minutes        | 7 days, 1 month                |
+    | 2 months  | 10 minutes       | 7 days, 1 month                |
+    | 3 months  | 15 minutes       | 1 month                        |
+    | 6 months  | 30 minutes       | 1 month, 2 months              |
+    | 1 year    | 1 hour           | 1 month, 2 months, 3 months    |
+
+    After 6 extensions the abo is cancelled automatically in the sandbox environment.
 
 <<[../../shared/notice.md]
 
