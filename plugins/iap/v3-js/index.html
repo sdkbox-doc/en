@@ -805,7 +805,55 @@
 <pre><code class="bash">$ sdkbox import iap
 </code></pre>
 
-<p><strong>NOTE</strong>: For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/</p>
+<p><strong>NOTE</strong>:
+1. For iOS, you need Xcode9 because of https://developer.apple.com/app-store/promoting-in-app-purchases/</p>
+<ol>
+<li>
+<p>For iOS, <a href="https://dev-ios.blogspot.com/2011/05/validity-time-auto-renewables-in.html">Auto-Renewables subscription, in sandbox the validity time differs from live environment!!!</a></p>
+<table>
+<thead>
+<tr>
+<th>Durations</th>
+<th>Sandbox Duration</th>
+<th>Incentive Durations (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7 days</td>
+<td>3 minutes</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td>1 month</td>
+<td>5 minutes</td>
+<td>7 days, 1 month</td>
+</tr>
+<tr>
+<td>2 months</td>
+<td>10 minutes</td>
+<td>7 days, 1 month</td>
+</tr>
+<tr>
+<td>3 months</td>
+<td>15 minutes</td>
+<td>1 month</td>
+</tr>
+<tr>
+<td>6 months</td>
+<td>30 minutes</td>
+<td>1 month, 2 months</td>
+</tr>
+<tr>
+<td>1 year</td>
+<td>1 hour</td>
+<td>1 month, 2 months, 3 months</td>
+</tr>
+</tbody>
+</table>
+<p>After 6 extensions the abo is cancelled automatically in the sandbox environment.</p>
+</li>
+</ol>
 <h2 id="important-notice">Important Notice</h2>
 <p>Please make sure the following settings in your project to make the plugin work well.</p>
 <h4 id="disable-app-transport-security">Disable App Transport Security</h4>
@@ -854,7 +902,7 @@
 }
 </code></pre>
 
-<p>If you have IAP items,  whose type is <strong>non-consumable</strong> or <strong>subscription</strong>, it is also necessary to supply the type for each item in your <code>sdkbox_config.json</code>. Only <strong>Android</strong> requires this step. Taking the same <em>json</em> above your config might now look like this example:</p>
+<p>If you have IAP items,  whose type is <strong>non-consumable</strong> or <strong>subscription</strong>, it is also necessary to supply the type for each item in your <code>sdkbox_config.json</code>. Taking the same <em>json</em> above your config might now look like this example:</p>
 <pre><code class="json">&quot;android&quot;:
 {
     &quot;iap&quot;:{
@@ -1490,7 +1538,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-20 07:54:29.321951, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2018-12-21 08:55:46.738987, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
