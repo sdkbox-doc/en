@@ -41,4 +41,44 @@ sdkbox::IAP::init();
 sdkbox::PluginAdMob::init();
 ```
 
+## Use Cocos Creator's Solution
+
+
+Steps:
+
+* move and rename `jsb-link/res/sdkbox_config.json` to `assets/SDKBox/sdkbox_config.js`.
+* add `module.exports =` to `assets/SDKBox/sdkbox_config.js` at first line
+
+```js
+module.exports =
+{
+    "android": {
+        "iap": {
+            ...
+        }
+        ...
+    },
+    "ios": {
+        "iap": {
+            ...
+        }
+        ...
+    }
+}
+
+```
+
+* require sdkbox_config.js, and send value to plugin's init API
+
+```js
+const sdkbox_config = require('../SDKBox/sdkbox_config')
+...
+sdkbox.IAP.init(JSON.stringify(sdkbox_config));
+...
+```
+
+this is a [commit](https://github.com/sdkbox/sdkbox-sample-ccc200/commit/c59a76fecd680de832a45d60e4e88c8ba96c78fa) to apply creator's encrypt on `creator IAP sample`.
+
+__Note__: if you have mutil plugin, you can just send sdkbox_config when first plugin init.
+
 
