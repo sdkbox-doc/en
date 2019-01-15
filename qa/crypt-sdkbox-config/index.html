@@ -688,6 +688,8 @@
         
             <li><a href="#solution-of-yours">Solution of yours</a></li>
         
+            <li><a href="#use-cocos-creators-solution">Use Cocos Creator's Solution</a></li>
+        
 	</ul>
 	
     
@@ -729,14 +731,50 @@ std::string content = __decrypt__(&quot;your_encrypt_content&quot;);
 sdkbox::setConfig(content); // the content of 'sdkbox_config.json'
 sdkbox::IAP::init();
 sdkbox::PluginAdMob::init();
-</code></pre></div>
+</code></pre>
+
+<h2 id="use-cocos-creators-solution">Use Cocos Creator's Solution</h2>
+<p>Steps:</p>
+<ul>
+<li>move and rename <code>jsb-link/res/sdkbox_config.json</code> to <code>assets/SDKBox/sdkbox_config.js</code>.</li>
+<li>add <code>module.exports =</code> to <code>assets/SDKBox/sdkbox_config.js</code> at first line</li>
+</ul>
+<pre><code class="js">module.exports =
+{
+    &quot;android&quot;: {
+        &quot;iap&quot;: {
+            ...
+        }
+        ...
+    },
+    &quot;ios&quot;: {
+        &quot;iap&quot;: {
+            ...
+        }
+        ...
+    }
+}
+
+</code></pre>
+
+<ul>
+<li>require sdkbox_config.js, and send value to plugin's init API</li>
+</ul>
+<pre><code class="js">const sdkbox_config = require('../SDKBox/sdkbox_config')
+...
+sdkbox.IAP.init(JSON.stringify(sdkbox_config));
+...
+</code></pre>
+
+<p>this is a <a href="https://github.com/sdkbox/sdkbox-sample-ccc200/commit/c59a76fecd680de832a45d60e4e88c8ba96c78fa">commit</a> to apply creator's encrypt on <code>creator IAP sample</code>.</p>
+<p><strong>Note</strong>: if you have mutil plugin, you can just send sdkbox_config when first plugin init.</p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-21 08:55:51.014896, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-15 06:23:01.633391, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

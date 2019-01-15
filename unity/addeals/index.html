@@ -718,7 +718,7 @@
 </ul>
 <pre><code>AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppKey&quot;);
 
-int adType = 1; // 1:interstitial 2: reward
+int adType = AdDealsWrapper.AdTypeInterstitial; // 1:interstitial 2: reward video
 AdDeals.AdDealsWrapper.ShowAd(adType);
 </code></pre>
 
@@ -734,7 +734,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <p><img alt="Unity UWP capabilities setting" src="./uwp_capabilities.png" /></p>
 </li>
 <li>
-<p>For Unity 5.x: because Vistual Studio 2017 is required for UWP application to target aginest the lastest UWP SDK, please make sure to install the <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a> with UWP support.</p>
+<p>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</p>
 </li>
 </ul>
 <h3 id="ios-build">iOS build</h3>
@@ -770,44 +770,54 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 
 <h2 id="api">API</h2>
 <h3 id="methods">Methods</h3>
-<pre><code>void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
-</code></pre>
-
 <ul>
 <li>Initialize the AdDeals SDK.</li>
 </ul>
-<pre><code>void AdDeals.AdDealsWrapper.SetConsent(int consent);
+<pre><code>void AdDeals.AdDealsWrapper.Init(String appID, String appKey);
 </code></pre>
 
 <ul>
 <li>Set privacy policy consent.</li>
 </ul>
-<pre><code>void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+<pre><code>void AdDeals.AdDealsWrapper.SetConsent(int consent);
 </code></pre>
 
 <ul>
 <li>Check availability.</li>
-<li><code>uiOrientation</code> is invalid on UWP. Set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
+</ul>
+<pre><code>void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+</code></pre>
+
+<ul>
+<li>
+<p><code>uiOrientation</code>: when used with adType, lets you indicating if you would prefer getting a video ad whose content is horizontal (most common case) or vertical. Be aware that you aren't giving here a restriction, just a preference. Otherwise, simply pass the AdDealsWrapper.UIOrientationUnset value.</p>
+</li>
+<li>
+<p>Cache Ad.</p>
+</li>
 </ul>
 <pre><code>void AdDeals.AdDealsWrapper.CacheAd(int adType, string placementID, int uiOrientation);
 </code></pre>
 
 <ul>
-<li>Cache Ad.</li>
-<li><code>placementID</code> in most cases just leave it "".</li>
-<li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
+<li><code>placementID</code>: optional AdDeals ad placement ID generated for your app (on demand). If not wanted to be used, leave it empty (""). </li>
+<li>
+<p><code>uiOrientation</code>: when used with adType, lets you indicating if you would prefer getting a video ad whose content is horizontal (most common case) or vertical. Be aware that you aren't giving here a restriction, just a preference. Otherwise, simply pass the AdDealsWrapper.UIOrientationUnset value.</p>
+</li>
+<li>
+<p>Show Ad.</p>
+</li>
 </ul>
 <pre><code>void AdDeals.AdDealsWrapper.ShowAd(int adType, string placementID, int uiOrientation);
 </code></pre>
 
 <ul>
-<li>Show Ad.</li>
-<li><code>placementID</code> in most cases just leave it "".</li>
-<li><code>uiOrientation</code> is invalid on UWP, set to <code>AdDealsWrapper.UIOrientationUnknown</code>.</li>
+<li><code>placementID</code>: optional AdDeals ad placement ID generated for your app (on demand). If not wanted to be used, leave it empty (""). </li>
+<li><code>uiOrientation</code>: when used with adType, lets you indicating if you would prefer getting a video ad whose content is horizontal (most common case) or vertical. Be aware that you aren't giving here a restriction, just a preference. Otherwise, simply pass the AdDealsWrapper.UIOrientationUnset value.</li>
 </ul>
 <p><strong>Note</strong>: placementID is an advanced feature and in most cases you can just leave it "". In case you want to use placementIDs you should contact addeals@ahead-solutions.com</p>
 <h3 id="callback">Callback</h3>
-<p>follow is all AdDeals callbacks define</p>
+<p>SDK trigers feedback events (callbacks) notifying the client app when action are performed (either by SDK or end user; typically when there is an ad being shown/clicked/closed) or when failures occur. Following is the exhaustive listing of exposed callbacks :</p>
 <pre><code>public static event AdAvailableHandler AdAvailableEvent;
 public static event AdEventHandler SDKNotInitializedEvent;
 public static event AdEventHandler ShowAdVideoRewardGrantedEvent;
@@ -846,21 +856,20 @@ public static event AdEventHandler AdManagerAppSessionSourceDetected;
 </ul>
 <h3 id="constants">Constants</h3>
 <h4 id="ui-orientation">UI Orientation</h4>
-<pre><code>AdDealsWrapper.UIOrientationUnknown;
+<pre><code>AdDealsWrapper.UIOrientationUnset;
 AdDealsWrapper.UIOrientationPortrait;
 AdDealsWrapper.UIOrientationLandscape;
 </code></pre>
 
 <h4 id="ad-type">Ad type</h4>
 <pre><code>AdDealsWrapper.AdTypeInterstitial;
-AdDealsWrapper.AdTypeRewardVideo;
+AdDealsWrapper.AdTypeRewardedVideo;
 </code></pre>
 
 <h4 id="consent">Consent</h4>
-<pre><code>public const int UserConsentNotApplicable;     // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_ELIGIBLE:2
-public const int UserConsentRevoke;             // iOS:AdDealsUserConsentRevoke:0 Android:DISAGREE:1
-public const int UserConsentGrant;              // iOS:AdDealsUserConsentGrant:1 Android:APPROVE:0
-public const int UserConsentNotSet;             // iOS:AdDealsUserConsentNotApplicable:-1 Android:NOT_SET:3
+<pre><code>public const int UserConsentNotApplicable;
+public const int UserConsentRevoke;
+public const int UserConsentGrant;
 </code></pre>
 
 <h2 id="verification">Verification</h2>
@@ -885,7 +894,7 @@ public const int UserConsentNotSet;             // iOS:AdDealsUserConsentNotAppl
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2018-12-21 08:55:50.738894, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-15 06:23:01.405531, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
