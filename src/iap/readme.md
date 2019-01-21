@@ -87,6 +87,26 @@ __Note__: the `key` in sdkbox_config.json should be get from `Google Play Consol
 ![](../../imgs/google_licensing_iab.png)
 
 
+
+### `SKPaymentTransactionStateDeferred` test
+
+`SKPaymentTransactionStateDeferred` is a middle transaction status of iOS IAP . for most developer, need't case about this status.
+
+if you want to test this status, you can add `simulatesAskToBuyInSandbox` to `sdkbox_config.json`.
+
+```json
+"ios":
+{
+    "iap": {
+        "simulatesAskToBuyInSandbox": true,
+        "items": { ... }
+    }
+}
+```
+
+more about [SKPaymentTransactionStateDeferred](https://stackoverflow.com/questions/25510678/how-to-test-skpaymenttransactionstatedeferred)
+
+
 <!--<<[sdkbox-config-encrypt.md]-->
 
 ##Usage

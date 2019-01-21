@@ -254,6 +254,7 @@ pages:
    - 'Unity Custom Activity': 'qa/use-custom-activity-on-unity.md'
    - 'Encrypt Decrypt sdkbox_config.json': 'qa/crypt-sdkbox-config.md'
    - 'SDKBoxPlay Troubleshoot': 'qa/sdkboxplay_troubleshoot.md'
+   - 'IAP Troubleshoot': 'qa/iap_troubleshoot.md'
 - About: 'release-note.md'
 
 theme: mkdocs
