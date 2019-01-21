@@ -647,6 +647,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../../qa/iap_troubleshoot/">IAP Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -697,6 +703,12 @@
 	
     
         <li class="main "><a href="#configuration">Configuration</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#skpaymenttransactionstatedeferred-test">SKPaymentTransactionStateDeferred test</a></li>
+        
+	</ul>
 	
     
         <li class="main "><a href="#usage">Usage</a></li>
@@ -926,6 +938,19 @@
 
 <p><strong>Note</strong>: the <code>key</code> in sdkbox_config.json should be get from <code>Google Play Console</code>, take a look at follow screenshot:</p>
 <p><img alt="" src="../../../imgs/google_licensing_iab.png" /></p>
+<h3 id="skpaymenttransactionstatedeferred-test"><code>SKPaymentTransactionStateDeferred</code> test</h3>
+<p><code>SKPaymentTransactionStateDeferred</code> is a middle transaction status of iOS IAP . for most developer, need't case about this status.</p>
+<p>if you want to test this status, you can add <code>simulatesAskToBuyInSandbox</code> to <code>sdkbox_config.json</code>.</p>
+<pre><code class="json">&quot;ios&quot;:
+{
+    &quot;iap&quot;: {
+        &quot;simulatesAskToBuyInSandbox&quot;: true,
+        &quot;items&quot;: { ... }
+    }
+}
+</code></pre>
+
+<p>more about <a href="https://stackoverflow.com/questions/25510678/how-to-test-skpaymenttransactionstatedeferred">SKPaymentTransactionStateDeferred</a></p>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -1528,7 +1553,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-15 06:22:57.695034, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-21 14:22:15.819229, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

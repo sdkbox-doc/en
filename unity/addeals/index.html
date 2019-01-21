@@ -647,6 +647,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../qa/iap_troubleshoot/">IAP Troubleshoot</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -741,7 +747,52 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <ul>
 <li>From Unity, first export to an iOS project. Next build and run it using Xcode.</li>
 <li>Support iOS 8+.</li>
+<li>
+<p>you must add a script phase to Xcode <code>AdDeals.framework</code></p>
+<ol>
+<li>new script phase, and name it <code>StripAdDeals</code></li>
+</ol>
+<p><img alt="Unity iOS new script phase" src="./unity_addeals_ios_new_script_phase.png" /></p>
+<ol>
+<li>add follow script</li>
+</ol>
+</li>
 </ul>
+<pre><code class="bash">    strip_invalid_archs() {
+        binary=&quot;$1&quot;
+        # Get architectures for current target binary
+        binary_archs=&quot;$(lipo -info &quot;$binary&quot; | rev | cut -d ':' -f1 | awk '{$1=$1;print}' | rev)&quot;
+        # Intersect them with the architectures we are building for
+        intersected_archs=&quot;$(echo ${ARCHS[@]} ${binary_archs[@]} | tr ' ' '\n' | sort | uniq -d)&quot;
+        # If there are no archs supported by this binary then warn the user
+        if [[ -z &quot;$intersected_archs&quot; ]]; then
+            echo &quot;warning: [CP] Vendored binary '$binary' contains architectures ($binary_archs) none of which match the current build architectures ($ARCHS).&quot;
+            STRIP_BINARY_RETVAL=0
+            return
+        fi
+        stripped=&quot;&quot;
+        for arch in $binary_archs; do
+            if ! [[ &quot;${ARCHS}&quot; == *&quot;$arch&quot;* ]]; then
+                # Strip non-valid architectures in-place
+                lipo -remove &quot;$arch&quot; -output &quot;$binary&quot; &quot;$binary&quot; || exit 1
+                stripped=&quot;$stripped $arch&quot;
+            fi
+        done
+        if [[ &quot;$stripped&quot; ]]; then
+            echo &quot;Stripped $binary of architectures:$stripped&quot;
+        fi
+        STRIP_BINARY_RETVAL=1
+    }
+
+    binary=&quot;${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdDeals.framework/AdDeals&quot;
+    # Strip invalid architectures so &quot;fat&quot; simulator / device frameworks work on device
+    if [[ &quot;$(file &quot;$binary&quot;)&quot; == *&quot;dynamically linked shared library&quot;* ]]; then
+        strip_invalid_archs &quot;$binary&quot;
+    fi
+</code></pre>
+
+<p>and the script phase should be look like follow</p>
+<p><img alt="Unity iOS script phase" src="./unity_addeals_strip_script_phase.png" /></p>
 <h3 id="android-build">Android build</h3>
 <ul>
 <li>
@@ -894,7 +945,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-15 06:23:01.405531, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-21 14:22:19.826123, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
