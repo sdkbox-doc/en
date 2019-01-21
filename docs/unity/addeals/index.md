@@ -44,6 +44,51 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 
 * From Unity, first export to an iOS project. Next build and run it using Xcode.
 * Support iOS 8+.
+* you must add a script phase to Xcode `AdDeals.framework`
+
+    1. new script phase, and name it `StripAdDeals`
+
+    ![Unity iOS new script phase](./unity_addeals_ios_new_script_phase.png)
+
+    2. add follow script
+
+```bash
+    strip_invalid_archs() {
+        binary="$1"
+        # Get architectures for current target binary
+        binary_archs="$(lipo -info "$binary" | rev | cut -d ':' -f1 | awk '{$1=$1;print}' | rev)"
+        # Intersect them with the architectures we are building for
+        intersected_archs="$(echo ${ARCHS[@]} ${binary_archs[@]} | tr ' ' '\n' | sort | uniq -d)"
+        # If there are no archs supported by this binary then warn the user
+        if [[ -z "$intersected_archs" ]]; then
+            echo "warning: [CP] Vendored binary '$binary' contains architectures ($binary_archs) none of which match the current build architectures ($ARCHS)."
+            STRIP_BINARY_RETVAL=0
+            return
+        fi
+        stripped=""
+        for arch in $binary_archs; do
+            if ! [[ "${ARCHS}" == *"$arch"* ]]; then
+                # Strip non-valid architectures in-place
+                lipo -remove "$arch" -output "$binary" "$binary" || exit 1
+                stripped="$stripped $arch"
+            fi
+        done
+        if [[ "$stripped" ]]; then
+            echo "Stripped $binary of architectures:$stripped"
+        fi
+        STRIP_BINARY_RETVAL=1
+    }
+
+    binary="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdDeals.framework/AdDeals"
+    # Strip invalid architectures so "fat" simulator / device frameworks work on device
+    if [[ "$(file "$binary")" == *"dynamically linked shared library"* ]]; then
+        strip_invalid_archs "$binary"
+    fi
+```
+
+and the script phase should be look like follow
+
+![Unity iOS script phase](./unity_addeals_strip_script_phase.png)
 
 
 ### Android build
