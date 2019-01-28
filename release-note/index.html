@@ -687,7 +687,7 @@
         <li class="main active"><a href="#release-notes">Release Notes</a></li>
 	
     
-        <li class="main "><a href="#2431">2.4.3.1 ( ? )</a></li>
+        <li class="main "><a href="#2433-20190127">2.4.3.3 (20190127)</a></li>
 	
 	<ul class="sub-sidenav">
         
@@ -1303,13 +1303,28 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="release-notes">Release Notes</h1>
-<h1 id="2431">2.4.3.1 ( ? )</h1>
+<h1 id="2433-20190127">2.4.3.3 (20190127)</h1>
 <h2 id="add">Add</h2>
+<ol>
+<li>AdMob support application id, <code>appid</code> field in <code>sdkbox_config.json</code> file</li>
+<li>AdMob support testdevice, <code>testdevice</code> field in <code>sdkbox_config.json</code> file</li>
+<li>IAP add iOS <code>paydeferred</code> status</li>
+<li>OneSignal support GDPR with api <code>setRequiresUserPrivacyConsent</code>, <code>consentGranted</code>, <code>requiresUserPrivacyConsent</code></li>
+<li>Facebook check com.facebook.sdk.ApplicationId and com.facebook.FacebookContentProvider when <code>sdkbox::PluginFacebook:init</code></li>
+<li>Support CMake from cocos2d-x 3.17.1</li>
+<li>Binding <code>sdkbox::init</code> and <code>sdkbox::setProject</code> to Lua and JavaScript</li>
+</ol>
 <h2 id="upgrade">Upgrade</h2>
+<ol>
+<li>AdMob update iOS SDK 7.30.0</li>
+<li>OngSignal update iOS SDK 2.9.5, Android 3.10.6</li>
+</ol>
 <h2 id="bugfix">Bugfix</h2>
 <ol>
-<li>JSB2: fix JSListenerBase::invokeJSFun crash for all plugins</li>
-<li>IAP:    add <code>getInitializedErrMsg</code> api for <a href="https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy">this issue</a></li>
+<li>Fixed failed to patch appactivity.java with Cocos Creator 1.9.3</li>
+<li>Fixed JSB2: fix JSListenerBase::invokeJSFun crash for all plugins</li>
+<li>Fixed IAP:    add <code>getInitializedErrMsg</code> api for <a href="https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy">this issue</a></li>
+<li>Fixed <code>Case Sensitive</code> with imoprt module in <code>Android.mk</code> file. Such as <code>$(call import-module, ./PluginOneSignal)</code></li>
 </ol>
 <h1 id="2430-20181214">2.4.3.0 (20181214)</h1>
 <h2 id="add_1">Add</h2>
@@ -2275,7 +2290,7 @@ Upgrade Vugnle SDK to new version
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-21 14:22:20.216956, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-28 02:22:34.118386, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
