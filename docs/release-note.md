@@ -1,14 +1,29 @@
 # Release Notes
 
 
-# 2.4.3.1 ( ? )
+# 2.4.3.3 (20190127)
 
 ## Add
+
+1. AdMob support application id, `appid` field in `sdkbox_config.json` file
+2. AdMob support testdevice, `testdevice` field in `sdkbox_config.json` file
+2. IAP add iOS `paydeferred` status
+3. OneSignal support GDPR with api `setRequiresUserPrivacyConsent`, `consentGranted`, `requiresUserPrivacyConsent`
+4. Facebook check com.facebook.sdk.ApplicationId and com.facebook.FacebookContentProvider when `sdkbox::PluginFacebook:init`
+5. Support CMake from cocos2d-x 3.17.1
+6. Binding `sdkbox::init` and `sdkbox::setProject` to Lua and JavaScript
+
 ## Upgrade
+
+1. AdMob update iOS SDK 7.30.0
+2. OngSignal update iOS SDK 2.9.5, Android 3.10.6
+
 ## Bugfix
 
-1.  JSB2: fix JSListenerBase::invokeJSFun crash for all plugins
-2.  IAP:    add `getInitializedErrMsg` api for [this issue](https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy)
+1. Fixed failed to patch appactivity.java with Cocos Creator 1.9.3
+1. Fixed JSB2: fix JSListenerBase::invokeJSFun crash for all plugins
+2. Fixed IAP:    add `getInitializedErrMsg` api for [this issue](https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy)
+3. Fixed `Case Sensitive` with imoprt module in `Android.mk` file. Such as `$(call import-module, ./PluginOneSignal)`
 
 # 2.4.3.0 (20181214)
 
