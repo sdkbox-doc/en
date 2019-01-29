@@ -81,6 +81,29 @@ static void updateStorePromotionVisibility ( const std::string & productName ,
                                              bool visibility ) ;
 ```
 
+```cpp
+static void getPurchaseHistory();
+```
+> get all purchase history, include cancelled, expired
+
+```cpp
+static void getInitializedErrMsg();
+```
+> get initialized error message
+
+```cpp
+static void requestUpdateTransaction();
+```
+> request all unfinish transaction, and retrigger onSuccess, onFailed or onCancel event with corresponding transaction.
+>
+> just valid on iOS
+>
+> e.g. if there have two transaction (one is success, on is canceled) havn't been finish,
+>      after invoke requestUpdateTransaction, onSuccess will trigger with the success transaction, onCancelled will trigger with the cancelled transaction.
+>
+> Note: for most developer, this api is needn't, onSuccess, onFailed or onCancel will auto trigger when transaction updated.
+>
+
 
 ### Listeners
 ```cpp
@@ -147,4 +170,21 @@ void onUpdateStorePromotionOrder ( const std::string & error )
 void onUpdateStorePromotionVisibility ( const std::string & error ) 
 ```
 
+```cpp
+void onPurchaseHistory(const std::string& purchases) 
+```
+
+```cpp
+void onConsumed(const Product& p, const std::string& error) 
+```
+
+```cpp
+void onDeferred(const Product& p) 
+```
+> Called when IAP pay deferred
+>
+> Note: Pay deferred status is a middle status, for most developer, needn't case this status
+> this status will change to success or failed or cancel, its final status is pending external action.
+>
+> Please DO NOT finishTransaction when status is deferred.
 
