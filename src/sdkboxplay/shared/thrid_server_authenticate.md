@@ -13,6 +13,7 @@
         "web_client_id": "......."
     }
 ```
+take a look at [this](https://developers.google.com/identity/protocols/OAuth2WebServer) to generate `web_client_id`
 * sign
 * `sdkbox::PluginSdkboxPlay::getPlayerAccountField("server_auth_code")` to get google server auth code
 
