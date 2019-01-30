@@ -1139,6 +1139,29 @@ product.receiptCipheredPayload;
                                              bool visibility ) ;
 </code></pre>
 
+<pre><code class="cpp">static void getPurchaseHistory();
+</code></pre>
+
+<blockquote>
+<p>get all purchase history, include cancelled, expired</p>
+</blockquote>
+<pre><code class="cpp">static void getInitializedErrMsg();
+</code></pre>
+
+<blockquote>
+<p>get initialized error message</p>
+</blockquote>
+<pre><code class="cpp">static void requestUpdateTransaction();
+</code></pre>
+
+<blockquote>
+<p>request all unfinish transaction, and retrigger onSuccess, onFailed or onCancel event with corresponding transaction.</p>
+<p>just valid on iOS</p>
+<p>e.g. if there have two transaction (one is success, on is canceled) havn't been finish,
+     after invoke requestUpdateTransaction, onSuccess will trigger with the success transaction, onCancelled will trigger with the cancelled transaction.</p>
+<p>Note: for most developer, this api is needn't, onSuccess, onFailed or onCancel will auto trigger when transaction updated.
+</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onInitialized ( bool success );
 </code></pre>
@@ -1207,6 +1230,21 @@ product.receiptCipheredPayload;
 <pre><code class="cpp">void onUpdateStorePromotionVisibility ( const std::string &amp; error ) 
 </code></pre>
 
+<pre><code class="cpp">void onPurchaseHistory(const std::string&amp; purchases) 
+</code></pre>
+
+<pre><code class="cpp">void onConsumed(const Product&amp; p, const std::string&amp; error) 
+</code></pre>
+
+<pre><code class="cpp">void onDeferred(const Product&amp; p) 
+</code></pre>
+
+<blockquote>
+<p>Called when IAP pay deferred</p>
+<p>Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.</p>
+<p>Please DO NOT finishTransaction when status is deferred.</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1553,7 +1591,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-28 02:22:29.931696, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-30 02:12:54.876999, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
