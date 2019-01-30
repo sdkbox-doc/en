@@ -276,6 +276,17 @@ sdkbox.PluginSdkboxPlay.loadAllGameData();
 > load all saved game data
 will trigger onLoadGameData callback
 
+```javascript
+sdkbox.PluginSdkboxPlay.generateIdentityVerificationSignature();
+```
+> Generates a signature that allows a third party server to authenticate the local player.
+
+> just vaild on iOS
+
+> [iOS Ref Document](https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign)
+
+> Note: on Android, you can get server_auth_code from getPlayerAccountField
+
 
 ### Listeners
 ```javascript
