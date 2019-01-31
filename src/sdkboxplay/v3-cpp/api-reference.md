@@ -297,6 +297,17 @@ will trigger onSaveGameData callback
 Note: if you want to save string, please translate to void>
 </pre>
 
+```cpp
+static void generateIdentityVerificationSignature();
+```
+> Generates a signature that allows a third party server to authenticate the local player.
+
+> just vaild on iOS
+
+> [iOS Ref Document](https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign)
+
+> Note: on Android, you can get server_auth_code from getPlayerAccountField
+
 
 ### Listeners
 ```cpp
