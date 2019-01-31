@@ -794,6 +794,17 @@
 	</ul>
 	
     
+        <li class="main "><a href="#thrid-server-authenticate">Thrid Server Authenticate</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#ios">iOS</a></li>
+        
+            <li><a href="#android">Android</a></li>
+        
+	</ul>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1461,6 +1472,15 @@ will trigger onSaveGameData callback</p>
 Note: if you want to save string, please translate to void>
 </pre>
 
+<pre><code class="cpp">static void generateIdentityVerificationSignature();
+</code></pre>
+
+<blockquote>
+<p>Generates a signature that allows a third party server to authenticate the local player.</p>
+<p>just vaild on iOS</p>
+<p><a href="https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign">iOS Ref Document</a></p>
+<p>Note: on Android, you can get server_auth_code from getPlayerAccountField</p>
+</blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onConnectionStatusChanged ( int status );
 </code></pre>
@@ -2034,14 +2054,32 @@ This is default proguard config:</p>
 </code></pre>
 
 <p>iOS SavedGame <a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/GameKit_Guide/SavedGames/SavedGames.html">Document</a></p>
-<p>Android SavedGame <a href="https://developers.google.com/games/services/common/concepts/savedgames">Document</a></p></div>
+<p>Android SavedGame <a href="https://developers.google.com/games/services/common/concepts/savedgames">Document</a></p>
+<h2 id="thrid-server-authenticate">Thrid Server Authenticate</h2>
+<h3 id="ios">iOS</h3>
+<ol>
+<li>implement <code>onGenerateIdentityVerificationSignature</code> function in <code>SdkboxPlayListener</code></li>
+<li>invoke <code>sdkbox::PluginSdkboxPlay::generateIdentityVerificationSignature();</code></li>
+</ol>
+<h3 id="android">Android</h3>
+<ul>
+<li>add <code>web_client_id</code> to <code>sdkbox_config.json</code></li>
+</ul>
+<pre><code class="json">    &quot;sdkboxplay&quot; : {
+        &quot;web_client_id&quot;: &quot;.......&quot;
+    }
+</code></pre>
+
+<p>take a look at <a href="https://developers.google.com/identity/protocols/OAuth2WebServer">this</a> to generate <code>web_client_id</code>
+<em> sign
+</em> <code>sdkbox::PluginSdkboxPlay::getPlayerAccountField("server_auth_code")</code> to get google server auth code</p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-30 02:12:57.007031, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-01-31 03:34:56.263420, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
