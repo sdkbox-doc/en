@@ -708,6 +708,9 @@
 	</ul>
 	
     
+        <li class="main "><a href="#faq">FAQ</a></li>
+	
+    
         <li class="main "><a href="#extra-steps">Extra steps</a></li>
 	
 	<ul class="sub-sidenav">
@@ -826,6 +829,11 @@
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This setting depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
 <p>Follow <a href="https://developers.facebook.com/docs/ios/ios9">this link</a></p>
+<h2 id="faq">FAQ</h2>
+<ol>
+<li>If you want to switch Facebook Login behavior (Facebook Native App / Web Dialog), <a href="https://support.apple.com/en-us/HT201265">clear Safari Cookie</a></li>
+<li>If you want to switch Facebook Login Account, <a href="https://support.apple.com/en-us/HT201265">clear Safari Cookie</a></li>
+</ol>
 <h2 id="extra-steps">Extra steps</h2>
 <p>The following step assuming you already registered as a Facebook Developer
 And created a new <strong>APP</strong> on Facebook, If not please follow up the <strong>Setup Facebook App</strong> section below.</p>
@@ -837,8 +845,8 @@ And created a new <strong>APP</strong> on Facebook, If not please follow up the 
 </ul>
 <pre><code>#import &lt;FBSDKCoreKit/FBSDKCoreKit.h&gt;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // ...
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   //
   // **************************
@@ -848,24 +856,39 @@ And created a new <strong>APP</strong> on Facebook, If not please follow up the 
   // call [[FBSDKApplicationDelegate sharedInstance] application:didFinishLaunchingWithOptions
   // before app-&gt;run()
 
-  BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
-                                      didFinishLaunchingWithOptions:launchOptions];
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+    didFinishLaunchingWithOptions:launchOptions];
+
   app-&gt;run();
-  return ret;
+
+  return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary&lt;UIApplicationOpenURLOptionsKey,id&gt; *)options {
+
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+  ];
+  // Add any custom logic here.
+  return handled;
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                         openURL:url
-                                               sourceApplication:sourceApplication
-                                                      annotation:annotation];
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-  [FBSDKAppEvents activateApp];
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:sourceApplication
+    annotation:annotation
+  ];
+  // Add any custom logic here.
+  return handled;
 }
 
 </code></pre>
@@ -1704,7 +1727,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-01-31 03:34:52.625475, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-01 08:19:01.483957, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
