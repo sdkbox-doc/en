@@ -18,6 +18,10 @@ $ sdkbox import facebook
 <<[../../shared/notice.md]
 Follow [this link](https://developers.facebook.com/docs/ios/ios9)
 
+##FAQ
+1. If you want to switch Facebook Login behavior (Facebook Native App / Web Dialog), [clear Safari Cookie](https://support.apple.com/en-us/HT201265)
+2. If you want to switch Facebook Login Account, [clear Safari Cookie](https://support.apple.com/en-us/HT201265)
+
 ##Extra steps
 The following step assuming you already registered as a Facebook Developer
 And created a new __APP__ on Facebook, If not please follow up the __Setup Facebook App__ section below.
@@ -30,8 +34,8 @@ And created a new __APP__ on Facebook, If not please follow up the __Setup Faceb
 ```
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // ...
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   //
   // **************************
@@ -41,24 +45,39 @@ And created a new __APP__ on Facebook, If not please follow up the __Setup Faceb
   // call [[FBSDKApplicationDelegate sharedInstance] application:didFinishLaunchingWithOptions
   // before app->run()
 
-  BOOL ret = [[FBSDKApplicationDelegate sharedInstance] application:application
-                                      didFinishLaunchingWithOptions:launchOptions];
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+    didFinishLaunchingWithOptions:launchOptions];
+
   app->run();
-  return ret;
+
+  return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+  ];
+  // Add any custom logic here.
+  return handled;
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                         openURL:url
-                                               sourceApplication:sourceApplication
-                                                      annotation:annotation];
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-  [FBSDKAppEvents activateApp];
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:sourceApplication
+    annotation:annotation
+  ];
+  // Add any custom logic here.
+  return handled;
 }
 
 ```
