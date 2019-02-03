@@ -46,6 +46,27 @@ sdkbox::PluginAdMob::init();
 
 Steps:
 
+* modify `AppDelegate.cpp` like follow:
+
+```cpp
+...
+#include "SDKBoxJSHelper.h"
+...
+
+bool AppDelegate::applicationDidFinishLaunching()
+{
+    ...
+
+    jsb_register_all_modules();
+    se->addRegisterCallback(register_all_SDKBoxJS_helper);
+
+    ...
+
+    return true;
+}
+
+```
+
 * move and rename `jsb-link/res/sdkbox_config.json` to `assets/SDKBox/sdkbox_config.js`.
 * add `module.exports =` to `assets/SDKBox/sdkbox_config.js` at first line
 
@@ -68,17 +89,14 @@ module.exports =
 
 ```
 
-* require sdkbox_config.js, and send value to plugin's init API
+* require sdkbox_config.js, and send json string to sdkbox
 
 ```js
 const sdkbox_config = require('../SDKBox/sdkbox_config')
 ...
-sdkbox.IAP.init(JSON.stringify(sdkbox_config));
+sdkbox.setConfig(JSON.stringify(sdkbox_config)); // make sure call this before sdkbox pluign init
+...
+sdkbox.PluginXXX.init();
 ...
 ```
-
-this is a [commit](https://github.com/sdkbox/sdkbox-sample-ccc200/commit/c59a76fecd680de832a45d60e4e88c8ba96c78fa) to apply creator's encrypt on `creator IAP sample`.
-
-__Note__: if you have mutil plugin, you can just send sdkbox_config when first plugin init.
-
 
