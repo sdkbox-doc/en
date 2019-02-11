@@ -52,11 +52,11 @@ Certificate fingerprints:
     * Tap 'Game services' -> app
     * Goto Google API Console
 
-    ![](../../imgs/sdkboxplay_game_services.png)
+    ![](../imgs/sdkboxplay_game_services.png)
 
     * Check Android Client's SHA-1
 
-    ![](../../imgs/sdkbox_android_client.png)
+    ![](../imgs/sdkbox_android_client.png)
 
 
 __NOTE: the below three SHA-1 should be same.__
@@ -85,7 +85,7 @@ if you need google sigin server auth code. you should fill `web_client_id` in sd
 
 and the `web_client_id` is come from:
 
-![](../../imgs/sdkboxplay_webclientid.png)
+![](../imgs/sdkboxplay_webclientid.png)
 
 
 if you needn't server auth code, please remove `web_client_id`.
