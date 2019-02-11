@@ -742,6 +742,27 @@ sdkbox::PluginAdMob::init();
 <h2 id="use-cocos-creators-solution">Use Cocos Creator's Solution</h2>
 <p>Steps:</p>
 <ul>
+<li>modify <code>AppDelegate.cpp</code> like follow:</li>
+</ul>
+<pre><code class="cpp">...
+#include &quot;SDKBoxJSHelper.h&quot;
+...
+
+bool AppDelegate::applicationDidFinishLaunching()
+{
+    ...
+
+    jsb_register_all_modules();
+    se-&gt;addRegisterCallback(register_all_SDKBoxJS_helper);
+
+    ...
+
+    return true;
+}
+
+</code></pre>
+
+<ul>
 <li>move and rename <code>jsb-link/res/sdkbox_config.json</code> to <code>assets/SDKBox/sdkbox_config.js</code>.</li>
 <li>add <code>module.exports =</code> to <code>assets/SDKBox/sdkbox_config.js</code> at first line</li>
 </ul>
@@ -764,23 +785,22 @@ sdkbox::PluginAdMob::init();
 </code></pre>
 
 <ul>
-<li>require sdkbox_config.js, and send value to plugin's init API</li>
+<li>require sdkbox_config.js, and send json string to sdkbox</li>
 </ul>
 <pre><code class="js">const sdkbox_config = require('../SDKBox/sdkbox_config')
 ...
-sdkbox.IAP.init(JSON.stringify(sdkbox_config));
+sdkbox.setConfig(JSON.stringify(sdkbox_config)); // make sure call this before sdkbox pluign init
 ...
-</code></pre>
-
-<p>this is a <a href="https://github.com/sdkbox/sdkbox-sample-ccc200/commit/c59a76fecd680de832a45d60e4e88c8ba96c78fa">commit</a> to apply creator's encrypt on <code>creator IAP sample</code>.</p>
-<p><strong>Note</strong>: if you have mutil plugin, you can just send sdkbox_config when first plugin init.</p></div>
+sdkbox.PluginXXX.init();
+...
+</code></pre></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-01 08:19:07.386007, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-11 07:53:54.508635, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
