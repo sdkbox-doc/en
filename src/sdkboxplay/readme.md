@@ -37,11 +37,9 @@
 3. `cloud_save` is optional, enalbe and fill `true` if you will use Saved Game else fill `false`
 4. Publish to Alpha/Bete test
 5. Add your test account to tester list
-6. SHA-1 keys
+6. [SHA-1 keys](http://docs.sdkbox.com/en/qa/sdkboxplay_troubleshoot/#keystore)
 7. `web_client_id` is optional, fill it when you need google signin authcode else remove it
-
-SDKBoxPlay [Troubleshoot](../../qa/sdkboxplay_troubleshoot.md)
-
+8. More [Troubleshoot](../../qa/sdkboxplay_troubleshoot.md)
 
 ###Game Center
  + Enable Game Center on XCode.

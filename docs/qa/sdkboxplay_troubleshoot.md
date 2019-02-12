@@ -52,11 +52,15 @@ Certificate fingerprints:
     * Tap 'Game services' -> app
     * Goto Google API Console
 
-    ![](../imgs/sdkboxplay_game_services.png)
+    ![01](../imgs/sdkboxplay_game_services01.png)
+
+    ![02](../imgs/sdkboxplay_game_services02.png)
 
     * Check Android Client's SHA-1
 
-    ![](../imgs/sdkbox_android_client.png)
+    ![01](../imgs/sdkbox_android_client01.png)
+
+    ![02](../imgs/sdkbox_android_client02.png)
 
 
 __NOTE: the below three SHA-1 should be same.__
