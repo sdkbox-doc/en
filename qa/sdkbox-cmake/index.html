@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Fix Android 64K methods limit - SDKBOX</title>
+	<title>CMake - SDKBOX</title>
         
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -612,8 +612,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Fix Android 64K methods limit</a>
+<li >
+    <a href="../android_64k/">Fix Android 64K methods limit</a>
 </li>
 
                         
@@ -654,8 +654,8 @@
 
                         
                             
-<li >
-    <a href="../sdkbox-cmake/">CMake</a>
+<li class="active">
+    <a href="./">CMake</a>
 </li>
 
                         
@@ -690,30 +690,106 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#android-app-over-64k-methods">Android App Over 64K Methods</a></li>
+        <li class="main active"><a href="#cpp">CPP</a></li>
+	
+    
+        <li class="main "><a href="#js">JS</a></li>
+	
+    
+        <li class="main "><a href="#lua">Lua</a></li>
 	
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1>FAQ</h1>
+<h1 id="cpp">CPP</h1>
+<p>Plz add bellow code to the bottom of <strong>PROJECT_ROOT</strong>/CMakeLists.txt and replace PluginFacebook with your Plugin name</p>
+<pre><code class="cmake"># PluginFacebook
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proj.android/app/jni/PluginFacebook/)
+    target_link_libraries(${APP_NAME} ext_PluginFacebook)
+endif()
 
-<h2 id="android-app-over-64k-methods">Android App Over 64K Methods</h2>
-<p>If you see this build error for your android app</p>
-<pre><code>Unable to execute dex: method ID not in [0, 0xffff]: 65536
+# sdkbox
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proj.android/app/jni/sdkbox/)
+    target_link_libraries(${APP_NAME} ext_sdkbox)
+endif()
 </code></pre>
 
-<p>That means your app has hit the android API limit</p>
-<p>If you're using gradle/Android Studio, you can enable patch according to <a href="https://developer.android.com/studio/build/multidex.html">google's guide</a></p>
-<p>However if you're using cocos cosnole, Ant or eclipse you have to find a way to reduce the number of APIs in your app.</p></div>
+<h1 id="js">JS</h1>
+<ol>
+<li>Plz add bellow code to the bottom of <strong>PROJECT_ROOT</strong>/CMakeLists.txt and replace PluginFacebook with your plugin name</li>
+</ol>
+<pre><code class="cmake"># PluginFacebook
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/PluginFacebook/)
+    target_link_libraries(${APP_NAME} ext_PluginFacebook)
+endif()
+# sdkbox
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/sdkbox/)
+    target_link_libraries(${APP_NAME} ext_sdkbox)
+endif()
+</code></pre>
+
+<ol>
+<li>Plz add bellow code before <code>set(APP_SRC ${GAME_HEADER} ${GAME_SOURCE})</code>, and replace <code>PluginFacebook</code> with your plugin name</li>
+</ol>
+<pre><code class="cmake"># PluginFacebook-JS
+if(ANDROID)
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookJS.cpp)
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookJSHelper.cpp)
+endif()
+# sdkbox-JS
+if(ANDROID)
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/SDKBoxJSHelper.cpp)
+endif()
+</code></pre>
+
+<h1 id="lua">Lua</h1>
+<ol>
+<li>Plz add bellow code to the bottom of <strong>PROJECT_ROOT</strong>/CMakeLists.txt and replace PluginFacebook with your plugin name</li>
+</ol>
+<pre><code class="cmake"># PluginFacebook
+if(ANDROID)
+   add_definitions(-DSDKBOX_ENABLED)
+   add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/PluginFacebook/)
+   target_link_libraries(${APP_NAME} ext_PluginFacebook)
+endif()
+# sdkbox
+if(ANDROID)
+   add_definitions(-DSDKBOX_ENABLED)
+   add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/sdkbox/)
+   target_link_libraries(${APP_NAME} ext_sdkbox)
+endif()
+</code></pre>
+
+<ol>
+<li>Plz add bellow code before <code>set(APP_SRC ${GAME_HEADER} ${GAME_SOURCE})</code>, and replace <code>PluginFacebook</code> with your plugin name</li>
+</ol>
+<pre><code class="cmake"># PluginFacebook-Lua
+if(ANDROID)
+   list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookLua.cpp)
+   list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookLuaHelper.cpp)
+endif()
+# sdkbox-Lua
+if(ANDROID)
+   list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/SDKBoxLuaHelper.cpp)
+endif()
+</code></pre></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:44.934879, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 10:46:45.034095, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
