@@ -887,7 +887,8 @@ end)
 
 <blockquote>
 <p>Initialize the plugin instance.
-The plugin initializes from the sdkbox_config.json file and reads configuration of the form:
+The plugin initializes from the sdkbox_config.json file and reads configuration of the form:</p>
+</blockquote>
 <pre>
  <code>
    "SdkboxAds": {
@@ -895,11 +896,9 @@ The plugin initializes from the sdkbox_config.json file and reads configuration 
        "placements": [ {} ]
    }
  </code>
- </pre></p>
-<p>The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
+The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
 and/or simplifies interaction with them.
 The "placements" block will be of the form:
-<pre>
  <code>
     {
          "id" : "placement_id",
@@ -909,9 +908,7 @@ The "placements" block will be of the form:
          ]
      }
  </code>
-</pre></p>
-<p>and each UnitDefinition as:
-<pre>
+and each UnitDefinition as:
  <code>
      {
          "Unit" : string, // result_of_AdUnit.getId()
@@ -919,12 +916,12 @@ The "placements" block will be of the form:
          "params" : json_object
      }
  </code>
-</pre></p>
-<p>For a sample Sdkboxads config, check the example at Sdkbox github public repository.
+For a sample Sdkboxads config, check the example at Sdkbox github public repository.
 The "params" configuration block will allow to pass in specific information to play ads
 like location, position, etc.
-Check each AdUnit's documentation to find specifics on its configuration.</p>
-</blockquote>
+Check each AdUnit's documentation to find specifics on its configuration.
+</pre>
+
 <pre><code class="lua">sdkbox.PluginSdkboxAds:setListener(listener)
 </code></pre>
 
@@ -941,10 +938,20 @@ Note that some ad units may have only Ads.</p>
 <p>A placement is a collection of mediated AdUnits.
 When you want to invoke a placement, just call this method.
 If the placement does not exist, the call will just be ignored.
-A placement will take care of AdUnit's cache control, so if the current AdUnit has no
+A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
 cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
-<p>The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
-In the short term, new placement strategies will be added.</p>
+</blockquote>
+<pre>
+The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
+In the short term, new placement strategies will be added.
+</pre>
+
+<pre><code class="lua">sdkbox.PluginSdkboxAds:cache(ad_unit, ad_name)
+</code></pre>
+
+<blockquote>
+<p>Cache AdUnits' ad
+Example: sdkbox::PluginSdkboxAds::cache("AdMob", "reward")</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginSdkboxAds:isAvailable(placement)
 </code></pre>
@@ -1209,7 +1216,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:42.725105, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:11.100855, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

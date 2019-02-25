@@ -925,17 +925,125 @@ private:
 <blockquote>
 <p>Remove the listener, and can't listen to events anymore</p>
 </blockquote>
-<pre><code class="cpp">static std::string localNotify ( const std::string &amp; title, const std::string &amp; content, int delaymisillensecond ) ;
+<pre><code class="cpp">static int localNotify ( const std::string &amp; title ,
+                         const std::string &amp; content ,
+                         int delayMillisecond ) ;
 </code></pre>
 
 <blockquote>
-<p>send a local notification
-@return notification id</p>
+<p>Local Notification</p>
+</blockquote>
+<pre>
+title: notification title, just valid on android
+content: notification content
+delayMillisecond: delay millisecond to notify, just valid on iOS
+
+return notifyID
+</pre>
+
+<pre><code class="cpp">static void cleanLocalNotify ( int notifyID = 0 ) ;
+</code></pre>
+
+<blockquote>
+<p>Clear Local Notification</p>
+</blockquote>
+<pre>
+notificationID: notification id, 0: will cancel all local notify
+</pre>
+
+<pre><code class="cpp">static void handleLocalNotify ( const std::string &amp; notificationUserInfo ) ;
+</code></pre>
+
+<blockquote>
+<p>Handle Local Notification, just For iOS</p>
+</blockquote>
+<pre>
+on Android, please use com.sdkbox.plugin.PluginMisc.onHandleNotification(intent);
+
+</pre>
+
+<pre><code class="cpp">static std::string getPlatformName ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get current platform, iOS or Android</p>
+</blockquote>
+<pre><code class="cpp">static std::string getMetaData ( const std::string &amp; name ) ;
+</code></pre>
+
+<blockquote>
+<p>just valid on android, can get meta data from AndroidManifest.xml</p>
+</blockquote>
+<pre><code class="cpp">static std::string getIAPProvider ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get current iap provider of SDKBox IAP
+return 'Apple', 'Google', 'Amazon' or 'Playphone'</p>
+</blockquote>
+<pre><code class="cpp">static std::string getAppVersion ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get app version</p>
+</blockquote>
+<pre><code class="cpp">static std::string getAppBuildVersion ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get iOS app build version</p>
+</blockquote>
+<pre><code class="cpp">static int getAppVersionCode ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get android app version code</p>
+</blockquote>
+<pre><code class="cpp">static std::string getDeviceInfo ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get device info</p>
+</blockquote>
+<pre><code class="cpp">static void setKeychainService ( const std::string &amp; service ) ;
+</code></pre>
+
+<blockquote>
+<p>set keychain service</p>
+</blockquote>
+<pre><code class="cpp">static void setKeychainAccessGroup ( const std::string &amp; group ) ;
+</code></pre>
+
+<blockquote>
+<p>set keychain accessgroup</p>
+</blockquote>
+<pre><code class="cpp">static int storeStringInKeychain ( const std::string &amp; account ,
+                                   const std::string &amp; value ) ;
+</code></pre>
+
+<blockquote>
+<p>store account data in keychain, if exist will update it
+return SecurityFrameworkResultCode: https://developer.apple.com/documentation/security/1542001-security_framework_result_codes</p>
+</blockquote>
+<pre><code class="cpp">static const std::string fetchStringInKeychain ( const std::string &amp; account ) ;
+</code></pre>
+
+<blockquote>
+<p>fetch account data from keychain</p>
+</blockquote>
+<pre><code class="cpp">static int removeDataInKeychain ( const std::string &amp; account ) ;
+</code></pre>
+
+<blockquote>
+<p>remove account in keychain</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onHandleLocalNotify ( const std::string &amp; payloadJson ) 
 </code></pre>
 
+<blockquote>
+<p>Notifies the delegate that user tap the notify</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1114,7 +1222,7 @@ adding frameworks:</p>
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:41.634342, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:10.021549, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

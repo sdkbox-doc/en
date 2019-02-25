@@ -1454,11 +1454,14 @@ will trigger onLoadGameData callback</p>
 </code></pre>
 
 <blockquote>
-<p>Generates a signature that allows a third party server to authenticate the local player.</p>
-<p>just vaild on iOS</p>
-<p><a href="https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign">iOS Ref Document</a></p>
-<p>Note: on Android, you can get server_auth_code from getPlayerAccountField</p>
+<p>Generates a signature that allows a third party server to authenticate the local player.
+just vaild on iOS</p>
 </blockquote>
+<pre>
+https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign
+Note: on Android, you can get server_auth_code from getPlayerAccountField
+</pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="javascript">onConnectionStatusChanged(status);
 </code></pre>
@@ -1660,6 +1663,16 @@ The <code>json_achievements_info</code> parameter is a json array encoded string
 </code></pre>
 
 <blockquote></blockquote>
+<pre><code class="javascript">onGenerateIdentityVerificationSignature(publicKeyUrl,
+                                         signatureBase64,
+                                         saltBase64,
+                                         timestamp,
+                                         error);
+</code></pre>
+
+<blockquote>
+<p>trigger after call generateIdentityVerificationSignature</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -2048,7 +2061,7 @@ This is default proguard config:</p>
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:42.996671, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:11.429223, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

@@ -1130,19 +1130,19 @@ product.receiptCipheredPayload;
 <pre><code class="lua">sdkbox.IAP:updateStorePromotionVisibility(productName, visibility)
 </code></pre>
 
-<pre><code class="lua">sdkbox.IAP:getPurchaseHistory();
+<pre><code class="lua">sdkbox.IAP:getPurchaseHistory()
 </code></pre>
 
 <blockquote>
 <p>get all purchase history, include cancelled, expired</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:getInitializedErrMsg();
+<pre><code class="lua">sdkbox.IAP:getInitializedErrMsg()
 </code></pre>
 
 <blockquote>
 <p>get initialized error message</p>
 </blockquote>
-<pre><code class="lua">sdkbox.IAP:requestUpdateTransaction();
+<pre><code class="lua">sdkbox.IAP:requestUpdateTransaction()
 </code></pre>
 
 <blockquote>
@@ -1220,18 +1220,24 @@ product.receiptCipheredPayload;
 <pre><code class="lua">onPurchaseHistory(purchases)
 </code></pre>
 
-<pre><code class="lua">onConsumed(product, error)
+<pre><code class="lua">onConsumed(p, error)
 </code></pre>
 
-<pre><code class="lua">onDeferred(product)
+<blockquote>
+<p>Called when consume completed, just trigger on android</p>
+</blockquote>
+<pre><code class="lua">onDeferred(p)
 </code></pre>
 
 <blockquote>
 <p>Called when IAP pay deferred</p>
-<p>Note: Pay deferred status is a middle status, for most developer, needn't case this status
-this status will change to success or failed or cancel, its final status is pending external action.</p>
-<p>Please DO NOT finishTransaction when status is deferred.</p>
 </blockquote>
+<pre>
+Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.
+Please DO NOT finishTransaction when status is deferred.
+</pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1588,7 +1594,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:40.780075, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:09.223131, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

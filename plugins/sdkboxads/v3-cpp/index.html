@@ -721,6 +721,8 @@
         
             <li><a href="#methods">Methods</a></li>
         
+            <li><a href="#listeners">Listeners</a></li>
+        
 	</ul>
 	
     
@@ -944,17 +946,19 @@ private:
 </code></pre>
 
 <blockquote>
-<p>The plugin initializes from the sdkbox_config.json file and reads configuration.
+<p>Initialize the plugin instance.
+The plugin initializes from the sdkbox_config.json file and reads configuration of the form:</p>
+</blockquote>
 <pre>
  <code>
    "SdkboxAds": {
-       "units": [ "AdColony", "AdMob" ],
+       "units": [ "AdColony", "Fyber" ],
        "placements": [ {} ]
    }
  </code>
-</pre></p>
-<p>The "placements" block will be of the form:
-<pre>
+The "units" array references other plugins' configuration. Sdkboxads mediates between other plugins
+and/or simplifies interaction with them.
+The "placements" block will be of the form:
  <code>
     {
          "id": string, // placement's id
@@ -964,9 +968,7 @@ private:
          ]
      }
  </code>
-</pre></p>
-<p>Each UnitDefinition as:
-<pre>
+and each UnitDefinition as:
  <code>
      {
          "Unit": string, // result_of_AdUnit.getId(),
@@ -974,11 +976,12 @@ private:
          "params": json_object
      }
  </code>
-</pre></p>
-<p>For a sample Sdkboxads config, check the example at Sdkbox github public repository.
+For a sample Sdkboxads config, check the example at Sdkbox github public repository.
 The "params" configuration block will allow to pass in specific information to play ads
-like location, position, etc. Check each AdUnit's documentation to find specifics on its configuration.</p>
-</blockquote>
+like location, position, etc.
+Check each AdUnit's documentation to find specifics on its configuration.
+</pre>
+
 <pre><code class="cpp">static void setListener ( sdkbox::PluginSdkboxAdsListener * listener ) ;
 </code></pre>
 
@@ -1004,10 +1007,13 @@ Note that some ad units may have only Ads.</p>
 AdUnits like Fyber which don't have zones, will use common placeholders like "INTERSTITIAL" or "REWARDED".
 Some AdUnits may require extra information to play an Ad, and should use the params for that purpose.
 You should refer to the documentation of each specific AdUnit about what parameters will accept.</p>
-<p>The ad will be played for a specific AdUnit based on its identifier. The identifiers are the
-values in the "units" node of the sdkbox_config.json file.
-For example: "AdColony" or "Fyber".</p>
 </blockquote>
+<pre>
+The ad will be played for a specific AdUnit based on its identifier. The identifiers are the
+values in the "units" node of the sdkbox_config.json file.
+For example: "AdColony" or "Fyber".
+</pre>
+
 <pre><code class="cpp">static void playAd ( const std::string &amp; ad_unit ,
                      const std::string &amp; zone_place_location ) ;
 </code></pre>
@@ -1037,11 +1043,14 @@ For example, AdColony will play the first video zone, or the first Reward if the
 <p>A placement is a collection of mediated AdUnits.
 When you want to invoke a placement, just call this method.
 If the placement does not exist, the call will just be ignored.
-A placement will take care of AdUnit's cache control, so if the current AdUnit has no
+A placement will take care of AdUnit’s cache control, so if the current AdUnit has no
 cached content, or the AdUnit fails to load an ad, the next adUnit will be used.</p>
-<p>The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
-In the short term, new placement strategies will be added.</p>
 </blockquote>
+<pre>
+The placement will cycle throughout all the AdUnits it references, in a round robin fashion.
+In the short term, new placement strategies will be added.
+</pre>
+
 <pre><code class="cpp">static void cacheControl ( const std::string &amp; ad_unit ,
                            const std::map &lt;std::string ,
                            std::string&gt; &amp; cacheOpts ) ;
@@ -1052,7 +1061,9 @@ In the short term, new placement strategies will be added.</p>
 Not all AdUnits expose cache control while some others expose fine-grained cache control.
 For example Chartboost offers specific cache control for each location, as well as
 general Ads cache control.</p>
-<p>This method interfaces with the AdUnit's cache mechanism. If no cache control is exposed
+</blockquote>
+<pre>
+This method interfaces with the AdUnit’s cache mechanism. If no cache control is exposed
 for a given AdUnit, the call will silently be ignored.
 Each AdUnit will document what valid values to pass to the cacheOpts parameter.
 E.g. for Chartboost, these are valid values:
@@ -1060,7 +1071,6 @@ cacheOpts for Chartboost:
      element : bool
          Element corresponds to an identifiable CBLocation (ChartBoost)
      e.g:
-<pre>
  <code>
      {
          "Default": true, // a configuration location
@@ -1068,7 +1078,15 @@ cacheOpts for Chartboost:
          "ADS": true // a general placeholder chartboost specific
      }
  </code>
-</pre></p>
+</pre>
+
+<pre><code class="cpp">static void cache ( const std::string &amp; ad_unit ,
+                    const std::string &amp; ad_name ) ;
+</code></pre>
+
+<blockquote>
+<p>Cache AdUnits' ad
+Example: sdkbox::PluginSdkboxAds::cache("AdMob", "reward")</p>
 </blockquote>
 <pre><code class="cpp">static bool isAvailable ( const std::string &amp; placement ) ;
 </code></pre>
@@ -1086,6 +1104,7 @@ cacheOpts for Chartboost:
                      const std::string &amp; zone_place_location ) ;
 </code></pre>
 
+<h3 id="listeners">Listeners</h3>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1323,7 +1342,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:42.621623, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:11.007678, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

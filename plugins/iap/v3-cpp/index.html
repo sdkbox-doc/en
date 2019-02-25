@@ -1145,19 +1145,16 @@ product.receiptCipheredPayload;
                                              bool visibility ) ;
 </code></pre>
 
-<pre><code class="cpp">static void getPurchaseHistory();
+<pre><code class="cpp">static void getPurchaseHistory ( ) ;
 </code></pre>
 
-<blockquote>
-<p>get all purchase history, include cancelled, expired</p>
-</blockquote>
-<pre><code class="cpp">static void getInitializedErrMsg();
+<pre><code class="cpp">static std::string getInitializedErrMsg ( ) ;
 </code></pre>
 
 <blockquote>
 <p>get initialized error message</p>
 </blockquote>
-<pre><code class="cpp">static void requestUpdateTransaction();
+<pre><code class="cpp">static void requestUpdateTransaction ( ) ;
 </code></pre>
 
 <blockquote>
@@ -1236,21 +1233,27 @@ product.receiptCipheredPayload;
 <pre><code class="cpp">void onUpdateStorePromotionVisibility ( const std::string &amp; error ) 
 </code></pre>
 
-<pre><code class="cpp">void onPurchaseHistory(const std::string&amp; purchases) 
+<pre><code class="cpp">void onPurchaseHistory ( const std::string &amp; purchases ) 
 </code></pre>
 
-<pre><code class="cpp">void onConsumed(const Product&amp; p, const std::string&amp; error) 
+<pre><code class="cpp">void onConsumed ( const Product &amp; p , const std::string &amp; error ) 
 </code></pre>
 
-<pre><code class="cpp">void onDeferred(const Product&amp; p) 
+<blockquote>
+<p>Called when consume completed, just trigger on android</p>
+</blockquote>
+<pre><code class="cpp">void onDeferred ( const Product &amp; p ) 
 </code></pre>
 
 <blockquote>
 <p>Called when IAP pay deferred</p>
-<p>Note: Pay deferred status is a middle status, for most developer, needn't case this status
-this status will change to success or failed or cancel, its final status is pending external action.</p>
-<p>Please DO NOT finishTransaction when status is deferred.</p>
 </blockquote>
+<pre>
+Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.
+Please DO NOT finishTransaction when status is deferred.
+</pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1597,7 +1600,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-02-25 10:46:40.596274, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-02-25 17:02:09.057419, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
