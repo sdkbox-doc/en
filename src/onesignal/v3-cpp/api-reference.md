@@ -109,6 +109,29 @@ notifications to users based on location.
 Note: Make sure you also have the required location permission in your AndroidManifest.xml.
 </pre>
 
+```cpp
+static void setRequiresUserPrivacyConsent ( bool enabled ) ;
+```
+> For GDPR users, your application should call this method before initialization of the SDK.
+If you pass in true, your application will need to call provideConsent(true) before the
+OneSignal SDK gets fully initialized.
+
+```cpp
+static void consentGranted ( bool enabled ) ;
+```
+> If you set the SDK to require the user's privacy consent, your application can use this
+method once the user does or doesn't provide privacy consent to use the OneSignal SDK.
+
+```cpp
+static bool requiresUserPrivacyConsent ( ) ;
+```
+> You can use this property to check if the OneSignal SDK is waiting for the user to
+provide privacy consent.
+
+<pre>
+@return [description]
+</pre>
+
 
 ### Listeners
 ```cpp

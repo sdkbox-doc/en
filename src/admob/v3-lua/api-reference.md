@@ -85,7 +85,7 @@ sdkbox.PluginAdMob:getCurrBannerHeightInPixel(name)
 ```lua
 sdkbox.PluginAdMob:setGDPR(enabled)
 ```
-> set GDPR
+> set GDPR. true: non-personalized ads, false: personalized ads.
 
 
 ### Listeners

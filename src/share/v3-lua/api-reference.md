@@ -21,6 +21,14 @@ sdkbox.PluginShare:setSharePanelCancel(s)
 ```
 > set custome share platform choose panel cancel button, default is "Cancel"
 
+```lua
+sdkbox.PluginShare:logoutTwitter()
+```
+
+```lua
+sdkbox.PluginShare:setFileProviderAuthorities(authority)
+```
+
 
 ### Listeners
 ```lua

@@ -36,6 +36,10 @@ sdkbox.PluginReview:userDidSignificantEvent(canPromptForRating)
 ```
 
 ```lua
+sdkbox.PluginReview:rateInAppstore(yes)
+```
+
+```lua
 sdkbox.PluginReview:SDKBOX_DEPRECATED(setTitle(conststd::string&title)
 ```
 

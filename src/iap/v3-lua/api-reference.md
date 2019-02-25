@@ -76,17 +76,17 @@ sdkbox.IAP:updateStorePromotionVisibility(productName, visibility)
 ```
 
 ```lua
-sdkbox.IAP:getPurchaseHistory();
+sdkbox.IAP:getPurchaseHistory()
 ```
 > get all purchase history, include cancelled, expired
 
 ```lua
-sdkbox.IAP:getInitializedErrMsg();
+sdkbox.IAP:getInitializedErrMsg()
 ```
 > get initialized error message
 
 ```lua
-sdkbox.IAP:requestUpdateTransaction();
+sdkbox.IAP:requestUpdateTransaction()
 ```
 > request all unfinish transaction, and retrigger onSuccess, onFailed or onCancel event with corresponding transaction.
 >
@@ -98,6 +98,7 @@ sdkbox.IAP:requestUpdateTransaction();
 > Note: for most developer, this api is needn't, onSuccess, onFailed or onCancel will auto trigger when transaction updated.
 >
 >
+
 
 ### Listeners
 ```lua
@@ -166,16 +167,19 @@ onPurchaseHistory(purchases)
 ```
 
 ```lua
-onConsumed(product, error)
+onConsumed(p, error)
 ```
+> Called when consume completed, just trigger on android
 
 ```lua
-onDeferred(product)
+onDeferred(p)
 ```
 > Called when IAP pay deferred
->
-> Note: Pay deferred status is a middle status, for most developer, needn't case this status
-> this status will change to success or failed or cancel, its final status is pending external action.
->
-> Please DO NOT finishTransaction when status is deferred.
+
+<pre>
+Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.
+Please DO NOT finishTransaction when status is deferred.
+</pre>
+
 

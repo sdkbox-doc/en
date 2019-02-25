@@ -49,6 +49,14 @@ share success event will trigger, but this is not real share success, just show 
 can't get real share success event on android
 </pre>
 
+```cpp
+static void logoutTwitter ( ) ;
+```
+
+```cpp
+static void setFileProviderAuthorities ( const std::string & authority ) ;
+```
+
 
 ### Listeners
 ```cpp

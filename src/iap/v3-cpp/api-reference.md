@@ -82,17 +82,16 @@ static void updateStorePromotionVisibility ( const std::string & productName ,
 ```
 
 ```cpp
-static void getPurchaseHistory();
+static void getPurchaseHistory ( ) ;
 ```
-> get all purchase history, include cancelled, expired
 
 ```cpp
-static void getInitializedErrMsg();
+static std::string getInitializedErrMsg ( ) ;
 ```
 > get initialized error message
 
 ```cpp
-static void requestUpdateTransaction();
+static void requestUpdateTransaction ( ) ;
 ```
 > request all unfinish transaction, and retrigger onSuccess, onFailed or onCancel event with corresponding transaction.
 >
@@ -171,20 +170,23 @@ void onUpdateStorePromotionVisibility ( const std::string & error )
 ```
 
 ```cpp
-void onPurchaseHistory(const std::string& purchases) 
+void onPurchaseHistory ( const std::string & purchases ) 
 ```
 
 ```cpp
-void onConsumed(const Product& p, const std::string& error) 
+void onConsumed ( const Product & p , const std::string & error ) 
 ```
+> Called when consume completed, just trigger on android
 
 ```cpp
-void onDeferred(const Product& p) 
+void onDeferred ( const Product & p ) 
 ```
 > Called when IAP pay deferred
->
-> Note: Pay deferred status is a middle status, for most developer, needn't case this status
-> this status will change to success or failed or cancel, its final status is pending external action.
->
-> Please DO NOT finishTransaction when status is deferred.
+
+<pre>
+Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.
+Please DO NOT finishTransaction when status is deferred.
+</pre>
+
 

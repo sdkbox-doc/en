@@ -166,16 +166,19 @@ onPurchaseHistory(purchases);
 ```
 
 ```javascript
-onConsumed(product, error);
+onConsumed(p, error);
 ```
+> Called when consume completed, just trigger on android
 
 ```javascript
-onDeferred(product);
+onDeferred(p);
 ```
 > Called when IAP pay deferred
->
-> Note: Pay deferred status is a middle status, for most developer, needn't case this status
-> this status will change to success or failed or cancel, its final status is pending external action.
->
-> Please DO NOT finishTransaction when status is deferred.
+
+<pre>
+Note: Pay deferred status is a middle status, for most developer, needn't case this status
+this status will change to success or failed or cancel, its final status is pending external action.
+Please DO NOT finishTransaction when status is deferred.
+</pre>
+
 

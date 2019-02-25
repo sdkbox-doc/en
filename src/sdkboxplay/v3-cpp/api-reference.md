@@ -295,18 +295,24 @@ will trigger onSaveGameData callback
 
 <pre>
 Note: if you want to save string, please translate to void>
+
+In JavaScript, please use
+```javascript
+sdkbox.PluginSdkboxPlay.saveGameDataBinary('name', 'stringdata');
+```
+
 </pre>
 
 ```cpp
-static void generateIdentityVerificationSignature();
+static void generateIdentityVerificationSignature ( ) ;
 ```
 > Generates a signature that allows a third party server to authenticate the local player.
+just vaild on iOS
 
-> just vaild on iOS
-
-> [iOS Ref Document](https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign)
-
-> Note: on Android, you can get server_auth_code from getPlayerAccountField
+<pre>
+https://developer.apple.com/documentation/gamekit/gklocalplayer/1515407-generateidentityverificationsign
+Note: on Android, you can get server_auth_code from getPlayerAccountField
+</pre>
 
 
 ### Listeners
@@ -514,4 +520,13 @@ void onGameDataNames ( const std::vector <std::string> & names ,
                        const std::string & error ) 
 ```
 > 
+```cpp
+void onGenerateIdentityVerificationSignature ( const std::string & publicKeyUrl ,
+                                               const std::string & signatureBase64 ,
+                                               const std::string & saltBase64 ,
+                                               unsigned long long timestamp ,
+                                               const std::string & error ) 
+```
+> trigger after call generateIdentityVerificationSignature
+
 

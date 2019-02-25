@@ -46,6 +46,10 @@ static void userDidSignificantEvent ( bool canPromptForRating ) ;
 ```
 
 ```cpp
+static void rateInAppstore ( bool yes ) ;
+```
+
+```cpp
 SDKBOX_DEPRECATED ( "setTitle" ) static void setTitle ( const std::string & title ) ;
 ```
 

@@ -36,6 +36,10 @@ sdkbox.PluginReview.userDidSignificantEvent(canPromptForRating);
 ```
 
 ```javascript
+sdkbox.PluginReview.rateInAppstore(yes);
+```
+
+```javascript
 sdkbox.PluginReview.SDKBOX_DEPRECATED(setTitle(conststd::string&title);
 ```
 

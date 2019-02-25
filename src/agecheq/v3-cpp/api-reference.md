@@ -24,8 +24,8 @@ static void removeListener ( ) ;
 ```cpp
 static void check ( const std::string & ACPin ) ;
 ```
->  The AgeCheq check method is used to determine the status of a child's relationship with a particular
- online service. It requires the developer's unique identifier, the child's AgeCheq PIN as set up by
+>  The AgeCheq check method is used to determine the status of a child’s relationship with a particular
+ online service. It requires the developer’s unique identifier, the child’s AgeCheq PIN as set up by
  their parent, and the unique identifier of the game or application.
 
 <pre>
@@ -37,7 +37,7 @@ static void associateData ( const std::string & ACPin ,
                             const std::string & Data ) ;
 ```
 >  The associateData method allows you to save a string of information linking it to a particular
- AgeCheqPIN for a specific game or app. You'll want to use that data later if a parent should
+ AgeCheqPIN for a specific game or app. You’ll want to use that data later if a parent should
  unauthorize your online service.
 
 <pre>
@@ -64,8 +64,8 @@ void checkResponse ( const std::string & rtn ,
  status variables that you can check against.
 
 <pre>
- @param rtn If the method made a good round-trip to the server and back, this value will be "OK".
- If the method failed for some reason, this value will read "FAIL".
+ @param rtn If the method made a good round-trip to the server and back, this value will be “OK”.
+ If the method failed for some reason, this value will read “FAIL”.
  @param rtnmsg If the method failed for some reason, this value will hold a brief explanation of
  why it happened. If the method made a good round-trip to the server and back, this value will be
  empty.
@@ -73,7 +73,7 @@ void checkResponse ( const std::string & rtn ,
  @param checktype The values will correspond to the following types:
          0 = Normal check call
          1 = Normal check as a result of a throttled call
-         2 = All data forced to "allow" as a result of a throttled call
+         2 = All data forced to “allow” as a result of a throttled call
  @param appauthorized If the game or app is authorized by an adult for use by a child under 13,
  the value will be true. If the game or app is not authorized by a parent, or if the device is not
  yet registered this value will be false.
@@ -108,8 +108,8 @@ void associateDataResponse ( const std::string & rtn ,
 >  The delegate named associateDataResponse is triggered once the associateData command executes.
 
 <pre>
- @param rtn If the method made a good round-trip to the server and back, this value will be "OK".
- If the method failed for some reason, this value will read "FAIL".
+ @param rtn If the method made a good round-trip to the server and back, this value will be “OK”.
+ If the method failed for some reason, this value will read “FAIL”.
  @param rtnmsg If the method failed for some reason, this value will hold a brief explanation
  of why it happened. If the method made a good round-trip to the server and back, this value
  will be empty.

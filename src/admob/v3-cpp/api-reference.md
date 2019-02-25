@@ -95,7 +95,7 @@ static int getCurrBannerHeightInPixel ( const std::string & name = "" ) ;
 ```cpp
 static void setGDPR ( bool enabled ) ;
 ```
-> set GDPR
+> set GDPR. true: non-personalized ads, false: personalized ads.
 
 
 ### Listeners
