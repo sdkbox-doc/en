@@ -82,7 +82,7 @@ If you have IAP items,  whose type is __non-consumable__ or __subscription__, it
 }
 ```
 
-__Note__: the `key` in sdkbox_config.json should be get from `Google Play Console`, take a look at follow screenshot:
+__Note__: the `key` in sdkbox_config.json should be get from `Google Play Console`, Google Console->Developer Tools->Services & APIs, take a look at follow screenshot:
 
 ![](../../imgs/google_licensing_iab.png)
 
