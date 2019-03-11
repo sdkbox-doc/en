@@ -1,6 +1,11 @@
 
 # SDKBoxPlay Troubleshoot
 
+## Project Settings
+
+1. Set `"cloud_save": false,` with `sdkbox_config.json` file.
+2. Set Application ID: `<string name="google_app_id">1033290651465</string>` with `proj.android-studio/app/res/values/strings.xml` file.
+
 ## Keystore
 
 please make sure keystore's SHA-1 is same in follow points:
