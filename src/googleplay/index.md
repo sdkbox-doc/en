@@ -3,7 +3,7 @@
 <h1>Google Play Games Services Plugin</h1>
 
 ##Overview
-You can find [more information about this plugin here.](http://www.sdkbox.com/plugins/googleplayservices) 
+You can find [more information about this plugin here.](http://www.sdkbox.com/plugins/googleplayservices)
 
 ##Integration Guides
 
@@ -13,4 +13,5 @@ You can find [more information about this plugin here.](http://www.sdkbox.com/pl
 
 ##Sample Project
 
-[A demo project on github](https://github.com/sdkbox/sdkbox-sample-googleplay)
+1. [A demo project on github](https://github.com/sdkbox/sdkbox-sample-googleplay)
+2. [A creator demo project on github](https://github.com/sdkbox/sdkbox-sample-ccc200/tree/gpg)
