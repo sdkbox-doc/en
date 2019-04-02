@@ -77,3 +77,4 @@ SdkboxAds defines a default AdUnit. It will be the first defined unit in the the
 ##Sample Project
 
 * [A demo project using cocos2d-x v3.x on github](https://github.com/sdkbox/sdkbox-sample-sdkboxads)
+[A creator demo project on github](https://github.com/sdkbox/sdkbox-sample-ccc200/tree/sdkboxads)

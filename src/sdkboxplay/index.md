@@ -13,3 +13,4 @@ Currently, this plugin offers common implementation for Leaderboards and Achieve
 ##Sample Project
 
 * [A demo project using cocos2d-x v3.x on github](https://github.com/sdkbox/sdkbox-sample-sdkboxplay)
+[A creator demo project on github](https://github.com/sdkbox/sdkbox-sample-ccc200/tree/sdkboxplay)

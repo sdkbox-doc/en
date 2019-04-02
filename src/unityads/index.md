@@ -11,4 +11,5 @@ You can find [more information about this plugin here.](http://www.cocos2d-x.org
 
 ##Sample Project
 
-[A demo project on github](https://github.com/sdkbox/sdkbox-sample-unityads)
+1. [A demo project on github](https://github.com/sdkbox/sdkbox-sample-unityads)
+2. [A creator demo project on github](https://github.com/sdkbox/sdkbox-sample-ccc200/tree/unityads)
