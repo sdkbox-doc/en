@@ -148,3 +148,10 @@ if you don't want popup show when unlock achievement, you can set 'show_achievem
 <<[../shared/cloud_save.md]
 
 <<[../shared/thrid_server_authenticate.md]
+
+## Crash
+1. [_ZN6sdkbox20GPGAchievementsProxy6unlockERKNSt6__ndk112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE](https://discuss.cocos2d-x.org/t/crash-reports-from-google-play/46239?u=yinjimmy)
+
+  [Please be cure the user is signed in, call sdkbox::PluginSdkboxPlay::isSignedIn().](https://discuss.cocos2d-x.org/t/crash-reports-from-google-play/46239/3?u=yinjimmy)
+
+
