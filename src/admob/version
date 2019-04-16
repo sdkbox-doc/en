@@ -1,2 +1,2 @@
-- ios: 7.37.0
-- android: com.google.android.gms:play-services-ads:15.0.1
+- ios: 7.42.2
+- android: com.google.android.gms:play-services-ads:17.2.0
