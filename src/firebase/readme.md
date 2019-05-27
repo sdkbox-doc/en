@@ -25,6 +25,13 @@ Firebase's configuration file can download from firebase [website](https://conso
 you can download iOS configuration file `GoogleService-Info.plist` from `iOS Project` -> `Settings`, and then drag `GoogleService-Info.plist` to your iOS project
 
 #### Android Json
+
+##### For Android Studio
+
+[https://firebase.google.com/docs/android/setup?authuser=0#add-config-file](https://firebase.google.com/docs/android/setup?authuser=0#add-config-file)
+
+##### For Eclipse
+
 you can download Android configuration file `google-services.json` from `Android Project` -> `Settings`
 
 __Notice__:
@@ -41,6 +48,7 @@ python -c """import urllib; import sys; sys.argv = ['transpy', '-i', './google-s
  * `googleservices.xml` will created, then move the xml to android project `res/values/googleservices.xml`
 
 more info, take a look at [this](https://support.google.com/firebase/answer/7015592)
+
 
 ##### google_app_id Conflict
 
