@@ -17,7 +17,7 @@ sdkbox.PluginFacebook:login()
 > log in
 
 <pre>
-This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+This method calls login with a single permission: sdkbox.FB_PERM_READ_PUBLIC_PROFILE
 </pre>
 
 ```lua

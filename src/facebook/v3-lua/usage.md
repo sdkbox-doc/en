@@ -27,15 +27,16 @@ You can get a complete list of permissions [here](https://developers.facebook.co
 
 SDKBOX provides the most commonly used permissions:
 
-* FB_PERM_READ_PUBLIC_PROFILE
-* FB_PERM_READ_EMAIL
-* FB_PERM_READ_USER_FRIENDS
-* FB_PERM_PUBLISH_POST
+* sdkbox.FB_PERM_READ_PUBLIC_PROFILE
+* sdkbox.FB_PERM_READ_EMAIL
+* sdkbox.FB_PERM_READ_USER_FRIENDS
+* sdkbox.FB_PERM_PUBLISH_POST
 
 To request a permission, you do so by specifying what you want:
 ```lua
-sdkbox.PluginFacebook:requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook:requestPublishPermissions({FB_PERM_PUBLISH_POST});
+assert(sdkbox.FB_PERM_READ_USER_FRIENDS)
+sdkbox.PluginFacebook:requestReadPermissions({sdkbox.FB_PERM_READ_PUBLIC_PROFILE, sdkbox.FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook:requestPublishPermissions({sdkbox.FB_PERM_PUBLISH_POST});
 ```
 
 #### Share
