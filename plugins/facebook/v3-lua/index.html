@@ -1048,14 +1048,15 @@ There are two types of permission <strong>read</strong> and <strong>publish</str
 You can get a complete list of permissions <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.3#reference">here</a></p>
 <p>SDKBOX provides the most commonly used permissions:</p>
 <ul>
-<li>FB_PERM_READ_PUBLIC_PROFILE</li>
-<li>FB_PERM_READ_EMAIL</li>
-<li>FB_PERM_READ_USER_FRIENDS</li>
-<li>FB_PERM_PUBLISH_POST</li>
+<li>sdkbox.FB_PERM_READ_PUBLIC_PROFILE</li>
+<li>sdkbox.FB_PERM_READ_EMAIL</li>
+<li>sdkbox.FB_PERM_READ_USER_FRIENDS</li>
+<li>sdkbox.FB_PERM_PUBLISH_POST</li>
 </ul>
 <p>To request a permission, you do so by specifying what you want:</p>
-<pre><code class="lua">sdkbox.PluginFacebook:requestReadPermissions({FB_PERM_READ_PUBLIC_PROFILE, FB_PERM_READ_USER_FRIENDS});
-sdkbox.PluginFacebook:requestPublishPermissions({FB_PERM_PUBLISH_POST});
+<pre><code class="lua">assert(sdkbox.FB_PERM_READ_USER_FRIENDS)
+sdkbox.PluginFacebook:requestReadPermissions({sdkbox.FB_PERM_READ_PUBLIC_PROFILE, sdkbox.FB_PERM_READ_USER_FRIENDS});
+sdkbox.PluginFacebook:requestPublishPermissions({sdkbox.FB_PERM_PUBLISH_POST});
 </code></pre>
 
 <h4 id="share">Share</h4>
@@ -1213,7 +1214,7 @@ end)
 <p>log in</p>
 </blockquote>
 <pre>
-This method calls login with a single permission: sdkbox::FB_PERM_READ_PUBLIC_PROFILE
+This method calls login with a single permission: sdkbox.FB_PERM_READ_PUBLIC_PROFILE
 </pre>
 
 <pre><code class="lua">sdkbox.PluginFacebook:login(permissions)
@@ -1693,7 +1694,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-04-24 14:26:05.993634, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-05-29 14:54:49.017219, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
