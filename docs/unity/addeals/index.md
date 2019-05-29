@@ -15,7 +15,7 @@ System requirements:
 
 * In order to get your AppID  & AppKey you must first create an account on http://www.addealsnetwork.com
 * Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.
-* <font color=#FF0000>Download</font> the latest AdDeals plugin with [this link](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-1.1.0.unitypackage). Check out all versions at [our Github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/)
+* <font color=#FF0000>Download</font> the latest AdDeals plugin with [this link](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-1.1.1.unitypackage). Check out all versions at [our Github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/)
 * Drag `Assets\AdDeals\AdDeals.prefab` onto your game scene.
 * Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`:
 ```
