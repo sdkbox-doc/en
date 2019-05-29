@@ -31,11 +31,17 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 * Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
 * Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:
 
-    ![Unity UWP project config](./unity_project_config.png)
+
+![Unity UWP project config](unity_project_config.png)
+
+
+* Or using il2cpp ScriptBackend, please export the project in Unity 2018 or later with following settings:
+
+![Unity UWP project config](unity_il2cpp_project_config.png)
 
 * Please enable `InternetClient` setting for UWP under `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`
 
-    ![Unity UWP capabilities setting](./uwp_capabilities.png)
+![Unity UWP capabilities setting](./uwp_capabilities.png)
 
 * For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases).
 
@@ -48,7 +54,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 
     1. new script phase, and name it `StripAdDeals`
 
-    ![Unity iOS new script phase](./unity_addeals_ios_new_script_phase.png)
+![Unity iOS new script phase](./unity_addeals_ios_new_script_phase.png)
 
     2. add follow script
 
@@ -95,7 +101,7 @@ and the script phase should be look like follow
 
 * From Unity, first export the application to a Gradle project. Next build and run it using Android Studio. __Do NOT build APK directly in Unity.__
 
-    ![](./unity_android_export.png)
+![](./unity_android_export.png)
 
 * Support Android SDK v15+.
 * For Unity 5.x: please edit `YOUR_EXPORTS_PROTECT_ROOT/build.gradle` with the following configurations:
