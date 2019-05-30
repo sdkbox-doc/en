@@ -11,7 +11,7 @@ Or use pipenv
 ```
 sudo -H pip install pipenv
 pipenv install mkdocs==0.14.0
-pipenv run python ./publish.sh #test
+pipenv run ./publish.sh #test
 ```
 
 ## Documents generator
