@@ -27,3 +27,11 @@ please check follow points:
 
 * Xcode -> Capablities -> In-App Purchase , turn on
 
+## iOS requestUpdateTransaction no callback
+
+Invoke 
+```
+sdkbox::IAP::setListener(new your_iap_listener());
+sdkbox::IAP::init();
+``` 
+as early as possible
