@@ -1,5 +1,81 @@
 # Release Notes
 
+# 2.5.0.0 (20190627)
+
+## Add
+
+1. Misc: add `keychain` for iOS
+2. Misc: add `SystemVersion` for Android
+3. IAP: add `generateIdentityVerificationSignature` for iOS
+4. `setGDPR`: Some plugins invoke 3rd SDK (AdMob,Unity) api, some not yet.
+    - PluginAdMob: AdMob & sdkbox-core
+    - PluginUnity: Unity & sdkbox-core
+    - PluginChartboost: Chartboost & sdkbox-core
+    - PluginAdColony: sdkbox-core
+    - PluginAgeCheq: sdkbox-core
+    - PluginAppnext: sdkbox-core
+    - PluginAppodeal: sdkbox-core
+    - PluginApteligent: sdkbox-core
+    - PluginBee7: sdkbox-core
+    - PluginFacebook: sdkbox-core
+    - PluginFirebaseAnalytics: sdkbox-core
+    - PluginFlurryAnalytics: sdkbox-core
+    - PluginFyber: sdkbox-core
+    - PluginGoogleAnalytics: sdkbox-core
+    - PluginGPG: sdkbox-core
+    - PluginInMobi: sdkbox-core
+    - IAP: sdkbox-core
+    - PluginKochava: sdkbox-core
+    - PluginLeadBolt: sdkbox-core
+    - PluginMisc: sdkbox-core
+    - PluginOneSignal: sdkbox-core
+    - PluginPhunwareAds: sdkbox-core
+    - PluginPhunwareMessaging: sdkbox-core
+    - PluginSdkbox-coreAds: sdkbox-core
+    - PluginSdkbox-corePlay: sdkbox-core
+    - PluginShare: sdkbox-core
+    - PluginTapcore: sdkbox-core
+    - PluginTune: sdkbox-core
+    - PluginValuePotion: sdkbox-core
+    - PluginYoutube: sdkbox-core
+5. AdMob: output ad request extra argument for debug
+6. AdMob: auto cache failed AD by `setAutoCacheDelay`
+7. AdMob: support do not cache ad when init / AD closed by `setAutoCache`
+8. CMake: fix Lua/JS, gpg
+9. Support CMake when cocos >= 3.16
+10. Facebook: `gameRequest` api
+11. Facebook: `onInviteFriendsWithInviteIdsResult` return uids `[]`
+12. Firebase: `setScreenName` api for Android
+13. Firebase: export constants to Lua
+    - sdkbox.FB_PERM_READ_PUBLIC_PROFILE
+    - sdkbox.FB_PERM_READ_EMAIL
+    - sdkbox.FB_PERM_READ_USER_FRIENDS
+    - sdkbox.FB_PERM_PUBLISH_POST
+    - sdkbox.FBSDKLoginBehaviorNative
+    - sdkbox.FBSDKLoginBehaviorBrowser
+    - sdkbox.FBSDKLoginBehaviorSystemAccount
+14. export sdkbox api to JS/Lua
+    - sdkbox::init
+    - sdkbox::setConfig
+    - sdkbox::getConfig
+
+## Upgrade
+
+1. Firebase update iOS SDK 6.2.0
+2. AdColony android 3.3.8
+3. play-services-ads android 17.2.0
+4. Facebook iOS SDK to V5
+5. AdMob iOS SDK 7.44.0
+
+## Bugfix
+
+1. Fixed SDKBoxPlay login: using `getGoogleSignInOptions()` not `GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN` on Android
+2. Fixed Facebook iOS12 login
+3. Fixed AdMob smart banner for iOS
+4. Fixed share proguard
+5. [Fixed sdkbox-core iOS memory leak](https://discuss.cocos2d-x.org/t/sdkboxreachability-memory-leaks/46791)
+6. Fixed IAP `getPurchaseHistory`
+7. Fixed AdMob banner position: on `top` when config `bottom`
 
 # 2.4.3.3 (20190127)
 
