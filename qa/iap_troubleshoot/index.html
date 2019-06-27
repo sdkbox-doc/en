@@ -696,6 +696,8 @@
         
             <li><a href="#ios-in-app-purchase">iOS In-App Purchase</a></li>
         
+            <li><a href="#ios-requestupdatetransaction-no-callback">iOS requestUpdateTransaction no callback</a></li>
+        
 	</ul>
 	
     
@@ -732,14 +734,21 @@
 <p><img alt="" src="../../imgs/iap_products_id.png" /></p>
 <ul>
 <li>Xcode -&gt; Capablities -&gt; In-App Purchase , turn on</li>
-</ul></div>
+</ul>
+<h2 id="ios-requestupdatetransaction-no-callback">iOS requestUpdateTransaction no callback</h2>
+<p>Invoke </p>
+<pre><code>sdkbox::IAP::setListener(new your_iap_listener());
+sdkbox::IAP::init();
+</code></pre>
+
+<p>as early as possible</p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-05-30 03:04:20.904549, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-06-27 03:05:00.829325, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
