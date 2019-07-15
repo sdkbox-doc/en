@@ -106,6 +106,14 @@ if you want to test this status, you can add `simulatesAskToBuyInSandbox` to `sd
 
 more about [SKPaymentTransactionStateDeferred](https://stackoverflow.com/questions/25510678/how-to-test-skpaymenttransactionstatedeferred)
 
+### Initialization opportunity
+
+For the initialization of IAP, please note the following:
+
+1. After the app starts, initialize the IAP as early as possible.
+2. Please setListener first , then init .
+3. If there are multiple plugins, the IAP init should be called first.
+
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
