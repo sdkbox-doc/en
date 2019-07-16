@@ -714,6 +714,8 @@
         
             <li><a href="#skpaymenttransactionstatedeferred-test">SKPaymentTransactionStateDeferred test</a></li>
         
+            <li><a href="#initialization-opportunity">Initialization opportunity</a></li>
+        
 	</ul>
 	
     
@@ -957,6 +959,13 @@
 </code></pre>
 
 <p>more about <a href="https://stackoverflow.com/questions/25510678/how-to-test-skpaymenttransactionstatedeferred">SKPaymentTransactionStateDeferred</a></p>
+<h3 id="initialization-opportunity">Initialization opportunity</h3>
+<p>For the initialization of IAP, please note the following:</p>
+<ol>
+<li>After the app starts, initialize the IAP as early as possible.</li>
+<li>Please setListener first , then init .</li>
+<li>If there are multiple plugins, the IAP init should be called first.</li>
+</ol>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -1613,7 +1622,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-07-14 03:55:07.779483, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-07-16 17:19:50.807927, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
