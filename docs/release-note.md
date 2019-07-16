@@ -1,5 +1,11 @@
 # Release Notes
 
+# 2.5.0.1 (20190717)
+
+## Bugfix
+
+1. https://discuss.cocos2d-x.org/t/after-update-sdkbox-to-2-5-0-0-the-game-crashes-immediately-after-turn-off-wifi/
+
 # 2.5.0.0 (20190627)
 
 ## Add
