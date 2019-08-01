@@ -1,5 +1,12 @@
 # Release Notes
 
+# 2.5.1.0 (?)
+
+## Bugfix
+
+1. fix [cant-run-or-compile-game-on-android-because-of-admob](http://discuss.cocos2d-x.org/t/cant-run-or-compile-game-on-android-because-of-admob/47177)
+2. fix [how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu](http://discuss.cocos2d-x.org/t/how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu/47064)
+
 # 2.5.0.1 (20190717)
 
 ## Bugfix
@@ -89,11 +96,11 @@
 
 1. AdMob support application id, `appid` field in `sdkbox_config.json` file
 2. AdMob support testdevice, `testdevice` field in `sdkbox_config.json` file
-2. IAP add iOS `paydeferred` status
-3. OneSignal support GDPR with api `setRequiresUserPrivacyConsent`, `consentGranted`, `requiresUserPrivacyConsent`
-4. Facebook check com.facebook.sdk.ApplicationId and com.facebook.FacebookContentProvider when `sdkbox::PluginFacebook:init`
-5. Support CMake from cocos2d-x 3.17.1
-6. Binding `sdkbox::init` and `sdkbox::setProject` to Lua and JavaScript
+3. IAP add iOS `paydeferred` status
+4. OneSignal support GDPR with api `setRequiresUserPrivacyConsent`, `consentGranted`, `requiresUserPrivacyConsent`
+5. Facebook check com.facebook.sdk.ApplicationId and com.facebook.FacebookContentProvider when `sdkbox::PluginFacebook:init`
+6. Support CMake from cocos2d-x 3.17.1
+7. Binding `sdkbox::init` and `sdkbox::setProject` to Lua and JavaScript
 
 ## Upgrade
 
@@ -103,9 +110,9 @@
 ## Bugfix
 
 1. Fixed failed to patch appactivity.java with Cocos Creator 1.9.3
-1. Fixed JSB2: fix JSListenerBase::invokeJSFun crash for all plugins
-2. Fixed IAP:    add `getInitializedErrMsg` api for [this issue](https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy)
-3. Fixed `Case Sensitive` with imoprt module in `Android.mk` file. Such as `$(call import-module, ./PluginOneSignal)`
+2. Fixed JSB2: fix JSListenerBase::invokeJSFun crash for all plugins
+3. Fixed IAP:    add `getInitializedErrMsg` api for [this issue](https://discuss.cocos2d-x.org/t/sdkbox-ideas-requests/23838/74?u=yinjimmy)
+4. Fixed `Case Sensitive` with imoprt module in `Android.mk` file. Such as `$(call import-module, ./PluginOneSignal)`
 
 # 2.4.3.0 (20181214)
 
@@ -119,7 +126,7 @@
 0. **Core: fix Android crash bug**, [unsatisfiedlinkerror-on-released-game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190), [issue2](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/34?u=yinjimmy), [issue3](https://discuss.cocos2d-x.org/t/no-implementation-found-for-void-com-sdkbox-plugin-sdkbox-nativeinit/34272/30?u=yinjimmy)
 1. Review: [android.view.WindowManager$BadTokenException crash](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190/17?u=yinjimmy)
 2. JSB2: JSListenerBase::invokeJSFun crash
-3.  SDKBoxPlay:
+3. SDKBoxPlay:
     -   [sign in crash](https://discuss.cocos2d-x.org/t/too-many-crash-on-sdkboxplay-sign-in-flow/44801)
     -   [no onIncrementalAchievementUnlocked callback](https://discuss.cocos2d-x.org/t/incremental-achievement-unlock-callback-not-called/44675)
     -   IllegalStateException: Must include Drive.SCOPE_APPFOLDER to use snapshots!](https://discuss.cocos2d-x.org/t/too-many-crash-on-sdkboxplay-sign-in-flow/44801)
@@ -170,10 +177,10 @@
 
 3.  Review: Amazon, try market first, then webview
 4.  SDKBox-core: fix android armeabi/armeabi-v7a arch. In pre-release, armeabi folder
-       contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix [UnsatisfiedLinkError on Released Game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190)
+      contains armeabi-v7a files, armeabi-v7a folder contains armeabi, maybe fix [UnsatisfiedLinkError on Released Game](https://discuss.cocos2d-x.org/t/unsatisfiedlinkerror-on-released-game/44190)
 5.  Facebook: fix [share callback for iOS](https://developers.facebook.com/docs/ios/troubleshooting#faq_1045833585509347). Follow Facebook's development documentation and no longer use postId to determine if sharing is successful.
 6.  Appodeal: fix installer `'android:theme=@@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
-       should be `'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
+      should be `'android:theme=@android:style/Theme.Translucent.NoTitleBar.Fullscreen'])`
 
 # 2.4.1.1 Release Notes (20180920)
 
@@ -1020,3 +1027,4 @@ Fix SDKBOX conflicts with Plugin-x
 ===
 
 Fix SDKBOX IAP plugin return invalid pricing data
+
