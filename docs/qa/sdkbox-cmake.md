@@ -1,4 +1,11 @@
 
+# NOTE: plz keep PluginXXX before sdkbox
+
+```
+# PluginFacebook
+# sdkbox
+```
+
 # CPP
 
   Plz add bellow code to the bottom of __PROJECT_ROOT__/CMakeLists.txt and replace PluginFacebook with your Plugin name
