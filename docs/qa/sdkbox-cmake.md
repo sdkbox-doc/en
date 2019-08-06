@@ -92,3 +92,31 @@ if(ANDROID)
    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/SDKBoxLuaHelper.cpp)
 endif()
 ```
+
+
+# IOS
+
+## IAP example
+
+```
+if(IOS)
+add_definitions(-DSDKBOX_ENABLED)
+message(${CMAKE_CURRENT_SOURCE_DIR}/proj.ios_mac)
+find_host_library(F_IAP
+    NAMES PluginIAP
+    PATHS ${CMAKE_CURRENT_SOURCE_DIR}/proj.ios_mac
+    )
+message(STATUS "F_IAP: ${F_IAP}") # print find libs result
+target_link_libraries(${APP_NAME} ${F_IAP} "-framework SystemConfiguration" "-framework StoreKit")
+endif()
+
+if(IOS)
+find_host_library(F_SDKBOX
+    NAMES sdkbox
+    PATHS ${CMAKE_CURRENT_SOURCE_DIR}/proj.ios_mac
+    )
+message(STATUS "F_SDKBOX: ${F_SDKBOX}") # print find libs result
+
+target_link_libraries(${APP_NAME} ${F_SDKBOX})
+endif()
+```
