@@ -2,6 +2,11 @@
 
 ### Methods
 ```cpp
+static void setGDPR ( bool enabled ) ;
+```
+> Set GDPR
+
+```cpp
 static bool init ( const char * jsonconfig = 0 ) ;
 ```
 >  initialize the plugin instance.
