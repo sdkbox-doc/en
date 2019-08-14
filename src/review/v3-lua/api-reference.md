@@ -2,6 +2,11 @@
 
 ### Methods
 ```lua
+sdkbox.PluginReview:setGDPR(enabled)
+```
+> Set GDPR
+
+```lua
 sdkbox.PluginReview:init(jsonconfig)
 ```
 >  initialize the plugin instance.

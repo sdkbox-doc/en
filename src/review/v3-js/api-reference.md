@@ -2,6 +2,11 @@
 
 ### Methods
 ```javascript
+sdkbox.PluginReview.setGDPR(enabled);
+```
+> Set GDPR
+
+```javascript
 sdkbox.PluginReview.init(jsonconfig);
 ```
 >  initialize the plugin instance.
