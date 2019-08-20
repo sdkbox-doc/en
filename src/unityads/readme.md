@@ -26,8 +26,23 @@ Here is an example of the UnityAds configuration, you need to replace `<gameId>`
 "UnityAds":{
     "gameId": "1493045",
     "testMode": true,
+    "ads": {
+        "banner": {
+            "placement": "banner",
+            "type":"banner"
+        },
+        "interstitial1": {
+            "placement": "video"
+        },
+        "interstitial2": {
+            "placement": "rewarded_video"
+        },
+    }
 }
 ```
+
+If you want to display the banner, you need to configure banner information in the ads in sdkbox_config.json.
+Interstitial can also be configured in ads. This is not mandatory, but it is recommended.
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
