@@ -324,7 +324,7 @@ def check_installer(sdkbox_dir):
     return os.path.isfile(sdkbox_file)
 
 def download_installer(path, info):
-    response = Utils.curl(info['url'], None, 1024, Utils.progress_bar)
+    response = Utils.curl(info['url'], None, None, Utils.progress_bar)
     sha1 = Utils.calculate_sha1(response)
     if sha1 != info['sha1']:
         raise RuntimeError('ERROR! SHA1 of update does not match\nFound  : {0}\nNeeded : {1}'.format(sha1, info['sha1']))
@@ -341,7 +341,7 @@ def download_installer(path, info):
 
 def get_installer_url():
     url = 'http://download.sdkbox.com/installer/v1/manifest.json'
-    data = Utils.curl(url, None, 1024, None)
+    data = Utils.curl(url, None, None, None)
     if not data or 0 == len(data):
         raise Exception('ERROR! load manifest fail')
     manifest = json.loads(data)
