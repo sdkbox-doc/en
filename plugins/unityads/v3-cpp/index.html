@@ -795,9 +795,23 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <pre><code class="json">&quot;UnityAds&quot;:{
     &quot;gameId&quot;: &quot;1493045&quot;,
     &quot;testMode&quot;: true,
+    &quot;ads&quot;: {
+        &quot;banner&quot;: {
+            &quot;placement&quot;: &quot;banner&quot;,
+            &quot;type&quot;:&quot;banner&quot;
+        },
+        &quot;interstitial1&quot;: {
+            &quot;placement&quot;: &quot;video&quot;
+        },
+        &quot;interstitial2&quot;: {
+            &quot;placement&quot;: &quot;rewarded_video&quot;
+        },
+    }
 }
 </code></pre>
 
+<p>If you want to display the banner, you need to configure banner information in the ads in sdkbox_config.json.
+Interstitial can also be configured in ads. This is not mandatory, but it is recommended.</p>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -1280,7 +1294,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-08-14 14:32:34.152269, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-08-21 17:30:00.528915, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

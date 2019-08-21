@@ -717,20 +717,20 @@
 <ul>
 <li>Unity v5.5.4.p5 or later</li>
 <li>Vistual Studio 2017 or later</li>
-<li>Xcode 10</li>
-<li>Android Studio 3.2.1</li>
+<li>Xcode 10 or later</li>
+<li>Android Studio 3.2.1 or later</li>
 </ul>
 <h2 id="integrate">Integrate</h2>
 <ul>
 <li>In order to get your AppID  &amp; AppKey you must first create an account on http://www.addealsnetwork.com</li>
 <li>Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.</li>
-<li><font color=#FF0000>Download</font> the latest AdDeals plugin with <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-1.1.1.unitypackage">this link</a>. Check out all versions at <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">our Github repo</a></li>
+<li><font color=#FF0000>Download</font> the AdDeals plugin from either <a href="http://u3d.as/1p2y">Unity Asset Store</a>, or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
 <li>Drag <code>Assets\AdDeals\AdDeals.prefab</code> onto your game scene.</li>
 <li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>:</li>
 </ul>
 <pre><code>AdDeals.AdDealsWrapper.Init(&quot;AppID&quot;, &quot;AppKey&quot;);
 
-int adType = AdDealsWrapper.AdTypeInterstitial; // 1:interstitial 2: reward video
+int adType = AdDealsWrapper.AdTypeInterstitial; // 1:interstitial 2: rewarded video
 AdDeals.AdDealsWrapper.ShowAd(adType);
 </code></pre>
 
@@ -745,8 +745,11 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 </ul>
 <p><img alt="Unity UWP project config" src="./unity_il2cpp_project_config.png" /></p>
 <ul>
-<li>Please enable <code>InternetClient</code> setting for UWP under <code>PlayerSetting</code>-&gt;<code>Universal Windows Platform</code>-&gt;<code>Publishing Setting</code>-&gt;<code>Capabilities</code></li>
+<li>Please enable <code>InternetClient</code>.</li>
 </ul>
+<p>Unity 2019+ UWP capabilities path: <code>Project Settings</code> &gt; <code>Player</code> &gt; <code>Publisher settings</code> &gt; <code>Capabilities</code>.</p>
+<p><img alt="Unity UWP capabilities setting" src="./uwp_capabilities_unity_2019.png" /></p>
+<p>Unity 5.5+ UWP capabilities path: <code>PlayerSetting</code>-&gt;<code>Universal Windows Platform</code>-&gt;<code>Publishing Setting</code>-&gt;<code>Capabilities</code>.</p>
 <p><img alt="Unity UWP capabilities setting" src="./uwp_capabilities.png" /></p>
 <ul>
 <li>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</li>
@@ -792,6 +795,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
     }
 
     binary=&quot;${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdDeals.framework/AdDeals&quot;
+
     # Strip invalid architectures so &quot;fat&quot; simulator / device frameworks work on device
     if [[ &quot;$(file &quot;$binary&quot;)&quot; == *&quot;dynamically linked shared library&quot;* ]]; then
         strip_invalid_archs &quot;$binary&quot;
@@ -841,7 +845,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <ul>
 <li>Check availability.</li>
 </ul>
-<pre><code>void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+<pre><code>void AdDeals.AdDealsWrapper.IsCachedAdAvailable(int adType, int uiOrientation);
 </code></pre>
 
 <ul>
@@ -950,7 +954,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-08-14 14:32:35.007651, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-08-21 17:30:01.199929, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
