@@ -6,8 +6,8 @@ System requirements:
 
 * Unity v5.5.4.p5 or later
 * Vistual Studio 2017 or later
-* Xcode 10
-* Android Studio 3.2.1
+* Xcode 10 or later
+* Android Studio 3.2.1 or later
 
 
 
@@ -15,13 +15,13 @@ System requirements:
 
 * In order to get your AppID  & AppKey you must first create an account on http://www.addealsnetwork.com
 * Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.
-* <font color=#FF0000>Download</font> the latest AdDeals plugin with [this link](https://github.com/sdkbox/AdDeals-Unity-Plugin/raw/master/AdDeals-1.1.1.unitypackage). Check out all versions at [our Github repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/)
+* <font color=#FF0000>Download</font> the AdDeals plugin from either [Unity Asset Store](http://u3d.as/1p2y), or [SDKBox repo](https://github.com/sdkbox/AdDeals-Unity-Plugin/).
 * Drag `Assets\AdDeals\AdDeals.prefab` onto your game scene.
 * Call AdDeals SDK APIs. Please check out the sample codes in `Assets\AdDeals\Sample\Test.cs`:
 ```
 AdDeals.AdDealsWrapper.Init("AppID", "AppKey");
 
-int adType = AdDealsWrapper.AdTypeInterstitial; // 1:interstitial 2: reward video
+int adType = AdDealsWrapper.AdTypeInterstitial; // 1:interstitial 2: rewarded video
 AdDeals.AdDealsWrapper.ShowAd(adType);
 ```
 
@@ -31,15 +31,19 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 * Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
 * Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:
 
-
-![Unity UWP project config](unity_project_config.png)
-
+![Unity UWP project config](./unity_project_config.png)
 
 * Or using il2cpp ScriptBackend, please export the project in Unity 2018 or later with following settings:
 
-![Unity UWP project config](unity_il2cpp_project_config.png)
+![Unity UWP project config](./unity_il2cpp_project_config.png)
 
-* Please enable `InternetClient` setting for UWP under `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`
+* Please enable `InternetClient`.
+
+Unity 2019+ UWP capabilities path: `Project Settings` > `Player` > `Publisher settings` > `Capabilities`.
+
+![Unity UWP capabilities setting](./uwp_capabilities_unity_2019.png)
+
+Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`.
 
 ![Unity UWP capabilities setting](./uwp_capabilities.png)
 
@@ -86,6 +90,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
     }
 
     binary="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdDeals.framework/AdDeals"
+
     # Strip invalid architectures so "fat" simulator / device frameworks work on device
     if [[ "$(file "$binary")" == *"dynamically linked shared library"* ]]; then
         strip_invalid_archs "$binary"
@@ -143,7 +148,7 @@ void AdDeals.AdDealsWrapper.SetConsent(int consent);
 * Check availability.
 
 ```
-void AdDeals.AdDealsWrapper.IsAvailable(int adType, int uiOrientation);
+void AdDeals.AdDealsWrapper.IsCachedAdAvailable(int adType, int uiOrientation);
 ```
 
 * `uiOrientation`: when used with adType, lets you indicating if you would prefer getting a video ad whose content is horizontal (most common case) or vertical. Be aware that you aren't giving here a restriction, just a preference. Otherwise, simply pass the AdDealsWrapper.UIOrientationUnset value.
