@@ -27,18 +27,23 @@ class Utils:
     def curl(url, destination=None, chunk_size=None, callback=None):
         try:
             response = urllib2.urlopen(url)
-            if None == chunk_size:
+            content_length = 0
+            if(response.headers.has_key('content-length')):
+                    content_length = response.headers['content-length']
+            if None == chunk_size or content_length == 0:
                 data = response.read()
             else:
                 data = ''
                 size = 0
-                total_size = response.headers['content-length']
+                total_size = content_length
                 while True:
                     chunk = response.read(chunk_size)
                     if not chunk:
                         break
                     size += len(chunk)
                     if None != callback:
+                        if total_size == 0:
+                            total_size = size
                         callback(size, total_size)
                     data += chunk
         except Exception as e:
@@ -324,7 +329,7 @@ def check_installer(sdkbox_dir):
     return os.path.isfile(sdkbox_file)
 
 def download_installer(path, info):
-    response = Utils.curl(info['url'], None, None, Utils.progress_bar)
+    response = Utils.curl(info['url'], None, 1024, Utils.progress_bar)
     sha1 = Utils.calculate_sha1(response)
     if sha1 != info['sha1']:
         raise RuntimeError('ERROR! SHA1 of update does not match\nFound  : {0}\nNeeded : {1}'.format(sha1, info['sha1']))
@@ -341,7 +346,7 @@ def download_installer(path, info):
 
 def get_installer_url():
     url = 'http://download.sdkbox.com/installer/v1/manifest.json'
-    data = Utils.curl(url, None, None, None)
+    data = Utils.curl(url, None, 1024, None)
     if not data or 0 == len(data):
         raise Exception('ERROR! load manifest fail')
     manifest = json.loads(data)
@@ -401,5 +406,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
