@@ -42,8 +42,6 @@ class Utils:
                         break
                     size += len(chunk)
                     if None != callback:
-                        if total_size == 0:
-                            total_size = size
                         callback(size, total_size)
                     data += chunk
         except Exception as e:
