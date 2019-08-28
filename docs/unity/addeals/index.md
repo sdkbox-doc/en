@@ -180,8 +180,8 @@ SDK trigers feedback events (callbacks) notifying the client app when action are
 ```
 public static event AdAvailableHandler AdAvailableEvent;
 public static event AdEventHandler SDKNotInitializedEvent;
-public static event AdEventHandler ShowAdVideoRewardGrantedEvent;
-public static event AdEventHandler ShowAdSucessEvent;
+public static event AdEventHandler ShowAdVideoRewardedGrantedEvent;
+public static event AdEventHandler ShowAdSuccessEvent;
 public static event AdEventStringHandler ShowAdFailedEvent;
 public static event AdEventHandler CacheAdSuccessEvent;
 public static event AdEventStringHandler CacheAdFailedEvent;
