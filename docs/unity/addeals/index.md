@@ -259,3 +259,10 @@ Tested on the follow Unity versions:
 ![](./unity_addeals_framework_import_error.png)
 
 
+## Unity Knowledge Point
+
+When you export UWP project form unity, you wll see `Develop build` in the right corner of the screen. You can hide it by changing the build setting to "Master" on Visual studio.
+
+https://forum.unity.com/threads/unity-uwp-development-build-stamp.450192/
+
+
