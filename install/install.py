@@ -27,12 +27,15 @@ class Utils:
     def curl(url, destination=None, chunk_size=None, callback=None):
         try:
             response = urllib2.urlopen(url)
-            if None == chunk_size:
+            content_length = 0
+            if(response.headers.has_key('content-length')):
+                    content_length = response.headers['content-length']
+            if None == chunk_size or content_length == 0:
                 data = response.read()
             else:
                 data = ''
                 size = 0
-                total_size = response.headers['content-length']
+                total_size = content_length
                 while True:
                     chunk = response.read(chunk_size)
                     if not chunk:
@@ -401,5 +404,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
