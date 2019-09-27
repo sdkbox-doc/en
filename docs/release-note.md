@@ -2,10 +2,38 @@
 
 # 2.5.1.0 (?)
 
+## Add
+## Upgrade
 ## Bugfix
 
-1. fix [cant-run-or-compile-game-on-android-because-of-admob](http://discuss.cocos2d-x.org/t/cant-run-or-compile-game-on-android-because-of-admob/47177)
-2. fix [how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu](http://discuss.cocos2d-x.org/t/how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu/47064)
+# 2.5.0.5 (20190920)
+
+## Add
+1. AdMob:
+    - setAppMuted
+    - setAppVolume
+2. Share: support file provider
+
+    ```
+    info.image = this->_captureFilename;
+    ```
+3. Misc: support local notification title
+4. UnityAds: support banner
+
+## Upgrade
+1. IAP: update Android SDK to billing-2.0.1
+
+## Bugfix
+1. SDKBoxPlay: fix [crash](https://discuss.cocos2d-x.org/t/crash-in-gpg-sdkboxgpgauthentication/47226/2?u=yinjimmy)
+2. AdMob: fix case sensitive with installer
+3. fix [cant-run-or-compile-game-on-android-because-of-admob](http://discuss.cocos2d-x.org/t/cant-run-or-compile-game-on-android-because-of-admob/47177)
+4. fix [how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu](http://discuss.cocos2d-x.org/t/how-can-i-show-a-screenshot-of-the-game-through-the-native-share-menu/47064)
+5. Firebase:
+    - call api on main thread
+    - fix crash when invoke init multi times
+6. SDKBoxCore: fix can not load encrypted sdkbox_config.json on Android
+7. Review: fix crash when res not found
+8. ALL Plugins: fix setGDPR logic, true=disable tracking
 
 # 2.5.0.1 (20190717)
 
