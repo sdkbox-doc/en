@@ -88,6 +88,19 @@ __Note__: the `key` in sdkbox_config.json should be get from `Google Play Consol
 
 
 
+### Test IAP for iOS
+
+-   iOS simulator don't support purchase, please test with a real device.
+-   You need to use your iTunesConnect account to create a test user in order to test IAP
+-   Update bundle identifier to match your own bundle identifier
+
+### Test IAP for android
+
+1.  To test Android IAP you need to publish you app with alpha/beta chanel
+2.  To test Android IAP you need to opt-in as an alpha tester [here](https://play.google.com/apps/testing/org.cocos2dx.PluginTest)
+3.  You can only test IAP in release build
+4.  Replace the **key** with your key. In [https://play.google.com/apps/publish/](https://play.google.com/apps/publish/), open your game, follow menu "Development tools -> Services & APIs -> in-app billing"
+
 ### `SKPaymentTransactionStateDeferred` test
 
 `SKPaymentTransactionStateDeferred` is a middle transaction status of iOS IAP . for most developer, need't case about this status.
