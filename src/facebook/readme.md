@@ -123,13 +123,11 @@ Here is an example of the Facebook configuration you can enable/disable debug mo
     "url_scheme_suffix":""
 }
 ```
-### Setup Facebook App
-In order to setup your Facebook app correctly to avail all services provided by SDKBOX, please go through the link mentioned below -
-[Setup Facebook App for SDKBOX](http://blog.cocos2d-x.org/2016/07/setting-up-facebook-app-for-sdkbox-services/)
+
+### ~~Facebook App Links Host~~
+
 > With the release of the Facebook SDK version 4.28.0, App Links Hosting is deprecated. It will be supported until February 5, 2018.
 > https://developers.facebook.com/docs/applinks/hosting-api/
-
-### Facebook App Links Host
 
 1. Get `APP_ACCESS_TOKEN` (App Token) in https://developers.facebook.com/tools/access_token/
 2. Create links
