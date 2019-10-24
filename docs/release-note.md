@@ -3,8 +3,28 @@
 # 2.5.1.0 (?)
 
 ## Add
+
+1.  AdMob: add `onAdViewWillPresentScreen` event for RewardVideo
+2.  Supports `x86_64` for Android
+
 ## Upgrade
+
+1.  Facebook:
+    1.  iOS SDK 5.7.0
+    2.  facebook-android-sdk:5.+
+2.  Misc:
+    1.  fix notification on `Android O` system
+3.  AdMob:
+    1.  iOS SDK 7.50
+4.  AdColony:
+    1.  iOS SDK 4.1.0
+    2.  Android SDK 4.1.0
+
 ## Bugfix
+
+1.  IAP: fix query subs product info for Android
+2.  Chartboost: fix installer for XCode project
+3.  JS callback crash with Cocos Creator 2.2
 
 # 2.5.0.5 (20190920)
 
