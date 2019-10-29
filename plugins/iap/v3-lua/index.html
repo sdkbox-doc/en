@@ -712,6 +712,10 @@
 	
 	<ul class="sub-sidenav">
         
+            <li><a href="#test-iap-for-ios">Test IAP for iOS</a></li>
+        
+            <li><a href="#test-iap-for-android">Test IAP for android</a></li>
+        
             <li><a href="#skpaymenttransactionstatedeferred-test">SKPaymentTransactionStateDeferred test</a></li>
         
             <li><a href="#initialization-opportunity">Initialization opportunity</a></li>
@@ -944,6 +948,19 @@
 
 <p><strong>Note</strong>: the <code>key</code> in sdkbox_config.json should be get from <code>Google Play Console</code>, Google Console-&gt;Developer Tools-&gt;Services &amp; APIs, take a look at follow screenshot:</p>
 <p><img alt="" src="../../../imgs/google_licensing_iab.png" /></p>
+<h3 id="test-iap-for-ios">Test IAP for iOS</h3>
+<ul>
+<li>iOS simulator don't support purchase, please test with a real device.</li>
+<li>You need to use your iTunesConnect account to create a test user in order to test IAP</li>
+<li>Update bundle identifier to match your own bundle identifier</li>
+</ul>
+<h3 id="test-iap-for-android">Test IAP for android</h3>
+<ol>
+<li>To test Android IAP you need to publish you app with alpha/beta chanel</li>
+<li>To test Android IAP you need to opt-in as an alpha tester <a href="https://play.google.com/apps/testing/org.cocos2dx.PluginTest">here</a></li>
+<li>You can only test IAP in release build</li>
+<li>Replace the <strong>key</strong> with your key. In <a href="https://play.google.com/apps/publish/">https://play.google.com/apps/publish/</a>, open your game, follow menu "Development tools -&gt; Services &amp; APIs -&gt; in-app billing"</li>
+</ol>
 <h3 id="skpaymenttransactionstatedeferred-test"><code>SKPaymentTransactionStateDeferred</code> test</h3>
 <p><code>SKPaymentTransactionStateDeferred</code> is a middle transaction status of iOS IAP . for most developer, need't case about this status.</p>
 <p>if you want to test this status, you can add <code>simulatesAskToBuyInSandbox</code> to <code>sdkbox_config.json</code>.</p>
@@ -1603,7 +1620,7 @@ android.library.reference.1=libs/gps/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-10-29 16:12:02.272755, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-10-29 16:14:37.683526, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
