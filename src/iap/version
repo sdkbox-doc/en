@@ -1,0 +1,2 @@
+- ios: iOS-SDK
+- android: com.android.billingclient:billing:2.0.1
