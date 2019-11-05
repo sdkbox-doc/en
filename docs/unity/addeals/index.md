@@ -50,19 +50,18 @@ Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`-
 * For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases).
 
 
-#### Integrate `Windows Store Native`
+#### Optional: compatible with Microsoft Ads using `Windows Store Native`
 
-if you needn't integrate `Windows Store Native`, you can ignore this.
+If you need to integrate Microsoft Ads using `Windows Store Native` plugin, please follow these steps, after you complete everything above:
 
-Unity-Adeals-Plugin will change the exported UWP project. After you have completed the above steps, you need do followed steps:
+* In Vistual Studio, open the project exported from Unity. 
+* Add the UnityRT project in Visual Studio: `File`->`Add`->`Existing Project...`->Select `Unity_Export_Project/UnityRT/UnityRT.vcxproj`
+* Change the project dependencies in Visual Studio: make your main project using AdDeals dependent on `UnityRT`, and make `UnityRT` dependent on `Il2CppOutputProject`.  (Note: Your main project was exported from Unity.)
 
-* open exported project with Vistual Studio.
-* add UnityRT project, `File`->`Add`->`Existing Project...`->Select `Export Path/UnityRT/UnityRT.vcxproj`
-* Change Project Dependencies. `AdDeals(Launch Project)`(it name matches your Unity project name) dependency on `UnityRT`. `UnityRT` dependency on `Il2CppOutputProject`.  (`AdDeals(Launch Project)` is your unity project name)
+![Project Dependencies](./uwp_project_dependencies_1.png)
+![Project Dependencies](./uwp_project_dependencies_2.png)
 
-![Project Dependencies](./uwp_project_dependencies_1.png)    ![Project Dependencies](./uwp_project_dependencies_2.png)
-
-* Add Reference to UnityRT in AdDeals(Main Project)
+* Add Reference to UnityRT in your main project. 
 
 ![Project Dependencies](./uwp_project_references.png)
 
@@ -113,6 +112,8 @@ void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 * Check `Windows Store Native`'s document, and invoke in Unity Side.
 
 * Run and Test.
+
+
 
 ### iOS build
 
