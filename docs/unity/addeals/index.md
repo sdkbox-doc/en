@@ -29,44 +29,33 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 ### Windows UWP build
 
 * Support the lastest AdDeals SDK for Windows:  [AdDealsUniversalSDKW81](https://www.nuget.org/packages/AdDealsUniversalSDKW81).
-* Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:
-
+* Using .Net ScriptBackend, please export the UWP <font color=#FF0000>project (project)</font> in Unity with the following settings:  
 ![Unity UWP project config](./unity_project_config.png)
-
-* Or using il2cpp ScriptBackend, please export the project in Unity 2018 or later with following settings:
-
+* Or using il2cpp ScriptBackend, please export the project in Unity 2018 or later with following settings:  
 ![Unity UWP project config](./unity_il2cpp_project_config.png)
-
-* Please enable `InternetClient`.
-
-Unity 2019+ UWP capabilities path: `Project Settings` > `Player` > `Publisher settings` > `Capabilities`.
-
+* Please enable `InternetClient`:  
+    - Unity 2019+ UWP capabilities path: `Project Settings` > `Player` > `Publisher settings` > `Capabilities`.  
 ![Unity UWP capabilities setting](./uwp_capabilities_unity_2019.png)
-
-Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`.
-
+    - Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`.  
 ![Unity UWP capabilities setting](./uwp_capabilities.png)
-
 * For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases).
+
+
 
 
 #### Optional: compatible with Microsoft Ads using `Windows Store Native`
 
-If you need to integrate Microsoft Ads using `Windows Store Native` plugin, please follow these steps, after you complete everything above:
+If you need to integrate Microsoft Ads using `Windows Store Native` plugin, please follow these steps after completed everything above:
 
-* In Vistual Studio, open the project exported from Unity. 
-* Add the UnityRT project in Visual Studio: `File`->`Add`->`Existing Project...`->Select `Unity_Export_Project/UnityRT/UnityRT.vcxproj`
-* Change the project dependencies in Visual Studio: make your main project using AdDeals dependent on `UnityRT`, and make `UnityRT` dependent on `Il2CppOutputProject`.  (Note: Your main project was exported from Unity.)
-
+* In Vistual Studio, open the main project exported from Unity. 
+* Add the `UnityRT` project into Visual Studio: `File`->`Add`->`Existing Project...`->Select `Your_Main_Project/UnityRT/UnityRT.vcxproj`
+* Change project dependencies: make your main project dependent on `UnityRT`, and make `UnityRT` dependent on `Il2CppOutputProject`. (Note: the main project in these sample screenshots is called AdDeals.)  
 ![Project Dependencies](./uwp_project_dependencies_1.png)
 ![Project Dependencies](./uwp_project_dependencies_2.png)
-
-* Add Reference to UnityRT in your main project. 
-
+* Add reference to UnityRT in your main project.  
 ![Project Dependencies](./uwp_project_references.png)
-
-* Modify `MainPage.xaml.cs`:
-
+* Modify `MainPage.xaml.cs`:  
+        
 ```csharp
 
 ...
@@ -75,42 +64,37 @@ namespace AdDeals
     ...
     public sealed partial class MainPage : Page
     {
-        ...
-        public MainPage()
-        {
+	...
+	public MainPage()
+	{
 
-            ...
-            BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+	    ...
+	    BridgeBootstrapper.SetUWPBridge(new UWPBridge());
 
-            UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
-        }
-        ...
+	    UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
+	}
+	...
     }
 ...
 }
 
 ```
 
-* Modify `UnityRT/App.cpp`.
-
-
-(`Windows Store Native` Ad module document: [InstitialAd](https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp), [BannerAd](https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp))
-
+* Modify `UnityRT/App.cpp` (from `Windows Store Native` Ad module document: [InstitialAd](https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp), [BannerAd](https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp))
+    
 ```cpp
-
+    
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
-	// AppInit
-	InterstitialAdManager::Initialise();
+    	// AppInit
+    	InterstitialAdManager::Initialise();
 	BannerAdManager::Initialise(panel);
 }
-
+    
 ```
 
 * Add Reference to `Microsoft Advertising SDK for XAML` in UnityRT
-
 * Check `Windows Store Native`'s document, and invoke in Unity Side.
-
 * Run and Test.
 
 
