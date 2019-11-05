@@ -56,19 +56,20 @@ if you needn't integrate `Windows Store Native`, you can ignore this.
 
 Unity-Adeals-Plugin will change the exported UWP project. After you have completed the above steps, you need do followed steps:
 
-1. open exported project with Vistual Studio.
-2. add UnityRT project, `File`->`Add`->`Existing Project...`->Select `Export Path/UnityRT/UnityRT.vcxproj`
-3. Change Project Dependencies. `AdDeals(Launch Project)`(it name matches your Unity project name) dependency on `UnityRT`. `UnityRT` dependency on `Il2CppOutputProject`.  (`AdDeals(Launch Project)` is your unity project name)
+* open exported project with Vistual Studio.
+* add UnityRT project, `File`->`Add`->`Existing Project...`->Select `Export Path/UnityRT/UnityRT.vcxproj`
+* Change Project Dependencies. `AdDeals(Launch Project)`(it name matches your Unity project name) dependency on `UnityRT`. `UnityRT` dependency on `Il2CppOutputProject`.  (`AdDeals(Launch Project)` is your unity project name)
 
 ![Project Dependencies](./uwp_project_dependencies_1.png)    ![Project Dependencies](./uwp_project_dependencies_2.png)
 
-4. Add Reference to UnityRT in AdDeals(Main Project)
+* Add Reference to UnityRT in AdDeals(Main Project)
 
 ![Project Dependencies](./uwp_project_references.png)
 
-5. Modify `MainPage.xaml.cs`:
+* Modify `MainPage.xaml.cs`:
 
-```c sharp
+```csharp
+
 ...
 namespace AdDeals
 {
@@ -88,25 +89,30 @@ namespace AdDeals
     }
 ...
 }
+
 ```
 
-6. Modify `UnityRT/App.cpp`.
+* Modify `UnityRT/App.cpp`.
+
+
 (`Windows Store Native` Ad module document: [InstitialAd](https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp), [BannerAd](https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp))
 
 ```cpp
+
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
 	// AppInit
 	InterstitialAdManager::Initialise();
 	BannerAdManager::Initialise(panel);
 }
+
 ```
 
-7. Add Reference to `Microsoft Advertising SDK for XAML` in UnityRT
+* Add Reference to `Microsoft Advertising SDK for XAML` in UnityRT
 
-8. Check `Windows Store Native`'s document, and invoke in Unity Side.
+* Check `Windows Store Native`'s document, and invoke in Unity Side.
 
-9. Run and Test.
+* Run and Test.
 
 ### iOS build
 
