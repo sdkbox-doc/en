@@ -726,7 +726,7 @@
 <ul>
 <li>In order to get your AppID  &amp; AppKey you must first create an account on http://www.addealsnetwork.com</li>
 <li>Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.</li>
-<li><font color=#FF0000>Download</font> the AdDeals plugin from <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
+<li><font color=#FF0000>Download</font> the AdDeals plugin from either <a href="http://u3d.as/1p2y">Unity Asset Store</a>, or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
 <li>Drag <code>Assets\AdDeals\AdDeals.prefab</code> onto your game scene.</li>
 <li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>:</li>
 </ul>
@@ -755,6 +755,70 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <p><img alt="Unity UWP capabilities setting" src="./uwp_capabilities.png" /></p>
 <ul>
 <li>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</li>
+</ul>
+<h4 id="integrate-windows-store-native">Integrate <code>Windows Store Native</code></h4>
+<p>if you needn't integrate <code>Windows Store Native</code>, you can ignore this.</p>
+<p>Unity-Adeals-Plugin will change the exported UWP project. After you have completed the above steps, you need do followed steps:</p>
+<ul>
+<li>open exported project with Vistual Studio.</li>
+<li>add UnityRT project, <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Export Path/UnityRT/UnityRT.vcxproj</code></li>
+<li>Change Project Dependencies. <code>AdDeals(Launch Project)</code>(it name matches your Unity project name) dependency on <code>UnityRT</code>. <code>UnityRT</code> dependency on <code>Il2CppOutputProject</code>.  (<code>AdDeals(Launch Project)</code> is your unity project name)</li>
+</ul>
+<p><img alt="Project Dependencies" src="./uwp_project_dependencies_1.png" />    <img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></p>
+<ul>
+<li>Add Reference to UnityRT in AdDeals(Main Project)</li>
+</ul>
+<p><img alt="Project Dependencies" src="./uwp_project_references.png" /></p>
+<ul>
+<li>Modify <code>MainPage.xaml.cs</code>:</li>
+</ul>
+<pre><code class="csharp">
+...
+namespace AdDeals
+{
+    ...
+    public sealed partial class MainPage : Page
+    {
+        ...
+        public MainPage()
+        {
+
+            ...
+            BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+
+            UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
+        }
+        ...
+    }
+...
+}
+
+</code></pre>
+
+<ul>
+<li>Modify <code>UnityRT/App.cpp</code>.</li>
+</ul>
+<p>(<code>Windows Store Native</code> Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)</p>
+<pre><code class="cpp">
+void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
+{
+    // AppInit
+    InterstitialAdManager::Initialise();
+    BannerAdManager::Initialise(panel);
+}
+
+</code></pre>
+
+<ul>
+<li>
+<p>Add Reference to <code>Microsoft Advertising SDK for XAML</code> in UnityRT</p>
+</li>
+<li>
+<p>Check <code>Windows Store Native</code>'s document, and invoke in Unity Side.</p>
+</li>
+<li>
+<p>Run and Test.</p>
+</li>
 </ul>
 <h3 id="ios-build">iOS build</h3>
 <ul>
@@ -959,7 +1023,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-10-29 16:14:40.878795, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 18:55:13.053404, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
