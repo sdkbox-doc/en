@@ -764,13 +764,11 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <li>Change project dependencies: make your main project dependent on <code>UnityRT</code>, and make <code>UnityRT</code> dependent on <code>Il2CppOutputProject</code>. (Note: the main project in these sample screenshots is called AdDeals.)<br />
 <img alt="Project Dependencies" src="./uwp_project_dependencies_1.png" />
 <img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></li>
-<li>Add reference to UnityRT in your main project. </li>
-</ul>
-<p><img alt="Project Dependencies" src="./uwp_project_references.png" /></p>
-<ul>
+<li>Add reference to UnityRT in your main project.<br />
+<img alt="Project Dependencies" src="./uwp_project_references.png" /></li>
 <li>
-<p>Modify <code>MainPage.xaml.cs</code>:</p>
-<p>```csharp</p>
+<p>Modify <code>MainPage.xaml.cs</code>:<br />
+    ```csharp</p>
 <p>...
 namespace AdDeals
 {
@@ -790,13 +788,10 @@ UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
 <p>}
 ...
 }</p>
-<p>```</p>
-</li>
-<li>
-<p>Modify <code>UnityRT/App.cpp</code>.</p>
+<p><code>``
+* Modify</code>UnityRT/App.cpp<code>. (</code>Windows Store Native` Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)  </p>
 </li>
 </ul>
-<p>(<code>Windows Store Native</code> Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)</p>
 <pre><code class="cpp">
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
@@ -808,15 +803,9 @@ void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 </code></pre>
 
 <ul>
-<li>
-<p>Add Reference to <code>Microsoft Advertising SDK for XAML</code> in UnityRT</p>
-</li>
-<li>
-<p>Check <code>Windows Store Native</code>'s document, and invoke in Unity Side.</p>
-</li>
-<li>
-<p>Run and Test.</p>
-</li>
+<li>Add Reference to <code>Microsoft Advertising SDK for XAML</code> in UnityRT</li>
+<li>Check <code>Windows Store Native</code>'s document, and invoke in Unity Side.</li>
+<li>Run and Test.</li>
 </ul>
 <h3 id="ios-build">iOS build</h3>
 <ul>
@@ -1021,7 +1010,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 20:18:54.558356, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 20:20:49.939884, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
