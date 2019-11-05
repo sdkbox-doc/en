@@ -726,7 +726,7 @@
 <ul>
 <li>In order to get your AppID  &amp; AppKey you must first create an account on http://www.addealsnetwork.com</li>
 <li>Then add your iOS / Android / Windows 10 apps and you will get 1 AppID / AppKey for each app version.</li>
-<li><font color=#FF0000>Download</font> the AdDeals plugin from either <a href="http://u3d.as/1p2y">Unity Asset Store</a>, or <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
+<li><font color=#FF0000>Download</font> the AdDeals plugin from <a href="https://github.com/sdkbox/AdDeals-Unity-Plugin/">SDKBox repo</a>.</li>
 <li>Drag <code>Assets\AdDeals\AdDeals.prefab</code> onto your game scene.</li>
 <li>Call AdDeals SDK APIs. Please check out the sample codes in <code>Assets\AdDeals\Sample\Test.cs</code>:</li>
 </ul>
@@ -756,17 +756,17 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <ul>
 <li>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</li>
 </ul>
-<h4 id="integrate-windows-store-native">Integrate <code>Windows Store Native</code></h4>
-<p>if you needn't integrate <code>Windows Store Native</code>, you can ignore this.</p>
-<p>Unity-Adeals-Plugin will change the exported UWP project. After you have completed the above steps, you need do followed steps:</p>
+<h4 id="optional-compatible-with-microsoft-ads-using-windows-store-native">Optional: compatible with Microsoft Ads using <code>Windows Store Native</code></h4>
+<p>If you need to integrate Microsoft Ads using <code>Windows Store Native</code> plugin, please follow these steps, after you complete everything above:</p>
 <ul>
-<li>open exported project with Vistual Studio.</li>
-<li>add UnityRT project, <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Export Path/UnityRT/UnityRT.vcxproj</code></li>
-<li>Change Project Dependencies. <code>AdDeals(Launch Project)</code>(it name matches your Unity project name) dependency on <code>UnityRT</code>. <code>UnityRT</code> dependency on <code>Il2CppOutputProject</code>.  (<code>AdDeals(Launch Project)</code> is your unity project name)</li>
+<li>In Vistual Studio, open the project exported from Unity. </li>
+<li>Add the UnityRT project in Visual Studio: <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Unity_Export_Project/UnityRT/UnityRT.vcxproj</code></li>
+<li>Change the project dependencies in Visual Studio: make your main project using AdDeals dependent on <code>UnityRT</code>, and make <code>UnityRT</code> dependent on <code>Il2CppOutputProject</code>.  (Note: Your main project was exported from Unity.)</li>
 </ul>
-<p><img alt="Project Dependencies" src="./uwp_project_dependencies_1.png" />    <img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></p>
+<p><img alt="Project Dependencies" src="./uwp_project_dependencies_1.png" />
+<img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></p>
 <ul>
-<li>Add Reference to UnityRT in AdDeals(Main Project)</li>
+<li>Add Reference to UnityRT in your main project. </li>
 </ul>
 <p><img alt="Project Dependencies" src="./uwp_project_references.png" /></p>
 <ul>
@@ -1023,7 +1023,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 18:55:13.053404, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 20:01:48.204335, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
