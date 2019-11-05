@@ -794,14 +794,17 @@ namespace AdDeals
 <ul>
 <li>
 <p>Modify <code>UnityRT/App.cpp</code> (from <code>Windows Store Native</code> Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)</p>
-<p>```cpp</p>
-<p>void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
+<pre><code>```cpp
+
+void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
     // AppInit
     InterstitialAdManager::Initialise();
     BannerAdManager::Initialise(panel);
-}</p>
-<p>```</p>
+}
+
+```
+</code></pre>
 </li>
 <li>
 <p>Add Reference to <code>Microsoft Advertising SDK for XAML</code> in UnityRT</p>
@@ -1012,7 +1015,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 20:49:03.345727, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 20:49:50.105750, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
