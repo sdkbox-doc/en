@@ -766,31 +766,33 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></li>
 <li>Add reference to UnityRT in your main project.<br />
 <img alt="Project Dependencies" src="./uwp_project_references.png" /></li>
-<li>
-<p>Modify <code>MainPage.xaml.cs</code>:<br />
-    ```csharp</p>
-<p>...
+<li>Modify <code>MainPage.xaml.cs</code>:  </li>
+</ul>
+<pre><code class="csharp">
+...
 namespace AdDeals
 {
-...
-public sealed partial class MainPage : Page
-{
+    ...
+    public sealed partial class MainPage : Page
+    {
     ...
     public MainPage()
-    {</p>
-<pre><code>...
-BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+    {
 
-UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
+        ...
+        BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+
+        UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
+    }
+    ...
+    }
+...
 }
-...
+
 </code></pre>
-<p>}
-...
-}</p>
-<p><code>``
-* Modify</code>UnityRT/App.cpp<code>. (</code>Windows Store Native` Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)  </p>
-</li>
+
+<ul>
+<li>Modify <code>UnityRT/App.cpp</code>. (<code>Windows Store Native</code> Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)  </li>
 </ul>
 <pre><code class="cpp">
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
@@ -1010,7 +1012,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 20:20:49.939884, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 20:23:27.866403, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
