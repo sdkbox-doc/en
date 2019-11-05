@@ -757,46 +757,46 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <li>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</li>
 </ul>
 <h4 id="optional-compatible-with-microsoft-ads-using-windows-store-native">Optional: compatible with Microsoft Ads using <code>Windows Store Native</code></h4>
-<p>If you need to integrate Microsoft Ads using <code>Windows Store Native</code> plugin, please follow these steps, after you complete everything above:</p>
+<p>If you need to integrate Microsoft Ads using <code>Windows Store Native</code> plugin, please follow these steps after completed everything above:</p>
 <ul>
-<li>In Vistual Studio, open the project exported from Unity. </li>
-<li>Add the UnityRT project in Visual Studio: <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Unity_Export_Project/UnityRT/UnityRT.vcxproj</code></li>
-<li>Change the project dependencies in Visual Studio: make your main project using AdDeals dependent on <code>UnityRT</code>, and make <code>UnityRT</code> dependent on <code>Il2CppOutputProject</code>.  (Note: Your main project was exported from Unity.)</li>
+<li>In Vistual Studio, open the main project exported from Unity. </li>
+<li>Add the <code>UnityRT</code> project into Visual Studio: <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Your_Main_Project/UnityRT/UnityRT.vcxproj</code></li>
+<li>Change project dependencies: make your main project dependent on <code>UnityRT</code>, and make <code>UnityRT</code> dependent on <code>Il2CppOutputProject</code>. (Note: the main project in these sample screenshots is called AdDeals.)</li>
 </ul>
 <p><img alt="Project Dependencies" src="./uwp_project_dependencies_1.png" />
-<img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></p>
+  <img alt="Project Dependencies" src="./uwp_project_dependencies_2.png" /></p>
 <ul>
-<li>Add Reference to UnityRT in your main project. </li>
+<li>Add reference to UnityRT in your main project. </li>
 </ul>
 <p><img alt="Project Dependencies" src="./uwp_project_references.png" /></p>
 <ul>
-<li>Modify <code>MainPage.xaml.cs</code>:</li>
-</ul>
-<pre><code class="csharp">
-...
+<li>
+<p>Modify <code>MainPage.xaml.cs</code>:</p>
+<p>```csharp</p>
+<p>...
 namespace AdDeals
 {
-    ...
-    public sealed partial class MainPage : Page
-    {
-        ...
-        public MainPage()
-        {
-
-            ...
-            BridgeBootstrapper.SetUWPBridge(new UWPBridge());
-
-            UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
-        }
-        ...
-    }
 ...
+public sealed partial class MainPage : Page
+{
+    ...
+    public MainPage()
+    {</p>
+<pre><code>...
+BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+
+UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
 }
-
+...
 </code></pre>
-
-<ul>
-<li>Modify <code>UnityRT/App.cpp</code>.</li>
+<p>}
+...
+}</p>
+<p>```</p>
+</li>
+<li>
+<p>Modify <code>UnityRT/App.cpp</code>.</p>
+</li>
 </ul>
 <p>(<code>Windows Store Native</code> Ad module document: <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>)</p>
 <pre><code class="cpp">
@@ -1023,7 +1023,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 20:01:48.204335, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-05 20:14:31.085903, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
