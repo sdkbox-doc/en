@@ -50,6 +50,70 @@ Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`-
 * For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases).
 
 
+#### Integrate `Windows Store Native`
+
+if you needn't integrate `Windows Store Native`, you can ignore this.
+
+Unity-Adeals-Plugin will change the exported UWP project. After you have completed the above steps, you need do followed steps:
+
+* open exported project with Vistual Studio.
+* add UnityRT project, `File`->`Add`->`Existing Project...`->Select `Export Path/UnityRT/UnityRT.vcxproj`
+* Change Project Dependencies. `AdDeals(Launch Project)`(it name matches your Unity project name) dependency on `UnityRT`. `UnityRT` dependency on `Il2CppOutputProject`.  (`AdDeals(Launch Project)` is your unity project name)
+
+![Project Dependencies](./uwp_project_dependencies_1.png)    ![Project Dependencies](./uwp_project_dependencies_2.png)
+
+* Add Reference to UnityRT in AdDeals(Main Project)
+
+![Project Dependencies](./uwp_project_references.png)
+
+* Modify `MainPage.xaml.cs`:
+
+```csharp
+
+...
+namespace AdDeals
+{
+    ...
+    public sealed partial class MainPage : Page
+    {
+        ...
+        public MainPage()
+        {
+
+            ...
+            BridgeBootstrapper.SetUWPBridge(new UWPBridge());
+
+            UnityRT.App.Start(GetSwapChainPanel()); // invoke UnityRT project
+        }
+        ...
+    }
+...
+}
+
+```
+
+* Modify `UnityRT/App.cpp`.
+
+
+(`Windows Store Native` Ad module document: [InstitialAd](https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp), [BannerAd](https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp))
+
+```cpp
+
+void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
+{
+	// AppInit
+	InterstitialAdManager::Initialise();
+	BannerAdManager::Initialise(panel);
+}
+
+```
+
+* Add Reference to `Microsoft Advertising SDK for XAML` in UnityRT
+
+* Check `Windows Store Native`'s document, and invoke in Unity Side.
+
+* Run and Test.
+
 ### iOS build
 
 * From Unity, first export to an iOS project. Next build and run it using Xcode.
