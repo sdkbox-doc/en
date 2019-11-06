@@ -53,14 +53,14 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
 }
 ```
 
-banner.width: special width value for adcolony preset banner size
+banner.width: when banner.width is smaller than 10, we will take banner.width as special value, which means we will create adcolony preset banner. now we used following value.
 
 * 0: kAdColonyAdSizeBanner(standard,320*50)
 * 1: kAdColonyAdSizeMediumRectangle(medium,300x250)
 * 2: kAdColonyAdSizeLeaderboard(Leaderboard,728x90)
 * 3: kAdColonyAdSizeSkyscraper(Skyscraper,160x600)
 
-as the above, set banner.width 0 will create a standard(320X250) banner, set banner.width 1 will create a medium(300X250) banner, height can be 0 when with is special value.
+as the above, set banner.width 0 will create a standard(320X250) banner, set banner.width 1 will create a medium(300X250) banner, height should be 0 when width is special value.
 
 banner.alignment: available values: 
 
