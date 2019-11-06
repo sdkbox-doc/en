@@ -41,10 +41,42 @@ Here is an example of the AdColony configuration, you need to replace `<app id>`
             "v4vc": true,
             "pre_popup" : true,
             "post_popup": true
+        },
+        "banner": {
+            "zone": "<zone id>",
+            "type":"banner",
+            "alignment":"bottom",
+            "width": 320,
+            "height": 50
         }
     }
 }
 ```
+
+banner.width: special width value for adcolony preset banner size
+
+* 0: kAdColonyAdSizeBanner(standard,320*50)
+* 1: kAdColonyAdSizeMediumRectangle(medium,300x250)
+* 2: kAdColonyAdSizeLeaderboard(Leaderboard,728x90)
+* 3: kAdColonyAdSizeSkyscraper(Skyscraper,160x600)
+
+as the above, set banner.width 0 will create a standard(320X250) banner, set banner.width 1 will create a medium(300X250) banner, height can be 0 when with is special value.
+
+banner.alignment: available values: 
+
+* center
+* top
+* bottom
+* left
+* right
+* top_left
+* top_right
+* bottom_left
+* bottom_right
+* left_top
+* left_bottom
+* right_top
+* right_bottom
 
 <!--<<[sdkbox-config-encrypt.md]-->
 
