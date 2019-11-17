@@ -831,11 +831,42 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
             &quot;v4vc&quot;: true,
             &quot;pre_popup&quot; : true,
             &quot;post_popup&quot;: true
+        },
+        &quot;banner&quot;: {
+            &quot;zone&quot;: &quot;&lt;zone id&gt;&quot;,
+            &quot;type&quot;:&quot;banner&quot;,
+            &quot;alignment&quot;:&quot;bottom&quot;,
+            &quot;width&quot;: 320,
+            &quot;height&quot;: 50
         }
     }
 }
 </code></pre>
 
+<p>banner.width: when banner.width is smaller than 10, we will take banner.width as special value, which means we will create adcolony preset banner. now we used following value.</p>
+<ul>
+<li>0: kAdColonyAdSizeBanner(standard,320*50)</li>
+<li>1: kAdColonyAdSizeMediumRectangle(medium,300x250)</li>
+<li>2: kAdColonyAdSizeLeaderboard(Leaderboard,728x90)</li>
+<li>3: kAdColonyAdSizeSkyscraper(Skyscraper,160x600)</li>
+</ul>
+<p>as the above, set banner.width 0 will create a standard(320X250) banner, set banner.width 1 will create a medium(300X250) banner, height should be 0 when width is special value.</p>
+<p>banner.alignment: available values: </p>
+<ul>
+<li>center</li>
+<li>top</li>
+<li>bottom</li>
+<li>left</li>
+<li>right</li>
+<li>top_left</li>
+<li>top_right</li>
+<li>bottom_left</li>
+<li>bottom_right</li>
+<li>left_top</li>
+<li>left_bottom</li>
+<li>right_top</li>
+<li>right_bottom</li>
+</ul>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -886,18 +917,36 @@ recommend to do this in the <code>app.js</code>. Example:</p>
  */
 
 sdkbox.PluginAdColony.setListener({
-        onAdColonyChange : function (data, available) {
-                // Called when AdColony finish loading
-        },
-        onAdColonyReward : function (data, currencyName, amount, success) {
-                // Called when AdColony v4vc ad finish playing
-        },
-        onAdColonyStarted : function (data) {
-                // Called when ad starts playing
-        },
-        onAdColonyFinished : function (data) {
-                // Called when an ad finish displaying
-        }
+    adColonyInterstitialDidLoad: function(interstitial) {
+    },
+    adColonyInterstitialDidFailToLoad: function(error) {
+    },
+    adColonyInterstitialWillOpen: function(interstitial) {
+    },
+    adColonyInterstitialDidClose: function(interstitial) {
+    },
+    adColonyInterstitialExpired: function(interstitial) {
+    },
+    adColonyInterstitialWillLeaveApplication: function(interstitial) {
+    },
+    adColonyInterstitialDidReceiveClick: function(interstitial) {
+    },
+    adColonyInterstitialIapOpportunity: function(interstitial, iapProductID, engagement) {
+    },
+    adColonyAdViewDidLoad: function(adView) {
+    },
+    adColonyAdViewDidFailToLoad: function(error) {
+    },
+    adColonyAdViewWillLeaveApplication: function(adView) {
+    },
+    adColonyAdViewWillOpen: function(adView) {
+    },
+    adColonyAdViewDidClose: function(adView) {
+    },
+    adColonyAdViewDidReceiveClick: function(adView) {
+    },
+    adColonyReward: function(name, currencyName, amount, success) {
+    }
 });
 </code></pre>
 
@@ -1116,29 +1165,35 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 <p>Request all ads</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="javascript">onAdColonyChange(info, available);
+<pre><code class="javascript">adColonyInterstitialDidLoad(adName);
 </code></pre>
 
 <blockquote>
-<p>called when AdColony is finished loading.</p>
+<p>called when AdColony interstitial has loaded.</p>
 </blockquote>
-<pre><code class="javascript">onAdColonyReward(info, currencyName, amount, success);
+<pre><code class="javascript">adColonyInterstitialDidFailToLoad(error);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony interstitial loaded failed.</p>
+</blockquote>
+<pre><code class="javascript">adColonyAdViewDidLoad(adName);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony banner has loaded.</p>
+</blockquote>
+<pre><code class="javascript">adColonyAdViewDidFailToLoad(error);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony banner loaded failed.</p>
+</blockquote>
+<pre><code class="javascript">adColonyReward(name, currencyName, amount, success);
 </code></pre>
 
 <blockquote>
 <p>reward was received.</p>
-</blockquote>
-<pre><code class="javascript">onAdColonyStarted(info);
-</code></pre>
-
-<blockquote>
-<p>showing an ad has started.</p>
-</blockquote>
-<pre><code class="javascript">onAdColonyFinished(info);
-</code></pre>
-
-<blockquote>
-<p>showing an ad has finished.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -1455,7 +1510,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 21:06:43.133008, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-17 09:03:07.013538, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

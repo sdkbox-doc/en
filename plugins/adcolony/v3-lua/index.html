@@ -829,11 +829,42 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
             &quot;v4vc&quot;: true,
             &quot;pre_popup&quot; : true,
             &quot;post_popup&quot;: true
+        },
+        &quot;banner&quot;: {
+            &quot;zone&quot;: &quot;&lt;zone id&gt;&quot;,
+            &quot;type&quot;:&quot;banner&quot;,
+            &quot;alignment&quot;:&quot;bottom&quot;,
+            &quot;width&quot;: 320,
+            &quot;height&quot;: 50
         }
     }
 }
 </code></pre>
 
+<p>banner.width: when banner.width is smaller than 10, we will take banner.width as special value, which means we will create adcolony preset banner. now we used following value.</p>
+<ul>
+<li>0: kAdColonyAdSizeBanner(standard,320*50)</li>
+<li>1: kAdColonyAdSizeMediumRectangle(medium,300x250)</li>
+<li>2: kAdColonyAdSizeLeaderboard(Leaderboard,728x90)</li>
+<li>3: kAdColonyAdSizeSkyscraper(Skyscraper,160x600)</li>
+</ul>
+<p>as the above, set banner.width 0 will create a standard(320X250) banner, set banner.width 1 will create a medium(300X250) banner, height should be 0 when width is special value.</p>
+<p>banner.alignment: available values: </p>
+<ul>
+<li>center</li>
+<li>top</li>
+<li>bottom</li>
+<li>left</li>
+<li>right</li>
+<li>top_left</li>
+<li>top_right</li>
+<li>bottom_left</li>
+<li>bottom_right</li>
+<li>left_top</li>
+<li>left_bottom</li>
+<li>right_top</li>
+<li>right_bottom</li>
+</ul>
 <!---->
 
 <h2 id="usage">Usage</h2>
@@ -857,26 +888,17 @@ Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin'
 <li>Create a listener (demonstrated by logging events):</li>
 </ul>
 <pre><code class="lua">sdkbox.PluginAdColony:setListener(function(args)
-    if &quot;onAdColonyChange&quot; == args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-        local available = args.available -- boolean
-                dump(info, &quot;onAdColonyChange:&quot;)
-        print(&quot;available:&quot;, available)
-    elseif &quot;onAdColonyReward&quot; ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-        local currencyName = args.currencyName -- string
-        local amount = args.amount -- int
-        local success = args.success -- boolean
-                dump(info, &quot;onAdColonyReward:&quot;)
-        print(&quot;currencyName:&quot;, currencyName)
-        print(&quot;amount:&quot;, amount)
-        print(&quot;success:&quot;, success)
-    elseif &quot;onAdColonyStarted&quot; ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-                dump(info, &quot;onAdColonyStarted:&quot;)
-    elseif &quot;onAdColonyFinished&quot; ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-                dump(info, &quot;onAdColonyFinished:&quot;)
+    if args.name == &quot;onAdColonyChange&quot; or args.name == &quot;onAdColonyReward&quot; or args.name == &quot;onAdColonyStarted&quot; or args.name == &quot;onAdColonyFinished&quot; then
+        print(&quot;those four event is deprecated&quot;)
+        return
+    end
+
+    dump(args)
+    if &quot;adColonyReward&quot; ==  args.name then
+    elseif &quot;adColonyInterstitialDidLoad&quot; ==  args.name then
+    elseif &quot;adColonyInterstitialDidFailToLoad&quot; ==  args.name then
+    elseif &quot;adColonyAdViewDidLoad&quot; ==  args.name then
+    elseif &quot;adColonyAdViewDidFailToLoad&quot; ==  args.name then
     end
 end)
 </code></pre>
@@ -1096,29 +1118,35 @@ as well as those triggered by AdColony’s IAP Promo (IAPP) advertisements and w
 <p>Request all ads</p>
 </blockquote>
 <h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onAdColonyChange(info, available)
+<pre><code class="lua">adColonyInterstitialDidLoad(adName);
 </code></pre>
 
 <blockquote>
-<p>called when AdColony is finished loading.</p>
+<p>called when AdColony interstitial has loaded.</p>
 </blockquote>
-<pre><code class="lua">onAdColonyReward(info, currencyName, amount, success)
+<pre><code class="lua">adColonyInterstitialDidFailToLoad(error);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony interstitial loaded failed.</p>
+</blockquote>
+<pre><code class="lua">adColonyAdViewDidLoad(adName);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony banner has loaded.</p>
+</blockquote>
+<pre><code class="lua">adColonyAdViewDidFailToLoad(error);
+</code></pre>
+
+<blockquote>
+<p>called when AdColony banner loaded failed.</p>
+</blockquote>
+<pre><code class="lua">adColonyReward(name, currencyName, amount, success);
 </code></pre>
 
 <blockquote>
 <p>reward was received.</p>
-</blockquote>
-<pre><code class="lua">onAdColonyStarted(info)
-</code></pre>
-
-<blockquote>
-<p>showing an ad has started.</p>
-</blockquote>
-<pre><code class="lua">onAdColonyFinished(info)
-</code></pre>
-
-<blockquote>
-<p>showing an ad has finished.</p>
 </blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
@@ -1433,7 +1461,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-05 21:06:43.202980, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-17 09:03:07.088265, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
