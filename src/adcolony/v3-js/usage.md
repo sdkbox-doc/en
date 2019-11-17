@@ -48,17 +48,35 @@ This allows you to catch the `AdColony` events so that you can perform operation
  */
 
 sdkbox.PluginAdColony.setListener({
-		onAdColonyChange : function (data, available) {
-				// Called when AdColony finish loading
-		},
-		onAdColonyReward : function (data, currencyName, amount, success) {
-				// Called when AdColony v4vc ad finish playing
-		},
-		onAdColonyStarted : function (data) {
-				// Called when ad starts playing
-		},
-		onAdColonyFinished : function (data) {
-				// Called when an ad finish displaying
-		}
+	adColonyInterstitialDidLoad: function(interstitial) {
+    },
+    adColonyInterstitialDidFailToLoad: function(error) {
+    },
+    adColonyInterstitialWillOpen: function(interstitial) {
+    },
+    adColonyInterstitialDidClose: function(interstitial) {
+    },
+    adColonyInterstitialExpired: function(interstitial) {
+    },
+    adColonyInterstitialWillLeaveApplication: function(interstitial) {
+    },
+    adColonyInterstitialDidReceiveClick: function(interstitial) {
+    },
+    adColonyInterstitialIapOpportunity: function(interstitial, iapProductID, engagement) {
+    },
+    adColonyAdViewDidLoad: function(adView) {
+    },
+    adColonyAdViewDidFailToLoad: function(error) {
+    },
+    adColonyAdViewWillLeaveApplication: function(adView) {
+    },
+    adColonyAdViewWillOpen: function(adView) {
+    },
+    adColonyAdViewDidClose: function(adView) {
+    },
+    adColonyAdViewDidReceiveClick: function(adView) {
+    },
+    adColonyReward: function(name, currencyName, amount, success) {
+    }
 });
 ```

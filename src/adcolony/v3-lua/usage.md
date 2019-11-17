@@ -20,26 +20,17 @@ This allows you to catch the `AdColony` events so that you can perform operation
 * Create a listener (demonstrated by logging events):
 ```lua
 sdkbox.PluginAdColony:setListener(function(args)
-    if "onAdColonyChange" == args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-        local available = args.available -- boolean
-				dump(info, "onAdColonyChange:")
-        print("available:", available)
-    elseif "onAdColonyReward" ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-        local currencyName = args.currencyName -- string
-        local amount = args.amount -- int
-        local success = args.success -- boolean
-				dump(info, "onAdColonyReward:")
-        print("currencyName:", currencyName)
-        print("amount:", amount)
-        print("success:", success)
-    elseif "onAdColonyStarted" ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-				dump(info, "onAdColonyStarted:")
-    elseif "onAdColonyFinished" ==  args.name then
-        local info = args.info  -- sdkbox::AdColonyAdInfo
-				dump(info, "onAdColonyFinished:")
+    if args.name == "onAdColonyChange" or args.name == "onAdColonyReward" or args.name == "onAdColonyStarted" or args.name == "onAdColonyFinished" then
+        print("those four event is deprecated")
+        return
+    end
+
+    dump(args)
+    if "adColonyReward" ==  args.name then
+    elseif "adColonyInterstitialDidLoad" ==  args.name then
+    elseif "adColonyInterstitialDidFailToLoad" ==  args.name then
+    elseif "adColonyAdViewDidLoad" ==  args.name then
+    elseif "adColonyAdViewDidFailToLoad" ==  args.name then
     end
 end)
 ```

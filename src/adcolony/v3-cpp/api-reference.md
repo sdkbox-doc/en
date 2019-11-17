@@ -206,27 +206,79 @@ static void requestAllAds ( ) ;
 
 
 ### Listeners
-```cpp
-void onAdColonyChange ( const AdColonyAdInfo & info , bool available );
-```
-> called when AdColony is finished loading.
 
 ```cpp
-void onAdColonyReward ( const AdColonyAdInfo & info ,
-                        const std::string & currencyName ,
-                        int amount ,
-                        bool success );
+void adColonyInterstitialDidLoad(const std::string& interstitial) = 0;
 ```
-> reward was received.
+> called when AdColony interstitial is loaded
 
 ```cpp
-void onAdColonyStarted ( const AdColonyAdInfo & info );
+void adColonyInterstitialDidFailToLoad(const std::string& error) = 0;
 ```
-> showing an ad has started.
+> called when AdColony interstitial fails to load
 
 ```cpp
-void onAdColonyFinished ( const AdColonyAdInfo & info );
+void adColonyInterstitialWillOpen(const std::string& interstitial) {};
 ```
-> showing an ad has finished.
+> called when AdColony interstitial will open
 
+```cpp
+void adColonyInterstitialDidClose(const std::string& interstitial) {};
+```
+> called when AdColony interstitial did close
+
+```cpp
+void adColonyInterstitialExpired(const std::string& interstitial) {};
+```
+> called when AdColony interstitial expired
+
+```cpp
+void adColonyInterstitialWillLeaveApplication(const std::string& interstitial) {};
+```
+> called when AdColony interstitial will leave application
+
+```cpp
+void adColonyInterstitialDidReceiveClick(const std::string& interstitial) {};
+```
+> called when AdColony interstitial did receive click
+
+```cpp
+void adColonyInterstitialIapOpportunity(const std::string& interstitial, const std::string& iapProductID, int 
+engagement) {};
+```
+
+```cpp
+void adColonyAdViewDidLoad(const std::string& adView) = 0;
+```
+> called when AdColony banner is loaded
+
+```cpp
+void adColonyAdViewDidFailToLoad(const std::string& error) = 0;
+```
+> called when AdColony banner fails to load
+
+```cpp
+void adColonyAdViewWillLeaveApplication(const std::string& adView) {};
+```
+> called when AdColony banner will leave application
+
+```cpp
+void adColonyAdViewWillOpen(const std::string& adView) {};
+```
+> called when AdColony banner will open
+
+```cpp
+void adColonyAdViewDidClose(const std::string& adView) {};
+```
+> called when AdColony banner did close
+
+```cpp
+void adColonyAdViewDidReceiveClick(const std::string& adView) {};
+```
+> called when AdColony banner did receive click
+
+```cpp
+void adColonyReward(const std::string& name, const std::string& currencyName, int amount, bool success) {};
+```
+> called when AdColony banner reward
 
