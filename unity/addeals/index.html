@@ -753,8 +753,11 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 <li>For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download <a href="https://unity3d.com/unity/qa/patch-releases">Unity Patch Releases</a>.</li>
 </ul>
 <h4 id="optional-compatible-with-microsoft-ads-using-windows-store-native">Optional: compatible with Microsoft Ads using <code>Windows Store Native</code></h4>
-<p>If you need to integrate Microsoft Ads using <code>Windows Store Native</code> plugin, please follow these steps after completed everything above:</p>
+<p>We offer a UnityRT project to integrate <code>Windows Store Native</code>.</p>
+<p>The main purpose of the following steps is to add UnityRT to the unity exported solution and invoke <code>Windows Store Native</code> in this UnityRT project.</p>
+<p>now please follow the following to integrate <code>Windows Store Native</code> (make sure you have completed everything above).</p>
 <ul>
+<li>follow <code>Windows Store Native</code>'s documentation, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp">InstitialAd</a>, <a href="https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp">BannerAd</a>, finish it's integrate steps.</li>
 <li>In Vistual Studio, open the main project exported from Unity. </li>
 <li>Add the <code>UnityRT</code> project into Visual Studio: <code>File</code>-&gt;<code>Add</code>-&gt;<code>Existing Project...</code>-&gt;Select <code>Your_Main_Project/UnityRT/UnityRT.vcxproj</code></li>
 <li>Change project dependencies: make your main project dependent on <code>UnityRT</code>, and make <code>UnityRT</code> dependent on <code>Il2CppOutputProject</code>. (Note: the main project in these sample screenshots is called AdDeals.)<br />
@@ -793,8 +796,8 @@ namespace AdDeals
 <pre><code class="cpp">
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
-        // AppInit
-        InterstitialAdManager::Initialise();
+    // AppInit
+    InterstitialAdManager::Initialise();
     BannerAdManager::Initialise(panel);
 }
 
@@ -1008,7 +1011,7 @@ public const int UserConsentGrant;
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2019-11-17 09:03:15.009187, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2019-11-21 15:15:28.093282, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
