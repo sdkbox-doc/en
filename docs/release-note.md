@@ -5,7 +5,6 @@
 ## Add
 
 1.  AdMob: add `onAdViewWillPresentScreen` event for RewardVideo
-2.  Supports `x86_64` for Android
 
 ## Upgrade
 
@@ -25,6 +24,7 @@
 1.  IAP: fix query subs product info for Android
 2.  Chartboost: fix installer for XCode project
 3.  JS callback crash with Cocos Creator 2.2
+4.  SDKBoxAds: fix `sdkbox.PluginSdkboxAds.playAd("UnityAds", "zone")`
 
 # 2.5.0.5 (20190920)
 
