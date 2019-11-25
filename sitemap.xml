@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>None/cocos/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/installer/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/cocos_creator/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,43 +41,43 @@
         
     <url>
      <loc>None/unity/allinone/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/iap/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/review/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/socialshare/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/googleanalytics/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/sdkboxplay/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unity/addeals/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -87,13 +87,13 @@
         
     <url>
      <loc>None/unreal/iap/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/unreal/chartboost/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -103,25 +103,25 @@
         
     <url>
      <loc>None/liveops/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/liveops/remote-config/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/liveops/receipt-verification/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/liveops/catalog-management/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -131,73 +131,73 @@
         
     <url>
      <loc>None/qa/from-google-to-amazon/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/integration-admob-to-creator/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/integration-fyber-to-cocos/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/fb-share-on-cocos/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/android_64k/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/integration-iap-on-unity/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/use-gui-integration-ga-to-creator/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/use-custom-activity-on-unity/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/crypt-sdkbox-config/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/sdkboxplay_troubleshoot/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/iap_troubleshoot/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/qa/sdkbox-cmake/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -206,7 +206,7 @@
     
     <url>
      <loc>None/release-note/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <lastmod>2019-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
