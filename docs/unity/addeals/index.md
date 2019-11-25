@@ -45,8 +45,13 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
 
 #### Optional: compatible with Microsoft Ads using `Windows Store Native`
 
-If you need to integrate Microsoft Ads using `Windows Store Native` plugin, please follow these steps after completed everything above:
+We offer a UnityRT project to integrate `Windows Store Native`.
 
+The main purpose of the following steps is to add UnityRT to the unity exported solution and invoke `Windows Store Native` in this UnityRT project.
+
+now please follow the following to integrate `Windows Store Native` (make sure you have completed everything above).
+
+* follow `Windows Store Native`'s documentation, [InstitialAd](https://github.com/ClaytonIndustries/WSANative/wiki/Interstitial-Adverts#il2cpp), [BannerAd](https://github.com/ClaytonIndustries/WSANative/wiki/Banner-Adverts#il2cpp), finish it's integrate steps.
 * In Vistual Studio, open the main project exported from Unity. 
 * Add the `UnityRT` project into Visual Studio: `File`->`Add`->`Existing Project...`->Select `Your_Main_Project/UnityRT/UnityRT.vcxproj`
 * Change project dependencies: make your main project dependent on `UnityRT`, and make `UnityRT` dependent on `Il2CppOutputProject`. (Note: the main project in these sample screenshots is called AdDeals.)  
@@ -86,9 +91,9 @@ namespace AdDeals
     
 void App::Start(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
-    	// AppInit
-    	InterstitialAdManager::Initialise();
-	BannerAdManager::Initialise(panel);
+    // AppInit
+    InterstitialAdManager::Initialise();
+    BannerAdManager::Initialise(panel);
 }
     
 ```
