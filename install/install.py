@@ -376,6 +376,17 @@ def get_installer_url(server):
 
     return {'url': '{0}installer/v1/{1}?v{2}.{3}'.format(server, manifest['bundle'], l, random.randint(0, 10000000)), 'bundle':manifest['bundle'], 'sha1': manifest['sha1']}
 
+def create_dir_if(path):
+    if os.path.exists(path):
+        return
+    if path.endswith('/'):
+        os.makedirs(path)
+        return
+    else:
+        dir_name = os.path.dirname(path)
+        if not os.path.exists(dir_name):
+            os.makedirs(dir_name)
+
 def load_country_code_by_file(file_path):
     content = {}
     if os.path.exists(file_path):
@@ -412,6 +423,7 @@ def load_country_code():
     country_code = check_country_code_by_net()
     j[country_code_key] = country_code
 
+    create_dir_if(loc)
     with open(loc, 'w') as f:
         json.dump(j, f)
 
