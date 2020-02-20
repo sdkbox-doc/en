@@ -342,8 +342,8 @@ def download_installer(path, info):
 
     return path
 
-def get_installer_url():
-    url = 'http://download.sdkbox.com/installer/v1/manifest.json'
+def get_installer_url(server):
+    url = server + 'installer/v1/manifest.json'
     data = Utils.curl(url, None, 1024, None)
     if not data or 0 == len(data):
         raise Exception('ERROR! load manifest fail')
@@ -374,7 +374,48 @@ def get_installer_url():
     if 'bundle' not in manifest or 'sha1' not in manifest:
         raise Exception('ERROR! manifest format error')
 
-    return {'url': 'http://download.sdkbox.com/installer/v1/{0}?v{1}.{2}'.format(manifest['bundle'], l, random.randint(0, 10000000)), 'bundle':manifest['bundle'], 'sha1': manifest['sha1']}
+    return {'url': '{0}installer/v1/{1}?v{2}.{3}'.format(server, manifest['bundle'], l, random.randint(0, 10000000)), 'bundle':manifest['bundle'], 'sha1': manifest['sha1']}
+
+def load_country_code_by_file(file_path):
+    content = {}
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            try:
+                content = json.load(f)
+            except Exception as e:
+                content = {}
+
+    return content
+
+def check_country_code_by_net():
+    country_code = 'US'
+    try:
+        headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
+        url = 'http://ip-api.com/json/'
+        req = urllib2.Request(url, headers=headers)
+        response = urllib2.urlopen(req)
+        page = response.read()
+        ret = json.loads(page)
+        country_code = ret['countryCode'].upper()
+    except RuntimeError as e:
+        pass
+    
+    return country_code
+
+def load_country_code():
+    loc = os.path.join(os.path.expanduser('~'), '.sdkbox', 'conf', 'loc.json')
+    j = load_country_code_by_file(loc)
+    country_code_key = 'countryCode'
+    if country_code_key in j:
+        if j[country_code_key]:
+            return j[country_code_key]
+    country_code = check_country_code_by_net()
+    j[country_code_key] = country_code
+
+    with open(loc, 'w') as f:
+        json.dump(j, f)
+
+    return country_code
 
 def main():
     SDKBOX_DIR = os.path.join(os.path.expanduser('~'), '.sdkbox')
@@ -385,8 +426,14 @@ def main():
         print('SDKBox installer have been installed')
         sys.exit(0)
 
+    # check country
+    server = 'http://download.sdkbox.com/'
+    country_code = load_country_code()
+    if country_code and 'CN' == country_code.upper():
+        server = 'http://sdkbox.anysdk.com/'
+
     # 2. get installer info (url, name, sha1) from remote manifest
-    info = get_installer_url()
+    info = get_installer_url(server)
 
     # 3. download installer
     path = os.path.join(SDKBOX_DIR, 'bin', info['bundle'])

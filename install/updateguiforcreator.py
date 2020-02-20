@@ -160,8 +160,8 @@ def save_local_gui_info(sdkbox_dir, info):
     with open(info_file, 'w') as outfile:
         json.dump(info, outfile)
 
-def load_remote_gui_version():
-    url = 'http://download.sdkbox.com/gui/creator/version'
+def load_remote_gui_version(server):
+    url = server + 'gui/creator/version'
     data = Utils.curl(url, None, 1024, None)
     if not data or 0 == len(data):
         raise Exception('ERROR! load sdkbox creator gui fail')
@@ -172,8 +172,8 @@ def load_remote_gui_version():
         raise Exception('ERROR! can not load sdkbox creator gui remote version')
     return info[key]
 
-def download_gui_package(path, version):
-    response = Utils.curl('http://download.sdkbox.com/gui/creator/sdkbox-{0}.zip'.format(version), None, 1024, Utils.progress_bar)
+def download_gui_package(path, version, server):
+    response = Utils.curl('{0}gui/creator/sdkbox-{1}.zip'.format(server , version), None, 1024, Utils.progress_bar)
     try:
         Utils.create_dir_if(path)
         f = open(path, 'wb')
@@ -190,6 +190,46 @@ def upgrade_gui(path, sdkbox_dir):
     Utils.move_folder(os.path.join(sdkbox_dir, 'creator', 'app'), os.path.join(sdkbox_dir, 'temp', 'backup', 'app'))
     Utils.move_folder(os.path.join(sdkbox_dir, 'temp', 'sdkbox', 'app'), os.path.join(sdkbox_dir, 'creator', 'app'))
 
+def load_country_code_by_file(file_path):
+    content = {}
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            try:
+                content = json.load(f)
+            except Exception as e:
+                content = {}
+
+    return content
+
+def check_country_code_by_net():
+    country_code = 'US'
+    try:
+        headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
+        url = 'http://ip-api.com/json/'
+        req = urllib2.Request(url, headers=headers)
+        response = urllib2.urlopen(req)
+        page = response.read()
+        ret = json.loads(page)
+        country_code = ret['countryCode'].upper()
+    except RuntimeError as e:
+        pass
+    
+    return country_code
+
+def load_country_code():
+    loc = os.path.join(os.path.expanduser('~'), '.sdkbox', 'conf', 'loc.json')
+    j = load_country_code_by_file(loc)
+    country_code_key = 'countryCode'
+    if country_code_key in j:
+        if j[country_code_key]:
+            return j[country_code_key]
+    country_code = check_country_code_by_net()
+    j[country_code_key] = country_code
+
+    with open(loc, 'w') as f:
+        json.dump(j, f)
+
+    return country_code
 
 def main():
     SDKBOX_DIR = os.path.join(os.path.expanduser('~'), '.sdkbox')
@@ -207,15 +247,21 @@ def main():
     local_info = load_local_gui_info(SDKBOX_DIR)
     local_version = local_info['version']['gui']['local']
 
+    # check country
+    server = 'http://download.sdkbox.com/'
+    country_code = load_country_code()
+    if country_code and 'CN' == country_code.upper():
+        server = 'http://sdkbox.anysdk.com/'
+
     # 3. load sdkbox creator gui remote version
-    remote_version = load_remote_gui_version()
+    remote_version = load_remote_gui_version(server)
     if remote_version == local_version:
         print("SDKBox create gui need't upgrade, local version:" + local_version)
         sys.exit(0)
 
     # 4. download sdkbox creator gui
     # path = os.path.join(SDKBOX_DIR, 'temp', 'sdkboxguiforcreator.zip')
-    path = download_gui_package(os.path.join(SDKBOX_DIR, 'temp', 'sdkboxguiforcreator.zip'), remote_version)
+    path = download_gui_package(os.path.join(SDKBOX_DIR, 'temp', 'sdkboxguiforcreator.zip'), remote_version, server)
     if not path:
         print('ERROR, download SDKBox creator gui failed')
         sys.exit(0)
