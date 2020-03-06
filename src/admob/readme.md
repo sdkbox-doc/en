@@ -76,6 +76,13 @@ width x height:
     "height":0
 ```
 
+#### Adaptive banner
+
+```
+    "width":-1,
+    "height":-1
+```
+
 #### Apps targeted for Children
 Apps that target for children can specify `"is_designed_for_families": true`
 
