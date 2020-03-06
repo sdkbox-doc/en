@@ -1,8 +1,33 @@
 # Release Notes
 
-# 2.5.1.1 (?)
+# next (?)
+
+# 2.6.0.0 (2020.03.06)
+
+## Add
+
+1.  china server
+2.  support cocos2d-x v4
+3.  support cocos creator 2.3.0
+4.  AdMob: support adaptive banner (width=-1, height=-1)
+5.  SDKBoxPlay: getTopPlayerScores
+
+## Upgrade
+
+1.  OneSignal: iOS 2.12.3 SDK, Android 3.11.2
+2.  IAP: billingclient to 2.1.0
+3.  Firebase: android 17.2.1
+4.  Update Unity IAP plugin
 
 ## Bugfix
+
+1.  SDKBoxPlay: 
+    -   [process snapshot conflict](https://discuss.cocos2d-x.org/t/sdkboxplay-savedgame-crash-case/49382)
+    -   getplayerscores
+    -   js/lua binding
+2.  GoogleAnalytics: add JS/Lua helper
+3.  IAP: [catch exception](https://discuss.cocos2d-x.org/t/sdkbox-2-5-1-2-crash-on-some-android-devices/48770)
+
 
 # 2.5.1.0 (2019.12.03)
 
