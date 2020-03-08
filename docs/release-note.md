@@ -2,6 +2,16 @@
 
 # next (?)
 
+# 2.6.0.1 (2020.03.08)
+
+## Add
+
+## Upgrade
+
+## Bugfix
+
+1.  AdMob crash when app switches between front and background
+
 # 2.6.0.0 (2020.03.06)
 
 ## Add
