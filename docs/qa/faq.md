@@ -1,5 +1,15 @@
 ## FAQ
 
+## 0. where is the plugins
+
+```
+# macOS
+$ open ~/.sdkbox
+
+# windows
+> explorer %systemdrive%%homepath%\.sdkbox
+```
+
 ## 1. How to download specific plugin version
 
 ```
