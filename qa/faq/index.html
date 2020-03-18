@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>IAP with Unity - SDKBOX</title>
+	<title>FAQ - SDKBOX</title>
         
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -618,8 +618,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">IAP with Unity</a>
+<li >
+    <a href="../integration-iap-on-unity/">IAP with Unity</a>
 </li>
 
                         
@@ -660,8 +660,8 @@
 
                         
                             
-<li >
-    <a href="../faq/">FAQ</a>
+<li class="active">
+    <a href="./">FAQ</a>
 </li>
 
                         
@@ -696,232 +696,50 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#how-to-integrate-iap-plugin-to-unity-project">How to integrate IAP Plugin to Unity project</a></li>
-	
-	<ul class="sub-sidenav">
-        
-            <li><a href="#creator-new-unity-project">Creator New Unity Project</a></li>
-        
-            <li><a href="#import-iap-plugin">Import IAP Plugin</a></li>
-        
-            <li><a href="#integration">Integration</a></li>
-        
-	</ul>
-	
-    
-        <li class="main "><a href="#api-reference">API Reference</a></li>
-	
-	<ul class="sub-sidenav">
-        
-            <li><a href="#methods">Methods</a></li>
-        
-            <li><a href="#callback">Callback</a></li>
-        
-	</ul>
-	
-    
-        <li class="main "><a href="#iap-sample">IAP Sample</a></li>
+        <li class="main active"><a href="#faq">FAQ</a></li>
 	
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p><a href="http://sdkbox.com">&#171; SDKBOX Home</a></p>
-<h1>IAP on Unity</h1>
+<h2 id="faq">FAQ</h2>
+<ol>
+<li>How to download specific plugin version</li>
+</ol>
+<pre><code>$ sdkbox list --json # will list all info
 
-<h2 id="how-to-integrate-iap-plugin-to-unity-project">How to integrate IAP Plugin to Unity project</h2>
-<hr />
-<h3 id="creator-new-unity-project">Creator New Unity Project</h3>
-<ul>
-<li>creator a new unity project, named it <code>SDKBoxTutorial</code></li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_create_project.png" /></p>
-<h3 id="import-iap-plugin">Import IAP Plugin</h3>
-<h4 id="open-assert-store">open assert store</h4>
-<ul>
-<li>type <code>sdkbox iap</code> and search</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_iap_detail.png" /></p>
-<ul>
-<li>find sdkbox iap and import</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_import_iap.jpeg" /></p>
-<h3 id="integration">Integration</h3>
-<h4 id="create-button">Create Button</h4>
-<p>create a <code>Buy</code> button, like follow:</p>
-<p><img alt="" src="../../imgs/unity_tutorial_hierarchy.png" />
-<img alt="" src="../../imgs/unity_tutorial_button_ui.png" /></p>
-<h4 id="add-iap-prefab-to-scene">add IAP prefab to scene</h4>
-<ul>
-<li>search <code>IAP</code> prefab</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_search_iap_prefab.png" /></p>
-<ul>
-<li>drag and drop <code>IAP</code> prefab into scene</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_include_iap_hierarchy.png" /></p>
-<h4 id="create-iapscript-script">Create <code>IAPScript</code> Script</h4>
-<ul>
-<li>create a C# script, named it <code>IAPScript</code>:</li>
-</ul>
-<pre><code>using UnityEngine;
-using System.Collections;
+## template download link
+# http://download.sdkbox.com/installer/v1/sdkbox-{plugin}_{version}.tar.gz
 
-public class IAPScript : MonoBehaviour {
+## facebook as example
+# http://download.sdkbox.com/installer/v1/sdkbox-facebook_v2.6.0.1.tar.gz
 
-    private Sdkbox.IAP _iap;
-
-    // Use this for initialization
-    void Start () {
-        _iap = FindObjectOfType&lt;Sdkbox.IAP&gt;();
-        if (_iap == null) {
-            Debug.Log(&quot;Failed to find IAP instance&quot;);
-        }
-    }
-
-    // Update is called once per frame
-    void Update () {
-    }
-
-    public void Purchase(string item) {
-        if (_iap != null) {
-            Debug.Log(&quot;About to purchase &quot; + item);
-            _iap.purchase(item);
-        }
-    }
-
-    /*
-     * Event Handlers
-     */
-    public void onInitialized(bool status) {
-        Debug.Log(&quot;IAPScript.onInitialized &quot; + status);
-    }
-
-    public void onSuccess(Sdkbox.Product product) {
-        Debug.Log(&quot;IAPScript.onSuccess: &quot; + product.name);
-    }
-
-    public void onFailure(Sdkbox.Product product, string message) {
-        Debug.Log(&quot;IAPScript.onFailure &quot; + message);
-    }
-
-    public void onCanceled(Sdkbox.Product product) {
-        Debug.Log(&quot;IAPScript.onCanceled product: &quot; + product.name);
-    }
-
-    public void onRestored(Sdkbox.Product product) {
-        Debug.Log(&quot;IAPScript.onRestored: &quot; + product.name);
-    }
-
-    public void onProductRequestSuccess(Sdkbox.Product[] products) {
-        foreach (var p in products) {
-            Debug.Log(&quot;Product: &quot; + p.name + &quot; price: &quot; + p.price);
-        }
-    }
-    public void onProductRequestFailure(string message) {
-        Debug.Log(&quot;IAPScript.onProductRequestFailure: &quot; + message);
-    }
-    public void onRestoreComplete(string message) {
-        Debug.Log(&quot;IAPScript.onRestoreComplete: &quot; + message);
-    }
-
-}
+# download it
+$ curl http://download.sdkbox.com/installer/v1/sdkbox-facebook_v2.6.0.1.tar.gz -o ~/.sdkbox/plugins/sdkbox-facebook_v2.6.0.1.tar.gz
+$ tar xf ~/.sdkbox/plugins/sdkbox-facebook_v2.5.1.0.tar.gz -C ~/.sdkbox/plugins/
 </code></pre>
 
-<p><em>Note</em>: this script just handler iap event and purchase, you need handler <code>refresh</code> <code>getProducts</code>, see <code>PurchaseHandler</code> in <code>IAP Sample Scene</code>.</p>
-<ul>
-<li>attach <code>IAPScript</code> to Main Camera, (you can attach <code>IAPScript</code> to another node, it's ok)</li>
-</ul>
-<h4 id="configure-iap">Configure IAP</h4>
-<ul>
-<li>select <code>IAP</code> prefab item</li>
-<li>checkout inspector view</li>
-<li>
-<p>add your ios iap items to <code>ios products</code></p>
-<ul>
-<li><code>Name</code> is used to identify the iap item ", used in the program.</li>
-<li><code>id</code> is <code>product id</code> of iap item in <code>itune connect</code></li>
-<li>if your iap item is consumable, check <code>Consumable</code></li>
-</ul>
-</li>
-<li>
-<p>fill <code>Android Key</code> with your android key</p>
-</li>
-<li>
-<p>add your android iap items to <code>android products</code></p>
-</li>
-<li>
-<p>fill callback with event handler function in <code>IAPScript</code></p>
-</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_iap_prefab_detail.png" /></p>
-<h4 id="configure-buy-button">Configure Buy Button</h4>
-<ul>
-<li>connect <code>Buy</code> button's click listener to <code>Purchase</code> function of <code>IAPScript</code></li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_button_callback.png" /></p>
-<p><em>Note</em>: argment of <code>Purchase</code> is the name your iOS/Android product</p>
-<h4 id="run-player">Run Player</h4>
-<p>run player and click button, you will get follow log:</p>
-<p><img alt="" src="../../imgs/unity_tutorial_simulator_log1.png" /></p>
-<p><em>Note</em>: the operation of the purchase will not trigger on player, this just make sure script and other setting is fine.</p>
-<h4 id="configure-package-name">Configure package name</h4>
-<p>open player setting, <code>Menu</code> -&gt; <code>Edit</code> -&gt; <code>Project Settings</code> -&gt; <code>Player</code>, change ios/android <code>bundle identifier</code> to yours</p>
-<p><img alt="" src="../../imgs/unity_tutorial_player_setting_ios.png" /></p>
-<h4 id="build-ios">Build iOS</h4>
-<ul>
-<li>tap <code>Menu</code> -&gt; <code>File</code> -&gt; <code>Build Settings...</code></li>
-<li>select <code>iOS</code> platform</li>
-<li>tap <code>Build</code> to generate ios project</li>
-<li>open <code>Unity-iPhone.xcodeproj</code></li>
-<li>connect iOS device</li>
-<li>select your iOS development team</li>
-<li>build in xcode</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_purchase_hint_screen.jpg" /></p>
-<p><img alt="" src="../../imgs/unity_tutorial_purchase_success_screen.jpg" /></p>
-<h4 id="build-android">Build Android</h4>
-<ul>
-<li>tap <code>Menu</code> -&gt; <code>File</code> -&gt; <code>Build Settings...</code></li>
-<li>select <code>Android</code> platform</li>
-<li>tap <code>Build</code> to generate android project</li>
-<li>open this project with eclipse</li>
-<li>build a release apk (must use release to test google iap)</li>
-</ul>
-<p><img alt="" src="../../imgs/unity_tutorial_purchase_dialog_android.jpg" /></p>
-<h2 id="api-reference">API Reference</h2>
-<p>SDKBox IAP For Unity, you can get all api from <code>IAP.cs</code></p>
-<p><img alt="" src="../../imgs/unity_tutorial_search_iap_script.png" /></p>
-<h3 id="methods">Methods</h3>
-<pre><code>public void setDebug(bool debug)
-public void getProducts() //will trigger listener event 'onProductRequestSuccess'
-public void purchase(string name)
-public void refresh()
-public void restore()
+<ol>
+<li>How to install specific plugin version</li>
+</ol>
+<pre><code>$ sdkbox import ~/.sdkbox/plugins/sdkbox-facebook_v2.5.1.0 -p /path/to/your/project/root
+
+# cocos creator
+$ sdkbox import ~/.sdkbox/plugins/sdkbox-facebook_v2.5.1.0 -p /path/to/jsb/build/jsb-link
+# or
+$ sdkbox import ~/.sdkbox/plugins/sdkbox-facebook_v2.5.1.0 -p /path/to/jsb/build/jsb-default
 </code></pre>
 
-<h3 id="callback">Callback</h3>
-<pre><code>public void onInitialized(bool status)
-public void onSuccess(Sdkbox.Product product)
-public void onFailure(Sdkbox.Product product, string message)
-public void onCanceled(Sdkbox.Product product)
-public void onRestored(Sdkbox.Product product)
-public void onProductRequestSuccess(Sdkbox.Product[] products)
-public void onProductRequestFailure(string message)
-public void onRestoreComplete(bool b, string message)
-</code></pre>
-
-<h2 id="iap-sample">IAP Sample</h2>
-<p><code>SDKBox IAP</code> plugin include a sample scene, open it and try.</p>
-<p><img alt="" src="../../imgs/unity_tutorial_search_iap_sample_scene.png" /></p></div>
+<pre><code>​
+</code></pre></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-03-18 01:44:12.521242, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-03-18 01:44:12.610996, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
