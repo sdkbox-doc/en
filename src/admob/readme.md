@@ -4,7 +4,7 @@
 <<[../../shared/-VERSION-/version.md]
 
 ##SDK Version
-<<[../version.md]
+<<[../version]
 
 ##Integration
 First, you must sign up for [AdMob](https://www.google.com/admob/).
@@ -92,7 +92,7 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
 
 #### Test ID (Google)
 
-[Android](https://developers.google.com/admob/ios/test-ads)
+[Android](https://developers.google.com/admob/android/test-ads)
 
 | type               | id                                     |
 | ------------------ | -------------------------------------- |
@@ -101,7 +101,7 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
 | Interstitial Video | ca-app-pub-3940256099942544/8691691433 |
 | Rewarded Video     | ca-app-pub-3940256099942544/5224354917 |
 
-[iOS](https://developers.google.com/admob/android/test-ads)
+[iOS](https://developers.google.com/admob/ios/test-ads)
 
 | type               | id                                     |
 | ------------------ | -------------------------------------- |
@@ -117,7 +117,7 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
     "ios": {
         "AdMob":{
             "ads":{
-                "home":{
+                "banner":{
                     "id":"ca-app-pub-3940256099942544/2934735716",
                     "type":"banner",
                     "alignment":"bottom",
@@ -125,8 +125,8 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
                     "height":50,
                     "is_designed_for_families": false
                 },
-                "gameover":{
-                    "id":"ca-app-pub-1329374026572143/4185543717",
+                "interstitial":{
+                    "id":"ca-app-pub-3940256099942544/4411468910",
                     "type":"interstitial",
                     "is_designed_for_families": true
                 }
@@ -136,16 +136,16 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
     "android": {
         "AdMob":{
             "ads":{
-                "home":{
-                    "id":"ca-app-pub-1329374026572143/2685130917",
+                "banner":{
+                    "id":"ca-app-pub-3940256099942544/6300978111",
                     "type":"banner",
                     "alignment":"bottom",
                     "width":300,
                     "height":100,
                     "is_designed_for_families": false
                 },
-                "gameover":{
-                    "id":"ca-app-pub-1329374026572143/1092476511",
+                "interstitial":{
+                    "id":"ca-app-pub-3940256099942544/1033173712",
                     "type":"interstitial",
                     "is_designed_for_families": true
                 }
