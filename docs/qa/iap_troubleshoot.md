@@ -35,3 +35,11 @@ sdkbox::IAP::setListener(new your_iap_listener());
 sdkbox::IAP::init();
 ``` 
 as early as possible
+
+## Android SDKBoxIABBillingClient: billingClient is null or not ready
+
+maybe follow reason:
+
+* Google Play not signin
+* Google Play Service not installed
+
