@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+	<title>Huawei Mobile Services(HMS) with Lua - SDKBOX</title>
+        
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/base.css?2" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/custom.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://sdkbox.com"><img src="http://www.cocos2d-x.org/s/sdkbox/SDKBOX_logo.png">Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cocos2d-x <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../cocos/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../installer/">CLI Installer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/cocos_creator/">For Cocos Creator</a>
+</li>
+
+                        
+                            
+  
+  <li class="dropdown-submenu">
+    <a tabindex="-1" class="non-link">Plugins</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../achievement/">Achievements</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../adcolony/">AdColony</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../admob/">AdMob</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../agecheq/">AgeCheq</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appnext/">Appnext</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../appodeal/">Appodeal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../amazon/">Amazon</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../apteligent/">Apteligent</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../bee7/">Bee7</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../chartboost/">Chartboost</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../ethwallet/">EthWallet</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../facebook/">Facebook</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../gameroom/">Facebook Gameroom</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../firebase/">Firebase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../flurryanalytics/">Flurry Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../fyber/">Fyber</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../googleanalytics/">Google Analytics</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../googleplay/">Google Play Games</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../">Huawei Mobile Services</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../iap/">In-App Purchase</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../inmobi/">InMobi</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../kochava/">Kochava</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leadbolt/">LeadBolt</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../leaderboard/">Leaderboard</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../misc/">Misc</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../onesignal/">OneSignal</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../playphone/">Playphone</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../phunwareads/">Phunware Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../phunwaremessaging/">Phunware Messaging</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../review/">Ratings & Reviews</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxads/">SDKBOX Ads</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../sdkboxplay/">SDKBOX Play</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../share/">Social Sharing</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../tapcore/">Tapcore</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../tune/">Tune</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../unityads/">UnityAds</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../valuepotion/">Valuepotion</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../vungle/">Vungle</a>
+</li>
+
+        
+            
+  
+
+        
+            
+<li >
+    <a href="../../youtube/">Youtube</a>
+</li>
+
+        
+            
+  
+
+        
+    </ul>
+  </li>
+  
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unity <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unity/allinone/">SDKBOX AllInOne</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/review/">Ratings & Reviews</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/socialshare/">SocialShare</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/googleanalytics/">Google Analytics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/sdkboxplay/">SDKBOX Play</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unity/addeals/">AdDeals</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unreal <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unreal/iap/">In-App Purchase</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unreal/chartboost/">Chartboost</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">LiveOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../liveops/">Setup</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/remote-config/">Remote Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/receipt-verification/">Server-side IAP receipt verification</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../liveops/catalog-management/">On-the-fly catalog management</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../qa/from-google-to-amazon/">From Google to Amazon</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-admob-to-creator/">Admob in Creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-fyber-to-cocos/">Fyber with Cocos2d-x</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/fb-share-on-cocos/">Facebook with Cocos2d-x</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/android_64k/">Fix Android 64K methods limit</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/integration-iap-on-unity/">IAP with Unity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/use-gui-integration-ga-to-creator/">GA with SDKBox GUI in Creator</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/use-custom-activity-on-unity/">Unity Custom Activity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/crypt-sdkbox-config/">Encrypt Decrypt sdkbox_config.json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/sdkboxplay_troubleshoot/">SDKBoxPlay Troubleshoot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/iap_troubleshoot/">IAP Troubleshoot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/sdkbox-cmake/">CMake</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../qa/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../release-note/">About</a>
+                    </li>
+                
+                
+
+                <li style="margin-left:30px">
+                    <a href="http://sdkbox-doc.github.io/zh/">中文</a>
+                </li>
+                
+                </ul>
+            
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#integration">Integration</a></li>
+	
+    
+        <li class="main "><a href="#important-notice">Important Notice</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#disable-app-transport-security">Disable App Transport Security</a></li>
+        
+            <li><a href="#disable-bitcode-support">Disable Bitcode support</a></li>
+        
+            <li><a href="#set-your-game-requires-full-screen">Set your game requires full screen</a></li>
+        
+            <li><a href="#whitelist-canopenurl-function">Whitelist canOpenURL function</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#configuration">Configuration</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#hms-for-ios">HMS for iOS</a></li>
+        
+            <li><a href="#test-hms-for-android">Test HMS for android</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#usage">Usage</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#initialize-hms">Initialize HMS</a></li>
+        
+            <li><a href="#login">Login</a></li>
+        
+            <li><a href="#logout">Logout</a></li>
+        
+            <li><a href="#handling-purchase-events">Handling Purchase Events</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#remote-configuration">Remote Configuration</a></li>
+	
+    
+        <li class="main "><a href="#api-reference">API Reference</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#methods">Methods</a></li>
+        
+            <li><a href="#listeners">Listeners</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#manual-integration">Manual Integration</a></li>
+	
+    
+        <li class="main "><a href="#manual-integration-for-ios">Manual Integration For iOS</a></li>
+	
+    
+        <li class="main "><a href="#manual-integration-for-android">Manual Integration For Android</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#copy-files">Copy Files</a></li>
+        
+            <li><a href="#edit-buildgradle">Edit build.gradle</a></li>
+        
+            <li><a href="#edit-androidmanifestxml">Edit AndroidManifest.xml</a></li>
+        
+            <li><a href="#edit-androidmk">Edit Android.mk</a></li>
+        
+            <li><a href="#modify-applicationmk-cocos2d-x-v30-v32-only">Modify Application.mk (Cocos2d-x v3.0 - v3.2 only)</a></li>
+        
+            <li><a href="#modify-appactivityjava">Modify AppActivity.java</a></li>
+        
+	</ul>
+	
+    
+        <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
+	
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><a href="../">&#8249; HMS Doc Home</a></p>
+<h1>Huawei Mobile Services Integration Guide</h1>
+
+<h4><em><b>For the Lua version of cocos2d-x v3.x</b> - (<a href="./../">all other versions</a>)</em></h4>
+
+<h2 id="integration">Integration</h2>
+<p>Open a terminal and use the following command to install the SDKBOX HMS plugin. Make sure you setup the SDKBOX installer correctly.</p>
+<pre><code class="bash">$ sdkbox import hms
+</code></pre>
+
+<h2 id="important-notice">Important Notice</h2>
+<p>Please make sure the following settings in your project to make the plugin work well.</p>
+<h4 id="disable-app-transport-security">Disable App Transport Security</h4>
+<p>Adding the following entry to the <code>info.plist</code> file:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<p>It should look like this:</p>
+<p><img alt="" src="../../../imgs/ATS.png" /></p>
+<h4 id="disable-bitcode-support">Disable Bitcode support</h4>
+<p>You have to turn off <strong>Bitcode</strong> support. If you don't, cocos2d-x will fail to build.</p>
+<h4 id="set-your-game-requires-full-screen">Set your game requires full screen</h4>
+<p>If your game doesn't support all screen orientations, you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
+<h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
+<p>This setting depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app.</p>
+<p>Here is an example of the HMS configuration.</p>
+<pre><code class="json">&quot;ios&quot; :
+{
+    &quot;hms&quot;:{
+    }
+},
+&quot;android&quot;:
+{
+    &quot;hms&quot;:{
+        &quot;debug&quot;: false
+    }
+}
+</code></pre>
+
+<p>And you must download <code>agconnect-services.json</code> from HMS developer site, and put it in <code>proj.android/app</code>.</p>
+<h3 id="hms-for-ios">HMS for iOS</h3>
+<ul>
+<li>HMS is not supported iOS, we implement empty on iOS.</li>
+</ul>
+<h3 id="test-hms-for-android">Test HMS for android</h3>
+<ol>
+<li>Create App in AppGallery</li>
+<li>Enable Module you need(enable AccountKit if you need)</li>
+<li>Configure app signature</li>
+<li>download app info <code>agconnect-services.json</code></li>
+</ol>
+<p>HMS official <a href="https://developer.huawei.com/consumer/hms">Document</a></p>
+<!---->
+
+<h2 id="usage">Usage</h2>
+<h3 id="initialize-hms">Initialize HMS</h3>
+<ul>
+<li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
+</ul>
+<pre><code class="lua">sdkbox.HMS:init()
+</code></pre>
+
+<h3 id="login">Login</h3>
+<p>HMS provides three way to login.</p>
+<ul>
+<li>Signing In with HUAWEI ID(ID Token)</li>
+</ul>
+<pre><code class="lua">sdkbox.HMS:login(1);
+</code></pre>
+
+<ul>
+<li>Signing In with HUAWEI ID(Authorization Code)</li>
+</ul>
+<pre><code class="lua">sdkbox.HMS:login(2);
+</code></pre>
+
+<ul>
+<li>Silently Signing In With HUAWEI ID</li>
+</ul>
+<p>Authorization is required only at the first sign-in to your app using a HUAWEI ID. Subsequent sign-ins using the same HUAWEI ID does not require any authorization.</p>
+<pre><code class="lua">sdkbox.HMS:login(0);
+</code></pre>
+
+<blockquote>
+<p><code>onLogin</code> will be triggered when HMS AccountKit reruns the login response.</p>
+</blockquote>
+<p>HMS offical <a href="https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4">documentation</a></p>
+<h3 id="logout">Logout</h3>
+<pre><code class="lua">sdkbox.HMS:logout();
+</code></pre>
+
+<h3 id="handling-purchase-events">Handling Purchase Events</h3>
+<p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
+<pre><code class="lua">sdkbox.HMS:setListener(function(args)
+        if &quot;onLogin&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+                dump(args, &quot;onLogin:&quot;)
+        else
+                print(&quot;unknown event &quot;, args.event)
+        end
+end)
+</code></pre>
+
+<h2 id="remote-configuration">Remote Configuration</h2>
+<p>Optionally, you can choose to use SDKBOX LiveOps to remotely update this plugin's configuration. <a href="../../../liveops/remote-config">Learn more</a></p>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="methods">Methods</h3>
+<pre><code class="lua">sdkbox.PluginHMS:setGDPR(enabled)
+</code></pre>
+
+<blockquote>
+<p>Set GDPR</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:init()
+</code></pre>
+
+<blockquote>
+<p>initialize the plugin instance.</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:setListener(listener)
+</code></pre>
+
+<blockquote>
+<p>Set listener to listen for adcolony events</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:login(loginType)
+</code></pre>
+
+<blockquote>
+<p>HMS provider three way to login
+loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweID(Authorization Code)</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:logout()
+</code></pre>
+
+<blockquote>
+<p>logout HMS</p>
+</blockquote>
+<h3 id="listeners">Listeners</h3>
+<pre><code class="lua">onLogin(code, msg)
+</code></pre>
+
+<h2 id="manual-integration">Manual Integration</h2>
+<p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
+<p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
+<h2 id="manual-integration-for-ios">Manual Integration For iOS</h2>
+<p>Drag and drop the following frameworks from the <strong>plugins/ios</strong> folder of the <code>HMS</code> bundle into your Xcode project, check <code>Copy items if needed</code> when adding frameworks:</p>
+<blockquote>
+<p>sdkbox.framework</p>
+<p>PluginHMS.framework</p>
+</blockquote>
+<p>The above frameworks depend upon other frameworks. You also need to add the following system frameworks, if you don't already have them:</p>
+<blockquote>
+<p>SystemConfiguration.framework</p>
+</blockquote>
+<p>Copy all source and header files from <code>plugin/luabindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add these same files, that you just copied, to Xcode by either dragging and dropping them into Xcode or by using <strong>File -&gt; Add files to...</strong>.</p>
+<h2 id="manual-integration-for-android">Manual Integration For Android</h2>
+<p>SDKBOX supports three different kinds of <strong>Android</strong> projects <strong>command-line</strong>, <strong>eclipse</strong> and <strong>Android Studio</strong>. </p>
+<ul>
+<li><code>proj.android</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>command-line</strong> and <strong>eclipse</strong> project</li>
+<li><code>proj.android-studio</code> will be used as our <code>&lt;project_root&gt;</code> for <strong>Android Studio</strong> project.</li>
+</ul>
+<h3 id="copy-files">Copy Files</h3>
+<h4 id="copy-jar-files">Copy jar files</h4>
+<p>Copy the following <strong>jar</strong> files from <code>plugin/android/libs</code> folder of this
+bundle into your project's <strong><project_root>/libs</strong> folder.</p>
+<blockquote>
+<p>PluginHMS.jar</p>
+<p>sdkbox.jar</p>
+</blockquote>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>cocos2d/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<pre>
+cocos2d/cocos/platform/android/java/libs
+cocos2d/cocos/platform/android/libcocos2dx/libs
+</pre></p>
+</li>
+<li>
+<p>If you're using cocos2d-js or lua copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>frameworks/cocos2d-x/cocos/platform/android/java/libs</code></p>
+<p>Android Studio:
+<pre>
+frameworks/cocos2d-x/cocos/platform/android/java/libs
+frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/libs
+</pre></p>
+</li>
+<li>
+<p>If you're using prebuilt cocos2d-x copy the <strong>jar</strong> files to:</p>
+<p>Android command-line:
+<code>proj.android/libs</code></p>
+</li>
+</ul>
+<h4 id="copy-jni-libs">Copy jni libs</h4>
+<p>Copy and overwrite all the folders from <code>plugin/android/jni</code>
+to your <code>&lt;project_root&gt;/jni/</code> directory.</p>
+<h3 id="edit-buildgradle">Edit <code>build.gradle</code></h3>
+<p>your modification maybe look like following:</p>
+<p>project root gradle file</p>
+<pre><code class="gradle">
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://developer.huawei.com/repo/' } // for hms
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.huawei.agconnect:agcp:1.2.1.301' // for hms
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://developer.huawei.com/repo/' } // for hms
+    }
+}
+
+</code></pre>
+
+<p>application's build.gradle</p>
+<pre><code class="gradle">apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect' // for hms
+
+...
+
+dependencies {
+    ...
+    implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+}
+
+</code></pre>
+
+<h3 id="edit-androidmanifestxml">Edit <code>AndroidManifest.xml</code></h3>
+<p>Include the following permissions above the <strong>application tag</strong>:</p>
+<pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot;/&gt;
+</code></pre>
+
+<h3 id="edit-androidmk">Edit <code>Android.mk</code></h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Android.mk</code> to:</p>
+<p>Add additional dependencies to <strong>LOCAL_WHOLE_STATIC_LIBRARIES</strong>:</p>
+<pre><code>LOCAL_WHOLE_STATIC_LIBRARIES += PluginHMS
+LOCAL_WHOLE_STATIC_LIBRARIES += sdkbox
+</code></pre>
+
+<p>Add a call to:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+</code></pre>
+
+<p>before any <strong>import-module</strong> statements.</p>
+<p>Add additional <strong>import-module</strong> statements at the end:</p>
+<pre><code>$(call import-module, ./sdkbox)
+$(call import-module, ./pluginhms)
+</code></pre>
+
+<p>This means that your ordering should look similar to this:</p>
+<pre><code>$(call import-add-path,$(LOCAL_PATH))
+$(call import-module, ./sdkbox)
+$(call import-module, ./pluginhms)
+</code></pre>
+
+<p><strong>Note:</strong> It is important to make sure these statements are above the existing <code>$(call import-module,./prebuilt-mk)</code> statement, if you are using the pre-built libraries.</p>
+<h3 id="modify-applicationmk-cocos2d-x-v30-v32-only">Modify <code>Application.mk</code> (Cocos2d-x v3.0 - v3.2 only)</h3>
+<p>Edit <code>&lt;project_root&gt;/jni/Application.mk</code> to make sure <strong>APP_STL</strong> is defined
+correctly. If <code>Application.mk</code> contains <code>APP_STL := c++_static</code>, it should be
+changed to:</p>
+<pre><code>APP_STL := gnustl_static
+</code></pre>
+
+<p>Copy all source and header files from <code>plugin/luabindings/</code> to your projects <code>Classes</code> folder.</p>
+<p>Add all <code>.cpp</code> files, that you just copied, to <code>Android.mk</code> in the <strong>LOCAL_SRC_FILES</strong> section. Example</p>
+<pre><code>LOCAL_SRC_FILES := hellocpp/main.cpp \
+                ../../Classes/AppDelegate.cpp \
+                ../../Classes/HelloWorldScene.cpp \
+                                ../../Classes/NewSourceFile.cpp
+</code></pre>
+
+<h3 id="modify-appactivityjava">Modify <strong>AppActivity.java</strong></h3>
+<h4 id="plugin-2403">Plugin &gt;= 2.4.0.3</h4>
+<ol>
+<li>Find the <strong>AppActivity.java</strong></li>
+</ol>
+<pre><code class="bash">find . -name &quot;AppActivity.java&quot;
+</code></pre>
+
+<ol>
+<li>Replace <code>extends Cocos2dxActivity</code> with <code>extends com.sdkbox.plugin.SDKBoxActivity</code></li>
+</ol>
+<p>Example of the directory where the <strong>AppActivity.java</strong> file is located:</p>
+<pre><code>cpp
+  - proj.android/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android-studio/app/src/org/cocos2dx/cpp/AppActivity.java
+  - proj.android/app/src/org/cocos2dx/cpp/AppActivity.java ( from cocos2d-x 3.17)
+
+lua
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/lua/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/lua/AppActivity.java (from cocos2d-x 3.17)
+
+js
+  - frameworks/runtime-src/proj.android/src/org/cocos2dx/javascript/AppActivity.java
+  - frameworks/runtime-src/proj.android/app/src/org/cocos2dx/javascript/AppActivity.java ( from cocos2d-x 3.17)
+</code></pre>
+
+<h4 id="plugin-2403_1">Plugin &lt; 2.4.0.3</h4>
+<ul>
+<li>
+<p>If you're using cocos2d-x from source, assuming you are in the <strong>proj.android</strong> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/
+lib/Cocos2dxActivity.java</code></p>
+</li>
+<li>
+<p>If you're using the prebuilt cocos2d-x libraries assuming you are in the <code>proj.android</code> directory, <strong>Cocos2dxActivity.java</strong> is located:</p>
+<p><code>./src/org/cocos2dx/lib/Cocos2dxActivity.java</code></p>
+</li>
+</ul>
+<p><strong>Note:</strong> When using Cocos2d-x from source, different versions have <strong>Cocos2dxActivity.java</strong> in a different location. One way to find the location is to look in <strong>proj.android/project.properties</strong>. Example:
+  <code>android.library.reference.1=../../cocos2d-x/cocos/platform/android/java</code></p>
+<p>In this case, <strong>Cocos2dxActivity.java</strong> should be located at:</p>
+<pre><code>../../cocos2d-x/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxActivity.java
+</code></pre>
+
+<ul>
+<li>Modify <strong>Cocos2dxActivity.java</strong> to add the following imports:</li>
+</ul>
+<pre><code class="java">import android.content.Intent;
+import com.sdkbox.plugin.SDKBox;
+</code></pre>
+
+<ul>
+<li>Second, modify <strong>Cocos2dxActivity.java</strong> to edit the <code>onCreate(final Bundle savedInstanceState)</code> function to add a call to <code>SDKBox.init(this);</code>. The placement of this call is important. It must be done after the call to <code>onLoadNativeLibraries();</code>. Example:</li>
+</ul>
+<pre><code class="java">onLoadNativeLibraries();
+SDKBox.init(this);
+</code></pre>
+
+<ul>
+<li>
+<p>Last, we need to insert the proper <strong>overrides</strong> code. There are a few rules here.</p>
+<ul>
+<li>
+<p>If the method listed has not been defined, <strong>add it</strong>.</p>
+</li>
+<li>
+<p>If the method listed has been defined, add the calls to <code>SDKBox</code> in the <strong>same</strong> existing function.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+          }
+    }
+    @Override
+    protected void onStart() {
+          super.onStart();
+          SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+          super.onStop();
+          SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+          super.onResume();
+          SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+          super.onPause();
+          SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+          if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+          }
+    }
+</code></pre>
+
+<h2 id="proguard-optional">Proguard (optional)</h2>
+<ul>
+<li>Edit <code>project.properties</code>  to specify a <code>Proguard</code> configuration file. Example:</li>
+</ul>
+<pre><code>proguard.config=proguard.cfg
+</code></pre>
+
+<ul>
+<li>proguard.cfg:</li>
+</ul>
+<pre><code># If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# cocos2d-x
+-keep public class org.cocos2dx.** { *; }
+-dontwarn org.cocos2dx.**
+-keep public class com.chukong.** { *; }
+-dontwarn com.chukong.**
+
+# HMS
+-ignorewarnings
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.hianalytics.android.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
+
+#sdkbox
+-keep public class com.sdkbox.** { *; }
+-dontwarn com.sdkbox.**
+</code></pre>
+
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Build Date UTC :2020-05-18 12:04:16, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script src="../../../js/base.js"></script>
+        
+
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70044300-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
