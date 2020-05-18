@@ -107,6 +107,12 @@ pages:
             - 'Google Play Services with C++': 'plugins/googleplay/v3-cpp.md'
             - 'Google Play Services with Javascript': 'plugins/googleplay/v3-js.md'
             - 'Google Play Services with Lua': 'plugins/googleplay/v3-lua.md'
+        - 'Huawei Mobile Services': 'plugins/hms/index.md'
+        - '_HMS':
+            - 'Cocos2d-x v3.x':
+                - 'Huawei Mobile Services(HMS) with C++': 'plugins/hms/v3-cpp.md'
+                - 'Huawei Mobile Services(HMS) with Javascript': 'plugins/hms/v3-js.md'
+                - 'Huawei Mobile Services(HMS) with Lua': 'plugins/hms/v3-lua.md'
         - 'In-App Purchase': 'plugins/iap/index.md'
         - '_IAP':
             - 'Cocos2d-x v3.x':
