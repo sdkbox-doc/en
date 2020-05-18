@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>/</loc>
+     <loc>None/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -12,25 +12,25 @@
     
         
     <url>
-     <loc>/cocos/</loc>
+     <loc>None/cocos/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/installer/</loc>
+     <loc>None/installer/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/cocos_creator/</loc>
+     <loc>None/qa/cocos_creator/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -40,59 +40,43 @@
     
         
     <url>
-     <loc>/unity/allinone/</loc>
+     <loc>None/unity/allinone/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/iap/</loc>
+     <loc>None/unity/iap/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/review/</loc>
+     <loc>None/unity/review/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/socialshare/</loc>
+     <loc>None/unity/socialshare/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/googleanalytics/</loc>
+     <loc>None/unity/googleanalytics/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/sdkboxplay/</loc>
+     <loc>None/unity/sdkboxplay/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/unity/addeals/</loc>
-     <lastmod>2020-05-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/unreal/iap/</loc>
-     <lastmod>2020-05-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/unreal/chartboost/</loc>
+     <loc>None/unity/addeals/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -102,25 +86,13 @@
     
         
     <url>
-     <loc>/liveops/</loc>
+     <loc>None/unreal/iap/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/liveops/remote-config/</loc>
-     <lastmod>2020-05-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/liveops/receipt-verification/</loc>
-     <lastmod>2020-05-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/liveops/catalog-management/</loc>
+     <loc>None/unreal/chartboost/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -130,79 +102,107 @@
     
         
     <url>
-     <loc>/qa/from-google-to-amazon/</loc>
+     <loc>None/liveops/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-admob-to-creator/</loc>
+     <loc>None/liveops/remote-config/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-fyber-to-cocos/</loc>
+     <loc>None/liveops/receipt-verification/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/fb-share-on-cocos/</loc>
+     <loc>None/liveops/catalog-management/</loc>
+     <lastmod>2020-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/qa/from-google-to-amazon/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/android_64k/</loc>
+     <loc>None/qa/integration-admob-to-creator/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/integration-iap-on-unity/</loc>
+     <loc>None/qa/integration-fyber-to-cocos/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/use-gui-integration-ga-to-creator/</loc>
+     <loc>None/qa/fb-share-on-cocos/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/use-custom-activity-on-unity/</loc>
+     <loc>None/qa/android_64k/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/crypt-sdkbox-config/</loc>
+     <loc>None/qa/integration-iap-on-unity/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/sdkboxplay_troubleshoot/</loc>
+     <loc>None/qa/use-gui-integration-ga-to-creator/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/iap_troubleshoot/</loc>
+     <loc>None/qa/use-custom-activity-on-unity/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/sdkbox-cmake/</loc>
+     <loc>None/qa/crypt-sdkbox-config/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/qa/faq/</loc>
+     <loc>None/qa/sdkboxplay_troubleshoot/</loc>
+     <lastmod>2020-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/iap_troubleshoot/</loc>
+     <lastmod>2020-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/sdkbox-cmake/</loc>
+     <lastmod>2020-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/qa/faq/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -211,7 +211,7 @@
 
     
     <url>
-     <loc>/release-note/</loc>
+     <loc>None/release-note/</loc>
      <lastmod>2020-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
