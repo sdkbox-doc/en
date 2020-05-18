@@ -105,7 +105,10 @@ class DocManager:
         self.sync_version()
 
     def sync_version(self):
-        csc_path = os.environ['CSC_PATH']
+        csc_path = os.environ.get("CSC_PATH")
+        if not csc_path:
+            print('WARNING: Environment CSC_PATH not found')
+            return
         curr_path = get_curr_path()
         for f in sorted(os.listdir(os.path.join(csc_path, 'plugins'))):
             src = os.path.join(csc_path, 'plugins', f, 'version')
