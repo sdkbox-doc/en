@@ -27,10 +27,58 @@ sdkbox.PluginHMS:logout()
 ```
 > logout HMS
 
+```lua
+sdkbox.PluginHMS:iapRequestProducts()
+```
+
+```lua
+sdkbox.PluginHMS:iapPurchase(name)
+```
+
+```lua
+sdkbox.PluginHMS:iapPurchaseWithPrice(productJson)
+```
+
+```lua
+sdkbox.PluginHMS:iapRequestOwnedPurchases()
+```
+
+```lua
+sdkbox.PluginHMS:iapConsume(purchaseToken)
+```
+
+```lua
+sdkbox.PluginHMS:iapRequestOwnedPurchaseRecords()
+```
+
 
 ### Listeners
 ```lua
 onLogin(code, msg)
+```
+
+```lua
+onIAPReady(code, msg)
+```
+
+```lua
+onIAPProducts(code, errorOrJson)
+```
+
+```lua
+onIAPPurchase(code, errorOrJson)
+```
+
+```lua
+onIAPPConsume(code, errorOrJson)
+```
+
+```lua
+onIAPOwnedPurchases(code, errorOrJson)
+```
+
+```lua
+onIAPOwnedPurchaseRecords(code, errorOrJson)
 ```
 
 
