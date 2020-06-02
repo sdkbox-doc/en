@@ -38,9 +38,68 @@ HMS offical [documentation](https://developer.huawei.com/consumer/en/doc/develop
 
 ### Logout
 
-```
+```cpp
 sdkbox::HMS::logout();
 ```
+
+### Request Managed Products
+
+```cpp
+sdkbox::HMS::iapRequestProducts();
+```
+this method will trigger `onIAPProducts` event
+
+### Purchase Managed Product
+
+```cpp
+sdkbox::HMS::iapPurchase("coin");
+```
+this method will trigger `onIAPPurchase` event
+
+### Purchase Unmanaged Product
+
+```cpp
+const std::string productInfo = R"(
+{
+  "priceType": 0, //0:consumable 1:non-consumable 2:subscription
+  "productName": "product name",
+  "productId": "product id",
+  "amount": "1.00",
+  "currency": "CNY",
+  "country": "CN",
+  "sdkChannel": "1", // sdkChannel size must be between 0 and 4
+  "serviceCatalog": "X58",
+  "reservedInfor": "{\"a\": 1, \"b\":\"s\"}", // reservedInfor must be json string
+  "developerPayload": "payload1"
+}
+)";
+sdkbox::HMS::iapPurchaseWithPrice(productInfo);
+```
+this method will trigger `onIAPPurchase` event
+
+### request owned purchase
+
+will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.
+
+```cpp
+sdkbox::HMS::iapRequestOwnedPurchases();
+```
+this method will trigger `onIAPOwnedPurchases` event
+
+### consume product
+
+```cpp
+sdkbox::HMS::iapConsume(purchaseToken);
+```
+this method will trigger `onIAPPConsume` event
+
+### request owned purchase record
+
+request current user's all purchase records.
+```cpp
+sdkbox::HMS::iapRequestOwnedPurchaseRecords(purchaseToken);
+```
+this method will trigger `onIAPOwnedPurchaseRecords` event
 
 ### Handling HMS Events
 This allows you to catch the `HMS` events so that you can perform operations based upon the response from your players and HMS servers.
@@ -51,6 +110,12 @@ This allows you to catch the `HMS` events so that you can perform operations bas
 class MyClass : public sdkbox::HMSListener {
 private:
   virtual void onLogin(int code, const std::string &msg) override;
+  virtual void onIAPReady(int code, const std::string& msg) override;
+  virtual void onIAPProducts(int code, const std::string& errorOrJson) override;
+  virtual void onIAPPurchase(int code, const std::string& errorOrJson) override;
+  virtual void onIAPPConsume(int code, const std::string& errorOrJson) override;
+  virtual void onIAPOwnedPurchases(int code, const std::string& errorOrJson) override;
+  virtual void onIAPOwnedPurchaseRecords(int code, const std::string& errorOrJson) override;
 }
 ```
 

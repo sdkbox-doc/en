@@ -38,6 +38,64 @@ HMS offical [documentation](https://developer.huawei.com/consumer/en/doc/develop
 sdkbox.HMS:logout();
 ```
 
+### Request Managed Products
+
+```lua
+sdkbox.HMS:iapRequestProducts();
+```
+this method will trigger `onIAPProducts` event
+
+### Purchase Managed Product
+
+```lua
+sdkbox.HMS:iapPurchase("coin");
+```
+this method will trigger `onIAPPurchase` event
+
+### Purchase Unmanaged Product
+
+```lua
+local productInfo = {
+  priceType = 0, -- 0:consumable 1:non-consumable 2:subscription
+  productName = 'product name',
+  productId = 'product id',
+  amount = '1.00',
+  currency = 'CNY',
+  country = 'CN',
+  sdkChannel = '1', -- sdkChannel size must be between 0 and 4
+  serviceCatalog = 'X58',
+  reservedInfor = '{"a": 1, "b":"s"}', -- reservedInfor must be json string
+  developerPayload = 'payload1'
+};
+sdkbox.HMS:iapPurchaseWithPrice(JSON:encode(productInfo));
+```
+this method will trigger `onIAPPurchase` event
+
+### request owned purchase
+
+will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.
+
+```lua
+sdkbox.HMS:iapRequestOwnedPurchases();
+```
+this method will trigger `onIAPOwnedPurchases` event
+
+### consume product
+
+```lua
+sdkbox.HMS:iapConsume(purchaseToken);
+```
+this method will trigger `onIAPPConsume` event
+
+### request owned purchase record
+
+request current user's all purchase records.
+```lua
+sdkbox.HMS:iapRequestOwnedPurchaseRecords(purchaseToken);
+```
+this method will trigger `onIAPOwnedPurchaseRecords` event
+
+
 ### Handling Purchase Events
 This allows you to catch the `HMS` events so that you can perform operations based upon the response from your players and HMS servers.
 ```lua
@@ -46,6 +104,24 @@ sdkbox.HMS:setListener(function(args)
                 local code = args.code
                 local msg = args.msg
                 dump(args, "onLogin:")
+        else if "onIAPReady" == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if "onIAPProducts" == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if "onIAPPurchase" == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if "onIAPPConsume" == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if "onIAPOwnedPurchases" == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if "onIAPOwnedPurchaseRecords" == args.event then
+                local code = args.code
+                local msg = args.msg
         else
                 print("unknown event ", args.event)
         end

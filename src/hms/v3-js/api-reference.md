@@ -27,10 +27,58 @@ sdkbox.PluginHMS.logout();
 ```
 > logout HMS
 
+```javascript
+sdkbox.PluginHMS.iapRequestProducts();
+```
+
+```javascript
+sdkbox.PluginHMS.iapPurchase(name);
+```
+
+```javascript
+sdkbox.PluginHMS.iapPurchaseWithPrice(productJson);
+```
+
+```javascript
+sdkbox.PluginHMS.iapRequestOwnedPurchases();
+```
+
+```javascript
+sdkbox.PluginHMS.iapConsume(purchaseToken);
+```
+
+```javascript
+sdkbox.PluginHMS.iapRequestOwnedPurchaseRecords();
+```
+
 
 ### Listeners
 ```javascript
 onLogin(code, msg);
+```
+
+```javascript
+onIAPReady(code, msg);
+```
+
+```javascript
+onIAPProducts(code, errorOrJson);
+```
+
+```javascript
+onIAPPurchase(code, errorOrJson);
+```
+
+```javascript
+onIAPPConsume(code, errorOrJson);
+```
+
+```javascript
+onIAPOwnedPurchases(code, errorOrJson);
+```
+
+```javascript
+onIAPOwnedPurchaseRecords(code, errorOrJson);
 ```
 
 

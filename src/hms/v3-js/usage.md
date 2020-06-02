@@ -55,12 +55,93 @@ HMS offical [documentation](https://developer.huawei.com/consumer/en/doc/develop
 sdkbox.HMS.logout();
 ```
 
+### Request Managed Products
+
+```javascript
+sdkbox.HMS.iapRequestProducts();
+```
+this method will trigger `onIAPProducts` event
+
+### Purchase Managed Product
+
+```javascript
+sdkbox.HMS.iapPurchase("coin");
+```
+this method will trigger `onIAPPurchase` event
+
+### Purchase Unmanaged Product
+
+```javascript
+let productInfo = {
+  priceType: 0, // 0:consumable 1:non-consumable 2:subscription
+  productName: 'product name',
+  productId: 'product id',
+  amount: '1.00',
+  currency: 'CNY',
+  country: 'CN',
+  sdkChannel: '1', // sdkChannel size must be between 0 and 4
+  serviceCatalog: 'X58',
+  reservedInfor: '{"a": 1, "b":"s"}', // reservedInfor must be json string
+  developerPayload: 'payload1'
+};
+sdkbox.HMS.iapPurchaseWithPrice(JSON.stringify(productInfo));
+```
+this method will trigger `onIAPPurchase` event
+
+### request owned purchase
+
+will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.
+
+```javascript
+sdkbox.HMS.iapRequestOwnedPurchases();
+```
+this method will trigger `onIAPOwnedPurchases` event
+
+### consume product
+
+```javascript
+sdkbox.HMS.iapConsume(purchaseToken);
+```
+this method will trigger `onIAPPConsume` event
+
+### request owned purchase record
+
+request current user's all purchase records.
+```javascript
+sdkbox.HMS.iapRequestOwnedPurchaseRecords(purchaseToken);
+```
+this method will trigger `onIAPOwnedPurchaseRecords` event
+
 ### Handling Purchase Events
 This allows you to catch the `HMS` events so that you can perform operations based upon the response from your players and HMS servers.
 ```Javascript
 sdkbox.HMS.setListener({
     onLogin : function (code, msg) {
         // login event
+    },
+    onIAPReady: function(code, msg) {
+        self.log('HMS Listener onIAPReady:' + code);
+        cc.log(msg);
+    },
+    onIAPProducts: function(code, msg) {
+        self.log('HMS Listener onIAPProducts:' + code);
+        cc.log(msg);
+    },
+    onIAPPurchase: function(code, msg) {
+        self.log('HMS Listener onIAPPurchase:' + code);
+        cc.log(msg);
+    },
+    onIAPPConsume: function(code, msg) {
+        self.log('HMS Listener onIAPPConsume:' + code);
+        cc.log(msg);
+    },
+    onIAPOwnedPurchases: function(code, msg) {
+        self.log('HMS Listener onIAPOwnedPurchases:' + code);
+        cc.log(msg);
+    },
+    onIAPOwnedPurchaseRecords: function(code, msg) {
+        self.log('HMS Listener onIAPOwnedPurchaseRecords:' + code);
+        cc.log(msg);
     }
 });
 ```
