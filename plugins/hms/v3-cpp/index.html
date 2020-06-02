@@ -745,6 +745,18 @@
         
             <li><a href="#logout">Logout</a></li>
         
+            <li><a href="#request-managed-products">Request Managed Products</a></li>
+        
+            <li><a href="#purchase-managed-product">Purchase Managed Product</a></li>
+        
+            <li><a href="#purchase-unmanaged-product">Purchase Unmanaged Product</a></li>
+        
+            <li><a href="#request-owned-purchase">request owned purchase</a></li>
+        
+            <li><a href="#consume-product">consume product</a></li>
+        
+            <li><a href="#request-owned-purchase-record">request owned purchase record</a></li>
+        
             <li><a href="#handling-hms-events">Handling HMS Events</a></li>
         
 	</ul>
@@ -892,9 +904,55 @@ AppDelegate::applicationDidFinishLaunching()
 </blockquote>
 <p>HMS offical <a href="https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4">documentation</a></p>
 <h3 id="logout">Logout</h3>
-<pre><code>sdkbox::HMS::logout();
+<pre><code class="cpp">sdkbox::HMS::logout();
 </code></pre>
 
+<h3 id="request-managed-products">Request Managed Products</h3>
+<pre><code class="cpp">sdkbox::HMS::iapRequestProducts();
+</code></pre>
+
+<p>this method will trigger <code>onIAPProducts</code> event</p>
+<h3 id="purchase-managed-product">Purchase Managed Product</h3>
+<pre><code class="cpp">sdkbox::HMS::iapPurchase(&quot;coin&quot;);
+</code></pre>
+
+<p>this method will trigger <code>onIAPPurchase</code> event</p>
+<h3 id="purchase-unmanaged-product">Purchase Unmanaged Product</h3>
+<pre><code class="cpp">const std::string productInfo = R&quot;(
+{
+  &quot;priceType&quot;: 0, //0:consumable 1:non-consumable 2:subscription
+  &quot;productName&quot;: &quot;product name&quot;,
+  &quot;productId&quot;: &quot;product id&quot;,
+  &quot;amount&quot;: &quot;1.00&quot;,
+  &quot;currency&quot;: &quot;CNY&quot;,
+  &quot;country&quot;: &quot;CN&quot;,
+  &quot;sdkChannel&quot;: &quot;1&quot;, // sdkChannel size must be between 0 and 4
+  &quot;serviceCatalog&quot;: &quot;X58&quot;,
+  &quot;reservedInfor&quot;: &quot;{\&quot;a\&quot;: 1, \&quot;b\&quot;:\&quot;s\&quot;}&quot;, // reservedInfor must be json string
+  &quot;developerPayload&quot;: &quot;payload1&quot;
+}
+)&quot;;
+sdkbox::HMS::iapPurchaseWithPrice(productInfo);
+</code></pre>
+
+<p>this method will trigger <code>onIAPPurchase</code> event</p>
+<h3 id="request-owned-purchase">request owned purchase</h3>
+<p>will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.</p>
+<pre><code class="cpp">sdkbox::HMS::iapRequestOwnedPurchases();
+</code></pre>
+
+<p>this method will trigger <code>onIAPOwnedPurchases</code> event</p>
+<h3 id="consume-product">consume product</h3>
+<pre><code class="cpp">sdkbox::HMS::iapConsume(purchaseToken);
+</code></pre>
+
+<p>this method will trigger <code>onIAPPConsume</code> event</p>
+<h3 id="request-owned-purchase-record">request owned purchase record</h3>
+<p>request current user's all purchase records.</p>
+<pre><code class="cpp">sdkbox::HMS::iapRequestOwnedPurchaseRecords(purchaseToken);
+</code></pre>
+
+<p>this method will trigger <code>onIAPOwnedPurchaseRecords</code> event</p>
 <h3 id="handling-hms-events">Handling HMS Events</h3>
 <p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
 <ul>
@@ -904,6 +962,12 @@ AppDelegate::applicationDidFinishLaunching()
 class MyClass : public sdkbox::HMSListener {
 private:
   virtual void onLogin(int code, const std::string &amp;msg) override;
+  virtual void onIAPReady(int code, const std::string&amp; msg) override;
+  virtual void onIAPProducts(int code, const std::string&amp; errorOrJson) override;
+  virtual void onIAPPurchase(int code, const std::string&amp; errorOrJson) override;
+  virtual void onIAPPConsume(int code, const std::string&amp; errorOrJson) override;
+  virtual void onIAPOwnedPurchases(int code, const std::string&amp; errorOrJson) override;
+  virtual void onIAPOwnedPurchaseRecords(int code, const std::string&amp; errorOrJson) override;
 }
 </code></pre>
 
@@ -960,8 +1024,44 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <blockquote>
 <p>logout HMS</p>
 </blockquote>
+<pre><code class="cpp">static void iapRequestProducts ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void iapPurchase ( const std::string &amp; name ) ;
+</code></pre>
+
+<pre><code class="cpp">static void iapPurchaseWithPrice ( const std::string &amp; productJson ) ;
+</code></pre>
+
+<pre><code class="cpp">static void iapRequestOwnedPurchases ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void iapConsume ( const std::string &amp; purchaseToken ) ;
+</code></pre>
+
+<pre><code class="cpp">static void iapRequestOwnedPurchaseRecords ( ) ;
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="cpp">void onLogin ( int code , const std::string &amp; msg );
+</code></pre>
+
+<pre><code class="cpp">void onIAPReady ( int code , const std::string &amp; msg );
+</code></pre>
+
+<pre><code class="cpp">void onIAPProducts ( int code , const std::string &amp; errorOrJson );
+</code></pre>
+
+<pre><code class="cpp">void onIAPPurchase ( int code , const std::string &amp; errorOrJson );
+</code></pre>
+
+<pre><code class="cpp">void onIAPPConsume ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onIAPOwnedPurchases ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onIAPOwnedPurchaseRecords ( int code , const std::string &amp; errorOrJson ) {
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>
@@ -1056,6 +1156,7 @@ apply plugin: 'com.huawei.agconnect' // for hms
 dependencies {
     ...
     implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+    implementation 'com.huawei.hms:iap:4.0.2.300' // for hms
 }
 
 </code></pre>
@@ -1250,7 +1351,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-05-18 12:25:15.474481, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-06-02 03:54:45.483779, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

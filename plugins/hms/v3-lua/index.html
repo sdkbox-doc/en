@@ -745,6 +745,18 @@
         
             <li><a href="#logout">Logout</a></li>
         
+            <li><a href="#request-managed-products">Request Managed Products</a></li>
+        
+            <li><a href="#purchase-managed-product">Purchase Managed Product</a></li>
+        
+            <li><a href="#purchase-unmanaged-product">Purchase Unmanaged Product</a></li>
+        
+            <li><a href="#request-owned-purchase">request owned purchase</a></li>
+        
+            <li><a href="#consume-product">consume product</a></li>
+        
+            <li><a href="#request-owned-purchase-record">request owned purchase record</a></li>
+        
             <li><a href="#handling-purchase-events">Handling Purchase Events</a></li>
         
 	</ul>
@@ -893,6 +905,50 @@
 <pre><code class="lua">sdkbox.HMS:logout();
 </code></pre>
 
+<h3 id="request-managed-products">Request Managed Products</h3>
+<pre><code class="lua">sdkbox.HMS:iapRequestProducts();
+</code></pre>
+
+<p>this method will trigger <code>onIAPProducts</code> event</p>
+<h3 id="purchase-managed-product">Purchase Managed Product</h3>
+<pre><code class="lua">sdkbox.HMS:iapPurchase(&quot;coin&quot;);
+</code></pre>
+
+<p>this method will trigger <code>onIAPPurchase</code> event</p>
+<h3 id="purchase-unmanaged-product">Purchase Unmanaged Product</h3>
+<pre><code class="lua">local productInfo = {
+  priceType = 0, -- 0:consumable 1:non-consumable 2:subscription
+  productName = 'product name',
+  productId = 'product id',
+  amount = '1.00',
+  currency = 'CNY',
+  country = 'CN',
+  sdkChannel = '1', -- sdkChannel size must be between 0 and 4
+  serviceCatalog = 'X58',
+  reservedInfor = '{&quot;a&quot;: 1, &quot;b&quot;:&quot;s&quot;}', -- reservedInfor must be json string
+  developerPayload = 'payload1'
+};
+sdkbox.HMS:iapPurchaseWithPrice(JSON:encode(productInfo));
+</code></pre>
+
+<p>this method will trigger <code>onIAPPurchase</code> event</p>
+<h3 id="request-owned-purchase">request owned purchase</h3>
+<p>will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.</p>
+<pre><code class="lua">sdkbox.HMS:iapRequestOwnedPurchases();
+</code></pre>
+
+<p>this method will trigger <code>onIAPOwnedPurchases</code> event</p>
+<h3 id="consume-product">consume product</h3>
+<pre><code class="lua">sdkbox.HMS:iapConsume(purchaseToken);
+</code></pre>
+
+<p>this method will trigger <code>onIAPPConsume</code> event</p>
+<h3 id="request-owned-purchase-record">request owned purchase record</h3>
+<p>request current user's all purchase records.</p>
+<pre><code class="lua">sdkbox.HMS:iapRequestOwnedPurchaseRecords(purchaseToken);
+</code></pre>
+
+<p>this method will trigger <code>onIAPOwnedPurchaseRecords</code> event</p>
 <h3 id="handling-purchase-events">Handling Purchase Events</h3>
 <p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
 <pre><code class="lua">sdkbox.HMS:setListener(function(args)
@@ -900,6 +956,24 @@
                 local code = args.code
                 local msg = args.msg
                 dump(args, &quot;onLogin:&quot;)
+        else if &quot;onIAPReady&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if &quot;onIAPProducts&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if &quot;onIAPPurchase&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if &quot;onIAPPConsume&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if &quot;onIAPOwnedPurchases&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
+        else if &quot;onIAPOwnedPurchaseRecords&quot; == args.event then
+                local code = args.code
+                local msg = args.msg
         else
                 print(&quot;unknown event &quot;, args.event)
         end
@@ -941,8 +1015,44 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <blockquote>
 <p>logout HMS</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestProducts()
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:iapPurchase(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:iapPurchaseWithPrice(productJson)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestOwnedPurchases()
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:iapConsume(purchaseToken)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestOwnedPurchaseRecords()
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(code, msg)
+</code></pre>
+
+<pre><code class="lua">onIAPReady(code, msg)
+</code></pre>
+
+<pre><code class="lua">onIAPProducts(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onIAPPurchase(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onIAPPConsume(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onIAPOwnedPurchases(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onIAPOwnedPurchaseRecords(code, errorOrJson)
 </code></pre>
 
 <h2 id="manual-integration">Manual Integration</h2>
@@ -1039,6 +1149,7 @@ apply plugin: 'com.huawei.agconnect' // for hms
 dependencies {
     ...
     implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+    implementation 'com.huawei.hms:iap:4.0.2.300' // for hms
 }
 
 </code></pre>
@@ -1241,7 +1352,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-05-18 12:25:15.606952, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-06-02 03:54:45.637422, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
