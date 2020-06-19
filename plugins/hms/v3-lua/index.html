@@ -757,6 +757,18 @@
         
             <li><a href="#request-owned-purchase-record">request owned purchase record</a></li>
         
+            <li><a href="#player-info">Player Info</a></li>
+        
+            <li><a href="#achievement">Achievement</a></li>
+        
+            <li><a href="#event">Event</a></li>
+        
+            <li><a href="#ranking">Ranking</a></li>
+        
+            <li><a href="#archive">Archive</a></li>
+        
+            <li><a href="#buoy">BUOY</a></li>
+        
             <li><a href="#handling-purchase-events">Handling Purchase Events</a></li>
         
 	</ul>
@@ -848,7 +860,45 @@
 &quot;android&quot;:
 {
     &quot;hms&quot;:{
-        &quot;debug&quot;: false
+        &quot;archive&quot;: true,
+        &quot;key&quot;: &quot;MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAn9U6yC1QI8cXGRkOQxO9QG/WV8dR4jZDCYt/GJBM4OTTtRZeAIEyVifGPutwMAkPBLgdUsJwHuA2t2jrBAi/nagYJvh8UIazKJv5C4Hykw5Z2iKTWMmiMK9rQ2tMtRTAMiY+LwfaOH2258bEyt8mDQxyG3aRSAH28mZki/nGEbNfx7ZY9By/SSkuaCEWRDNYdiWkGDuZLhf8D97DoJJc6tTnrDPmzf1QqkVDjjudkHJwgCMWpLVACzGGuo4YQYt98Pu9cqbiYWJqSHqEbPYN0AmGXdJw+tO5f1wPcZWnJhn4JqCFmD9i/dSENNJWXVDgJc0DG2PiWX5j+qUaT7WkZMs4/WFtL6VRdRUDzITqYwKUUBYENVvkfdKlhjh+6V4BFKPsipvjOsRdXDpZ7sC6MY/7yn0eMOH3RoIQoiWeGYkxRTkKhdm/QQ/Xv/dvMbiicsNmUIkBce3w4hQG9XlhgjNrl5rI4p9Ho3Stq48s7DJlhWuUE6pXcjo2TJUSJ9+nAgMBAAE=&quot;,
+        &quot;items&quot;: {
+            &quot;remove_ads&quot;: {
+                &quot;type&quot;: &quot;non_consumable&quot;,
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.noad&quot;
+            },
+            &quot;coin&quot;: {
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.coin1&quot;
+            },
+            &quot;vip&quot;: {
+                &quot;type&quot;: &quot;subs&quot;,
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.vip&quot;
+            }
+        },
+        &quot;achievements&quot;: [{
+            &quot;name&quot;: &quot;freshman&quot;,
+            &quot;id&quot;: &quot;A7346279E90AB8910AAC0CB71E552BFA2505DFD7591C79457F84D6B95F50FFEC&quot;,
+            &quot;incremental&quot;: false
+        }, {
+            &quot;name&quot;: &quot;3shoot&quot;,
+            &quot;id&quot;: &quot;BA8B1A486D422AEF28FF82F9BFF85C3F156824396E0BB62D92BECC63C3CAC46A&quot;,
+            &quot;incremental&quot;: true
+        }, {
+            &quot;name&quot;: &quot;5shoot&quot;,
+            &quot;id&quot;: &quot;001D38EC9E1A80A52ED3F47BFBA35F4B5BDF3776180A2B9AD778800C45CD6540&quot;,
+            &quot;incremental&quot;: true
+        }],
+        &quot;events&quot;: [{
+            &quot;name&quot;: &quot;gencoin&quot;,
+            &quot;id&quot;: &quot;912764D10F0988B9DCB041A4E6FE453BCBDEDC4E35708A60E33C2DEBF05F2D2E&quot;
+        }, {
+            &quot;name&quot;: &quot;consumecoin&quot;,
+            &quot;id&quot;: &quot;E8688F3D9625572F462F5999E7F83EB5628E0FC1F2044E84D026EC4AB33C09F5&quot;
+        }],
+        &quot;rankings&quot;: [{
+            &quot;name&quot;: &quot;shooter&quot;,
+            &quot;id&quot;: &quot;C8B96FA1EDFC2D87DFE9491409440E3F8B2E39AFB8BD7E95C3BE337FC207C253&quot;
+        }]
     }
 }
 </code></pre>
@@ -949,34 +999,234 @@ sdkbox.HMS:iapPurchaseWithPrice(JSON:encode(productInfo));
 </code></pre>
 
 <p>this method will trigger <code>onIAPOwnedPurchaseRecords</code> event</p>
+<h3 id="player-info">Player Info</h3>
+<h4 id="getplayer-info">GetPlayer Info</h4>
+<p>will trigger listener event <code>onPlayerInfo</code></p>
+<pre><code class="lua">sdkbox.HMS:playerRequestInfo();
+</code></pre>
+
+<h4 id="getplayer-extrainfo">GetPlayer ExtraInfo</h4>
+<p>Will return follow info of current player: isadult, playtime and so on
+will trigger listener event <code>onPlayerExtraInfo</code></p>
+<pre><code class="lua">sdkbox.HMS:playerRequestInfo();
+</code></pre>
+
+<h4 id="submit-gamebegin">Submit GameBegin</h4>
+<p>submit player game begin event. if your game will sell in china, you should submit game begin event.
+will trigger listener event <code>onPlayerGameBegin</code></p>
+<pre><code class="lua">sdkbox.HMS:playerSubmitGameBegin();
+</code></pre>
+
+<h4 id="submit-gameend">Submit GameEnd</h4>
+<p>submit player game begin event. if your game will sell in china, you should submit game end event.</p>
+<p>will trigger listener event <code>onPlayerGameEnd</code></p>
+<pre><code class="lua">sdkbox.HMS:playerSubmitGameEnd();
+</code></pre>
+
+<h3 id="achievement">Achievement</h3>
+<h4 id="request-achievement-list">Request Achievement List</h4>
+<p>request achivement list, then you can show achievement list by yourself</p>
+<p>will trigger listener event <code>onAchievementList</code></p>
+<pre><code class="lua">sdkbox.HMS:achievementRequestList();
+</code></pre>
+
+<h4 id="achievementshow">AchievementShow</h4>
+<p>show achivement with hms default ui</p>
+<p>will trigger listener event <code>onAchievementShow</code></p>
+<pre><code class="lua">sdkbox.HMS:achievementShow();
+</code></pre>
+
+<h4 id="achievementvisualize">achievementVisualize</h4>
+<p>will trigger listener event <code>onAchievementVisualize</code></p>
+<pre><code class="lua">sdkbox.HMS:achievementVisualize();
+</code></pre>
+
+<h4 id="achievementgrow">achievementGrow</h4>
+<p>will trigger listener event <code>onAchievementGrow</code></p>
+<pre><code class="lua">sdkbox.HMS:achievementGrow();
+</code></pre>
+
+<h4 id="achievementmakesteps">achievementMakeSteps</h4>
+<p>will trigger listener event <code>onAchievementMakeSteps</code></p>
+<pre><code class="lua">sdkbox.HMS:achievementMakeSteps();
+</code></pre>
+
+<h4 id="achievementreach">achievementReach</h4>
+<pre><code class="lua">sdkbox.HMS:achievementReach();
+</code></pre>
+
+<h3 id="event">Event</h3>
+<h4 id="eventgrow">eventGrow</h4>
+<pre><code class="lua">sdkbox.HMS:eventGrow();
+</code></pre>
+
+<h4 id="eventrequestlist">eventRequestList</h4>
+<p>will trigger listener event <code>onEventList</code></p>
+<pre><code class="lua">sdkbox.HMS:eventRequestList();
+</code></pre>
+
+<h3 id="ranking">Ranking</h3>
+<h4 id="check-ranking-switch-status">Check ranking switch status</h4>
+<p>before invoke ranking related api, you must make sure player is allow to open score.</p>
+<p>will trigger listener event <code>onRankingSwitchStatus</code></p>
+<pre><code class="lua">sdkbox.HMS:rankingRequestSwitchStatus();
+</code></pre>
+
+<p>will trigger listener event <code>onRankingSetSwitchStatus</code></p>
+<pre><code class="lua">sdkbox.HMS:rankingSetSwitchStatus();
+</code></pre>
+
+<h4 id="submit-score">submit score</h4>
+<p>will trigger listener event <code>onRankingSubmitScore</code></p>
+<pre><code class="lua">sdkbox.HMS:rankingSubmitScore(rankingName, score, score_unit);
+</code></pre>
+
+<h4 id="show-ranking">Show ranking</h4>
+<p>show ranking by self.</p>
+<p>will trigger listener event <code>onRankingList</code></p>
+<pre><code class="lua">local realtime = true; -- true, will request data from hms server; false, will use local cache data
+sdkbox.HMS:rankingRequestList(realtime, rankingName);
+</code></pre>
+
+<p>show with hms default ui</p>
+<p>will trigger listener event <code>onRankingShow</code></p>
+<pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox.HMS:rankingShow(timeDimension, rankingName);
+</code></pre>
+
+<h4 id="get-scores">get scores</h4>
+<p>current player score</p>
+<p>will trigger listener event <code>onRankingCurPlayerScore</code></p>
+<pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox.HMS:rankingRequestCurPlayerScore(rankingName, timeDimension);
+</code></pre>
+
+<p>request player centered score</p>
+<p>will trigger listener event <code>onRankingPlayerCenteredScores</code></p>
+<pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox.HMS:rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
+</code></pre>
+
+<h3 id="archive">Archive</h3>
+<p>add archive</p>
+<p>will trigger listener event <code>onArchiveAdd</code></p>
+<pre><code class="lua">sdkbox.HMS:archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesLen, bmBytesType,
+                               dataBytes, dataBytesLen);
+</code></pre>
+
+<p>update archive</p>
+<p>will trigger listener event <code>onArchiveUpdate</code></p>
+<pre><code class="lua">sdkbox.HMS:archiveUpdate(archiveId,
+                          playedTime, progress, description,
+                          bmBytes, bmBytesLen, bmBytesType,
+                          dataBytes, dataBytesLen);
+</code></pre>
+
+<p>load archive</p>
+<p>will trigger listener event <code>onArchiveLoad</code></p>
+<pre><code class="lua">local conflictPolicy = 3;
+//-1 -&gt; hms willn't hand conflict, 
+//1  -&gt; hms will resolved conflict by played time, 
+//2  -&gt; hms will resolved conflict by progress,
+//3  -&gt; hms will resolved conflict by last update time
+sdkbox.HMS:archiveLoad(archiveId, conflictPolicy);
+</code></pre>
+
+<h3 id="buoy">BUOY</h3>
+<p>if you game sell in china, you should show buoy</p>
+<pre><code class="lua">sdkbox.HMS:buoyShow();
+//or
+sdkbox.HMS:buoyHide();
+</code></pre>
+
 <h3 id="handling-purchase-events">Handling Purchase Events</h3>
 <p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
+<p>all listener include code param, you can find code in follow url:</p>
+<ul>
+<li>https://developer.huawei.com/consumer/cn/doc/development/HMS-References/game-return-code-v4</li>
+<li>https://developer.huawei.com/consumer/cn/doc/development/HMS-References/hms-error-code</li>
+</ul>
+<p>here we list a specific code:</p>
+<p>7020: havn't find data in local cache
+7022: is not adult
+7024: <code>huawei mobile market</code> app is not installed
+7218: huawei game services is not enabled, or user cancel
+7204: need install the last application assist
+7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).</p>
 <pre><code class="lua">sdkbox.HMS:setListener(function(args)
-        if &quot;onLogin&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-                dump(args, &quot;onLogin:&quot;)
-        else if &quot;onIAPReady&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else if &quot;onIAPProducts&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else if &quot;onIAPPurchase&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else if &quot;onIAPPConsume&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else if &quot;onIAPOwnedPurchases&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else if &quot;onIAPOwnedPurchaseRecords&quot; == args.event then
-                local code = args.code
-                local msg = args.msg
-        else
-                print(&quot;unknown event &quot;, args.event)
-        end
+    -- Account
+    if &quot;onLogin&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+        dump(args, &quot;onLogin:&quot;)
+
+    -- Player Info
+    else if &quot;onPlayerInfo&quot; == args.event then
+    else if &quot;onPlayerExtraInfo&quot; == args.event then
+    else if &quot;onPlayerGameBegin&quot; == args.event then
+    else if &quot;onPlayerGameEnd&quot; == args.event then
+
+    -- IAP
+    else if &quot;onIAPReady&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+    else if &quot;onIAPProducts&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+    else if &quot;onIAPPurchase&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+    else if &quot;onIAPPConsume&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+    else if &quot;onIAPOwnedPurchases&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+    else if &quot;onIAPOwnedPurchaseRecords&quot; == args.event then
+        local code = args.code
+        local msg = args.msg
+
+    -- Achievement
+    else if &quot;onAchievementList&quot; == args.event then
+    else if &quot;onAchievementShow&quot; == args.event then
+    else if &quot;onAchievementVisualize&quot; == args.event then
+    else if &quot;onAchievementGrow&quot; == args.event then
+    else if &quot;onAchievementMakeSteps&quot; == args.event then
+
+    -- Event
+    else if &quot;onEventList&quot; == args.event then
+
+    -- Ranking
+    else if &quot;onRankingSwitchStatus&quot; == args.event then
+    else if &quot;onRankingSetSwitchStatus&quot; == args.event then
+    else if &quot;onRankingSubmitScore&quot; == args.event then
+    else if &quot;onRankingShow&quot; == args.event then
+    else if &quot;onRankingList&quot; == args.event then
+    else if &quot;onRankingCurPlayerScore&quot; == args.event then
+    else if &quot;onRankingPlayerCenteredScores&quot; == args.event then
+    else if &quot;onRankingMoreScores&quot; == args.event then
+    else if &quot;onRankingTopScores&quot; == args.event then
+
+    -- Archive
+    else if &quot;onArchiveLimitThumbnailSize&quot; == args.event then
+    else if &quot;onArchiveLimitDetailsSize&quot; == args.event then
+    else if &quot;onArchiveAdd&quot; == args.event then
+    else if &quot;onArchiveShow&quot; == args.event then
+    else if &quot;onArchiveSummaryList&quot; == args.event then
+    else if &quot;onArchiveSelect&quot; == args.event then
+    else if &quot;onArchiveThumbnail(code, errorOrJson, co&quot; == args.event then
+    else if &quot;onArchiveUpdate&quot; == args.event then
+    else if &quot;onArchiveLoad(code, errorOrJson, cont&quot; == args.event then
+    else if &quot;onArchiveRemove&quot; == args.event then
+
+    -- Game Stats
+    else if &quot;onGamePlayerStats&quot; == args.event then
+    else if &quot;onGameSummary&quot; == args.event then
+
+    else
+        print(&quot;unknow event &quot;, args.event)
+    end
 end)
 </code></pre>
 
@@ -1015,6 +1265,30 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <blockquote>
 <p>logout HMS</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:playerRequestInfo()
+</code></pre>
+
+<blockquote>
+<p>request current player info</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:playerRequestExtraInfo()
+</code></pre>
+
+<blockquote>
+<p>request player extra info</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:playerSubmitGameBegin()
+</code></pre>
+
+<blockquote>
+<p>submit game begin event</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:playerSubmitGameEnd()
+</code></pre>
+
+<blockquote>
+<p>submit game end event</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginHMS:iapRequestProducts()
 </code></pre>
 
@@ -1033,11 +1307,201 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <pre><code class="lua">sdkbox.PluginHMS:iapRequestOwnedPurchaseRecords()
 </code></pre>
 
-<h3 id="listeners">Listeners</h3>
-<pre><code class="lua">onLogin(code, msg)
+<pre><code class="lua">sdkbox.PluginHMS:achievementRequestList()
 </code></pre>
 
-<pre><code class="lua">onIAPReady(code, msg)
+<pre><code class="lua">sdkbox.PluginHMS:achievementShow()
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:achievementVisualize(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:achievementGrow(achiveName, steps)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:achievementMakeSteps(achiveName, steps)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:achievementReach(achiveName)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:eventGrow(eventName, amount)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:eventRequestList(realtime, eventNamas)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestSwitchStatus()
+</code></pre>
+
+<blockquote>
+<p>request if player allow open score in ranking</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingSetSwitchStatus(status)
+</code></pre>
+
+<blockquote>
+<p>request if player allow open score in ranking
+status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingSubmitScore(rankingName, score, unit)
+</code></pre>
+
+<blockquote>
+<p>submit score to ranking</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingShow(timeDimension, rankingName)
+</code></pre>
+
+<blockquote>
+<p>use hms's ui to show ranking</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestList(realtime, rankingName)
+</code></pre>
+
+<blockquote>
+<p>request ranking list</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestCurPlayerScore(rankingName, timeDimension)
+</code></pre>
+
+<blockquote>
+<p>request current player ranking score</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestPlayerCenteredScores(rankingName,
+                                                     timeDimension,
+                                                     size,
+                                                     realtime)
+</code></pre>
+
+<blockquote>
+<p>request player centered scores</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestMoreScores(rankingName,
+                                           timeDimension,
+                                           offset,
+                                           pageSize,
+                                           pageDirection)
+</code></pre>
+
+<blockquote>
+<p>request more scores</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestTopScores(rankingName,
+                                          timeDimension,
+                                          offset,
+                                          pageSize,
+                                          pageDirection)
+</code></pre>
+
+<blockquote>
+<p>submit score to ranking</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveRequestLimitThumbnailSize()
+</code></pre>
+
+<blockquote>
+<p>get thumbnail max size</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveRequestLimitDetailsSize()
+</code></pre>
+
+<blockquote>
+<p>get detail max size</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveAdd(playedTime,
+                             progress,
+                             description,
+                             supportCache,
+                             bmBytes,
+                             bmBytesLen,
+                             bmBytesType,
+                             dataBytes,
+                             dataBytesLen)
+</code></pre>
+
+<blockquote>
+<p>add archive</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveShow(title, allowAdd, allowDelete, pageSize)
+</code></pre>
+
+<blockquote>
+<p>use hms's default ui to show archive</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveRequestSummaryList(realtime)
+</code></pre>
+
+<blockquote>
+<p>request archive summay list, developer can show custome archive list with the returned data</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveRequestThumbnail(archiveId)
+</code></pre>
+
+<blockquote>
+<p>request archive cover thumbnail</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveUpdate(archiveId,
+                                playedTime,
+                                progress,
+                                description,
+                                bmBytes,
+                                bmBytesLen,
+                                bmBytesType,
+                                dataBytes,
+                                dataBytesLen)
+</code></pre>
+
+<blockquote>
+<p>update archive</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveLoad(archiveId, conflictPolicy)
+</code></pre>
+
+<blockquote>
+<p>load archive</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveRemove(archiveId)
+</code></pre>
+
+<blockquote>
+<p>remvoe archive</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:gamePlayerStatsRequest(realtime)
+</code></pre>
+
+<blockquote>
+<p>request game player statistics</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:gameSummaryRequest(realtime)
+</code></pre>
+
+<blockquote>
+<p>request game summary</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:buoyShow()
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:buoyHide()
+</code></pre>
+
+<h3 id="listeners">Listeners</h3>
+<pre><code class="lua">onLogin(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onPlayerInfo(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onPlayerExtraInfo(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onPlayerGameBegin(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onPlayerGameEnd(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onIAPReady(code, errorOrJson)
 </code></pre>
 
 <pre><code class="lua">onIAPProducts(code, errorOrJson)
@@ -1055,6 +1519,147 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <pre><code class="lua">onIAPOwnedPurchaseRecords(code, errorOrJson)
 </code></pre>
 
+<pre><code class="lua">onAchievementList(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAchievementShow(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAchievementVisualize(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAchievementGrow(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAchievementMakeSteps(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAchievementReach(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onEventList(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onRankingSwitchStatus(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onRankingSetSwitchStatus(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onRankingSubmitScore(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingSubmitScore</p>
+</blockquote>
+<pre><code class="lua">onRankingShow(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingShow</p>
+</blockquote>
+<pre><code class="lua">onRankingList(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestList</p>
+</blockquote>
+<pre><code class="lua">onRankingCurPlayerScore(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestCurPlayerScore</p>
+</blockquote>
+<pre><code class="lua">onRankingPlayerCenteredScores(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestPlayerCenteredScores</p>
+</blockquote>
+<pre><code class="lua">onRankingMoreScores(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestMoreScores</p>
+</blockquote>
+<pre><code class="lua">onRankingTopScores(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestTopScores</p>
+</blockquote>
+<pre><code class="lua">onArchiveLimitThumbnailSize(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestLimitThumbnailSize</p>
+</blockquote>
+<pre><code class="lua">onArchiveLimitDetailsSize(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestLimitDetailsSize</p>
+</blockquote>
+<pre><code class="lua">onArchiveAdd(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveAdd</p>
+</blockquote>
+<pre><code class="lua">onArchiveShow(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveShow</p>
+</blockquote>
+<pre><code class="lua">onArchiveSummaryList(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestSummaryList</p>
+</blockquote>
+<pre><code class="lua">onArchiveSelect(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback when user select archive</p>
+</blockquote>
+<pre><code class="lua">onArchiveThumbnail(code, errorOrJson, coverData, coverDataLen)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestThumbnail</p>
+</blockquote>
+<pre><code class="lua">onArchiveUpdate(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveUpdate</p>
+</blockquote>
+<pre><code class="lua">onArchiveLoad(code, errorOrJson, contentData, contentDataLen)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveLoad</p>
+</blockquote>
+<pre><code class="lua">onArchiveRemove(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRemove</p>
+</blockquote>
+<pre><code class="lua">onGamePlayerStats(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for gamePlayerStatsRequest</p>
+</blockquote>
+<pre><code class="lua">onGameSummary(code, errorOrJson)
+</code></pre>
+
+<blockquote>
+<p>callback for gameSummaryRequest</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1148,8 +1753,10 @@ apply plugin: 'com.huawei.agconnect' // for hms
 
 dependencies {
     ...
-    implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+    implementation 'com.huawei.hms:base:4.0.4.301' // for hms
+    implementation 'com.huawei.hms:hwid:4.0.4.300' // for hms
     implementation 'com.huawei.hms:iap:4.0.2.300' // for hms
+    implementation 'com.huawei.hms:game:4.0.3.301' // for hms
 }
 
 </code></pre>
@@ -1352,7 +1959,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-06-02 03:54:45.637422, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-06-19 03:12:33.935071, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         

@@ -757,6 +757,18 @@
         
             <li><a href="#request-owned-purchase-record">request owned purchase record</a></li>
         
+            <li><a href="#player-info">Player Info</a></li>
+        
+            <li><a href="#achievement">Achievement</a></li>
+        
+            <li><a href="#event">Event</a></li>
+        
+            <li><a href="#ranking">Ranking</a></li>
+        
+            <li><a href="#archive">Archive</a></li>
+        
+            <li><a href="#buoy">BUOY</a></li>
+        
             <li><a href="#handling-hms-events">Handling HMS Events</a></li>
         
 	</ul>
@@ -848,7 +860,45 @@
 &quot;android&quot;:
 {
     &quot;hms&quot;:{
-        &quot;debug&quot;: false
+        &quot;archive&quot;: true,
+        &quot;key&quot;: &quot;MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAn9U6yC1QI8cXGRkOQxO9QG/WV8dR4jZDCYt/GJBM4OTTtRZeAIEyVifGPutwMAkPBLgdUsJwHuA2t2jrBAi/nagYJvh8UIazKJv5C4Hykw5Z2iKTWMmiMK9rQ2tMtRTAMiY+LwfaOH2258bEyt8mDQxyG3aRSAH28mZki/nGEbNfx7ZY9By/SSkuaCEWRDNYdiWkGDuZLhf8D97DoJJc6tTnrDPmzf1QqkVDjjudkHJwgCMWpLVACzGGuo4YQYt98Pu9cqbiYWJqSHqEbPYN0AmGXdJw+tO5f1wPcZWnJhn4JqCFmD9i/dSENNJWXVDgJc0DG2PiWX5j+qUaT7WkZMs4/WFtL6VRdRUDzITqYwKUUBYENVvkfdKlhjh+6V4BFKPsipvjOsRdXDpZ7sC6MY/7yn0eMOH3RoIQoiWeGYkxRTkKhdm/QQ/Xv/dvMbiicsNmUIkBce3w4hQG9XlhgjNrl5rI4p9Ho3Stq48s7DJlhWuUE6pXcjo2TJUSJ9+nAgMBAAE=&quot;,
+        &quot;items&quot;: {
+            &quot;remove_ads&quot;: {
+                &quot;type&quot;: &quot;non_consumable&quot;,
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.noad&quot;
+            },
+            &quot;coin&quot;: {
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.coin1&quot;
+            },
+            &quot;vip&quot;: {
+                &quot;type&quot;: &quot;subs&quot;,
+                &quot;id&quot;: &quot;com.sdkbox.test.app.sample.vip&quot;
+            }
+        },
+        &quot;achievements&quot;: [{
+            &quot;name&quot;: &quot;freshman&quot;,
+            &quot;id&quot;: &quot;A7346279E90AB8910AAC0CB71E552BFA2505DFD7591C79457F84D6B95F50FFEC&quot;,
+            &quot;incremental&quot;: false
+        }, {
+            &quot;name&quot;: &quot;3shoot&quot;,
+            &quot;id&quot;: &quot;BA8B1A486D422AEF28FF82F9BFF85C3F156824396E0BB62D92BECC63C3CAC46A&quot;,
+            &quot;incremental&quot;: true
+        }, {
+            &quot;name&quot;: &quot;5shoot&quot;,
+            &quot;id&quot;: &quot;001D38EC9E1A80A52ED3F47BFBA35F4B5BDF3776180A2B9AD778800C45CD6540&quot;,
+            &quot;incremental&quot;: true
+        }],
+        &quot;events&quot;: [{
+            &quot;name&quot;: &quot;gencoin&quot;,
+            &quot;id&quot;: &quot;912764D10F0988B9DCB041A4E6FE453BCBDEDC4E35708A60E33C2DEBF05F2D2E&quot;
+        }, {
+            &quot;name&quot;: &quot;consumecoin&quot;,
+            &quot;id&quot;: &quot;E8688F3D9625572F462F5999E7F83EB5628E0FC1F2044E84D026EC4AB33C09F5&quot;
+        }],
+        &quot;rankings&quot;: [{
+            &quot;name&quot;: &quot;shooter&quot;,
+            &quot;id&quot;: &quot;C8B96FA1EDFC2D87DFE9491409440E3F8B2E39AFB8BD7E95C3BE337FC207C253&quot;
+        }]
     }
 }
 </code></pre>
@@ -953,21 +1003,220 @@ sdkbox::HMS::iapPurchaseWithPrice(productInfo);
 </code></pre>
 
 <p>this method will trigger <code>onIAPOwnedPurchaseRecords</code> event</p>
+<h3 id="player-info">Player Info</h3>
+<h4 id="getplayer-info">GetPlayer Info</h4>
+<p>will trigger listener event <code>onPlayerInfo</code></p>
+<pre><code class="cpp">sdkbox::HMS::playerRequestInfo();
+</code></pre>
+
+<h4 id="getplayer-extrainfo">GetPlayer ExtraInfo</h4>
+<p>Will return follow info of current player: isadult, playtime and so on
+will trigger listener event <code>onPlayerExtraInfo</code></p>
+<pre><code class="cpp">sdkbox::HMS::playerRequestInfo();
+</code></pre>
+
+<h4 id="submit-gamebegin">Submit GameBegin</h4>
+<p>submit player game begin event. if your game will sell in china, you should submit game begin event.
+will trigger listener event <code>onPlayerGameBegin</code></p>
+<pre><code class="cpp">sdkbox::HMS::playerSubmitGameBegin();
+</code></pre>
+
+<h4 id="submit-gameend">Submit GameEnd</h4>
+<p>submit player game begin event. if your game will sell in china, you should submit game end event.</p>
+<p>will trigger listener event <code>onPlayerGameEnd</code></p>
+<pre><code class="cpp">sdkbox::HMS::playerSubmitGameEnd();
+</code></pre>
+
+<h3 id="achievement">Achievement</h3>
+<h4 id="request-achievement-list">Request Achievement List</h4>
+<p>request achivement list, then you can show achievement list by yourself</p>
+<p>will trigger listener event <code>onAchievementList</code></p>
+<pre><code class="cpp">sdkbox::HMS::achievementRequestList();
+</code></pre>
+
+<h4 id="achievementshow">AchievementShow</h4>
+<p>show achivement with hms default ui</p>
+<p>will trigger listener event <code>onAchievementShow</code></p>
+<pre><code class="cpp">sdkbox::HMS::achievementShow();
+</code></pre>
+
+<h4 id="achievementvisualize">achievementVisualize</h4>
+<p>will trigger listener event <code>onAchievementVisualize</code></p>
+<pre><code class="cpp">sdkbox::HMS::achievementVisualize();
+</code></pre>
+
+<h4 id="achievementgrow">achievementGrow</h4>
+<p>will trigger listener event <code>onAchievementGrow</code></p>
+<pre><code class="cpp">sdkbox::HMS::achievementGrow();
+</code></pre>
+
+<h4 id="achievementmakesteps">achievementMakeSteps</h4>
+<p>will trigger listener event <code>onAchievementMakeSteps</code></p>
+<pre><code class="cpp">sdkbox::HMS::achievementMakeSteps();
+</code></pre>
+
+<h4 id="achievementreach">achievementReach</h4>
+<pre><code class="cpp">sdkbox::HMS::achievementReach();
+</code></pre>
+
+<h3 id="event">Event</h3>
+<h4 id="eventgrow">eventGrow</h4>
+<pre><code class="cpp">sdkbox::HMS::eventGrow();
+</code></pre>
+
+<h4 id="eventrequestlist">eventRequestList</h4>
+<p>will trigger listener event <code>onEventList</code></p>
+<pre><code class="cpp">sdkbox::HMS::eventRequestList();
+</code></pre>
+
+<h3 id="ranking">Ranking</h3>
+<h4 id="check-ranking-switch-status">Check ranking switch status</h4>
+<p>before invoke ranking related api, you must make sure player is allow to open score.</p>
+<p>will trigger listener event <code>onRankingSwitchStatus</code></p>
+<pre><code class="cpp">sdkbox::HMS::rankingRequestSwitchStatus();
+</code></pre>
+
+<p>will trigger listener event <code>onRankingSetSwitchStatus</code></p>
+<pre><code class="cpp">sdkbox::HMS::rankingSetSwitchStatus();
+</code></pre>
+
+<h4 id="submit-score">submit score</h4>
+<p>will trigger listener event <code>onRankingSubmitScore</code></p>
+<pre><code class="cpp">sdkbox::HMS::rankingSubmitScore(rankingName, score, score_unit);
+</code></pre>
+
+<h4 id="show-ranking">Show ranking</h4>
+<p>show ranking by self.</p>
+<p>will trigger listener event <code>onRankingList</code></p>
+<pre><code class="cpp">bool realtime = true; // true, will request data from hms server; false, will use local cache data
+sdkbox::HMS::rankingRequestList(realtime, rankingName);
+</code></pre>
+
+<p>show with hms default ui</p>
+<p>will trigger listener event <code>onRankingShow</code></p>
+<pre><code class="cpp">int timeDimension = 2; // 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox::HMS::rankingShow(timeDimension, rankingName);
+</code></pre>
+
+<h4 id="get-scores">get scores</h4>
+<p>current player score</p>
+<p>will trigger listener event <code>onRankingCurPlayerScore</code></p>
+<pre><code class="cpp">int timeDimension = 2; // 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox::HMS::rankingRequestCurPlayerScore(rankingName, timeDimension);
+</code></pre>
+
+<p>request player centered score</p>
+<p>will trigger listener event <code>onRankingPlayerCenteredScores</code></p>
+<pre><code class="cpp">int timeDimension = 2; // 0-&gt; day, 1-&gt; week, 2-&gt; all time
+sdkbox::HMS::rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
+</code></pre>
+
+<h3 id="archive">Archive</h3>
+<p>add archive</p>
+<p>will trigger listener event <code>onArchiveAdd</code></p>
+<pre><code class="cpp">sdkbox::HMS::archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesLen, bmBytesType,
+                               dataBytes, dataBytesLen);
+</code></pre>
+
+<p>update archive</p>
+<p>will trigger listener event <code>onArchiveUpdate</code></p>
+<pre><code class="cpp">sdkbox::HMS::archiveUpdate(archiveId,
+                          playedTime, progress, description,
+                          bmBytes, bmBytesLen, bmBytesType,
+                          dataBytes, dataBytesLen);
+</code></pre>
+
+<p>load archive</p>
+<p>will trigger listener event <code>onArchiveLoad</code></p>
+<pre><code class="cpp">int conflictPolicy = 3;
+//-1 -&gt; hms willn't hand conflict, 
+//1  -&gt; hms will resolved conflict by played time, 
+//2  -&gt; hms will resolved conflict by progress,
+//3  -&gt; hms will resolved conflict by last update time
+sdkbox::HMS::archiveLoad(archiveId, conflictPolicy);
+</code></pre>
+
+<h3 id="buoy">BUOY</h3>
+<p>if you game sell in china, you should show buoy</p>
+<pre><code class="cpp">sdkbox::HMS::buoyShow();
+//or
+sdkbox::HMS::buoyHide();
+</code></pre>
+
 <h3 id="handling-hms-events">Handling HMS Events</h3>
 <p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
+<p>all listener include code param, you can find code in follow url:</p>
+<ul>
+<li>https://developer.huawei.com/consumer/cn/doc/development/HMS-References/game-return-code-v4</li>
+<li>https://developer.huawei.com/consumer/cn/doc/development/HMS-References/hms-error-code</li>
+</ul>
+<p>here we list a specific code:</p>
+<p>7020: havn't find data in local cache
+7022: is not adult
+7024: <code>huawei mobile market</code> app is not installed
+7218: huawei game services is not enabled, or user cancel
+7204: need install the last application assist
+7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).</p>
 <ul>
 <li>Allow your class to extend <code>sdkbox::HMSListener</code>:</li>
 </ul>
 <pre><code class="cpp">#include &quot;PluginHMS/PluginHMS.h&quot;
 class MyClass : public sdkbox::HMSListener {
 private:
+  // Account
   virtual void onLogin(int code, const std::string &amp;msg) override;
+
+  // Player Info
+  virtual void onPlayerInfo(int code, const std::string&amp; errorOrJson) override;
+  virtual void onPlayerExtraInfo(int code, const std::string&amp; errorOrJson) override;
+  virtual void onPlayerGameBegin(int code, const std::string&amp; errorOrJson) override;
+  virtual void onPlayerGameEnd(int code, const std::string&amp; errorOrJson) override;
+
+  // IAP
   virtual void onIAPReady(int code, const std::string&amp; msg) override;
   virtual void onIAPProducts(int code, const std::string&amp; errorOrJson) override;
   virtual void onIAPPurchase(int code, const std::string&amp; errorOrJson) override;
   virtual void onIAPPConsume(int code, const std::string&amp; errorOrJson) override;
   virtual void onIAPOwnedPurchases(int code, const std::string&amp; errorOrJson) override;
   virtual void onIAPOwnedPurchaseRecords(int code, const std::string&amp; errorOrJson) override;
+
+  // Achievement
+  virtual void onAchievementList(int code, const std::string&amp; errorOrJson) override;
+  virtual void onAchievementShow(int code, const std::string&amp; errorOrJson) override;
+  virtual void onAchievementVisualize(int code, const std::string&amp; errorOrJson) override;
+  virtual void onAchievementGrow(int code, const std::string&amp; errorOrJson) override;
+  virtual void onAchievementMakeSteps(int code, const std::string&amp; errorOrJson) override;
+
+  // Event
+  virtual void onEventList(int code, const std::string&amp; errorOrJson) override;
+
+  // Ranking
+  virtual void onRankingSwitchStatus(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingSetSwitchStatus(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingSubmitScore(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingShow(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingList(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingCurPlayerScore(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingPlayerCenteredScores(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingMoreScores(int code, const std::string&amp; errorOrJson) override;
+  virtual void onRankingTopScores(int code, const std::string&amp; errorOrJson) override;
+
+  // Archive
+  virtual void onArchiveLimitThumbnailSize(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveLimitDetailsSize(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveAdd(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveShow(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveSummaryList(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveSelect(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveThumbnail(int code, const std::string&amp; errorOrJson, unsigned char* coverData, unsigned int coverDataLen) override;
+  virtual void onArchiveUpdate(int code, const std::string&amp; errorOrJson) override;
+  virtual void onArchiveLoad(int code, const std::string&amp; errorOrJson, unsigned char* contentData, unsigned int contentDataLen) override;
+  virtual void onArchiveRemove(int code, const std::string&amp; errorOrJson) override;
+
+  // Game Stats
+  virtual void onGamePlayerStats(int code, const std::string&amp; errorOrJson) override;
+  virtual void onGameSummary(int code, const std::string&amp; errorOrJson) override;
 }
 </code></pre>
 
@@ -1024,6 +1273,30 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <blockquote>
 <p>logout HMS</p>
 </blockquote>
+<pre><code class="cpp">static void playerRequestInfo ( ) ;
+</code></pre>
+
+<blockquote>
+<p>request current player info</p>
+</blockquote>
+<pre><code class="cpp">static void playerRequestExtraInfo ( ) ;
+</code></pre>
+
+<blockquote>
+<p>request player extra info</p>
+</blockquote>
+<pre><code class="cpp">static void playerSubmitGameBegin ( ) ;
+</code></pre>
+
+<blockquote>
+<p>submit game begin event</p>
+</blockquote>
+<pre><code class="cpp">static void playerSubmitGameEnd ( ) ;
+</code></pre>
+
+<blockquote>
+<p>submit game end event</p>
+</blockquote>
 <pre><code class="cpp">static void iapRequestProducts ( ) ;
 </code></pre>
 
@@ -1042,17 +1315,217 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <pre><code class="cpp">static void iapRequestOwnedPurchaseRecords ( ) ;
 </code></pre>
 
+<pre><code class="cpp">static void achievementRequestList ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void achievementShow ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void achievementVisualize ( const std::string &amp; name ) ;
+</code></pre>
+
+<pre><code class="cpp">static void achievementGrow ( const std::string &amp; achiveName , int steps ) ;
+</code></pre>
+
+<pre><code class="cpp">static void achievementMakeSteps ( const std::string &amp; achiveName ,
+                                   int steps ) ;
+</code></pre>
+
+<pre><code class="cpp">static void achievementReach ( const std::string &amp; achiveName ) ;
+</code></pre>
+
+<pre><code class="cpp">static void eventGrow ( const std::string &amp; eventName , int amount ) ;
+</code></pre>
+
+<pre><code class="cpp">static void eventRequestList ( bool realtime ,
+                               const std::string &amp; eventNamas = &quot;&quot; ) ;
+</code></pre>
+
+<pre><code class="cpp">static void rankingRequestSwitchStatus ( ) ;
+</code></pre>
+
+<blockquote>
+<p>request if player allow open score in ranking</p>
+</blockquote>
+<pre><code class="cpp">static void rankingSetSwitchStatus ( int status ) ;
+</code></pre>
+
+<blockquote>
+<p>request if player allow open score in ranking
+status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
+</blockquote>
+<pre><code class="cpp">static void rankingSubmitScore ( const std::string &amp; rankingName ,
+                                 long score ,
+                                 const std::string unit = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>submit score to ranking</p>
+</blockquote>
+<pre><code class="cpp">static void rankingShow ( int timeDimension ,
+                          const std::string &amp; rankingName = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>use hms's ui to show ranking</p>
+</blockquote>
+<pre><code class="cpp">static void rankingRequestList ( bool realtime ,
+                                 const std::string &amp; rankingName = &quot;&quot; ) ;
+</code></pre>
+
+<blockquote>
+<p>request ranking list</p>
+</blockquote>
+<pre><code class="cpp">static void rankingRequestCurPlayerScore ( const std::string &amp; rankingName ,
+                                           int timeDimension ) ;
+</code></pre>
+
+<blockquote>
+<p>request current player ranking score</p>
+</blockquote>
+<pre><code class="cpp">static void rankingRequestPlayerCenteredScores ( const std::string &amp; rankingName ,
+                                                 int timeDimension ,
+                                                 int size ,
+                                                 bool realtime ) ;
+</code></pre>
+
+<blockquote>
+<p>request player centered scores</p>
+</blockquote>
+<pre><code class="cpp">static void rankingRequestMoreScores ( const std::string &amp; rankingName ,
+                                       int timeDimension ,
+                                       int offset ,
+                                       int pageSize ,
+                                       int pageDirection ) ;
+</code></pre>
+
+<blockquote>
+<p>request more scores</p>
+</blockquote>
+<pre><code class="cpp">static void rankingRequestTopScores ( const std::string &amp; rankingName ,
+                                      int timeDimension ,
+                                      int offset ,
+                                      int pageSize ,
+                                      int pageDirection ) ;
+</code></pre>
+
+<blockquote>
+<p>submit score to ranking</p>
+</blockquote>
+<pre><code class="cpp">static void archiveRequestLimitThumbnailSize ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get thumbnail max size</p>
+</blockquote>
+<pre><code class="cpp">static void archiveRequestLimitDetailsSize ( ) ;
+</code></pre>
+
+<blockquote>
+<p>get detail max size</p>
+</blockquote>
+<pre><code class="cpp">static void archiveAdd ( long playedTime ,
+                         long progress ,
+                         const std::string &amp; description ,
+                         bool supportCache ,
+                         const unsigned char * bmBytes ,
+                         int bmBytesLen ,
+                         const std::string &amp; bmBytesType ,
+                         const unsigned char * dataBytes ,
+                         int dataBytesLen ) ;
+</code></pre>
+
+<blockquote>
+<p>add archive</p>
+</blockquote>
+<pre><code class="cpp">static void archiveShow ( const std::string &amp; title ,
+                          bool allowAdd ,
+                          bool allowDelete ,
+                          int pageSize ) ;
+</code></pre>
+
+<blockquote>
+<p>use hms's default ui to show archive</p>
+</blockquote>
+<pre><code class="cpp">static void archiveRequestSummaryList ( bool realtime ) ;
+</code></pre>
+
+<blockquote>
+<p>request archive summay list, developer can show custome archive list with the returned data</p>
+</blockquote>
+<pre><code class="cpp">static void archiveRequestThumbnail ( const std::string &amp; archiveId ) ;
+</code></pre>
+
+<blockquote>
+<p>request archive cover thumbnail</p>
+</blockquote>
+<pre><code class="cpp">static void archiveUpdate ( const std::string &amp; archiveId ,
+                            long playedTime ,
+                            long progress ,
+                            const std::string &amp; description ,
+                            const unsigned char * bmBytes ,
+                            int bmBytesLen ,
+                            const std::string &amp; bmBytesType ,
+                            const unsigned char * dataBytes ,
+                            int dataBytesLen ) ;
+</code></pre>
+
+<blockquote>
+<p>update archive</p>
+</blockquote>
+<pre><code class="cpp">static void archiveLoad ( const std::string &amp; archiveId , int conflictPolicy ) ;
+</code></pre>
+
+<blockquote>
+<p>load archive</p>
+</blockquote>
+<pre><code class="cpp">static void archiveRemove ( const std::string &amp; archiveId ) ;
+</code></pre>
+
+<blockquote>
+<p>remvoe archive</p>
+</blockquote>
+<pre><code class="cpp">static void gamePlayerStatsRequest ( bool realtime ) ;
+</code></pre>
+
+<blockquote>
+<p>request game player statistics</p>
+</blockquote>
+<pre><code class="cpp">static void gameSummaryRequest ( bool realtime ) ;
+</code></pre>
+
+<blockquote>
+<p>request game summary</p>
+</blockquote>
+<pre><code class="cpp">static void buoyShow ( ) ;
+</code></pre>
+
+<pre><code class="cpp">static void buoyHide ( ) ;
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
-<pre><code class="cpp">void onLogin ( int code , const std::string &amp; msg );
+<pre><code class="cpp">void onLogin ( int code , const std::string &amp; errorOrJson );
 </code></pre>
 
-<pre><code class="cpp">void onIAPReady ( int code , const std::string &amp; msg );
+<pre><code class="cpp">void onPlayerInfo ( int code , const std::string &amp; errorOrJson ) {
 </code></pre>
 
-<pre><code class="cpp">void onIAPProducts ( int code , const std::string &amp; errorOrJson );
+<pre><code class="cpp">void onPlayerExtraInfo ( int code , const std::string &amp; errorOrJson ) {
 </code></pre>
 
-<pre><code class="cpp">void onIAPPurchase ( int code , const std::string &amp; errorOrJson );
+<pre><code class="cpp">void onPlayerGameBegin ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onPlayerGameEnd ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onIAPReady ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onIAPProducts ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onIAPPurchase ( int code , const std::string &amp; errorOrJson ) {
 </code></pre>
 
 <pre><code class="cpp">void onIAPPConsume ( int code , const std::string &amp; errorOrJson ) {
@@ -1064,6 +1537,155 @@ loginType: 0, slient login 1, login with HuaweiID(ID Token) 2, login with HuaweI
 <pre><code class="cpp">void onIAPOwnedPurchaseRecords ( int code , const std::string &amp; errorOrJson ) {
 </code></pre>
 
+<pre><code class="cpp">void onAchievementList ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onAchievementShow ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onAchievementVisualize ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onAchievementGrow ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onAchievementMakeSteps ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onAchievementReach ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onEventList ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onRankingSwitchStatus ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onRankingSetSwitchStatus ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<pre><code class="cpp">void onRankingSubmitScore ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingSubmitScore</p>
+</blockquote>
+<pre><code class="cpp">void onRankingShow ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingShow</p>
+</blockquote>
+<pre><code class="cpp">void onRankingList ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestList</p>
+</blockquote>
+<pre><code class="cpp">void onRankingCurPlayerScore ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestCurPlayerScore</p>
+</blockquote>
+<pre><code class="cpp">void onRankingPlayerCenteredScores ( int code ,
+                                     const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestPlayerCenteredScores</p>
+</blockquote>
+<pre><code class="cpp">void onRankingMoreScores ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestMoreScores</p>
+</blockquote>
+<pre><code class="cpp">void onRankingTopScores ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for rankingRequestTopScores</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveLimitThumbnailSize ( int code ,
+                                   const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestLimitThumbnailSize</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveLimitDetailsSize ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestLimitDetailsSize</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveAdd ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveAdd</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveShow ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveShow</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveSummaryList ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestSummaryList</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveSelect ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback when user select archive</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveThumbnail ( int code ,
+                          const std::string &amp; errorOrJson ,
+                          unsigned char * coverData ,
+                          unsigned int coverDataLen ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRequestThumbnail</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveUpdate ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveUpdate</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveLoad ( int code ,
+                     const std::string &amp; errorOrJson ,
+                     unsigned char * contentData ,
+                     unsigned int contentDataLen ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveLoad</p>
+</blockquote>
+<pre><code class="cpp">void onArchiveRemove ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for archiveRemove</p>
+</blockquote>
+<pre><code class="cpp">void onGamePlayerStats ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for gamePlayerStatsRequest</p>
+</blockquote>
+<pre><code class="cpp">void onGameSummary ( int code , const std::string &amp; errorOrJson ) {
+</code></pre>
+
+<blockquote>
+<p>callback for gameSummaryRequest</p>
+</blockquote>
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1155,8 +1777,10 @@ apply plugin: 'com.huawei.agconnect' // for hms
 
 dependencies {
     ...
-    implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+    implementation 'com.huawei.hms:base:4.0.4.301' // for hms
+    implementation 'com.huawei.hms:hwid:4.0.4.300' // for hms
     implementation 'com.huawei.hms:iap:4.0.2.300' // for hms
+    implementation 'com.huawei.hms:game:4.0.3.301' // for hms
 }
 
 </code></pre>
@@ -1351,7 +1975,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-06-02 03:54:45.483779, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-06-19 03:12:33.608555, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
