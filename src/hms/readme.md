@@ -3,13 +3,32 @@
 <h1>Huawei Mobile Services Integration Guide</h1>
 <<[../../shared/-VERSION-/version.md]
 
-##Integration
+## Integration
 Open a terminal and use the following command to install the SDKBOX HMS plugin. Make sure you setup the SDKBOX installer correctly.
 ```bash
 $ sdkbox import hms
 ```
 
 <<[../../shared/notice.md]
+
+## Extra steps
+
+### Android Steps
+
+you should add this code `com.sdkbox.plugin.PluginHMS.ApplicationInit(this);` to Application::onCreate. modification may like follow:
+
+```java
+public class YourApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        com.sdkbox.plugin.PluginHMS.ApplicationInit(this); // add this line
+    }
+
+    ...
+}
+```
 
 ## Configuration
 SDKBOX Installer will automatically inject a sample configuration to your `sdkbox_config.json`, that you have to modify it before you can use it for your own app.
