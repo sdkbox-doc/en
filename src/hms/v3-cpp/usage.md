@@ -320,12 +320,12 @@ all listener include code param, you can find code in follow url:
 
 here we list a specific code:
 
-7020: havn't find data in local cache
-7022: is not adult
-7024: `huawei mobile market` app is not installed
-7218: huawei game services is not enabled, or user cancel
-7204: need install the last application assist
-7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).
+- 7020: havn't find data in local cache
+- 7022: is not adult
+- 7024: `huawei mobile market` app is not installed
+- 7218: huawei game services is not enabled, or user cancel
+- 7204: need install the last application assist
+- 7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).
 
 * Allow your class to extend `sdkbox::HMSListener`:
 ```cpp
