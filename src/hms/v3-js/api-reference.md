@@ -28,6 +28,26 @@ sdkbox.PluginHMS.logout();
 > logout HMS
 
 ```javascript
+sdkbox.PluginHMS.playerRequestInfo();
+```
+> request current player info
+
+```javascript
+sdkbox.PluginHMS.playerRequestExtraInfo();
+```
+> request player extra info
+
+```javascript
+sdkbox.PluginHMS.playerSubmitGameBegin();
+```
+> submit game begin event
+
+```javascript
+sdkbox.PluginHMS.playerSubmitGameEnd();
+```
+> submit game end event
+
+```javascript
 sdkbox.PluginHMS.iapRequestProducts();
 ```
 
@@ -51,14 +71,198 @@ sdkbox.PluginHMS.iapConsume(purchaseToken);
 sdkbox.PluginHMS.iapRequestOwnedPurchaseRecords();
 ```
 
-
-### Listeners
 ```javascript
-onLogin(code, msg);
+sdkbox.PluginHMS.achievementRequestList();
 ```
 
 ```javascript
-onIAPReady(code, msg);
+sdkbox.PluginHMS.achievementShow();
+```
+
+```javascript
+sdkbox.PluginHMS.achievementVisualize(name);
+```
+
+```javascript
+sdkbox.PluginHMS.achievementGrow(achiveName, steps);
+```
+
+```javascript
+sdkbox.PluginHMS.achievementMakeSteps(achiveName, steps);
+```
+
+```javascript
+sdkbox.PluginHMS.achievementReach(achiveName);
+```
+
+```javascript
+sdkbox.PluginHMS.eventGrow(eventName, amount);
+```
+
+```javascript
+sdkbox.PluginHMS.eventRequestList(realtime, eventNamas);
+```
+
+```javascript
+sdkbox.PluginHMS.rankingRequestSwitchStatus();
+```
+> request if player allow open score in ranking
+
+```javascript
+sdkbox.PluginHMS.rankingSetSwitchStatus(status);
+```
+> request if player allow open score in ranking
+status: 0->player allow submit score, 1->player not allow submit score
+
+```javascript
+sdkbox.PluginHMS.rankingSubmitScore(rankingName, score, unit);
+```
+> submit score to ranking
+
+```javascript
+sdkbox.PluginHMS.rankingShow(timeDimension, rankingName);
+```
+> use hms's ui to show ranking
+
+```javascript
+sdkbox.PluginHMS.rankingRequestList(realtime, rankingName);
+```
+> request ranking list
+
+```javascript
+sdkbox.PluginHMS.rankingRequestCurPlayerScore(rankingName, timeDimension);
+```
+> request current player ranking score
+
+```javascript
+sdkbox.PluginHMS.rankingRequestPlayerCenteredScores(rankingName,
+                                                     timeDimension,
+                                                     size,
+                                                     realtime);
+```
+> request player centered scores
+
+```javascript
+sdkbox.PluginHMS.rankingRequestMoreScores(rankingName,
+                                           timeDimension,
+                                           offset,
+                                           pageSize,
+                                           pageDirection);
+```
+> request more scores
+
+```javascript
+sdkbox.PluginHMS.rankingRequestTopScores(rankingName,
+                                          timeDimension,
+                                          offset,
+                                          pageSize,
+                                          pageDirection);
+```
+> submit score to ranking
+
+```javascript
+sdkbox.PluginHMS.archiveRequestLimitThumbnailSize();
+```
+> get thumbnail max size
+
+```javascript
+sdkbox.PluginHMS.archiveRequestLimitDetailsSize();
+```
+> get detail max size
+
+```javascript
+sdkbox.PluginHMS.archiveAdd(playedTime,
+                             progress,
+                             description,
+                             supportCache,
+                             bmBytes,
+                             bmBytesLen,
+                             bmBytesType,
+                             dataBytes,
+                             dataBytesLen);
+```
+> add archive
+
+```javascript
+sdkbox.PluginHMS.archiveShow(title, allowAdd, allowDelete, pageSize);
+```
+> use hms's default ui to show archive
+
+```javascript
+sdkbox.PluginHMS.archiveRequestSummaryList(realtime);
+```
+> request archive summay list, developer can show custome archive list with the returned data
+
+```javascript
+sdkbox.PluginHMS.archiveRequestThumbnail(archiveId);
+```
+> request archive cover thumbnail
+
+```javascript
+sdkbox.PluginHMS.archiveUpdate(archiveId,
+                                playedTime,
+                                progress,
+                                description,
+                                bmBytes,
+                                bmBytesLen,
+                                bmBytesType,
+                                dataBytes,
+                                dataBytesLen);
+```
+> update archive
+
+```javascript
+sdkbox.PluginHMS.archiveLoad(archiveId, conflictPolicy);
+```
+> load archive
+
+```javascript
+sdkbox.PluginHMS.archiveRemove(archiveId);
+```
+> remvoe archive
+
+```javascript
+sdkbox.PluginHMS.gamePlayerStatsRequest(realtime);
+```
+> request game player statistics
+
+```javascript
+sdkbox.PluginHMS.gameSummaryRequest(realtime);
+```
+> request game summary
+
+```javascript
+sdkbox.PluginHMS.buoyShow();
+```
+
+```javascript
+sdkbox.PluginHMS.buoyHide();
+```
+
+
+### Listeners
+```javascript
+onLogin(code, errorOrJson);
+```
+
+```javascript
+onPlayerInfo(code, errorOrJson);
+```
+
+```javascript
+onPlayerExtraInfo(code, errorOrJson);
+```
+
+```javascript
+onPlayerGameBegin(code, errorOrJson);
+```
+
+```javascript
+onPlayerGameEnd(code, errorOrJson);
+```
+
+```javascript
+onIAPReady(code, errorOrJson);
 ```
 
 ```javascript
@@ -80,5 +284,136 @@ onIAPOwnedPurchases(code, errorOrJson);
 ```javascript
 onIAPOwnedPurchaseRecords(code, errorOrJson);
 ```
+
+```javascript
+onAchievementList(code, errorOrJson);
+```
+
+```javascript
+onAchievementShow(code, errorOrJson);
+```
+
+```javascript
+onAchievementVisualize(code, errorOrJson);
+```
+
+```javascript
+onAchievementGrow(code, errorOrJson);
+```
+
+```javascript
+onAchievementMakeSteps(code, errorOrJson);
+```
+
+```javascript
+onAchievementReach(code, errorOrJson);
+```
+
+```javascript
+onEventList(code, errorOrJson);
+```
+
+```javascript
+onRankingSwitchStatus(code, errorOrJson);
+```
+
+```javascript
+onRankingSetSwitchStatus(code, errorOrJson);
+```
+
+```javascript
+onRankingSubmitScore(code, errorOrJson);
+```
+> callback for rankingSubmitScore
+
+```javascript
+onRankingShow(code, errorOrJson);
+```
+> callback for rankingShow
+
+```javascript
+onRankingList(code, errorOrJson);
+```
+> callback for rankingRequestList
+
+```javascript
+onRankingCurPlayerScore(code, errorOrJson);
+```
+> callback for rankingRequestCurPlayerScore
+
+```javascript
+onRankingPlayerCenteredScores(code, errorOrJson);
+```
+> callback for rankingRequestPlayerCenteredScores
+
+```javascript
+onRankingMoreScores(code, errorOrJson);
+```
+> callback for rankingRequestMoreScores
+
+```javascript
+onRankingTopScores(code, errorOrJson);
+```
+> callback for rankingRequestTopScores
+
+```javascript
+onArchiveLimitThumbnailSize(code, errorOrJson);
+```
+> callback for archiveRequestLimitThumbnailSize
+
+```javascript
+onArchiveLimitDetailsSize(code, errorOrJson);
+```
+> callback for archiveRequestLimitDetailsSize
+
+```javascript
+onArchiveAdd(code, errorOrJson);
+```
+> callback for archiveAdd
+
+```javascript
+onArchiveShow(code, errorOrJson);
+```
+> callback for archiveShow
+
+```javascript
+onArchiveSummaryList(code, errorOrJson);
+```
+> callback for archiveRequestSummaryList
+
+```javascript
+onArchiveSelect(code, errorOrJson);
+```
+> callback when user select archive
+
+```javascript
+onArchiveThumbnail(code, errorOrJson, coverData, coverDataLen);
+```
+> callback for archiveRequestThumbnail
+
+```javascript
+onArchiveUpdate(code, errorOrJson);
+```
+> callback for archiveUpdate
+
+```javascript
+onArchiveLoad(code, errorOrJson, contentData, contentDataLen);
+```
+> callback for archiveLoad
+
+```javascript
+onArchiveRemove(code, errorOrJson);
+```
+> callback for archiveRemove
+
+```javascript
+onGamePlayerStats(code, errorOrJson);
+```
+> callback for gamePlayerStatsRequest
+
+```javascript
+onGameSummary(code, errorOrJson);
+```
+> callback for gameSummaryRequest
 
 

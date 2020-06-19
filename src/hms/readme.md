@@ -25,7 +25,45 @@ Here is an example of the HMS configuration.
 "android":
 {
     "hms":{
-        "debug": false
+        "archive": true,
+        "key": "MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAn9U6yC1QI8cXGRkOQxO9QG/WV8dR4jZDCYt/GJBM4OTTtRZeAIEyVifGPutwMAkPBLgdUsJwHuA2t2jrBAi/nagYJvh8UIazKJv5C4Hykw5Z2iKTWMmiMK9rQ2tMtRTAMiY+LwfaOH2258bEyt8mDQxyG3aRSAH28mZki/nGEbNfx7ZY9By/SSkuaCEWRDNYdiWkGDuZLhf8D97DoJJc6tTnrDPmzf1QqkVDjjudkHJwgCMWpLVACzGGuo4YQYt98Pu9cqbiYWJqSHqEbPYN0AmGXdJw+tO5f1wPcZWnJhn4JqCFmD9i/dSENNJWXVDgJc0DG2PiWX5j+qUaT7WkZMs4/WFtL6VRdRUDzITqYwKUUBYENVvkfdKlhjh+6V4BFKPsipvjOsRdXDpZ7sC6MY/7yn0eMOH3RoIQoiWeGYkxRTkKhdm/QQ/Xv/dvMbiicsNmUIkBce3w4hQG9XlhgjNrl5rI4p9Ho3Stq48s7DJlhWuUE6pXcjo2TJUSJ9+nAgMBAAE=",
+        "items": {
+            "remove_ads": {
+                "type": "non_consumable",
+                "id": "com.sdkbox.test.app.sample.noad"
+            },
+            "coin": {
+                "id": "com.sdkbox.test.app.sample.coin1"
+            },
+            "vip": {
+                "type": "subs",
+                "id": "com.sdkbox.test.app.sample.vip"
+            }
+        },
+        "achievements": [{
+            "name": "freshman",
+            "id": "A7346279E90AB8910AAC0CB71E552BFA2505DFD7591C79457F84D6B95F50FFEC",
+            "incremental": false
+        }, {
+            "name": "3shoot",
+            "id": "BA8B1A486D422AEF28FF82F9BFF85C3F156824396E0BB62D92BECC63C3CAC46A",
+            "incremental": true
+        }, {
+            "name": "5shoot",
+            "id": "001D38EC9E1A80A52ED3F47BFBA35F4B5BDF3776180A2B9AD778800C45CD6540",
+            "incremental": true
+        }],
+        "events": [{
+            "name": "gencoin",
+            "id": "912764D10F0988B9DCB041A4E6FE453BCBDEDC4E35708A60E33C2DEBF05F2D2E"
+        }, {
+            "name": "consumecoin",
+            "id": "E8688F3D9625572F462F5999E7F83EB5628E0FC1F2044E84D026EC4AB33C09F5"
+        }],
+        "rankings": [{
+            "name": "shooter",
+            "id": "C8B96FA1EDFC2D87DFE9491409440E3F8B2E39AFB8BD7E95C3BE337FC207C253"
+        }]
     }
 }
 ```

@@ -50,8 +50,10 @@ apply plugin: 'com.huawei.agconnect' // for hms
 
 dependencies {
     ...
-    implementation 'com.huawei.hms:hwid:4.0.1.301' // for hms
+    implementation 'com.huawei.hms:base:4.0.4.301' // for hms
+    implementation 'com.huawei.hms:hwid:4.0.4.300' // for hms
     implementation 'com.huawei.hms:iap:4.0.2.300' // for hms
+    implementation 'com.huawei.hms:game:4.0.3.301' // for hms
 }
 
 ```
