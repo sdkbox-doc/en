@@ -39,6 +39,7 @@ AdDeals.AdDealsWrapper.ShowAd(adType);
     - Unity 5.5+ UWP capabilities path: `PlayerSetting`->`Universal Windows Platform`->`Publishing Setting`->`Capabilities`.  
 ![Unity UWP capabilities setting](./uwp_capabilities.png)
 * For Unity 5.x: if you want to build UWP application, please use Unity 5.5.4p5 or later. you can download [Unity Patch Releases](https://unity3d.com/unity/qa/patch-releases).
+* If you want to pass Windows App Certification Kit test, we recommend you use Windows SDK `10.0.19041.0` and `.NET Native tool chain` ("VS 2019"->"Project Properties -> Build -> Compile with .NET Native tool chain")
 
 
 
