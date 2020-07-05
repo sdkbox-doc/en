@@ -4,7 +4,7 @@ Initialize the plugin where appropriate in your code. We recommend to do this in
 #include "PluginHMS/PluginHMS.h"
 AppDelegate::applicationDidFinishLaunching()
 {
-     sdkbox::HMS::init();
+     sdkbox::PluginHMS::init();
 }
 ```
 
@@ -15,13 +15,13 @@ HMS provides three way to login.
 * Signing In with HUAWEI ID(ID Token)
 
 ```cpp
-sdkbox::HMS::login(1);
+sdkbox::PluginHMS::login(1);
 ```
 
 * Signing In with HUAWEI ID(Authorization Code)
 
 ```cpp
-sdkbox::HMS::login(2);
+sdkbox::PluginHMS::login(2);
 ```
 
 * Silently Signing In With HUAWEI ID
@@ -29,7 +29,7 @@ sdkbox::HMS::login(2);
 Authorization is required only at the first sign-in to your app using a HUAWEI ID. Subsequent sign-ins using the same HUAWEI ID does not require any authorization.
 
 ```cpp
-sdkbox::HMS::login(0);
+sdkbox::PluginHMS::login(0);
 ```
 
 > `onLogin` will be triggered when HMS AccountKit reruns the login response.
@@ -39,20 +39,20 @@ HMS offical [documentation](https://developer.huawei.com/consumer/en/doc/develop
 ### Logout
 
 ```cpp
-sdkbox::HMS::logout();
+sdkbox::PluginHMS::logout();
 ```
 
 ### Request Managed Products
 
 ```cpp
-sdkbox::HMS::iapRequestProducts();
+sdkbox::PluginHMS::iapRequestProducts();
 ```
 this method will trigger `onIAPProducts` event
 
 ### Purchase Managed Product
 
 ```cpp
-sdkbox::HMS::iapPurchase("coin");
+sdkbox::PluginHMS::iapPurchase("coin");
 ```
 this method will trigger `onIAPPurchase` event
 
@@ -73,7 +73,7 @@ const std::string productInfo = R"(
   "developerPayload": "payload1"
 }
 )";
-sdkbox::HMS::iapPurchaseWithPrice(productInfo);
+sdkbox::PluginHMS::iapPurchaseWithPrice(productInfo);
 ```
 this method will trigger `onIAPPurchase` event
 
@@ -82,14 +82,14 @@ this method will trigger `onIAPPurchase` event
 will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.
 
 ```cpp
-sdkbox::HMS::iapRequestOwnedPurchases();
+sdkbox::PluginHMS::iapRequestOwnedPurchases();
 ```
 this method will trigger `onIAPOwnedPurchases` event
 
 ### consume product
 
 ```cpp
-sdkbox::HMS::iapConsume(purchaseToken);
+sdkbox::PluginHMS::iapConsume(purchaseToken);
 ```
 this method will trigger `onIAPPConsume` event
 
@@ -97,7 +97,7 @@ this method will trigger `onIAPPConsume` event
 
 request current user's all purchase records.
 ```cpp
-sdkbox::HMS::iapRequestOwnedPurchaseRecords(purchaseToken);
+sdkbox::PluginHMS::iapRequestOwnedPurchaseRecords(purchaseToken);
 ```
 this method will trigger `onIAPOwnedPurchaseRecords` event
 
@@ -107,7 +107,7 @@ this method will trigger `onIAPOwnedPurchaseRecords` event
 
 will trigger listener event `onPlayerInfo`
 ```cpp
-sdkbox::HMS::playerRequestInfo();
+sdkbox::PluginHMS::playerRequestInfo();
 ```
 
 #### GetPlayer ExtraInfo
@@ -115,7 +115,7 @@ sdkbox::HMS::playerRequestInfo();
 Will return follow info of current player: isadult, playtime and so on
 will trigger listener event `onPlayerExtraInfo`
 ```cpp
-sdkbox::HMS::playerRequestInfo();
+sdkbox::PluginHMS::playerRequestInfo();
 ```
 
 #### Submit GameBegin
@@ -123,7 +123,7 @@ sdkbox::HMS::playerRequestInfo();
 submit player game begin event. if your game will sell in china, you should submit game begin event.
 will trigger listener event `onPlayerGameBegin`
 ```cpp
-sdkbox::HMS::playerSubmitGameBegin();
+sdkbox::PluginHMS::playerSubmitGameBegin();
 ```
 
 #### Submit GameEnd
@@ -133,7 +133,7 @@ submit player game begin event. if your game will sell in china, you should subm
 will trigger listener event `onPlayerGameEnd`
 
 ```cpp
-sdkbox::HMS::playerSubmitGameEnd();
+sdkbox::PluginHMS::playerSubmitGameEnd();
 ```
 
 ### Achievement
@@ -145,7 +145,7 @@ request achivement list, then you can show achievement list by yourself
 will trigger listener event `onAchievementList`
 
 ```cpp
-sdkbox::HMS::achievementRequestList();
+sdkbox::PluginHMS::achievementRequestList();
 ```
 
 #### AchievementShow
@@ -155,34 +155,34 @@ show achivement with hms default ui
 will trigger listener event `onAchievementShow`
 
 ```cpp
-sdkbox::HMS::achievementShow();
+sdkbox::PluginHMS::achievementShow();
 ```
 
 #### achievementVisualize
 
 will trigger listener event `onAchievementVisualize`
 ```cpp
-sdkbox::HMS::achievementVisualize();
+sdkbox::PluginHMS::achievementVisualize();
 ```
 
 #### achievementGrow
 
 will trigger listener event `onAchievementGrow`
 ```cpp
-sdkbox::HMS::achievementGrow();
+sdkbox::PluginHMS::achievementGrow();
 ```
 
 #### achievementMakeSteps
 
 will trigger listener event `onAchievementMakeSteps`
 ```cpp
-sdkbox::HMS::achievementMakeSteps();
+sdkbox::PluginHMS::achievementMakeSteps();
 ```
 
 #### achievementReach
 
 ```cpp
-sdkbox::HMS::achievementReach();
+sdkbox::PluginHMS::achievementReach();
 ```
 
 ### Event
@@ -190,14 +190,14 @@ sdkbox::HMS::achievementReach();
 #### eventGrow
 
 ```cpp
-sdkbox::HMS::eventGrow();
+sdkbox::PluginHMS::eventGrow();
 ```
 
 #### eventRequestList
 
 will trigger listener event `onEventList`
 ```cpp
-sdkbox::HMS::eventRequestList();
+sdkbox::PluginHMS::eventRequestList();
 ```
 
 ### Ranking
@@ -208,12 +208,12 @@ before invoke ranking related api, you must make sure player is allow to open sc
 
 will trigger listener event `onRankingSwitchStatus`
 ```cpp
-sdkbox::HMS::rankingRequestSwitchStatus();
+sdkbox::PluginHMS::rankingRequestSwitchStatus();
 ```
 
 will trigger listener event `onRankingSetSwitchStatus`
 ```cpp
-sdkbox::HMS::rankingSetSwitchStatus();
+sdkbox::PluginHMS::rankingSetSwitchStatus();
 ```
 
 #### submit score
@@ -221,7 +221,7 @@ sdkbox::HMS::rankingSetSwitchStatus();
 will trigger listener event `onRankingSubmitScore`
 
 ```cpp
-sdkbox::HMS::rankingSubmitScore(rankingName, score, score_unit);
+sdkbox::PluginHMS::rankingSubmitScore(rankingName, score, score_unit);
 ```
 
 #### Show ranking
@@ -232,7 +232,7 @@ will trigger listener event `onRankingList`
 
 ```cpp
 bool realtime = true; // true, will request data from hms server; false, will use local cache data
-sdkbox::HMS::rankingRequestList(realtime, rankingName);
+sdkbox::PluginHMS::rankingRequestList(realtime, rankingName);
 ```
 
 show with hms default ui
@@ -241,7 +241,7 @@ will trigger listener event `onRankingShow`
 
 ```cpp
 int timeDimension = 2; // 0-> day, 1-> week, 2-> all time
-sdkbox::HMS::rankingShow(timeDimension, rankingName);
+sdkbox::PluginHMS::rankingShow(timeDimension, rankingName);
 ```
 
 #### get scores
@@ -252,7 +252,7 @@ will trigger listener event `onRankingCurPlayerScore`
 
 ```cpp
 int timeDimension = 2; // 0-> day, 1-> week, 2-> all time
-sdkbox::HMS::rankingRequestCurPlayerScore(rankingName, timeDimension);
+sdkbox::PluginHMS::rankingRequestCurPlayerScore(rankingName, timeDimension);
 ```
 
 request player centered score
@@ -261,7 +261,7 @@ will trigger listener event `onRankingPlayerCenteredScores`
 
 ```cpp
 int timeDimension = 2; // 0-> day, 1-> week, 2-> all time
-sdkbox::HMS::rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
+sdkbox::PluginHMS::rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
 ```
 
 ### Archive
@@ -271,7 +271,7 @@ add archive
 will trigger listener event `onArchiveAdd`
 
 ```cpp
-sdkbox::HMS::archiveAdd(playedTime, progress, description, supportCache,
+sdkbox::PluginHMS::archiveAdd(playedTime, progress, description, supportCache,
                                bmBytes, bmBytesLen, bmBytesType,
                                dataBytes, dataBytesLen);
 ```
@@ -281,7 +281,7 @@ update archive
 will trigger listener event `onArchiveUpdate`
 
 ```cpp
-sdkbox::HMS::archiveUpdate(archiveId,
+sdkbox::PluginHMS::archiveUpdate(archiveId,
                           playedTime, progress, description,
                           bmBytes, bmBytesLen, bmBytesType,
                           dataBytes, dataBytesLen);
@@ -297,16 +297,87 @@ int conflictPolicy = 3;
 //1  -> hms will resolved conflict by played time, 
 //2  -> hms will resolved conflict by progress,
 //3  -> hms will resolved conflict by last update time
-sdkbox::HMS::archiveLoad(archiveId, conflictPolicy);
+sdkbox::PluginHMS::archiveLoad(archiveId, conflictPolicy);
 ```
 
 ### BUOY
 
 if you game sell in china, you should show buoy
 ```cpp
-sdkbox::HMS::buoyShow();
+sdkbox::PluginHMS::buoyShow();
 //or
-sdkbox::HMS::buoyHide();
+sdkbox::PluginHMS::buoyHide();
+```
+
+### Advertisement
+
+caceh ad
+
+```cpp
+sdkbox::PluginHMS::adCache(adName);
+```
+
+show ad
+
+```cpp
+if (sdkbox::PluginHMS::adIsAvailable(adName)) {
+    sdkbox::PluginHMS::adShow(adName);
+}
+```
+
+hide banner
+
+```cpp
+sdkbox::PluginHMS::adHide(adName);
+```
+
+ad request settings (Optional)
+
+```cpp
+/*
+  * adContentClassification:
+  *   "W"->Content suitable for toddlers and older audiences;
+  *  "PI"->Content suitable for kids and older audiences
+  *   "J"->Content suitable for teenagers and older audiences.
+  *   "A"->Content suitable only for adults.
+  *    ""->Unknown rating.
+  */
+sdkbox::PluginHMS::adSetAdContentClassification("A");
+
+/*
+  * tagForUnderAgeOfPromise:
+  *  0->Do not process ad requests as directed to users under the age of consent;
+  *  1->Process ad requests as directed to users under the age of consent;
+  * -1->Whether to process ad requests as directed to users under the age of consent is not specified;
+  */
+sdkbox::PluginHMS::adSetTagForUnderAgeOfPromise(0);
+
+/*
+* tagForChildProtection:
+*  0->Do not process ad requests according to the COPPA;
+*  1->Process ad requests according to the COPPA;
+* -1->Whether to process ad requests according to the COPPA is not specified;
+*/
+sdkbox::PluginHMS::adSetTagForChildProtection(0);
+
+/*
+* nonPersonalizedAd
+*  0->Request both personalized and non-personalized ads (default);
+*  1->Request only non-personalized ads;
+*/
+sdkbox::PluginHMS::adSetNonPersonalizedAd(0);
+```
+
+reward ad setting (Optional)
+
+reward data must be URL-encoded and length must be less than 1024
+
+```cpp
+// reward ad custom data
+sdkbox::PluginHMS::adSetRewardData("cdata");
+
+// uid for reward ad
+sdkbox::PluginHMS::adSetRewardUserId("uid666");
 ```
 
 
@@ -385,10 +456,21 @@ private:
   // Game Stats
   virtual void onGamePlayerStats(int code, const std::string& errorOrJson) override;
   virtual void onGameSummary(int code, const std::string& errorOrJson) override;
+
+  // Ad
+  virtual void onAdClose(int code, const std::string& errorOrJson) override;
+  virtual void onAdFail(int code, const std::string& errorOrJson) override;
+  virtual void onAdLeave(int code, const std::string& errorOrJson) override;
+  virtual void onAdOpen(int code, const std::string& errorOrJson) override;
+  virtual void onAdLoad(int code, const std::string& errorOrJson) override;
+  virtual void onAdClick(int code, const std::string& errorOrJson) override;
+  virtual void onAdImpression(int code, const std::string& errorOrJson) override;
+  virtual void onAdReward(int code, const std::string& errorOrJson) override;
+
 }
 ```
 
 * Create a __listener__ that handles callbacks:
 ```cpp
-sdkbox::HMS::setListener(listener);
+sdkbox::PluginHMS::setListener(listener);
 ```
