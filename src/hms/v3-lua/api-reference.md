@@ -288,7 +288,7 @@ onIAPPurchase(code, errorOrJson)
 ```
 
 ```lua
-onIAPPConsume(code, errorOrJson)
+onIAPConsume(code, errorOrJson)
 ```
 
 ```lua

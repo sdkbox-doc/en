@@ -288,7 +288,7 @@ onIAPPurchase(code, errorOrJson);
 ```
 
 ```javascript
-onIAPPConsume(code, errorOrJson);
+onIAPConsume(code, errorOrJson);
 ```
 
 ```javascript

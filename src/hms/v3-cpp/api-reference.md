@@ -334,7 +334,7 @@ void onIAPPurchase ( int code , const std::string & errorOrJson ) {
 ```
 
 ```cpp
-void onIAPPConsume ( int code , const std::string & errorOrJson ) {
+void onIAPConsume ( int code , const std::string & errorOrJson ) {
 ```
 
 ```cpp
