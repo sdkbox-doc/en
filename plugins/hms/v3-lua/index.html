@@ -1136,17 +1136,21 @@ sdkbox.PluginHMS:rankingRequestPlayerCenteredScores(rankingName, timeDimension, 
 <h3 id="archive">Archive</h3>
 <p>add archive</p>
 <p>will trigger listener event <code>onArchiveAdd</code></p>
-<pre><code class="lua">sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
-                               bmBytes, bmBytesLen, bmBytesType,
-                               dataBytes, dataBytesLen);
+<pre><code class="lua">local bmBytes -- cover image data
+local dataBytes -- archive binary data
+sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes);
 </code></pre>
 
 <p>update archive</p>
 <p>will trigger listener event <code>onArchiveUpdate</code></p>
-<pre><code class="lua">sdkbox.PluginHMS:archiveUpdate(archiveId,
+<pre><code class="lua">local bmBytes -- cover image data
+local dataBytes -- archive binary data
+sdkbox.PluginHMS:archiveUpdate(archiveId,
                           playedTime, progress, description,
-                          bmBytes, bmBytesLen, bmBytesType,
-                          dataBytes, dataBytesLen);
+                          bmBytes, bmBytesType,
+                          dataBytes);
 </code></pre>
 
 <p>load archive</p>
@@ -1506,6 +1510,16 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 <blockquote>
 <p>get detail max size</p>
 </blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+</code></pre>
+
+<blockquote>
+<p>add archive
+bmBytes: cover image data
+dataBytes: archive data</p>
+</blockquote>
 <pre><code class="lua">sdkbox.PluginHMS:archiveShow(title, allowAdd, allowDelete, pageSize)
 </code></pre>
 
@@ -1523,6 +1537,17 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 
 <blockquote>
 <p>request archive cover thumbnail</p>
+</blockquote>
+<pre><code class="lua">sdkbox.PluginHMS:archiveUpdate(archiveId,
+                               playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+</code></pre>
+
+<blockquote>
+<p>update archive
+bmBytes: cover image data
+dataBytes: archive data</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginHMS:archiveLoad(archiveId, conflictPolicy)
 </code></pre>
@@ -2079,7 +2104,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-07-07 01:58:07.565002, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-07-07 04:17:43.769919, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
