@@ -724,6 +724,15 @@
 	</ul>
 	
     
+        <li class="main "><a href="#extra-steps">Extra steps</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#android-steps">Android Steps</a></li>
+        
+	</ul>
+	
+    
         <li class="main "><a href="#configuration">Configuration</a></li>
 	
 	<ul class="sub-sidenav">
@@ -769,7 +778,9 @@
         
             <li><a href="#buoy">BUOY</a></li>
         
-            <li><a href="#handling-purchase-events">Handling Purchase Events</a></li>
+            <li><a href="#advertisement">Advertisement</a></li>
+        
+            <li><a href="#handling-hms-events">Handling HMS Events</a></li>
         
 	</ul>
 	
@@ -849,6 +860,21 @@
 <p>If your game doesn't support all screen orientations, you will need to check <code>Requires full screen</code> in Xcode. If you do not, your app will fail Apple's submission process.</p>
 <h4 id="whitelist-canopenurl-function">Whitelist canOpenURL function</h4>
 <p>This setting depends on what plugins are in your project. You may need to add the required entry to the <code>info.plist</code>, under <code>LSApplicationQueriesSchemes</code>.</p>
+<h2 id="extra-steps">Extra steps</h2>
+<h3 id="android-steps">Android Steps</h3>
+<p>you should add this code <code>com.sdkbox.plugin.PluginHMS.ApplicationInit(this);</code> to Application::onCreate. modification may like follow:</p>
+<pre><code class="java">public class YourApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        com.sdkbox.plugin.PluginHMS.ApplicationInit(this); // add this line
+    }
+
+    ...
+}
+</code></pre>
+
 <h2 id="configuration">Configuration</h2>
 <p>SDKBOX Installer will automatically inject a sample configuration to your <code>sdkbox_config.json</code>, that you have to modify it before you can use it for your own app.</p>
 <p>Here is an example of the HMS configuration.</p>
@@ -923,7 +949,7 @@
 <ul>
 <li>modify your Lua code to <code>init()</code> the plugin. This can be done anyplace, however it must be done before trying to use the plugin's features.</li>
 </ul>
-<pre><code class="lua">sdkbox.HMS:init()
+<pre><code class="lua">sdkbox.PluginHMS:init()
 </code></pre>
 
 <h3 id="login">Login</h3>
@@ -931,20 +957,20 @@
 <ul>
 <li>Signing In with HUAWEI ID(ID Token)</li>
 </ul>
-<pre><code class="lua">sdkbox.HMS:login(1);
+<pre><code class="lua">sdkbox.PluginHMS:login(1);
 </code></pre>
 
 <ul>
 <li>Signing In with HUAWEI ID(Authorization Code)</li>
 </ul>
-<pre><code class="lua">sdkbox.HMS:login(2);
+<pre><code class="lua">sdkbox.PluginHMS:login(2);
 </code></pre>
 
 <ul>
 <li>Silently Signing In With HUAWEI ID</li>
 </ul>
 <p>Authorization is required only at the first sign-in to your app using a HUAWEI ID. Subsequent sign-ins using the same HUAWEI ID does not require any authorization.</p>
-<pre><code class="lua">sdkbox.HMS:login(0);
+<pre><code class="lua">sdkbox.PluginHMS:login(0);
 </code></pre>
 
 <blockquote>
@@ -952,16 +978,16 @@
 </blockquote>
 <p>HMS offical <a href="https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4">documentation</a></p>
 <h3 id="logout">Logout</h3>
-<pre><code class="lua">sdkbox.HMS:logout();
+<pre><code class="lua">sdkbox.PluginHMS:logout();
 </code></pre>
 
 <h3 id="request-managed-products">Request Managed Products</h3>
-<pre><code class="lua">sdkbox.HMS:iapRequestProducts();
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestProducts();
 </code></pre>
 
 <p>this method will trigger <code>onIAPProducts</code> event</p>
 <h3 id="purchase-managed-product">Purchase Managed Product</h3>
-<pre><code class="lua">sdkbox.HMS:iapPurchase(&quot;coin&quot;);
+<pre><code class="lua">sdkbox.PluginHMS:iapPurchase(&quot;coin&quot;);
 </code></pre>
 
 <p>this method will trigger <code>onIAPPurchase</code> event</p>
@@ -978,146 +1004,146 @@
   reservedInfor = '{&quot;a&quot;: 1, &quot;b&quot;:&quot;s&quot;}', -- reservedInfor must be json string
   developerPayload = 'payload1'
 };
-sdkbox.HMS:iapPurchaseWithPrice(JSON:encode(productInfo));
+sdkbox.PluginHMS:iapPurchaseWithPrice(JSON:encode(productInfo));
 </code></pre>
 
 <p>this method will trigger <code>onIAPPurchase</code> event</p>
 <h3 id="request-owned-purchase">request owned purchase</h3>
 <p>will return current user own products, include non-consumable, subscription product and consumable product which have not be consumed.</p>
-<pre><code class="lua">sdkbox.HMS:iapRequestOwnedPurchases();
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestOwnedPurchases();
 </code></pre>
 
 <p>this method will trigger <code>onIAPOwnedPurchases</code> event</p>
 <h3 id="consume-product">consume product</h3>
-<pre><code class="lua">sdkbox.HMS:iapConsume(purchaseToken);
+<pre><code class="lua">sdkbox.PluginHMS:iapConsume(purchaseToken);
 </code></pre>
 
 <p>this method will trigger <code>onIAPPConsume</code> event</p>
 <h3 id="request-owned-purchase-record">request owned purchase record</h3>
 <p>request current user's all purchase records.</p>
-<pre><code class="lua">sdkbox.HMS:iapRequestOwnedPurchaseRecords(purchaseToken);
+<pre><code class="lua">sdkbox.PluginHMS:iapRequestOwnedPurchaseRecords(purchaseToken);
 </code></pre>
 
 <p>this method will trigger <code>onIAPOwnedPurchaseRecords</code> event</p>
 <h3 id="player-info">Player Info</h3>
 <h4 id="getplayer-info">GetPlayer Info</h4>
 <p>will trigger listener event <code>onPlayerInfo</code></p>
-<pre><code class="lua">sdkbox.HMS:playerRequestInfo();
+<pre><code class="lua">sdkbox.PluginHMS:playerRequestInfo();
 </code></pre>
 
 <h4 id="getplayer-extrainfo">GetPlayer ExtraInfo</h4>
 <p>Will return follow info of current player: isadult, playtime and so on
 will trigger listener event <code>onPlayerExtraInfo</code></p>
-<pre><code class="lua">sdkbox.HMS:playerRequestInfo();
+<pre><code class="lua">sdkbox.PluginHMS:playerRequestInfo();
 </code></pre>
 
 <h4 id="submit-gamebegin">Submit GameBegin</h4>
 <p>submit player game begin event. if your game will sell in china, you should submit game begin event.
 will trigger listener event <code>onPlayerGameBegin</code></p>
-<pre><code class="lua">sdkbox.HMS:playerSubmitGameBegin();
+<pre><code class="lua">sdkbox.PluginHMS:playerSubmitGameBegin();
 </code></pre>
 
 <h4 id="submit-gameend">Submit GameEnd</h4>
 <p>submit player game begin event. if your game will sell in china, you should submit game end event.</p>
 <p>will trigger listener event <code>onPlayerGameEnd</code></p>
-<pre><code class="lua">sdkbox.HMS:playerSubmitGameEnd();
+<pre><code class="lua">sdkbox.PluginHMS:playerSubmitGameEnd();
 </code></pre>
 
 <h3 id="achievement">Achievement</h3>
 <h4 id="request-achievement-list">Request Achievement List</h4>
 <p>request achivement list, then you can show achievement list by yourself</p>
 <p>will trigger listener event <code>onAchievementList</code></p>
-<pre><code class="lua">sdkbox.HMS:achievementRequestList();
+<pre><code class="lua">sdkbox.PluginHMS:achievementRequestList();
 </code></pre>
 
 <h4 id="achievementshow">AchievementShow</h4>
 <p>show achivement with hms default ui</p>
 <p>will trigger listener event <code>onAchievementShow</code></p>
-<pre><code class="lua">sdkbox.HMS:achievementShow();
+<pre><code class="lua">sdkbox.PluginHMS:achievementShow();
 </code></pre>
 
 <h4 id="achievementvisualize">achievementVisualize</h4>
 <p>will trigger listener event <code>onAchievementVisualize</code></p>
-<pre><code class="lua">sdkbox.HMS:achievementVisualize();
+<pre><code class="lua">sdkbox.PluginHMS:achievementVisualize();
 </code></pre>
 
 <h4 id="achievementgrow">achievementGrow</h4>
 <p>will trigger listener event <code>onAchievementGrow</code></p>
-<pre><code class="lua">sdkbox.HMS:achievementGrow();
+<pre><code class="lua">sdkbox.PluginHMS:achievementGrow();
 </code></pre>
 
 <h4 id="achievementmakesteps">achievementMakeSteps</h4>
 <p>will trigger listener event <code>onAchievementMakeSteps</code></p>
-<pre><code class="lua">sdkbox.HMS:achievementMakeSteps();
+<pre><code class="lua">sdkbox.PluginHMS:achievementMakeSteps();
 </code></pre>
 
 <h4 id="achievementreach">achievementReach</h4>
-<pre><code class="lua">sdkbox.HMS:achievementReach();
+<pre><code class="lua">sdkbox.PluginHMS:achievementReach();
 </code></pre>
 
 <h3 id="event">Event</h3>
 <h4 id="eventgrow">eventGrow</h4>
-<pre><code class="lua">sdkbox.HMS:eventGrow();
+<pre><code class="lua">sdkbox.PluginHMS:eventGrow();
 </code></pre>
 
 <h4 id="eventrequestlist">eventRequestList</h4>
 <p>will trigger listener event <code>onEventList</code></p>
-<pre><code class="lua">sdkbox.HMS:eventRequestList();
+<pre><code class="lua">sdkbox.PluginHMS:eventRequestList();
 </code></pre>
 
 <h3 id="ranking">Ranking</h3>
 <h4 id="check-ranking-switch-status">Check ranking switch status</h4>
 <p>before invoke ranking related api, you must make sure player is allow to open score.</p>
 <p>will trigger listener event <code>onRankingSwitchStatus</code></p>
-<pre><code class="lua">sdkbox.HMS:rankingRequestSwitchStatus();
+<pre><code class="lua">sdkbox.PluginHMS:rankingRequestSwitchStatus();
 </code></pre>
 
 <p>will trigger listener event <code>onRankingSetSwitchStatus</code></p>
-<pre><code class="lua">sdkbox.HMS:rankingSetSwitchStatus();
+<pre><code class="lua">sdkbox.PluginHMS:rankingSetSwitchStatus();
 </code></pre>
 
 <h4 id="submit-score">submit score</h4>
 <p>will trigger listener event <code>onRankingSubmitScore</code></p>
-<pre><code class="lua">sdkbox.HMS:rankingSubmitScore(rankingName, score, score_unit);
+<pre><code class="lua">sdkbox.PluginHMS:rankingSubmitScore(rankingName, score, score_unit);
 </code></pre>
 
 <h4 id="show-ranking">Show ranking</h4>
 <p>show ranking by self.</p>
 <p>will trigger listener event <code>onRankingList</code></p>
 <pre><code class="lua">local realtime = true; -- true, will request data from hms server; false, will use local cache data
-sdkbox.HMS:rankingRequestList(realtime, rankingName);
+sdkbox.PluginHMS:rankingRequestList(realtime, rankingName);
 </code></pre>
 
 <p>show with hms default ui</p>
 <p>will trigger listener event <code>onRankingShow</code></p>
 <pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
-sdkbox.HMS:rankingShow(timeDimension, rankingName);
+sdkbox.PluginHMS:rankingShow(timeDimension, rankingName);
 </code></pre>
 
 <h4 id="get-scores">get scores</h4>
 <p>current player score</p>
 <p>will trigger listener event <code>onRankingCurPlayerScore</code></p>
 <pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
-sdkbox.HMS:rankingRequestCurPlayerScore(rankingName, timeDimension);
+sdkbox.PluginHMS:rankingRequestCurPlayerScore(rankingName, timeDimension);
 </code></pre>
 
 <p>request player centered score</p>
 <p>will trigger listener event <code>onRankingPlayerCenteredScores</code></p>
 <pre><code class="lua">local timeDimension = 2; -- 0-&gt; day, 1-&gt; week, 2-&gt; all time
-sdkbox.HMS:rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
+sdkbox.PluginHMS:rankingRequestPlayerCenteredScores(rankingName, timeDimension, realtime);
 </code></pre>
 
 <h3 id="archive">Archive</h3>
 <p>add archive</p>
 <p>will trigger listener event <code>onArchiveAdd</code></p>
-<pre><code class="lua">sdkbox.HMS:archiveAdd(playedTime, progress, description, supportCache,
+<pre><code class="lua">sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
                                bmBytes, bmBytesLen, bmBytesType,
                                dataBytes, dataBytesLen);
 </code></pre>
 
 <p>update archive</p>
 <p>will trigger listener event <code>onArchiveUpdate</code></p>
-<pre><code class="lua">sdkbox.HMS:archiveUpdate(archiveId,
+<pre><code class="lua">sdkbox.PluginHMS:archiveUpdate(archiveId,
                           playedTime, progress, description,
                           bmBytes, bmBytesLen, bmBytesType,
                           dataBytes, dataBytesLen);
@@ -1130,17 +1156,76 @@ sdkbox.HMS:rankingRequestPlayerCenteredScores(rankingName, timeDimension, realti
 //1  -&gt; hms will resolved conflict by played time, 
 //2  -&gt; hms will resolved conflict by progress,
 //3  -&gt; hms will resolved conflict by last update time
-sdkbox.HMS:archiveLoad(archiveId, conflictPolicy);
+sdkbox.PluginHMS:archiveLoad(archiveId, conflictPolicy);
 </code></pre>
 
 <h3 id="buoy">BUOY</h3>
 <p>if you game sell in china, you should show buoy</p>
-<pre><code class="lua">sdkbox.HMS:buoyShow();
+<pre><code class="lua">sdkbox.PluginHMS:buoyShow();
 //or
-sdkbox.HMS:buoyHide();
+sdkbox.PluginHMS:buoyHide();
 </code></pre>
 
-<h3 id="handling-purchase-events">Handling Purchase Events</h3>
+<h3 id="advertisement">Advertisement</h3>
+<p>caceh ad</p>
+<pre><code class="lua">sdkbox.PluginHMS:adCache(adName);
+</code></pre>
+
+<p>show ad</p>
+<pre><code class="lua">if (sdkbox.PluginHMS:adIsAvailable(adName)) {
+    sdkbox.PluginHMS:adShow(adName);
+}
+</code></pre>
+
+<p>hide banner</p>
+<pre><code class="lua">sdkbox.PluginHMS:adHide(adName);
+</code></pre>
+
+<p>ad request settings (Optional)</p>
+<pre><code class="lua">--[[
+adContentClassification:
+  &quot;W&quot;-&gt;Content suitable for toddlers and older audiences;
+ &quot;PI&quot;-&gt;Content suitable for kids and older audiences
+  &quot;J&quot;-&gt;Content suitable for teenagers and older audiences.
+  &quot;A&quot;-&gt;Content suitable only for adults.
+   &quot;&quot;-&gt;Unknown rating.
+]]--
+sdkbox.PluginHMS:adSetAdContentClassification(&quot;A&quot;);
+
+--[[
+tagForUnderAgeOfPromise:
+ 0-&gt;Do not process ad requests as directed to users under the age of consent;
+ 1-&gt;Process ad requests as directed to users under the age of consent;
+-1-&gt;Whether to process ad requests as directed to users under the age of consent is not specified;
+]]--
+sdkbox.PluginHMS:adSetTagForUnderAgeOfPromise(0);
+
+--[[
+tagForChildProtection:
+ 0-&gt;Do not process ad requests according to the COPPA;
+ 1-&gt;Process ad requests according to the COPPA;
+-1-&gt;Whether to process ad requests according to the COPPA is not specified;
+]]--
+sdkbox.PluginHMS:adSetTagForChildProtection(0);
+
+--[[
+nonPersonalizedAd
+ 0-&gt;Request both personalized and non-personalized ads (default);
+ 1-&gt;Request only non-personalized ads;
+]]--
+sdkbox.PluginHMS:adSetNonPersonalizedAd(0);
+</code></pre>
+
+<p>reward ad setting (Optional)</p>
+<p>reward data must be URL-encoded and length must be less than 1024</p>
+<pre><code class="lua">-- reward ad custom data
+sdkbox.PluginHMS:adSetRewardData(&quot;cdata&quot;);
+
+-- uid for reward ad
+sdkbox.PluginHMS:adSetRewardUserId(&quot;uid666&quot;);
+</code></pre>
+
+<h3 id="handling-hms-events">Handling HMS Events</h3>
 <p>This allows you to catch the <code>HMS</code> events so that you can perform operations based upon the response from your players and HMS servers.</p>
 <p>all listener include code param, you can find code in follow url:</p>
 <ul>
@@ -1148,13 +1233,15 @@ sdkbox.HMS:buoyHide();
 <li>https://developer.huawei.com/consumer/cn/doc/development/HMS-References/hms-error-code</li>
 </ul>
 <p>here we list a specific code:</p>
-<p>7020: havn't find data in local cache
-7022: is not adult
-7024: <code>huawei mobile market</code> app is not installed
-7218: huawei game services is not enabled, or user cancel
-7204: need install the last application assist
-7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).</p>
-<pre><code class="lua">sdkbox.HMS:setListener(function(args)
+<ul>
+<li>7020: havn't find data in local cache</li>
+<li>7022: is not adult</li>
+<li>7024: <code>huawei mobile market</code> app is not installed</li>
+<li>7218: huawei game services is not enabled, or user cancel</li>
+<li>7204: need install the last application assist</li>
+<li>7013: not login or archive is not enabled (make sure archive is true in sdkbox_config.json).</li>
+</ul>
+<pre><code class="lua">sdkbox.PluginHMS:setListener(function(args)
     -- Account
     if &quot;onLogin&quot; == args.event then
         local code = args.code
@@ -1223,6 +1310,16 @@ sdkbox.HMS:buoyHide();
     -- Game Stats
     else if &quot;onGamePlayerStats&quot; == args.event then
     else if &quot;onGameSummary&quot; == args.event then
+
+    -- Ad
+    else if &quot;onAdClose&quot; == args.event then
+    else if &quot;onAdFail&quot; == args.event then
+    else if &quot;onAdLeave&quot; == args.event then
+    else if &quot;onAdOpen&quot; == args.event then
+    else if &quot;onAdLoad&quot; == args.event then
+    else if &quot;onAdClick&quot; == args.event then
+    else if &quot;onAdImpression&quot; == args.event then
+    else if &quot;onAdReward&quot; == args.event then
 
     else
         print(&quot;unknow event &quot;, args.event)
@@ -1409,20 +1506,6 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 <blockquote>
 <p>get detail max size</p>
 </blockquote>
-<pre><code class="lua">sdkbox.PluginHMS:archiveAdd(playedTime,
-                             progress,
-                             description,
-                             supportCache,
-                             bmBytes,
-                             bmBytesLen,
-                             bmBytesType,
-                             dataBytes,
-                             dataBytesLen)
-</code></pre>
-
-<blockquote>
-<p>add archive</p>
-</blockquote>
 <pre><code class="lua">sdkbox.PluginHMS:archiveShow(title, allowAdd, allowDelete, pageSize)
 </code></pre>
 
@@ -1440,20 +1523,6 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 
 <blockquote>
 <p>request archive cover thumbnail</p>
-</blockquote>
-<pre><code class="lua">sdkbox.PluginHMS:archiveUpdate(archiveId,
-                                playedTime,
-                                progress,
-                                description,
-                                bmBytes,
-                                bmBytesLen,
-                                bmBytesType,
-                                dataBytes,
-                                dataBytesLen)
-</code></pre>
-
-<blockquote>
-<p>update archive</p>
 </blockquote>
 <pre><code class="lua">sdkbox.PluginHMS:archiveLoad(archiveId, conflictPolicy)
 </code></pre>
@@ -1485,6 +1554,36 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 <pre><code class="lua">sdkbox.PluginHMS:buoyHide()
 </code></pre>
 
+<pre><code class="lua">sdkbox.PluginHMS:adCache(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adShow(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adHide(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adIsAvailable(name)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetRewardData(custom_data)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetRewardUserId(user_id)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetAdContentClassification(adContentClassification)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetTagForUnderAgeOfPromise(tagForUnderAgeOfPromise)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetTagForChildProtection(tagForChildProtection)
+</code></pre>
+
+<pre><code class="lua">sdkbox.PluginHMS:adSetNonPersonalizedAd(nonPersonalizedAd)
+</code></pre>
+
 <h3 id="listeners">Listeners</h3>
 <pre><code class="lua">onLogin(code, errorOrJson)
 </code></pre>
@@ -1510,7 +1609,7 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 <pre><code class="lua">onIAPPurchase(code, errorOrJson)
 </code></pre>
 
-<pre><code class="lua">onIAPPConsume(code, errorOrJson)
+<pre><code class="lua">onIAPConsume(code, errorOrJson)
 </code></pre>
 
 <pre><code class="lua">onIAPOwnedPurchases(code, errorOrJson)
@@ -1532,9 +1631,6 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 </code></pre>
 
 <pre><code class="lua">onAchievementMakeSteps(code, errorOrJson)
-</code></pre>
-
-<pre><code class="lua">onAchievementReach(code, errorOrJson)
 </code></pre>
 
 <pre><code class="lua">onEventList(code, errorOrJson)
@@ -1660,6 +1756,30 @@ status: 0-&gt;player allow submit score, 1-&gt;player not allow submit score</p>
 <blockquote>
 <p>callback for gameSummaryRequest</p>
 </blockquote>
+<pre><code class="lua">onAdClose(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdFail(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdLeave(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdOpen(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdLoad(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdClick(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdImpression(code, errorOrJson)
+</code></pre>
+
+<pre><code class="lua">onAdReward(code, errorOrJson)
+</code></pre>
+
 <h2 id="manual-integration">Manual Integration</h2>
 <p>If the <em>SDKBOX Installer</em> <strong>fails</strong> to complete successfully, it is possible to integrate SDKBOX manually. If the installer complete successfully, please <strong>do not</strong> complete anymore of this document. It is not necessary.</p>
 <p>These steps are listed last in this document on purpose as they are seldom needed. If you find yourself using these steps, please, after completing, double back and re-read the steps above for other integration items.</p>
@@ -1959,7 +2079,7 @@ SDKBox.init(this);
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-07-05 07:43:58.414798, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-07-07 01:58:07.565002, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
