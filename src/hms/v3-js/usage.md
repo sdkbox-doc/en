@@ -282,9 +282,12 @@ add archive
 will trigger listener event `onArchiveAdd`
 
 ```javascript
+const bmBytes; // Uint8Array, cover image data
+const dataBytes; // Uint8Array, archive binary data
+
 sdkbox.PluginHMS.archiveAdd(playedTime, progress, description, supportCache,
-                               bmBytes, bmBytesLen, bmBytesType,
-                               dataBytes, dataBytesLen);
+                               bmBytes, bmBytesType,
+                               dataBytes);
 ```
 
 update archive
@@ -292,10 +295,13 @@ update archive
 will trigger listener event `onArchiveUpdate`
 
 ```javascript
+const bmBytes; // Uint8Array, cover image data
+const dataBytes; // Uint8Array, archive binary data
+
 sdkbox.PluginHMS.archiveUpdate(archiveId,
                           playedTime, progress, description,
-                          bmBytes, bmBytesLen, bmBytesType,
-                          dataBytes, dataBytesLen);
+                          bmBytes, bmBytesType,
+                          dataBytes);
 ```
 
 load archive
