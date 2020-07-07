@@ -259,6 +259,46 @@ static void buoyShow ( ) ;
 static void buoyHide ( ) ;
 ```
 
+```cpp
+static void adCache ( const std::string & name ) ;
+```
+
+```cpp
+static void adShow ( const std::string & name ) ;
+```
+
+```cpp
+static void adHide ( const std::string & name ) ;
+```
+
+```cpp
+static bool adIsAvailable ( const std::string & name ) ;
+```
+
+```cpp
+static void adSetRewardData ( const std::string & custom_data ) ;
+```
+
+```cpp
+static void adSetRewardUserId ( const std::string & user_id ) ;
+```
+
+```cpp
+static void adSetAdContentClassification ( const std::string & adContentClassification ) ;
+```
+
+```cpp
+static void adSetTagForUnderAgeOfPromise ( int tagForUnderAgeOfPromise ) ;
+```
+
+```cpp
+static void adSetTagForChildProtection ( int tagForChildProtection ) ;
+```
+
+```cpp
+static void adSetNonPersonalizedAd ( int nonPersonalizedAd ) ;
+```
+
 
 ### Listeners
 ```cpp
@@ -294,7 +334,7 @@ void onIAPPurchase ( int code , const std::string & errorOrJson ) {
 ```
 
 ```cpp
-void onIAPPConsume ( int code , const std::string & errorOrJson ) {
+void onIAPConsume ( int code , const std::string & errorOrJson ) {
 ```
 
 ```cpp
@@ -323,10 +363,6 @@ void onAchievementGrow ( int code , const std::string & errorOrJson ) {
 
 ```cpp
 void onAchievementMakeSteps ( int code , const std::string & errorOrJson ) {
-```
-
-```cpp
-void onAchievementReach ( int code , const std::string & errorOrJson ) {
 ```
 
 ```cpp
@@ -443,5 +479,37 @@ void onGamePlayerStats ( int code , const std::string & errorOrJson ) {
 void onGameSummary ( int code , const std::string & errorOrJson ) {
 ```
 > callback for gameSummaryRequest
+
+```cpp
+void onAdClose ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdFail ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdLeave ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdOpen ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdLoad ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdClick ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdImpression ( int code , const std::string & errorOrJson ) {
+```
+
+```cpp
+void onAdReward ( int code , const std::string & errorOrJson ) {
+```
 
 
