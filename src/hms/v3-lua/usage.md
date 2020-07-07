@@ -266,9 +266,11 @@ add archive
 will trigger listener event `onArchiveAdd`
 
 ```lua
+local bmBytes -- cover image data
+local dataBytes -- archive binary data
 sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
-                               bmBytes, bmBytesLen, bmBytesType,
-                               dataBytes, dataBytesLen);
+                               bmBytes, bmBytesType,
+                               dataBytes);
 ```
 
 update archive
@@ -276,10 +278,12 @@ update archive
 will trigger listener event `onArchiveUpdate`
 
 ```lua
+local bmBytes -- cover image data
+local dataBytes -- archive binary data
 sdkbox.PluginHMS:archiveUpdate(archiveId,
                           playedTime, progress, description,
-                          bmBytes, bmBytesLen, bmBytesType,
-                          dataBytes, dataBytesLen);
+                          bmBytes, bmBytesType,
+                          dataBytes);
 ```
 
 load archive

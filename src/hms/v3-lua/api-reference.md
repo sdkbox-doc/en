@@ -171,6 +171,15 @@ sdkbox.PluginHMS:archiveRequestLimitDetailsSize()
 > get detail max size
 
 ```lua
+sdkbox.PluginHMS:archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+```
+> add archive
+> bmBytes: cover image data
+> dataBytes: archive data
+
+```lua
 sdkbox.PluginHMS:archiveShow(title, allowAdd, allowDelete, pageSize)
 ```
 > use hms's default ui to show archive
@@ -184,6 +193,16 @@ sdkbox.PluginHMS:archiveRequestSummaryList(realtime)
 sdkbox.PluginHMS:archiveRequestThumbnail(archiveId)
 ```
 > request archive cover thumbnail
+
+```lua
+sdkbox.PluginHMS:archiveUpdate(archiveId,
+                               playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+```
+> update archive
+> bmBytes: cover image data
+> dataBytes: archive data
 
 ```lua
 sdkbox.PluginHMS:archiveLoad(archiveId, conflictPolicy)

@@ -171,6 +171,15 @@ sdkbox.PluginHMS.archiveRequestLimitDetailsSize();
 > get detail max size
 
 ```javascript
+sdkbox.PluginHMS.archiveAdd(playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+```
+> add archive
+> bmBytes: Uint8Array, cover image data
+> dataBytes: Uint8Array, archive data
+
+```javascript
 sdkbox.PluginHMS.archiveShow(title, allowAdd, allowDelete, pageSize);
 ```
 > use hms's default ui to show archive
@@ -184,6 +193,16 @@ sdkbox.PluginHMS.archiveRequestSummaryList(realtime);
 sdkbox.PluginHMS.archiveRequestThumbnail(archiveId);
 ```
 > request archive cover thumbnail
+
+```javascript
+sdkbox.PluginHMS.archiveUpdate(archiveId,
+                               playedTime, progress, description, supportCache,
+                               bmBytes, bmBytesType,
+                               dataBytes)
+```
+> update archive
+> bmBytes: Uint8Array, cover image data
+> dataBytes: Uint8Array, archive data
 
 ```javascript
 sdkbox.PluginHMS.archiveLoad(archiveId, conflictPolicy);
