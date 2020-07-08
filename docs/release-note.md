@@ -2,6 +2,18 @@
 
 # next (?)
 
+# 2.7.0.0 (2020.07.08)
+
+## Add
+
+1. HMS (Huawei Mobile Services) plugin
+
+## Upgrade
+
+## Bugfix
+
+1. fix js binding
+
 # 2.6.0.1 (2020.03.08)
 
 ## Add

@@ -15,7 +15,7 @@ $ sdkbox import hms
 
 ### Android Steps
 
-you should add this code `com.sdkbox.plugin.PluginHMS.ApplicationInit(this);` to Application::onCreate. modification may like follow:
+you should add this code `com.sdkbox.plugin.PluginHMS.ApplicationInit(this);` to Application::onCreate. modification may like follow (create a new Application class if it not exist):
 
 ```java
 public class YourApplication extends Application {
