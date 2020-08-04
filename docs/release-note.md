@@ -2,6 +2,23 @@
 
 # next (?)
 
+# 2.7.1.0 (2020.08.03)
+
+## Add
+
+## Upgrade
+
+1. firebase iOS upgrade to 6.27.1
+2. admob iOS upgrade to 7.61.0
+3. AdColony iOS upgrade to 4.2.0
+4. Facebook iOS upgrade to 7.1.1
+
+## Bugfix
+
+1. use UIAlertController on iOS 8+ in IAP Plugin
+2. fix sdkbox.init js binding
+3. support Creator 2.4.0+ res folder
+
 # 2.7.0.0 (2020.07.08)
 
 ## Add
