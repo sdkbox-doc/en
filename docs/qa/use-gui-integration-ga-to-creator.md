@@ -13,7 +13,7 @@ Before you start, make sure you have both CocosCreator 1.3.3+
 
 ### Download sdkbox gui creator plugin
 
-download SDKBox GUI plugin file, here it's name is `sdkbox-1.0.0-beta.zip`
+download [SDKBox GUI](http://sdkbox.anysdk.com/gui/creator/sdkbox-1.4.1.zip) plugin file, here it's name is `sdkbox-1.4.1.zip`
 
 ### Create Project
 
@@ -23,12 +23,12 @@ create a empty creator project, named it `SDKBoxSampleGA`
 
 install locall, available for one project
 
-* extract `sdkbox-1.0.0-beta.zip` to `SDKBoxSampleGA/packages/`, like follow:
+* extract `sdkbox-1.4.1.zip` to `SDKBoxSampleGA/packages/`, like follow:
 ![](../imgs/ccc_tutorial_gui_install_local.png)
 
 install global, available for all project
 
-* extract `sdkbox-1.0.0-beta.zip` to `$HOME/.CocosCreator/packages/`(Mac) or `%USERPROFILE%\.CocosCreator\packages`(Win)
+* extract `sdkbox-1.4.1.zip` to `$HOME/.CocosCreator/packages/`(Mac) or `%USERPROFILE%\.CocosCreator\packages`(Win)
 
 *NOTE*: if `SDKBox` menu not show, please reopen `CocosCreator`.
 
