@@ -725,6 +725,52 @@
 
 <h1 id="sdkbox-for-cocos-creator">SDKBOX for Cocos Creator</h1>
 <h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Download <a href="https://github.com/hugohuang1111/sdkboxhelper/releases/download/v0.0.5/sdkboxhelper.exe">SDKBoxHelper Windows</a> or <a href="https://github.com/hugohuang1111/sdkboxhelper/releases/download/v0.0.5/sdkboxhelper">SDKBoxHelper Mac</a></p>
+</li>
+<li>
+<p>install <code>SDKBox Installer</code> by run command <code>sdkboxhelper</code></p>
+</li>
+<li>
+<p>install <code>SDKBox GUI For Creator</code> by run command <code>sdkboxhelper -t creator -p path/to/creator_project</code></p>
+</li>
+</ol>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>
+<p>open a new terminal and run command <code>sdkbox -h</code> to check if <code>SDKBox Installer</code> have installed. maybe need restart when you got <code>command not find</code> error.</p>
+</li>
+<li>
+<p>Cocos Creator 2.4.1- need't install <code>SDKBox GUI For Creator</code> manually. <code>SDKBox GUI For Creator</code> is built in.</p>
+</li>
+</ul>
+<h3 id="install-sdkbox-gui-for-creator-manually">Install <code>SDKBox GUI For Creator</code> Manually</h3>
+<p><code>sdkboxhelper -t creator -p path/to/creator_project</code> will install <code>SDKBox GUI For Creator</code> locally.</p>
+<p>if you want to install <code>SDKBox GUI For Creator</code> global.</p>
+<ul>
+<li>Download <code>SDKBox GUI For Creator</code> <a href="http://sdkbox.anysdk.com/gui/creator/sdkbox-1.4.1.zip">package</a></li>
+<li>
+<p>Install:</p>
+<ul>
+<li>Global Install: unzip <code>SDKBox GUI For Creator</code> package to path <code>~/.CocosCreator/packages</code> (<code>C:\Users\${UserName}\.CocosCreator\packages</code> on windows)</li>
+<li>locally Install: unzip <code>SDKBox GUI For Creator</code> package to path <code>${CocosCreator Project}/packages</code></li>
+</ul>
+</li>
+<li>
+<p>Then, <code>SDKBox</code> item show in <code>Expand</code> Menu.</p>
+</li>
+<li>
+<p>packages file tree should be like follow:</p>
+</li>
+</ul>
+<pre><code>packages
+|--sdkbox
+    |--app
+    |--main.js
+    |--package.json
+</code></pre>
+
 <p>Starting Cocos Creator 1.4 developer can install SDKBOX plugin from Extension Store</p>
 <iframe src='https://gfycat.com/ifr/ConsciousSomberGerenuk' frameborder='0' scrolling='no' width='640' height='360' allowfullscreen></iframe>
 
@@ -843,7 +889,7 @@ make sure AdMob.js will sync to <code>./build/jsb-default</code> project</p>
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-08-04 15:10:05.123136, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-08-11 13:28:30.796475, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
