@@ -1,6 +1,42 @@
 #SDKBOX for Cocos Creator
 
-##Installation
+## Installation
+
+1. Download [SDKBoxHelper Windows](https://github.com/hugohuang1111/sdkboxhelper/releases/download/v0.0.5/sdkboxhelper.exe) or [SDKBoxHelper Mac](https://github.com/hugohuang1111/sdkboxhelper/releases/download/v0.0.5/sdkboxhelper)
+
+2. install `SDKBox Installer` by run command `sdkboxhelper`
+
+3. install `SDKBox GUI For Creator` by run command `sdkboxhelper -t creator -p path/to/creator_project`
+
+__Note__:
+
+* open a new terminal and run command `sdkbox -h` to check if `SDKBox Installer` have installed. maybe need restart when you got `command not find` error.
+
+* Cocos Creator 2.4.1- need't install `SDKBox GUI For Creator` manually. `SDKBox GUI For Creator` is built in.
+
+### Install `SDKBox GUI For Creator` Manually
+
+`sdkboxhelper -t creator -p path/to/creator_project` will install `SDKBox GUI For Creator` locally.
+
+if you want to install `SDKBox GUI For Creator` global.
+
+* Download `SDKBox GUI For Creator` [package](http://sdkbox.anysdk.com/gui/creator/sdkbox-1.4.1.zip)
+* Install:
+    - Global Install: unzip `SDKBox GUI For Creator` package to path `~/.CocosCreator/packages` (`C:\Users\${UserName}\.CocosCreator\packages` on windows)
+    - locally Install: unzip `SDKBox GUI For Creator` package to path `${CocosCreator Project}/packages`
+
+* Then, `SDKBox` item show in `Expand` Menu.
+
+* packages file tree should be like follow:
+```
+packages
+|--sdkbox
+    |--app
+    |--main.js
+    |--package.json
+```
+
+
 Starting Cocos Creator 1.4 developer can install SDKBOX plugin from Extension Store
 
 <iframe src='https://gfycat.com/ifr/ConsciousSomberGerenuk' frameborder='0' scrolling='no' width='640' height='360' allowfullscreen></iframe>
