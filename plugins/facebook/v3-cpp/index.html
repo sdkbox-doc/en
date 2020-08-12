@@ -812,6 +812,15 @@
         <li class="main "><a href="#proguard-optional">Proguard (optional)</a></li>
 	
     
+        <li class="main "><a href="#facebook-compile-issue">Facebook Compile Issue</a></li>
+	
+	<ul class="sub-sidenav">
+        
+            <li><a href="#two-solution">Two solution</a></li>
+        
+	</ul>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1743,14 +1752,67 @@ SDKBox.init(this);
 -dontwarn com.sdkbox.**
 </code></pre>
 
-<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p></div>
+<p><strong>Note:</strong> Proguard only works with <strong>Release</strong> builds (i.e <code>cocos run -m release</code>) debug builds do not invoke Proguard rules.</p>
+<h2 id="facebook-compile-issue">Facebook Compile Issue</h2>
+<p>now SDKBox include Facebook iOS SDK 7.1.1 static library.</p>
+<p>Facebook iOS SDK 7.1.1 static library conflict with <code>Other Linker Flags</code> -&gt; <code>-ObjC</code>.</p>
+<p>if you got following error, maybe the reason is conflict.</p>
+<pre><code class="html">Could not find or use auto-linked library 'swiftCompatibilityDynamicReplacements'
+Could not find or use auto-linked library 'swiftCore'
+Could not find or use auto-linked library 'swiftQuartzCore'
+Could not find or use auto-linked library 'swiftDispatch'
+Could not find or use auto-linked library 'swiftAVFoundation'
+Could not find or use auto-linked library 'swiftCoreMedia'
+Could not find or use auto-linked library 'swiftCoreAudio'
+Could not find or use auto-linked library 'swiftPhotos'
+Could not find or use auto-linked library 'swiftCoreMIDI'
+Could not find or use auto-linked library 'swiftCoreLocation'
+&lt;font color=&quot;red&quot;&gt;Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
+Undefined symbol: associated conformance descriptor for Foundation._ErrorCodeProtocol._ErrorType: Foundation._BridgedStoredNSError
+Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Foundation.CustomNSError
+Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Swift.Hashable
+Undefined symbol: base conformance descriptor for Foundation._ErrorCodeProtocol: Swift.Equatable
+Undefined symbol: associated conformance descriptor for Foundation._BridgedStoredNSError.Code: Foundation._ErrorCodeProtocol
+Undefined symbol: associated conformance descriptor for Foundation._BridgedStoredNSError.Code: Swift.RawRepresentable
+Undefined symbol: method descriptor for Foundation._BridgedStoredNSError.init(_nsError: __C.NSError) -&gt; A
+Undefined symbol: base conformance descriptor for Foundation.CustomNSError: Swift.Error
+Undefined symbol: method descriptor for static Foundation.CustomNSError.errorDomain.getter : Swift.String
+Undefined symbol: method descriptor for Foundation._ObjectiveCBridgeableError.init(_bridgedNSError: __shared __C.NSError) -&gt; A?
+Undefined symbol: method descriptor for Swift.Error._code.getter : Swift.Int
+Undefined symbol: method descriptor for Swift.Error._userInfo.getter : Swift.AnyObject?
+Undefined symbol: method descriptor for Swift.Error._getEmbeddedNSError() -&gt; Swift.AnyObject?
+Undefined symbol: protocol conformance descriptor for Swift.Int : Swift.FixedWidthInteger in Swift
+Undefined symbol: type metadata for Swift.Int
+Undefined symbol: protocol descriptor for Foundation.CustomNSError
+Undefined symbol: static Swift._DictionaryStorage.allocate(capacity: Swift.Int) -&gt; Swift._DictionaryStorage&lt;A, B&gt;
+Undefined symbol: __swiftEmptyDictionarySingleton
+&lt;/font&gt;
+</code></pre>
+
+<h3 id="two-solution">Two solution</h3>
+<ul>
+<li>remove <code>Project Setting</code> -&gt; <code>Build Settings</code> -&gt; <code>Linking</code> -&gt; <code>Other Linker Flags</code> -&gt; <code>-ObjC</code> can fix those errors</li>
+<li>or if your project need <code>-ObjC</code> link flag, then you can use <a href="https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip">Facebook dynamic library</a></li>
+</ul>
+<h4 id="replace-with-facebook-dynamic">Replace With Facebook Dynamic</h4>
+<ol>
+<li>
+<p>Download <a href="https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip">Facebook dynamic library</a></p>
+</li>
+<li>
+<p>unzip and replace Facebook related framework <code>FBSDK*.framework</code>.</p>
+</li>
+<li>
+<p>Change Xcode Setting, <code>Project Setting</code> -&gt; <code>General</code> -&gt; <code>Frameworks, Libraries, and Embedded Content</code> -&gt; <code>FBSDK*.framework</code> -&gt; <code>Embed &amp; Sign</code></p>
+</li>
+</ol></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-08-11 15:04:57.005928, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-08-12 09:09:37.713687, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
