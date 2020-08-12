@@ -248,7 +248,7 @@ Could not find or use auto-linked library 'swiftCoreAudio'
 Could not find or use auto-linked library 'swiftPhotos'
 Could not find or use auto-linked library 'swiftCoreMIDI'
 Could not find or use auto-linked library 'swiftCoreLocation'
-<font color="red">Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
+Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
 Undefined symbol: associated conformance descriptor for Foundation._ErrorCodeProtocol._ErrorType: Foundation._BridgedStoredNSError
 Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Foundation.CustomNSError
 Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Swift.Hashable
@@ -267,19 +267,19 @@ Undefined symbol: type metadata for Swift.Int
 Undefined symbol: protocol descriptor for Foundation.CustomNSError
 Undefined symbol: static Swift._DictionaryStorage.allocate(capacity: Swift.Int) -> Swift._DictionaryStorage<A, B>
 Undefined symbol: __swiftEmptyDictionarySingleton
-</font>
 ```
 
-### Two solution
+### solution A
 
 * remove `Project Setting` -> `Build Settings` -> `Linking` -> `Other Linker Flags` -> `-ObjC` can fix those errors
-* or if your project need `-ObjC` link flag, then you can use [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
 
-#### Replace With Facebook Dynamic
+### solution B
 
-1. Download [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
+* if your project need `-ObjC` link flag, then you can use [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
 
-2. unzip and replace Facebook related framework `FBSDK*.framework`.
+* Download [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
 
-3. Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
+* unzip and replace Facebook related framework `FBSDK*.framework`.
+
+* Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
 
