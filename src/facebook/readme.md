@@ -227,3 +227,59 @@ android.library.reference.1=./libs/facebook_lib
 <<[extra-step.md]
 
 <<[proguard.md]
+
+
+## Facebook Compile Issue
+
+now SDKBox include Facebook iOS SDK 7.1.1 static library.
+
+Facebook iOS SDK 7.1.1 static library conflict with `Other Linker Flags` -> `-ObjC`.
+
+if you got following error, maybe the reason is conflict.
+
+```html
+Could not find or use auto-linked library 'swiftCompatibilityDynamicReplacements'
+Could not find or use auto-linked library 'swiftCore'
+Could not find or use auto-linked library 'swiftQuartzCore'
+Could not find or use auto-linked library 'swiftDispatch'
+Could not find or use auto-linked library 'swiftAVFoundation'
+Could not find or use auto-linked library 'swiftCoreMedia'
+Could not find or use auto-linked library 'swiftCoreAudio'
+Could not find or use auto-linked library 'swiftPhotos'
+Could not find or use auto-linked library 'swiftCoreMIDI'
+Could not find or use auto-linked library 'swiftCoreLocation'
+<font color="red">Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
+Undefined symbol: associated conformance descriptor for Foundation._ErrorCodeProtocol._ErrorType: Foundation._BridgedStoredNSError
+Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Foundation.CustomNSError
+Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Swift.Hashable
+Undefined symbol: base conformance descriptor for Foundation._ErrorCodeProtocol: Swift.Equatable
+Undefined symbol: associated conformance descriptor for Foundation._BridgedStoredNSError.Code: Foundation._ErrorCodeProtocol
+Undefined symbol: associated conformance descriptor for Foundation._BridgedStoredNSError.Code: Swift.RawRepresentable
+Undefined symbol: method descriptor for Foundation._BridgedStoredNSError.init(_nsError: __C.NSError) -> A
+Undefined symbol: base conformance descriptor for Foundation.CustomNSError: Swift.Error
+Undefined symbol: method descriptor for static Foundation.CustomNSError.errorDomain.getter : Swift.String
+Undefined symbol: method descriptor for Foundation._ObjectiveCBridgeableError.init(_bridgedNSError: __shared __C.NSError) -> A?
+Undefined symbol: method descriptor for Swift.Error._code.getter : Swift.Int
+Undefined symbol: method descriptor for Swift.Error._userInfo.getter : Swift.AnyObject?
+Undefined symbol: method descriptor for Swift.Error._getEmbeddedNSError() -> Swift.AnyObject?
+Undefined symbol: protocol conformance descriptor for Swift.Int : Swift.FixedWidthInteger in Swift
+Undefined symbol: type metadata for Swift.Int
+Undefined symbol: protocol descriptor for Foundation.CustomNSError
+Undefined symbol: static Swift._DictionaryStorage.allocate(capacity: Swift.Int) -> Swift._DictionaryStorage<A, B>
+Undefined symbol: __swiftEmptyDictionarySingleton
+</font>
+```
+
+### Two solution
+
+* remove `Project Setting` -> `Build Settings` -> `Linking` -> `Other Linker Flags` -> `-ObjC` can fix those errors
+* or if your project need `-ObjC` link flag, then you can use [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
+
+#### Replace With Facebook Dynamic
+
+1. Download [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
+
+2. unzip and replace Facebook related framework `FBSDK*.framework`.
+
+3. Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
+
