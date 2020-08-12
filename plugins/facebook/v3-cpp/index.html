@@ -816,7 +816,9 @@
 	
 	<ul class="sub-sidenav">
         
-            <li><a href="#two-solution">Two solution</a></li>
+            <li><a href="#solution-a">solution A</a></li>
+        
+            <li><a href="#solution-b">solution B</a></li>
         
 	</ul>
 	
@@ -1767,7 +1769,7 @@ Could not find or use auto-linked library 'swiftCoreAudio'
 Could not find or use auto-linked library 'swiftPhotos'
 Could not find or use auto-linked library 'swiftCoreMIDI'
 Could not find or use auto-linked library 'swiftCoreLocation'
-&lt;font color=&quot;red&quot;&gt;Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
+Undefined symbol: protocol descriptor for Foundation._ErrorCodeProtocol
 Undefined symbol: associated conformance descriptor for Foundation._ErrorCodeProtocol._ErrorType: Foundation._BridgedStoredNSError
 Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Foundation.CustomNSError
 Undefined symbol: base conformance descriptor for Foundation._BridgedStoredNSError: Swift.Hashable
@@ -1786,16 +1788,17 @@ Undefined symbol: type metadata for Swift.Int
 Undefined symbol: protocol descriptor for Foundation.CustomNSError
 Undefined symbol: static Swift._DictionaryStorage.allocate(capacity: Swift.Int) -&gt; Swift._DictionaryStorage&lt;A, B&gt;
 Undefined symbol: __swiftEmptyDictionarySingleton
-&lt;/font&gt;
 </code></pre>
 
-<h3 id="two-solution">Two solution</h3>
+<h3 id="solution-a">solution A</h3>
 <ul>
 <li>remove <code>Project Setting</code> -&gt; <code>Build Settings</code> -&gt; <code>Linking</code> -&gt; <code>Other Linker Flags</code> -&gt; <code>-ObjC</code> can fix those errors</li>
-<li>or if your project need <code>-ObjC</code> link flag, then you can use <a href="https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip">Facebook dynamic library</a></li>
 </ul>
-<h4 id="replace-with-facebook-dynamic">Replace With Facebook Dynamic</h4>
-<ol>
+<h3 id="solution-b">solution B</h3>
+<ul>
+<li>
+<p>if your project need <code>-ObjC</code> link flag, then you can use <a href="https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip">Facebook dynamic library</a></p>
+</li>
 <li>
 <p>Download <a href="https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip">Facebook dynamic library</a></p>
 </li>
@@ -1805,14 +1808,14 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 <li>
 <p>Change Xcode Setting, <code>Project Setting</code> -&gt; <code>General</code> -&gt; <code>Frameworks, Libraries, and Embedded Content</code> -&gt; <code>FBSDK*.framework</code> -&gt; <code>Embed &amp; Sign</code></p>
 </li>
-</ol></div>
+</ul></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-08-12 09:09:37.713687, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-08-12 09:16:26.207713, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
