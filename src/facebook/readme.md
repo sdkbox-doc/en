@@ -275,11 +275,9 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 
 ### solution B
 
-* if your project need `-ObjC` link flag, then you can use [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
+1. if your project need `-ObjC` link flag, then you can use [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
 
-* Download [Facebook dynamic library](https://github.com/facebook/facebook-ios-sdk/releases/download/v7.1.1/FacebookSDK_Dynamic.framework.zip)
+2. unzip and replace Facebook related framework `FBSDK*.framework`.
 
-* unzip and replace Facebook related framework `FBSDK*.framework`.
-
-* Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
+3. Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
 
