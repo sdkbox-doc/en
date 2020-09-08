@@ -7,7 +7,7 @@
 
 ### Environment
 
-Before you start, make sure you have both CocosCreator 1.3.3+
+Before you start, make sure you have  CocosCreator
 
 * `CocosCreator` [Install](http://www.cocos.com/creator)
 
@@ -21,6 +21,10 @@ create a empty creator project, named it `SDKBoxSampleGA`
 
 ### Install SDKBox GUI
 
+if you don't have SDKBox GUI, please take a look at [this](./install_sdkbox.md) to install.
+
+and here we show a manual way to install following:
+
 install locall, available for one project
 
 * extract `sdkbox-1.4.1.zip` to `SDKBoxSampleGA/packages/`, like follow:
@@ -30,7 +34,10 @@ install global, available for all project
 
 * extract `sdkbox-1.4.1.zip` to `$HOME/.CocosCreator/packages/`(Mac) or `%USERPROFILE%\.CocosCreator\packages`(Win)
 
-*NOTE*: if `SDKBox` menu not show, please reopen `CocosCreator`.
+*NOTE*:
+
+* if `SDKBox` menu not show, please reopen `CocosCreator`.
+
 
 ### Install SDKBox Plugin
 
