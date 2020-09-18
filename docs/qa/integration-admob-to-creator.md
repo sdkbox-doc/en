@@ -8,6 +8,7 @@
 ### Environment
 
 Before you start, make sure you have both CocosCreator and SDKBox Installer
+
 * `CocosCreator` [Install](http://www.cocos.com/creator)
 * `SDKBox Installer` [Install](http://docs.sdkbox.com/en/installer/)
 

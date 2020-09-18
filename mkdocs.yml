@@ -197,6 +197,12 @@ pages:
                 - 'Share with C++': 'plugins/share/v3-cpp.md'
                 - 'Share with Javascript': 'plugins/share/v3-js.md'
                 - 'Share with Lua': 'plugins/share/v3-lua.md'
+        - 'Sign in with Apple': 'plugins/signinwithapple/index.md'
+        - '_SignInWithApple':
+            - 'Cocos2d-x v3.x':
+                - 'SigninWithApple with C++': 'plugins/signinwithapple/v3-cpp.md'
+                - 'SigninWithApple with Javascript': 'plugins/signinwithapple/v3-js.md'
+                - 'SigninWithApple with Lua': 'plugins/signinwithapple/v3-lua.md'
         - 'Tapcore': 'plugins/tapcore/index.md'
         - '_Tapcore':
             - 'Cocos2d-x v3.x':
