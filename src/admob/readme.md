@@ -46,6 +46,7 @@ type:
     - "banner"
     - "interstitial"
     - "rewarded_video"
+    - "appopen"
 
 alignment:
 
@@ -100,6 +101,7 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
 | Interstitial       | ca-app-pub-3940256099942544/1033173712 |
 | Interstitial Video | ca-app-pub-3940256099942544/8691691433 |
 | Rewarded Video     | ca-app-pub-3940256099942544/5224354917 |
+| AppOpen            | ca-app-pub-3940256099942544/1033173712 |
 
 [iOS](https://developers.google.com/admob/ios/test-ads)
 
@@ -109,6 +111,7 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
 | Interstitial       | ca-app-pub-3940256099942544/4411468910 |
 | Interstitial Video | ca-app-pub-3940256099942544/5135589807 |
 | Rewarded Video     | ca-app-pub-3940256099942544/1712485313 |
+| AppOpen            | ca-app-pub-3940256099942544/5662855259 |
 
 #### Example:
 ```json
@@ -129,6 +132,10 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
                     "id":"ca-app-pub-3940256099942544/4411468910",
                     "type":"interstitial",
                     "is_designed_for_families": true
+                },
+                "appopen":{
+                    "type": "appopen",
+                    "id": "ca-app-pub-3940256099942544/5662855259"
                 }
             }
         }
@@ -148,6 +155,10 @@ The plugin will auto cache the first Ad of one Ad type. It also will cache the i
                     "id":"ca-app-pub-3940256099942544/1033173712",
                     "type":"interstitial",
                     "is_designed_for_families": true
+                },
+                "appopen":{
+                    "id":"ca-app-pub-3940256099942544/1033173712",
+                    "type":"appopen"
                 }
             }
         }
