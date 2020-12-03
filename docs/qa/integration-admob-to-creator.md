@@ -156,7 +156,9 @@ cc.Class({
 ### Build Cocos Creator Again
 
 Menu->Project->Build or (Command + Shift + B)
+
 Build->Compile
+
 make sure AdMob.js will sync to `./build/jsb-default` project
 
 ### Build & Run
@@ -165,6 +167,15 @@ make sure AdMob.js will sync to `./build/jsb-default` project
 * run `cocos run -p android ` at `./build/jsb-default` to build android
 
 ![](../imgs/ccc_tutorial_admob_intistial_show.png)
+
+### Test AD
+
+Admob provide some test ad IDs.
+
+AdMob iOS Test Ad: https://developers.google.com/admob/ios/test-ads
+
+Android iOS Test Ad: https://developers.google.com/admob/android/test-ads
+
 
 ### IMPORTANT
 
