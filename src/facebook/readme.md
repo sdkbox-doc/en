@@ -281,3 +281,13 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 
 3. Change Xcode Setting, `Project Setting` -> `General` -> `Frameworks, Libraries, and Embedded Content` -> `FBSDK*.framework` -> `Embed & Sign`
 
+
+## Facebook Compile Issue
+
+if you got following error, 
+
+```html
+dyld: Library not loaded: @rpath/libswiftCore.dylib
+```
+
+you can try do like this, `Xcode Project` -> `target` -> `Build Setting/All` -> `Always Embed Swift Standard Libraries` -> `YES`
