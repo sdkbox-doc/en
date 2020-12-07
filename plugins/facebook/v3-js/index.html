@@ -835,6 +835,9 @@
 	</ul>
 	
     
+        <li class="main "><a href="#facebook-compile-issue_1">Facebook Compile Issue</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1761,14 +1764,20 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 <li>
 <p>Change Xcode Setting, <code>Project Setting</code> -&gt; <code>General</code> -&gt; <code>Frameworks, Libraries, and Embedded Content</code> -&gt; <code>FBSDK*.framework</code> -&gt; <code>Embed &amp; Sign</code></p>
 </li>
-</ol></div>
+</ol>
+<h2 id="facebook-compile-issue_1">Facebook Compile Issue</h2>
+<p>if you got following error, </p>
+<pre><code class="html">dyld: Library not loaded: @rpath/libswiftCore.dylib
+</code></pre>
+
+<p>you can try do like this, <code>Xcode Project</code> -&gt; <code>target</code> -&gt; <code>Build Setting/All</code> -&gt; <code>Always Embed Swift Standard Libraries</code> -&gt; <code>YES</code></p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-12-03 01:46:03.227595, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2020-12-07 02:06:03.008707, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
