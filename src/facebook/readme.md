@@ -291,3 +291,21 @@ dyld: Library not loaded: @rpath/libswiftCore.dylib
 ```
 
 you can try do like this, `Xcode Project` -> `target` -> `Build Setting/All` -> `Always Embed Swift Standard Libraries` -> `YES`
+
+## Facebook Crash Issue
+
+if you got following error,
+
+```html
+Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '+[NSError fbErrorFromReturnURLParameters:]: unrecognized selector sent to class 0x1e0bdf480'
+```
+
+you can do add follow settings to `Other Linker Flags`:
+
+```
+-ObjC
+-force_load
+${PROJECT_DIR}/Frameworks/FBSDKLoginKit.framework/FBSDKLoginKit
+-force_load
+${PROJECT_DIR}/Frameworks/FBSDKCoreKit.framework/FBSDKCoreKit
+```
