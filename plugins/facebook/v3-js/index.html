@@ -838,6 +838,9 @@
         <li class="main "><a href="#facebook-compile-issue_1">Facebook Compile Issue</a></li>
 	
     
+        <li class="main "><a href="#facebook-crash-issue">Facebook Crash Issue</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1770,14 +1773,26 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 <pre><code class="html">dyld: Library not loaded: @rpath/libswiftCore.dylib
 </code></pre>
 
-<p>you can try do like this, <code>Xcode Project</code> -&gt; <code>target</code> -&gt; <code>Build Setting/All</code> -&gt; <code>Always Embed Swift Standard Libraries</code> -&gt; <code>YES</code></p></div>
+<p>you can try do like this, <code>Xcode Project</code> -&gt; <code>target</code> -&gt; <code>Build Setting/All</code> -&gt; <code>Always Embed Swift Standard Libraries</code> -&gt; <code>YES</code></p>
+<h2 id="facebook-crash-issue">Facebook Crash Issue</h2>
+<p>if you got following error,</p>
+<pre><code class="html">Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '+[NSError fbErrorFromReturnURLParameters:]: unrecognized selector sent to class 0x1e0bdf480'
+</code></pre>
+
+<p>you can do add follow settings to <code>Other Linker Flags</code>:</p>
+<pre><code>-ObjC
+-force_load
+${PROJECT_DIR}/Frameworks/FBSDKLoginKit.framework/FBSDKLoginKit
+-force_load
+${PROJECT_DIR}/Frameworks/FBSDKCoreKit.framework/FBSDKCoreKit
+</code></pre></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2020-12-07 02:06:03.008707, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2021-01-14 06:22:00.634386, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
