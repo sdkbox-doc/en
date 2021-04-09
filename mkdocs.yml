@@ -269,6 +269,7 @@ pages:
    - 'SDKBoxPlay Troubleshoot': 'qa/sdkboxplay_troubleshoot.md'
    - 'IAP Troubleshoot': 'qa/iap_troubleshoot.md'
    - 'CMake': 'qa/sdkbox-cmake.md'
+   - 'CMake With XCFramework': 'qa/cmake_xcframework.md'
    - 'FAQ': 'qa/faq.md'
 - About: 'release-note.md'
 
