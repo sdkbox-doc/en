@@ -309,3 +309,12 @@ ${PROJECT_DIR}/Frameworks/FBSDKLoginKit.framework/FBSDKLoginKit
 -force_load
 ${PROJECT_DIR}/Frameworks/FBSDKCoreKit.framework/FBSDKCoreKit
 ```
+
+## Facebook Login View
+
+if you got this issue. the `Open in Facebook` dialog is not response, when you use fb to login on iOS horizontal screen.
+
+please, check file `Info.plist`, Do NOT include  `fb-messenger-api20140430`  in item `LSApplicationQueriesSchemes`.
+`fb-messenger-api20140430` is for old version fb sdk.
+the new value should be `fb-messenger-share-api`.
+
