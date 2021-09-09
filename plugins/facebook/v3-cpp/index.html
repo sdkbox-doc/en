@@ -845,6 +845,9 @@
         <li class="main "><a href="#facebook-crash-issue">Facebook Crash Issue</a></li>
 	
     
+        <li class="main "><a href="#facebook-login-view">Facebook Login View</a></li>
+	
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -1845,14 +1848,20 @@ Undefined symbol: __swiftEmptyDictionarySingleton
 ${PROJECT_DIR}/Frameworks/FBSDKLoginKit.framework/FBSDKLoginKit
 -force_load
 ${PROJECT_DIR}/Frameworks/FBSDKCoreKit.framework/FBSDKCoreKit
-</code></pre></div>
+</code></pre>
+
+<h2 id="facebook-login-view">Facebook Login View</h2>
+<p>if you got this issue. the <code>Open in Facebook</code> dialog is not response, when you use fb to login on iOS horizontal screen.</p>
+<p>please, check file <code>Info.plist</code>, Do NOT include  <code>fb-messenger-api20140430</code>  in item <code>LSApplicationQueriesSchemes</code>.
+<code>fb-messenger-api20140430</code> is for old version fb sdk.
+the new value should be <code>fb-messenger-share-api</code>.</p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2021-04-09 03:41:19.777895, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2021-09-09 06:08:02.327410, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
