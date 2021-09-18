@@ -46,6 +46,7 @@ type:
     - "banner"
     - "interstitial"
     - "rewarded_video"
+    - "rewarded_interstitial"
     - "appopen"
 
 alignment:
