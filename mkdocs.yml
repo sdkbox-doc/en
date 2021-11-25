@@ -271,6 +271,7 @@ pages:
    - 'CMake': 'qa/sdkbox-cmake.md'
    - 'CMake With XCFramework': 'qa/cmake_xcframework.md'
    - 'FAQ': 'qa/faq.md'
+   - 'SDKBox Shutdown Announcement': 'qa/SDKBox_Shutdown_Announcement.md'
 - About: 'release-note.md'
 
 theme: mkdocs
