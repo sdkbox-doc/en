@@ -6,7 +6,7 @@ Some projects may need to continue using SDKBox for various reasons. Here's how 
 
 ## Steps
 
-* Download plugin
+### Download plugin
     - All installed plugins will be stored in `~/.sdkbox/plugins` (personal directory `%HOME%/.sdkbox/plugins` for Windows).
     - Also, you can download plugin by yourself.
 
@@ -14,11 +14,12 @@ Some projects may need to continue using SDKBox for various reasons. Here's how 
         2. Replace `BUNDLE_NAME` in `http://download.sdkbox.com/installer/v1/BUNDLE_NAME` with the value of `bundle`. and then you can get the download URL of plugin(iap as an example), `http://download.sdkbox.com/installer/v1/sdkbox-iap_v2.7.7.0.tar.gz`.
         3. Download and backup
 
-* Install plugin.
+### Install plugin.
     - import plugin in terminal with command: `sdkbox import /local/path/to/plugin -p /project/path`.
 
-* Use case of use SDKBox to import local plugin 
-    - Install local plugin into creator2.
+### Use cases of import local plugin 
+
+- Install local plugin into creator2.
 
 `sdkbox import ~/.sdkbox/plugins/sdkbox-iap_v2.7.7.0 -p ./build/jsb-link`
 
@@ -34,7 +35,7 @@ http://sdkbox-doc.github.io/en/plugins/iap/v3-js/
  > Log file = /Users/hugo/.sdkbox/log/sdkbox-log-2021-12-06.sdkbox.temp
 ```
 
-    - Install local plugin into creator3.
+- Install local plugin into creator3.
 
 `sdkbox import /Users/hugo/Downloads/sdkbox-iap_v2.7.7.0.tar.gz -p /Users/hugo/Documents/work/t/creator3Test --nohelp`
 
@@ -47,7 +48,7 @@ hugo@hugodeMacBook-Pro cocos2dxTest % sdkbox import /Users/hugo/Downloads/sdkbox
  > Log file = /Users/hugo/.sdkbox/log/sdkbox-log-2021-12-06-4.sdkbox.temp
 ```
 
-    - Install local plugin into Cocos2dx.
+- Install local plugin into Cocos2dx.
 
 `sdkbox import ~/.sdkbox/plugins/sdkbox-admob_v2.7.6.1 -p .`
 
