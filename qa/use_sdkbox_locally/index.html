@@ -759,33 +759,20 @@
 <h2 id="introduction">Introduction</h2>
 <p>Some projects may need to continue using SDKBox for various reasons. Here's how to install plugins locally using SDKBox.</p>
 <h2 id="steps">Steps</h2>
-<ul>
-<li>
-<p>Download plugin</p>
-<ul>
-<li>All installed plugins will be stored in <code>~/.sdkbox/plugins</code> (personal directory <code>%HOME%/.sdkbox/plugins</code> for Windows).</li>
-<li>
-<p>Also, you can download plugin by yourself.</p>
-<ol>
-<li>Browse URL <code>http://download.sdkbox.com/installer/v1/manifest.json</code></li>
-<li>Replace <code>BUNDLE_NAME</code> in <code>http://download.sdkbox.com/installer/v1/BUNDLE_NAME</code> with the value of <code>bundle</code>. and then you can get the download URL of plugin(iap as an example), <code>http://download.sdkbox.com/installer/v1/sdkbox-iap_v2.7.7.0.tar.gz</code>.</li>
-<li>Download and backup</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>
-<p>Install plugin.</p>
-<ul>
-<li>import plugin in terminal with command: <code>sdkbox import /local/path/to/plugin -p /project/path</code>.</li>
-</ul>
-</li>
-<li>
-<p>Use case of use SDKBox to import local plugin </p>
+<h3 id="download-plugin">Download plugin</h3>
+<pre><code>- All installed plugins will be stored in `~/.sdkbox/plugins` (personal directory `%HOME%/.sdkbox/plugins` for Windows).
+- Also, you can download plugin by yourself.
+
+    1. Browse URL `http://download.sdkbox.com/installer/v1/manifest.json`
+    2. Replace `BUNDLE_NAME` in `http://download.sdkbox.com/installer/v1/BUNDLE_NAME` with the value of `bundle`. and then you can get the download URL of plugin(iap as an example), `http://download.sdkbox.com/installer/v1/sdkbox-iap_v2.7.7.0.tar.gz`.
+    3. Download and backup
+</code></pre>
+<h3 id="install-plugin">Install plugin.</h3>
+<pre><code>- import plugin in terminal with command: `sdkbox import /local/path/to/plugin -p /project/path`.
+</code></pre>
+<h3 id="use-cases-of-import-local-plugin">Use cases of import local plugin</h3>
 <ul>
 <li>Install local plugin into creator2.</li>
-</ul>
-</li>
 </ul>
 <p><code>sdkbox import ~/.sdkbox/plugins/sdkbox-iap_v2.7.7.0 -p ./build/jsb-link</code></p>
 <pre><code class="bash">hugo@hugodeMacBook-Pro creatorTest % sdkbox import ~/.sdkbox/plugins/sdkbox-iap_v2.7.7.0 -p ./build/jsb-link
@@ -799,8 +786,9 @@ http://sdkbox-doc.github.io/en/plugins/iap/v3-js/
  &gt; Log file = /Users/hugo/.sdkbox/log/sdkbox-log-2021-12-06.sdkbox.temp
 </code></pre>
 
-<pre><code>- Install local plugin into creator3.
-</code></pre>
+<ul>
+<li>Install local plugin into creator3.</li>
+</ul>
 <p><code>sdkbox import /Users/hugo/Downloads/sdkbox-iap_v2.7.7.0.tar.gz -p /Users/hugo/Documents/work/t/creator3Test --nohelp</code></p>
 <pre><code class="bash">hugo@hugodeMacBook-Pro cocos2dxTest % sdkbox import /Users/hugo/Downloads/sdkbox-iap_v2.7.7.0.tar.gz -p /Users/hugo/Documents/work/t/creator3Test --nohelp
   _______ ______  _     _ ______   _____  _     _
@@ -810,8 +798,9 @@ http://sdkbox-doc.github.io/en/plugins/iap/v3-js/
  &gt; Log file = /Users/hugo/.sdkbox/log/sdkbox-log-2021-12-06-4.sdkbox.temp
 </code></pre>
 
-<pre><code>- Install local plugin into Cocos2dx.
-</code></pre>
+<ul>
+<li>Install local plugin into Cocos2dx.</li>
+</ul>
 <p><code>sdkbox import ~/.sdkbox/plugins/sdkbox-admob_v2.7.6.1 -p .</code></p>
 <pre><code class="bash">hugo@hugodeMacBook-Pro cocos2dxTest % sdkbox import ~/.sdkbox/plugins/sdkbox-admob_v2.7.6.1 -p .
   _______ ______  _     _ ______   _____  _     _
@@ -838,7 +827,7 @@ http://sdkbox-doc.github.io/en/plugins/admob/v3-cpp/
         <footer class="col-md-12">
             <hr>
             
-            <p>Build Date UTC :2021-12-06 08:41:16.122396, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Build Date UTC :2021-12-06 08:45:36.716307, Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         
