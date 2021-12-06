@@ -272,6 +272,7 @@ pages:
    - 'CMake With XCFramework': 'qa/cmake_xcframework.md'
    - 'FAQ': 'qa/faq.md'
    - 'SDKBox Shutdown Announcement': 'qa/SDKBox_Shutdown_Announcement.md'
+   - 'UseSDKBoxLoaclly': 'qa/use_sdkbox_locally.md'
 - About: 'release-note.md'
 
 theme: mkdocs
