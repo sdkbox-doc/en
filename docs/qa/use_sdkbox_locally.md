@@ -7,15 +7,17 @@ Some projects may need to continue using SDKBox for various reasons. Here's how 
 ## Steps
 
 ### Download plugin
-    - All installed plugins will be stored in `~/.sdkbox/plugins` (personal directory `%HOME%/.sdkbox/plugins` for Windows).
-    - Also, you can download plugin by yourself.
 
-        1. Browse URL `http://download.sdkbox.com/installer/v1/manifest.json`
-        2. Replace `BUNDLE_NAME` in `http://download.sdkbox.com/installer/v1/BUNDLE_NAME` with the value of `bundle`. and then you can get the download URL of plugin(iap as an example), `http://download.sdkbox.com/installer/v1/sdkbox-iap_v2.7.7.0.tar.gz`.
-        3. Download and backup
+- All installed plugins will be stored in `~/.sdkbox/plugins` (personal directory `%HOME%/.sdkbox/plugins` for Windows).
+- Also, you can download plugin by yourself.
+
+    1. Browse URL `http://download.sdkbox.com/installer/v1/manifest.json`
+    2. Replace `BUNDLE_NAME` in `http://download.sdkbox.com/installer/v1/BUNDLE_NAME` with the value of `bundle`. and then you can get the download URL of plugin(iap as an example), `http://download.sdkbox.com/installer/v1/sdkbox-iap_v2.7.7.0.tar.gz`.
+    3. Download and backup
 
 ### Install plugin.
-    - import plugin in terminal with command: `sdkbox import /local/path/to/plugin -p /project/path`.
+
+- import plugin in terminal with command: `sdkbox import /local/path/to/plugin -p /project/path`.
 
 ### Use cases of import local plugin 
 
